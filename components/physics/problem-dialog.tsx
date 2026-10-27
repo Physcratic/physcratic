@@ -29,6 +29,7 @@ import {
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { problems, type Problem } from "@/lib/physics";
 import { MathFormula } from "./math-formula";
+import { useProblemHistory } from "@/hooks/use-problem-history";
 
 export function ProblemDialog({
   problem,
@@ -62,6 +63,7 @@ function ProblemPractice({
   problem: Problem;
   onNext: (problem: Problem) => void;
 }) {
+  const { recordResult } = useProblemHistory();
   const [answer, setAnswer] = useState("");
   const [result, setResult] = useState<
     "correct" | "incorrect" | "invalid" | null
@@ -85,6 +87,7 @@ function ProblemPractice({
       Math.abs(numericAnswer - problem.answer) <=
       Math.max(0.005, Math.abs(problem.answer) * 0.005);
     setResult(correct ? "correct" : "incorrect");
+    recordResult(problem.id, correct);
     if (correct) setShowSolution(true);
   }
 

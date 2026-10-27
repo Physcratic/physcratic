@@ -24,6 +24,7 @@ import {
 import { demoContests } from "@/lib/contest-demo";
 import type { Problem } from "@/lib/physics";
 import { MathFormula } from "./math-formula";
+import { ContestCountdown } from "./contest-countdown";
 
 export function DashboardHighlights({
   dailyProblem,
@@ -62,7 +63,9 @@ function FeaturedContest() {
               Featured
             </h2>
           </CardTitle>
-          <Badge variant="outline">Upcoming</Badge>
+          {contest.startsAt && (
+            <ContestCountdown startsAt={contest.startsAt} durationMinutes={contest.durationMinutes} />
+          )}
         </div>
       </CardHeader>
       <CardContent className="flex flex-1 flex-col gap-5">
@@ -70,6 +73,11 @@ function FeaturedContest() {
           <h3 className="text-balance text-3xl font-medium leading-tight tracking-[-0.04em] sm:text-[32px]">
             {contest.name}
           </h3>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            {contest.creators?.length
+              ? `Created by ${contest.creators.join(", ")}`
+              : "Creators to be announced"}
+          </p>
           <CardDescription className="max-w-md text-pretty leading-relaxed">
             {contest.description}
           </CardDescription>

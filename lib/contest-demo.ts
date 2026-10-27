@@ -9,6 +9,8 @@ export interface DemoContest {
   description: string;
   status: ContestStatus;
   date: string;
+  startsAt?: string;
+  creators?: string[];
   durationMinutes: number;
   participants: number;
   rated: boolean;
@@ -37,6 +39,8 @@ export const demoContests: DemoContest[] = [
       "A fresh set of problems across mechanics, electricity, waves, and heat. Open to every level.",
     status: "upcoming",
     date: "Nov 7, 2026 · 16:00 UTC",
+    startsAt: "2026-11-07T16:00:00Z",
+    creators: [],
     durationMinutes: 90,
     participants: 124,
     rated: true,

@@ -43,6 +43,7 @@ import {
   type ContestSubmission,
   type DemoContest,
 } from "@/lib/contest-demo";
+import { useProblemHistory } from "@/hooks/use-problem-history";
 import { ContestStandings } from "./contest-standings";
 import { ContestProblemPanel, type ContestFeedback } from "./contest-problem";
 
@@ -53,6 +54,7 @@ export function ContestRoom({
   contest: DemoContest;
   onExit: () => void;
 }) {
+  const { recordResult } = useProblemHistory();
   const items = getContestProblems(contest);
   const duration = contest.durationMinutes * 60;
   const [startedAt] = useState(() => Date.now());
@@ -133,6 +135,7 @@ export function ContestRoom({
     const isAccepted =
       Math.abs(numeric - active.answer) <=
       Math.max(0.005, Math.abs(active.answer) * 0.005);
+    recordResult(active.id, isAccepted);
     const elapsed = Math.min(
       duration,
       Math.max(0, Math.floor((Date.now() - startedAt) / 1000)),

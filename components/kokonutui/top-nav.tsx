@@ -66,7 +66,7 @@ export default function TopNav({
           aria-label="About your workspace"
           className="flex size-8 items-center justify-center rounded-full border bg-secondary text-sm font-medium text-secondary-foreground"
         >
-          N
+          P
         </Link>
       </div>
     </header>
