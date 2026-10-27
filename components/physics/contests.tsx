@@ -74,6 +74,21 @@ export function Contests() {
 
   return (
     <div className="flex flex-col gap-7">
+      <Card className="shadow-none">
+        <CardHeader className="gap-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <Badge variant="secondary">Sample contest</Badge>
+            <Badge variant="outline">IPhO 2011 & 2015 · Unrated</Badge>
+          </div>
+          <CardTitle><h2 className="text-lg font-medium tracking-tight">The IPhO collection</h2></CardTitle>
+          <CardDescription>Real Olympiad ideas. A simpler way to answer.</CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-wrap items-center justify-between gap-5">
+          <p className="max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground">Try three selected archive subparts with original question and solution PDFs. Enter compact, calculator-style expressions and see a live math preview.</p>
+          <Button onClick={() => setIphoOpen(true)}>Open sample contest<ArrowRight data-icon="inline-end" /></Button>
+        </CardContent>
+      </Card>
+
       <div className="grid min-w-0 grid-cols-1 gap-5 min-[1100px]:grid-cols-[1fr_320px]">
         <section
           className="flex min-w-0 flex-col items-start justify-between gap-6 overflow-hidden rounded-xl border bg-hero p-6 text-hero-foreground sm:p-8"
@@ -120,21 +135,6 @@ export function Contests() {
         </section>
         <EntrantDistribution contestName={live.name} />
       </div>
-
-      <Card className="shadow-none">
-        <CardHeader className="gap-3">
-          <div className="flex flex-wrap items-center gap-2">
-            <Badge variant="secondary">Sample contest</Badge>
-            <Badge variant="outline">IPhO 2011 & 2015 · Unrated</Badge>
-          </div>
-          <CardTitle><h2 className="text-lg font-medium tracking-tight">The IPhO collection</h2></CardTitle>
-          <CardDescription>Real Olympiad ideas. A simpler way to answer.</CardDescription>
-        </CardHeader>
-        <CardContent className="flex flex-wrap items-center justify-between gap-5">
-          <p className="max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground">Try three selected archive subparts with original question and solution PDFs. Enter compact, calculator-style expressions and see a live math preview.</p>
-          <Button onClick={() => setIphoOpen(true)}>Open sample contest<ArrowRight data-icon="inline-end" /></Button>
-        </CardContent>
-      </Card>
 
       <Tabs defaultValue="upcoming" className="min-w-0">
         <div className="flex flex-wrap items-center justify-between gap-3">
