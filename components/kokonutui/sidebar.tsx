@@ -57,7 +57,9 @@ export default function Sidebar({
         className="flex flex-1 flex-col gap-8 overflow-y-auto px-4"
       >
         <div className="flex flex-col gap-3">
-          <p className="px-3 text-sm text-muted-foreground">Workspace</p>
+          <h2 className="px-3 text-base font-semibold tracking-tight text-foreground">
+            Workspace
+          </h2>
           <div className="flex flex-col gap-1">
             {mainItems.map(({ view: itemView, label, icon: Icon }) => {
               const active = view === itemView && !topic;
@@ -85,7 +87,9 @@ export default function Sidebar({
           </div>
         </div>
         <div className="flex flex-col gap-3">
-          <p className="px-3 text-sm text-muted-foreground">Explore topics</p>
+          <h2 className="px-3 text-base font-semibold tracking-tight text-foreground">
+            Explore topics
+          </h2>
           <div className="flex flex-col gap-1">
             {topics.map(({ name, icon: Icon }) => (
               <Link
@@ -107,15 +111,6 @@ export default function Sidebar({
           </div>
         </div>
       </nav>
-
-      <div className="flex flex-col gap-5 p-4">
-        <div className="flex flex-col gap-2 rounded-xl border p-4">
-          <p className="text-sm font-medium">Stay curious.</p>
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            Every big idea starts with a small question.
-          </p>
-        </div>
-      </div>
     </div>
   );
 

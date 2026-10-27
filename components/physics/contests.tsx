@@ -28,6 +28,12 @@ import {
   demoRankings,
   type DemoContest,
 } from "@/lib/contest-demo";
+import {
+  iphoExperimentCount,
+  iphoPapers,
+  iphoSubproblems,
+  iphoTheoryCount,
+} from "@/lib/ipho-archive";
 import { ContestDetails } from "./contest-details";
 import { ContestRoom } from "./contest-room";
 import { EntrantDistribution } from "./entrant-distribution";
@@ -35,9 +41,16 @@ import { RankTitle } from "./rank-title";
 
 const featuredEntrant = demoRankings[0];
 
-const IphoContest = dynamic(() => import("./ipho-contest").then((module) => module.IphoContest), {
-  loading: () => <p role="status" className="text-sm text-muted-foreground">Opening IPhO practice…</p>,
-});
+const IphoContest = dynamic(
+  () => import("./ipho-contest").then((module) => module.IphoContest),
+  {
+    loading: () => (
+      <p role="status" className="text-sm text-muted-foreground">
+        Opening IPhO practice…
+      </p>
+    ),
+  },
+);
 
 export function Contests() {
   const [iphoOpen, setIphoOpen] = useState(false);
@@ -81,15 +94,30 @@ export function Contests() {
       <Card className="shadow-none">
         <CardHeader className="gap-3">
           <div className="flex flex-wrap items-center gap-2">
-            <Badge variant="secondary">Sample contest</Badge>
-            <Badge variant="outline">IPhO 2025 · France · Unrated</Badge>
+            <Badge variant="secondary">Complete 2025 archive</Badge>
+            <Badge variant="outline">France · Unrated practice</Badge>
           </div>
-          <CardTitle><h2 className="text-lg font-medium tracking-tight">The IPhO collection</h2></CardTitle>
-          <CardDescription>Real Olympiad ideas. A simpler way to answer.</CardDescription>
+          <CardTitle>
+            <h2 className="text-lg font-medium tracking-tight">
+              The IPhO 2025 collection
+            </h2>
+          </CardTitle>
+          <CardDescription>
+            {iphoPapers.length} official papers. {iphoSubproblems.length}{" "}
+            subproblems. All the physics, at your own pace.
+          </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-wrap items-center justify-between gap-5">
-          <p className="max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground">Hydrogen and galaxies. Cox’s Timepiece. Champagne! Explore one adapted subpart from each 2025 theory paper, with original English papers and official solutions.</p>
-          <Button onClick={() => setIphoOpen(true)}>Open sample contest<ArrowRight data-icon="inline-end" /></Button>
+          <p className="max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground">
+            {iphoTheoryCount} theory and {iphoExperimentCount} experimental
+            subproblems, from hydrogen and galaxies to sand craters and Earth’s
+            magnetic field. Browse original figures, work through each part, and
+            compare with official solutions.
+          </p>
+          <Button onClick={() => setIphoOpen(true)}>
+            Open collection
+            <ArrowRight data-icon="inline-end" />
+          </Button>
         </CardContent>
       </Card>
 
@@ -138,10 +166,26 @@ export function Contests() {
               <ArrowRight data-icon="inline-end" />
             </Button>
             <div className="flex items-center gap-3">
-              <Trophy aria-hidden="true" className="size-5 shrink-0 text-primary" strokeWidth={1.5} />
+              <Trophy
+                aria-hidden="true"
+                className="size-5 shrink-0 text-primary"
+                strokeWidth={1.5}
+              />
               <div className="flex flex-col gap-1">
-                <p className="text-sm"><span className="font-medium">{featuredEntrant.handle}</span><span className="text-hero-foreground/60"> is in the field</span></p>
-                <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-hero-foreground/60"><span>#{featuredEntrant.rank} ranked</span><span aria-hidden="true">·</span><RankTitle rating={featuredEntrant.rating} /><span aria-hidden="true">·</span><span>Demo entrant</span></p>
+                <p className="text-sm">
+                  <span className="font-medium">{featuredEntrant.handle}</span>
+                  <span className="text-hero-foreground/60">
+                    {" "}
+                    is in the field
+                  </span>
+                </p>
+                <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-hero-foreground/60">
+                  <span>#{featuredEntrant.rank} ranked</span>
+                  <span aria-hidden="true">·</span>
+                  <RankTitle rating={featuredEntrant.rating} />
+                  <span aria-hidden="true">·</span>
+                  <span>Demo entrant</span>
+                </p>
               </div>
             </div>
           </div>
