@@ -29,6 +29,7 @@ import {
 } from "@/components/ui/empty";
 import { problems, topics, type Problem } from "@/lib/physics";
 import { ProblemList } from "./problem-list";
+import { eloBands, getEloBand } from "@/lib/problem-archive";
 
 export function ProblemLibrary({
   topic,
@@ -45,10 +46,7 @@ export function ProblemLibrary({
   const filtered = problems.filter(
     (problem) =>
       (selectedTopic === "all" || problem.topic === selectedTopic) &&
-      (difficulty === "all" ||
-        (difficulty === "under-1200" && problem.elo < 1200) ||
-        (difficulty === "1200-1599" && problem.elo >= 1200 && problem.elo < 1600) ||
-        (difficulty === "1600-plus" && problem.elo >= 1600)) &&
+      (difficulty === "all" || getEloBand(problem.elo).id === difficulty) &&
       `${problem.title} ${problem.topic} ${problem.concept} ${problem.prompt}`
         .toLowerCase()
         .includes(search.toLowerCase().trim()),
@@ -100,9 +98,11 @@ export function ProblemLibrary({
             <SelectContent>
               <SelectGroup>
                 <SelectItem value="all">All ratings</SelectItem>
-                <SelectItem value="under-1200">Below 1,200</SelectItem>
-                <SelectItem value="1200-1599">1,200–1,599</SelectItem>
-                <SelectItem value="1600-plus">1,600+</SelectItem>
+                {eloBands.map((band) => (
+                  <SelectItem key={band.id} value={band.id}>
+                    {band.range}
+                  </SelectItem>
+                ))}
               </SelectGroup>
             </SelectContent>
           </Select>

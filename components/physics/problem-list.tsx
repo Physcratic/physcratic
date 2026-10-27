@@ -3,6 +3,7 @@
 import { ArrowUpRight, Clock3 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { topics, type Problem } from "@/lib/physics";
+import { getEloBand } from "@/lib/problem-archive";
 
 export function ProblemList({
   items,
@@ -38,7 +39,12 @@ export function ProblemList({
                 </span>
               </span>
             </span>
-            <Badge variant="secondary" className="shrink-0 tabular-nums" aria-label={`Difficulty rating ${problem.elo.toLocaleString("en-US")}`}>
+            <Badge
+              variant={getEloBand(problem.elo).variant}
+              className="shrink-0 tabular-nums"
+              aria-label={`Difficulty rating ${problem.elo.toLocaleString("en-US")}, ${getEloBand(problem.elo).name}`}
+              title={`${getEloBand(problem.elo).name} · ${getEloBand(problem.elo).range}`}
+            >
               {problem.elo.toLocaleString("en-US")}
             </Badge>
             <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />

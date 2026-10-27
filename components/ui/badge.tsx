@@ -15,6 +15,12 @@ const badgeVariants = cva(
         destructive:
           'border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80',
         outline: 'text-foreground',
+        'elo-foundation':
+          'border-[hsl(var(--elo-foundation)/0.25)] bg-[hsl(var(--elo-foundation)/0.12)] text-[hsl(var(--elo-foundation))]',
+        'elo-intermediate':
+          'border-[hsl(var(--elo-intermediate)/0.25)] bg-[hsl(var(--elo-intermediate)/0.12)] text-[hsl(var(--elo-intermediate))]',
+        'elo-advanced':
+          'border-[hsl(var(--elo-advanced)/0.25)] bg-[hsl(var(--elo-advanced)/0.12)] text-[hsl(var(--elo-advanced))]',
       },
     },
     defaultVariants: {

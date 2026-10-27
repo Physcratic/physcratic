@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { problems, viewTitles, type Problem, type View } from "@/lib/physics";
 import { Overview } from "@/components/physics/overview";
 import { ProblemLibrary } from "@/components/physics/problem-library";
+import { ArchiveStats } from "@/components/physics/archive-stats";
 import { ProblemDialog } from "@/components/physics/problem-dialog";
 import { LearningGuide } from "@/components/physics/learning-guide";
 import { Contests } from "@/components/physics/contests";
@@ -32,15 +33,17 @@ export default function Content({
   dailyProblem: Problem;
 }) {
   const [activeProblem, setActiveProblem] = useState<Problem | null>(null);
+  const choices = topic
+    ? problems.filter((problem) => problem.topic === topic)
+    : problems;
   function openRandomProblem() {
-    const choices = topic
-      ? problems.filter((problem) => problem.topic === topic)
-      : problems;
+    if (!choices.length) return;
     setActiveProblem(choices[Math.floor(Math.random() * choices.length)]);
   }
 
   return (
     <div className="workspace-enter flex flex-col gap-7">
+      {view === "problems" && <ArchiveStats />}
       {view === "overview" ? (
         <h1 className="sr-only">Lobby</h1>
       ) : (
@@ -57,7 +60,7 @@ export default function Content({
             <Badge variant="outline">Front-end preview</Badge>
           )}
           {view === "problems" && (
-            <Button variant="outline" size="sm" onClick={openRandomProblem}>
+            <Button variant="outline" size="sm" onClick={openRandomProblem} disabled={!choices.length}>
               <Shuffle data-icon="inline-start" />
               Surprise me
             </Button>

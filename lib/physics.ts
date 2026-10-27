@@ -1,4 +1,4 @@
-import { Orbit, Thermometer, Waves, Zap } from "lucide-react";
+import { Atom, Orbit, ScanLine, Thermometer, Waves, Zap } from "lucide-react";
 
 export const topics = [
   {
@@ -8,7 +8,7 @@ export const topics = [
     count: 3,
   },
   {
-    name: "Electricity",
+    name: "Electromagnetism",
     icon: Zap,
     description: "Charges, fields & circuits",
     count: 3,
@@ -24,6 +24,18 @@ export const topics = [
     icon: Thermometer,
     description: "Heat, work & temperature",
     count: 3,
+  },
+  {
+    name: "Optics",
+    icon: ScanLine,
+    description: "Reflection, refraction & lenses",
+    count: 0,
+  },
+  {
+    name: "Modern",
+    icon: Atom,
+    description: "Quantum, atomic & nuclear physics",
+    count: 0,
   },
 ] as const;
 
@@ -45,6 +57,7 @@ export const viewTitles: Record<View, string> = {
 
 export interface Problem {
   id: string;
+  addedAt?: string;
   title: string;
   topic: Topic;
   concept: string;
@@ -93,7 +106,7 @@ export const problems: Problem[] = [
   {
     id: "circuit",
     title: "Finding the missing current",
-    topic: "Electricity",
+    topic: "Electromagnetism",
     concept: "Ohm’s law",
     elo: 900,
     minutes: 4,
@@ -205,7 +218,7 @@ export const problems: Problem[] = [
   {
     id: "resistors",
     title: "Two resistors, one circuit",
-    topic: "Electricity",
+    topic: "Electromagnetism",
     concept: "Series circuits",
     elo: 1300,
     minutes: 5,
@@ -231,7 +244,7 @@ export const problems: Problem[] = [
   {
     id: "power",
     title: "Powering a small lamp",
-    topic: "Electricity",
+    topic: "Electromagnetism",
     concept: "Electrical power",
     elo: 900,
     minutes: 3,

@@ -18,7 +18,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { topics, type View } from "@/lib/physics";
+import { problems, topics, type View } from "@/lib/physics";
 import { cn } from "@/lib/utils";
 
 export default function Sidebar({
@@ -79,7 +79,9 @@ export default function Sidebar({
                   <Icon className="size-[18px]" strokeWidth={1.7} />
                   {label}
                   {itemView === "problems" && (
-                    <span className="ml-auto text-sm opacity-70">12</span>
+                    <span className="ml-auto text-sm opacity-70">
+                      {problems.length.toLocaleString("en-US")}
+                    </span>
                   )}
                 </Link>
               );

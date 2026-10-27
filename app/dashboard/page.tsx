@@ -18,8 +18,10 @@ export default async function DashboardPage({
   ].includes(requestedView)
     ? (requestedView as View)
     : "overview";
-  const topic = topics.some((item) => item.name === params.topic)
-    ? (params.topic as string)
+  const requestedTopic =
+    params.topic === "Electricity" ? "Electromagnetism" : params.topic;
+  const topic = topics.some((item) => item.name === requestedTopic)
+    ? (requestedTopic as string)
     : undefined;
   const query =
     typeof params.q === "string" ? params.q.slice(0, 200) : undefined;
