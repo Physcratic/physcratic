@@ -23,8 +23,8 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import {
   demoProfile,
   demoRatingHistory,
-  ratingTitle,
 } from "@/lib/contest-demo";
+import { RankTitle } from "./rank-title";
 import { cn } from "@/lib/utils";
 
 const chartConfig = {
@@ -107,14 +107,7 @@ export function RatingCard({
               </span>
               <span className="text-sm text-muted-foreground">Elo</span>
             </div>
-            <span
-              className={cn(
-                "text-sm",
-                horizontal ? "text-rating" : "text-primary",
-              )}
-            >
-              {ratingTitle(demoProfile.rating)}
-            </span>
+            <RankTitle rating={demoProfile.rating} className="self-start" />
           </div>
           <div
             className="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground"

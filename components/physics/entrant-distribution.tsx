@@ -2,7 +2,7 @@
 
 import { Bar, BarChart, XAxis } from "recharts";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 
 const distribution = [
@@ -38,7 +38,7 @@ export function EntrantDistribution({ contestName }: { contestName: string }) {
           <ChartContainer
             config={{ entrants: { label: "Entrants", color: "var(--chart-1)" } }}
             className="h-36 w-full aspect-auto"
-            aria-label="Sample entrant Elo histogram. Most entrants are in the 1,500 to 1,699 rating band."
+            aria-label="Sample entrant Elo histogram. Illustrative data, not real signups. Most entrants are in the 1,500 to 1,699 rating band."
           >
             <BarChart accessibilityLayer data={distribution} margin={{ left: 0, right: 0, top: 8, bottom: 0 }}>
               <XAxis dataKey="elo" tickLine={false} axisLine={false} ticks={[800, 1600, 2400]} tick={{ fontSize: 14 }} tickFormatter={(value) => Number(value).toLocaleString("en-US")} />
@@ -46,16 +46,14 @@ export function EntrantDistribution({ contestName }: { contestName: string }) {
               <Bar dataKey="entrants" fill="var(--color-entrants)" radius={[3, 3, 0, 0]} isAnimationActive={false} />
             </BarChart>
           </ChartContainer>
-          <figcaption className="text-sm leading-relaxed text-muted-foreground">Entrants by 200-point rating band.</figcaption>
-          <details className="text-sm text-muted-foreground">
-            <summary className="cursor-pointer">View distribution data</summary>
-            <ul className="flex flex-col gap-1 pt-2">
-              {distribution.map((bucket) => <li key={bucket.elo}>{bucket.elo - 100}–{bucket.elo + 99} Elo: {bucket.entrants} entrants</li>)}
-            </ul>
-          </details>
+          <figcaption className="sr-only">Illustrative entrants by 200-point rating band; not real signups.</figcaption>
+          <table className="sr-only">
+            <caption>Sample entrant distribution</caption>
+            <thead><tr><th scope="col">Rating band</th><th scope="col">Entrants</th></tr></thead>
+            <tbody>{distribution.map((bucket) => <tr key={bucket.elo}><th scope="row">{bucket.elo - 100}–{bucket.elo + 99}</th><td>{bucket.entrants}</td></tr>)}</tbody>
+          </table>
         </figure>
       </CardContent>
-      <CardFooter><p className="text-sm leading-relaxed text-muted-foreground">Illustrative field, not real signups or a fitted normal distribution.</p></CardFooter>
     </Card>
   );
 }

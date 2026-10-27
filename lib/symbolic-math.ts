@@ -1,4 +1,4 @@
-import { parse, symbolicEqual, type MathNode } from "mathjs";
+import { parse, rationalize, symbolicEqual, type MathNode } from "mathjs";
 
 const allowedOperators = new Set(["add", "subtract", "multiply", "divide", "pow", "unaryMinus", "unaryPlus"]);
 const allowedNodes = new Set(["OperatorNode", "SymbolNode", "ConstantNode", "ParenthesisNode", "FunctionNode"]);
@@ -61,6 +61,10 @@ function normalizeExpression(tree: MathNode): MathNode {
   if (node.type !== "OperatorNode" || !["add", "multiply"].includes(operation.fn || "")) return node;
   const terms: MathNode[] = [];
   const collect = (term: MathNode) => {
+    if (term.type === "ParenthesisNode") {
+      collect((term as MathNode & { content: MathNode }).content);
+      return;
+    }
     const nested = term as MathNode & { fn?: string; args?: MathNode[] };
     if (term.type === "OperatorNode" && nested.fn === operation.fn) nested.args?.forEach(collect);
     else terms.push(term);
@@ -74,5 +78,11 @@ function normalizeExpression(tree: MathNode): MathNode {
 export function checkSymbolicAnswer(input: string, expected: string, variables: readonly string[]) {
   const answer = parseAnswer(input, variables);
   const key = parseAnswer(expected, variables);
-  return symbolicEqual(normalizeExpression(answer), normalizeExpression(key));
+  if (symbolicEqual(normalizeExpression(answer), normalizeExpression(key))) return true;
+  try {
+    // Combining nested fractions proves identities that symbolicEqual alone misses.
+    return symbolicEqual(normalizeExpression(rationalize(answer)), normalizeExpression(rationalize(key)));
+  } catch {
+    return false;
+  }
 }

@@ -34,7 +34,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { demoProfile, demoRankings, ratingTitle, risingStreak } from "@/lib/contest-demo";
+import { demoProfile, demoRankings, risingStreak } from "@/lib/contest-demo";
+import { RankTitle } from "./rank-title";
 import { cn } from "@/lib/utils";
 
 export function Rankings() {
@@ -45,7 +46,7 @@ export function Rankings() {
   return (
     <div className="flex min-w-0 flex-col gap-6">
       <Card className="min-w-0 overflow-hidden shadow-none">
-        <CardHeader className="gap-4">
+        <CardHeader className="leaderboard-motif gap-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex flex-col gap-1.5">
               <CardTitle>
@@ -138,9 +139,7 @@ export function Rankings() {
                             </TooltipProvider>
                           )}
                         </span>
-                        <span className="text-sm text-muted-foreground">
-                          {ratingTitle(row.rating)}
-                        </span>
+                        <RankTitle rating={row.rating} className="self-start" />
                       </div>
                     </TableCell>
                     <TableCell className="text-right font-medium tabular-nums">

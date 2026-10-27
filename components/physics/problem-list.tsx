@@ -38,8 +38,8 @@ export function ProblemList({
                 </span>
               </span>
             </span>
-            <Badge variant="secondary" className="shrink-0 tabular-nums">
-              {problem.elo.toLocaleString("en-US")} Elo
+            <Badge variant="secondary" className="shrink-0 tabular-nums" aria-label={`Difficulty rating ${problem.elo.toLocaleString("en-US")}`}>
+              {problem.elo.toLocaleString("en-US")}
             </Badge>
             <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />
           </button>

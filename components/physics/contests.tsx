@@ -25,11 +25,15 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   demoContests,
+  demoRankings,
   type DemoContest,
 } from "@/lib/contest-demo";
 import { ContestDetails } from "./contest-details";
 import { ContestRoom } from "./contest-room";
 import { EntrantDistribution } from "./entrant-distribution";
+import { RankTitle } from "./rank-title";
+
+const featuredEntrant = demoRankings[0];
 
 const IphoContest = dynamic(() => import("./ipho-contest").then((module) => module.IphoContest), {
   loading: () => <p role="status" className="text-sm text-muted-foreground">Opening IPhO practice…</p>,
@@ -78,20 +82,20 @@ export function Contests() {
         <CardHeader className="gap-3">
           <div className="flex flex-wrap items-center gap-2">
             <Badge variant="secondary">Sample contest</Badge>
-            <Badge variant="outline">IPhO 2011 & 2015 · Unrated</Badge>
+            <Badge variant="outline">IPhO 2025 · France · Unrated</Badge>
           </div>
           <CardTitle><h2 className="text-lg font-medium tracking-tight">The IPhO collection</h2></CardTitle>
           <CardDescription>Real Olympiad ideas. A simpler way to answer.</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-wrap items-center justify-between gap-5">
-          <p className="max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground">Try three selected archive subparts with original question and solution PDFs. Enter compact, calculator-style expressions and see a live math preview.</p>
+          <p className="max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground">Hydrogen and galaxies. Cox’s Timepiece. Champagne! Explore one adapted subpart from each 2025 theory paper, with original English papers and official solutions.</p>
           <Button onClick={() => setIphoOpen(true)}>Open sample contest<ArrowRight data-icon="inline-end" /></Button>
         </CardContent>
       </Card>
 
       <div className="grid min-w-0 grid-cols-1 gap-5 min-[1100px]:grid-cols-[1fr_320px]">
         <section
-          className="flex min-w-0 flex-col items-start justify-between gap-6 overflow-hidden rounded-xl border bg-hero p-6 text-hero-foreground sm:p-8"
+          className="contest-motif flex min-w-0 flex-col items-start justify-between gap-6 overflow-hidden rounded-xl border bg-hero p-6 text-hero-foreground sm:p-8"
           aria-labelledby="featured-contest"
         >
           <div className="flex flex-wrap items-center gap-3">
@@ -128,10 +132,19 @@ export function Contests() {
               186 entrants
             </span>
           </div>
-          <Button onClick={() => setSelected(live)}>
-            Enter contest
-            <ArrowRight data-icon="inline-end" />
-          </Button>
+          <div className="flex w-full flex-wrap items-center justify-between gap-5 border-t border-hero-foreground/10 pt-5">
+            <Button onClick={() => setSelected(live)}>
+              Enter contest
+              <ArrowRight data-icon="inline-end" />
+            </Button>
+            <div className="flex items-center gap-3">
+              <Trophy aria-hidden="true" className="size-5 shrink-0 text-primary" strokeWidth={1.5} />
+              <div className="flex flex-col gap-1">
+                <p className="text-sm"><span className="font-medium">{featuredEntrant.handle}</span><span className="text-hero-foreground/60"> is in the field</span></p>
+                <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-hero-foreground/60"><span>#{featuredEntrant.rank} ranked</span><span aria-hidden="true">·</span><RankTitle rating={featuredEntrant.rating} /><span aria-hidden="true">·</span><span>Demo entrant</span></p>
+              </div>
+            </div>
+          </div>
         </section>
         <EntrantDistribution contestName={live.name} />
       </div>

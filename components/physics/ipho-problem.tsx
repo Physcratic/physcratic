@@ -36,17 +36,17 @@ export function IphoProblem({ task, answer, accepted, onAnswerChange, onAccepted
             <ol className="flex list-decimal flex-col gap-5 pl-5">
               {task.solution.map((step) => <li key={step.title} className="text-sm leading-relaxed"><h4 className="font-medium">{step.title}</h4><p className="text-muted-foreground">{step.text}</p><MathFormula formula={step.formula} /></li>)}
             </ol>
-            <Button variant="outline" size="sm" className="self-start" asChild><a href={`/ipho/${task.year}-t1-solutions.pdf`} target="_blank" rel="noopener noreferrer">Official solution PDF<ArrowUpRight data-icon="inline-end" /></a></Button>
+            <Button variant="outline" size="sm" className="self-start" asChild><a href={`/ipho/${task.year}-t${task.paper}-solutions.pdf`} target="_blank" rel="noopener noreferrer">Official solution PDF<ArrowUpRight data-icon="inline-end" /></a></Button>
           </div>
         </details>
       </CardContent>
       <CardFooter className="flex flex-col items-start gap-3 border-t pt-5">
         <p className="text-sm leading-relaxed text-muted-foreground">{task.adaptation}</p>
         <div className="flex flex-wrap items-center gap-3">
-          <Button variant="ghost" size="sm" asChild><a href={`/ipho/${task.year}-t1-questions.pdf`} target="_blank" rel="noopener noreferrer"><BookOpen data-icon="inline-start" />Original question PDF<ArrowUpRight data-icon="inline-end" /></a></Button>
-          <a className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground" href={task.source} target="_blank" rel="noopener noreferrer">IPhO source archive (ZIP)</a>
+          <Button variant="ghost" size="sm" asChild><a href={`/ipho/${task.year}-t${task.paper}-questions.pdf`} target="_blank" rel="noopener noreferrer"><BookOpen data-icon="inline-start" />Original question PDF<ArrowUpRight data-icon="inline-end" /></a></Button>
+          <a className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground" href={task.source} target="_blank" rel="noopener noreferrer">Official IPhO 2025 source</a>
         </div>
-        {task.year === 2015 && <p className="text-sm leading-relaxed text-muted-foreground">Original problem authors: Amol Dighe, Anwesh Mazumdar, and Vijay A. Singh; IPhO 2015 Academic Committee and contributors. Worked summaries above are adapted for this preview.</p>}
+        <p className="text-sm leading-relaxed text-muted-foreground">Original paper: IPhO 2025, France. Official English solutions sourced from <a href="https://www.sciencesalecole.org/ipho-annales-epreuves/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-foreground">Sciences à l’École</a>. Worked summaries above are adapted for this preview.</p>
       </CardFooter>
     </Card>
   );

@@ -20,8 +20,8 @@ export function IphoContest({ onExit }: { onExit: () => void }) {
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="flex flex-col gap-3">
           <div className="flex flex-wrap items-center gap-2"><Badge variant="secondary">Archive practice</Badge><Badge variant="outline">Unrated · front-end preview</Badge></div>
-          <h2 id="ipho-title" className="text-2xl font-medium tracking-tight">The IPhO collection</h2>
-          <p className="max-w-2xl text-pretty text-sm leading-relaxed text-muted-foreground">Three selected subparts from the 2011 and 2015 International Physics Olympiads. Original papers, adapted tasks, and worked answers — at your own pace.</p>
+          <h2 id="ipho-title" className="text-2xl font-medium tracking-tight">The IPhO 2025 collection</h2>
+          <p className="max-w-2xl text-pretty text-sm leading-relaxed text-muted-foreground">Three selected subparts from the 2025 International Physics Olympiad in France — one from each theory paper. Original English papers, adapted tasks, and worked answers, at your own pace.</p>
         </div>
         <Button variant="outline" size="sm" onClick={onExit}><ArrowLeft data-icon="inline-start" />Back to contests</Button>
       </div>

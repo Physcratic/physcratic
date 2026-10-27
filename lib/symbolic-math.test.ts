@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
+import { renderToString } from "katex";
 import { demoRankings, risingStreak } from "./contest-demo";
 import { iphoTasks } from "./ipho-demo";
 import { checkSymbolicAnswer, parseAnswer } from "./symbolic-math";
@@ -9,25 +11,48 @@ for (const task of iphoTasks) {
     const variables = task.variables.map((variable) => variable.name);
     assert.ok(parseAnswer(task.expected, variables).toTex());
     assert.equal(checkSymbolicAnswer(task.expected, task.expected, variables), true);
+    for (const formula of [task.answerTex, ...task.solution.map((step) => step.formula)]) {
+      assert.doesNotThrow(() => renderToString(formula.slice(2, -2), { throwOnError: true }));
+    }
   });
 }
 
-test("accepts reordered factors, rational coefficients, and regrouped denominators", () => {
-  const task = iphoTasks[1];
-  for (const value of ["-G*M*M*3/(R*5)", "-(3/5)*M^2*G/R", "-0.6*G*M^2/R"]) {
-    assert.equal(checkSymbolicAnswer(value, task.expected, ["G", "M", "R"]), true, value);
+test("collection contains only 2025 tasks and all three official theory papers", () => {
+  assert.ok(iphoTasks.every((task) => task.year === 2025));
+  assert.deepEqual(iphoTasks.map((task) => task.paper), [1, 2, 3]);
+  for (const task of iphoTasks) {
+    for (const kind of ["questions", "solutions"]) {
+      const pdf = readFileSync(`public/ipho/${task.year}-t${task.paper}-${kind}.pdf`);
+      assert.equal(pdf.subarray(0, 5).toString(), "%PDF-");
+      assert.ok(pdf.length > 10000);
+    }
   }
-  assert.equal(checkSymbolicAnswer("(3/5)*G*M^2/R/L", iphoTasks[2].expected, ["G", "M", "R", "L"]), true);
+});
+
+test("accepts reordered factors, rational coefficients, and regrouped denominators", () => {
+  for (const value of ["-G*M*M*3/(R*5)", "-(3/5)*M^2*G/R", "-0.6*G*M^2/R"]) {
+    assert.equal(checkSymbolicAnswer(value, "-3*G*M^2/(5*R)", ["G", "M", "R"]), true, value);
+  }
+  assert.equal(checkSymbolicAnswer("(3/5)*G*M^2/R/L", "3*G*M^2/(5*R*L)", ["G", "M", "R", "L"]), true);
+});
+
+test("accepts alternate forms of the 2025 timepiece and bubble answers", () => {
+  for (const value of ["g*(rho*h*S+m)", "m*g+rho*S*h*g"]) {
+    assert.equal(checkSymbolicAnswer(value, iphoTasks[1].expected, ["m", "rho", "S", "h", "g"]), true, value);
+  }
+  assert.equal(checkSymbolicAnswer("2*sigma*c0/(P*(c-c0))", iphoTasks[2].expected, ["sigma", "P", "c", "c0"]), true);
 });
 
 test("normalizes square roots and fractional powers consistently", () => {
-  assert.equal(checkSymbolicAnswer("(G*(m+M)/(r+R)^3)^(1/2)", iphoTasks[0].expected, ["G", "M", "m", "R", "r"]), true);
+  assert.equal(checkSymbolicAnswer("(e^2/(r*m*epsilon*pi*4))^(1/2)", iphoTasks[0].expected, ["e", "epsilon", "m", "r"]), true);
+  assert.equal(checkSymbolicAnswer("(G*(m+M)/(r+R)^3)^(1/2)", "sqrt(G*(M+m)/(R+r)^3)", ["G", "M", "m", "R", "r"]), true);
 });
 
 test("does not match wrong signs, omitted factors, or accidental numbers", () => {
-  for (const value of ["3*G*M^2/(5*R)", "-G*M^2/R", "-0.6"]) {
-    assert.equal(checkSymbolicAnswer(value, iphoTasks[1].expected, ["G", "M", "R"]), false, value);
+  for (const value of ["-(m+rho*S*h)*g", "rho*S*h*g", "9.8"]) {
+    assert.equal(checkSymbolicAnswer(value, iphoTasks[1].expected, ["m", "rho", "S", "h", "g"]), false, value);
   }
+  assert.equal(checkSymbolicAnswer("4*sigma/(P*(c/c0-1))", iphoTasks[2].expected, ["sigma", "P", "c", "c0"]), false);
 });
 
 test("rejects unknown variables, assignments, commands, accessors, arrays, and excessive exponents", () => {
