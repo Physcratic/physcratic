@@ -1,37 +1,32 @@
-"use client"
+import type { ReactNode } from "react";
+import type { View } from "@/lib/physics";
+import Sidebar from "./sidebar";
+import TopNav from "./top-nav";
 
-import type { ReactNode } from "react"
-import Sidebar from "./sidebar"
-import TopNav from "./top-nav"
-import { useTheme } from "next-themes"
-import { useEffect, useState } from "react"
-
-interface LayoutProps {
-  children: ReactNode
-}
-
-export default function Layout({ children }: LayoutProps) {
-  const { theme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) {
-    return null
-  }
-
+export default function Layout({
+  children,
+  view,
+  topic,
+}: {
+  children: ReactNode;
+  view: View;
+  topic?: string;
+}) {
   return (
-    <div className={`flex h-screen ${theme === "dark" ? "dark" : ""}`}>
-      <Sidebar />
-      <div className="w-full flex flex-1 flex-col">
-        <header className="h-16 border-b border-gray-200 dark:border-[#1F1F23]">
-          <TopNav />
-        </header>
-        <main className="flex-1 overflow-auto p-6 bg-white dark:bg-[#0F0F12]">{children}</main>
+    <div className="flex min-h-dvh font-sans">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-3 focus:text-primary-foreground"
+      >
+        Skip to content
+      </a>
+      <Sidebar view={view} topic={topic} />
+      <div className="flex min-w-0 flex-1 flex-col lg:pl-60">
+        <TopNav view={view} topic={topic} />
+        <main id="main-content" className="flex-1 p-5 sm:p-8 xl:p-10">
+          <div className="mx-auto w-full max-w-7xl">{children}</div>
+        </main>
       </div>
     </div>
-  )
+  );
 }
-

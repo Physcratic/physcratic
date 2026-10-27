@@ -1,40 +1,74 @@
-import { Calendar, CreditCard, Wallet } from "lucide-react"
-import List01 from "./list-01"
-import List02 from "./list-02"
-import List03 from "./list-03"
+"use client";
 
-export default function () {
+import { useState } from "react";
+import { ArrowUpRight, Shuffle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { problems, viewTitles, type Problem, type View } from "@/lib/physics";
+import { Overview } from "@/components/physics/overview";
+import { ProblemLibrary } from "@/components/physics/problem-library";
+import { ProblemDialog } from "@/components/physics/problem-dialog";
+import { FormulaSheet } from "@/components/physics/formula-sheet";
+import { LearningGuide } from "@/components/physics/learning-guide";
+
+const subtitles: Record<View, string> = {
+  overview: "Less memorizing. More understanding.",
+  problems: "Good questions lead to great discoveries. Find your next one.",
+  formulas: "The essentials, with the meaning behind the math.",
+  guide: "A few small steps to your first breakthrough.",
+};
+
+export default function Content({
+  view,
+  topic,
+  query,
+}: {
+  view: View;
+  topic?: string;
+  query?: string;
+}) {
+  const [activeProblem, setActiveProblem] = useState<Problem | null>(null);
+  function openRandomProblem() {
+    const choices = topic
+      ? problems.filter((problem) => problem.topic === topic)
+      : problems;
+    setActiveProblem(choices[Math.floor(Math.random() * choices.length)]);
+  }
+
   return (
-    <div className="space-y-4">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white dark:bg-[#0F0F12] rounded-xl p-6 flex flex-col border border-gray-200 dark:border-[#1F1F23]">
-          <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4 text-left flex items-center gap-2 ">
-            <Wallet className="w-3.5 h-3.5 text-zinc-900 dark:text-zinc-50" />
-            Accounts
-          </h2>
-          <div className="flex-1">
-            <List01 className="h-full" />
-          </div>
+    <div className="workspace-enter flex flex-col gap-7">
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <div className="flex flex-col gap-2">
+          <h1 className="text-2xl font-medium tracking-[-0.04em] sm:text-[27px]">
+            {view === "overview"
+              ? "Your physics workspace"
+              : topic || viewTitles[view]}
+          </h1>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            {subtitles[view]}
+          </p>
         </div>
-        <div className="bg-white dark:bg-[#0F0F12] rounded-xl p-6 flex flex-col border border-gray-200 dark:border-[#1F1F23]">
-          <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4 text-left flex items-center gap-2">
-            <CreditCard className="w-3.5 h-3.5 text-zinc-900 dark:text-zinc-50" />
-            Recent Transactions
-          </h2>
-          <div className="flex-1">
-            <List02 className="h-full" />
-          </div>
-        </div>
+        {view !== "guide" && (
+          <Button variant="outline" size="sm" onClick={openRandomProblem}>
+            {view === "overview" ? (
+              <ArrowUpRight data-icon="inline-start" />
+            ) : (
+              <Shuffle data-icon="inline-start" />
+            )}
+            {view === "overview" ? "Quick practice" : "Surprise me"}
+          </Button>
+        )}
       </div>
-
-      <div className="bg-white dark:bg-[#0F0F12] rounded-xl p-6 flex flex-col items-start justify-start border border-gray-200 dark:border-[#1F1F23]">
-        <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4 text-left flex items-center gap-2">
-          <Calendar className="w-3.5 h-3.5 text-zinc-900 dark:text-zinc-50" />
-          Upcoming Events
-        </h2>
-        <List03 />
-      </div>
+      {view === "overview" && <Overview onOpen={setActiveProblem} />}
+      {view === "problems" && (
+        <ProblemLibrary topic={topic} query={query} onOpen={setActiveProblem} />
+      )}
+      {view === "formulas" && <FormulaSheet />}
+      {view === "guide" && <LearningGuide />}
+      <ProblemDialog
+        problem={activeProblem}
+        onClose={() => setActiveProblem(null)}
+        onNext={setActiveProblem}
+      />
     </div>
-  )
+  );
 }
-

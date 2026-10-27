@@ -1,179 +1,174 @@
-"use client"
+"use client";
 
+import Link from "next/link";
+import { useState } from "react";
 import {
-  BarChart2,
-  Receipt,
-  Building2,
-  CreditCard,
-  Folder,
-  Wallet,
-  Users2,
-  Shield,
-  MessagesSquare,
-  Video,
-  Settings,
+  ArrowUpRight,
+  BookOpen,
   HelpCircle,
+  Layers2,
+  LayoutGrid,
   Menu,
-} from "lucide-react"
+  Orbit,
+  SquareFunction,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { topics, type View } from "@/lib/physics";
+import { cn } from "@/lib/utils";
 
-import { Home } from "lucide-react"
-import Link from "next/link"
-import { useState } from "react"
-import Image from "next/image"
+export default function Sidebar({
+  view,
+  topic,
+}: {
+  view: View;
+  topic?: string;
+}) {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const mainItems = [
+    { view: "overview", label: "Overview", icon: LayoutGrid },
+    { view: "problems", label: "Problem library", icon: BookOpen },
+    { view: "formulas", label: "Formula sheet", icon: SquareFunction },
+  ];
 
-export default function Sidebar() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
-  function handleNavigation() {
-    setIsMobileMenuOpen(false)
-  }
-
-  function NavItem({
-    href,
-    icon: Icon,
-    children,
-  }: {
-    href: string
-    icon: any
-    children: React.ReactNode
-  }) {
-    return (
+  const navigation = (
+    <div className="flex h-full flex-col bg-sidebar text-foreground">
       <Link
-        href={href}
-        onClick={handleNavigation}
-        className="flex items-center px-3 py-2 text-sm rounded-md transition-colors text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-[#1F1F23]"
+        href="/dashboard"
+        onClick={() => setMobileOpen(false)}
+        className="flex h-[76px] shrink-0 items-center gap-2.5 px-6"
+        aria-label="Newton home"
       >
-        <Icon className="h-4 w-4 mr-3 flex-shrink-0" />
-        {children}
+        <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+          <Orbit className="size-5" strokeWidth={1.7} />
+        </span>
+        <span className="text-2xl font-semibold tracking-[-0.065em]">
+          newton<span className="text-primary">.</span>
+        </span>
       </Link>
-    )
-  }
 
-  return (
-    <>
-      <button
-        type="button"
-        className="lg:hidden fixed top-4 left-4 z-[70] p-2 rounded-lg bg-white dark:bg-[#0F0F12] shadow-md"
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-      >
-        <Menu className="h-5 w-5 text-gray-600 dark:text-gray-300" />
-      </button>
-      <nav
-        className={`
-                fixed inset-y-0 left-0 z-[70] w-64 bg-white dark:bg-[#0F0F12] transform transition-transform duration-200 ease-in-out
-                lg:translate-x-0 lg:static lg:w-64 border-r border-gray-200 dark:border-[#1F1F23]
-                ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"}
-            `}
-      >
-        <div className="h-full flex flex-col">
-          <Link
-            href="https://kokonutui.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="h-16 px-6 flex items-center border-b border-gray-200 dark:border-[#1F1F23]"
-          >
-            <div className="flex items-center gap-3">
-              <Image
-                src="https://kokonutui.com/logo.svg"
-                alt="Acme"
-                width={32}
-                height={32}
-                className="flex-shrink-0 hidden dark:block"
-              />
-              <Image
-                src="https://kokonutui.com/logo-black.svg"
-                alt="Acme"
-                width={32}
-                height={32}
-                className="flex-shrink-0 block dark:hidden"
-              />
-              <span className="text-lg font-semibold hover:cursor-pointer text-gray-900 dark:text-white">
-                KokonutUI
-              </span>
-            </div>
-          </Link>
-
-          <div className="flex-1 overflow-y-auto py-4 px-4">
-            <div className="space-y-6">
-              <div>
-                <div className="px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-                  Overview
-                </div>
-                <div className="space-y-1">
-                  <NavItem href="#" icon={Home}>
-                    Dashboard
-                  </NavItem>
-                  <NavItem href="#" icon={BarChart2}>
-                    Analytics
-                  </NavItem>
-                  <NavItem href="#" icon={Building2}>
-                    Organization
-                  </NavItem>
-                  <NavItem href="#" icon={Folder}>
-                    Projects
-                  </NavItem>
-                </div>
-              </div>
-
-              <div>
-                <div className="px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-                  Finance
-                </div>
-                <div className="space-y-1">
-                  <NavItem href="#" icon={Wallet}>
-                    Transactions
-                  </NavItem>
-                  <NavItem href="#" icon={Receipt}>
-                    Invoices
-                  </NavItem>
-                  <NavItem href="#" icon={CreditCard}>
-                    Payments
-                  </NavItem>
-                </div>
-              </div>
-
-              <div>
-                <div className="px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-                  Team
-                </div>
-                <div className="space-y-1">
-                  <NavItem href="#" icon={Users2}>
-                    Members
-                  </NavItem>
-                  <NavItem href="#" icon={Shield}>
-                    Permissions
-                  </NavItem>
-                  <NavItem href="#" icon={MessagesSquare}>
-                    Chat
-                  </NavItem>
-                  <NavItem href="#" icon={Video}>
-                    Meetings
-                  </NavItem>
-                </div>
-              </div>
-            </div>
+      <div className="px-4 pb-8 pt-3">
+        <Link
+          href="/dashboard?view=guide"
+          onClick={() => setMobileOpen(false)}
+          className="flex items-center gap-3 rounded-lg border bg-card p-3 text-card-foreground transition-colors hover:bg-muted"
+        >
+          <span className="flex size-8 shrink-0 items-center justify-center rounded-md bg-secondary text-secondary-foreground">
+            <Layers2 className="size-4" />
+          </span>
+          <div className="flex min-w-0 flex-1 flex-col gap-0.5">
+            <span className="text-sm font-medium">Your workspace</span>
+            <span className="text-sm text-muted-foreground">
+              Personal space
+            </span>
           </div>
+          <ArrowUpRight className="size-4 shrink-0 text-muted-foreground" />
+        </Link>
+      </div>
 
-          <div className="px-4 py-4 border-t border-gray-200 dark:border-[#1F1F23]">
-            <div className="space-y-1">
-              <NavItem href="#" icon={Settings}>
-                Settings
-              </NavItem>
-              <NavItem href="#" icon={HelpCircle}>
-                Help
-              </NavItem>
-            </div>
+      <nav
+        aria-label="Main navigation"
+        className="flex flex-1 flex-col gap-8 overflow-y-auto px-4"
+      >
+        <div className="flex flex-col gap-3">
+          <p className="px-3 text-sm text-muted-foreground">Workspace</p>
+          <div className="flex flex-col gap-1">
+            {mainItems.map(({ view: itemView, label, icon: Icon }) => {
+              const active = view === itemView && !topic;
+              return (
+                <Link
+                  key={itemView}
+                  href={`/dashboard${itemView === "overview" ? "" : `?view=${itemView}`}`}
+                  onClick={() => setMobileOpen(false)}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm transition-colors",
+                    active
+                      ? "bg-accent font-medium text-accent-foreground"
+                      : "text-muted-foreground hover:bg-muted hover:text-foreground",
+                  )}
+                >
+                  <Icon className="size-[18px]" strokeWidth={1.7} />
+                  {label}
+                  {itemView === "problems" && (
+                    <span className="ml-auto text-sm opacity-70">12</span>
+                  )}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+        <div className="flex flex-col gap-3">
+          <p className="px-3 text-sm text-muted-foreground">Explore topics</p>
+          <div className="flex flex-col gap-1">
+            {topics.map(({ name, icon: Icon }) => (
+              <Link
+                key={name}
+                href={`/dashboard?view=problems&topic=${encodeURIComponent(name)}`}
+                onClick={() => setMobileOpen(false)}
+                aria-current={topic === name ? "page" : undefined}
+                className={cn(
+                  "flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm transition-colors",
+                  topic === name
+                    ? "bg-accent font-medium text-accent-foreground"
+                    : "text-muted-foreground hover:bg-muted hover:text-foreground",
+                )}
+              >
+                <Icon className="size-[18px]" strokeWidth={1.7} />
+                {name}
+              </Link>
+            ))}
           </div>
         </div>
       </nav>
 
-      {isMobileMenuOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-[65] lg:hidden"
-          onClick={() => setIsMobileMenuOpen(false)}
-        />
-      )}
-    </>
-  )
-}
+      <div className="flex flex-col gap-5 p-4">
+        <div className="flex flex-col gap-2 rounded-xl border p-4">
+          <p className="text-sm font-medium">Stay curious.</p>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            Every big idea starts with a small question.
+          </p>
+        </div>
+        <Link
+          href="/dashboard?view=guide"
+          onClick={() => setMobileOpen(false)}
+          className="flex items-center gap-3 px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <HelpCircle className="size-[18px]" strokeWidth={1.7} />
+          Getting started
+          <ArrowUpRight className="ml-auto size-4" />
+        </Link>
+      </div>
+    </div>
+  );
 
+  return (
+    <>
+      <aside className="fixed inset-y-0 left-0 hidden w-60 border-r lg:block">
+        {navigation}
+      </aside>
+      <div className="fixed left-4 top-3.5 z-30 lg:hidden">
+        <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+          <SheetTrigger asChild>
+            <Button variant="ghost" size="icon" aria-label="Open navigation">
+              <Menu />
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left" className="w-72 p-0">
+            <SheetTitle className="sr-only">Newton navigation</SheetTitle>
+            <SheetDescription className="sr-only">
+              Browse your physics workspace and topics.
+            </SheetDescription>
+            {navigation}
+          </SheetContent>
+        </Sheet>
+      </div>
+    </>
+  );
+}

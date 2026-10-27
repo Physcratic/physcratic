@@ -1,73 +1,74 @@
-"use client"
+"use client";
 
-import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import Image from "next/image"
-import { Bell, ChevronRight } from "lucide-react"
-import Profile01 from "./profile-01"
-import Link from "next/link"
-import { ThemeToggle } from "../theme-toggle"
+import Link from "next/link";
+import { ChevronRight, Search } from "lucide-react";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { viewTitles, type View } from "@/lib/physics";
 
-interface BreadcrumbItem {
-  label: string
-  href?: string
-}
-
-export default function TopNav() {
-  const breadcrumbs: BreadcrumbItem[] = [
-    { label: "kokonutUI", href: "#" },
-    { label: "dashboard", href: "#" },
-  ]
+export default function TopNav({
+  view,
+  topic,
+}: {
+  view: View;
+  topic?: string;
+}) {
+  const router = useRouter();
+  useEffect(() => {
+    function handleSearch(event: KeyboardEvent) {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        router.push("/dashboard?view=problems&search=1");
+      }
+    }
+    window.addEventListener("keydown", handleSearch);
+    return () => window.removeEventListener("keydown", handleSearch);
+  }, [router]);
 
   return (
-    <nav className="px-3 sm:px-6 flex items-center justify-between bg-white dark:bg-[#0F0F12] border-b border-gray-200 dark:border-[#1F1F23] h-full">
-      <div className="font-medium text-sm hidden sm:flex items-center space-x-1 truncate max-w-[300px]">
-        {breadcrumbs.map((item, index) => (
-          <div key={item.label} className="flex items-center">
-            {index > 0 && <ChevronRight className="h-4 w-4 text-gray-500 dark:text-gray-400 mx-1" />}
-            {item.href ? (
-              <Link
-                href={item.href}
-                className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
-              >
-                {item.label}
-              </Link>
-            ) : (
-              <span className="text-gray-900 dark:text-gray-100">{item.label}</span>
-            )}
-          </div>
-        ))}
-      </div>
-
-      <div className="flex items-center gap-2 sm:gap-4 ml-auto sm:ml-0">
-        <button
-          type="button"
-          className="p-1.5 sm:p-2 hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-full transition-colors"
+    <header className="flex h-[72px] shrink-0 items-center justify-between border-b bg-background px-5 pl-16 sm:px-8 sm:pl-16 lg:pl-8 xl:px-10">
+      <nav
+        aria-label="Breadcrumb"
+        className="flex min-w-0 items-center gap-2 text-sm sm:gap-3"
+      >
+        <Link
+          href="/dashboard"
+          className="hidden text-muted-foreground transition-colors hover:text-foreground sm:block"
         >
-          <Bell className="h-4 w-4 sm:h-5 sm:w-5 text-gray-600 dark:text-gray-300" />
-        </button>
-
+          Workspace
+        </Link>
+        <ChevronRight className="hidden size-3.5 text-muted-foreground sm:block" />
+        <span className="truncate font-medium" aria-current="page">
+          {topic || viewTitles[view]}
+        </span>
+      </nav>
+      <div className="flex shrink-0 items-center gap-3 sm:gap-5">
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => router.push("/dashboard?view=problems&search=1")}
+          aria-label="Search problems"
+        >
+          <Search data-icon="inline-start" />
+          <span className="hidden font-normal text-muted-foreground md:inline">
+            Search problems...
+          </span>
+          <kbd className="hidden rounded border px-1.5 py-0.5 font-sans text-sm text-muted-foreground xl:inline">
+            ⌘ K
+          </kbd>
+        </Button>
         <ThemeToggle />
-
-        <DropdownMenu>
-          <DropdownMenuTrigger className="focus:outline-none">
-            <Image
-              src="https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-01-n0x8HFv8EUetf9z6ht0wScJKoTHqf8.png"
-              alt="User avatar"
-              width={28}
-              height={28}
-              className="rounded-full ring-2 ring-gray-200 dark:ring-[#2B2B30] sm:w-8 sm:h-8 cursor-pointer"
-            />
-          </DropdownMenuTrigger>
-          <DropdownMenuContent
-            align="end"
-            sideOffset={8}
-            className="w-[280px] sm:w-80 bg-background border-border rounded-lg shadow-lg"
-          >
-            <Profile01 avatar="https://ferf1mheo22r9ira.public.blob.vercel-storage.com/avatar-01-n0x8HFv8EUetf9z6ht0wScJKoTHqf8.png" />
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <span className="hidden h-5 border-l sm:block" />
+        <Link
+          href="/dashboard?view=guide"
+          aria-label="About your workspace"
+          className="flex size-8 items-center justify-center rounded-full border bg-secondary text-sm font-medium text-secondary-foreground"
+        >
+          N
+        </Link>
       </div>
-    </nav>
-  )
+    </header>
+  );
 }
-
