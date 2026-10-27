@@ -7,7 +7,6 @@ import { problems, viewTitles, type Problem, type View } from "@/lib/physics";
 import { Overview } from "@/components/physics/overview";
 import { ProblemLibrary } from "@/components/physics/problem-library";
 import { ProblemDialog } from "@/components/physics/problem-dialog";
-import { FormulaSheet } from "@/components/physics/formula-sheet";
 import { LearningGuide } from "@/components/physics/learning-guide";
 import { Contests } from "@/components/physics/contests";
 import { Rankings } from "@/components/physics/rankings";
@@ -18,7 +17,6 @@ const subtitles: Record<View, string> = {
   problems: "Good questions lead to great discoveries. Find your next one.",
   contests: "Think clearly. Solve together. Find your competitive side.",
   rankings: "Every round is a step forward. See how far you’ve come.",
-  formulas: "The essentials, with the meaning behind the math.",
   guide: "A few small steps to your first breakthrough.",
 };
 
@@ -55,9 +53,7 @@ export default function Content({
         {(view === "contests" || view === "rankings") && (
           <Badge variant="outline">Front-end preview</Badge>
         )}
-        {(view === "overview" ||
-          view === "problems" ||
-          view === "formulas") && (
+        {(view === "overview" || view === "problems") && (
           <Button variant="outline" size="sm" onClick={openRandomProblem}>
             {view === "overview" ? (
               <ArrowUpRight data-icon="inline-start" />
@@ -74,7 +70,6 @@ export default function Content({
       )}
       {view === "contests" && <Contests />}
       {view === "rankings" && <Rankings />}
-      {view === "formulas" && <FormulaSheet />}
       {view === "guide" && <LearningGuide />}
       <ProblemDialog
         problem={activeProblem}

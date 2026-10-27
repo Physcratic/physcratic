@@ -10,7 +10,6 @@ import {
   LayoutGrid,
   Menu,
   Orbit,
-  SquareFunction,
   Trophy,
   ChartNoAxesCombined,
 } from "lucide-react";
@@ -38,7 +37,6 @@ export default function Sidebar({
     { view: "problems", label: "Problem library", icon: BookOpen },
     { view: "contests", label: "Contests", icon: Trophy },
     { view: "rankings", label: "Rankings", icon: ChartNoAxesCombined },
-    { view: "formulas", label: "Formula sheet", icon: SquareFunction },
   ];
 
   const navigation = (

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen, Lightbulb, SquareFunction } from "lucide-react";
+import { ArrowRight, BookOpen, Lightbulb, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -34,12 +34,12 @@ export function LearningGuide() {
             action: "Explore the library",
           },
           {
-            icon: SquareFunction,
-            title: "See the bigger picture",
+            icon: Trophy,
+            title: "Put your intuition to the test",
             description:
-              "Our formula sheet connects essential equations with their meaning, units, and assumptions. Use it as a reference, not a replacement for your intuition.",
-            href: "/dashboard?view=formulas",
-            action: "Open the formula sheet",
+              "Try a timed demo round, solve problems in any order, and compare your progress with sample competitors. After the round, review the worked solutions at your own pace.",
+            href: "/dashboard?view=contests",
+            action: "Explore contests",
           },
         ].map(({ icon: Icon, title, description, href, action }) => (
           <Card key={title} className="flex flex-col shadow-none">

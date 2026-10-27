@@ -192,16 +192,16 @@ export function Overview({ onOpen }: { onOpen: (problem: Problem) => void }) {
           </span>
           <div className="flex flex-col gap-1">
             <h2 className="text-sm font-medium">
-              Understanding beats memorizing. Every time.
+              A little pressure. A new perspective.
             </h2>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Keep the essential equations close, and the bigger picture closer.
+              Try a timed round, find your rhythm, and learn from every attempt.
             </p>
           </div>
         </div>
         <Button variant="ghost" size="sm" asChild>
-          <Link href="/dashboard?view=formulas">
-            Open formula sheet
+          <Link href="/dashboard?view=contests">
+            Explore contests
             <ArrowUpRight data-icon="inline-end" />
           </Link>
         </Button>

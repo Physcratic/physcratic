@@ -14,7 +14,6 @@ export default async function DashboardPage({
     "problems",
     "contests",
     "rankings",
-    "formulas",
     "guide",
   ].includes(requestedView)
     ? (requestedView as View)

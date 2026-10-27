@@ -11,7 +11,11 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { sampleStandings, type DemoContest } from "@/lib/contest-demo";
+import {
+  getContestProblems,
+  sampleStandings,
+  type DemoContest,
+} from "@/lib/contest-demo";
 import { ContestStandings } from "./contest-standings";
 
 export function ContestDetails({
@@ -97,7 +101,7 @@ export function ContestDetails({
               <TabsContent value="standings" className="pt-3">
                 <ContestStandings
                   rows={sampleStandings(contest)}
-                  problemCount={contest.problemIds.length}
+                  problems={getContestProblems(contest)}
                 />
               </TabsContent>
             </Tabs>

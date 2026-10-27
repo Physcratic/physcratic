@@ -154,12 +154,67 @@ export const demoRankings = [
   },
 ];
 
+export type ContestProblem = ReturnType<typeof getContestProblems>[number];
+
+export interface ContestSubmission {
+  id: number;
+  problemId: string;
+  letter: string;
+  answer: number;
+  accepted: boolean;
+  elapsed: number;
+}
+
+export interface ProblemResult {
+  problemId: string;
+  status: "accepted" | "wrong" | "unattempted";
+  attempts: number;
+  elapsed?: number;
+}
+
 export interface ContestStanding {
   handle: string;
   solved: number;
   points: number;
   penalty: number;
+  results: ProblemResult[];
   isYou?: boolean;
+}
+
+export function summarizeSubmissions(
+  items: ContestProblem[],
+  submissions: ContestSubmission[],
+) {
+  const results: ProblemResult[] = items.map((problem) => {
+    const attempts = submissions.filter(
+      (entry) => entry.problemId === problem.id,
+    );
+    const acceptedIndex = attempts.findIndex((entry) => entry.accepted);
+    const accepted = attempts[acceptedIndex];
+    return {
+      problemId: problem.id,
+      status: accepted ? "accepted" : attempts.length ? "wrong" : "unattempted",
+      attempts: accepted ? acceptedIndex + 1 : attempts.length,
+      elapsed: accepted?.elapsed,
+    };
+  });
+  return {
+    results,
+    solved: results.filter((result) => result.status === "accepted").length,
+    points: items.reduce(
+      (total, problem, index) =>
+        total + (results[index].status === "accepted" ? problem.points : 0),
+      0,
+    ),
+    penalty: results.reduce(
+      (total, result) =>
+        total +
+        (result.elapsed === undefined ? 0 : Math.ceil(result.elapsed / 60)) +
+        Math.max(0, result.attempts - (result.status === "accepted" ? 1 : 0)) *
+          20,
+      0,
+    ),
+  };
 }
 
 export function sampleStandings(contest: DemoContest): ContestStanding[] {
@@ -173,14 +228,29 @@ export function sampleStandings(contest: DemoContest): ContestStanding[] {
     "curious_mind",
   ].map((handle, index) => {
     const solved = Math.max(1, items.length - Math.floor(index / 2));
-    return {
-      handle,
-      solved,
-      points: items
-        .slice(0, solved)
-        .reduce((total, problem) => total + problem.points, 0),
-      penalty: 38 + index * 17,
-    };
+    const submissions: ContestSubmission[] = [];
+    items.slice(0, solved).forEach((problem, problemIndex) => {
+      const elapsed = (6 + index * 3 + problemIndex * (5 + index)) * 60;
+      if (index > 0 && (index + problemIndex) % 3 === 0) {
+        submissions.push({
+          id: submissions.length + 1,
+          problemId: problem.id,
+          letter: problem.letter,
+          answer: 0,
+          accepted: false,
+          elapsed: elapsed - 60,
+        });
+      }
+      submissions.push({
+        id: submissions.length + 1,
+        problemId: problem.id,
+        letter: problem.letter,
+        answer: problem.answer,
+        accepted: true,
+        elapsed,
+      });
+    });
+    return { handle, ...summarizeSubmissions(items, submissions) };
   });
 }
 

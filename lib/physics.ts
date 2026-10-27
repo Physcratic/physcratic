@@ -33,7 +33,6 @@ export type View =
   | "problems"
   | "contests"
   | "rankings"
-  | "formulas"
   | "guide";
 
 export const viewTitles: Record<View, string> = {
@@ -41,7 +40,6 @@ export const viewTitles: Record<View, string> = {
   problems: "Problem library",
   contests: "Contests",
   rankings: "Rankings",
-  formulas: "Formula sheet",
   guide: "Getting started",
 };
 
@@ -372,76 +370,3 @@ export const problems: Problem[] = [
     ],
   },
 ];
-
-export const formulas = [
-  {
-    title: "Newton’s second law",
-    topic: "Mechanics",
-    equation: "$$\\vec F_{\\mathrm{net}}=m\\vec a$$",
-    description: "Net force equals mass times acceleration.",
-    symbols: "F: net force (N) · m: mass (kg) · a: acceleration (m/s²)",
-  },
-  {
-    title: "Kinetic energy",
-    topic: "Mechanics",
-    equation: "$$E_k=\\frac{1}{2}mv^2$$",
-    description: "The energy an object has because of its motion.",
-    symbols: "E: energy (J) · m: mass (kg) · v: speed (m/s)",
-  },
-  {
-    title: "Projectile range",
-    topic: "Mechanics",
-    equation: "$$R=\\frac{v_0^2\\sin(2\\theta)}{g}$$",
-    description:
-      "Horizontal range for equal launch and landing heights, without air resistance.",
-    symbols: "R: range (m) · v₀: launch speed (m/s) · θ: launch angle",
-  },
-  {
-    title: "Ohm’s law",
-    topic: "Electricity",
-    equation: "$$V=IR$$",
-    description:
-      "The relationship between voltage, current, and resistance for an ohmic component.",
-    symbols: "V: voltage (V) · I: current (A) · R: resistance (Ω)",
-  },
-  {
-    title: "Electrical power",
-    topic: "Electricity",
-    equation: "$$P=VI$$",
-    description: "The rate at which electrical energy is transferred.",
-    symbols: "P: power (W) · V: voltage (V) · I: current (A)",
-  },
-  {
-    title: "Wave speed",
-    topic: "Waves",
-    equation: "$$v=f\\lambda$$",
-    description: "A wave’s speed is its frequency times its wavelength.",
-    symbols: "v: speed (m/s) · f: frequency (Hz) · λ: wavelength (m)",
-  },
-  {
-    title: "Fundamental frequency",
-    topic: "Waves",
-    equation: "$$f_1=\\frac{v}{2L}$$",
-    description:
-      "The lowest resonant frequency of an ideal string fixed at both ends.",
-    symbols: "f₁: frequency (Hz) · v: wave speed (m/s) · L: length (m)",
-  },
-  {
-    title: "Specific heat",
-    topic: "Thermodynamics",
-    equation: "$$Q=mc\\Delta T$$",
-    description:
-      "Heat transferred without a phase change, assuming constant specific heat capacity.",
-    symbols:
-      "Q: heat (J) · m: mass (kg) · c: specific heat · ΔT: temperature change",
-  },
-  {
-    title: "First law",
-    topic: "Thermodynamics",
-    equation: "$$\\Delta U=Q-W$$",
-    description:
-      "Energy is conserved. Here, work done by the system is positive.",
-    symbols:
-      "ΔU: internal energy change (J) · Q: heat in (J) · W: work out (J)",
-  },
-] as const;
