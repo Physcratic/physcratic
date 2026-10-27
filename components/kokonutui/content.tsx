@@ -24,10 +24,12 @@ export default function Content({
   view,
   topic,
   query,
+  dailyProblem,
 }: {
   view: View;
   topic?: string;
   query?: string;
+  dailyProblem: Problem;
 }) {
   const [activeProblem, setActiveProblem] = useState<Problem | null>(null);
   function openRandomProblem() {
@@ -64,7 +66,9 @@ export default function Content({
           </Button>
         )}
       </div>
-      {view === "overview" && <Overview onOpen={setActiveProblem} />}
+      {view === "overview" && (
+        <Overview dailyProblem={dailyProblem} onOpen={setActiveProblem} />
+      )}
       {view === "problems" && (
         <ProblemLibrary topic={topic} query={query} onOpen={setActiveProblem} />
       )}

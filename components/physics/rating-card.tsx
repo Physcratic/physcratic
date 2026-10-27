@@ -30,6 +30,9 @@ import { cn } from "@/lib/utils";
 const chartConfig = {
   rating: { label: "Elo", color: "var(--chart-1)" },
 } satisfies ChartConfig;
+const horizontalChartConfig = {
+  rating: { label: "Elo", color: "var(--chart-2)" },
+} satisfies ChartConfig;
 const dateLabel = (date: string) =>
   new Date(`${date}T12:00:00Z`).toLocaleDateString("en-US", {
     month: "short",
@@ -37,7 +40,13 @@ const dateLabel = (date: string) =>
     timeZone: "UTC",
   });
 
-export function RatingCard({ expanded = false }: { expanded?: boolean }) {
+export function RatingCard({
+  expanded = false,
+  horizontal = false,
+}: {
+  expanded?: boolean;
+  horizontal?: boolean;
+}) {
   const [range, setRange] = useState("3M");
   const chartId = `rating-fill-${useId().replace(/:/g, "")}`;
   const latest = new Date(`${demoRatingHistory.at(-1)!.date}T12:00:00Z`);
@@ -74,136 +83,183 @@ export function RatingCard({ expanded = false }: { expanded?: boolean }) {
           </CardDescription>
         )}
       </CardHeader>
-      <CardContent className="flex flex-1 flex-col gap-4 pb-3">
-        <div className="flex flex-wrap items-end justify-between gap-3">
+      <CardContent
+        className={cn(
+          "flex flex-1 flex-col gap-5 pb-4",
+          horizontal && "md:flex-row md:items-stretch md:gap-8",
+        )}
+      >
+        <div
+          className={cn(
+            "flex flex-col justify-center gap-4",
+            horizontal && "md:w-60 md:shrink-0 md:border-r md:pr-8",
+          )}
+        >
           <div className="flex flex-col gap-1">
             <div className="flex items-baseline gap-2">
-              <span className="text-4xl font-medium tracking-[-0.055em] tabular-nums">
+              <span
+                className={cn(
+                  "font-medium tracking-[-0.055em] tabular-nums",
+                  horizontal ? "text-6xl text-rating" : "text-4xl",
+                )}
+              >
                 {demoProfile.rating.toLocaleString("en-US")}
               </span>
               <span className="text-sm text-muted-foreground">Elo</span>
             </div>
-            <span className="text-sm text-primary">
+            <span
+              className={cn(
+                "text-sm",
+                horizontal ? "text-rating" : "text-primary",
+              )}
+            >
               {ratingTitle(demoProfile.rating)}
             </span>
           </div>
-          <ToggleGroup
-            type="single"
-            size="sm"
-            value={range}
-            onValueChange={(value) => {
-              if (value) setRange(value);
-            }}
-            aria-label="Rating history time range"
+          <div
+            className="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground"
+            aria-live="polite"
           >
-            {["1M", "3M", "All"].map((value) => (
-              <ToggleGroupItem
-                key={value}
-                value={value}
-                aria-label={
-                  value === "All"
-                    ? "All rating history"
-                    : `Last ${value === "1M" ? "month" : "3 months"}`
+            <TrendingUp
+              className={cn(
+                "size-4",
+                horizontal ? "text-rating" : "text-primary",
+              )}
+              aria-hidden="true"
+            />
+            <span className={horizontal ? "text-rating" : "text-primary"}>
+              +{gain}
+            </span>
+            <span>
+              {range === "All"
+                ? "since your first contest"
+                : range === "1M"
+                  ? "in the last month"
+                  : "in the last 3 months"}
+            </span>
+          </div>
+        </div>
+        <div className="flex min-w-0 flex-1 flex-col gap-3">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <span className="text-sm text-muted-foreground">
+              Rating history
+            </span>
+            <ToggleGroup
+              type="single"
+              size="sm"
+              value={range}
+              onValueChange={(value) => {
+                if (value) setRange(value);
+              }}
+              aria-label="Rating history time range"
+            >
+              {["1M", "3M", "All"].map((value) => (
+                <ToggleGroupItem
+                  key={value}
+                  value={value}
+                  aria-label={
+                    value === "All"
+                      ? "All rating history"
+                      : `Last ${value === "1M" ? "month" : "3 months"}`
+                  }
+                >
+                  {value}
+                </ToggleGroupItem>
+              ))}
+            </ToggleGroup>
+          </div>
+          <ChartContainer
+            config={horizontal ? horizontalChartConfig : chartConfig}
+            className={cn(
+              "w-full text-sm",
+              expanded
+                ? "h-56 aspect-auto"
+                : horizontal
+                  ? "h-32 aspect-auto"
+                  : "h-28 aspect-auto",
+            )}
+            aria-label={`Demo Elo history, ${baseline.rating} to ${demoProfile.rating}`}
+          >
+            <AreaChart
+              accessibilityLayer
+              data={data}
+              margin={{ top: 8, right: 7, left: expanded ? 0 : 7, bottom: 0 }}
+            >
+              <defs>
+                <linearGradient id={chartId} x1="0" y1="0" x2="0" y2="1">
+                  <stop
+                    offset="0%"
+                    stopColor="var(--color-rating)"
+                    stopOpacity={0.19}
+                  />
+                  <stop
+                    offset="100%"
+                    stopColor="var(--color-rating)"
+                    stopOpacity={0.01}
+                  />
+                </linearGradient>
+              </defs>
+              <CartesianGrid
+                vertical={false}
+                stroke="hsl(var(--border))"
+                strokeDasharray="3 5"
+              />
+              <XAxis
+                dataKey="date"
+                tickLine={false}
+                axisLine={false}
+                interval="preserveStartEnd"
+                tickMargin={10}
+                minTickGap={expanded ? 40 : 28}
+                ticks={
+                  expanded
+                    ? undefined
+                    : [
+                        data[0].date,
+                        data[Math.floor(data.length / 2)].date,
+                        data[data.length - 1].date,
+                      ]
                 }
-              >
-                {value}
-              </ToggleGroupItem>
-            ))}
-          </ToggleGroup>
+                tickFormatter={dateLabel}
+                fontSize={14}
+              />
+              <YAxis
+                hide={!expanded}
+                domain={["dataMin - 35", "dataMax + 35"]}
+                tickLine={false}
+                axisLine={false}
+                width={45}
+                fontSize={14}
+              />
+              <ChartTooltip
+                cursor={false}
+                content={
+                  <ChartTooltipContent
+                    className="text-sm"
+                    labelFormatter={(_, payload) => {
+                      const point = payload[0]?.payload;
+                      return point ? (
+                        <span>
+                          {dateLabel(point.date)} · {point.contest}
+                        </span>
+                      ) : null;
+                    }}
+                  />
+                }
+              />
+              <Area
+                type="linear"
+                dataKey="rating"
+                stroke="var(--color-rating)"
+                strokeWidth={2}
+                fill={`url(#${chartId})`}
+                activeDot={{ r: 4, strokeWidth: 2 }}
+                dot={false}
+                isAnimationActive={false}
+              />
+            </AreaChart>
+          </ChartContainer>
         </div>
-        <div
-          className="flex items-center gap-1.5 text-sm text-muted-foreground"
-          aria-live="polite"
-        >
-          <TrendingUp className="size-4 text-primary" />
-          <span className="text-primary">+{gain}</span>
-          <span>
-            {range === "All"
-              ? "since your first contest"
-              : range === "1M"
-                ? "in the last month"
-                : "in the last 3 months"}
-          </span>
-        </div>
-        <ChartContainer
-          config={chartConfig}
-          className={cn(
-            "w-full text-sm",
-            expanded ? "h-56 aspect-auto" : "h-28 aspect-auto",
-          )}
-          aria-label={`Demo Elo history, ${baseline.rating} to ${demoProfile.rating}`}
-        >
-          <AreaChart
-            accessibilityLayer
-            data={data}
-            margin={{ top: 8, right: 7, left: expanded ? 0 : 7, bottom: 0 }}
-          >
-            <defs>
-              <linearGradient id={chartId} x1="0" y1="0" x2="0" y2="1">
-                <stop
-                  offset="0%"
-                  stopColor="var(--color-rating)"
-                  stopOpacity={0.19}
-                />
-                <stop
-                  offset="100%"
-                  stopColor="var(--color-rating)"
-                  stopOpacity={0.01}
-                />
-              </linearGradient>
-            </defs>
-            <CartesianGrid
-              vertical={false}
-              stroke="hsl(var(--border))"
-              strokeDasharray="3 5"
-            />
-            <XAxis
-              dataKey="date"
-              tickLine={false}
-              axisLine={false}
-              interval="preserveStartEnd"
-              tickMargin={10}
-              minTickGap={expanded ? 40 : 28}
-              ticks={expanded ? undefined : [data[0].date, data[Math.floor(data.length / 2)].date, data[data.length - 1].date]}
-              tickFormatter={dateLabel}
-              fontSize={14}
-            />
-            <YAxis
-              hide={!expanded}
-              domain={["dataMin - 35", "dataMax + 35"]}
-              tickLine={false}
-              axisLine={false}
-              width={45}
-              fontSize={14}
-            />
-            <ChartTooltip
-              cursor={false}
-              content={
-                <ChartTooltipContent
-                  className="text-sm"
-                  labelFormatter={(_, payload) => {
-                    const point = payload[0]?.payload;
-                    return point ? (
-                      <span>
-                        {dateLabel(point.date)} · {point.contest}
-                      </span>
-                    ) : null;
-                  }}
-                />
-              }
-            />
-            <Area
-              type="linear"
-              dataKey="rating"
-              stroke="var(--color-rating)"
-              strokeWidth={2}
-              fill={`url(#${chartId})`}
-              activeDot={{ r: 4, strokeWidth: 2 }}
-              dot={false}
-              isAnimationActive={false}
-            />
-          </AreaChart>
-        </ChartContainer>
         <span className="sr-only">
           {data
             .map((point) => `${dateLabel(point.date)}: ${point.rating} Elo`)

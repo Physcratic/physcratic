@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { DashboardHighlights } from "./dashboard-highlights";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -25,46 +25,18 @@ import { ProblemList } from "./problem-list";
 import { MathFormula } from "./math-formula";
 import { RatingCard } from "./rating-card";
 
-export function Overview({ onOpen }: { onOpen: (problem: Problem) => void }) {
+export function Overview({
+  dailyProblem,
+  onOpen,
+}: {
+  dailyProblem: Problem;
+  onOpen: (problem: Problem) => void;
+}) {
   return (
     <div className="flex flex-col gap-8">
-      <div className="grid min-w-0 grid-cols-1 gap-5 min-[1100px]:grid-cols-[1.65fr_1fr]">
-        <section
-          className="flex overflow-hidden rounded-xl border bg-hero text-hero-foreground"
-          aria-label="Welcome to Newton"
-        >
-          <div className="relative flex flex-1 flex-col items-start gap-5 p-6 sm:p-8 lg:py-9">
-            <span className="flex items-center gap-2 text-sm text-primary">
-              <span className="size-1.5 rounded-full bg-primary" />A little
-              curiosity goes a long way
-            </span>
-            <h2 className="text-balance text-3xl font-medium leading-[1.2] tracking-[-0.04em] sm:text-[32px]">
-              Small steps.
-              <br />
-              Big breakthroughs.
-            </h2>
-            <p className="max-w-sm text-sm leading-relaxed text-hero-foreground/60">
-              Make sense of the world around you.
-              <br className="hidden sm:block" /> Build your physics intuition,
-              one problem at a time.
-            </p>
-            <Button onClick={() => onOpen(problems[0])}>
-              Let&apos;s solve something
-              <ArrowRight data-icon="inline-end" />
-            </Button>
-          </div>
-          <div className="hidden w-[30%] shrink-0 items-center justify-center sm:flex">
-            <Image
-              src="/newton-cradle.png"
-              width={768}
-              height={512}
-              priority
-              alt="Newton’s cradle with a raised peach-colored ball, illustrating motion and energy transfer"
-              className="hero-image h-full max-h-80 w-full object-cover object-right"
-            />
-          </div>
-        </section>
-        <RatingCard />
+      <div className="flex min-w-0 flex-col gap-5">
+        <DashboardHighlights dailyProblem={dailyProblem} onOpen={onOpen} />
+        <RatingCard horizontal />
       </div>
 
       <section className="flex flex-col gap-4" aria-labelledby="topics-heading">

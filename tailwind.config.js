@@ -14,6 +14,7 @@ module.exports = {
         sans: ["var(--font-inter)", "Arial", "sans-serif"],
       },
       colors: {
+        rating: "hsl(var(--rating))",
         hero: {
           DEFAULT: "hsl(var(--hero))",
           foreground: "hsl(var(--hero-foreground))",

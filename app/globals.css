@@ -6,6 +6,8 @@
   :root {
     --font-sans: var(--font-inter);
     --chart-1: hsl(var(--primary));
+    --chart-2: hsl(var(--rating));
+    --rating: 45 88% 30%;
     --background: 240 7% 97%;
     --foreground: 240 5% 12%;
     --card: 0 0% 100%;
@@ -38,6 +40,7 @@
     --sidebar-ring: 22 65% 58%;
   }
   .dark {
+    --rating: 47 85% 69%;
     --background: 240 5% 8%;
     --foreground: 240 6% 94%;
     --card: 240 5% 10%;
