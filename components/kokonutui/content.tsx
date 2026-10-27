@@ -60,9 +60,14 @@ export default function Content({
             <Badge variant="outline">Front-end preview</Badge>
           )}
           {view === "problems" && (
-            <Button variant="outline" size="sm" onClick={openRandomProblem} disabled={!choices.length}>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={openRandomProblem}
+              disabled={!choices.length}
+            >
               <Shuffle data-icon="inline-start" />
-              Surprise me
+              Random quick practice
             </Button>
           )}
         </div>

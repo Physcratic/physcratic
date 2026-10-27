@@ -19,6 +19,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { problems, topics, type View } from "@/lib/physics";
+import { corpusProblems } from "@/lib/corpus-pilot";
 import { cn } from "@/lib/utils";
 
 export default function Sidebar({
@@ -80,7 +81,9 @@ export default function Sidebar({
                   {label}
                   {itemView === "problems" && (
                     <span className="ml-auto text-sm opacity-70">
-                      {problems.length.toLocaleString("en-US")}
+                      {(problems.length + corpusProblems.length).toLocaleString(
+                        "en-US",
+                      )}
                     </span>
                   )}
                 </Link>

@@ -1,0 +1,229 @@
+{
+  "id": "ipho-2015-t1",
+  "year": 2015,
+  "code": "T1",
+  "title": "Particles from the Sun",
+  "topics": ["Modern", "Thermodynamics", "Optics", "Mechanics"],
+  "tags": [
+    "Blackbody radiation",
+    "Solar cells",
+    "Neutrinos",
+    "Cherenkov radiation",
+    "Nuclear fusion"
+  ],
+  "summary": "Use photons and neutrinos to investigate solar temperatures, solar-cell efficiency, gravitational contraction, and nuclear fusion.",
+  "attribution": "46th International Physics Olympiad, Mumbai, India, Theory 1. Principal authors: Amol Dighe (TIFR), Anwesh Mazumdar (HBCSE-TIFR), and Vijay A. Singh; contributions from the Academic Committee, Academic Development Group, and International Board are acknowledged in the original.",
+  "sourceUrl": "https://www.ipho-new.org/documentations/",
+  "pages": 2,
+  "solutionPages": 7,
+  "sections": [
+    { "id": "A", "title": "Radiation from the Sun" },
+    { "id": "B", "title": "Neutrinos from the Sun" }
+  ],
+  "context": [
+    {
+      "type": "text",
+      "value": "Photons from the solar surface and neutrinos from the core provide information about temperatures and the source of solar energy. Use the supplied solar constants throughout. Fundamental constants are denoted by their usual symbols; d⊙ is the Earth–Sun distance."
+    },
+    {
+      "type": "math",
+      "value": "$$M_\\odot=2.00\\times10^{30}\\,\\mathrm{kg},\\quad R_\\odot=7.00\\times10^8\\,\\mathrm{m}$$"
+    },
+    {
+      "type": "math",
+      "value": "$$L_\\odot=3.85\\times10^{26}\\,\\mathrm{W},\\quad d_\\odot=1.50\\times10^{11}\\,\\mathrm{m}$$"
+    },
+    {
+      "type": "text",
+      "value": "The original supplies the following integration identities, with an arbitrary integration constant C."
+    },
+    {
+      "type": "math",
+      "value": "$$\\int xe^{ax}\\,dx=\\left(\\frac{x}{a}-\\frac{1}{a^2}\\right)e^{ax}+C$$"
+    },
+    {
+      "type": "math",
+      "value": "$$\\int x^2e^{ax}\\,dx=\\left(\\frac{x^2}{a}-\\frac{2x}{a^2}+\\frac{2}{a^3}\\right)e^{ax}+C$$"
+    },
+    {
+      "type": "math",
+      "value": "$$\\int x^3e^{ax}\\,dx=\\left(\\frac{x^3}{a}-\\frac{3x^2}{a^2}+\\frac{6x}{a^3}-\\frac{6}{a^4}\\right)e^{ax}+C$$"
+    },
+    {
+      "type": "text",
+      "value": "For A2–A8, approximate solar radiation by Wien’s distribution. A thin solar cell of area A is perpendicular to the incident rays. The incident energy per unit time per unit frequency interval is u(ν), where ν is frequency and T_s is the solar-surface temperature."
+    },
+    {
+      "type": "math",
+      "value": "$$u(\\nu)=A\\frac{R_\\odot^2}{d_\\odot^2}\\frac{2\\pi h}{c^2}\\nu^3\\exp\\!\\left(-\\frac{h\\nu}{k_B T_s}\\right)$$"
+    },
+    {
+      "type": "text",
+      "value": "Each photon with energy at least the semiconductor band gap E_g excites one electron. Each excited electron contributes E_g as useful output; excess photon energy becomes heat. Photons below the band gap produce no useful output."
+    },
+    {
+      "type": "math",
+      "value": "$$E_g=h\\nu_g,\\qquad x_g=\\frac{h\\nu_g}{k_B T_s}$$"
+    },
+    {
+      "type": "text",
+      "value": "For A9–A10, the Kelvin–Helmholtz hypothesis starts with a very large cloud of solar mass and negligible density, shrinking continuously. Its light comes from released gravitational potential energy. Compare the resulting lifetime with the meteorite age of the Solar System: the original notes that a purely gravitational energy source is insufficient."
+    },
+    {
+      "type": "text",
+      "value": "For B1–B2, solar energy comes entirely from hydrogen fusion into helium. Treat electron neutrinos as massless and neglect the energy they carry away. The net reaction and energy released per reaction are:"
+    },
+    {
+      "type": "math",
+      "value": "$$4\\,{}^1\\mathrm{H}\\longrightarrow{}^4\\mathrm{He}+2e^++2\\nu_e,\\qquad \\Delta E=4.0\\times10^{-12}\\,\\mathrm{J}$$"
+    },
+    {
+      "type": "text",
+      "value": "Some electron neutrinos nu_e convert into other types nu_x en route to Earth. Detector efficiency for nu_x is one sixth of that for nu_e. Without conversion, N_1 neutrinos per year would be detected; the actual annual detection count, combining both types, is N_2."
+    },
+    {
+      "type": "text",
+      "value": "For B3, an electron knocked out of a water molecule emits Cherenkov radiation while its speed exceeds c/n, where n is the refractive index of water. Treat the electron as initially at rest before the interaction with the neutrino."
+    },
+    {
+      "type": "text",
+      "value": "For B4, a beryllium-7 nucleus captures an electron to produce lithium-7 and an electron neutrino. The lithium nucleus has a smaller rest mass. When both initial particles are at rest, the neutrino has the given energy. Thermal motion of beryllium nuclei in the solar core broadens the observed neutrino energy."
+    },
+    {
+      "type": "math",
+      "value": "$${}^7\\mathrm{Be}+e^-\\longrightarrow{}^7\\mathrm{Li}+\\nu_e$$"
+    },
+    {
+      "type": "math",
+      "value": "$$m_{\\mathrm{Be}}=11.65\\times10^{-27}\\,\\mathrm{kg},\\quad E_\\nu=1.44\\times10^{-13}\\,\\mathrm{J},\\quad \\Delta E_{\\mathrm{rms}}=5.54\\times10^{-17}\\,\\mathrm{J}$$"
+    }
+  ],
+  "parts": [
+    {
+      "id": "A1",
+      "section": "A",
+      "title": "Solar-surface temperature",
+      "points": 0.3,
+      "page": 1,
+      "solutionPage": 1,
+      "prompt": "Assume the Sun is a perfect blackbody. Calculate its surface temperature T_s using the supplied solar radius and luminosity."
+    },
+    {
+      "id": "A2",
+      "section": "A",
+      "title": "Incident solar power",
+      "points": 0.3,
+      "page": 1,
+      "solutionPage": 1,
+      "prompt": "Using the Wien approximation in the shared setup, express the total power P_in incident on the solar cell in terms of A, R⊙, d⊙, T_s, h, c, and k_B."
+    },
+    {
+      "id": "A3",
+      "section": "A",
+      "title": "Photon arrival spectrum",
+      "points": 0.2,
+      "page": 1,
+      "solutionPage": 2,
+      "prompt": "Find the number nγ(ν) of photons incident on the solar cell per unit time per unit frequency interval in terms of A, R⊙, d⊙, T_s, ν, h, c, and k_B."
+    },
+    {
+      "id": "A4",
+      "section": "A",
+      "title": "Useful solar-cell output",
+      "points": 1,
+      "page": 1,
+      "solutionPage": 2,
+      "prompt": "Use the band-gap model and the definition of x_g in the shared setup. Express the useful output power P_out in terms of x_g, A, R⊙, d⊙, T_s, h, c, and k_B."
+    },
+    {
+      "id": "A5",
+      "section": "A",
+      "title": "Solar-cell efficiency",
+      "points": 0.2,
+      "page": 1,
+      "solutionPage": 2,
+      "prompt": "Express the solar-cell efficiency η as a function of x_g."
+    },
+    {
+      "id": "A6",
+      "section": "A",
+      "title": "Sketch the efficiency curve",
+      "points": 1,
+      "page": 1,
+      "solutionPage": 3,
+      "prompt": "Sketch η against x_g qualitatively, showing the values at x_g = 0 and as x_g tends to infinity. Determine the slope at each of those limits."
+    },
+    {
+      "id": "A7",
+      "section": "A",
+      "title": "Optimal band gap",
+      "points": 1,
+      "page": 1,
+      "solutionPage": 3,
+      "prompt": "Let x_0 maximize η. Derive the cubic equation determining x_0. Estimate x_0 to within ±0.25 and calculate the maximum efficiency η(x_0)."
+    },
+    {
+      "id": "A8",
+      "section": "A",
+      "title": "Silicon solar cell",
+      "points": 0.2,
+      "page": 1,
+      "solutionPage": 4,
+      "prompt": "Pure silicon has a band gap of 1.11 eV. Use this value to calculate the efficiency of a silicon solar cell in the given model."
+    },
+    {
+      "id": "A9",
+      "section": "A",
+      "title": "Gravitational energy of the Sun",
+      "points": 0.3,
+      "page": 2,
+      "solutionPage": 4,
+      "prompt": "Assume a uniform density inside the Sun. Find its present total gravitational potential energy Ω in terms of G, M⊙, and R⊙."
+    },
+    {
+      "id": "A10",
+      "section": "A",
+      "title": "Kelvin–Helmholtz lifetime",
+      "points": 0.5,
+      "page": 2,
+      "solutionPage": 4,
+      "prompt": "Under the Kelvin–Helmholtz hypothesis in the shared setup, estimate the maximum time t_KH, in years, for which the Sun could have been shining. Assume its luminosity has remained constant."
+    },
+    {
+      "id": "B1",
+      "section": "B",
+      "title": "Solar-neutrino flux",
+      "points": 0.6,
+      "page": 2,
+      "solutionPage": 5,
+      "prompt": "Using the net fusion reaction and released energy in the shared setup, calculate the neutrino number-flux density at Earth in m⁻² s⁻¹. Assume this reaction accounts for all of the solar radiation."
+    },
+    {
+      "id": "B2",
+      "section": "B",
+      "title": "Fraction of converted neutrinos",
+      "points": 0.4,
+      "page": 2,
+      "solutionPage": 5,
+      "prompt": "Using the expected and actual detection counts N_1 and N_2, and the relative detector efficiency in the shared setup, determine the fraction of electron neutrinos converted into other types."
+    },
+    {
+      "id": "B3",
+      "section": "B",
+      "title": "Energy of a Cherenkov-emitting electron",
+      "points": 2,
+      "page": 2,
+      "solutionPage": 6,
+      "prompt": "An electron knocked out by a neutrino loses energy at a constant rate α per unit time while travelling through water. It emits Cherenkov radiation for a duration Δt. Determine the energy imparted to the initially stationary electron by the neutrino, in terms of α, Δt, n, m_e, and c."
+    },
+    {
+      "id": "B4",
+      "section": "B",
+      "title": "Temperature of the solar core",
+      "points": 2,
+      "page": 2,
+      "solutionPage": 6,
+      "prompt": "Using the beryllium mass, neutrino energy, and rms energy spread in the shared setup, calculate the rms speed of the beryllium nuclei and estimate the solar-core temperature T_c. Hint: the energy spread depends on the rms velocity component along the line of sight."
+    }
+  ]
+}

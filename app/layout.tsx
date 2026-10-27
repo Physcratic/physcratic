@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | Physcratic",
   },
   description:
-    "Practice physics by difficulty, revisit your problem history, explore sourced IPhO 2025 challenges, and compete on the Physcratic leaderboard.",
+    "Practice physics and explore the five-problem IPhO import pilot from 2011, 2015, and 2025, with complete original statements, official solutions, and structured subpart guides.",
   icons: { icon: "/icon.svg" },
 };
 

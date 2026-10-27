@@ -1,0 +1,79 @@
+{
+  "id": "ipho-2011-t1",
+  "year": 2011,
+  "code": "T1",
+  "title": "A Three-body Problem and LISA",
+  "topics": ["Mechanics", "Waves"],
+  "tags": [
+    "Circular motion",
+    "Gravitation",
+    "Lagrange points",
+    "Small oscillations",
+    "Interferometry"
+  ],
+  "summary": "From a co-rotating three-body system to the relative motion of a triangular space-based gravitational-wave detector.",
+  "attribution": "42nd International Physics Olympiad, Bangkok, Thailand, theoretical competition, 12 July 2011. Figure 2 credits D. A. Shaddock, An Overview of the Laser Interferometer Space Antenna, Publications of the Astronomical Society of Australia 26 (2009), 128–132.",
+  "sourceUrl": "https://www.ipho-new.org/documentations/",
+  "pages": 3,
+  "solutionPages": 7,
+  "sections": [{ "id": "1", "title": "A three-body problem and LISA" }],
+  "context": [
+    {
+      "type": "text",
+      "value": "Two gravitating masses M and m move in circular orbits of radii R and r about their common centre of mass O. A third body of infinitesimal mass μ may move in a circular orbit in the same plane, remaining stationary relative to the other two masses. The geometry is Figure 1 on original page 1."
+    },
+    {
+      "type": "math",
+      "value": "$$MR=mr,\\qquad G=\\text{universal gravitational constant}$$"
+    },
+    {
+      "type": "text",
+      "value": "For 1.4, use the LISA design described in the 2011 paper, not a present-day mission specification. Three identical spacecraft lie at the corners of an equilateral triangle with arms about 5.0 million kilometres long. The constellation follows an Earth-like orbit around the Sun, trailing Earth by 20 degrees. Each spacecraft follows a slightly inclined individual orbit; the triangle appears to roll around its centre once per year. Laser interferometry detects tiny changes in arm lengths. Figures 2 and 3 are on original pages 2 and 3."
+    }
+  ],
+  "parts": [
+    {
+      "id": "1.1",
+      "section": "1",
+      "title": "Angular velocity of two gravitating bodies",
+      "points": 1.5,
+      "page": 1,
+      "solutionPage": 1,
+      "prompt": "Determine the angular velocity of the line joining M and m in terms of R, r, M, m, and G.",
+      "model": "$$\\omega_0=\\text{angular velocity of the line joining the two masses}$$"
+    },
+    {
+      "id": "1.2",
+      "section": "1",
+      "title": "A stationary third body",
+      "points": 3.5,
+      "page": 1,
+      "solutionPage": 2,
+      "prompt": "Place an infinitesimal mass μ in a coplanar circular orbit about O, stationary relative to M and m and not collinear with them, as in Figure 1. In terms of R and r, determine each of the following distances.",
+      "items": [
+        "1.2.1: from μ to M.",
+        "1.2.2: from μ to m.",
+        "1.2.3: from μ to the centre of mass O."
+      ]
+    },
+    {
+      "id": "1.3",
+      "section": "1",
+      "title": "Radial oscillations for equal masses",
+      "points": 3.2,
+      "page": 2,
+      "solutionPage": 4,
+      "prompt": "Now take M = m. Give μ a small radial perturbation along Oμ. Assuming its angular momentum is conserved, find the angular frequency of its oscillation about the unperturbed position, in terms of the unperturbed orbital angular velocity.",
+      "model": "$$\\omega_0=\\text{unperturbed orbital angular velocity}$$"
+    },
+    {
+      "id": "1.4",
+      "section": "1",
+      "title": "Relative speed in the LISA constellation",
+      "points": 1.8,
+      "page": 3,
+      "solutionPage": 6,
+      "prompt": "Using the LISA configuration in the shared setup and original Figures 2–3, determine the relative speed of one spacecraft with respect to another in the plane containing the three spacecraft."
+    }
+  ]
+}

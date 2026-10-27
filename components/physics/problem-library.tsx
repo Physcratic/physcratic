@@ -30,6 +30,8 @@ import {
 import { problems, topics, type Problem } from "@/lib/physics";
 import { ProblemList } from "./problem-list";
 import { eloBands, getEloBand } from "@/lib/problem-archive";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CorpusCollection } from "./corpus-collection";
 
 export function ProblemLibrary({
   topic,
@@ -40,6 +42,7 @@ export function ProblemLibrary({
   query?: string;
   onOpen: (problem: Problem) => void;
 }) {
+  const [collection, setCollection] = useState("pilot");
   const [search, setSearch] = useState(query || "");
   const [selectedTopic, setSelectedTopic] = useState(topic || "all");
   const [difficulty, setDifficulty] = useState("all");
@@ -59,7 +62,17 @@ export function ProblemLibrary({
   }
 
   return (
-    <div className="flex flex-col gap-6">
+    <Tabs
+      value={collection}
+      onValueChange={setCollection}
+      className="flex min-w-0 flex-col gap-6"
+    >
+      <TabsList className="h-auto w-fit max-w-full flex-wrap">
+        <TabsTrigger value="pilot">Imported pilot · 5</TabsTrigger>
+        <TabsTrigger value="practice">
+          Quick practice · {problems.length}
+        </TabsTrigger>
+      </TabsList>
       <FieldGroup className="sm:flex-row sm:items-end">
         <Field className="flex-1">
           <FieldLabel htmlFor="problem-search">Find a problem</FieldLabel>
@@ -98,6 +111,7 @@ export function ProblemLibrary({
             <SelectContent>
               <SelectGroup>
                 <SelectItem value="all">All ratings</SelectItem>
+                <SelectItem value="unrated">Unrated</SelectItem>
                 {eloBands.map((band) => (
                   <SelectItem key={band.id} value={band.id}>
                     {band.range}
@@ -108,46 +122,63 @@ export function ProblemLibrary({
           </Select>
         </Field>
       </FieldGroup>
-      <Card className="overflow-hidden shadow-none">
-        <CardHeader>
-          <CardTitle>
-            <h2 className="text-base font-medium">
-              {selectedTopic === "all"
-                ? "The problem collection"
-                : selectedTopic}
-            </h2>
-          </CardTitle>
-          <CardDescription aria-live="polite">
-            {filtered.length} {filtered.length === 1 ? "problem" : "problems"}{" "}
-            to explore · Every problem includes a hint and a worked solution.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="px-0 pb-0">
-          {filtered.length ? (
-            <ProblemList items={filtered} onOpen={onOpen} />
-          ) : (
-            <Empty className="py-16">
-              <EmptyHeader>
-                <EmptyMedia variant="icon">
-                  <BookOpen />
-                </EmptyMedia>
-                <EmptyTitle>No problems found</EmptyTitle>
-                <EmptyDescription>
-                  Try a different concept or clear your filters to see the whole
-                  collection.
-                </EmptyDescription>
-              </EmptyHeader>
-              <Button variant="outline" onClick={reset}>
-                <RotateCcw data-icon="inline-start" />
-                Clear filters
-              </Button>
-            </Empty>
-          )}
-        </CardContent>
-      </Card>
-      <p className="text-sm leading-relaxed text-muted-foreground">
-        Elo difficulties are illustrative estimates for this preview, not calibrated ratings.
-      </p>
-    </div>
+      <TabsContent
+        value="pilot"
+        forceMount
+        hidden={collection !== "pilot"}
+        className="min-w-0"
+      >
+        <CorpusCollection
+          query={search}
+          topic={selectedTopic}
+          difficulty={difficulty}
+          onReset={reset}
+        />
+      </TabsContent>
+      <TabsContent value="practice" className="flex flex-col gap-5">
+        <Card className="overflow-hidden shadow-none">
+          <CardHeader>
+            <CardTitle>
+              <h2 className="text-base font-medium">
+                {selectedTopic === "all"
+                  ? "The problem collection"
+                  : selectedTopic}
+              </h2>
+            </CardTitle>
+            <CardDescription aria-live="polite">
+              {filtered.length} {filtered.length === 1 ? "problem" : "problems"}{" "}
+              to explore · Every problem includes a hint and a worked solution.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="px-0 pb-0">
+            {filtered.length ? (
+              <ProblemList items={filtered} onOpen={onOpen} />
+            ) : (
+              <Empty className="py-16">
+                <EmptyHeader>
+                  <EmptyMedia variant="icon">
+                    <BookOpen />
+                  </EmptyMedia>
+                  <EmptyTitle>No problems found</EmptyTitle>
+                  <EmptyDescription>
+                    Try a different concept or clear your filters to see the
+                    whole collection.
+                  </EmptyDescription>
+                </EmptyHeader>
+                <Button variant="outline" onClick={reset}>
+                  <RotateCcw data-icon="inline-start" />
+                  Clear filters
+                </Button>
+              </Empty>
+            )}
+          </CardContent>
+        </Card>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          Quick-practice Elo difficulties are illustrative estimates for this
+          preview, not calibrated ratings. Imported pilot problems remain
+          unrated.
+        </p>
+      </TabsContent>
+    </Tabs>
   );
 }
