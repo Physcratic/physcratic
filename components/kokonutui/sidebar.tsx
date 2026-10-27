@@ -11,6 +11,8 @@ import {
   Menu,
   Orbit,
   SquareFunction,
+  Trophy,
+  ChartNoAxesCombined,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -34,6 +36,8 @@ export default function Sidebar({
   const mainItems = [
     { view: "overview", label: "Overview", icon: LayoutGrid },
     { view: "problems", label: "Problem library", icon: BookOpen },
+    { view: "contests", label: "Contests", icon: Trophy },
+    { view: "rankings", label: "Rankings", icon: ChartNoAxesCombined },
     { view: "formulas", label: "Formula sheet", icon: SquareFunction },
   ];
 

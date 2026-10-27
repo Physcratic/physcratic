@@ -5,6 +5,7 @@
 @layer base {
   :root {
     --font-sans: var(--font-inter);
+    --chart-1: hsl(var(--primary));
     --background: 240 7% 97%;
     --foreground: 240 5% 12%;
     --card: 0 0% 100%;

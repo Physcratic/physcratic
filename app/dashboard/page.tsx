@@ -9,9 +9,14 @@ export default async function DashboardPage({
   const params = await searchParams;
   const requestedView =
     typeof params.view === "string" ? params.view : "overview";
-  const view: View = ["overview", "problems", "formulas", "guide"].includes(
-    requestedView,
-  )
+  const view: View = [
+    "overview",
+    "problems",
+    "contests",
+    "rankings",
+    "formulas",
+    "guide",
+  ].includes(requestedView)
     ? (requestedView as View)
     : "overview";
   const topic = topics.some((item) => item.name === params.topic)

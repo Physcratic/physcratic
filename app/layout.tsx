@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | Newton",
   },
   description:
-    "Less memorizing. More understanding. Explore physics, practice thoughtfully curated problems, and build your intuition with hints and step-by-step solutions.",
+    "Your home for physics practice and competition. Solve thoughtful problems, take on timed contests, and follow your Elo rating as your understanding grows.",
   icons: { icon: "/icon.svg" },
 };
 

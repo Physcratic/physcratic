@@ -28,11 +28,19 @@ export const topics = [
 ] as const;
 
 export type Topic = (typeof topics)[number]["name"];
-export type View = "overview" | "problems" | "formulas" | "guide";
+export type View =
+  | "overview"
+  | "problems"
+  | "contests"
+  | "rankings"
+  | "formulas"
+  | "guide";
 
 export const viewTitles: Record<View, string> = {
   overview: "Overview",
   problems: "Problem library",
+  contests: "Contests",
+  rankings: "Rankings",
   formulas: "Formula sheet",
   guide: "Getting started",
 };

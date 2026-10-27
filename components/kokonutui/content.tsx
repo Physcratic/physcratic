@@ -9,10 +9,15 @@ import { ProblemLibrary } from "@/components/physics/problem-library";
 import { ProblemDialog } from "@/components/physics/problem-dialog";
 import { FormulaSheet } from "@/components/physics/formula-sheet";
 import { LearningGuide } from "@/components/physics/learning-guide";
+import { Contests } from "@/components/physics/contests";
+import { Rankings } from "@/components/physics/rankings";
+import { Badge } from "@/components/ui/badge";
 
 const subtitles: Record<View, string> = {
   overview: "Less memorizing. More understanding.",
   problems: "Good questions lead to great discoveries. Find your next one.",
+  contests: "Think clearly. Solve together. Find your competitive side.",
+  rankings: "Every round is a step forward. See how far you’ve come.",
   formulas: "The essentials, with the meaning behind the math.",
   guide: "A few small steps to your first breakthrough.",
 };
@@ -47,7 +52,12 @@ export default function Content({
             {subtitles[view]}
           </p>
         </div>
-        {view !== "guide" && (
+        {(view === "contests" || view === "rankings") && (
+          <Badge variant="outline">Front-end preview</Badge>
+        )}
+        {(view === "overview" ||
+          view === "problems" ||
+          view === "formulas") && (
           <Button variant="outline" size="sm" onClick={openRandomProblem}>
             {view === "overview" ? (
               <ArrowUpRight data-icon="inline-start" />
@@ -62,6 +72,8 @@ export default function Content({
       {view === "problems" && (
         <ProblemLibrary topic={topic} query={query} onOpen={setActiveProblem} />
       )}
+      {view === "contests" && <Contests />}
+      {view === "rankings" && <Rankings />}
       {view === "formulas" && <FormulaSheet />}
       {view === "guide" && <LearningGuide />}
       <ProblemDialog
