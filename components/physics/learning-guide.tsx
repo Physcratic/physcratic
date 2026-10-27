@@ -29,7 +29,7 @@ export function LearningGuide() {
             icon: BookOpen,
             title: "Find your starting point",
             description:
-              "Browse 12 problems across mechanics, electricity, waves, and thermodynamics. Filter by difficulty, or search for a concept you want to explore.",
+              "Browse 12 problems across mechanics, electricity, waves, and thermodynamics. Filter by Elo difficulty, or search for a concept you want to explore.",
             href: "/dashboard?view=problems",
             action: "Explore the library",
           },

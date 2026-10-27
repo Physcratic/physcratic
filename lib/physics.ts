@@ -48,7 +48,7 @@ export interface Problem {
   title: string;
   topic: Topic;
   concept: string;
-  difficulty: "Foundations" | "Intermediate" | "Challenge";
+  elo: number;
   minutes: number;
   prompt: string;
   hint: string;
@@ -64,7 +64,7 @@ export const problems: Problem[] = [
     title: "A block on an incline",
     topic: "Mechanics",
     concept: "Newton’s laws",
-    difficulty: "Foundations",
+    elo: 900,
     minutes: 5,
     prompt:
       "A 2 kg block rests on a smooth, frictionless incline at 30° to the horizontal. What is the magnitude of its acceleration down the incline? Use a gravitational acceleration of 9.8 m/s².",
@@ -95,7 +95,7 @@ export const problems: Problem[] = [
     title: "Finding the missing current",
     topic: "Electricity",
     concept: "Ohm’s law",
-    difficulty: "Foundations",
+    elo: 900,
     minutes: 4,
     prompt:
       "A 12 V ideal battery is connected across a 6 Ω resistor. What current flows through the resistor? Assume connecting wires have negligible resistance.",
@@ -121,7 +121,7 @@ export const problems: Problem[] = [
     title: "The sound of a vibrating string",
     topic: "Waves",
     concept: "Standing waves",
-    difficulty: "Intermediate",
+    elo: 1300,
     minutes: 6,
     prompt:
       "A string is fixed at both ends and has a length of 0.80 m. Waves travel along it at 120 m/s. What is its fundamental frequency?",
@@ -148,7 +148,7 @@ export const problems: Problem[] = [
     title: "The projectile challenge",
     topic: "Mechanics",
     concept: "Projectile motion",
-    difficulty: "Challenge",
+    elo: 1700,
     minutes: 8,
     prompt:
       "A ball is launched from level ground at 20 m/s, at an angle of 30° above the horizontal. How far horizontally does it travel before returning to the same height? Ignore air resistance and use a gravitational acceleration of 9.8 m/s². Round to two decimal places.",
@@ -181,7 +181,7 @@ export const problems: Problem[] = [
     title: "Energy in a stretched spring",
     topic: "Mechanics",
     concept: "Elastic potential energy",
-    difficulty: "Intermediate",
+    elo: 1300,
     minutes: 5,
     prompt:
       "A spring with a spring constant of 200 N/m is stretched 0.10 m from its equilibrium position, within its elastic limit. How much elastic potential energy is stored?",
@@ -207,7 +207,7 @@ export const problems: Problem[] = [
     title: "Two resistors, one circuit",
     topic: "Electricity",
     concept: "Series circuits",
-    difficulty: "Intermediate",
+    elo: 1300,
     minutes: 5,
     prompt:
       "A 4 Ω resistor and an 8 Ω resistor are connected in series to a 24 V ideal battery. What is the total current in the circuit?",
@@ -233,7 +233,7 @@ export const problems: Problem[] = [
     title: "Powering a small lamp",
     topic: "Electricity",
     concept: "Electrical power",
-    difficulty: "Foundations",
+    elo: 900,
     minutes: 3,
     prompt:
       "A lamp operates at a potential difference of 9 V and draws a current of 0.5 A. What electrical power does it consume?",
@@ -254,7 +254,7 @@ export const problems: Problem[] = [
     title: "Reading between the waves",
     topic: "Waves",
     concept: "Wave speed",
-    difficulty: "Foundations",
+    elo: 900,
     minutes: 3,
     prompt:
       "A water wave has a frequency of 5 Hz and a wavelength of 0.4 m. What is its propagation speed?",
@@ -275,7 +275,7 @@ export const problems: Problem[] = [
     title: "An echo in the mountains",
     topic: "Waves",
     concept: "Sound propagation",
-    difficulty: "Intermediate",
+    elo: 1300,
     minutes: 5,
     prompt:
       "You clap while standing in front of a cliff and hear the echo 2 seconds later. If the speed of sound is 340 m/s, how far away is the cliff?",
@@ -301,7 +301,7 @@ export const problems: Problem[] = [
     title: "Warming a cup of water",
     topic: "Thermodynamics",
     concept: "Specific heat capacity",
-    difficulty: "Foundations",
+    elo: 900,
     minutes: 4,
     prompt:
       "How much heat is needed to raise the temperature of 0.25 kg of water by 20 °C? Use a specific heat capacity of 4,200 J/(kg·°C). Assume no heat is lost to the surroundings and no phase change occurs.",
@@ -322,7 +322,7 @@ export const problems: Problem[] = [
     title: "Work done by an expanding gas",
     topic: "Thermodynamics",
     concept: "Pressure–volume work",
-    difficulty: "Intermediate",
+    elo: 1300,
     minutes: 6,
     prompt:
       "A gas expands at a constant pressure of 100,000 Pa, from a volume of 0.002 m³ to 0.005 m³. How much work does the gas do on its surroundings?",
@@ -348,7 +348,7 @@ export const problems: Problem[] = [
     title: "Where does the energy go?",
     topic: "Thermodynamics",
     concept: "First law of thermodynamics",
-    difficulty: "Challenge",
+    elo: 1700,
     minutes: 7,
     prompt:
       "A gas absorbs 500 J of heat and does 180 J of work on its surroundings. What is the change in its internal energy? Use the convention that work done by the gas is positive.",

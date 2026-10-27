@@ -3,10 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import {
-  ArrowUpRight,
   BookOpen,
-  HelpCircle,
-  Layers2,
   LayoutGrid,
   Menu,
   Orbit,
@@ -54,25 +51,6 @@ export default function Sidebar({
           newton<span className="text-primary">.</span>
         </span>
       </Link>
-
-      <div className="px-4 pb-8 pt-3">
-        <Link
-          href="/dashboard?view=guide"
-          onClick={() => setMobileOpen(false)}
-          className="flex items-center gap-3 rounded-lg border bg-card p-3 text-card-foreground transition-colors hover:bg-muted"
-        >
-          <span className="flex size-8 shrink-0 items-center justify-center rounded-md bg-secondary text-secondary-foreground">
-            <Layers2 className="size-4" />
-          </span>
-          <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-            <span className="text-sm font-medium">Your workspace</span>
-            <span className="text-sm text-muted-foreground">
-              Personal space
-            </span>
-          </div>
-          <ArrowUpRight className="size-4 shrink-0 text-muted-foreground" />
-        </Link>
-      </div>
 
       <nav
         aria-label="Main navigation"
@@ -137,15 +115,6 @@ export default function Sidebar({
             Every big idea starts with a small question.
           </p>
         </div>
-        <Link
-          href="/dashboard?view=guide"
-          onClick={() => setMobileOpen(false)}
-          className="flex items-center gap-3 px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <HelpCircle className="size-[18px]" strokeWidth={1.7} />
-          Getting started
-          <ArrowUpRight className="ml-auto size-4" />
-        </Link>
       </div>
     </div>
   );

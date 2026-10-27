@@ -94,7 +94,7 @@ function ProblemPractice({
         <div className="flex flex-wrap items-center gap-2 pr-5">
           <Badge variant="secondary">{problem.topic}</Badge>
           <span className="text-sm text-muted-foreground">
-            {problem.difficulty} · {problem.minutes} min
+            {problem.elo.toLocaleString("en-US")} Elo · {problem.minutes} min
           </span>
         </div>
         <DialogTitle className="text-balance text-2xl font-medium leading-snug tracking-tight">

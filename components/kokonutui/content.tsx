@@ -16,7 +16,7 @@ const subtitles: Record<View, string> = {
   overview: "Less memorizing. More understanding.",
   problems: "Good questions lead to great discoveries. Find your next one.",
   contests: "Think clearly. Solve together. Find your competitive side.",
-  rankings: "Every round is a step forward. See how far you’ve come.",
+  rankings: "The leaderboard. See who’s leading, and who’s on a roll.",
   guide: "A few small steps to your first breakthrough.",
 };
 

@@ -38,13 +38,8 @@ export function ProblemList({
                 </span>
               </span>
             </span>
-            <Badge
-              variant={
-                problem.difficulty === "Challenge" ? "default" : "secondary"
-              }
-              className="hidden sm:inline-flex"
-            >
-              {problem.difficulty}
+            <Badge variant="secondary" className="shrink-0 tabular-nums">
+              {problem.elo.toLocaleString("en-US")} Elo
             </Badge>
             <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />
           </button>

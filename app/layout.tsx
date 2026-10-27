@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | Newton",
   },
   description:
-    "Your home for physics practice and competition. Solve thoughtful problems, take on timed contests, and follow your Elo rating as your understanding grows.",
+    "Practice physics by Elo difficulty, explore IPhO archive challenges with plain-text symbolic answers, and compete on the Newton leaderboard.",
   icons: { icon: "/icon.svg" },
 };
 

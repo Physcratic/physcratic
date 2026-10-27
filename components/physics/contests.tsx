@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -19,20 +19,24 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   demoContests,
-  demoProfile,
   type DemoContest,
 } from "@/lib/contest-demo";
 import { ContestDetails } from "./contest-details";
 import { ContestRoom } from "./contest-room";
+import { EntrantDistribution } from "./entrant-distribution";
+
+const IphoContest = dynamic(() => import("./ipho-contest").then((module) => module.IphoContest), {
+  loading: () => <p role="status" className="text-sm text-muted-foreground">Opening IPhO practice…</p>,
+});
 
 export function Contests() {
+  const [iphoOpen, setIphoOpen] = useState(false);
   const [selected, setSelected] = useState<DemoContest | null>(null);
   const [activeContest, setActiveContest] = useState<DemoContest | null>(null);
   const [registered, setRegistered] = useState<string[]>([]);
@@ -57,6 +61,8 @@ export function Contests() {
     );
   }
 
+  if (iphoOpen) return <IphoContest onExit={() => setIphoOpen(false)} />;
+
   if (activeContest)
     return (
       <ContestRoom
@@ -68,7 +74,7 @@ export function Contests() {
 
   return (
     <div className="flex flex-col gap-7">
-      <div className="grid min-w-0 grid-cols-1 gap-5 min-[1100px]:grid-cols-[1fr_280px]">
+      <div className="grid min-w-0 grid-cols-1 gap-5 min-[1100px]:grid-cols-[1fr_320px]">
         <section
           className="flex min-w-0 flex-col items-start justify-between gap-6 overflow-hidden rounded-xl border bg-hero p-6 text-hero-foreground sm:p-8"
           aria-labelledby="featured-contest"
@@ -112,40 +118,23 @@ export function Contests() {
             <ArrowRight data-icon="inline-end" />
           </Button>
         </section>
-        <Card className="flex min-w-0 flex-col justify-between shadow-none">
-          <CardHeader>
-            <CardTitle>
-              <h2 className="text-base font-medium tracking-tight">
-                Your next breakthrough
-              </h2>
-            </CardTitle>
-            <CardDescription>
-              Same curiosity. A little competition.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-5">
-            <Trophy className="size-7 text-primary" strokeWidth={1.4} />
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              Solve problems, climb the standings, and watch your understanding
-              grow into a rating.
-            </p>
-            <div className="flex items-baseline gap-2">
-              <span className="text-3xl font-medium tracking-tight tabular-nums">
-                {demoProfile.rating.toLocaleString("en-US")}
-              </span>
-              <span className="text-sm text-muted-foreground">demo Elo</span>
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button variant="outline" className="w-full" asChild>
-              <Link href="/dashboard?view=rankings">
-                View rankings
-                <ArrowUpRight data-icon="inline-end" />
-              </Link>
-            </Button>
-          </CardFooter>
-        </Card>
+        <EntrantDistribution contestName={live.name} />
       </div>
+
+      <Card className="shadow-none">
+        <CardHeader className="gap-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <Badge variant="secondary">Sample contest</Badge>
+            <Badge variant="outline">IPhO 2011 & 2015 · Unrated</Badge>
+          </div>
+          <CardTitle><h2 className="text-lg font-medium tracking-tight">The IPhO collection</h2></CardTitle>
+          <CardDescription>Real Olympiad ideas. A simpler way to answer.</CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-wrap items-center justify-between gap-5">
+          <p className="max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground">Try three selected archive subparts with original question and solution PDFs. Enter compact, calculator-style expressions and see a live math preview.</p>
+          <Button onClick={() => setIphoOpen(true)}>Open sample contest<ArrowRight data-icon="inline-end" /></Button>
+        </CardContent>
+      </Card>
 
       <Tabs defaultValue="upcoming" className="min-w-0">
         <div className="flex flex-wrap items-center justify-between gap-3">

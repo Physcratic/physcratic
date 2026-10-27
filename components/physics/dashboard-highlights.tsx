@@ -160,7 +160,7 @@ function DailyProblem({
             {problem.title}
           </h3>
           <CardDescription className="leading-relaxed">
-            {problem.concept} · {problem.difficulty}
+            {problem.concept} · {problem.elo.toLocaleString("en-US")} Elo
           </CardDescription>
         </div>
         <div className="rounded-lg bg-muted/60 px-4 py-1 text-muted-foreground">

@@ -137,20 +137,29 @@ export function ratingTitle(rating: number) {
   return "Explorer";
 }
 
+export function risingStreak(changes: readonly number[]) {
+  let streak = 0;
+  for (let index = changes.length - 1; index >= 0 && changes[index] > 0; index--) {
+    streak++;
+  }
+  return streak;
+}
+
 export const demoRankings = [
-  { rank: 1, handle: "orbital", rating: 2316, change: 42, contests: 28 },
-  { rank: 2, handle: "noether", rating: 2248, change: 36, contests: 24 },
-  { rank: 3, handle: "fieldnotes", rating: 2172, change: -12, contests: 31 },
-  { rank: 4, handle: "quantumleap", rating: 2084, change: 58, contests: 22 },
-  { rank: 5, handle: "inertia", rating: 1986, change: 24, contests: 19 },
-  { rank: 6, handle: "curious_mind", rating: 1928, change: -8, contests: 21 },
-  { rank: 7, handle: "wavefunction", rating: 1864, change: 31, contests: 17 },
+  { rank: 1, handle: "orbital", rating: 2316, change: 42, contests: 28, recentChanges: [-8, 24, 31, 18, 42] },
+  { rank: 2, handle: "noether", rating: 2248, change: 36, contests: 24, recentChanges: [-12, -6, 14, 28, 36] },
+  { rank: 3, handle: "fieldnotes", rating: 2172, change: -12, contests: 31, recentChanges: [24, 16, -8, 22, -12] },
+  { rank: 4, handle: "quantumleap", rating: 2084, change: 58, contests: 22, recentChanges: [12, 21, 35, 44, 58] },
+  { rank: 5, handle: "inertia", rating: 1986, change: 24, contests: 19, recentChanges: [18, 7, -9, 16, 24] },
+  { rank: 6, handle: "curious_mind", rating: 1928, change: -8, contests: 21, recentChanges: [12, -6, 18, 25, -8] },
+  { rank: 7, handle: "wavefunction", rating: 1864, change: 31, contests: 17, recentChanges: [-4, 16, 22, 18, 31] },
   {
     rank: 247,
     handle: "You",
     rating: demoProfile.rating,
     change: 66,
     contests: demoProfile.contests,
+    recentChanges: demoRatingHistory.slice(1).map((round, index) => round.rating - demoRatingHistory[index].rating),
   },
 ];
 

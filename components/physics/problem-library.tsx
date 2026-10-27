@@ -45,7 +45,10 @@ export function ProblemLibrary({
   const filtered = problems.filter(
     (problem) =>
       (selectedTopic === "all" || problem.topic === selectedTopic) &&
-      (difficulty === "all" || problem.difficulty === difficulty) &&
+      (difficulty === "all" ||
+        (difficulty === "under-1200" && problem.elo < 1200) ||
+        (difficulty === "1200-1599" && problem.elo >= 1200 && problem.elo < 1600) ||
+        (difficulty === "1600-plus" && problem.elo >= 1600)) &&
       `${problem.title} ${problem.topic} ${problem.concept} ${problem.prompt}`
         .toLowerCase()
         .includes(search.toLowerCase().trim()),
@@ -89,19 +92,17 @@ export function ProblemLibrary({
           </Select>
         </Field>
         <Field className="sm:w-44">
-          <FieldLabel htmlFor="difficulty-filter">Difficulty</FieldLabel>
+          <FieldLabel htmlFor="difficulty-filter">Elo difficulty</FieldLabel>
           <Select value={difficulty} onValueChange={setDifficulty}>
             <SelectTrigger id="difficulty-filter">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                <SelectItem value="all">All levels</SelectItem>
-                {["Foundations", "Intermediate", "Challenge"].map((item) => (
-                  <SelectItem key={item} value={item}>
-                    {item}
-                  </SelectItem>
-                ))}
+                <SelectItem value="all">All ratings</SelectItem>
+                <SelectItem value="under-1200">Below 1,200</SelectItem>
+                <SelectItem value="1200-1599">1,200–1,599</SelectItem>
+                <SelectItem value="1600-plus">1,600+</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>
@@ -145,7 +146,7 @@ export function ProblemLibrary({
         </CardContent>
       </Card>
       <p className="text-sm leading-relaxed text-muted-foreground">
-        No stopwatch. No pressure. Take the time you need to understand the why.
+        Elo difficulties are illustrative estimates for this preview, not calibrated ratings.
       </p>
     </div>
   );
