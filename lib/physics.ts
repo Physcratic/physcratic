@@ -36,8 +36,8 @@ export type View =
   | "guide";
 
 export const viewTitles: Record<View, string> = {
-  overview: "Overview",
-  problems: "Problem library",
+  overview: "Lobby",
+  problems: "Problems",
   contests: "Contests",
   rankings: "Rankings",
   guide: "Getting started",

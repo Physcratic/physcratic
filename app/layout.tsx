@@ -8,11 +8,11 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: {
-    default: "Newton — Your physics workspace",
-    template: "%s | Newton",
+    default: "Physcratic — Physics practice and contests",
+    template: "%s | Physcratic",
   },
   description:
-    "Practice physics by difficulty, explore sourced IPhO 2025 challenges with plain-text symbolic answers, and compete on the Newton leaderboard.",
+    "Practice physics by difficulty, revisit your problem history, explore sourced IPhO 2025 challenges, and compete on the Physcratic leaderboard.",
   icons: { icon: "/icon.svg" },
 };
 

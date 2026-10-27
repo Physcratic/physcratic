@@ -30,8 +30,8 @@ export default function Sidebar({
 }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const mainItems = [
-    { view: "overview", label: "Overview", icon: LayoutGrid },
-    { view: "problems", label: "Problem library", icon: BookOpen },
+    { view: "overview", label: "Lobby", icon: LayoutGrid },
+    { view: "problems", label: "Problems", icon: BookOpen },
     { view: "contests", label: "Contests", icon: Trophy },
     { view: "rankings", label: "Rankings", icon: ChartNoAxesCombined },
   ];
@@ -42,13 +42,13 @@ export default function Sidebar({
         href="/dashboard"
         onClick={() => setMobileOpen(false)}
         className="flex h-[76px] shrink-0 items-center gap-2.5 px-6"
-        aria-label="Newton home"
+        aria-label="Physcratic home"
       >
         <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
           <Orbit className="size-5" strokeWidth={1.7} />
         </span>
         <span className="text-2xl font-semibold tracking-[-0.065em]">
-          newton<span className="text-primary">.</span>
+          Physcratic
         </span>
       </Link>
 
@@ -88,7 +88,7 @@ export default function Sidebar({
         </div>
         <div className="flex flex-col gap-3">
           <h2 className="px-3 text-base font-semibold tracking-tight text-foreground">
-            Explore topics
+            Explore
           </h2>
           <div className="flex flex-col gap-1">
             {topics.map(({ name, icon: Icon }) => (
@@ -127,7 +127,7 @@ export default function Sidebar({
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="w-72 p-0">
-            <SheetTitle className="sr-only">Newton navigation</SheetTitle>
+            <SheetTitle className="sr-only">Physcratic navigation</SheetTitle>
             <SheetDescription className="sr-only">
               Browse your physics workspace and topics.
             </SheetDescription>

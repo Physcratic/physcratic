@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 import {
   ArrowRight,
@@ -60,7 +59,7 @@ function FeaturedContest() {
               className="flex items-center gap-2 text-sm font-medium text-primary"
             >
               <Trophy aria-hidden="true" className="size-4" strokeWidth={1.6} />
-              Featured contest
+              Featured
             </h2>
           </CardTitle>
           <Badge variant="outline">Upcoming</Badge>
@@ -89,7 +88,6 @@ function FeaturedContest() {
               <ListChecks aria-hidden="true" className="size-4" />
               {contest.problemIds.length} problems
             </span>
-            <span>{contest.rated ? "Rated" : "Unrated"} format</span>
           </div>
         </div>
       </CardContent>
@@ -104,13 +102,6 @@ function FeaturedContest() {
             {registered ? "Signed up · demo" : "Sign up"}
             {!registered && <ArrowRight data-icon="inline-end" />}
           </Button>
-          <Link
-            href="/dashboard?view=contests"
-            className="flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-          >
-            All contests
-            <ArrowUpRight aria-hidden="true" className="size-4" />
-          </Link>
         </div>
         <p
           role="status"
@@ -144,7 +135,7 @@ function DailyProblem({
             className="flex items-center gap-2 text-sm font-medium text-primary"
           >
             <Sun aria-hidden="true" className="size-4" strokeWidth={1.6} />
-            Problem of the day
+            Recommended For You
           </h2>
         </CardTitle>
       </CardHeader>
@@ -173,7 +164,7 @@ function DailyProblem({
           className="w-full"
           onClick={() => onOpen(problem)}
         >
-          Solve today&apos;s problem
+          Solve problem
           <ArrowUpRight data-icon="inline-end" />
         </Button>
       </CardFooter>
