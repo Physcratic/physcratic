@@ -49,7 +49,7 @@ function FeaturedContest() {
 
   return (
     <Card
-      className="flex min-w-0 flex-col overflow-hidden shadow-none"
+      className="featured-contest-card flex min-w-0 flex-col overflow-hidden shadow-none"
       aria-labelledby="dashboard-featured-contest"
     >
       <CardHeader className="pb-4">

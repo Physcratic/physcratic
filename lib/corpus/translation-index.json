@@ -1,0 +1,242 @@
+{
+  "schemaVersion": "1.0.0",
+  "translated": 1,
+  "russianSourceCount": 45,
+  "records": [
+    {
+      "id": "apho-2014-t2",
+      "path": "/corpus/translations/apho-2014-t2.json",
+      "sourceSha256": "ac70d6d1185d67683db0fd0eb8c96615849110ecea1aac56707ab63673cadda3",
+      "sha256": "825b6b628b571350293566bd6e1e2ca16e84fe900b4d5ed5d9a8281a7f2ceb65",
+      "method": "editorial",
+      "reviewStatus": "independent-physics-review-pending"
+    }
+  ],
+  "audit": [
+    {
+      "id": "apho-2006-t2",
+      "translation": "pending",
+      "solutionStatus": "missing-derivation"
+    },
+    {
+      "id": "apho-2009-t1",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "apho-2011-t2",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "apho-2012-t1",
+      "translation": "pending",
+      "solutionStatus": "missing-derivation"
+    },
+    {
+      "id": "apho-2012-t3",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "apho-2013-t1",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "apho-2013-t3",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "apho-2014-t2",
+      "translation": "english-draft",
+      "solutionStatus": "missing-derivation"
+    },
+    {
+      "id": "apho-2014-t3",
+      "translation": "pending",
+      "solutionStatus": "missing-derivation"
+    },
+    {
+      "id": "apho-2015-t1",
+      "translation": "pending",
+      "solutionStatus": "missing-derivation"
+    },
+    {
+      "id": "apho-2015-t2",
+      "translation": "pending",
+      "solutionStatus": "missing-derivation"
+    },
+    {
+      "id": "apho-2015-t3",
+      "translation": "pending",
+      "solutionStatus": "missing-derivation"
+    },
+    {
+      "id": "apho-2016-t1",
+      "translation": "pending",
+      "solutionStatus": "missing-derivation"
+    },
+    {
+      "id": "apho-2016-t3",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "apho-2017-t1",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "apho-2017-t2",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "apho-2017-t3",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "apho-2018-t1",
+      "translation": "pending",
+      "solutionStatus": "missing-derivation"
+    },
+    {
+      "id": "apho-2018-t2",
+      "translation": "pending",
+      "solutionStatus": "missing-derivation"
+    },
+    {
+      "id": "apho-2018-t3",
+      "translation": "pending",
+      "solutionStatus": "missing-derivation"
+    },
+    {
+      "id": "apho-2019-t1",
+      "translation": "pending",
+      "solutionStatus": "missing-derivation"
+    },
+    {
+      "id": "apho-2019-t2",
+      "translation": "pending",
+      "solutionStatus": "missing-derivation"
+    },
+    {
+      "id": "apho-2019-t3",
+      "translation": "pending",
+      "solutionStatus": "missing-derivation"
+    },
+    {
+      "id": "apho-2021-t1",
+      "translation": "pending",
+      "solutionStatus": "missing-derivation"
+    },
+    {
+      "id": "apho-2021-t2",
+      "translation": "pending",
+      "solutionStatus": "missing-derivation"
+    },
+    {
+      "id": "apho-2021-t3",
+      "translation": "pending",
+      "solutionStatus": "missing-derivation"
+    },
+    {
+      "id": "apho-2022-t1",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "apho-2022-t2",
+      "translation": "pending",
+      "solutionStatus": "missing-derivation"
+    },
+    {
+      "id": "apho-2022-t3",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "apho-2023-t1",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "apho-2023-t2",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "apho-2024-t3",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "apho-2025-t1",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "apho-2025-t2",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "apho-2025-t3",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "ipho-2016-t1",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "ipho-2016-t2",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "ipho-2021-t1",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "ipho-2021-t2",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "ipho-2023-t1",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "ipho-2023-t2",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "ipho-2023-t3",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "ipho-2024-t1",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "ipho-2024-t2",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    },
+    {
+      "id": "ipho-2024-t3",
+      "translation": "pending",
+      "solutionStatus": "review-required"
+    }
+  ]
+}

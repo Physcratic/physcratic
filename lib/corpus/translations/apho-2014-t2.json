@@ -1,0 +1,28 @@
+{
+  "id": "apho-2014-t2",
+  "statementSegments": [
+    "Two-beam electron interference was first observed by Merli, Missiroli and Pozzi in 1974, and by Tonomura and colleagues in 1989. In the electron interference experiment, a point source $S$ emits monochromatic electrons, which first pass through an electron biprism and then reach the observation plane. The electron biprism consists of a grounded cylindrical wire mesh and a very thin wire $F$ at its centre.",
+    "Let $l$ be the distance between wire $F$ and source $S$; $d$ the distance between the virtual sources $S_1$ and $S_2$; and $L$ the distance between wire $F$ and the observation plane (screen).",
+    "Take the origin $O$ on the axis of the wire. Derive an expression for the potential at an arbitrary point in the $(x, z)$ plane in terms of $V_a$, $a$ and $b$, where $V_a$ is the potential of the wire surface, $a$ is the wire radius, and $b$ is the radius of the cylindrical mesh.",
+    "An incident plane electron wave with wave-vector component $k_z$ is deflected by the biprism because of the $x$-component of the force on the electrons. Write an expression for $k_x$, the $x$-component of the wave vector of the deflected wave. Express $k_x$ in terms of $e, v_z, V_a, k_z, a$ and $b$, where $e$ is the electron charge and $v_z$ is the $z$-component of its velocity $(k_x\\ll k_z)$. Recall that $\\vec k =\\frac{2\\pi\\vec p}{h}$, where $h$ is Planck's constant.",
+    "Before reaching point $S$, electrons are emitted by the source and accelerated through a potential difference $V_0$. Determine the electron wavelength in terms of its mass $m$, charge $e_0$ and $V_0$:",
+    "neglecting relativistic effects;",
+    "including relativistic effects.",
+    "In the experiment by Tonomura and colleagues:",
+    "$V_a=10~\\mathrm{V}$,",
+    "$V_0=50~\\mathrm{kV}$,",
+    "$a=0.5~\\mathrm{\\mu m}$,",
+    "$b=5~\\mathrm{mm}$,",
+    "$l=25~\\mathrm{cm}$,",
+    "$L=1.5~\\mathrm{m}$,",
+    "$h=6.6\\times 10^{-34}~\\mathrm{J} \\cdot \\mathrm{s}$,",
+    "electron charge $-e_0=-1.6\\times 10^{-19}~\\mathrm{C}$,",
+    "electron mass $m=9.1\\times 10^{-31}~\\mathrm{kg}$,",
+    "speed of light in vacuum $c=3\\times 10^8~\\mathrm{m/s}$.",
+    "Calculate the magnitude of $k_x$.",
+    "Determine the spacing between interference fringes on the screen.",
+    "Would the interference-fringe spacing increase or decrease if the propagating wave were spherical rather than plane?",
+    "What relative error in the wavelength results from using the non-relativistic approximation in part (c)? Express your answer as a percentage.",
+    "Calculate the distance $d$ between the virtual sources."
+  ]
+}

@@ -44,6 +44,7 @@ import {
   type CatalogProblem,
 } from "@/lib/corpus-catalog";
 import { ImportedProblemReader } from "./imported-problem-reader";
+import translationIndex from "@/lib/corpus/translation-index.json";
 
 function SourceActions({
   problem,
@@ -141,9 +142,9 @@ export function OlympiadCatalog({
             </Badge>
           </div>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            40 IPhO · 35 APhO · 25 EuPhO. Complete statements, diagrams and
-            worked solutions imported across six topics, from 2004 to 2025. Read
-            every problem here—no external archive required.
+            40 IPhO · 35 APhO · 25 EuPhO. Complete statements and diagrams
+            imported across six topics, from 2004 to 2025. Solution completeness
+            and English translation progress are tracked separately.
           </p>
         </div>
         <Button size="sm" variant="outline" asChild>
@@ -158,13 +159,14 @@ export function OlympiadCatalog({
       <Alert>
         <Info />
         <AlertTitle>
-          100 problems imported, with statements and solutions.
+          100 statements imported · solution review required
         </AlertTitle>
         <AlertDescription>
-          Text, original page images, and diagrams are stored locally in the
-          app. English and Russian sources are labeled. All problems are
-          unrated; independent physics review and republication permission
-          remain pending.
+          {translationIndex.translated} of {translationIndex.russianSourceCount} Russian-source
+          problems have English drafts. {translationIndex.audit.filter((record) => record.solutionStatus === "missing-derivation").length} imported
+          mirror solution pages repeat questions without a derivation and cannot
+          be grading references. All problems remain unrated; physics, rubric and
+          republication reviews are pending.
         </AlertDescription>
       </Alert>
       <details className="rounded-lg border border-border px-4 py-3">

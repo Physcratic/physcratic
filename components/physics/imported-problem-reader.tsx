@@ -36,6 +36,9 @@ import {
   type ImportedDocument,
 } from "@/lib/imported-corpus-schema";
 import type { CatalogProblem } from "@/lib/corpus-catalog";
+import { translationSchema } from "@/lib/corpus-translation";
+import translationIndex from "@/lib/corpus/translation-index.json";
+import { assessSolutionSource } from "@/lib/corpus-readiness";
 import { ImportedSourceContent } from "./imported-source-content";
 
 async function loadProblem(url: string) {
@@ -43,6 +46,12 @@ async function loadProblem(url: string) {
   if (!response.ok)
     throw new Error("The imported document could not be loaded.");
   return importedProblemSchema.parse(await response.json());
+}
+
+async function loadTranslation(url: string) {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error("The English draft could not be loaded.");
+  return translationSchema.parse(await response.json());
 }
 
 function PdfReader({
@@ -190,6 +199,15 @@ export function ImportedProblemReader({
     loadProblem,
   );
   const [tab, setTab] = useState("statement");
+  const [language, setLanguage] = useState("en");
+  const translationRecord = translationIndex.records.find((record) => record.id === problem.id);
+  const { data: english, error: translationError, isLoading: translationLoading, mutate: retryTranslation } = useSWRImmutable(
+    translationRecord && language === "en" ? translationRecord.path : null,
+    loadTranslation,
+  );
+  const readingData = translationRecord && language === "en" ? english?.content : data;
+  const readiness = data ? assessSolutionSource(data) : undefined;
+  const missingSolution = readiness?.status === "missing-derivation";
   return (
     <section
       className="flex min-w-0 flex-col gap-5"
@@ -228,22 +246,59 @@ export function ImportedProblemReader({
           {problem.title}
         </h2>
         <p className="text-sm leading-relaxed text-muted-foreground">
-          Complete statement, original diagrams, and worked solution stored in
-          this app. Self-review only; no calibrated Elo or automatic grading.
+          Complete statement and original diagrams stored in this app. Solution
+          content is checked separately before it can become a grading reference.
+          Unrated; automatic grading is not enabled.
         </p>
       </header>
-      {problem.importLanguage === "ru" && (
+      {translationRecord ? (
+        <div className="flex flex-col gap-3">
+          <Select value={language} onValueChange={setLanguage}>
+            <SelectTrigger className="w-60" aria-label="Reading language">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent><SelectGroup>
+              <SelectItem value="en">English · translation draft</SelectItem>
+              <SelectItem value="ru">Russian · original source</SelectItem>
+            </SelectGroup></SelectContent>
+          </Select>
+          <Alert>
+            <AlertTitle>English translation draft available</AlertTitle>
+            <AlertDescription>
+              The full source text is translated, not summarized. The original
+              Russian and diagrams are preserved. Independent physics review is
+              pending; the translation does not create missing solution content.
+            </AlertDescription>
+          </Alert>
+        </div>
+      ) : problem.importLanguage === "ru" ? (
         <Alert>
-          <AlertTitle>Russian-language source</AlertTitle>
+          <AlertTitle>English translation pending</AlertTitle>
           <AlertDescription>
-            The complete mirror text, equations, and figures are imported in
-            Russian. The English catalog title is editorial, not a translation
-            of the statement. Translation and independent physics review remain
-            pending.
+            This complete source is currently in Russian. Its English catalog
+            title is not a translated statement. English drafts are being added
+            separately, with equations, figures and original source text retained.
+          </AlertDescription>
+        </Alert>
+      ) : null}
+      {missingSolution && (
+        <Alert>
+          <AlertTitle>Worked solution not available in this import</AlertTitle>
+          <AlertDescription>{readiness.reason} The original imported page is retained for transparency.</AlertDescription>
+        </Alert>
+      )}
+      {translationError && language === "en" && (
+        <Alert variant="destructive">
+          <AlertTitle>Could not load the English draft</AlertTitle>
+          <AlertDescription>
+            <div className="flex flex-wrap gap-3">
+              <Button variant="outline" size="sm" onClick={() => retryTranslation()}>Retry English</Button>
+              <Button variant="outline" size="sm" onClick={() => setLanguage("ru")}>Read Russian original</Button>
+            </div>
           </AlertDescription>
         </Alert>
       )}
-      {isLoading && (
+      {(isLoading || translationLoading) && (
         <div role="status" className="flex flex-col gap-4">
           <span className="text-sm text-muted-foreground">
             Loading imported statement and solution…
@@ -262,7 +317,7 @@ export function ImportedProblemReader({
           </AlertDescription>
         </Alert>
       )}
-      {data && (
+      {readingData && (
         <Tabs
           value={tab}
           onValueChange={setTab}
@@ -270,7 +325,7 @@ export function ImportedProblemReader({
         >
           <TabsList className="w-fit">
             <TabsTrigger value="statement">Problem statement</TabsTrigger>
-            <TabsTrigger value="solution">Worked solution</TabsTrigger>
+            <TabsTrigger value="solution">{missingSolution ? "Source solution page" : "Worked solution"}</TabsTrigger>
           </TabsList>
           {(["statement", "solution"] as const).map((kind) => (
             <TabsContent key={kind} value={kind} className="min-w-0">
@@ -278,21 +333,21 @@ export function ImportedProblemReader({
                 <CardHeader>
                   <CardTitle>
                     {kind === "statement"
-                      ? "Original problem"
-                      : "Worked solution"}
+                      ? readingData.language === "en" && translationRecord && language === "en" ? "English problem statement" : "Original problem"
+                      : missingSolution ? "Imported page · no derivation supplied" : "Worked solution"}
                   </CardTitle>
                   <CardDescription>
                     {kind === "statement"
                       ? "All source subparts, figures and tables are included."
-                      : "Contains spoilers. Compare with your own derivation before self-assessing."}
+                      : missingSolution ? "This mirror page repeats the questions; it is not a worked solution or a marking rubric." : "Contains spoilers. Compare with your own derivation before self-assessing; reference review is still pending."}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="min-w-0">
-                  {data[kind].format === "pdf" ? (
+                  {readingData[kind].format === "pdf" ? (
                     <PdfReader
                       key={kind}
                       document={
-                        data[kind] as Extract<
+                        readingData[kind] as Extract<
                           ImportedDocument,
                           { format: "pdf" }
                         >
@@ -303,13 +358,13 @@ export function ImportedProblemReader({
                     <ImportedSourceContent
                       nodes={
                         (
-                          data[kind] as Extract<
+                          readingData[kind] as Extract<
                             ImportedDocument,
                             { format: "html" }
                           >
                         ).nodes
                       }
-                      language={data.language}
+                      language={readingData.language}
                     />
                   )}
                 </CardContent>

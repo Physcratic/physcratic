@@ -1,6 +1,7 @@
 import { z } from "zod";
 import sources from "./corpus/catalog-sources.json";
 import imports from "./corpus/import-index.json";
+import translationIndex from "./corpus/translation-index.json";
 import {
   catalogSelection,
   catalogTopics,
@@ -187,7 +188,7 @@ export const catalogExport = {
   checkedOn: sources.checkedOn,
   verification: sources.verification,
   notes:
-    "100 distinct imported full theory problems: 40 IPhO, 35 APhO, 25 EuPhO. Every record has a local content JSON with the complete statement and worked solution, including original diagrams. PDF layouts and shared source material are preserved. Import paths resolve against the app origin. Includes the original five structured pilot guides. English titles are editorial; Russian sources are explicitly labeled. Independent physics, translation and rights reviews remain pending.",
+    "100 distinct imported theory statements: 40 IPhO, 35 APhO, 25 EuPhO. Local source JSON, diagrams, PDF layouts and shared material are retained. Some imported mirror solution pages contain only repeated questions, not worked derivations; see the solution-readiness audit. English drafts are stored separately and retain original source hashes. Includes the original five structured pilot guides. No imported source is an approved grading rubric. Independent physics, translation and rights reviews remain pending.",
   publication: {
     mode: "imported-local-corpus",
     rightsStatus: "permission-review-required",
@@ -204,4 +205,5 @@ export const catalogExport = {
   problems: catalogProblems,
   checks: sources.checks,
   imports,
+  translations: translationIndex,
 };
