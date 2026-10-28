@@ -1,9 +1,19 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { detectSubmissionMedia, evidenceMatches, safeReturnPath, validUploadSize } from "./submission-security";
+import { detectSubmissionMedia, evidenceMatches, isAllowedSubmissionOrigin, safeReturnPath, validUploadSize } from "./submission-security";
 import { submissionLimits } from "./solution-grading";
 
 const bytes = (text: string) => new TextEncoder().encode(text);
+test("write origins must match deployment configuration, never request Host", () => {
+  const allowed = ["https://app.example/", undefined, "not-a-url"];
+  const input = (origin?: string, host = "https://app.example", site?: string) => new Request(host, { headers: { ...(origin ? { origin } : {}), ...(site ? { "sec-fetch-site": site } : {}) } });
+  assert.equal(isAllowedSubmissionOrigin(input("https://app.example"), allowed), true);
+  assert.equal(isAllowedSubmissionOrigin(input("https://app.example", "https://internal.example", "same-origin"), allowed), true);
+  for (const origin of [undefined, "null", "https://evil.example", "https://app.example.evil.example", "http://app.example", "https://app.example/"]) assert.equal(isAllowedSubmissionOrigin(input(origin), allowed), false);
+  assert.equal(isAllowedSubmissionOrigin(input("https://evil.example", "https://evil.example"), allowed), false);
+  assert.equal(isAllowedSubmissionOrigin(input("https://app.example", "https://app.example", "cross-site"), allowed), false);
+  assert.equal(isAllowedSubmissionOrigin(input("https://app.example"), []), false);
+});
 test("uploads require supported binary signatures, not names or browser MIME alone", () => {
   assert.equal(detectSubmissionMedia(Uint8Array.from([255, 216, 255, 0])), "image/jpeg");
   assert.equal(detectSubmissionMedia(Uint8Array.from([137, 80, 78, 71, 13, 10, 26, 10])), "image/png");

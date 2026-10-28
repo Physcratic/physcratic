@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  poweredByHeader: false,
   images: {
     unoptimized: true,
   },
@@ -12,6 +10,13 @@ const nextConfig = {
   },
   async headers() {
     return [
+      {
+        source: "/api/:path*",
+        headers: [
+          { key: "Cache-Control", value: "private, no-store" },
+          { key: "X-Robots-Tag", value: "noindex, nofollow" },
+        ],
+      },
       {
         source: "/:path*",
         headers: [

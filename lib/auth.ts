@@ -10,7 +10,16 @@ export const auth = betterAuth({
       : process.env.VERCEL_URL
         ? `https://${process.env.VERCEL_URL}`
         : process.env.V0_RUNTIME_URL),
-  emailAndPassword: { enabled: true, autoSignIn: true },
+  emailAndPassword: { enabled: true, autoSignIn: true, minPasswordLength: 8, maxPasswordLength: 128 },
+  rateLimit: {
+    enabled: true,
+    window: 60,
+    max: 60,
+    customRules: {
+      "/sign-in/email": { window: 60, max: 5 },
+      "/sign-up/email": { window: 60, max: 3 },
+    },
+  },
   trustedOrigins: [
     ...(process.env.NODE_ENV === "development"
       ? [
