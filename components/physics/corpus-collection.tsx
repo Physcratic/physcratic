@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/empty";
 import { corpusProblems, filterCorpus } from "@/lib/corpus-pilot";
 import type { CorpusProblem } from "@/lib/corpus-schema";
+import { getProblemTags } from "@/lib/problem-tags";
 import { CorpusProblemReader } from "./corpus-problem-reader";
 
 export function CorpusCollection({
@@ -130,8 +131,14 @@ export function CorpusCollection({
                       <span className="text-pretty text-base font-medium">
                         {problem.title}
                       </span>
-                      <span className="text-sm leading-relaxed text-muted-foreground">
-                        {problem.tags.slice(0, 3).join(" · ")}
+                      <span
+                        className="flex flex-wrap gap-2"
+                      >
+                        {getProblemTags(problem).map((tag) => (
+                          <Badge key={tag} variant="secondary">
+                            {tag}
+                          </Badge>
+                        ))}
                       </span>
                       <span className="text-sm text-muted-foreground">
                         {problem.parts.length} scored subparts · {problem.pages}{" "}

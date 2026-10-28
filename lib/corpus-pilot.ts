@@ -3,6 +3,7 @@ import solar from "./corpus/ipho-2015-t1.json";
 import assets from "../public/corpus-assets.json";
 import { iphoPapers, iphoSubproblems } from "./ipho-archive";
 import { corpusProblemSchema, type CorpusProblem } from "./corpus-schema";
+import { getProblemTags, tagLabel } from "./problem-tags";
 
 const topicMap: Record<string, CorpusProblem["topics"]> = {
   t1: ["Modern", "Mechanics"],
@@ -100,8 +101,7 @@ export function filterCorpus({
   const search = query.trim().toLowerCase();
   return corpusProblems.filter(
     (problem) =>
-      (topic === "all" ||
-        problem.topics.includes(topic as CorpusProblem["topics"][number])) &&
+      (topic === "all" || getProblemTags(problem).includes(tagLabel(topic))) &&
       (difficulty === "all" || difficulty === "unrated") &&
       [
         problem.title,
@@ -109,8 +109,7 @@ export function filterCorpus({
         problem.code,
         "IPhO",
         problem.summary,
-        ...problem.tags,
-        ...problem.topics,
+        ...getProblemTags(problem),
         ...problem.parts.map((part) => `${part.title} ${part.prompt}`),
       ]
         .join(" ")

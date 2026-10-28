@@ -4,6 +4,7 @@ import { ArrowUpRight, Clock3 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { topics, type Problem } from "@/lib/physics";
 import { getEloBand } from "@/lib/problem-archive";
+import { getProblemTags } from "@/lib/problem-tags";
 
 export function ProblemList({
   items,
@@ -30,10 +31,15 @@ export function ProblemList({
               <span className="text-sm font-medium transition-colors group-hover:text-primary">
                 {problem.title}
               </span>
-              <span className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
-                <span>{problem.concept}</span>
-                <span aria-hidden="true">·</span>
-                <span className="flex items-center gap-1">
+              <span
+                className="flex flex-wrap items-center gap-2"
+              >
+                {getProblemTags(problem).map((tag) => (
+                  <Badge key={tag} variant="secondary">
+                    {tag}
+                  </Badge>
+                ))}
+                <span className="flex items-center gap-1 text-sm text-muted-foreground">
                   <Clock3 className="size-3.5" />
                   {problem.minutes} min
                 </span>

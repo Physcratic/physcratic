@@ -1,13 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Shuffle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { problems, viewTitles, type Problem, type View } from "@/lib/physics";
 import { Overview } from "@/components/physics/overview";
 import { ProblemLibrary } from "@/components/physics/problem-library";
 import { ArchiveStats } from "@/components/physics/archive-stats";
-import { ProblemDialog } from "@/components/physics/problem-dialog";
 import { LearningGuide } from "@/components/physics/learning-guide";
 import { Contests } from "@/components/physics/contests";
 import { Rankings } from "@/components/physics/rankings";
@@ -32,13 +31,16 @@ export default function Content({
   query?: string;
   dailyProblem: Problem;
 }) {
-  const [activeProblem, setActiveProblem] = useState<Problem | null>(null);
+  const router = useRouter();
+  function openProblem(problem: Problem) {
+    router.push(`/dashboard/problems/${problem.id}`);
+  }
   const choices = topic
     ? problems.filter((problem) => problem.topic === topic)
     : problems;
   function openRandomProblem() {
     if (!choices.length) return;
-    setActiveProblem(choices[Math.floor(Math.random() * choices.length)]);
+    openProblem(choices[Math.floor(Math.random() * choices.length)]);
   }
 
   return (
@@ -73,19 +75,14 @@ export default function Content({
         </div>
       )}
       {view === "overview" && (
-        <Overview dailyProblem={dailyProblem} onOpen={setActiveProblem} />
+        <Overview dailyProblem={dailyProblem} onOpen={openProblem} />
       )}
       {view === "problems" && (
-        <ProblemLibrary topic={topic} query={query} onOpen={setActiveProblem} />
+        <ProblemLibrary topic={topic} query={query} onOpen={openProblem} />
       )}
       {view === "contests" && <Contests />}
       {view === "rankings" && <Rankings />}
       {view === "guide" && <LearningGuide />}
-      <ProblemDialog
-        problem={activeProblem}
-        onClose={() => setActiveProblem(null)}
-        onNext={setActiveProblem}
-      />
     </div>
   );
 }

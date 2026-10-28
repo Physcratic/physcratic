@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { corpusProblems } from "@/lib/corpus-pilot";
+import { getProblemTags, getTagOptions, tagLabel } from "@/lib/problem-tags";
 import { BookOpen, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -27,7 +30,7 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from "@/components/ui/empty";
-import { problems, topics, type Problem } from "@/lib/physics";
+import { problems, type Problem } from "@/lib/physics";
 import { ProblemList } from "./problem-list";
 import { eloBands, getEloBand } from "@/lib/problem-archive";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -42,15 +45,22 @@ export function ProblemLibrary({
   query?: string;
   onOpen: (problem: Problem) => void;
 }) {
-  const [collection, setCollection] = useState("pilot");
+  const params = useSearchParams();
+  const [collection, setCollection] = useState(
+    params.get("collection") === "practice" ? "practice" : "pilot",
+  );
   const [search, setSearch] = useState(query || "");
-  const [selectedTopic, setSelectedTopic] = useState(topic || "all");
+  const [selectedTopic, setSelectedTopic] = useState(
+    topic ? tagLabel(topic) : "all",
+  );
   const [difficulty, setDifficulty] = useState("all");
+  const tagOptions = getTagOptions([...corpusProblems, ...problems]);
   const filtered = problems.filter(
     (problem) =>
-      (selectedTopic === "all" || problem.topic === selectedTopic) &&
+      (selectedTopic === "all" ||
+        getProblemTags(problem).includes(selectedTopic)) &&
       (difficulty === "all" || getEloBand(problem.elo).id === difficulty) &&
-      `${problem.title} ${problem.topic} ${problem.concept} ${problem.prompt}`
+      `${problem.title} ${getProblemTags(problem).join(" ")} ${problem.prompt}`
         .toLowerCase()
         .includes(search.toLowerCase().trim()),
   );
@@ -79,23 +89,23 @@ export function ProblemLibrary({
           <Input
             id="problem-search"
             autoFocus
-            placeholder="Search by problem, topic, or concept…"
+            placeholder="Search by problem or tag…"
             value={search}
             onChange={(event) => setSearch(event.target.value)}
           />
         </Field>
         <Field className="sm:w-48">
-          <FieldLabel htmlFor="topic-filter">Topic</FieldLabel>
+          <FieldLabel htmlFor="topic-filter">Tag</FieldLabel>
           <Select value={selectedTopic} onValueChange={setSelectedTopic}>
             <SelectTrigger id="topic-filter">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                <SelectItem value="all">All topics</SelectItem>
-                {topics.map((item) => (
-                  <SelectItem key={item.name} value={item.name}>
-                    {item.name}
+                <SelectItem value="all">All tags</SelectItem>
+                {tagOptions.map((tag) => (
+                  <SelectItem key={tag} value={tag}>
+                    {tag}
                   </SelectItem>
                 ))}
               </SelectGroup>

@@ -13,8 +13,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Field, FieldDescription, FieldLabel } from "@/components/ui/field";
-import { Textarea } from "@/components/ui/textarea";
+import { getProblemTags } from "@/lib/problem-tags";
+import { MathWorkingEditor } from "./math-working-editor";
 import { corpusDocument, corpusPilot } from "@/lib/corpus-pilot";
 import type { CorpusProblem } from "@/lib/corpus-schema";
 import { CorpusDocumentReader } from "./corpus-document-reader";
@@ -72,11 +72,8 @@ export function CorpusProblemReader({
         >
           {problem.title}
         </h2>
-        <p className="max-w-3xl text-pretty text-sm leading-relaxed text-muted-foreground">
-          {problem.summary}
-        </p>
-        <div className="flex flex-wrap gap-2">
-          {problem.tags.map((tag) => (
+        <div className="flex flex-wrap gap-2" aria-label="Problem tags">
+          {getProblemTags(problem).map((tag) => (
             <Badge key={tag} variant="secondary">
               {tag}
             </Badge>
@@ -193,25 +190,13 @@ export function CorpusProblemReader({
                 problem={problem}
                 initialPage={part.page}
               />
-              <Field>
-                <FieldLabel htmlFor="corpus-working">Your working</FieldLabel>
-                <Textarea
-                  id="corpus-working"
-                  rows={5}
-                  maxLength={10000}
-                  value={notes[taskKey] ?? ""}
-                  onChange={(event) =>
-                    onNotesChange(taskKey, event.target.value)
-                  }
-                  placeholder="Work through the derivation, units, sketches, and numerical results…"
-                  aria-describedby="corpus-working-help"
-                />
-                <FieldDescription id="corpus-working-help">
-                  Session-only notes. Kept while switching subparts or problems
-                  in this collection; cleared on refresh or leaving this page.
-                  Not submitted, graded, or used for Elo.
-                </FieldDescription>
-              </Field>
+              <MathWorkingEditor
+                key={`${taskKey}:working`}
+                id="corpus-working"
+                value={notes[taskKey] ?? ""}
+                onChange={(value) => onNotesChange(taskKey, value)}
+                description="Session-only notes. Kept while switching subparts or problems in this collection; cleared on refresh or leaving this page. Not submitted, graded, or used for Elo."
+              />
               <details
                 key={taskKey}
                 className="min-w-0 rounded-lg border p-4"
