@@ -266,9 +266,10 @@ export function ImportedProblemReader({
           <Alert>
             <AlertTitle>English translation draft available</AlertTitle>
             <AlertDescription>
-              The full source text is translated, not summarized. The original
-              Russian and diagrams are preserved. Independent physics review is
-              pending; the translation does not create missing solution content.
+              The source prose is translated, not summarized. The Russian original,
+              diagrams, and equations are preserved, including source notation and
+              any Russian labels or units inside equations. Independent physics
+              review is pending; the translation does not create missing solution content.
             </AlertDescription>
           </Alert>
         </div>

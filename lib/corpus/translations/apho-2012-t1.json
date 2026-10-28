@@ -1,0 +1,26 @@
+{
+  "id": "apho-2012-t1",
+  "format": "formula-tokens",
+  "sourceSha256": "3cba1ea913795237305cb5a99f92f879ff317e24143763f80b725da19e643f29",
+  "statementSegments": [
+    "A small magnet with magnetic dipole moment __PHYSICS_FORMULA_0__ and mass __PHYSICS_FORMULA_1__ falls inside a long vertical nonmagnetic metal tube, as shown in the figure (not to scale). Its fall is described by the equation: __PHYSICS_FORMULA_2__ Here __PHYSICS_FORMULA_3__ is the gravitational acceleration, and the coefficient __PHYSICS_FORMULA_4__ arises from the eddy currents induced in the tube.",
+    "Find the terminal falling speed __PHYSICS_FORMULA_0__ of the magnet.",
+    "Find the magnet's coordinate __PHYSICS_FORMULA_0__ as a function of time __PHYSICS_FORMULA_1__, given the initial conditions __PHYSICS_FORMULA_2__ and __PHYSICS_FORMULA_3__.",
+    "Let us examine the dynamics of the falling magnet in more detail. Parts (I.3) through (I.8) consider the simplified problem of a magnet falling along the axis of a stationary nonmagnetic metal ring of radius __PHYSICS_FORMULA_0__, electrical resistance __PHYSICS_FORMULA_1__, and inductance __PHYSICS_FORMULA_2__, as shown in the figure. Completely neglect electromagnetic radiation throughout the following analysis.",
+    "It is convenient to use the cylindrical coordinate system __PHYSICS_FORMULA_0__ shown above, chosen so that the __PHYSICS_FORMULA_1__ axis coincides with the axis of the ring. Initially, the magnet is at rest at the origin, and the center of the ring has coordinate __PHYSICS_FORMULA_2__. The axes of the usual Cartesian coordinate system (__PHYSICS_FORMULA_3__) are also shown. Assume that the magnet's dipole moment __PHYSICS_FORMULA_4__ always points in the positive direction of the __PHYSICS_FORMULA_5__ axis (__PHYSICS_FORMULA_6__), where __PHYSICS_FORMULA_7__ is the unit vector along the __PHYSICS_FORMULA_8__ axis.",
+    "The axial (__PHYSICS_FORMULA_0__) and radial (__PHYSICS_FORMULA_1__) components of the magnetic flux density at a point __PHYSICS_FORMULA_2__ are:",
+    "__PHYSICS_FORMULA_0__ __PHYSICS_FORMULA_1__ where __PHYSICS_FORMULA_2__ is the permeability of free space.",
+    "Suppose that, at a certain instant, the magnet's falling speed is __PHYSICS_FORMULA_0__. Find the magnitude of the electromotive force __PHYSICS_FORMULA_1__ induced by the magnet in the ring.",
+    "Suppose this electromotive force produces a current __PHYSICS_FORMULA_0__ in the ring. Find the magnitude of the magnetic force __PHYSICS_FORMULA_1__ acting on the ring, and express it in terms of __PHYSICS_FORMULA_2__.",
+    "What is the magnitude of the force exerted on the magnet by the ring?",
+    "Express the induced electromotive force __PHYSICS_FORMULA_0__ in the ring in terms of __PHYSICS_FORMULA_1__ and __PHYSICS_FORMULA_2__, but do not solve the resulting equation!",
+    "As the magnet falls, its gravitational potential energy decreases. Without carrying out calculations, give formulas for the three principal forms of energy into which the magnet's potential energy is converted.",
+    "Does the magnet's magnetic field perform mechanical work in this process?",
+    "We now calculate the proportionality coefficient __PHYSICS_FORMULA_0__ in the equation __PHYSICS_FORMULA_1__ arising from the tube. Consider an infinite tube of radius __PHYSICS_FORMULA_2__, small wall thickness __PHYSICS_FORMULA_3__, and electrical conductivity __PHYSICS_FORMULA_4__. Here and below, assume that the tube's inductance is negligible and its ends have coordinates __PHYSICS_FORMULA_5__ and __PHYSICS_FORMULA_6__, respectively.",
+    "Divide the tube into a large number of rings, each of height __PHYSICS_FORMULA_0__, radius __PHYSICS_FORMULA_1__, small thickness __PHYSICS_FORMULA_2__, and electrical conductivity __PHYSICS_FORMULA_3__ (see figure).",
+    "Find the resistance of an individual ring.",
+    "Find the coefficient __PHYSICS_FORMULA_0__ for an infinitely long tube, expressing it in terms of __PHYSICS_FORMULA_1__ and the geometric dimensions of the ring. Since the rings are very thin, the magnetic field within each ring may be taken as uniform and equal to __PHYSICS_FORMULA_2__. At time __PHYSICS_FORMULA_3__, let the magnet have coordinate __PHYSICS_FORMULA_4__ and velocity __PHYSICS_FORMULA_5__. Express the coefficient __PHYSICS_FORMULA_6__ in a form containing an integral over the dimensionless parameter __PHYSICS_FORMULA_7__.",
+    "Suppose that the proportionality coefficient __PHYSICS_FORMULA_0__ depends on the following quantities: __PHYSICS_FORMULA_1__ where __PHYSICS_FORMULA_2__ is the effective resistance of the tube. Use dimensional analysis to obtain an expression for __PHYSICS_FORMULA_3__, taking the numerical coefficient in the resulting formula to be unity.",
+    "Appendix"
+  ]
+}

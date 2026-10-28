@@ -272,7 +272,9 @@ export function OlympiadCatalog({
                     </div>
                     <p className="text-sm leading-relaxed text-muted-foreground">
                       {problem.importLanguage === "ru"
-                        ? "Russian source · local text & diagrams"
+                        ? translationIndex.records.some((record) => record.id === problem.id)
+                          ? "English draft available · Russian original retained · local text & diagrams"
+                          : "Russian source · English translation pending · local text & diagrams"
                         : "English source · local PDFs & diagrams"}{" "}
                       · Unrated
                     </p>

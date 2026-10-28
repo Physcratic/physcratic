@@ -1,0 +1,28 @@
+{
+  "id": "apho-2006-t2",
+  "format": "formula-tokens",
+  "sourceSha256": "b64c635eb573042ebff175e459f61b6257848cbaf04438abb6567014b566f427",
+  "statementSegments": [
+    "Introduction",
+    "When studying the motion of mechanical systems, it is often convenient to use an imaginary space whose axes represent the coordinates and momenta of all the particles in the system (or their velocities, i.e. the time derivatives of their coordinates). This is called phase space. Each point in this imaginary space, called a representative point, completely specifies a state of the system.",
+    "As a mechanical system moves, its representative point traces a curve in phase space called a phase trajectory. An arrow on the phase trajectory indicates the direction in which the representative point moves. The set of all possible phase trajectories of a system is called its phase portrait. Analyzing this phase portrait reveals important qualitative features of the motion without explicitly solving the equations of motion. In some cases, phase space provides the most appropriate method for examining and solving a problem.",
+    "In this problem, we invite you to use phase space to analyze several mechanical systems with one degree of freedom, i.e. systems described by just one coordinate. In this case, phase space is a plane, and phase trajectories are specified by the dependence of a particle's momentum on its coordinate (or vice versa).",
+    "For example, the phase portrait of a free particle moving along the __PHYSICS_FORMULA_0__ axis is as follows (Fig. 1):",
+    "Phase portrait of a free particle",
+    "Part A. Phase portraits (3 points)",
+    "Sketch the phase trajectory of a free particle moving between two parallel, elastically reflecting walls located at coordinates __PHYSICS_FORMULA_0__ and $x =",
+    "Investigate the phase trajectories of a harmonic oscillator, i.e. a particle of mass __PHYSICS_FORMULA_0__ subject to an elastic force __PHYSICS_FORMULA_1__.",
+    "Find the equation of the phase trajectory and its parameters. Sketch an example of a harmonic oscillator's phase trajectory.",
+    "Consider a point particle of mass __PHYSICS_FORMULA_0__ suspended from a massless, perfectly rigid rod of length __PHYSICS_FORMULA_1__ in Earth's gravitational field. A convenient coordinate is the angle __PHYSICS_FORMULA_2__ through which the rod is displaced from the vertical. The plane with coordinates (__PHYSICS_FORMULA_3__, __PHYSICS_FORMULA_4__) can be used as the phase plane.",
+    "Qualitatively investigate and sketch the phase portrait of this simple pendulum for arbitrary angular displacements __PHYSICS_FORMULA_0__. How many qualitatively different types __PHYSICS_FORMULA_1__ of phase trajectories does this system have? Find the conditions that distinguish these different types. You need not consider the equilibrium points themselves as phase trajectories.",
+    "Part B. Oscillator with sliding friction (7 points)",
+    "When resistive forces are taken into account, two different types of friction arise. In the first case, the frictional force depends on the speed: this is viscous friction, described by __PHYSICS_FORMULA_0__. In the second case, the frictional force is independent of speed, is determined by the coefficient of friction __PHYSICS_FORMULA_1__, and acts opposite to the relative velocity of the contacting bodies: this is sliding friction. The first case occurs when a body moves through a gas or liquid; the second occurs when one body slides over the surface of another.",
+    "As an example of the second case, consider a body attached to a spring on a horizontal surface with friction. The mass of the body is __PHYSICS_FORMULA_0__, the spring constant is __PHYSICS_FORMULA_1__, and the coefficient of sliding friction between the body and the surface is __PHYSICS_FORMULA_2__. The body moves along a straight line, which may be taken as the __PHYSICS_FORMULA_3__ axis (the position __PHYSICS_FORMULA_4__ corresponds to the unstretched spring). Initially, the body is at __PHYSICS_FORMULA_5__ with zero velocity.",
+    "Write the equation of motion of a harmonic oscillator subject to sliding friction.",
+    "Sketch the phase trajectory.",
+    "Does the body stop at the position where the spring is unstretched? If not, what is the width of the region in which it can stop?",
+    "Find the change in the oscillator's maximum displacement in the positive __PHYSICS_FORMULA_0__ direction during one complete oscillation, __PHYSICS_FORMULA_1__. Find the time between two successive maximum displacements in the positive direction. Also find how this maximum displacement depends on time, __PHYSICS_FORMULA_2__, where __PHYSICS_FORMULA_3__ is the time at which the __PHYSICS_FORMULA_4__th maximum is reached.",
+    "Sketch the coordinate as a function of time, __PHYSICS_FORMULA_0__, and estimate the number __PHYSICS_FORMULA_1__ of oscillations performed by the body.",
+    "Hint: The equation of an ellipse centered at the origin with semiaxes __PHYSICS_FORMULA_0__ and __PHYSICS_FORMULA_1__ is:"
+  ]
+}

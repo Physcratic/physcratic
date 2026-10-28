@@ -1,8 +1,48 @@
 {
   "schemaVersion": "1.0.0",
-  "translated": 1,
+  "translated": 6,
   "russianSourceCount": 45,
   "records": [
+    {
+      "id": "apho-2006-t2",
+      "path": "/corpus/translations/apho-2006-t2.json",
+      "sourceSha256": "b64c635eb573042ebff175e459f61b6257848cbaf04438abb6567014b566f427",
+      "sha256": "d31dc99086cac22dc2b35913856f84df641ba7cbbcc6e31578e6b11513939ca6",
+      "method": "editorial",
+      "reviewStatus": "independent-physics-review-pending"
+    },
+    {
+      "id": "apho-2009-t1",
+      "path": "/corpus/translations/apho-2009-t1.json",
+      "sourceSha256": "445c4f339f0fe20e4f85c6f8c0b71b8587e3d58ebe50250da31ae160f086583b",
+      "sha256": "956f9155e2742012142eb5ef98a5843d2d4b15b6cc620de89c2a9eee89a37b04",
+      "method": "editorial",
+      "reviewStatus": "independent-physics-review-pending"
+    },
+    {
+      "id": "apho-2011-t2",
+      "path": "/corpus/translations/apho-2011-t2.json",
+      "sourceSha256": "deee3aeebcdbe40e5e448e2bb0c925a923b7e45866121987aa3fa2fe7cf3eb34",
+      "sha256": "81296408cd91cd6fd436d0cbb49658929f57e95862d2d210c85e783f68292f3f",
+      "method": "editorial",
+      "reviewStatus": "independent-physics-review-pending"
+    },
+    {
+      "id": "apho-2012-t1",
+      "path": "/corpus/translations/apho-2012-t1.json",
+      "sourceSha256": "3cba1ea913795237305cb5a99f92f879ff317e24143763f80b725da19e643f29",
+      "sha256": "6fe00752ee563562911f01e79db08c47bee5b651932574e13df480f8346dd2b5",
+      "method": "editorial",
+      "reviewStatus": "independent-physics-review-pending"
+    },
+    {
+      "id": "apho-2012-t3",
+      "path": "/corpus/translations/apho-2012-t3.json",
+      "sourceSha256": "99b3081400a94f64a10da15ba0324dc73d388243073a841913f262c38d248839",
+      "sha256": "62a1cb6ddf83ae7f7105f1e232c1eeb9229f584311b8df97476815312ff15525",
+      "method": "editorial",
+      "reviewStatus": "independent-physics-review-pending"
+    },
     {
       "id": "apho-2014-t2",
       "path": "/corpus/translations/apho-2014-t2.json",
@@ -15,27 +55,27 @@
   "audit": [
     {
       "id": "apho-2006-t2",
-      "translation": "pending",
+      "translation": "english-draft",
       "solutionStatus": "missing-derivation"
     },
     {
       "id": "apho-2009-t1",
-      "translation": "pending",
+      "translation": "english-draft",
       "solutionStatus": "review-required"
     },
     {
       "id": "apho-2011-t2",
-      "translation": "pending",
+      "translation": "english-draft",
       "solutionStatus": "review-required"
     },
     {
       "id": "apho-2012-t1",
-      "translation": "pending",
+      "translation": "english-draft",
       "solutionStatus": "missing-derivation"
     },
     {
       "id": "apho-2012-t3",
-      "translation": "pending",
+      "translation": "english-draft",
       "solutionStatus": "review-required"
     },
     {
