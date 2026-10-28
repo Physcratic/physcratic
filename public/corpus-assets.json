@@ -466,5 +466,150 @@
       "bytes": 173218,
       "sha256": "094d5765e5d05f8883f5e5ab44d34f45fb6b4519991f114eb280947c052e1bec"
     }
-  ]
+  ],
+  "documents": {
+    "ipho-2011-t1": {
+      "questions": {
+        "pdf": "/ipho/2011-t1-questions.pdf",
+        "images": [
+          "/ipho/2011-t1-page-1.webp",
+          "/ipho/2011-t1-page-2.webp",
+          "/ipho/2011-t1-page-3.webp"
+        ]
+      },
+      "solutions": {
+        "pdf": "/ipho/2011-t1-solutions.pdf",
+        "images": [
+          "/ipho/2011-t1-solution-page-1.webp",
+          "/ipho/2011-t1-solution-page-2.webp",
+          "/ipho/2011-t1-solution-page-3.webp",
+          "/ipho/2011-t1-solution-page-4.webp",
+          "/ipho/2011-t1-solution-page-5.webp",
+          "/ipho/2011-t1-solution-page-6.webp",
+          "/ipho/2011-t1-solution-page-7.webp"
+        ]
+      }
+    },
+    "ipho-2015-t1": {
+      "questions": {
+        "pdf": "/ipho/2015-t1-questions.pdf",
+        "images": [
+          "/ipho/2015-t1-page-1.webp",
+          "/ipho/2015-t1-page-2.webp"
+        ]
+      },
+      "solutions": {
+        "pdf": "/ipho/2015-t1-solutions.pdf",
+        "images": [
+          "/ipho/2015-t1-solution-page-1.webp",
+          "/ipho/2015-t1-solution-page-2.webp",
+          "/ipho/2015-t1-solution-page-3.webp",
+          "/ipho/2015-t1-solution-page-4.webp",
+          "/ipho/2015-t1-solution-page-5.webp",
+          "/ipho/2015-t1-solution-page-6.webp",
+          "/ipho/2015-t1-solution-page-7.webp"
+        ]
+      }
+    },
+    "ipho-2025-t1": {
+      "questions": {
+        "pdf": "/ipho/2025-t1-questions.pdf",
+        "images": [
+          "/ipho/2025-t1-page-1.webp",
+          "/ipho/2025-t1-page-2.webp",
+          "/ipho/2025-t1-page-3.webp",
+          "/ipho/2025-t1-page-4.webp",
+          "/ipho/2025-t1-page-5.webp",
+          "/ipho/2025-t1-page-6.webp"
+        ]
+      },
+      "solutions": {
+        "pdf": "/ipho/2025-t1-solutions.pdf",
+        "images": [
+          "/ipho/2025-t1-solution-page-1.webp",
+          "/ipho/2025-t1-solution-page-2.webp",
+          "/ipho/2025-t1-solution-page-3.webp",
+          "/ipho/2025-t1-solution-page-4.webp",
+          "/ipho/2025-t1-solution-page-5.webp",
+          "/ipho/2025-t1-solution-page-6.webp",
+          "/ipho/2025-t1-solution-page-7.webp",
+          "/ipho/2025-t1-solution-page-8.webp",
+          "/ipho/2025-t1-solution-page-9.webp",
+          "/ipho/2025-t1-solution-page-10.webp",
+          "/ipho/2025-t1-solution-page-11.webp",
+          "/ipho/2025-t1-solution-page-12.webp",
+          "/ipho/2025-t1-solution-page-13.webp",
+          "/ipho/2025-t1-solution-page-14.webp",
+          "/ipho/2025-t1-solution-page-15.webp"
+        ]
+      }
+    },
+    "ipho-2025-t2": {
+      "questions": {
+        "pdf": "/ipho/2025-t2-questions.pdf",
+        "images": [
+          "/ipho/2025-t2-page-1.webp",
+          "/ipho/2025-t2-page-2.webp",
+          "/ipho/2025-t2-page-3.webp",
+          "/ipho/2025-t2-page-4.webp",
+          "/ipho/2025-t2-page-5.webp",
+          "/ipho/2025-t2-page-6.webp"
+        ]
+      },
+      "solutions": {
+        "pdf": "/ipho/2025-t2-solutions.pdf",
+        "images": [
+          "/ipho/2025-t2-solution-page-1.webp",
+          "/ipho/2025-t2-solution-page-2.webp",
+          "/ipho/2025-t2-solution-page-3.webp",
+          "/ipho/2025-t2-solution-page-4.webp",
+          "/ipho/2025-t2-solution-page-5.webp",
+          "/ipho/2025-t2-solution-page-6.webp",
+          "/ipho/2025-t2-solution-page-7.webp",
+          "/ipho/2025-t2-solution-page-8.webp",
+          "/ipho/2025-t2-solution-page-9.webp",
+          "/ipho/2025-t2-solution-page-10.webp",
+          "/ipho/2025-t2-solution-page-11.webp",
+          "/ipho/2025-t2-solution-page-12.webp",
+          "/ipho/2025-t2-solution-page-13.webp",
+          "/ipho/2025-t2-solution-page-14.webp",
+          "/ipho/2025-t2-solution-page-15.webp",
+          "/ipho/2025-t2-solution-page-16.webp",
+          "/ipho/2025-t2-solution-page-17.webp",
+          "/ipho/2025-t2-solution-page-18.webp",
+          "/ipho/2025-t2-solution-page-19.webp",
+          "/ipho/2025-t2-solution-page-20.webp"
+        ]
+      }
+    },
+    "ipho-2025-t3": {
+      "questions": {
+        "pdf": "/ipho/2025-t3-questions.pdf",
+        "images": [
+          "/ipho/2025-t3-page-1.webp",
+          "/ipho/2025-t3-page-2.webp",
+          "/ipho/2025-t3-page-3.webp",
+          "/ipho/2025-t3-page-4.webp",
+          "/ipho/2025-t3-page-5.webp"
+        ]
+      },
+      "solutions": {
+        "pdf": "/ipho/2025-t3-solutions.pdf",
+        "images": [
+          "/ipho/2025-t3-solution-page-1.webp",
+          "/ipho/2025-t3-solution-page-2.webp",
+          "/ipho/2025-t3-solution-page-3.webp",
+          "/ipho/2025-t3-solution-page-4.webp",
+          "/ipho/2025-t3-solution-page-5.webp",
+          "/ipho/2025-t3-solution-page-6.webp",
+          "/ipho/2025-t3-solution-page-7.webp",
+          "/ipho/2025-t3-solution-page-8.webp",
+          "/ipho/2025-t3-solution-page-9.webp",
+          "/ipho/2025-t3-solution-page-10.webp",
+          "/ipho/2025-t3-solution-page-11.webp",
+          "/ipho/2025-t3-solution-page-12.webp"
+        ]
+      }
+    }
+  }
 }

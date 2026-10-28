@@ -2,11 +2,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getArchiveStats } from "@/lib/problem-archive";
 import { problems } from "@/lib/physics";
 import { corpusProblems } from "@/lib/corpus-pilot";
+import { catalogProblems } from "@/lib/corpus-catalog";
 
 export function ArchiveStats() {
   const { total, addedLast24Hours } = getArchiveStats([
     ...problems,
-    ...corpusProblems.map(() => ({ addedAt: undefined })),
+    ...catalogProblems.map(() => ({ addedAt: undefined })),
   ]);
 
   return (
@@ -27,8 +28,9 @@ export function ArchiveStats() {
               {total.toLocaleString("en-US")}
             </dd>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              {corpusProblems.length} complete source problems +{" "}
-              {problems.length} quick-practice problems
+              {catalogProblems.length} catalog entries (including{" "}
+              {corpusProblems.length} imported) + {problems.length}{" "}
+              quick-practice problems
             </p>
           </div>
           <div className="flex min-w-0 flex-1 flex-col gap-2 p-5 sm:p-7">

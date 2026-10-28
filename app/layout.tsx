@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | Physcratic",
   },
   description:
-    "Practice physics and explore the five-problem IPhO import pilot from 2011, 2015, and 2025, with complete original statements, official solutions, and structured subpart guides.",
+    "Explore 100 source-linked IPhO, APhO and EuPhO theory problems across six physics topics, including five imported IPhO papers with original statements, official solutions and structured subpart guides.",
   icons: { icon: "/icon.svg" },
 };
 

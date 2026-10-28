@@ -21,7 +21,6 @@ import {
   EmptyTitle,
 } from "@/components/ui/empty";
 import { corpusProblems, filterCorpus } from "@/lib/corpus-pilot";
-import type { CorpusProblem } from "@/lib/corpus-schema";
 import { getProblemTags } from "@/lib/problem-tags";
 import { CorpusProblemReader } from "./corpus-problem-reader";
 
@@ -30,13 +29,19 @@ export function CorpusCollection({
   topic,
   difficulty,
   onReset,
+  activeProblemId,
+  onActiveProblemChange,
 }: {
   query: string;
   topic: string;
   difficulty: string;
   onReset: () => void;
+  activeProblemId?: string;
+  onActiveProblemChange: (id: string | undefined) => void;
 }) {
-  const [active, setActive] = useState<CorpusProblem | null>(null);
+  const active = corpusProblems.find(
+    (problem) => problem.id === activeProblemId,
+  );
   const [notes, setNotes] = useState<Record<string, string>>({});
   const [reviewed, setReviewed] = useState<Set<string>>(new Set());
   const filtered = filterCorpus({ query, topic, difficulty });
@@ -48,7 +53,7 @@ export function CorpusCollection({
         problem={active}
         notes={notes}
         reviewed={reviewed}
-        onBack={() => setActive(null)}
+        onBack={() => onActiveProblemChange(undefined)}
         onNotesChange={(id, value) =>
           setNotes((current) => ({ ...current, [id]: value }))
         }
@@ -118,22 +123,20 @@ export function CorpusCollection({
                   <button
                     type="button"
                     className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
-                    onClick={() => setActive(problem)}
-                    aria-label={`Open ${problem.title}, IPhO ${problem.year} ${problem.code}`}
+                    onClick={() => onActiveProblemChange(problem.id)}
+                    aria-label={`Open ${problem.title}, ${problem.competition} ${problem.year} ${problem.code}`}
                   >
                     <div className="flex min-w-0 flex-1 flex-col gap-2">
                       <div className="flex flex-wrap items-center gap-2">
                         <span className="text-sm text-muted-foreground">
-                          IPhO {problem.year} · {problem.code}
+                          {problem.competition} {problem.year} · {problem.code}
                         </span>
                         <Badge variant="outline">Unrated</Badge>
                       </div>
                       <span className="text-pretty text-base font-medium">
                         {problem.title}
                       </span>
-                      <span
-                        className="flex flex-wrap gap-2"
-                      >
+                      <span className="flex flex-wrap gap-2">
                         {getProblemTags(problem).map((tag) => (
                           <Badge key={tag} variant="secondary">
                             {tag}

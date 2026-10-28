@@ -7,6 +7,7 @@
     "dev": "next dev",
     "lint": "eslint .",
     "test": "tsx --test lib/*.test.ts",
+    "audit:catalog": "tsx scripts/audit-catalog-sources.ts",
     "start": "next start"
   },
   "dependencies": {

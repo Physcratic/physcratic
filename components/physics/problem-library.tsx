@@ -35,6 +35,8 @@ import { ProblemList } from "./problem-list";
 import { eloBands, getEloBand } from "@/lib/problem-archive";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CorpusCollection } from "./corpus-collection";
+import { OlympiadCatalog } from "./olympiad-catalog";
+import { catalogProblems, competitions } from "@/lib/corpus-catalog";
 
 export function ProblemLibrary({
   topic,
@@ -46,15 +48,24 @@ export function ProblemLibrary({
   onOpen: (problem: Problem) => void;
 }) {
   const params = useSearchParams();
+  const requestedCollection = params.get("collection");
   const [collection, setCollection] = useState(
-    params.get("collection") === "practice" ? "practice" : "pilot",
+    requestedCollection === "practice" || requestedCollection === "pilot"
+      ? requestedCollection
+      : "catalog",
   );
+  const [competition, setCompetition] = useState("all");
+  const [pilotProblemId, setPilotProblemId] = useState<string | undefined>();
   const [search, setSearch] = useState(query || "");
   const [selectedTopic, setSelectedTopic] = useState(
     topic ? tagLabel(topic) : "all",
   );
   const [difficulty, setDifficulty] = useState("all");
-  const tagOptions = getTagOptions([...corpusProblems, ...problems]);
+  const tagOptions = getTagOptions([
+    ...catalogProblems,
+    ...corpusProblems,
+    ...problems,
+  ]);
   const filtered = problems.filter(
     (problem) =>
       (selectedTopic === "all" ||
@@ -69,6 +80,7 @@ export function ProblemLibrary({
     setSearch("");
     setSelectedTopic("all");
     setDifficulty("all");
+    setCompetition("all");
   }
 
   return (
@@ -78,12 +90,17 @@ export function ProblemLibrary({
       className="flex min-w-0 flex-col gap-6"
     >
       <TabsList className="h-auto w-fit max-w-full flex-wrap">
-        <TabsTrigger value="pilot">Imported pilot · 5</TabsTrigger>
+        <TabsTrigger value="catalog">
+          Olympiad catalog · {catalogProblems.length}
+        </TabsTrigger>
+        <TabsTrigger value="pilot">
+          Imported pilot · {corpusProblems.length}
+        </TabsTrigger>
         <TabsTrigger value="practice">
           Quick practice · {problems.length}
         </TabsTrigger>
       </TabsList>
-      <FieldGroup className="sm:flex-row sm:items-end">
+      <FieldGroup className="sm:flex-row sm:flex-wrap sm:items-end">
         <Field className="flex-1">
           <FieldLabel htmlFor="problem-search">Find a problem</FieldLabel>
           <Input
@@ -94,11 +111,35 @@ export function ProblemLibrary({
             onChange={(event) => setSearch(event.target.value)}
           />
         </Field>
+        {collection === "catalog" && (
+          <Field className="sm:w-40">
+            <FieldLabel htmlFor="competition-filter">Competition</FieldLabel>
+            <Select value={competition} onValueChange={setCompetition}>
+              <SelectTrigger id="competition-filter">
+                <SelectValue>
+                  {competition === "all" ? "All competitions" : competition}
+                </SelectValue>
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectItem value="all">All competitions</SelectItem>
+                  {competitions.map((name) => (
+                    <SelectItem key={name} value={name}>
+                      {name}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          </Field>
+        )}
         <Field className="sm:w-48">
           <FieldLabel htmlFor="topic-filter">Tag</FieldLabel>
           <Select value={selectedTopic} onValueChange={setSelectedTopic}>
             <SelectTrigger id="topic-filter">
-              <SelectValue />
+              <SelectValue>
+                {selectedTopic === "all" ? "All tags" : selectedTopic}
+              </SelectValue>
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
@@ -116,7 +157,12 @@ export function ProblemLibrary({
           <FieldLabel htmlFor="difficulty-filter">Elo difficulty</FieldLabel>
           <Select value={difficulty} onValueChange={setDifficulty}>
             <SelectTrigger id="difficulty-filter">
-              <SelectValue />
+              <SelectValue>
+                {difficulty === "unrated"
+                  ? "Unrated"
+                  : (eloBands.find((band) => band.id === difficulty)?.range ??
+                    "All ratings")}
+              </SelectValue>
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
@@ -132,6 +178,19 @@ export function ProblemLibrary({
           </Select>
         </Field>
       </FieldGroup>
+      <TabsContent value="catalog" className="min-w-0">
+        <OlympiadCatalog
+          query={search}
+          topic={selectedTopic}
+          competition={competition}
+          difficulty={difficulty}
+          onReset={reset}
+          onOpenImported={(id) => {
+            setPilotProblemId(id);
+            setCollection("pilot");
+          }}
+        />
+      </TabsContent>
       <TabsContent
         value="pilot"
         forceMount
@@ -139,6 +198,8 @@ export function ProblemLibrary({
         className="min-w-0"
       >
         <CorpusCollection
+          activeProblemId={pilotProblemId}
+          onActiveProblemChange={setPilotProblemId}
           query={search}
           topic={selectedTopic}
           difficulty={difficulty}

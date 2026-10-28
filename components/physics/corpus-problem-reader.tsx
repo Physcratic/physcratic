@@ -62,7 +62,8 @@ export function CorpusProblemReader({
       </div>
       <div className="flex flex-col gap-3">
         <p className="text-sm text-muted-foreground">
-          IPhO {problem.year} · Theory {problem.code.slice(1)} · 10 points
+          {problem.competition} {problem.year} · {problem.code} ·{" "}
+          {problem.totalPoints} points
         </p>
         <h2
           id="corpus-title"

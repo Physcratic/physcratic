@@ -67,8 +67,19 @@ const theory2025 = iphoPapers
       })),
   }));
 
-export const corpusProblems = [threeBody, solar, ...theory2025].map((problem) =>
-  corpusProblemSchema.parse(problem),
+export const corpusProblems = [threeBody, solar, ...theory2025].map(
+  (problem) => {
+    const documents =
+      assets.documents[problem.id as keyof typeof assets.documents];
+    if (!documents)
+      throw new Error(`Missing explicit document assets: ${problem.id}`);
+    return corpusProblemSchema.parse({
+      ...problem,
+      competition: "IPhO",
+      totalPoints: 10,
+      documents,
+    });
+  },
 );
 
 export function corpusDocument(
@@ -76,14 +87,14 @@ export function corpusDocument(
   kind: "questions" | "solutions",
   page = 1,
 ) {
-  const prefix = problem.id.replace(/^ipho-/, "");
-  const count = kind === "questions" ? problem.pages : problem.solutionPages;
+  const document = problem.documents[kind];
+  const count = document.images.length;
   const safePage = Number.isInteger(page)
     ? Math.max(1, Math.min(count, page))
     : 1;
   return {
-    pdf: `/ipho/${prefix}-${kind}.pdf#page=${safePage}`,
-    image: `/ipho/${prefix}-${kind === "solutions" ? "solution-" : ""}page-${safePage}.webp`,
+    pdf: `${document.pdf}#page=${safePage}`,
+    image: document.images[safePage - 1],
     pages: count,
     page: safePage,
   };
@@ -107,7 +118,7 @@ export function filterCorpus({
         problem.title,
         problem.year,
         problem.code,
-        "IPhO",
+        problem.competition,
         problem.summary,
         ...getProblemTags(problem),
         ...problem.parts.map((part) => `${part.title} ${part.prompt}`),

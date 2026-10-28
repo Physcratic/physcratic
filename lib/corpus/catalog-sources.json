@@ -1,0 +1,1588 @@
+{
+  "checkedOn": "2026-10-28",
+  "verification": "URL accessibility and document headers; not independent physics or rights review",
+  "checks": [
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory_solution_marking.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO20_Theory_Solutions-7.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2019_theory_problems.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2019_theory_solutions.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2020_Theory.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2020/07/eupho18-th-solution.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2020/07/eupho18-theory.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2021/06/EuPhO_2021-theory.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2021/06/EuPhO_2021_Solutions-2.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2022/05/EuPhO_2022_Solutions.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2022/05/EuPhO_2022_theory___English.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2023/06/EuPhO_2023_theo_sol.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2023/06/EuPhO_2023_theory.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2024/07/EuPhO_2024_theory_final.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2024/07/EuPhO_2024_theory_sol.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2025/06/EuPhO25_Theory_Solutions_20250616_1120.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://eupho.ee/wp-content/uploads/2025/06/EuPhO_2025_Theory_ENG.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://pho.rs/p/291",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/291/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/292",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/292/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/293",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/293/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3089",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3089/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3090",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3090/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3091",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3091/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3149",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3149/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3153",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3153/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3172",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3172/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3283",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3283/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3290",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3290/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3296",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3296/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3297",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3297/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3303",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3303/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3305",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3305/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3307",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3307/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3323",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3323/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3324",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3324/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3348",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3348/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3351",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3351/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3356",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3356/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3442",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3442/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3445",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3445/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3446",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3446/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3453",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3453/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3597",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3597/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3598",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3598/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3599",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3599/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3608",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3608/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3680",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3680/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3681",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3681/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3708",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3708/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3709",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3709/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3734",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/3734/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/382",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/382/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/383",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/383/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/4071",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/4071/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/4174",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/4174/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/4175",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/4175/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/4176",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/4176/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/4711",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/4711/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/4712",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/4712/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/4713",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://pho.rs/p/4713/s",
+      "status": "html-body-checked"
+    },
+    {
+      "url": "https://www.ipho-new.org/download/1314/",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://www.ipho-new.org/download/546/",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://www.ipho-new.org/download/549/",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://www.ipho-new.org/download/555/",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://www.ipho-new.org/download/558/",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://www.ipho-new.org/download/561/",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://www.ipho-new.org/download/564/",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://www.ipho-new.org/download/567/",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://www.ipho-new.org/download/570/",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://www.ipho-new.org/download/573/",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://www.ipho-new.org/download/576/",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://www.ipho-new.org/download/668/",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://www.ipho-new.org/download/671/",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://www.ipho-new.org/download/674/",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://www.ipho-new.org/download/678/",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025",
+      "status": "http-ok"
+    }
+  ],
+  "problems": [
+    {
+      "id": "ipho-2025-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Водород и галактики",
+      "statementUrl": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025",
+      "solutionUrl": "/ipho/2025-t1-solutions.pdf",
+      "sourceHost": "ipho2025.fr",
+      "language": "en",
+      "sourceKind": "imported-official",
+      "discoveryUrl": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025"
+    },
+    {
+      "id": "ipho-2025-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Часы Джеймса Кокса",
+      "statementUrl": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025",
+      "solutionUrl": "/ipho/2025-t2-solutions.pdf",
+      "sourceHost": "ipho2025.fr",
+      "language": "en",
+      "sourceKind": "imported-official",
+      "discoveryUrl": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025"
+    },
+    {
+      "id": "ipho-2025-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Выпьем за любовь!",
+      "statementUrl": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025",
+      "solutionUrl": "/ipho/2025-t3-solutions.pdf",
+      "sourceHost": "ipho2025.fr",
+      "language": "en",
+      "sourceKind": "imported-official",
+      "discoveryUrl": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025"
+    },
+    {
+      "id": "ipho-2024-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Парниковый эффект",
+      "statementUrl": "https://pho.rs/p/4174",
+      "solutionUrl": "https://pho.rs/p/4174/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://i.pho.rs/"
+    },
+    {
+      "id": "ipho-2024-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Ионная ловушка и охлаждение атомов",
+      "statementUrl": "https://pho.rs/p/4176",
+      "solutionUrl": "https://pho.rs/p/4176/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://i.pho.rs/"
+    },
+    {
+      "id": "ipho-2024-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Пульсар «Чёрная вдова»",
+      "statementUrl": "https://pho.rs/p/4175",
+      "solutionUrl": "https://pho.rs/p/4175/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://i.pho.rs/"
+    },
+    {
+      "id": "ipho-2023-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Свойства коллоидных частиц",
+      "statementUrl": "https://pho.rs/p/3709",
+      "solutionUrl": "https://pho.rs/p/3709/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://i.pho.rs/"
+    },
+    {
+      "id": "ipho-2023-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Нейтронные звезды",
+      "statementUrl": "https://pho.rs/p/3734",
+      "solutionUrl": "https://pho.rs/p/3734/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://i.pho.rs/"
+    },
+    {
+      "id": "ipho-2023-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Вода и предметы",
+      "statementUrl": "https://pho.rs/p/3708",
+      "solutionUrl": "https://pho.rs/p/3708/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://i.pho.rs/"
+    },
+    {
+      "id": "ipho-2021-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Планетарная физика",
+      "statementUrl": "https://pho.rs/p/382",
+      "solutionUrl": "https://pho.rs/p/382/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://i.pho.rs/"
+    },
+    {
+      "id": "ipho-2021-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Электростатическая линза",
+      "statementUrl": "https://pho.rs/p/383",
+      "solutionUrl": "https://pho.rs/p/383/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://i.pho.rs/"
+    },
+    {
+      "id": "ipho-2019-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Пружина нулевой длины и слинки",
+      "statementUrl": "https://www.ipho-new.org/download/1314/",
+      "solutionUrl": "https://www.ipho-new.org/download/1314/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2019-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Физика в микроволновке",
+      "statementUrl": "https://www.ipho-new.org/download/1314/",
+      "solutionUrl": "https://www.ipho-new.org/download/1314/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2019-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Термоакустический двигатель",
+      "statementUrl": "https://www.ipho-new.org/download/1314/",
+      "solutionUrl": "https://www.ipho-new.org/download/1314/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2018-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "LIGO-GW150914",
+      "statementUrl": "https://www.ipho-new.org/download/678/",
+      "solutionUrl": "https://www.ipho-new.org/download/678/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2018-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "В поисках нейтрино",
+      "statementUrl": "https://www.ipho-new.org/download/678/",
+      "solutionUrl": "https://www.ipho-new.org/download/678/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2018-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Физика живых систем",
+      "statementUrl": "https://www.ipho-new.org/download/678/",
+      "solutionUrl": "https://www.ipho-new.org/download/678/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2008-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Водяная ступа для шлифовки риса",
+      "statementUrl": "https://www.ipho-new.org/download/558/",
+      "solutionUrl": "https://www.ipho-new.org/download/558/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2017-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Вулканы, землетрясения и цунами",
+      "statementUrl": "https://www.ipho-new.org/download/674/",
+      "solutionUrl": "https://www.ipho-new.org/download/674/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2017-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Расширение Вселенной",
+      "statementUrl": "https://www.ipho-new.org/download/674/",
+      "solutionUrl": "https://www.ipho-new.org/download/674/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2016-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Нелинейная динамика в электрических цепях",
+      "statementUrl": "https://www.ipho-new.org/download/671/",
+      "solutionUrl": "https://www.ipho-new.org/download/671/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2005-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Спутник с печальной судьбой",
+      "statementUrl": "https://www.ipho-new.org/download/549/",
+      "solutionUrl": "https://www.ipho-new.org/download/549/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2015-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Частицы от Солнца",
+      "statementUrl": "https://www.ipho-new.org/download/668/",
+      "solutionUrl": "https://www.ipho-new.org/download/668/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2015-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Принцип экстремума",
+      "statementUrl": "https://www.ipho-new.org/download/668/",
+      "solutionUrl": "https://www.ipho-new.org/download/668/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2015-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Конструирование ядерного реактора",
+      "statementUrl": "https://www.ipho-new.org/download/668/",
+      "solutionUrl": "https://www.ipho-new.org/download/668/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2016-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": null,
+      "statementUrl": "https://www.ipho-new.org/download/671/",
+      "solutionUrl": "https://www.ipho-new.org/download/671/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2014-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Простейшая модель газового разряда",
+      "statementUrl": "https://www.ipho-new.org/download/576/",
+      "solutionUrl": "https://www.ipho-new.org/download/576/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2013-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Метеорит Марибо",
+      "statementUrl": "https://www.ipho-new.org/download/573/",
+      "solutionUrl": "https://www.ipho-new.org/download/573/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2013-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Плазмонный парогенератор",
+      "statementUrl": "https://www.ipho-new.org/download/573/",
+      "solutionUrl": "https://www.ipho-new.org/download/573/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2013-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Ледяной щит Гренландии",
+      "statementUrl": "https://www.ipho-new.org/download/573/",
+      "solutionUrl": "https://www.ipho-new.org/download/573/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2012-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Капельница Кельвина",
+      "statementUrl": "https://www.ipho-new.org/download/570/",
+      "solutionUrl": "https://www.ipho-new.org/download/570/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2011-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Проблема трех тел и LISA",
+      "statementUrl": "https://www.ipho-new.org/download/567/",
+      "solutionUrl": "https://www.ipho-new.org/download/567/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2010-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Метод изображений",
+      "statementUrl": "https://www.ipho-new.org/download/564/",
+      "solutionUrl": "https://www.ipho-new.org/download/564/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2010-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Физика дымовой трубы",
+      "statementUrl": "https://www.ipho-new.org/download/564/",
+      "solutionUrl": "https://www.ipho-new.org/download/564/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2008-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Черенковское излучение и кольцевой черенковский детектор",
+      "statementUrl": "https://www.ipho-new.org/download/558/",
+      "solutionUrl": "https://www.ipho-new.org/download/558/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2007-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Воздушная подушка",
+      "statementUrl": "https://www.ipho-new.org/download/555/",
+      "solutionUrl": "https://www.ipho-new.org/download/555/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2009-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Эволюция системы Земля-Луна",
+      "statementUrl": "https://www.ipho-new.org/download/561/",
+      "solutionUrl": "https://www.ipho-new.org/download/561/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2005-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Абсолютные измерения электрических величин",
+      "statementUrl": "https://www.ipho-new.org/download/549/",
+      "solutionUrl": "https://www.ipho-new.org/download/549/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2009-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Лазерное охлаждение атомов и «оптическая патока»",
+      "statementUrl": "https://www.ipho-new.org/download/561/",
+      "solutionUrl": "https://www.ipho-new.org/download/561/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "ipho-2004-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Атомный зондирующий микроскоп",
+      "statementUrl": "https://www.ipho-new.org/download/546/",
+      "solutionUrl": "https://www.ipho-new.org/download/546/",
+      "sourceHost": "ipho-new.org",
+      "language": "en",
+      "sourceKind": "official-bundle",
+      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+    },
+    {
+      "id": "apho-2025-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Прецессия земной оси",
+      "statementUrl": "https://pho.rs/p/4711",
+      "solutionUrl": "https://pho.rs/p/4711/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2025-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Волны и фазовые переходы в спиновых системах",
+      "statementUrl": "https://pho.rs/p/4712",
+      "solutionUrl": "https://pho.rs/p/4712/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2025-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Атмосферная задача",
+      "statementUrl": "https://pho.rs/p/4713",
+      "solutionUrl": "https://pho.rs/p/4713/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2024-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Первый открытый квазар: тайны источника 3C 273",
+      "statementUrl": "https://pho.rs/p/4071",
+      "solutionUrl": "https://pho.rs/p/4071/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2023-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Снижение орбиты МКС",
+      "statementUrl": "https://pho.rs/p/3680",
+      "solutionUrl": "https://pho.rs/p/3680/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2023-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Шарик на вращающемся диске",
+      "statementUrl": "https://pho.rs/p/3681",
+      "solutionUrl": "https://pho.rs/p/3681/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2011-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Скрипящая дверь",
+      "statementUrl": "https://pho.rs/p/3172",
+      "solutionUrl": "https://pho.rs/p/3172/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2022-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Опыт Штерна-Герлаха",
+      "statementUrl": "https://pho.rs/p/3090",
+      "solutionUrl": "https://pho.rs/p/3090/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2022-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Механическая модель фазовых переходов",
+      "statementUrl": "https://pho.rs/p/3089",
+      "solutionUrl": "https://pho.rs/p/3089/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2022-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Максвелл, Релей и гора Эверест",
+      "statementUrl": "https://pho.rs/p/3091",
+      "solutionUrl": "https://pho.rs/p/3091/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2021-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Гидравлический удар",
+      "statementUrl": "https://pho.rs/p/291",
+      "solutionUrl": "https://pho.rs/p/291/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2021-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Трассировка лучей и генерация запутанных фотонов",
+      "statementUrl": "https://pho.rs/p/292",
+      "solutionUrl": "https://pho.rs/p/292/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2021-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Магнитная левитация",
+      "statementUrl": "https://pho.rs/p/293",
+      "solutionUrl": "https://pho.rs/p/293/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2019-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Рефлектометрия в одноэлектронных схемах",
+      "statementUrl": "https://pho.rs/p/3324",
+      "solutionUrl": "https://pho.rs/p/3324/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2019-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Рентгеновские джеты активных ядер галактик",
+      "statementUrl": "https://pho.rs/p/3323",
+      "solutionUrl": "https://pho.rs/p/3323/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2019-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Китайский волчок",
+      "statementUrl": "https://pho.rs/p/3446",
+      "solutionUrl": "https://pho.rs/p/3446/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2018-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Атомы в оптической ловушке",
+      "statementUrl": "https://pho.rs/p/3597",
+      "solutionUrl": "https://pho.rs/p/3597/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2018-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Космический лифт",
+      "statementUrl": "https://pho.rs/p/3598",
+      "solutionUrl": "https://pho.rs/p/3598/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2018-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Термоэлектричество",
+      "statementUrl": "https://pho.rs/p/3599",
+      "solutionUrl": "https://pho.rs/p/3599/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2017-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Вихри в сверхтекучей жидкости",
+      "statementUrl": "https://pho.rs/p/3442",
+      "solutionUrl": "https://pho.rs/p/3442/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2017-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Эволюция системы бинарных сверхмассивных черных дыр",
+      "statementUrl": "https://pho.rs/p/3445",
+      "solutionUrl": "https://pho.rs/p/3445/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2017-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Космический мусор",
+      "statementUrl": "https://pho.rs/p/3453",
+      "solutionUrl": "https://pho.rs/p/3453/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2016-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Механика деформируемой структуры",
+      "statementUrl": "https://pho.rs/p/3351",
+      "solutionUrl": "https://pho.rs/p/3351/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2009-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Катающиеся цилиндры",
+      "statementUrl": "https://pho.rs/p/3153",
+      "solutionUrl": "https://pho.rs/p/3153/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2016-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Действие магнитного поля на сверхпроводники",
+      "statementUrl": "https://pho.rs/p/3608",
+      "solutionUrl": "https://pho.rs/p/3608/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2015-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Дробный квантовый эффект Холла",
+      "statementUrl": "https://pho.rs/p/3283",
+      "solutionUrl": "https://pho.rs/p/3283/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2015-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Как солнечный ветер вызывает северное сияние",
+      "statementUrl": "https://pho.rs/p/3307",
+      "solutionUrl": "https://pho.rs/p/3307/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2015-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Интерферометр Фабри-Перо",
+      "statementUrl": "https://pho.rs/p/3356",
+      "solutionUrl": "https://pho.rs/p/3356/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2006-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Маятник с сухим трением",
+      "statementUrl": "https://pho.rs/p/3149",
+      "solutionUrl": "https://pho.rs/p/3149/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2014-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Интерференция электронов",
+      "statementUrl": "https://pho.rs/p/3290",
+      "solutionUrl": "https://pho.rs/p/3290/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2014-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Гравитационное линзирование",
+      "statementUrl": "https://pho.rs/p/3296",
+      "solutionUrl": "https://pho.rs/p/3296/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2013-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Цилиндры в проводящей жидкости",
+      "statementUrl": "https://pho.rs/p/3348",
+      "solutionUrl": "https://pho.rs/p/3348/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2013-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Физика спина",
+      "statementUrl": "https://pho.rs/p/3297",
+      "solutionUrl": "https://pho.rs/p/3297/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2012-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Сила сопротивления, действующая на падающий магнит",
+      "statementUrl": "https://pho.rs/p/3303",
+      "solutionUrl": "https://pho.rs/p/3303/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "apho-2012-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Фаза Панчаратнама",
+      "statementUrl": "https://pho.rs/p/3305",
+      "solutionUrl": "https://pho.rs/p/3305/s",
+      "sourceHost": "pho.rs",
+      "language": "ru",
+      "sourceKind": "mirror",
+      "discoveryUrl": "https://a.pho.rs/"
+    },
+    {
+      "id": "eupho-2025-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": null,
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2025/06/EuPhO_2025_Theory_ENG.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2025/06/EuPhO25_Theory_Solutions_20250616_1120.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2025-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": null,
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2025/06/EuPhO_2025_Theory_ENG.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2025/06/EuPhO25_Theory_Solutions_20250616_1120.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2025-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": null,
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2025/06/EuPhO_2025_Theory_ENG.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2025/06/EuPhO25_Theory_Solutions_20250616_1120.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2024-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": null,
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2024/07/EuPhO_2024_theory_final.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2024/07/EuPhO_2024_theory_sol.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2024-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": null,
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2024/07/EuPhO_2024_theory_final.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2024/07/EuPhO_2024_theory_sol.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2024-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": null,
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2024/07/EuPhO_2024_theory_final.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2024/07/EuPhO_2024_theory_sol.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2023-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": null,
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2023/06/EuPhO_2023_theory.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2023/06/EuPhO_2023_theo_sol.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2023-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": null,
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2023/06/EuPhO_2023_theory.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2023/06/EuPhO_2023_theo_sol.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2022-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": null,
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2022/05/EuPhO_2022_theory___English.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2022/05/EuPhO_2022_Solutions.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2022-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": null,
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2022/05/EuPhO_2022_theory___English.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2022/05/EuPhO_2022_Solutions.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2022-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": null,
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2022/05/EuPhO_2022_theory___English.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2022/05/EuPhO_2022_Solutions.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2021-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Течь",
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2021/06/EuPhO_2021-theory.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2021/06/EuPhO_2021_Solutions-2.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2021-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Стеклянный шар",
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2021/06/EuPhO_2021-theory.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2021/06/EuPhO_2021_Solutions-2.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2020-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": null,
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2020_Theory.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO20_Theory_Solutions-7.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2020-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": null,
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2020_Theory.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO20_Theory_Solutions-7.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2020-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": null,
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2020_Theory.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO20_Theory_Solutions-7.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2019-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Град",
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2019_theory_problems.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2019_theory_solutions.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2019-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Движение заряженного шарика",
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2019_theory_problems.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2019_theory_solutions.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2019-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Шланг",
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2019_theory_problems.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2019_theory_solutions.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2018-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Три шара",
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2020/07/eupho18-theory.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2020/07/eupho18-th-solution.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2018-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Кипение в соленоиде",
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2020/07/eupho18-theory.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2020/07/eupho18-th-solution.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2018-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Лесенка",
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2020/07/eupho18-theory.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2020/07/eupho18-th-solution.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2017-t1",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Колеблющаяся веревка",
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory_solution_marking.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2017-t2",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Диск в газе",
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory_solution_marking.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2017-t3",
+      "checkedOn": "2026-10-28",
+      "sourceTitle": "Сверхпроводящая сетка",
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory_solution_marking.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    }
+  ]
+}
