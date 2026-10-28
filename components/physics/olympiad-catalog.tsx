@@ -4,7 +4,6 @@ import { useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
-  ArrowUpRight,
   BookOpen,
   Download,
   Info,
@@ -44,55 +43,24 @@ import {
   filterCatalog,
   type CatalogProblem,
 } from "@/lib/corpus-catalog";
+import { ImportedProblemReader } from "./imported-problem-reader";
 
 function SourceActions({
   problem,
-  onOpenImported,
+  onOpen,
 }: {
   problem: CatalogProblem;
-  onOpenImported: (id: string) => void;
+  onOpen: (id: string) => void;
 }) {
   return (
-    <div className="flex shrink-0 flex-wrap items-center gap-2">
-      {problem.availability === "imported-pilot" && (
-        <Button
-          size="sm"
-          variant="secondary"
-          onClick={() => onOpenImported(problem.id)}
-          aria-label={`Read ${problem.title} in the imported pilot`}
-        >
-          <BookOpen data-icon="inline-start" /> Read in pilot
-        </Button>
-      )}
-      <Button size="sm" variant="outline" asChild>
-        <a
-          href={problem.statementUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${problem.title}: ${problem.sourceKind === "official-bundle" ? "official statement and solution bundle" : "statement"} (opens in a new tab)`}
-        >
-          {problem.sourceKind === "official-bundle"
-            ? "Statement & solution bundle"
-            : "Statement"}
-          <ArrowUpRight data-icon="inline-end" />
-        </a>
-      </Button>
-      {problem.sourceKind !== "official-bundle" && (
-        <Button size="sm" variant="ghost" asChild>
-          <a
-            href={problem.solutionUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${problem.title}: ${problem.sourceKind === "mirror" ? "mirror" : "official"} solution (opens in a new tab)`}
-          >
-            {problem.sourceKind === "mirror"
-              ? "Mirror solution"
-              : "Official solution"}
-            <ArrowUpRight data-icon="inline-end" />
-          </a>
-        </Button>
-      )}
-    </div>
+    <Button
+      size="sm"
+      variant="secondary"
+      onClick={() => onOpen(problem.id)}
+      aria-label={`Read ${problem.title} in the app`}
+    >
+      <BookOpen data-icon="inline-start" /> Read problem
+    </Button>
   );
 }
 
@@ -124,6 +92,10 @@ export function OlympiadCatalog({
   );
   const filterKey = JSON.stringify([query, topic, competition, difficulty]);
   const [pagination, setPagination] = useState({ key: filterKey, page: 1 });
+  const [activeProblemId, setActiveProblemId] = useState<string | null>(null);
+  const activeProblem = catalogProblems.find(
+    (problem) => problem.id === activeProblemId,
+  );
   const pageSize = 10;
   const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
   const page =
@@ -140,6 +112,16 @@ export function OlympiadCatalog({
       ?.scrollIntoView({ behavior: "instant", block: "start" });
   }
 
+  if (activeProblem)
+    return (
+      <ImportedProblemReader
+        key={activeProblem.id}
+        problem={activeProblem}
+        onBack={() => setActiveProblemId(null)}
+        onOpenPilot={onOpenImported}
+      />
+    );
+
   return (
     <section
       className="flex min-w-0 flex-col gap-5"
@@ -152,35 +134,37 @@ export function OlympiadCatalog({
               id="catalog-heading"
               className="text-lg font-medium tracking-tight"
             >
-              The olympiad catalog
+              The olympiad library
             </h2>
             <Badge variant="secondary">
               {catalogProblems.length} full problems
             </Badge>
           </div>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            40 IPhO · 35 APhO · 25 EuPhO. A source-linked collection across six
-            topics, from 2004 to 2025. A full problem counts once, however many
-            subparts it has.
+            40 IPhO · 35 APhO · 25 EuPhO. Complete statements, diagrams and
+            worked solutions imported across six topics, from 2004 to 2025. Read
+            every problem here—no external archive required.
           </p>
         </div>
         <Button size="sm" variant="outline" asChild>
           <a
-            href="/api/corpus?collection=catalog"
-            download="physcratic-olympiad-catalog.json"
+            href="/corpus/collection.json"
+            download="physcratic-100-imported-problems.json"
           >
-            <Download data-icon="inline-start" /> Export catalog JSON
+            <Download data-icon="inline-start" /> Download full corpus JSON
           </a>
         </Button>
       </header>
       <Alert>
         <Info />
-        <AlertTitle>100 catalog entries. Not 100 imported papers.</AlertTitle>
+        <AlertTitle>
+          100 problems imported, with statements and solutions.
+        </AlertTitle>
         <AlertDescription>
-          95 entries link to source archives; the five imported pilot problems
-          are included, not added again. All are unrated. Independent physics
-          review and republication permission are pending. Russian mirror
-          sources are labeled below.
+          Text, original page images, and diagrams are stored locally in the
+          app. English and Russian sources are labeled. All problems are
+          unrated; independent physics review and republication permission
+          remain pending.
         </AlertDescription>
       </Alert>
       <details className="rounded-lg border border-border px-4 py-3">
@@ -229,11 +213,11 @@ export function OlympiadCatalog({
             </TableBody>
           </Table>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            Official IPhO bundles may include the whole year: locate the problem
-            by its T-code. EuPhO statements and solutions are English PDFs.
-            pho.rs is a mirror, not a fourth competition; its linked statements
-            and solutions are Russian. No new third-party statements or figures
-            are copied into this app.
+            Original PDF layouts are preserved, including shared year papers
+            where needed. Every imported problem includes selectable source text
+            and locally stored figures. Russian mirror imports are labeled;
+            pho.rs is a source host, not a fourth competition. The original five
+            pilot problems also retain their structured subpart guides.
           </p>
         </div>
       </details>
@@ -271,11 +255,7 @@ export function OlympiadCatalog({
                       <span>
                         {problem.competition} {problem.year} · {problem.code}
                       </span>
-                      <Badge variant="outline">
-                        {problem.availability === "imported-pilot"
-                          ? "Imported pilot"
-                          : "Source-linked"}
-                      </Badge>
+                      <Badge variant="outline">Imported</Badge>
                     </div>
                     <h4 className="text-pretty text-base font-medium">
                       {problem.title}
@@ -289,16 +269,15 @@ export function OlympiadCatalog({
                       ))}
                     </div>
                     <p className="text-sm leading-relaxed text-muted-foreground">
-                      {problem.sourceHost} ·{" "}
-                      {problem.sourceKind === "mirror"
-                        ? "Russian mirror · authorship review pending"
-                        : "English official-source material"}{" "}
+                      {problem.importLanguage === "ru"
+                        ? "Russian source · local text & diagrams"
+                        : "English source · local PDFs & diagrams"}{" "}
                       · Unrated
                     </p>
                   </div>
                   <SourceActions
                     problem={problem}
-                    onOpenImported={onOpenImported}
+                    onOpen={setActiveProblemId}
                   />
                 </li>
               ))}

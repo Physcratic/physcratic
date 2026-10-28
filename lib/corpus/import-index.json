@@ -1,0 +1,1775 @@
+{
+  "schemaVersion": "1.0.0",
+  "importedOn": "2026-10-28",
+  "count": 100,
+  "problems": [
+    {
+      "id": "ipho-2025-t1",
+      "path": "/corpus/problems/ipho-2025-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025",
+          "kind": "statement"
+        },
+        {
+          "url": "/ipho/2025-t1-solutions.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2025-t2",
+      "path": "/corpus/problems/ipho-2025-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025",
+          "kind": "statement"
+        },
+        {
+          "url": "/ipho/2025-t2-solutions.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2025-t3",
+      "path": "/corpus/problems/ipho-2025-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025",
+          "kind": "statement"
+        },
+        {
+          "url": "/ipho/2025-t3-solutions.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2024-t1",
+      "path": "/corpus/problems/ipho-2024-t1.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/4174",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/4174/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2024-t2",
+      "path": "/corpus/problems/ipho-2024-t2.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/4176",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/4176/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2024-t3",
+      "path": "/corpus/problems/ipho-2024-t3.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/4175",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/4175/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2023-t1",
+      "path": "/corpus/problems/ipho-2023-t1.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3709",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3709/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2023-t2",
+      "path": "/corpus/problems/ipho-2023-t2.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3734",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3734/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2023-t3",
+      "path": "/corpus/problems/ipho-2023-t3.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3708",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3708/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2021-t1",
+      "path": "/corpus/problems/ipho-2021-t1.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/382",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/382/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2021-t2",
+      "path": "/corpus/problems/ipho-2021-t2.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/383",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/383/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2019-t1",
+      "path": "/corpus/problems/ipho-2019-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/1314/",
+          "kind": "statement",
+          "archiveMember": "1-Th1-Th3-Questions.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/1314/",
+          "kind": "solution",
+          "archiveMember": "3-Th1-Th3-Solutions.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2019-t2",
+      "path": "/corpus/problems/ipho-2019-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/1314/",
+          "kind": "statement",
+          "archiveMember": "1-Th1-Th3-Questions.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/1314/",
+          "kind": "solution",
+          "archiveMember": "3-Th1-Th3-Solutions.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2019-t3",
+      "path": "/corpus/problems/ipho-2019-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/1314/",
+          "kind": "statement",
+          "archiveMember": "1-Th1-Th3-Questions.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/1314/",
+          "kind": "solution",
+          "archiveMember": "3-Th1-Th3-Solutions.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2018-t1",
+      "path": "/corpus/problems/ipho-2018-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/678/",
+          "kind": "statement",
+          "archiveMember": "IPhO2018-Portugal/Experiment/Theory/Theory 1/SE1-IPhO2018.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/678/",
+          "kind": "solution",
+          "archiveMember": "IPhO2018-Portugal/Experiment/Theory/Theory 1/ST1-IPhO2018.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2018-t2",
+      "path": "/corpus/problems/ipho-2018-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/678/",
+          "kind": "statement",
+          "archiveMember": "IPhO2018-Portugal/Experiment/Theory/Theory 2/TRANSLATION_T2_Q_Official_english.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/678/",
+          "kind": "solution",
+          "archiveMember": "IPhO2018-Portugal/Experiment/Theory/Theory 2/ST2-IPhO2018.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2018-t3",
+      "path": "/corpus/problems/ipho-2018-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/678/",
+          "kind": "statement",
+          "archiveMember": "IPhO2018-Portugal/Experiment/Theory/Theory 3/TRANSLATION_T3_Q_Official_english.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/678/",
+          "kind": "solution",
+          "archiveMember": "IPhO2018-Portugal/Experiment/Theory/Theory 3/ST3-IPhO2018.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2008-t1",
+      "path": "/corpus/problems/ipho-2008-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/558/",
+          "kind": "statement",
+          "archiveMember": "2008/IPhO_2008_Theory_1_Problem.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/558/",
+          "kind": "solution",
+          "archiveMember": "2008/IPhO_2008_Theory_1_Solution.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2017-t2",
+      "path": "/corpus/problems/ipho-2017-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/674/",
+          "kind": "statement",
+          "archiveMember": "Theory-Indonesia2017/Problems T2.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/674/",
+          "kind": "solution",
+          "archiveMember": "Theory-Indonesia2017/Solution n Marking Scheme T2.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2017-t3",
+      "path": "/corpus/problems/ipho-2017-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/674/",
+          "kind": "statement",
+          "archiveMember": "Theory-Indonesia2017/Problems T3.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/674/",
+          "kind": "solution",
+          "archiveMember": "Theory-Indonesia2017/Solution n Marking Scheme T3.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2016-t2",
+      "path": "/corpus/problems/ipho-2016-t2.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/671/",
+          "kind": "statement",
+          "urls": [
+            "https://pho.rs/p/3204"
+          ],
+          "note": "The official year bundle omits these questions; both mechanics sections are imported together from the Russian mirror."
+        },
+        {
+          "url": "https://www.ipho-new.org/download/671/",
+          "kind": "solution",
+          "urls": [
+            "https://pho.rs/p/3204/s"
+          ],
+          "note": "The official year bundle omits these questions; both mechanics sections are imported together from the Russian mirror."
+        }
+      ]
+    },
+    {
+      "id": "ipho-2005-t1",
+      "path": "/corpus/problems/ipho-2005-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/549/",
+          "kind": "statement",
+          "archiveMember": "2005/IPhO_2005_Theo_question 1(pdf).pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/549/",
+          "kind": "solution",
+          "archiveMember": "2005/IPhO_2005_Theo_solution 1(pdf).pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2015-t1",
+      "path": "/corpus/problems/ipho-2015-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/668/",
+          "kind": "statement"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/668/",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2015-t2",
+      "path": "/corpus/problems/ipho-2015-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/668/",
+          "kind": "statement",
+          "archiveMember": "IPhO2015- Mumbai/Theory/T2-Questions.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/668/",
+          "kind": "solution",
+          "archiveMember": "IPhO2015- Mumbai/Theory/T2-Solutions.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2015-t3",
+      "path": "/corpus/problems/ipho-2015-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/668/",
+          "kind": "statement",
+          "archiveMember": "IPhO2015- Mumbai/Theory/T3-Questions.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/668/",
+          "kind": "solution",
+          "archiveMember": "IPhO2015- Mumbai/Theory/T3-Solutions.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2016-t1",
+      "path": "/corpus/problems/ipho-2016-t1.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/671/",
+          "kind": "statement",
+          "urls": [
+            "https://pho.rs/p/3152",
+            "https://pho.rs/p/3412"
+          ],
+          "note": "The official year bundle omits these questions; both mechanics sections are imported together from the Russian mirror."
+        },
+        {
+          "url": "https://www.ipho-new.org/download/671/",
+          "kind": "solution",
+          "urls": [
+            "https://pho.rs/p/3152/s",
+            "https://pho.rs/p/3412/s"
+          ],
+          "note": "The official year bundle omits these questions; both mechanics sections are imported together from the Russian mirror."
+        }
+      ]
+    },
+    {
+      "id": "ipho-2014-t3",
+      "path": "/corpus/problems/ipho-2014-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/576/",
+          "kind": "statement",
+          "archiveMember": "2014/2014_IPhO_Theory_Problem_3.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/576/",
+          "kind": "solution",
+          "archiveMember": "2014/2014_IPhO_Solution_to_Theory_Problem_3.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2013-t1",
+      "path": "/corpus/problems/ipho-2013-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/573/",
+          "kind": "statement",
+          "archiveMember": "2013/ipho2013-theoretical-problem-1.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/573/",
+          "kind": "solution",
+          "archiveMember": "2013/IPhO2013_T1_solution.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2013-t2",
+      "path": "/corpus/problems/ipho-2013-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/573/",
+          "kind": "statement",
+          "archiveMember": "2013/ipho2013-theoretical-problem-2.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/573/",
+          "kind": "solution",
+          "archiveMember": "2013/IPhO2013_T2_solution.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2013-t3",
+      "path": "/corpus/problems/ipho-2013-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/573/",
+          "kind": "statement",
+          "archiveMember": "2013/ipho2013-theoretical-problem-3.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/573/",
+          "kind": "solution",
+          "archiveMember": "2013/IPhO2013_T3_solution.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2012-t2",
+      "path": "/corpus/problems/ipho-2012-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/570/",
+          "kind": "statement",
+          "archiveMember": "2012/2012-08-09 IPhO2012_Theoretical_problems.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/570/",
+          "kind": "solution",
+          "archiveMember": "2012/2012-08-09 IPO2012 Theory_Solutions_ENG.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2011-t1",
+      "path": "/corpus/problems/ipho-2011-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/567/",
+          "kind": "statement"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/567/",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2010-t1",
+      "path": "/corpus/problems/ipho-2010-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/564/",
+          "kind": "statement",
+          "archiveMember": "2010/IPhO_2010_Theo_Problem 1.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/564/",
+          "kind": "solution",
+          "archiveMember": "2010/IPhO_2010_Theo_1_Solution.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2010-t2",
+      "path": "/corpus/problems/ipho-2010-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/564/",
+          "kind": "statement",
+          "archiveMember": "2010/IPhO_2010_Theo_Problem 2.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/564/",
+          "kind": "solution",
+          "archiveMember": "2010/IPhO_2010_Theo_2_Solution.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2008-t2",
+      "path": "/corpus/problems/ipho-2008-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/558/",
+          "kind": "statement",
+          "archiveMember": "2008/IPhO_2008_Theory_2_Problem.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/558/",
+          "kind": "solution",
+          "archiveMember": "2008/IPhO_2008_Theory_2_Solution.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2007-t2",
+      "path": "/corpus/problems/ipho-2007-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/555/",
+          "kind": "statement",
+          "archiveMember": "2007/IPhO_2007_Theo(Orange)_question.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/555/",
+          "kind": "solution",
+          "archiveMember": "2007/IPhO_2007_Theo(Orange)_answer.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2009-t1",
+      "path": "/corpus/problems/ipho-2009-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/561/",
+          "kind": "statement",
+          "archiveMember": "2009/IPhO_2009_Theo_Problem 1.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/561/",
+          "kind": "solution",
+          "archiveMember": "2009/IPhO_2009_Theo_Solution 1.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2005-t2",
+      "path": "/corpus/problems/ipho-2005-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/549/",
+          "kind": "statement",
+          "archiveMember": "2005/IPhO_2005_Theo_question 2(pdf).pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/549/",
+          "kind": "solution",
+          "archiveMember": "2005/IPhO_2005_Theo_solution 2(pdf).pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2009-t2",
+      "path": "/corpus/problems/ipho-2009-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/561/",
+          "kind": "statement",
+          "archiveMember": "2009/IPhO_2009_Theo_Problem 2.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/561/",
+          "kind": "solution",
+          "archiveMember": "2009/IPhO_2009_Theo_Solution 2.pdf"
+        }
+      ]
+    },
+    {
+      "id": "ipho-2004-t3",
+      "path": "/corpus/problems/ipho-2004-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://www.ipho-new.org/download/546/",
+          "kind": "statement",
+          "archiveMember": "2004/IPhO_2004_Theoretical Question 3.pdf"
+        },
+        {
+          "url": "https://www.ipho-new.org/download/546/",
+          "kind": "solution",
+          "archiveMember": "2004/IPhO_2004_Theo_solution 3.pdf"
+        }
+      ]
+    },
+    {
+      "id": "apho-2025-t1",
+      "path": "/corpus/problems/apho-2025-t1.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/4711",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/4711/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2025-t2",
+      "path": "/corpus/problems/apho-2025-t2.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/4712",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/4712/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2025-t3",
+      "path": "/corpus/problems/apho-2025-t3.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/4713",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/4713/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2024-t3",
+      "path": "/corpus/problems/apho-2024-t3.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/4071",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/4071/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2023-t1",
+      "path": "/corpus/problems/apho-2023-t1.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3680",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3680/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2023-t2",
+      "path": "/corpus/problems/apho-2023-t2.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3681",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3681/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2011-t2",
+      "path": "/corpus/problems/apho-2011-t2.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3172",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3172/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2022-t1",
+      "path": "/corpus/problems/apho-2022-t1.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3090",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3090/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2022-t2",
+      "path": "/corpus/problems/apho-2022-t2.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3089",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3089/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2022-t3",
+      "path": "/corpus/problems/apho-2022-t3.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3091",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3091/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2021-t1",
+      "path": "/corpus/problems/apho-2021-t1.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/291",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/291/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2021-t2",
+      "path": "/corpus/problems/apho-2021-t2.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/292",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/292/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2021-t3",
+      "path": "/corpus/problems/apho-2021-t3.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/293",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/293/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2019-t1",
+      "path": "/corpus/problems/apho-2019-t1.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3324",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3324/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2019-t2",
+      "path": "/corpus/problems/apho-2019-t2.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3323",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3323/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2019-t3",
+      "path": "/corpus/problems/apho-2019-t3.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3446",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3446/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2018-t1",
+      "path": "/corpus/problems/apho-2018-t1.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3597",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3597/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2018-t2",
+      "path": "/corpus/problems/apho-2018-t2.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3598",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3598/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2018-t3",
+      "path": "/corpus/problems/apho-2018-t3.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3599",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3599/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2017-t1",
+      "path": "/corpus/problems/apho-2017-t1.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3442",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3442/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2017-t2",
+      "path": "/corpus/problems/apho-2017-t2.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3445",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3445/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2017-t3",
+      "path": "/corpus/problems/apho-2017-t3.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3453",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3453/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2016-t1",
+      "path": "/corpus/problems/apho-2016-t1.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3351",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3351/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2009-t1",
+      "path": "/corpus/problems/apho-2009-t1.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3153",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3153/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2016-t3",
+      "path": "/corpus/problems/apho-2016-t3.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3608",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3608/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2015-t1",
+      "path": "/corpus/problems/apho-2015-t1.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3283",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3283/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2015-t2",
+      "path": "/corpus/problems/apho-2015-t2.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3307",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3307/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2015-t3",
+      "path": "/corpus/problems/apho-2015-t3.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3356",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3356/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2006-t2",
+      "path": "/corpus/problems/apho-2006-t2.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3149",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3149/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2014-t2",
+      "path": "/corpus/problems/apho-2014-t2.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3290",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3290/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2014-t3",
+      "path": "/corpus/problems/apho-2014-t3.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3296",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3296/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2013-t1",
+      "path": "/corpus/problems/apho-2013-t1.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3348",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3348/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2013-t3",
+      "path": "/corpus/problems/apho-2013-t3.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3297",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3297/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2012-t1",
+      "path": "/corpus/problems/apho-2012-t1.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3303",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3303/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "apho-2012-t3",
+      "path": "/corpus/problems/apho-2012-t3.json",
+      "language": "ru",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "url": "https://pho.rs/p/3305",
+          "kind": "statement"
+        },
+        {
+          "url": "https://pho.rs/p/3305/s",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2025-t1",
+      "path": "/corpus/problems/eupho-2025-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2025/06/EuPhO_2025_Theory_ENG.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2025/06/EuPhO25_Theory_Solutions_20250616_1120.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2025-t2",
+      "path": "/corpus/problems/eupho-2025-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2025/06/EuPhO_2025_Theory_ENG.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2025/06/EuPhO25_Theory_Solutions_20250616_1120.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2025-t3",
+      "path": "/corpus/problems/eupho-2025-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2025/06/EuPhO_2025_Theory_ENG.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2025/06/EuPhO25_Theory_Solutions_20250616_1120.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2024-t1",
+      "path": "/corpus/problems/eupho-2024-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2024/07/EuPhO_2024_theory_final.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2024/07/EuPhO_2024_theory_sol.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2024-t2",
+      "path": "/corpus/problems/eupho-2024-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2024/07/EuPhO_2024_theory_final.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2024/07/EuPhO_2024_theory_sol.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2024-t3",
+      "path": "/corpus/problems/eupho-2024-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2024/07/EuPhO_2024_theory_final.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2024/07/EuPhO_2024_theory_sol.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2023-t1",
+      "path": "/corpus/problems/eupho-2023-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2023/06/EuPhO_2023_theory.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2023/06/EuPhO_2023_theo_sol.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2023-t3",
+      "path": "/corpus/problems/eupho-2023-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2023/06/EuPhO_2023_theory.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2023/06/EuPhO_2023_theo_sol.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2022-t1",
+      "path": "/corpus/problems/eupho-2022-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2022/05/EuPhO_2022_theory___English.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2022/05/EuPhO_2022_Solutions.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2022-t2",
+      "path": "/corpus/problems/eupho-2022-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2022/05/EuPhO_2022_theory___English.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2022/05/EuPhO_2022_Solutions.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2022-t3",
+      "path": "/corpus/problems/eupho-2022-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2022/05/EuPhO_2022_theory___English.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2022/05/EuPhO_2022_Solutions.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2021-t1",
+      "path": "/corpus/problems/eupho-2021-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2021/06/EuPhO_2021-theory.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2021/06/EuPhO_2021_Solutions-2.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2021-t3",
+      "path": "/corpus/problems/eupho-2021-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2021/06/EuPhO_2021-theory.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2021/06/EuPhO_2021_Solutions-2.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2020-t1",
+      "path": "/corpus/problems/eupho-2020-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2020_Theory.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO20_Theory_Solutions-7.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2020-t2",
+      "path": "/corpus/problems/eupho-2020-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2020_Theory.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO20_Theory_Solutions-7.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2020-t3",
+      "path": "/corpus/problems/eupho-2020-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2020_Theory.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO20_Theory_Solutions-7.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2019-t1",
+      "path": "/corpus/problems/eupho-2019-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2019_theory_problems.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2019_theory_solutions.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2019-t2",
+      "path": "/corpus/problems/eupho-2019-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2019_theory_problems.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2019_theory_solutions.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2019-t3",
+      "path": "/corpus/problems/eupho-2019-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2019_theory_problems.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2019_theory_solutions.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2018-t1",
+      "path": "/corpus/problems/eupho-2018-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/eupho18-theory.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/eupho18-th-solution.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2018-t2",
+      "path": "/corpus/problems/eupho-2018-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/eupho18-theory.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/eupho18-th-solution.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2018-t3",
+      "path": "/corpus/problems/eupho-2018-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/eupho18-theory.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/eupho18-th-solution.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2017-t1",
+      "path": "/corpus/problems/eupho-2017-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory_solution_marking.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2017-t2",
+      "path": "/corpus/problems/eupho-2017-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory_solution_marking.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2017-t3",
+      "path": "/corpus/problems/eupho-2017-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory_solution_marking.pdf",
+          "kind": "solution"
+        }
+      ]
+    }
+  ]
+}

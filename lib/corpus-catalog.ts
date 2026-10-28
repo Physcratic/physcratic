@@ -1,5 +1,6 @@
 import { z } from "zod";
 import sources from "./corpus/catalog-sources.json";
+import imports from "./corpus/import-index.json";
 import {
   catalogSelection,
   catalogTopics,
@@ -38,7 +39,12 @@ export const catalogProblemSchema = catalogSourceSchema
     primaryTopic: z.enum(catalogTopics),
     topics: z.array(z.enum(catalogTopics)).min(1),
     tags: z.array(z.string().min(1)).min(2).max(5),
-    availability: z.enum(["imported-pilot", "source-linked"]),
+    availability: z.literal("imported"),
+    hasPilotGuide: z.boolean(),
+    importPath: z
+      .string()
+      .regex(/^\/corpus\/problems\/(ipho|apho|eupho)-\d{4}-t\d+\.json$/),
+    importLanguage: z.enum(["en", "ru"]),
     attribution: z.string().min(20),
     reviewStatus: z.literal("independent-review-pending"),
     rightsStatus: z.literal("permission-review-required"),
@@ -74,6 +80,9 @@ const sourceById = new Map(
 const importedById = new Map(
   corpusProblems.map((problem) => [problem.id, problem]),
 );
+const documentById = new Map(
+  imports.problems.map((problem) => [problem.id, problem]),
+);
 
 export const catalogProblems: CatalogProblem[] = (
   Object.entries(catalogSelection) as [
@@ -86,6 +95,9 @@ export const catalogProblems: CatalogProblem[] = (
     const imported = importedById.get(id);
     const source = sourceById.get(id);
     if (!source) throw new Error(`Missing verified catalog source: ${id}`);
+    const document = documentById.get(id);
+    if (!document)
+      throw new Error(`Missing imported statement and solution: ${id}`);
     return catalogProblemSchema.parse({
       ...source,
       competition,
@@ -97,7 +109,10 @@ export const catalogProblems: CatalogProblem[] = (
       topics: [
         ...new Set([primaryTopic, ...(imported?.topics.map(tagLabel) ?? [])]),
       ],
-      availability: imported ? "imported-pilot" : "source-linked",
+      availability: "imported",
+      hasPilotGuide: Boolean(imported),
+      importPath: document.path,
+      importLanguage: document.language,
       attribution: `${competition} ${year}, theoretical problem ${code}. Original problem credited to the competition organisers. ${source.sourceKind === "mirror" ? "Russian statement and solution hosted by pho.rs; translation and solution authorship require review." : "Linked from the competition’s source archive; see the original documents for contributor credits."}`,
       reviewStatus: "independent-review-pending",
       rightsStatus: "permission-review-required",
@@ -167,26 +182,26 @@ export function filterCatalog({
 }
 
 export const catalogExport = {
-  schemaVersion: "1.0.0",
-  collection: "olympiad-source-catalog-100",
+  schemaVersion: "2.0.0",
+  collection: "olympiad-imported-corpus-100",
   checkedOn: sources.checkedOn,
   verification: sources.verification,
   notes:
-    "100 distinct full theory problems: 40 IPhO, 35 APhO, 25 EuPhO. Includes the five imported pilot problems, not 100 additional imports. Source-linked records contain metadata and external links only. Topic assignments and English catalog titles are editorial; full physics, translation, subpart mapping and rights review remain pending. Official bundles contain multiple problems; use each record’s original problem code.",
+    "100 distinct imported full theory problems: 40 IPhO, 35 APhO, 25 EuPhO. Every record has a local content JSON with the complete statement and worked solution, including original diagrams. PDF layouts and shared source material are preserved. Import paths resolve against the app origin. Includes the original five structured pilot guides. English titles are editorial; Russian sources are explicitly labeled. Independent physics, translation and rights reviews remain pending.",
   publication: {
-    mode: "source-linked-catalog",
+    mode: "imported-local-corpus",
     rightsStatus: "permission-review-required",
     license: null,
   },
   grading: { mode: "self-review", rated: false, elo: null },
   counts: {
     total: catalogProblems.length,
+    imported: imports.count,
     importedPilot: importedById.size,
-    sourceLinked: catalogProblems.filter(
-      (problem) => problem.availability === "source-linked",
-    ).length,
+    sourceLinked: 0,
   },
   coverage: catalogCoverage,
   problems: catalogProblems,
   checks: sources.checks,
+  imports,
 };

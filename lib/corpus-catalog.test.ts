@@ -85,18 +85,19 @@ test("primary-topic accounting meets every target without counting mixed problem
   }
 });
 
-test("pilot membership is preserved; source links never imply completed content imports or rights", () => {
+test("all 100 records are imported while pilot guides, review and rights status remain honest", () => {
   assert.deepEqual(
     catalogProblems
-      .filter((problem) => problem.availability === "imported-pilot")
+      .filter((problem) => problem.hasPilotGuide)
       .map((problem) => problem.id)
       .sort(),
     corpusProblems.map((problem) => problem.id).sort(),
   );
   assert.deepEqual(catalogExport.counts, {
     total: 100,
+    imported: 100,
     importedPilot: 5,
-    sourceLinked: 95,
+    sourceLinked: 0,
   });
   assert.equal(catalogExport.publication.license, null);
   for (const problem of catalogProblems) {
@@ -216,7 +217,9 @@ test("catalog export and original pilot endpoint remain separate downloadable JS
   );
   const catalog = await response.json();
   assert.equal(catalog.problems.length, 100);
-  assert.equal(catalog.counts.sourceLinked, 95);
+  assert.equal(catalog.counts.imported, 100);
+  assert.equal(catalog.counts.sourceLinked, 0);
+  assert.equal(catalog.imports.problems.length, 100);
   assert.equal(catalog.grading.rated, false);
   const pilot = await GET(
     new Request("https://physcratic.test/api/corpus"),

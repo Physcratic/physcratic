@@ -91,7 +91,7 @@ export function ProblemLibrary({
     >
       <TabsList className="h-auto w-fit max-w-full flex-wrap">
         <TabsTrigger value="catalog">
-          Olympiad catalog · {catalogProblems.length}
+          Imported problems · {catalogProblems.length}
         </TabsTrigger>
         <TabsTrigger value="pilot">
           Imported pilot · {corpusProblems.length}

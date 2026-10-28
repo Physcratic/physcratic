@@ -106,6 +106,61 @@
 .math-formula .katex {
   font-size: 1.2em;
 }
+.imported-source-content {
+  overflow-wrap: anywhere;
+}
+.imported-source-content p,
+.imported-source-content .source-paragraph,
+.imported-source-content > div,
+.imported-source-content ul,
+.imported-source-content ol,
+.imported-source-content figure {
+  margin-block: 1rem;
+}
+.imported-source-content h1,
+.imported-source-content h2,
+.imported-source-content h3,
+.imported-source-content h4,
+.imported-source-content h5 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-block: 1.5rem 0.75rem;
+}
+.imported-source-content img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  max-height: 40rem;
+  height: auto;
+  margin: 1.5rem auto;
+  border-radius: var(--radius);
+}
+.imported-source-content table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin-block: 1rem;
+}
+.imported-source-content td,
+.imported-source-content th {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid hsl(var(--border));
+}
+.imported-source-content ul,
+.imported-source-content ol {
+  padding-inline-start: 1.5rem;
+  list-style: revert;
+}
+.imported-source-content .katex-display {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: 0.5rem;
+}
+.imported-source-content .katex {
+  font-size: 1.08em;
+}
 .hero-image {
   mix-blend-mode: lighten;
 }
