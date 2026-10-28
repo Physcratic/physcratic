@@ -1,6 +1,9 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { Field, FieldLabel } from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
 import { Shuffle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { problems, viewTitles, type Problem, type View } from "@/lib/physics";
@@ -32,6 +35,7 @@ export default function Content({
   dailyProblem: Problem;
 }) {
   const router = useRouter();
+  const [rankingSearch, setRankingSearch] = useState("");
   function openProblem(problem: Problem) {
     router.push(`/dashboard/problems/${problem.id}`);
   }
@@ -58,8 +62,23 @@ export default function Content({
               {subtitles[view]}
             </p>
           </div>
-          {(view === "contests" || view === "rankings") && (
+          {view === "contests" && (
             <Badge variant="outline">Front-end preview</Badge>
+          )}
+          {view === "rankings" && (
+            <Field className="w-full sm:w-72">
+              <FieldLabel htmlFor="ranking-search" className="sr-only">
+                Search sample contestants
+              </FieldLabel>
+              <Input
+                id="ranking-search"
+                type="search"
+                value={rankingSearch}
+                onChange={(event) => setRankingSearch(event.target.value)}
+                placeholder="Search sample contestants…"
+                aria-controls="rankings-table"
+              />
+            </Field>
           )}
           {view === "problems" && (
             <Button
@@ -81,7 +100,9 @@ export default function Content({
         <ProblemLibrary topic={topic} query={query} onOpen={openProblem} />
       )}
       {view === "contests" && <Contests />}
-      {view === "rankings" && <Rankings />}
+      {view === "rankings" && (
+        <Rankings search={rankingSearch} onSearchChange={setRankingSearch} />
+      )}
       {view === "guide" && <LearningGuide />}
     </div>
   );

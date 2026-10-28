@@ -36,7 +36,6 @@ import {
 } from "@/lib/ipho-archive";
 import { ContestDetails } from "./contest-details";
 import { ContestRoom } from "./contest-room";
-import { EntrantDistribution } from "./entrant-distribution";
 import { RankTitle } from "./rank-title";
 
 const featuredEntrant = demoRankings[0];
@@ -121,7 +120,7 @@ export function Contests() {
         </CardContent>
       </Card>
 
-      <div className="grid min-w-0 grid-cols-1 gap-5 min-[1100px]:grid-cols-[1fr_320px]">
+      <div className="flex min-w-0 flex-col">
         <section
           className="contest-motif flex min-w-0 flex-col items-start justify-between gap-6 overflow-hidden rounded-xl border bg-hero p-6 text-hero-foreground sm:p-8"
           aria-labelledby="featured-contest"
@@ -190,7 +189,6 @@ export function Contests() {
             </div>
           </div>
         </section>
-        <EntrantDistribution contestName={live.name} />
       </div>
 
       <Tabs defaultValue="upcoming" className="min-w-0">

@@ -1,24 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import { Flame, Search } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Empty,
   EmptyDescription,
   EmptyHeader,
   EmptyTitle,
 } from "@/components/ui/empty";
-import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
 import {
   Table,
   TableBody,
@@ -38,50 +28,17 @@ import { demoProfile, demoRankings, risingStreak } from "@/lib/contest-demo";
 import { RankTitle } from "./rank-title";
 import { cn } from "@/lib/utils";
 
-export function Rankings() {
-  const [search, setSearch] = useState("");
+export function Rankings({ search, onSearchChange }: {
+  search: string;
+  onSearchChange: (search: string) => void;
+}) {
   const rows = demoRankings.filter((row) =>
     row.handle.toLowerCase().includes(search.trim().toLowerCase()),
   );
   return (
     <div className="flex min-w-0 flex-col gap-6">
-      <Card className="min-w-0 overflow-hidden shadow-none">
-        <CardHeader className="leaderboard-motif gap-4">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="flex flex-col gap-1.5">
-              <CardTitle>
-                <h2 className="text-base font-medium tracking-tight">
-                  The leaderboard
-                </h2>
-              </CardTitle>
-              <CardDescription>
-                A flame marks 3 or more consecutive rated rounds with Elo gains.
-              </CardDescription>
-            </div>
-            <Badge variant="outline">Sample top 7 + your rank</Badge>
-          </div>
-          <FieldGroup className="max-w-xs">
-            <Field>
-              <FieldLabel htmlFor="ranking-search" className="sr-only">
-                Search sample contestants
-              </FieldLabel>
-              <div className="relative">
-                <Search
-                  aria-hidden="true"
-                  className="pointer-events-none absolute left-3 top-3 size-4 text-muted-foreground"
-                />
-                <Input
-                  id="ranking-search"
-                  value={search}
-                  onChange={(event) => setSearch(event.target.value)}
-                  placeholder="Search sample contestants…"
-                  className="pl-9"
-                />
-              </div>
-            </Field>
-          </FieldGroup>
-        </CardHeader>
-        <CardContent className="px-0 pb-0">
+      <Card id="rankings-table" className="min-w-0 overflow-hidden shadow-none">
+        <CardContent className="p-0">
           {rows.length ? (
             <Table>
               <TableCaption className="pb-5">
@@ -172,7 +129,7 @@ export function Rankings() {
                   leaderboard.
                 </EmptyDescription>
               </EmptyHeader>
-              <Button variant="outline" onClick={() => setSearch("")}>
+              <Button variant="outline" onClick={() => onSearchChange("")}>
                 Clear search
               </Button>
             </Empty>
