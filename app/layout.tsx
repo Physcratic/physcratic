@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | Physcratic",
   },
   description:
-    "Read 100 imported IPhO, APhO and EuPhO theory problems across six physics topics, with complete statements, original diagrams and worked solutions available in the app. English and Russian sources are clearly labeled.",
+    "Explore 100 imported IPhO, APhO and EuPhO theory problems with original diagrams and clearly labeled English translation drafts. Save private typed or handwritten solution attempts; automated grading awaits approved marking rubrics.",
   icons: { icon: "/icon.svg" },
 };
 

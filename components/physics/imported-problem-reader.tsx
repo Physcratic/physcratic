@@ -40,6 +40,7 @@ import { translationSchema } from "@/lib/corpus-translation";
 import translationIndex from "@/lib/corpus/translation-index.json";
 import { assessSolutionSource } from "@/lib/corpus-readiness";
 import { ImportedSourceContent } from "./imported-source-content";
+import { SolutionSubmissionForm } from "./solution-submission-form";
 
 async function loadProblem(url: string) {
   const response = await fetch(url);
@@ -323,9 +324,10 @@ export function ImportedProblemReader({
           onValueChange={setTab}
           className="flex min-w-0 flex-col gap-4"
         >
-          <TabsList className="w-fit">
+          <TabsList className="h-auto w-fit max-w-full flex-wrap">
             <TabsTrigger value="statement">Problem statement</TabsTrigger>
             <TabsTrigger value="solution">{missingSolution ? "Source solution page" : "Worked solution"}</TabsTrigger>
+            <TabsTrigger value="submission">Your solution</TabsTrigger>
           </TabsList>
           {(["statement", "solution"] as const).map((kind) => (
             <TabsContent key={kind} value={kind} className="min-w-0">
@@ -371,6 +373,9 @@ export function ImportedProblemReader({
               </Card>
             </TabsContent>
           ))}
+          <TabsContent value="submission" className="min-w-0">
+            <SolutionSubmissionForm key={problem.id} problemId={problem.id} />
+          </TabsContent>
         </Tabs>
       )}
       <details className="rounded-lg border border-border px-4 py-3">

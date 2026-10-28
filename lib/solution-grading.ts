@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const submissionLimits = { maxText: 12000, maxFiles: 5, maxFileBytes: 8 * 1024 * 1024, maxTotalBytes: 20 * 1024 * 1024 } as const;
+export const submissionLimits = { maxText: 12000, maxFiles: 5, maxFileBytes: 3 * 1024 * 1024, maxTotalBytes: 8 * 1024 * 1024 } as const;
 export const submissionMediaTypes = ["image/jpeg", "image/png", "image/webp", "application/pdf"] as const;
 const evidenceSchema = z.object({
   id: z.string().uuid(),
@@ -24,6 +24,9 @@ export const solutionSubmissionSchema = z.object({
   if (new Set(submission.evidence.map((file) => file.id)).size !== submission.evidence.length) context.addIssue({ code: z.ZodIssueCode.custom, message: "Duplicate evidence identifiers" });
   if (submission.evidence.length && !submission.transcription) context.addIssue({ code: z.ZodIssueCode.custom, message: "Confirm the extracted handwriting and equations before grading" });
 });
+
+export type SolutionSubmission = z.infer<typeof solutionSubmissionSchema>;
+export type SubmissionEvidence = SolutionSubmission["evidence"][number];
 
 const criterionSchema = z.object({
   id: z.string().min(1),

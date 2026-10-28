@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { AccountNav } from "@/components/account-nav";
 import { viewTitles, type View } from "@/lib/physics";
 
 export default function TopNav({
@@ -61,13 +62,7 @@ export default function TopNav({
         </Button>
         <ThemeToggle />
         <span className="hidden h-5 border-l sm:block" />
-        <Link
-          href="/dashboard?view=guide"
-          aria-label="About your workspace"
-          className="flex size-8 items-center justify-center rounded-full border bg-secondary text-sm font-medium text-secondary-foreground"
-        >
-          P
-        </Link>
+        <AccountNav />
       </div>
     </header>
   );

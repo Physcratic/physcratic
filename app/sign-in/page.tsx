@@ -1,0 +1,13 @@
+import type { Metadata } from "next";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
+import { auth } from "@/lib/auth";
+import { safeReturnPath } from "@/lib/submission-security";
+import { AuthForm } from "@/components/auth-form";
+
+export const metadata: Metadata = { title: "Sign in", robots: { index: false, follow: false } };
+export default async function SignIn({ searchParams }: { searchParams: Promise<{ returnTo?: string }> }) {
+  const returnTo = safeReturnPath((await searchParams).returnTo);
+  if ((await auth.api.getSession({ headers: await headers() }))?.user) redirect(returnTo);
+  return <AuthForm mode="sign-in" returnTo={returnTo} />;
+}
