@@ -23,6 +23,7 @@ import { MathWorkingEditor } from "./math-working-editor";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 import {
   Field,
   FieldDescription,
@@ -131,18 +132,29 @@ export function ProblemReader({ problem }: { problem: Problem }) {
               Problem statement
             </h2>
           </CardTitle>
+          <div className="flex flex-col gap-3">
+            {problem.prompt.split(/(?<=[.!?])\s+(?=[A-Z])/u).map((sentence, index) => (
+              <p key={index} className="text-pretty text-base leading-relaxed text-muted-foreground">
+                {sentence.endsWith("?") ? (
+                  <strong className="text-lg font-semibold leading-relaxed text-foreground">
+                    {sentence}
+                  </strong>
+                ) : sentence}
+              </p>
+            ))}
+          </div>
         </CardHeader>
-        <CardContent className="flex min-w-0 flex-col gap-6">
-          <p className="text-pretty text-base leading-relaxed">
-            {problem.prompt}
-          </p>
+        <Separator />
+        <CardContent className="flex min-w-0 flex-col gap-6 pt-6">
           <MathWorkingEditor
             id="practice-working"
             value={working}
             onChange={setWorking}
-            description="Working is saved with each checked answer when you are signed in. Unchecked edits are not saved. Your derivation is not graded. Check your numerical final answer below."
+            description="Working is saved only when you check an answer while signed in. Unchecked edits are not saved; your working is not graded."
           />
+          <Separator />
           <form
+            aria-label="Check your final answer"
             onSubmit={checkAnswer}
             onKeyDown={(event) => {
               if (
@@ -251,7 +263,7 @@ export function ProblemReader({ problem }: { problem: Problem }) {
               aria-controls="problem-hint"
             >
               <span className="flex items-center gap-2">
-                <Lightbulb />A nudge in the right direction
+                <Lightbulb data-icon="inline-start" />Hint
               </span>
               {showHint ? <ChevronUp /> : <ChevronDown />}
             </Button>
@@ -272,7 +284,7 @@ export function ProblemReader({ problem }: { problem: Problem }) {
               aria-expanded={showSolution}
               aria-controls="worked-solution"
             >
-              {showSolution ? "Hide worked solution" : "Show worked solution"}
+              Solution
               {showSolution ? <ChevronUp /> : <ChevronDown />}
             </Button>
             {showSolution && (
