@@ -1,7 +1,7 @@
 # Problem authoring architecture map
 
-Phase 2 reconciled with recovered main `e4fbc88264a2c4280e6077f31346c06722fce6c4` (2026-10-31, Asia/Makassar).
-Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md; Phase 2 adds draft/publication APIs; editor, media uploads and grading remain deferred.
+Phase 3 based on merged main `6837ae319d2e8a856e2188e5a269d96050deef84` (2026-10-31, Asia/Makassar).
+Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md; Phase 3 adds the native editor; media uploads and grading remain deferred.
 Read this and [status](PROBLEM_AUTHORING_STATUS.md) before each phase; inspect only affected code/dependencies.
 
 ## Verified current architecture
@@ -59,7 +59,7 @@ Read this and [status](PROBLEM_AUTHORING_STATUS.md) before each phase; inspect o
 - Server-only grader loads keys; parser preview receives submitted expression only. Results: accepted/incorrect/needs-review/ungraded.
 - Numerical sampling finds counterexamples, never proves equivalence; sqrt(x^2) != x over unrestricted reals; define units, singularities and angle convention.
 - Practice reveal before submission is allowed; persist assisted state. Never update existing ratings/Elo from authored attempts.
-- Reuse existing libraries; Tiptap/dnd-kit evaluation belongs to Phase 3, no new dependencies in Phase 0.
+- Phase 3 evaluated Tiptap/dnd-kit and uses existing controls/KaTeX plus keyboard move buttons: no new product dependency or editor schema needed.
 
 ## Migration and release strategy
 - Additive migrations/contracts only; preserve auth, archive, practice and existing IDs/data contracts; no mass rewrite or production DB access.
@@ -91,6 +91,19 @@ Read this and [status](PROBLEM_AUTHORING_STATUS.md) before each phase; inspect o
 - Public content helper is serialization only; publication visibility/owner preview authorization enforced in handler, not serializer.
 - `bash scripts/test-problem-authoring.sh`: isolated local PostgreSQL17, migrations + original SQL regressions + handler integration; test sessions injected, production auth unchanged.
 - `bash scripts/test-problem-authoring.sh node /tmp/.../pnpm.cjs test`: full suite with DB integration enabled; direct pnpm test skips DB integration without explicit test URL.
+
+## Phase 3 native editor
+- [Verified-author route](../../app/dashboard/author/page.tsx) at `/dashboard/author`; sidebar Problem studio link; manager uses existing paginated CRUD APIs.
+- [Workspace](../../components/authoring/workspace.tsx), [editor](../../components/authoring/problem-editor.tsx), [fields](../../components/authoring/editor-fields.tsx), [private panels](../../components/authoring/answer-panel.tsx).
+- Native sections/parts, ordered text/math blocks and inline LaTeX spans; immutable IDs preserved; KaTeX trust:false with expansion/size caps and equation shortcuts.
+- Numeric/expression/manual answer configuration, variable domains/angles, private hints/worked solutions; no CAS grading, uploads or student submissions.
+- [Editor state machine](../../lib/problem-authoring-editor.ts): 1800ms debounce, serialized saves, explicit saved/saving/error/conflict states, versions from API acknowledgements only.
+- In-flight edits/undo and uncertain request outcomes keep tab recovery protected; owner+problem-scoped sessionStorage backups, explicit restore/discard/download; raw invalid copies retained.
+- 409 pauses autosave; fetch/inspect latest, explicitly replace local or keep local over loaded version; no automatic merge or silent overwrite. Publish flushes saves and consumes returned version.
+- Local editor buffers retain incomplete numeric/expression input; Phase 1 contracts still gate API save/publication. Browser unload warns on unsaved/uncertain work.
+- Student preview uses publicAuthoredContent only, unmounts private panels; malformed/oversized content fails preview safely. Server gate requires verified email before editor renders.
+- Keyboard reorder/delete restores focus and announces position changes; labeled/help-associated fields, mobile stacking, outline navigation and private-download warnings.
+- [State tests](../../lib/problem-authoring-editor.test.ts), [Chromium+API/PG harness](../../tests/problem-authoring.browser.mjs); test commands/tooling and actual evidence in status. No production migration.
 
 ## Acceptance/test plan (future implementation, not passing tests)
 - Phase 1: malformed/bounded contracts, unique block/part IDs, FK/revision consistency, no private keys in public projection.
