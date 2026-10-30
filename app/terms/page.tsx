@@ -1,4 +1,3 @@
-import { TermsContent } from "@/components/terms-content";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -18,7 +17,7 @@ export default function TermsPage() {
       <Button variant="ghost" className="w-fit" asChild>
         <Link href="/dashboard"><ArrowLeft data-icon="inline-start" /> Back to Physcratic</Link>
       </Button>
-      <header id={`version-${TERMS_VERSION}`} className="flex flex-col gap-3">
+      <header className="flex flex-col gap-3">
         <p className="text-sm font-medium text-muted-foreground">Physcratic · Legal</p>
         <h1 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">Terms of Service</h1>
         <p className="text-sm leading-relaxed text-muted-foreground">Effective {TERMS_EFFECTIVE_DATE} · Version {TERMS_VERSION}</p>
@@ -31,7 +30,14 @@ export default function TermsPage() {
         <h2 className="font-semibold">On this page</h2>
         {TERMS_SECTIONS.map((section) => <Link key={section.id} href={`#${section.id}`} className="w-fit text-sm leading-relaxed text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">{section.title}</Link>)}
       </nav>
-      <TermsContent />
+      <article className="flex flex-col gap-8">
+        {TERMS_SECTIONS.map((section) => (
+          <section key={section.id} id={section.id} aria-labelledby={`${section.id}-heading`} className="flex scroll-mt-8 flex-col gap-3">
+            <h2 id={`${section.id}-heading`} className="text-balance text-xl font-semibold">{section.title}</h2>
+            {section.paragraphs.map((paragraph) => <p key={paragraph} className="text-pretty text-base leading-relaxed text-muted-foreground">{paragraph}</p>)}
+          </section>
+        ))}
+      </article>
       <footer className="flex flex-col gap-3 border-t border-border pt-6 text-sm leading-relaxed text-muted-foreground">
         <p>Accept these Terms using the unchecked agreement box when creating your account.</p>
         <Link href="/sign-up" className="w-fit text-foreground underline underline-offset-4">Create an account</Link>
