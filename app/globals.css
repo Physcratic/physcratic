@@ -100,8 +100,44 @@
   }
 }
 
+.problem-entry {
+  --problem-color: var(--primary);
+  background: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border: 1px solid hsl(var(--problem-color) / 0.3);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.problem-entry[data-competition="APhO"],
+.problem-entry[data-level="1200-1599"] {
+  --problem-color: var(--elo-intermediate);
+}
+.problem-entry[data-competition="EuPhO"],
+.problem-entry[data-level="under-1200"] {
+  --problem-color: var(--elo-foundation);
+}
+.problem-entry-header {
+  background: hsl(var(--problem-color) / 0.09);
+  color: hsl(var(--card-foreground));
+  border-bottom: 1px solid hsl(var(--problem-color) / 0.2);
+}
+.problem-entry-details {
+  background: hsl(var(--secondary) / 0.45);
+  color: hsl(var(--secondary-foreground));
+  border-top: 1px solid hsl(var(--border));
+}
+.problem-entry:has(button:focus-visible),
+.problem-entry:hover {
+  border-color: hsl(var(--problem-color) / 0.65);
+}
+
 .featured-contest-card {
-  background: linear-gradient(125deg, hsl(var(--primary) / 0.19) 0%, hsl(var(--accent)) 48%, hsl(var(--card)) 100%);
+  background: linear-gradient(
+    125deg,
+    hsl(var(--primary) / 0.19) 0%,
+    hsl(var(--accent)) 48%,
+    hsl(var(--card)) 100%
+  );
   color: hsl(var(--card-foreground));
 }
 
@@ -171,13 +207,37 @@
 }
 .contest-motif {
   background-image:
-    linear-gradient(40deg, hsl(var(--hero)) 28%, hsl(var(--hero) / 0.94) 46%, hsl(var(--hero) / 0.35) 74%, transparent),
-    radial-gradient(circle at 88% 8%, hsl(var(--primary) / 0.23), transparent 28%),
-    radial-gradient(circle at 69% 36%, hsl(var(--primary) / 0.1), transparent 24%),
+    linear-gradient(
+      40deg,
+      hsl(var(--hero)) 28%,
+      hsl(var(--hero) / 0.94) 46%,
+      hsl(var(--hero) / 0.35) 74%,
+      transparent
+    ),
+    radial-gradient(
+      circle at 88% 8%,
+      hsl(var(--primary) / 0.23),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 69% 36%,
+      hsl(var(--primary) / 0.1),
+      transparent 24%
+    ),
     linear-gradient(hsl(var(--primary) / 0.17) 1px, transparent 1px),
     linear-gradient(90deg, hsl(var(--primary) / 0.17) 1px, transparent 1px);
-  background-size: auto, auto, auto, 32px 32px, 32px 32px;
-  background-position: center, center, center, right top, right top;
+  background-size:
+    auto,
+    auto,
+    auto,
+    32px 32px,
+    32px 32px;
+  background-position:
+    center,
+    center,
+    center,
+    right top,
+    right top;
 }
 .rank-title {
   --rank-from: var(--accent-foreground);
@@ -206,7 +266,11 @@
 }
 @supports (background-clip: text) or (-webkit-background-clip: text) {
   .rank-title {
-    background-image: linear-gradient(100deg, hsl(var(--rank-from)), hsl(var(--rank-to)));
+    background-image: linear-gradient(
+      100deg,
+      hsl(var(--rank-from)),
+      hsl(var(--rank-to))
+    );
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;

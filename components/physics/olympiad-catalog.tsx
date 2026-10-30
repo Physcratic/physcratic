@@ -41,29 +41,10 @@ import {
   catalogProblems,
   competitions,
   filterCatalog,
-  type CatalogProblem,
 } from "@/lib/corpus-catalog";
+import { OlympiadProblemCard } from "./olympiad-problem-card";
 import { ImportedProblemReader } from "./imported-problem-reader";
 import translationIndex from "@/lib/corpus/translation-index.json";
-
-function SourceActions({
-  problem,
-  onOpen,
-}: {
-  problem: CatalogProblem;
-  onOpen: (id: string) => void;
-}) {
-  return (
-    <Button
-      size="sm"
-      variant="secondary"
-      onClick={() => onOpen(problem.id)}
-      aria-label={`Read ${problem.title} in the app`}
-    >
-      <BookOpen data-icon="inline-start" /> Read problem
-    </Button>
-  );
-}
 
 export function OlympiadCatalog({
   query,
@@ -142,34 +123,58 @@ export function OlympiadCatalog({
             </Badge>
           </div>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            40 IPhO · 35 APhO · 25 EuPhO. Complete statements and diagrams
-            imported across six topics, from 2004 to 2025. Solution completeness
-            and English translation progress are tracked separately.
+            Original-source statements and diagrams across six topics, from 2004
+            to 2025. Choose an exercise to open the statement and available
+            solution.
+          </p>
+          <div
+            className="flex flex-wrap gap-2"
+            aria-label="Competition colour key"
+          >
+            <Badge variant="ipho">IPhO · 40</Badge>
+            <Badge variant="apho">APhO · 35</Badge>
+            <Badge variant="eupho">EuPhO · 25</Badge>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            All exercises are unrated and intended for self-review.
           </p>
         </div>
         <Button size="sm" variant="outline" asChild>
           <a
-            href="/corpus/collection.json"
+            href="/api/corpus?collection=catalog"
             download="physcratic-100-imported-problems.json"
           >
             <Download data-icon="inline-start" /> Download full corpus JSON
           </a>
         </Button>
       </header>
-      <Alert>
-        <Info />
-        <AlertTitle>
-          100 statements imported · solution review required
-        </AlertTitle>
-        <AlertDescription>
-          {translationIndex.translated} of {translationIndex.russianSourceCount} Russian-source
-          problems have English drafts. {translationIndex.audit.filter((record) => record.solutionStatus === "missing-derivation").length} imported
-          mirror solution pages repeat questions without a derivation and cannot
-          be grading references. All problems remain unrated. Physics, rubric and
-          republication reviews are pending.
-        </AlertDescription>
-      </Alert>
-      <details className="rounded-lg border border-border px-4 py-3">
+      <details className="rounded-lg border border-border bg-card p-4 text-card-foreground">
+        <summary className="cursor-pointer text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+          About sources, translations & solutions
+        </summary>
+        <div className="pt-4">
+          <Alert>
+            <Info />
+            <AlertTitle>
+              100 statements imported · solution review required
+            </AlertTitle>
+            <AlertDescription>
+              {translationIndex.translated} of{" "}
+              {translationIndex.russianSourceCount} Russian-source problems have
+              English drafts.{" "}
+              {
+                translationIndex.audit.filter(
+                  (record) => record.solutionStatus === "missing-derivation",
+                ).length
+              }{" "}
+              imported mirror solution pages repeat questions without a
+              derivation and cannot be grading references. All problems remain
+              unrated. Physics, rubric and republication reviews are pending.
+            </AlertDescription>
+          </Alert>
+        </div>
+      </details>
+      <details className="rounded-lg border border-border bg-card px-4 py-3 text-card-foreground">
         <summary className="cursor-pointer text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
           Topic coverage & source audit
         </summary>
@@ -246,40 +251,10 @@ export function OlympiadCatalog({
         </CardHeader>
         <CardContent className="px-0 pb-0">
           {visible.length ? (
-            <ul className="divide-y divide-border">
+            <ul className="flex flex-col gap-4 px-4 pb-5 sm:px-6">
               {visible.map((problem) => (
-                <li
-                  key={problem.id}
-                  className="flex flex-col gap-4 px-6 py-5 xl:flex-row xl:items-center xl:justify-between"
-                >
-                  <div className="flex min-w-0 flex-1 flex-col gap-2">
-                    <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-                      <span>
-                        {problem.competition} {problem.year} · {problem.code}
-                      </span>
-                      <Badge variant="outline">Imported</Badge>
-                    </div>
-                    <h4 className="text-pretty text-base font-medium">
-                      {problem.title}
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      <Badge variant="secondary">{problem.primaryTopic}</Badge>
-                      {problem.tags.map((tag) => (
-                        <Badge key={tag} variant="outline">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                    <p className="text-sm leading-relaxed text-muted-foreground">
-                      {problem.importLanguage === "ru"
-                        ? translationIndex.records.some((record) => record.id === problem.id)
-                          ? "English draft available · Russian original retained · local text & diagrams"
-                          : "Russian source · English translation pending · local text & diagrams"
-                        : "English source · local PDFs & diagrams"}{" "}
-                      · Unrated
-                    </p>
-                  </div>
-                  <SourceActions
+                <li key={problem.id}>
+                  <OlympiadProblemCard
                     problem={problem}
                     onOpen={setActiveProblemId}
                   />

@@ -142,7 +142,7 @@ export function CorpusCollection({
         <div className="flex max-w-2xl flex-col gap-2">
           <div className="flex flex-wrap items-center gap-2">
             <h2 className="text-lg font-medium tracking-tight">
-              The import pilot
+              Guided olympiad exercises
             </h2>
             <Badge variant="secondary">
               {corpusProblems.length} complete papers
@@ -185,9 +185,13 @@ export function CorpusCollection({
         </CardHeader>
         <CardContent className="px-0 pb-0">
           {filtered.length ? (
-            <ul className="divide-y divide-border">
+            <ul className="flex flex-col gap-4 px-4 pb-5 sm:px-6">
               {filtered.map((problem) => (
-                <li key={problem.id}>
+                <li
+                  key={problem.id}
+                  className="problem-entry"
+                  data-competition={problem.competition}
+                >
                   <button
                     type="button"
                     className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
@@ -196,8 +200,9 @@ export function CorpusCollection({
                   >
                     <div className="flex min-w-0 flex-1 flex-col gap-2">
                       <div className="flex flex-wrap items-center gap-2">
+                        <Badge variant="ipho">{problem.competition}</Badge>
                         <span className="text-sm text-muted-foreground">
-                          {problem.competition} {problem.year} · {problem.code}
+                          {problem.year} · {problem.code}
                         </span>
                         <Badge variant="outline">Unrated</Badge>
                       </div>

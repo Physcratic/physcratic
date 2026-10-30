@@ -89,95 +89,123 @@ export function ProblemLibrary({
       onValueChange={setCollection}
       className="flex min-w-0 flex-col gap-6"
     >
-      <TabsList className="h-auto w-fit max-w-full flex-wrap">
-        <TabsTrigger value="catalog">
-          Imported problems · {catalogProblems.length}
-        </TabsTrigger>
-        <TabsTrigger value="pilot">
-          Imported pilot · {corpusProblems.length}
-        </TabsTrigger>
-        <TabsTrigger value="practice">
-          Quick practice · {problems.length}
-        </TabsTrigger>
-      </TabsList>
-      <FieldGroup className="sm:flex-row sm:flex-wrap sm:items-end">
-        <Field className="flex-1">
-          <FieldLabel htmlFor="problem-search">Find a problem</FieldLabel>
-          <Input
-            id="problem-search"
-            autoFocus
-            placeholder="Search by problem or tag…"
-            value={search}
-            onChange={(event) => setSearch(event.target.value)}
-          />
-        </Field>
-        {collection === "catalog" && (
-          <Field className="sm:w-40">
-            <FieldLabel htmlFor="competition-filter">Competition</FieldLabel>
-            <Select value={competition} onValueChange={setCompetition}>
-              <SelectTrigger id="competition-filter">
-                <SelectValue>
-                  {competition === "all" ? "All competitions" : competition}
-                </SelectValue>
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectItem value="all">All competitions</SelectItem>
-                  {competitions.map((name) => (
-                    <SelectItem key={name} value={name}>
-                      {name}
-                    </SelectItem>
-                  ))}
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </Field>
-        )}
-        <Field className="sm:w-48">
-          <FieldLabel htmlFor="topic-filter">Tag</FieldLabel>
-          <Select value={selectedTopic} onValueChange={setSelectedTopic}>
-            <SelectTrigger id="topic-filter">
-              <SelectValue>
-                {selectedTopic === "all" ? "All tags" : selectedTopic}
-              </SelectValue>
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectItem value="all">All tags</SelectItem>
-                {tagOptions.map((tag) => (
-                  <SelectItem key={tag} value={tag}>
-                    {tag}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </Field>
-        <Field className="sm:w-44">
-          <FieldLabel htmlFor="difficulty-filter">Elo difficulty</FieldLabel>
-          <Select value={difficulty} onValueChange={setDifficulty}>
-            <SelectTrigger id="difficulty-filter">
-              <SelectValue>
-                {difficulty === "unrated"
-                  ? "Unrated"
-                  : (eloBands.find((band) => band.id === difficulty)?.range ??
-                    "All ratings")}
-              </SelectValue>
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectItem value="all">All ratings</SelectItem>
-                <SelectItem value="unrated">Unrated</SelectItem>
-                {eloBands.map((band) => (
-                  <SelectItem key={band.id} value={band.id}>
-                    {band.range}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </Field>
-      </FieldGroup>
+      <div className="flex min-w-0 flex-col gap-3">
+        <TabsList
+          aria-label="Problem collections"
+          className="h-auto w-fit max-w-full flex-wrap"
+        >
+          <TabsTrigger value="catalog">
+            Olympiad archive · {catalogProblems.length}
+          </TabsTrigger>
+          <TabsTrigger value="pilot">
+            Guided exercises · {corpusProblems.length}
+          </TabsTrigger>
+          <TabsTrigger value="practice">
+            Quick practice · {problems.length}
+          </TabsTrigger>
+        </TabsList>
+        <p
+          className="text-sm leading-relaxed text-muted-foreground"
+          aria-live="polite"
+        >
+          {collection === "catalog"
+            ? "Full IPhO, APhO and EuPhO exercises. Colours identify the competition; topic tags describe the physics."
+            : collection === "pilot"
+              ? "Five exercises from the olympiad archive, with step-by-step subpart guides. These are not additional problems."
+              : "Short practice exercises with hints, worked solutions and estimated difficulty ratings."}
+        </p>
+      </div>
+      <Card className="shadow-none">
+        <CardHeader className="pb-4">
+          <CardTitle>
+            <h2 className="text-base font-medium">Search & filters</h2>
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <FieldGroup className="sm:flex-row sm:flex-wrap sm:items-end">
+            <Field className="flex-1">
+              <FieldLabel htmlFor="problem-search">Find a problem</FieldLabel>
+              <Input
+                id="problem-search"
+                autoFocus
+                placeholder="Search by problem or tag…"
+                value={search}
+                onChange={(event) => setSearch(event.target.value)}
+              />
+            </Field>
+            {collection === "catalog" && (
+              <Field className="sm:w-40">
+                <FieldLabel htmlFor="competition-filter">
+                  Competition
+                </FieldLabel>
+                <Select value={competition} onValueChange={setCompetition}>
+                  <SelectTrigger id="competition-filter">
+                    <SelectValue>
+                      {competition === "all" ? "All competitions" : competition}
+                    </SelectValue>
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectItem value="all">All competitions</SelectItem>
+                      {competitions.map((name) => (
+                        <SelectItem key={name} value={name}>
+                          {name}
+                        </SelectItem>
+                      ))}
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </Field>
+            )}
+            <Field className="sm:w-48">
+              <FieldLabel htmlFor="topic-filter">Tag</FieldLabel>
+              <Select value={selectedTopic} onValueChange={setSelectedTopic}>
+                <SelectTrigger id="topic-filter">
+                  <SelectValue>
+                    {selectedTopic === "all" ? "All tags" : selectedTopic}
+                  </SelectValue>
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectItem value="all">All tags</SelectItem>
+                    {tagOptions.map((tag) => (
+                      <SelectItem key={tag} value={tag}>
+                        {tag}
+                      </SelectItem>
+                    ))}
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+            </Field>
+            <Field className="sm:w-44">
+              <FieldLabel htmlFor="difficulty-filter">
+                Elo difficulty
+              </FieldLabel>
+              <Select value={difficulty} onValueChange={setDifficulty}>
+                <SelectTrigger id="difficulty-filter">
+                  <SelectValue>
+                    {difficulty === "unrated"
+                      ? "Unrated"
+                      : (eloBands.find((band) => band.id === difficulty)
+                          ?.range ?? "All ratings")}
+                  </SelectValue>
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectItem value="all">All ratings</SelectItem>
+                    <SelectItem value="unrated">Unrated</SelectItem>
+                    {eloBands.map((band) => (
+                      <SelectItem key={band.id} value={band.id}>
+                        {band.range}
+                      </SelectItem>
+                    ))}
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+            </Field>
+          </FieldGroup>
+        </CardContent>
+      </Card>
       <TabsContent value="catalog" className="min-w-0">
         <OlympiadCatalog
           query={search}

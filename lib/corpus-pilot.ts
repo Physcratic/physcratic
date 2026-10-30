@@ -1,5 +1,6 @@
 import threeBody from "./corpus/ipho-2011-t1.json";
 import solar from "./corpus/ipho-2015-t1.json";
+import originalTitles from "./corpus/original-titles.json";
 import assets from "../public/corpus-assets.json";
 import { iphoPapers, iphoSubproblems } from "./ipho-archive";
 import { corpusProblemSchema, type CorpusProblem } from "./corpus-schema";
@@ -75,6 +76,8 @@ export const corpusProblems = [threeBody, solar, ...theory2025].map(
       throw new Error(`Missing explicit document assets: ${problem.id}`);
     return corpusProblemSchema.parse({
       ...problem,
+      title:
+        (originalTitles as Record<string, string>)[problem.id] ?? problem.title,
       competition: "IPhO",
       totalPoints: 10,
       documents,

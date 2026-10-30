@@ -201,12 +201,20 @@ export function ImportedProblemReader({
   );
   const [tab, setTab] = useState("statement");
   const [language, setLanguage] = useState("en");
-  const translationRecord = translationIndex.records.find((record) => record.id === problem.id);
-  const { data: english, error: translationError, isLoading: translationLoading, mutate: retryTranslation } = useSWRImmutable(
+  const translationRecord = translationIndex.records.find(
+    (record) => record.id === problem.id,
+  );
+  const {
+    data: english,
+    error: translationError,
+    isLoading: translationLoading,
+    mutate: retryTranslation,
+  } = useSWRImmutable(
     translationRecord && language === "en" ? translationRecord.path : null,
     loadTranslation,
   );
-  const readingData = translationRecord && language === "en" ? english?.content : data;
+  const readingData =
+    translationRecord && language === "en" ? english?.content : data;
   const readiness = data ? assessSolutionSource(data) : undefined;
   const missingSolution = readiness?.status === "missing-derivation";
   return (
@@ -242,15 +250,25 @@ export function ImportedProblemReader({
         </div>
         <h2
           id="imported-problem-title"
+          lang={problem.titleLanguage}
           className="text-balance text-2xl font-medium tracking-tight"
         >
           {problem.title}
         </h2>
         <p className="text-sm leading-relaxed text-muted-foreground">
           Complete statement and original diagrams stored in this app. Solution
-          content is checked separately before it can become a grading reference.
-          Unrated. Automatic grading is not enabled.
+          content is checked separately before it can become a grading
+          reference. Unrated. Automatic grading is not enabled.
         </p>
+        <a
+          href={problem.titleSourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-fit text-sm text-accent-foreground underline underline-offset-4"
+        >
+          Original title source{" "}
+          <span className="sr-only">(opens in a new tab)</span>
+        </a>
       </header>
       {translationRecord ? (
         <div className="flex flex-col gap-3">
@@ -258,18 +276,21 @@ export function ImportedProblemReader({
             <SelectTrigger className="w-60" aria-label="Reading language">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent><SelectGroup>
-              <SelectItem value="en">English · translation draft</SelectItem>
-              <SelectItem value="ru">Russian · original source</SelectItem>
-            </SelectGroup></SelectContent>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="en">English · translation draft</SelectItem>
+                <SelectItem value="ru">Russian · original source</SelectItem>
+              </SelectGroup>
+            </SelectContent>
           </Select>
           <Alert>
             <AlertTitle>English translation draft available</AlertTitle>
             <AlertDescription>
-              The source prose is translated, not summarized. The Russian original,
-              diagrams, and equations are preserved, including source notation and
-              any Russian labels or units inside equations. Independent physics
-              review is pending. The translation does not create missing solution content.
+              The source prose is translated, not summarized. The Russian
+              original, diagrams, and equations are preserved, including source
+              notation and any Russian labels or units inside equations.
+              Independent physics review is pending. The translation does not
+              create missing solution content.
             </AlertDescription>
           </Alert>
         </div>
@@ -277,16 +298,21 @@ export function ImportedProblemReader({
         <Alert>
           <AlertTitle>English translation pending</AlertTitle>
           <AlertDescription>
-            This complete source is currently in Russian. Its English catalog
-            title is not a translated statement. English drafts are being added
-            separately, with equations, figures and original source text retained.
+            This imported statement is currently in Russian. The problem title
+            is retained from the original source; an English title does not mean
+            the statement has been translated. English drafts are being added
+            separately, with equations, figures and original source text
+            retained.
           </AlertDescription>
         </Alert>
       ) : null}
       {missingSolution && (
         <Alert>
           <AlertTitle>Worked solution not available in this import</AlertTitle>
-          <AlertDescription>{readiness.reason} The original imported page is retained for transparency.</AlertDescription>
+          <AlertDescription>
+            {readiness.reason} The original imported page is retained for
+            transparency.
+          </AlertDescription>
         </Alert>
       )}
       {translationError && language === "en" && (
@@ -294,8 +320,20 @@ export function ImportedProblemReader({
           <AlertTitle>Could not load the English draft</AlertTitle>
           <AlertDescription>
             <div className="flex flex-wrap gap-3">
-              <Button variant="outline" size="sm" onClick={() => retryTranslation()}>Retry English</Button>
-              <Button variant="outline" size="sm" onClick={() => setLanguage("ru")}>Read Russian original</Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => retryTranslation()}
+              >
+                Retry English
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setLanguage("ru")}
+              >
+                Read Russian original
+              </Button>
             </div>
           </AlertDescription>
         </Alert>
@@ -327,7 +365,9 @@ export function ImportedProblemReader({
         >
           <TabsList className="h-auto w-fit max-w-full flex-wrap">
             <TabsTrigger value="statement">Problem statement</TabsTrigger>
-            <TabsTrigger value="solution">{missingSolution ? "Source solution page" : "Worked solution"}</TabsTrigger>
+            <TabsTrigger value="solution">
+              {missingSolution ? "Source solution page" : "Worked solution"}
+            </TabsTrigger>
             <TabsTrigger value="submission">Your solution</TabsTrigger>
           </TabsList>
           {(["statement", "solution"] as const).map((kind) => (
@@ -336,13 +376,21 @@ export function ImportedProblemReader({
                 <CardHeader>
                   <CardTitle>
                     {kind === "statement"
-                      ? readingData.language === "en" && translationRecord && language === "en" ? "English problem statement" : "Original problem"
-                      : missingSolution ? "Imported page · no derivation supplied" : "Worked solution"}
+                      ? readingData.language === "en" &&
+                        translationRecord &&
+                        language === "en"
+                        ? "English problem statement"
+                        : "Original problem"
+                      : missingSolution
+                        ? "Imported page · no derivation supplied"
+                        : "Worked solution"}
                   </CardTitle>
                   <CardDescription>
                     {kind === "statement"
                       ? "All source subparts, figures and tables are included."
-                      : missingSolution ? "This mirror page repeats the questions. It is not a worked solution or a marking rubric." : "Contains spoilers. Compare with your own derivation before self-assessing. Reference review is still pending."}
+                      : missingSolution
+                        ? "This mirror page repeats the questions. It is not a worked solution or a marking rubric."
+                        : "Contains spoilers. Compare with your own derivation before self-assessing. Reference review is still pending."}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="min-w-0">

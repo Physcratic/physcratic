@@ -1,8 +1,15 @@
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getArchiveStats } from "@/lib/problem-archive";
 import { problems } from "@/lib/physics";
 import { corpusProblems } from "@/lib/corpus-pilot";
-import { catalogProblems } from "@/lib/corpus-catalog";
+import { catalogProblems, competitions } from "@/lib/corpus-catalog";
+
+const competitionVariants = {
+  IPhO: "ipho",
+  APhO: "apho",
+  EuPhO: "eupho",
+} as const;
 
 export function ArchiveStats() {
   const { total, addedLast24Hours } = getArchiveStats([
@@ -18,44 +25,37 @@ export function ArchiveStats() {
       <CardHeader className="sr-only">
         <CardTitle id="archive-stats-heading">Archive at a glance</CardTitle>
       </CardHeader>
-      <CardContent className="p-0">
-        <dl className="flex divide-x divide-border">
-          <div className="flex min-w-0 flex-1 flex-col gap-2 p-5 sm:p-7">
-            <dt className="text-sm text-muted-foreground">
-              Problems in the archive
-            </dt>
-            <dd className="order-first text-5xl font-medium tracking-[-0.06em] tabular-nums sm:text-6xl">
-              {total.toLocaleString("en-US")}
-            </dd>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              {catalogProblems.length} catalog entries (including{" "}
-              {corpusProblems.length} imported) + {problems.length}{" "}
-              quick-practice problems
-            </p>
-          </div>
-          <div className="flex min-w-0 flex-1 flex-col gap-2 p-5 sm:p-7">
-            <dt className="text-sm text-muted-foreground">
-              New in the last 24 hours
-            </dt>
-            <dd
-              className="order-first text-5xl font-medium tracking-[-0.06em] text-primary tabular-nums sm:text-6xl"
-              aria-label={
-                addedLast24Hours === null
-                  ? "Not available: addition dates are not recorded"
-                  : undefined
+      <CardContent className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-2">
+          <p className="text-base font-medium">
+            {total.toLocaleString("en-US")} problems in the archive
+          </p>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            {catalogProblems.length} olympiad exercises + {problems.length}{" "}
+            quick-practice exercises. {corpusProblems.length} olympiad exercises
+            also include a guided breakdown.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            {addedLast24Hours === null
+              ? "New in the last 24 hours: not tracked — addition dates are unavailable."
+              : `New in the last 24 hours: ${addedLast24Hours.toLocaleString("en-US")}`}
+          </p>
+        </div>
+        <div
+          className="flex shrink-0 flex-wrap gap-2"
+          aria-label="Archive by competition"
+        >
+          {competitions.map((competition) => (
+            <Badge key={competition} variant={competitionVariants[competition]}>
+              {competition} ·{" "}
+              {
+                catalogProblems.filter(
+                  (problem) => problem.competition === competition,
+                ).length
               }
-            >
-              {addedLast24Hours === null
-                ? "Not available"
-                : addedLast24Hours.toLocaleString("en-US")}
-            </dd>
-            {addedLast24Hours === null && (
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                Addition dates aren&apos;t recorded yet.
-              </p>
-            )}
-          </div>
-        </dl>
+            </Badge>
+          ))}
+        </div>
       </CardContent>
     </Card>
   );
