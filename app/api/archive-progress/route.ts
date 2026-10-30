@@ -82,7 +82,7 @@ export async function POST(request: Request) {
     );
   } catch {
     return submissionError(
-      "Archive progress could not be saved. Your notes are unchanged; please retry.",
+      "Archive progress could not be saved. Your notes are unchanged. Please retry.",
       503,
     );
   }

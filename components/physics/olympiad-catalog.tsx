@@ -165,7 +165,7 @@ export function OlympiadCatalog({
           {translationIndex.translated} of {translationIndex.russianSourceCount} Russian-source
           problems have English drafts. {translationIndex.audit.filter((record) => record.solutionStatus === "missing-derivation").length} imported
           mirror solution pages repeat questions without a derivation and cannot
-          be grading references. All problems remain unrated; physics, rubric and
+          be grading references. All problems remain unrated. Physics, rubric and
           republication reviews are pending.
         </AlertDescription>
       </Alert>

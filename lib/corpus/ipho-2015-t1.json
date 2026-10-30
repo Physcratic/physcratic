@@ -12,7 +12,7 @@
     "Nuclear fusion"
   ],
   "summary": "Use photons and neutrinos to investigate solar temperatures, solar-cell efficiency, gravitational contraction, and nuclear fusion.",
-  "attribution": "46th International Physics Olympiad, Mumbai, India, Theory 1. Principal authors: Amol Dighe (TIFR), Anwesh Mazumdar (HBCSE-TIFR), and Vijay A. Singh; contributions from the Academic Committee, Academic Development Group, and International Board are acknowledged in the original.",
+  "attribution": "46th International Physics Olympiad, Mumbai, India, Theory 1. Principal authors: Amol Dighe (TIFR), Anwesh Mazumdar (HBCSE-TIFR), and Vijay A. Singh, contributions from the Academic Committee, Academic Development Group, and International Board are acknowledged in the original.",
   "sourceUrl": "https://www.ipho-new.org/documentations/",
   "pages": 2,
   "solutionPages": 7,
@@ -23,7 +23,7 @@
   "context": [
     {
       "type": "text",
-      "value": "Photons from the solar surface and neutrinos from the core provide information about temperatures and the source of solar energy. Use the supplied solar constants throughout. Fundamental constants are denoted by their usual symbols; d⊙ is the Earth–Sun distance."
+      "value": "Photons from the solar surface and neutrinos from the core provide information about temperatures and the source of solar energy. Use the supplied solar constants throughout. Fundamental constants are denoted by their usual symbols, d⊙ is the Earth–Sun distance."
     },
     {
       "type": "math",
@@ -59,7 +59,7 @@
     },
     {
       "type": "text",
-      "value": "Each photon with energy at least the semiconductor band gap E_g excites one electron. Each excited electron contributes E_g as useful output; excess photon energy becomes heat. Photons below the band gap produce no useful output."
+      "value": "Each photon with energy at least the semiconductor band gap E_g excites one electron. Each excited electron contributes E_g as useful output, excess photon energy becomes heat. Photons below the band gap produce no useful output."
     },
     {
       "type": "math",
@@ -79,7 +79,7 @@
     },
     {
       "type": "text",
-      "value": "Some electron neutrinos nu_e convert into other types nu_x en route to Earth. Detector efficiency for nu_x is one sixth of that for nu_e. Without conversion, N_1 neutrinos per year would be detected; the actual annual detection count, combining both types, is N_2."
+      "value": "Some electron neutrinos nu_e convert into other types nu_x en route to Earth. Detector efficiency for nu_x is one sixth of that for nu_e. Without conversion, N_1 neutrinos per year would be detected, the actual annual detection count, combining both types, is N_2."
     },
     {
       "type": "text",

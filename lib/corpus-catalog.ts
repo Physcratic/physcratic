@@ -114,7 +114,7 @@ export const catalogProblems: CatalogProblem[] = (
       hasPilotGuide: Boolean(imported),
       importPath: document.path,
       importLanguage: document.language,
-      attribution: `${competition} ${year}, theoretical problem ${code}. Original problem credited to the competition organisers. ${source.sourceKind === "mirror" ? "Russian statement and solution hosted by pho.rs; translation and solution authorship require review." : "Linked from the competition’s source archive; see the original documents for contributor credits."}`,
+      attribution: `${competition} ${year}, theoretical problem ${code}. Original problem credited to the competition organisers. ${source.sourceKind === "mirror" ? "Russian statement and solution hosted by pho.rs. Translation and solution authorship require review." : "Linked from the competition’s source archive. See the original documents for contributor credits."}`,
       reviewStatus: "independent-review-pending",
       rightsStatus: "permission-review-required",
       rating: { status: "unrated", elo: null },
@@ -188,7 +188,7 @@ export const catalogExport = {
   checkedOn: sources.checkedOn,
   verification: sources.verification,
   notes:
-    "100 distinct imported theory statements: 40 IPhO, 35 APhO, 25 EuPhO. Local source JSON, diagrams, PDF layouts and shared material are retained. Some imported mirror solution pages contain only repeated questions, not worked derivations; see the solution-readiness audit. English drafts are stored separately and retain original source hashes. Includes the original five structured pilot guides. No imported source is an approved grading rubric. Independent physics, translation and rights reviews remain pending.",
+    "100 distinct imported theory statements: 40 IPhO, 35 APhO, 25 EuPhO. Local source JSON, diagrams, PDF layouts and shared material are retained. Some imported mirror solution pages contain only repeated questions, not worked derivations. See the solution-readiness audit. English drafts are stored separately and retain original source hashes. Includes the original five structured pilot guides. No imported source is an approved grading rubric. Independent physics, translation and rights reviews remain pending.",
   publication: {
     mode: "imported-local-corpus",
     rightsStatus: "permission-review-required",

@@ -26,7 +26,7 @@ export const iphoTasks: IphoTask[] = [
     year: 2025,
     paper: 1,
     originalPart: "Theory 1 · A.1 · Bohr model",
-    adaptation: "Paraphrased from T1, A.1. Type epsilon for the vacuum permittivity ε₀; e denotes the positive elementary charge, not Euler’s number. The proton is fixed, as in the original model.",
+    adaptation: "Paraphrased from T1, A.1. Type epsilon for the vacuum permittivity ε₀. Here, e denotes the positive elementary charge, not Euler’s number. The proton is fixed, as in the original model.",
     prompt: "In a classical model of hydrogen, a non-relativistic electron of mass m travels in a circular orbit of radius r around a fixed proton. The electron and proton carry charges −e and +e. Ignoring radiation, find the electron’s positive orbital speed in terms of e, epsilon, m, and r.",
     variables: [
       { name: "e", meaning: "positive elementary charge" },
@@ -51,8 +51,8 @@ export const iphoTasks: IphoTask[] = [
     year: 2025,
     paper: 2,
     originalPart: "Theory 2 · A.1 · Pulling on a submerged tube",
-    adaptation: "Adapted from the force component of T2, A.1, case b. Submit the upward force magnitude, not its vector. rho replaces ρ; the pressure expression requested in the original is included in the worked solution.",
-    prompt: "An upright, thin-walled tube of mass m and internal cross-sectional area S is closed at the top and open at the bottom. Its bottom remains submerged in a large liquid bath of density rho. The tube contains no gas and is completely filled with liquid up to its closed top, which is at height h above the bath’s free surface. Before cavitation occurs, what upward force F holds the tube in static equilibrium? Neglect surface tension and wall thickness; g is the gravitational acceleration.",
+    adaptation: "Adapted from the force component of T2, A.1, case b. Submit the upward force magnitude, not its vector. rho replaces ρ. The pressure expression requested in the original is included in the worked solution.",
+    prompt: "An upright, thin-walled tube of mass m and internal cross-sectional area S is closed at the top and open at the bottom. Its bottom remains submerged in a large liquid bath of density rho. The tube contains no gas and is completely filled with liquid up to its closed top, which is at height h above the bath’s free surface. Before cavitation occurs, what upward force F holds the tube in static equilibrium? Neglect surface tension and wall thickness. Here, g is the gravitational acceleration.",
     variables: [
       { name: "m", meaning: "empty tube mass" },
       { name: "S", meaning: "tube cross-sectional area" },
@@ -77,8 +77,8 @@ export const iphoTasks: IphoTask[] = [
     year: 2025,
     paper: 3,
     originalPart: "Theory 3 · A.2 · Critical bubble radius",
-    adaptation: "Adapted from the symbolic part of T3, A.2; the numerical evaluation is omitted. Type sigma for surface tension, P for p₀, c for cℓ, and c0 for the equilibrium concentration c₀. The liquid is supersaturated: c > c0.",
-    prompt: "A spherical CO₂ bubble forms in a supersaturated liquid at constant temperature and external pressure P. The liquid’s surface tension is sigma. Far from the bubble the dissolved CO₂ concentration is c; c0 is its equilibrium concentration at pressure P, with c > c0. Henry’s law makes the equilibrium concentration at the bubble surface proportional to the internal bubble pressure. Using the Laplace pressure jump 2*sigma/r, find the critical radius above which the bubble grows.",
+    adaptation: "Adapted from the symbolic part of T3, A.2. The numerical evaluation is omitted. Type sigma for surface tension, P for p₀, c for cℓ, and c0 for the equilibrium concentration c₀. The liquid is supersaturated: c > c0.",
+    prompt: "A spherical CO₂ bubble forms in a supersaturated liquid at constant temperature and external pressure P. The liquid’s surface tension is sigma. Far from the bubble the dissolved CO₂ concentration is c, and c0 is its equilibrium concentration at pressure P, with c > c0. Henry’s law makes the equilibrium concentration at the bubble surface proportional to the internal bubble pressure. Using the Laplace pressure jump 2*sigma/r, find the critical radius above which the bubble grows.",
     variables: [
       { name: "sigma", meaning: "liquid surface tension (σ)" },
       { name: "P", meaning: "external liquid pressure" },

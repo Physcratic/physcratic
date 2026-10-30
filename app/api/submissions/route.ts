@@ -60,6 +60,6 @@ export async function POST(request: Request) {
   } catch (error) {
     const cause = error instanceof Error ? error.cause as { code?: string; constraint?: string; message?: string } | undefined : undefined;
     console.error("Solution submission failed", { code: cause?.code, constraint: cause?.constraint });
-    return submissionError("Your attempt could not be saved. Your work is unchanged; please retry.", 503);
+    return submissionError("Your attempt could not be saved. Your work is unchanged. Please retry.", 503);
   }
 }

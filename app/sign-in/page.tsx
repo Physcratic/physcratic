@@ -6,8 +6,9 @@ import { safeReturnPath } from "@/lib/submission-security";
 import { AuthForm } from "@/components/auth-form";
 
 export const metadata: Metadata = { title: "Sign in", robots: { index: false, follow: false } };
-export default async function SignIn({ searchParams }: { searchParams: Promise<{ returnTo?: string }> }) {
-  const returnTo = safeReturnPath((await searchParams).returnTo);
+export default async function SignIn({ searchParams }: { searchParams: Promise<{ returnTo?: string; verified?: string; error?: string }> }) {
+  const query = await searchParams;
+  const returnTo = safeReturnPath(query.returnTo);
   if ((await auth.api.getSession({ headers: await headers() }))?.user) redirect(returnTo);
-  return <AuthForm mode="sign-in" returnTo={returnTo} />;
+  return <AuthForm mode="sign-in" returnTo={returnTo} verified={query.verified === "1"} verificationError={Boolean(query.error)} />;
 }

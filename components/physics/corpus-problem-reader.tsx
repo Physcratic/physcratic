@@ -219,7 +219,7 @@ export function CorpusProblemReader({
                   <div className="flex min-w-0 flex-col gap-4 pt-4">
                     <p className="text-sm leading-relaxed text-muted-foreground">
                       Compare the full derivation with your own. The starting
-                      page can include neighbouring subparts; continue through
+                      page can include neighbouring subparts. Continue through
                       the original solution as needed. Revealing it does not
                       mark your work as correct or reviewed.
                     </p>

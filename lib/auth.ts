@@ -1,5 +1,7 @@
 import { betterAuth } from "better-auth";
+import { after } from "next/server";
 import { pool } from "@/lib/db";
+import { sendVerificationEmail } from "@/lib/verification-email";
 
 export const auth = betterAuth({
   database: pool,
@@ -10,7 +12,29 @@ export const auth = betterAuth({
       : process.env.VERCEL_URL
         ? `https://${process.env.VERCEL_URL}`
         : process.env.V0_RUNTIME_URL),
-  emailAndPassword: { enabled: true, autoSignIn: true, minPasswordLength: 8, maxPasswordLength: 128 },
+  emailAndPassword: {
+    enabled: true,
+    autoSignIn: false,
+    requireEmailVerification: true,
+    minPasswordLength: 8,
+    maxPasswordLength: 128,
+  },
+  emailVerification: {
+    sendOnSignUp: true,
+    sendOnSignIn: true,
+    autoSignInAfterVerification: false,
+    expiresIn: 60 * 60,
+    sendVerificationEmail: async ({ user, url, token }) => {
+      // Keep delivery alive after the response without leaking account existence through send timing.
+      after(async () => {
+        try {
+          await sendVerificationEmail({ email: user.email, url, token });
+        } catch (error) {
+          console.error("Verification email delivery failed", error instanceof Error ? error.message : "Unknown delivery error");
+        }
+      });
+    },
+  },
   rateLimit: {
     enabled: true,
     window: 60,
@@ -18,6 +42,7 @@ export const auth = betterAuth({
     customRules: {
       "/sign-in/email": { window: 60, max: 5 },
       "/sign-up/email": { window: 60, max: 3 },
+      "/send-verification-email": { window: 60, max: 3 },
     },
   },
   trustedOrigins: [

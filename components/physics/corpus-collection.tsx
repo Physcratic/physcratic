@@ -165,7 +165,7 @@ export function CorpusCollection({
         <Info />
         <AlertTitle>Source-fidelity pilot · review pending</AlertTitle>
         <AlertDescription>
-          Native text is an editorial guide; original pages are authoritative.
+          Native text is an editorial guide, original pages are authoritative.
           All five are unrated. Independent physics review and reuse clearance
           are still pending.
         </AlertDescription>
@@ -251,7 +251,7 @@ export function CorpusCollection({
               0,
             )}{" "}
             scored subparts across the batch. Grouped requests such as 2011 task
-            1.2 retain their nested questions; subparts are not counted as
+            1.2 retain their nested questions, subparts are not counted as
             separate archive problems.
           </p>
         </CardFooter>
@@ -259,7 +259,7 @@ export function CorpusCollection({
       <p className="text-sm leading-relaxed text-muted-foreground">
         Portable JSON includes provenance, attribution, native reading notes,
         subpart mappings, local PDF/image paths, review status, and SHA-256
-        checksums. Files stay in the project; no database or background importer
+        checksums. Files stay in the project, no database or background importer
         is connected.
       </p>
     </div>

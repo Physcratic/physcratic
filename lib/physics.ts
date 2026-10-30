@@ -365,14 +365,14 @@ export const problems: Problem[] = [
     minutes: 7,
     prompt:
       "A gas absorbs 500 J of heat and does 180 J of work on its surroundings. What is the change in its internal energy? Use the convention that work done by the gas is positive.",
-    hint: "The energy added as heat increases internal energy; the energy transferred out as work decreases it.",
+    hint: "The energy added as heat increases internal energy. The energy transferred out as work decreases it.",
     answer: 320,
     unit: "J",
     formula: "$$\\Delta U=Q-W$$",
     solution: [
       {
         title: "Choose the sign convention",
-        text: "Heat entering the gas is positive; work done by the gas is also positive in this convention.",
+        text: "Heat entering the gas is positive, and work done by the gas is also positive in this convention.",
         formula: "$$\\Delta U=Q-W$$",
       },
       {

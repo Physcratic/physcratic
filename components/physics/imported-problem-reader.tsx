@@ -77,7 +77,7 @@ function PdfReader({
       {document.shared && (
         <p className="text-sm leading-relaxed text-muted-foreground">
           This original document contains several problems. Locate the problem
-          by its T-code; the complete shared setup and diagrams are preserved.
+          by its T-code. The complete shared setup and diagrams are preserved.
         </p>
       )}
       <nav
@@ -165,7 +165,7 @@ function PdfReader({
         </summary>
         <p className="py-3 text-sm leading-relaxed text-muted-foreground">
           Extracted from the original PDF for searching and accessibility.
-          Formula positioning may differ; use the original page for
+          Formula positioning may differ. Use the original page for
           authoritative notation.
         </p>
         <pre className="whitespace-pre-wrap break-words font-sans text-sm leading-relaxed">
@@ -249,7 +249,7 @@ export function ImportedProblemReader({
         <p className="text-sm leading-relaxed text-muted-foreground">
           Complete statement and original diagrams stored in this app. Solution
           content is checked separately before it can become a grading reference.
-          Unrated; automatic grading is not enabled.
+          Unrated. Automatic grading is not enabled.
         </p>
       </header>
       {translationRecord ? (
@@ -269,7 +269,7 @@ export function ImportedProblemReader({
               The source prose is translated, not summarized. The Russian original,
               diagrams, and equations are preserved, including source notation and
               any Russian labels or units inside equations. Independent physics
-              review is pending; the translation does not create missing solution content.
+              review is pending. The translation does not create missing solution content.
             </AlertDescription>
           </Alert>
         </div>
@@ -342,7 +342,7 @@ export function ImportedProblemReader({
                   <CardDescription>
                     {kind === "statement"
                       ? "All source subparts, figures and tables are included."
-                      : missingSolution ? "This mirror page repeats the questions; it is not a worked solution or a marking rubric." : "Contains spoilers. Compare with your own derivation before self-assessing; reference review is still pending."}
+                      : missingSolution ? "This mirror page repeats the questions. It is not a worked solution or a marking rubric." : "Contains spoilers. Compare with your own derivation before self-assessing. Reference review is still pending."}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="min-w-0">
@@ -386,7 +386,7 @@ export function ImportedProblemReader({
         <div className="flex flex-col gap-3 pt-4 text-sm leading-relaxed text-muted-foreground">
           <p>{problem.attribution}</p>
           <p>
-            Imported 28 October 2026. Source credits are retained; importing
+            Imported 28 October 2026. Source credits are retained. Importing
             does not establish republication permission. Rights review and
             independent physics review are pending.
           </p>

@@ -1,6 +1,6 @@
 {
   "checkedOn": "2026-10-28",
-  "verification": "URL accessibility and document headers; not independent physics or rights review",
+  "verification": "URL accessibility and document headers, not independent physics or rights review",
   "checks": [
     {
       "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory.pdf",
@@ -553,7 +553,7 @@
     {
       "id": "ipho-2023-t1",
       "checkedOn": "2026-10-28",
-      "sourceTitle": "Свойства коллоидных частиц",
+      "sourceTitle": "Свойства ко��лоидных частиц",
       "statementUrl": "https://pho.rs/p/3709",
       "solutionUrl": "https://pho.rs/p/3709/s",
       "sourceHost": "pho.rs",

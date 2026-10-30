@@ -134,7 +134,7 @@ export async function POST(request: Request) {
     });
   } catch {
     return submissionError(
-      "Your progress could not be saved. Your answer is unchanged; please retry.",
+      "Your progress could not be saved. Your answer is unchanged. Please retry.",
       503,
     );
   }

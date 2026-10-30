@@ -56,6 +56,6 @@ export async function POST(request: Request) {
       if (cleanup.some((result) => result.status === "rejected")) console.error("Evidence cleanup requires retry");
     }
     console.error("Solution evidence upload failed", { type: error instanceof Error ? error.name : "Unknown error" });
-    return submissionError("The file could not be stored privately. Your typed work is unchanged; please retry.", 503);
+    return submissionError("The file could not be stored privately. Your typed work is unchanged. Please retry.", 503);
   }
 }

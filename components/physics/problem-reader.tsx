@@ -140,7 +140,7 @@ export function ProblemReader({ problem }: { problem: Problem }) {
             id="practice-working"
             value={working}
             onChange={setWorking}
-            description="Working is saved with each checked answer when you are signed in. Unchecked edits are not saved. Your derivation is not graded; check your numerical final answer below."
+            description="Working is saved with each checked answer when you are signed in. Unchecked edits are not saved. Your derivation is not graded. Check your numerical final answer below."
           />
           <form
             onSubmit={checkAnswer}

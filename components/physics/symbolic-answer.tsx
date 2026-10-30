@@ -63,11 +63,11 @@ export function SymbolicAnswer({ task, answer, accepted, onAnswerChange, onAccep
       };
       checker.onerror = () => {
         finish();
-        setFeedback({ kind: "invalid", message: "The preview checker could not start. Your answer is still here; try again." });
+        setFeedback({ kind: "invalid", message: "The preview checker could not start. Your answer is still here. Try again." });
       };
       timeout.current = setTimeout(() => {
         finish();
-        setFeedback({ kind: "unverified", message: "The check took too long. Simplify your expression and try again; no penalty was applied." });
+        setFeedback({ kind: "unverified", message: "The check took too long. Simplify your expression and try again. No penalty was applied." });
       }, 8000);
       checker.postMessage({ input: answer, expected: task.expected, variables });
     } catch {
@@ -108,7 +108,7 @@ export function SymbolicAnswer({ task, answer, accepted, onAnswerChange, onAccep
                 {!pending && !accepted && <ArrowRight data-icon="inline-end" />}
               </Button>
             </div>
-            <FieldDescription id="symbolic-help">Expression only; result is in {task.unit}. Variables are case-sensitive and positive. No units or equals sign.</FieldDescription>
+            <FieldDescription id="symbolic-help">Expression only. Result is in {task.unit}. Variables are case-sensitive and positive. No units or equals sign.</FieldDescription>
             <div id="symbolic-parse-error" aria-live="polite">
               {(parseError || feedback?.kind === "invalid") && <FieldError>{parseError || feedback?.message}</FieldError>}
             </div>
@@ -121,12 +121,12 @@ export function SymbolicAnswer({ task, answer, accepted, onAnswerChange, onAccep
       </div>
       <div role="status" aria-live="polite">
         {accepted && <Alert><CheckCircle2 /><AlertTitle>Symbolic match</AlertTitle><AlertDescription>Your expression simplifies to the reference answer. This checks the final expression, not your derivation or units.</AlertDescription></Alert>}
-        {!accepted && feedback?.kind === "unverified" && <Alert><AlertTitle>Could not verify this expression</AlertTitle><AlertDescription>{feedback.message || "The checker could not establish equivalence. Check your algebra or try a simpler form. This does not prove your answer is wrong; no penalty was applied."}</AlertDescription></Alert>}
+        {!accepted && feedback?.kind === "unverified" && <Alert><AlertTitle>Could not verify this expression</AlertTitle><AlertDescription>{feedback.message || "The checker could not establish equivalence. Check your algebra or try a simpler form. This does not prove your answer is wrong. No penalty was applied."}</AlertDescription></Alert>}
       </div>
       <details className="rounded-lg border p-4 text-sm">
-        <summary className="cursor-pointer font-medium">Syntax guide — no LaTeX needed</summary>
+        <summary className="cursor-pointer font-medium">Syntax guide, no LaTeX needed</summary>
         <div className="flex flex-col gap-4 pt-4">
-          <p className="leading-relaxed text-muted-foreground">Use calculator-style notation. Parentheses control grouping; the preview lets you check what the parser understood.</p>
+          <p className="leading-relaxed text-muted-foreground">Use calculator-style notation. Parentheses control grouping. The preview lets you check what the parser understood.</p>
           <dl className="grid grid-cols-[auto_1fr] gap-x-5 gap-y-2">
             <dt><code>a*b</code></dt><dd>Multiply</dd>
             <dt><code>a/b</code></dt><dd>Divide</dd>
@@ -135,7 +135,7 @@ export function SymbolicAnswer({ task, answer, accepted, onAnswerChange, onAccep
             <dt><code>(a+b)/c</code></dt><dd>Group the numerator</dd>
             <dt><code>pi</code></dt><dd>The circle constant</dd>
           </dl>
-          <p className="leading-relaxed text-muted-foreground">Examples use generic variable names; your task only accepts the symbols listed above. Equivalent algebraic forms can match. Unsupported functions and unproven identities are left unverified.</p>
+          <p className="leading-relaxed text-muted-foreground">Examples use generic variable names. Your task only accepts the symbols listed above. Equivalent algebraic forms can match. Unsupported functions and unproven identities are left unverified.</p>
         </div>
       </details>
     </div>

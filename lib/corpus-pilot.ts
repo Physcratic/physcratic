@@ -44,7 +44,7 @@ const theory2025 = iphoPapers
     topics: topicMap[paper.id],
     tags: tagMap[paper.id],
     summary: paper.introduction,
-    attribution: `55th International Physics Olympiad, France, 2025, ${paper.code}. Original statements, figures, answer sheets, and solutions are credited to the IPhO 2025 organisers; see the original paper for contributor and image credits.`,
+    attribution: `55th International Physics Olympiad, France, 2025, ${paper.code}. Original statements, figures, answer sheets, and solutions are credited to the IPhO 2025 organisers. See the original paper for contributor and image credits.`,
     sourceUrl: "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025",
     pages: paper.pages,
     solutionPages: paper.solutionPages,
@@ -136,7 +136,7 @@ export const corpusPilot = {
   importedAt: null,
   provenanceCheckedOn: "2026-10-28",
   notes:
-    "Five existing official-source PDFs indexed across IPhO 2011, 2015, and 2025. No claim of cross-competition coverage. Native text is an editorial restatement, not a complete verbatim transcription; original pages remain authoritative for shared context, constants, figures, and tables. No publication date is fabricated for existing files.",
+    "Five existing official-source PDFs indexed across IPhO 2011, 2015, and 2025. No claim of cross-competition coverage. Native text is an editorial restatement, not a complete verbatim transcription. Original pages remain authoritative for shared context, constants, figures, and tables. No publication date is fabricated for existing files.",
   reuse: {
     status: "permission-review-required",
     license: null,

@@ -122,7 +122,7 @@ export function MathWorkingEditor({
             ) : (
               <p className="text-sm leading-relaxed text-muted-foreground">
                 Your reasoning and typeset equations appear here as you write.
-                Start with a shortcut; replace the selected expression with your
+                Start with a shortcut. Replace the selected expression with your
                 own.
               </p>
             )}

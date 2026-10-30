@@ -103,7 +103,7 @@ export function IphoProblem({
             <AlertTitle>Experimental practice</AlertTitle>
             <AlertDescription>
               Measurement questions require the apparatus or your own data. You
-              can work through the theory and plan your protocol here; the
+              can work through the theory and plan your protocol here. The
               official solution contains reference measurements, not simulated
               results.
             </AlertDescription>
@@ -179,7 +179,7 @@ export function IphoProblem({
               <p className="text-sm leading-relaxed text-muted-foreground">
                 Compare your full reasoning, numerical results, plots, and units
                 with the official solution. Pages can contain neighbouring
-                subparts; use the reader controls to follow a derivation.
+                subparts. Use the reader controls to follow a derivation.
                 Opening a solution does not mark it as reviewed.
               </p>
               <IphoPageReader

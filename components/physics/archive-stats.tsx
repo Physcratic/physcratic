@@ -46,7 +46,7 @@ export function ArchiveStats() {
               }
             >
               {addedLast24Hours === null
-                ? "—"
+                ? "Not available"
                 : addedLast24Hours.toLocaleString("en-US")}
             </dd>
             {addedLast24Hours === null && (

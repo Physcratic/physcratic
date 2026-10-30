@@ -68,7 +68,7 @@ export const iphoPapers: IphoPaper[] = [
     pages: 5,
     solutionPages: 12,
     introduction:
-      "Study bubble nucleation and growth, the sound of bursting bubbles, and the thermodynamics of opening a bottle. Bubbles contain only carbon dioxide; gases are ideal. Henry’s constants, material properties, photographs, and graphs are in the original paper.",
+      "Study bubble nucleation and growth, the sound of bursting bubbles, and the thermodynamics of opening a bottle. Bubbles contain only carbon dioxide, and gases are ideal. Henry’s constants, material properties, photographs, and graphs are in the original paper.",
     sections: [
       { letter: "A", title: "Nucleation, growth and rise of bubbles" },
       { letter: "B", title: "Acoustic emission of a bursting bubble" },
@@ -84,7 +84,7 @@ export const iphoPapers: IphoPaper[] = [
     pages: 6,
     solutionPages: 16,
     introduction:
-      "Characterize a magnet with a Gouy balance, then measure the horizontal component of Earth’s magnetic field. Uncertainties are determined from fits, not individual data points. Measurement tasks require the original apparatus or your own measured data; this archive does not simulate measurements.",
+      "Characterize a magnet with a Gouy balance, then measure the horizontal component of Earth’s magnetic field. Uncertainties are determined from fits, not individual data points. Measurement tasks require the original apparatus or your own measured data. This archive does not simulate measurements.",
     sections: [
       { letter: "A", title: "Gouy balance and magnetic moment" },
       { letter: "B", title: "Determining Earth’s magnetic field" },
@@ -443,7 +443,7 @@ const problemsByPaper: Record<
       page: 3,
       solutionPage: 6,
       prompt:
-        "A circular hole expands at constant speed through a liquid film of uniform thickness. The surrounding film is initially at rest and liquid accumulates in the rim. Only half the decrease in surface energy becomes kinetic energy; ignore the rim’s surface-area change relative to the film’s. Express the retraction speed in terms of liquid density, surface tension, and film thickness, using Figure 4.",
+        "A circular hole expands at constant speed through a liquid film of uniform thickness. The surrounding film is initially at rest and liquid accumulates in the rim. Only half the decrease in surface energy becomes kinetic energy. Ignore the rim’s surface-area change relative to the film’s. Express the retraction speed in terms of liquid density, surface tension, and film thickness, using Figure 4.",
     },
     {
       part: "B.2",
@@ -452,7 +452,7 @@ const problemsByPaper: Record<
       page: 4,
       solutionPage: 7,
       prompt:
-        "A gas-filled cavity at atmospheric pressure has an opening of cross-sectional area S containing an effective piston mass. Small piston displacements compress or expand the cavity gas adiabatically; gravity on the piston is negligible. Express the oscillation frequency using equilibrium cavity volume, opening area, piston mass, pressure, and adiabatic coefficient. Refer to Figure 5.",
+        "A gas-filled cavity at atmospheric pressure has an opening of cross-sectional area S containing an effective piston mass. Small piston displacements compress or expand the cavity gas adiabatically. Gravity on the piston is negligible. Express the oscillation frequency using equilibrium cavity volume, opening area, piston mass, pressure, and adiabatic coefficient. Refer to Figure 5.",
     },
     {
       part: "B.3",
@@ -501,7 +501,7 @@ const problemsByPaper: Record<
       page: 3,
       solutionPage: 4,
       prompt:
-        "Estimate the typical operating time of one supplied battery for a current of about 2 amperes. The battery capacity is approximately 300 milliampere-hours. Take this limit into account when planning the later protocols; the coils are needed only in Part A.",
+        "Estimate the typical operating time of one supplied battery for a current of about 2 amperes. The battery capacity is approximately 300 milliampere-hours. Take this limit into account when planning the later protocols. The coils are needed only in Part A.",
     },
     {
       part: "A.2",
@@ -586,7 +586,7 @@ const problemsByPaper: Record<
       page: 5,
       solutionPage: 12,
       prompt:
-        "From your earlier measurements, express and evaluate the critical wire length where the amplitudes of wire torque and magnetic torque are equal. For your B.2 setup, calculate the wire-to-magnetic torque-amplitude ratio and place it in one of the specified percentage intervals: below 1; 1–5; 5–20; 20–50; or at least 50 percent.",
+        "From your earlier measurements, express and evaluate the critical wire length where the amplitudes of wire torque and magnetic torque are equal. For your B.2 setup, calculate the wire-to-magnetic torque-amplitude ratio and place it in one of the specified percentage intervals: below 1, 1–5, 5–20, 20–50, or at least 50 percent.",
       model: String.raw`$$\frac{C_f}{L_c}=m_mB_e$$`,
     },
     {
@@ -654,7 +654,7 @@ const problemsByPaper: Record<
       page: 5,
       solutionPage: 7,
       prompt:
-        "Ball 4 starts from rest on the inclined rail and rolls without slipping or dissipating energy. Derive its distance along the rail as a function of elapsed time, rail angle, and gravitational acceleration. Account for rotational kinetic energy and the contact geometry in Figure 5; do not assume that the effective rolling radius necessarily equals the ball radius.",
+        "Ball 4 starts from rest on the inclined rail and rolls without slipping or dissipating energy. Derive its distance along the rail as a function of elapsed time, rail angle, and gravitational acceleration. Account for rotational kinetic energy and the contact geometry in Figure 5. Do not assume that the effective rolling radius necessarily equals the ball radius.",
       model: String.raw`$$J=\frac{md^2}{10},\qquad K=\frac12mv^2+\frac12J\omega^2$$`,
     },
     {

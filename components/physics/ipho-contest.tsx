@@ -109,7 +109,7 @@ export function IphoContest({ onExit }: { onExit: () => void }) {
           <p className="max-w-2xl text-pretty text-sm leading-relaxed text-muted-foreground">
             Every numbered subproblem from the three theory and two experimental
             papers. {iphoTheoryCount} theory, {iphoExperimentCount} experimental
-            — original figures, complete papers, and official solutions
+            with original figures, complete papers, and official solutions
             included.
           </p>
         </div>
@@ -304,8 +304,8 @@ export function IphoContest({ onExit }: { onExit: () => void }) {
         </div>
       </div>
       <p className="text-sm leading-relaxed text-muted-foreground">
-        Independent, unofficial archive of the five competition papers; the
-        unused backup paper is excluded. Questions are paraphrased; the original
+        Independent, unofficial archive of the five competition papers. The
+        unused backup paper is excluded. Questions are paraphrased. The original
         English pages are authoritative. Official solutions:{" "}
         <a
           href="https://www.sciencesalecole.org/ipho-annales-epreuves/"

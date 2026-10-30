@@ -28,7 +28,7 @@
     },
     {
       "type": "text",
-      "value": "For 1.4, use the LISA design described in the 2011 paper, not a present-day mission specification. Three identical spacecraft lie at the corners of an equilateral triangle with arms about 5.0 million kilometres long. The constellation follows an Earth-like orbit around the Sun, trailing Earth by 20 degrees. Each spacecraft follows a slightly inclined individual orbit; the triangle appears to roll around its centre once per year. Laser interferometry detects tiny changes in arm lengths. Figures 2 and 3 are on original pages 2 and 3."
+      "value": "For 1.4, use the LISA design described in the 2011 paper, not a present-day mission specification. Three identical spacecraft lie at the corners of an equilateral triangle with arms about 5.0 million kilometres long. The constellation follows an Earth-like orbit around the Sun, trailing Earth by 20 degrees. Each spacecraft follows a slightly inclined individual orbit, the triangle appears to roll around its centre once per year. Laser interferometry detects tiny changes in arm lengths. Figures 2 and 3 are on original pages 2 and 3."
     }
   ],
   "parts": [
