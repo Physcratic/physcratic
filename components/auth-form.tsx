@@ -8,8 +8,8 @@ import { ArrowLeft, Loader2 } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
-import { TermsConsent } from "@/components/terms-consent";
+import { Field, FieldContent, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field";
+import { Checkbox } from "@/components/ui/checkbox";
 import { TERMS_VERSION } from "@/lib/terms";
 import { Input } from "@/components/ui/input";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -20,7 +20,6 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
   const [busy, setBusy] = useState(false);
   const [checkingCaptcha, setCheckingCaptcha] = useState(false);
   const [error, setError] = useState("");
-  const [termsInvalid, setTermsInvalid] = useState(false);
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [verificationEmail, setVerificationEmail] = useState<string | null>(null);
   const creating = mode === "sign-up";
@@ -28,7 +27,6 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
     event.preventDefault();
     if (busy) return;
     if (creating && !termsAccepted) {
-      setTermsInvalid(true);
       setError("Please read and accept the Terms of Service to create an account.");
       return;
     }
@@ -79,7 +77,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
         {verificationEmail !== null ? <VerificationNotice email={verificationEmail} returnTo={returnTo} onBack={() => setVerificationEmail(null)} /> : <Card>
           <CardHeader><CardTitle>{creating ? "Keep your working. Track your progress." : "Welcome back."}</CardTitle><CardDescription>{creating ? "Create an account to privately save your olympiad solutions." : "Sign in to return to your saved attempts."}</CardDescription></CardHeader>
           <CardContent>
-            <form id="account-form" aria-busy={busy} onInvalidCapture={() => { if (creating && !termsAccepted) setTermsInvalid(true); }} onSubmit={submit} onKeyDown={(event) => {
+            <form id="account-form" aria-busy={busy} onSubmit={submit} onKeyDown={(event) => {
               if (event.key === "Enter" && (event.nativeEvent.isComposing || event.keyCode === 229)) event.preventDefault();
             }}>
               <fieldset disabled={busy}><FieldGroup>
@@ -88,7 +86,13 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
                 {creating && <Field><FieldLabel htmlFor="account-name">Name</FieldLabel><Input id="account-name" name="name" autoComplete="name" required minLength={1} maxLength={80} /></Field>}
                 <Field><FieldLabel htmlFor="account-email">Email</FieldLabel><Input id="account-email" name="email" type="email" autoComplete="email" required maxLength={254} /></Field>
                 <Field><FieldLabel htmlFor="account-password">Password</FieldLabel><Input id="account-password" name="password" type="password" autoComplete={creating ? "new-password" : "current-password"} required minLength={8} maxLength={128} />{creating && <p className="text-sm leading-relaxed text-muted-foreground">Use at least 8 characters. Choose a password you do not use elsewhere.</p>}</Field>
-                {creating && <TermsConsent checked={termsAccepted} invalid={termsInvalid} onChange={(checked) => { setTermsAccepted(checked); if (checked) setTermsInvalid(false); }} />}
+                {creating && <Field orientation="horizontal">
+                  <Checkbox id="account-terms" name="termsAccepted" required checked={termsAccepted} onCheckedChange={(checked) => setTermsAccepted(checked === true)} aria-describedby="account-terms-description" />
+                  <FieldContent>
+                    <FieldLabel htmlFor="account-terms">I agree to the Terms of Service.</FieldLabel>
+                    <FieldDescription id="account-terms-description"><Link href="/terms" target="_blank" rel="noopener noreferrer">Read the Terms of Service (opens in a new tab)</Link>. We record the version and acceptance time with your account.</FieldDescription>
+                  </FieldContent>
+                </Field>}
                 {error && <Alert variant="destructive" role="alert"><AlertTitle>Could not continue</AlertTitle><AlertDescription>{error}</AlertDescription></Alert>}
               </FieldGroup></fieldset>
             </form>

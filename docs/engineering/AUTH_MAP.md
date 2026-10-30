@@ -39,9 +39,6 @@ This is a source audit; production settings, live DDL, and external edge control
 - `lib/submission-security.ts`: return path restricted to `/dashboard` and rejects backslashes/control chars.
 - `lib/submission-server.ts`: downstream session lookup and configured submission-origin checks.
 - `lib/terms.ts`: canonical text/version `2026-10-30-draft-1`; strict true + exact version required.
-- `components/terms-content.tsx`: shared active policy renderer for public page and consent dialog.
-- `components/terms-consent.tsx`: controlled checkbox + explicit-accept Radix dialog; no implicit consent.
-- Proposed legal revision remains document-only in docs/legal; publication requires recorded founder/legal approval.
 - `app/terms/page.tsx`: displays provisional terms; legal identity/contact and privacy notice remain launch work.
 - `lib/terms.test.ts`: rejects missing/false/string/stale acceptance; verifies server audit values.
 - `lib/submission-security.test.ts`: safe redirects/origins; `lib/submission-request.test.ts`: body limits/timeouts.
