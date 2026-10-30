@@ -74,9 +74,10 @@ test("signup CAPTCHA HTTP boundary and registration regression", async (t) => {
   assert.equal(database.session.length, 0);
   assert.equal(mails.length, 1);
   assert.equal((await request("fresh")).status, 403, "Google duplicate rejection fails closed");
-  for (const terms of [{ termsAccepted: false }, { termsAccepted: "true" }, { termsVersion: "old" }]) {
+  for (const terms of [{ termsAccepted: undefined }, { termsVersion: undefined }, { termsAccepted: false }, { termsAccepted: "true" }, { termsVersion: "old" }]) {
     assert.equal((await request(`terms-${sequence}`, terms)).status, 400);
   }
+  const acceptedRecord = JSON.stringify(database.user[0]);
   const before = calls;
   const unverified = await request(undefined, { email: user.email }, "/sign-in/email");
   assert.equal(unverified.status, 403);
@@ -85,6 +86,7 @@ test("signup CAPTCHA HTTP boundary and registration regression", async (t) => {
   await request(undefined, {}, "/send-verification-email");
   assert.equal(calls, before, "other endpoints never invoke CAPTCHA");
   assert.equal(database.user.length, 1);
+  assert.equal(JSON.stringify(database.user[0]), acceptedRecord, "rejected signup and login do not overwrite consent history");
 });
 
 test("missing server configuration fails closed only on signup", async () => {
