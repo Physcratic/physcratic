@@ -278,7 +278,7 @@ export function ProblemReader({ problem }: { problem: Problem }) {
           </div>
           <div className="flex flex-col gap-4">
             <Button
-              variant="ghost"
+              variant="outline"
               className="justify-between"
               onClick={() => setShowSolution(!showSolution)}
               aria-expanded={showSolution}

@@ -46,11 +46,11 @@ export function ProblemList({
             </span>
             <Badge
               variant={getEloBand(problem.elo).variant}
-              className="shrink-0 tabular-nums"
+              className="shrink-0 rounded tabular-nums"
               aria-label={`Difficulty rating ${problem.elo.toLocaleString("en-US")}, ${getEloBand(problem.elo).name}`}
               title={`${getEloBand(problem.elo).name} · ${getEloBand(problem.elo).range}`}
             >
-              Elo {problem.elo.toLocaleString("en-US")}
+              {problem.elo.toLocaleString("en-US")}
             </Badge>
             <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />
           </button>
