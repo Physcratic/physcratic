@@ -1,7 +1,8 @@
 import { z } from "zod";
 
 // Data contracts only. Grading/evaluation and authorization belong to server services.
-const id = z.uuid();
+// Normalize before parent refinements so comparisons and stored JSON match PostgreSQL uuid.
+const id = z.uuid().transform(value => value.toLowerCase());
 const bounded = (max: number) => z.string().max(max);
 const mode = z.enum(["numeric", "expression", "manual"]);
 const inline = z.discriminatedUnion("kind", [
@@ -86,9 +87,17 @@ export const authoredRevisionSchema = z.strictObject({
   content: authoredDocumentSchema, publishedAt: z.iso.datetime(),
 });
 
+// Explicit DB-row adapter; accept Drizzle Dates and the existing ISO-string contract.
+export function normalizeAuthoredRevisionRow(input: unknown) {
+  return z.object({ id, problemId: id, number: z.number().int().positive(), schemaVersion: z.literal(1), content: z.unknown(),
+    publishedAt: z.union([z.date().transform(value => value.toISOString()), z.iso.datetime()]),
+  }).parse(input);
+}
+
+// Serialization is not authorization: callers must establish published visibility first.
 // Explicit mapping: even an over-fetched row must never forward private fields or solution attachments.
 export function publicAuthoredRevision(input: unknown) {
-  const row = z.object({ id, problemId: id, number: z.number().int().positive(), schemaVersion: z.literal(1), content: z.unknown(), publishedAt: z.iso.datetime() }).parse(input);
+  const row = normalizeAuthoredRevisionRow(input);
   const content = authoredDocumentSchema.parse(row.content);
   return { id: row.id, problemId: row.problemId, number: row.number, schemaVersion: row.schemaVersion,
     publishedAt: row.publishedAt, content: { ...content, attachments: content.attachments.filter(a => a.purpose !== "solution-pdf") } };

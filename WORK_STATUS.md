@@ -5,11 +5,12 @@
 - Completed: strict typed content/draft/revision/key contracts, explicit private/public mapping, additive versioned Drizzle schema and reviewed SQL up/down.
 - Added: relational revision-part identities, separate private keys, owner/revision FKs, uniqueness/checks, immutable revision sealing.
 - Handoffs: [map](docs/engineering/PROBLEM_AUTHORING_MAP.md), [status](docs/engineering/PROBLEM_AUTHORING_STATUS.md), [migration notes](migrations/README.md).
-- Targeted tests: 10/10 PASS. Disposable PostgreSQL17 up/constraints/down/up PASS; existing user retained.
-- Full suite: baseline 93/94; final 103/104. Same existing corpus translation punctuation mismatch, no new failures.
+- Review fixes: UUID normalization, exact SQL revision-part sealing, explicit Drizzle Date-to-ISO adapter; existing unapplied migration corrected in place.
+- Targeted tests: 13/13 PASS. Disposable PostgreSQL17 up/all constraints/down/up PASS; existing user retained; container removed.
+- Full suite: original baseline 93/94, pre-fix Phase 1 103/104, final 106/107. Same existing corpus translation punctuation mismatch, no new failures.
 - Typecheck PASS. Baseline lint failure (eslint absent) and build blocker (Google Fonts download) persist unchanged.
-- Independent schema/security critic and root review completed; NULL identity and concurrent sealing issues addressed.
+- Adversarial review found no blockers in fixes; xmin/seal locks, insertion order, privacy and migration rollback semantics unchanged.
 - Source/auth/archive/practice behavior and package/lockfile unchanged; media tables deferred to Phase 4.
-- Delivery: implementation 008c377 and delivery update pushed. Draft PR creation failed: GitHub API Forbidden.
+- Delivery: initial implementation 008c377; review fixes committed/pushed to SAME branch (commit containing this update). Prior draft PR creation blocked by GitHub API Forbidden.
 - No merge, deployment, production migration or production data edits. Phase 2 unstarted.
 - Next: review/merge Phase 1, then separately request Phase 2 from fresh main; read handoffs before affected code only.

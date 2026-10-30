@@ -61,15 +61,24 @@ CREATE TRIGGER authored_revision_private_sealed BEFORE INSERT ON authored_revisi
 
 -- A final revision seals the exact relational part map represented by its document.
 CREATE FUNCTION authored_revision_parts_match() RETURNS trigger LANGUAGE plpgsql AS $$
-DECLARE expected integer; actual integer;
+DECLARE mismatched boolean;
 BEGIN
  PERFORM pg_advisory_xact_lock(hashtextextended(NEW.id::text,0));
- SELECT count(*) INTO expected FROM jsonb_array_elements(NEW.content->'sections') s CROSS JOIN LATERAL jsonb_array_elements(s->'parts') p;
- SELECT count(*) INTO actual FROM authored_revision_part WHERE revision_id=NEW.id;
- IF expected=0 OR expected<>actual OR EXISTS (
-  SELECT 1 FROM jsonb_array_elements(NEW.content->'sections') s CROSS JOIN LATERAL jsonb_array_elements(s->'parts') p
-  WHERE NOT EXISTS (SELECT 1 FROM authored_revision_part r WHERE r.revision_id=NEW.id AND r.part_id=(p->>'id')::uuid AND r.answer_mode=p->>'answerMode')
- ) THEN RAISE EXCEPTION 'Revision document and relational parts disagree'; END IF;
+ -- Compare canonical UUID/mode pairs in both directions; counts alone miss [A,A] vs {A,B}.
+ WITH document_parts AS (
+  SELECT (p->>'id')::uuid AS id, p->>'answerMode' AS answer_mode
+  FROM jsonb_array_elements(NEW.content->'sections') s
+  CROSS JOIN LATERAL jsonb_array_elements(s->'parts') p
+ ), relational_parts AS (
+  SELECT part_id AS id, answer_mode FROM authored_revision_part WHERE revision_id=NEW.id
+ )
+ SELECT NOT EXISTS (SELECT 1 FROM document_parts)
+  OR EXISTS (SELECT 1 FROM document_parts WHERE id IS NULL OR answer_mode IS NULL)
+  OR EXISTS (SELECT 1 FROM document_parts GROUP BY id HAVING count(*)>1)
+  OR EXISTS (SELECT * FROM document_parts EXCEPT SELECT * FROM relational_parts)
+  OR EXISTS (SELECT * FROM relational_parts EXCEPT SELECT * FROM document_parts)
+ INTO mismatched;
+ IF mismatched THEN RAISE EXCEPTION 'Revision document and relational parts disagree'; END IF;
  RETURN NEW;
 END $$;
 CREATE TRIGGER authored_revision_parts_match BEFORE INSERT ON authored_revision FOR EACH ROW EXECUTE FUNCTION authored_revision_parts_match();

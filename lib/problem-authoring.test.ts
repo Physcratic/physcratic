@@ -77,3 +77,49 @@ test("published problem requires revision pointer; slug is bounded and stable", 
   assert.equal(authoredProblemSchema.safeParse(p).success, false);
   assert.equal(authoredProblemSchema.safeParse({ ...p, publishedRevisionId: randomUUID() }).success, true);
 });
+test("mixed-case UUID duplicates are rejected across all identity/reference collections", () => {
+  const mixedId = "abcdefab-cdef-4abc-8abc-abcdefabcdef";
+  const mutate: ((d: ReturnType<typeof fixture>) => void)[] = [
+    d => { d.content.sections[0].parts[0].id = mixedId; d.content.sections[0].parts[1].id = mixedId.toUpperCase(); },
+    d => { d.content.context[0].id = mixedId; d.content.sections[0].id = mixedId.toUpperCase(); },
+    d => { d.privateParts[0].partId = mixedId; d.privateParts.push({ ...d.privateParts[0], partId: mixedId.toUpperCase() }); d.content.sections[0].parts[0].id = mixedId; },
+    d => { d.content.attachments = [{ id: mixedId, purpose: "statement-pdf" }, { id: mixedId.toUpperCase(), purpose: "solution-pdf" }]; },
+    d => { d.content.context[0].id = mixedId; d.privateParts[0].solution = [{ id: mixedId.toUpperCase(), kind: "math", latex: "x" }] as never; },
+  ];
+  for (const change of mutate) { const d = fixture(); change(d); assert.equal(authoredDraftSchema.safeParse(d).success, false); }
+});
+test("uppercase references and private parts normalize before comparison and JSON persistence", () => {
+  const d = fixture();
+  const partId = "abcdefab-cdef-4abc-8abc-abcdefabcdef";
+  const mediaId = "bcdefabc-defa-4bcd-8bcd-bcdefabcdefa";
+  d.problemId = "ABCDEFAB-CDEF-4ABC-8ABC-ABCDEFABCDEF";
+  d.content.sections[0].parts[0].id = partId;
+  d.privateParts[0].partId = partId.toUpperCase();
+  d.content.context.push({ id: randomUUID().toUpperCase(), kind: "image", mediaId: mediaId.toUpperCase(), alt: "Diagram", caption: "" });
+  d.content.attachments = [{ id: mediaId, purpose: "statement-image" }];
+  const parsed = publishableDraftSchema.parse(d);
+  assert.equal(parsed.problemId, partId);
+  assert.equal(parsed.privateParts[0].partId, partId);
+  assert.equal(parsed.privateParts[0].partId, parsed.content.sections[0].parts[0].id);
+  const image = parsed.content.context[1];
+  assert.equal(image.kind, "image");
+  if (image.kind === "image") assert.equal(image.mediaId, parsed.content.attachments[0].id);
+  assert.deepEqual(authoredDraftSchema.parse(JSON.parse(JSON.stringify(parsed))), parsed);
+  assert.equal(d.privateParts[0].partId, partId.toUpperCase(), "parsing must not mutate caller objects");
+});
+test("Drizzle-shaped Date rows serialize ISO timestamps without leaking private fields", () => {
+  const d = fixture();
+  d.content.attachments = [{ id: randomUUID(), purpose: "solution-pdf" }];
+  const date = new Date("2026-10-31T08:00:00+08:00");
+  const row = { id: randomUUID().toUpperCase(), problemId: d.problemId, number: 1, schemaVersion: 1, content: d.content, publishedAt: date,
+    privateParts: d.privateParts, ownerEmail: "private", seeds: [42] };
+  const result = publicAuthoredRevision(row);
+  assert.equal(result.publishedAt, "2026-10-31T00:00:00.000Z");
+  assert.deepEqual(result, publicAuthoredRevision({ ...row, publishedAt: date.toISOString() }));
+  assert.equal(result.id, row.id.toLowerCase());
+  assert.equal(JSON.stringify(result).includes("g*sin"), false);
+  assert.equal(JSON.stringify(result).includes("solution-pdf"), false);
+  assert.equal("privateParts" in result || "ownerEmail" in result || "seeds" in result, false);
+  for (const publishedAt of [new Date(NaN), 0, null, "not-a-date"]) assert.throws(() => publicAuthoredRevision({ ...row, publishedAt }));
+  assert.equal(row.publishedAt, date);
+});
