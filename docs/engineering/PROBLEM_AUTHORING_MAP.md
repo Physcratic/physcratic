@@ -1,15 +1,15 @@
 # Problem authoring architecture map
 
-Phase 0 inventory at `80bef237f7c187b74ce83316f3dda780dae42792` (2026-10-31, Asia/Makassar).
-Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md; this is a contract, not implemented code.
+Phase 1 based on merged main `ecee0baa8d56408f9fc9bd22c156a4feac7b8ecb` (2026-10-31, Asia/Makassar).
+Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md; Phase 1 implements schema/contracts only; APIs, UI and grading remain deferred.
 Read this and [status](PROBLEM_AUTHORING_STATUS.md) before each phase; inspect only affected code/dependencies.
 
 ## Verified current architecture
 - [package.json](../../package.json): Next 15.5.28, React 19, TypeScript, pnpm lockfile; Zod, KaTeX, mathjs, Drizzle, Better Auth, Blob installed in manifest.
 - [schema](../../lib/db/schema.ts): user/session/account/verification; solution_attempt, solution_evidence, practice_attempt; contest/contest_registration/contest_rating; archive_progress.
-- No authored-problem, revision, grading-key, star or comment tables in this schema.
+- Authored additions: authored_problem/draft/revision, separate draft/revision private parts and revision_part identities; stars/comments remain Phase 7.
 - [DB](../../lib/db/index.ts): PostgreSQL Pool + Drizzle; DATABASE_URL, max 5 connections, statement/transaction timeouts.
-- No tracked SQL migrations, Drizzle config/migration command, ESLint config or GitHub workflows found.
+- [SQL up/down and tests](../../migrations/0001_problem_authoring.up.sql), [migration operations](../../migrations/README.md): explicit reviewed migrations; no automatic build/start DB writes. ESLint remains absent.
 - [auth](../../lib/auth.ts): Better Auth email/password, email verification required for login, terms hooks, trusted origins and auth rate limits.
 - [submission helpers](../../lib/submission-server.ts): session lookup and configured-origin checks; no explicit emailVerified guard.
 - [security](../../lib/submission-security.ts), [request limits](../../lib/submission-request.ts): origin allowlist, media signatures, bounded request parsing.
@@ -25,8 +25,8 @@ Read this and [status](PROBLEM_AUTHORING_STATUS.md) before each phase; inspect o
 - [download](../../app/api/solution-evidence/[id]/route.ts): user-owned DB lookup before private Blob read, attachment, no-store/nosniff.
 - Existing upload endpoints do not explicitly check emailVerified; private solver evidence must not become public author media.
 
-## Proposed minimal typed contract (Phase 1; names provisional)
-- UUID and ISODate below denote validated strings; all document payloads use strict, bounded Zod discriminated unions.
+## Typed contract (Phase 1)
+- [Contracts](../../lib/problem-authoring.ts) and [tests](../../lib/problem-authoring.test.ts): strict bounded Zod unions, inferred types, unique nested IDs and explicit public revision mapper.
 - Problem: {id: UUID, slug: string, ownerId: UserId, state: 'draft'|'published'|'archived', publishedRevisionId: UUID|null, createdAt, updatedAt}.
 - Draft: {problemId: UUID, version: integer, content: Document, privateParts: PrivatePart[], updatedAt}; compare-and-swap version on save.
 - Revision: {id: UUID, problemId: UUID, number: integer, schemaVersion: 1, content: Document, publishedAt}; immutable after publication.
@@ -37,14 +37,14 @@ Read this and [status](PROBLEM_AUTHORING_STATUS.md) before each phase; inspect o
 - Block: {id:UUID} & ({kind:'text', spans:Inline[]}|{kind:'math', latex:string}|{kind:'image', mediaId:UUID, alt:string, caption:string}).
 - MediaRef: {id:UUID, purpose:'statement-image'|'statement-pdf'|'solution-pdf'}; URLs/access are server-derived, never trusted client ownership claims.
 - Provenance: {kind:'original'|'authorized', source:string, rightsDeclaration:string}; incomplete drafts allowed, publication requires rights.
-- PrivatePart: {partId:UUID, key:Key, hints:Block[], solution:Block[]}; physically separate from public statement JSON, keyed by draft/revision + part.
+- PrivatePart: {partId:UUID, key:Key|null, hints:Block[], solution:Block[]}; nullable key permits incomplete drafts; publication requires every key. Physically separate storage.
 - Key = {kind:'numeric', value:number, units:string, absTol:number, relTol:number} | {kind:'expression', expected:string, variables:Variable[], angleUnit:'radians'|'degrees', exclusions:string[]} | {kind:'manual'}.
 - Variable: {name:string, domain:'real', min?:number, max?:number, assumptions:('positive'|'nonnegative'|'nonzero')[]}; explicit supported-domain validation.
 - Numeric values/tolerances finite; tolerances nonnegative; units separate; expression size/AST/power/domain/resource limits mandatory.
 - Published solutions are a separate immutable revision-bound projection served only through intentional solution access; drafts remain private.
-- Add normalized authored_problem, authored_draft, authored_revision, authored_private_part and author_media tables; exact SQL reviewed in Phase 1.
+- Implemented normalized problem/draft/revision/revision-part and separate private draft/revision tables. Media tables/uploads deferred to Phase 4; references are typed only.
 - FK owner -> user; draft unique problem; revision unique(problemId, number) and unique(problemId, id); composite FK ensures published pointer belongs to problem.
-- Separate private draft/revision key storage or enforce exactly-one parent; unique(parent, partId), no orphan keys, no public SELECT * mapping.
+- Separate private draft/revision key storage; composite PKs/FKs prevent orphan/cross-mode keys; publication seals revision/key/part rows. No public SELECT * mapping.
 - Persist revision-bound part identity for submission FKs; Zod validates cross-document IDs, block order and key/mode alignment transactionally.
 - Authored attempts/reveals are separate from old attempts; bind user + immutable revision + part + idempotency; record assisted/revealed-before-submit.
 - Star: separate table unique(problemId,userId), no self-star; server derives count. Comment: separate table with parentId, authorId, tombstone/hidden state.
@@ -63,8 +63,8 @@ Read this and [status](PROBLEM_AUTHORING_STATUS.md) before each phase; inspect o
 
 ## Migration and release strategy
 - Additive migrations/contracts only; preserve auth, archive, practice and existing IDs/data contracts; no mass rewrite or production DB access.
-- Phase 1 must establish reproducible reviewed SQL/migration bookkeeping because no runner exists; do not assume drizzle-kit installed.
-- Verify up/down on disposable PostgreSQL, FK/unique/check constraints and serializer tests before migration approval; no production migration here.
+- Phase 1 adds explicit SQL up/down, disposable PostgreSQL tests and a checksum ledger procedure; no drizzle-kit/new dependencies.
+- Verify up/down/reapply on disposable PostgreSQL and contract/serializer tests; runtime JSON validation remains mandatory. No production migration here.
 - Publication transaction freezes revision + private content + media bindings atomically; updates fork drafts, never mutate old revision/attempt references.
 - Rollback application exposure first; retain historical revisions/attempts; destructive down migration only on disposable DB before user data exists.
 - No merge/deploy. README says merging main automatically deploys; prepare manual Vercel release/rollback gates in Phase 8.
