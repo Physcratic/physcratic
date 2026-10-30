@@ -31,3 +31,9 @@ Private table access uses the existing trusted application database role; it is 
 ## Rollback
 
 Roll back application exposure first and retain historical revisions/keys once real data exists. The down file permanently deletes all authored content and keys, and is allowed only in a disposable DB or separately approved recovery before authored data exists. No production down migration is part of this change.
+
+## Phase 2 write limiter (0002)
+
+Apply `0002_authored_write_limit.up.sql` explicitly in a reviewed transaction after 0001. It adds only one fixed-minute counter row per author; atomic upserts enforce 60 write requests/minute across instances. It has no startup/build hook and changes no existing tables. Record ID/checksum/commit in the same reviewed ledger procedure. Disable authoring API writes before down migration; the down file drops only rate-limit state, preserving all authored revisions and private keys.
+
+`bash scripts/test-problem-authoring.sh` creates an isolated PostgreSQL17 container bound to a random localhost port, applies both migrations, runs original sealing SQL regressions and API handler integration, tests limiter down/up, and removes the container. It never uses ambient DATABASE_URL. Sessions are injected for handler tests; production continues to use Better Auth. To run the full suite with database tests enabled, pass the installed pnpm command to the script; without AUTHORING_TEST_DATABASE_URL, the DB integration test explicitly skips. No production migration is authorized by this test script or phase.

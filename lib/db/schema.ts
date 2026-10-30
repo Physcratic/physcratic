@@ -113,3 +113,9 @@ export const authoredRevisionPrivateParts = pgTable("authored_revision_private_p
 }, (t) => [primaryKey({ columns: [t.revisionId,t.partId] }),
   foreignKey({ name:"authored_revision_private_part_fk", columns:[t.revisionId,t.partId,t.answerMode], foreignColumns:[authoredRevisionParts.revisionId,authoredRevisionParts.partId,authoredRevisionParts.answerMode] }),
   check("authored_revision_private_identity_check", sql`(jsonb_typeof(${t.data}) = 'object' and jsonb_typeof(${t.data}->'partId') = 'string' and ${t.data}->>'partId' = ${t.partId}::text and ${t.data} ? 'key' and jsonb_typeof(${t.data}->'key') = 'object' and ${t.data}->'key' ? 'kind' and ${t.data}->'key'->>'kind' = ${t.answerMode}) is true`)]);
+
+export const authoredWriteLimits = pgTable("authored_write_limit", {
+  userId: text("user_id").primaryKey().references(() => user.id, { onDelete: "cascade" }),
+  windowStart: timestamp("window_start", { withTimezone: true }).notNull(),
+  requests: integer("requests").notNull(),
+}, (t) => [check("authored_write_limit_requests_check", sql`${t.requests}>0`)]);

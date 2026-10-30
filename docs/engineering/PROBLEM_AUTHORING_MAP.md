@@ -1,13 +1,13 @@
 # Problem authoring architecture map
 
-Phase 1 based on merged main `ecee0baa8d56408f9fc9bd22c156a4feac7b8ecb` (2026-10-31, Asia/Makassar).
-Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md; Phase 1 implements schema/contracts only; APIs, UI and grading remain deferred.
+Phase 2 based on merged main `365eb62a47116e710723418d0b8e6148ce8ccd7b` (2026-10-31, Asia/Makassar).
+Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md; Phase 2 adds draft/publication APIs; editor, media uploads and grading remain deferred.
 Read this and [status](PROBLEM_AUTHORING_STATUS.md) before each phase; inspect only affected code/dependencies.
 
 ## Verified current architecture
 - [package.json](../../package.json): Next 15.5.28, React 19, TypeScript, pnpm lockfile; Zod, KaTeX, mathjs, Drizzle, Better Auth, Blob installed in manifest.
 - [schema](../../lib/db/schema.ts): user/session/account/verification; solution_attempt, solution_evidence, practice_attempt; contest/contest_registration/contest_rating; archive_progress.
-- Authored additions: authored_problem/draft/revision, separate draft/revision private parts and revision_part identities; stars/comments remain Phase 7.
+- Authored additions: problem/draft/revision, separate private parts, revision_part identities, authored_write_limit buckets; stars/comments remain Phase 7.
 - [DB](../../lib/db/index.ts): PostgreSQL Pool + Drizzle; DATABASE_URL, max 5 connections, statement/transaction timeouts.
 - [SQL up/down and tests](../../migrations/0001_problem_authoring.up.sql), [migration operations](../../migrations/README.md): explicit reviewed migrations; no automatic build/start DB writes. ESLint remains absent.
 - [auth](../../lib/auth.ts): Better Auth email/password, email verification required for login, terms hooks, trusted origins and auth rate limits.
@@ -68,6 +68,29 @@ Read this and [status](PROBLEM_AUTHORING_STATUS.md) before each phase; inspect o
 - Publication transaction freezes revision + private content + media bindings atomically; updates fork drafts, never mutate old revision/attempt references.
 - Rollback application exposure first; retain historical revisions/attempts; destructive down migration only on disposable DB before user data exists.
 - No merge/deploy. README says merging main automatically deploys; prepare manual Vercel release/rollback gates in Phase 8.
+
+## Phase 2 API surface (implemented; no editor)
+- [Handlers](../../lib/problem-authoring-api.ts), [production adapter](../../lib/problem-authoring-server.ts), [integration tests](../../lib/problem-authoring-api.test.ts).
+- Production injects Better Auth session lookup/configured-origin helper and the existing pg Pool; direct parameterized SQL preserves custom row locks and deferred sealing order.
+- Base `/api/authored-problems`; all responses private/no-store. No keys/solutions in any public/solver-shaped response.
+- `POST /drafts`: strict `{content, privateParts}`; server generates problemId/slug, returns owner draft/version 1 (201).
+- `GET /drafts?after=<uuid>`: own metadata only, stable UUID cursor, max 50, nextCursor; no grading keys in list.
+- `GET /drafts/[id]`: verified owner-only document/private key read; locks statement and key snapshot consistently.
+- `PUT /drafts/[id]`: strict `{version, content, privateParts}`; owner/version conflict checks; replace private rows atomically; returns incremented version.
+- `DELETE /drafts/[id]`: JSON `{version}`; active published problems require unpublish first (409); removes working draft, retains historical revisions/stable problem; never-published problem may be removed.
+- `GET /drafts/[id]/preview`: verified owner only, `{problemId, version, content}`; same allowlisted content as public reader, no private fields.
+- `POST /drafts/[id]/publish`: JSON `{version}`; validates stored draft, rights/native statement/all part keys; returns `{version, revision}` with safe revision only.
+- `POST /drafts/[id]/unpublish`: JSON `{version}`; archives/clears pointer, increments draft version; history/keys retained.
+- `GET /[id]`: anonymous public current revision only, same-problem pointer JOIN + published-state predicate; no private table read.
+- All private actions require server session emailVerified === true, strict owner predicates, generic errors; cross-owner draft IDs return 404.
+- Writes require configured same-origin JSON, actual-byte limit 2 MB/15 s, persistent 60 writes/minute/user, 100 retained problems/author quota.
+- [0002 limiter SQL](../../migrations/0002_authored_write_limit.up.sql): one atomic bounded bucket/user across instances; no runtime migrations; down drops only limiter state.
+- All statement/private media references rejected until Phase 4 ownership registry exists. Preview never makes a draft publicly accessible.
+- Mutations lock problem+draft, consume expected version; publish/unpublish consume a version too. Concurrent same-version mutations yield one success and 409 loser.
+- Publish writes parts and private rows first, final immutable revision last, pointer/version updates in one transaction, no savepoints; COMMIT before response.
+- Public content helper is serialization only; publication visibility/owner preview authorization enforced in handler, not serializer.
+- `bash scripts/test-problem-authoring.sh`: isolated local PostgreSQL17, migrations + original SQL regressions + handler integration; test sessions injected, production auth unchanged.
+- `bash scripts/test-problem-authoring.sh node /tmp/.../pnpm.cjs test`: full suite with DB integration enabled; direct pnpm test skips DB integration without explicit test URL.
 
 ## Acceptance/test plan (future implementation, not passing tests)
 - Phase 1: malformed/bounded contracts, unique block/part IDs, FK/revision consistency, no private keys in public projection.
