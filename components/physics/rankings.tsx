@@ -1,6 +1,8 @@
 "use client";
 
-import { Flame } from "lucide-react";
+import useSWR from "swr";
+import { fetchJson } from "@/lib/api-client";
+import type { PublicRanking } from "@/lib/dashboard-data";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -18,33 +20,53 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { demoProfile, demoRankings, risingStreak } from "@/lib/contest-demo";
 import { RankTitle } from "./rank-title";
-import { cn } from "@/lib/utils";
 
-export function Rankings({ search, onSearchChange }: {
+export function Rankings({
+  search,
+  onSearchChange,
+}: {
   search: string;
   onSearchChange: (search: string) => void;
 }) {
-  const rows = demoRankings.filter((row) =>
-    row.handle.toLowerCase().includes(search.trim().toLowerCase()),
-  );
+  const { data, error, isLoading, mutate } = useSWR<{
+    rankings: PublicRanking[];
+  }>("/api/rankings", fetchJson, { refreshInterval: 60_000 });
+  const rankings = data?.rankings ?? [];
+  const rows = rankings
+    .map((row, index) => ({
+      ...row,
+      rank: rankings.findIndex((entry) => entry.rating === row.rating) + 1,
+      key: index,
+    }))
+    .filter((row) =>
+      row.handle.toLowerCase().includes(search.trim().toLowerCase()),
+    );
   return (
     <div className="flex min-w-0 flex-col gap-6">
       <Card id="rankings-table" className="min-w-0 overflow-hidden shadow-none">
         <CardContent className="p-0">
-          {rows.length ? (
+          {isLoading ? (
+            <p role="status" className="p-6 text-sm text-muted-foreground">
+              Loading rankings…
+            </p>
+          ) : error ? (
+            <Empty>
+              <EmptyHeader>
+                <EmptyTitle>Rankings unavailable</EmptyTitle>
+                <EmptyDescription>
+                  We could not load published results. Please retry.
+                </EmptyDescription>
+              </EmptyHeader>
+              <Button variant="outline" onClick={() => mutate()}>
+                Retry rankings
+              </Button>
+            </Empty>
+          ) : rows.length ? (
             <Table>
               <TableCaption className="pb-5">
-                Illustrative rankings from a sample field of{" "}
-                {demoProfile.totalPlayers.toLocaleString("en-US")} contestants.
-                Not real accounts or results.
+                Top 100 public contestants by their latest published rated
+                result. Equal ratings share a rank.
               </TableCaption>
               <TableHeader>
                 <TableRow>
@@ -65,51 +87,20 @@ export function Rankings({ search, onSearchChange }: {
               </TableHeader>
               <TableBody>
                 {rows.map((row) => (
-                  <TableRow
-                    key={row.handle}
-                    className={cn(row.handle === "You" && "bg-accent/50")}
-                  >
+                  <TableRow key={row.key}>
                     <TableCell className="pl-6 tabular-nums text-muted-foreground">
                       #{row.rank}
                     </TableCell>
                     <TableCell>
-                      <div className="flex flex-col gap-1">
-                        <span className="flex items-center gap-2 font-medium">
-                          {row.handle}
-                          {risingStreak(row.recentChanges) >= 3 && (
-                            <TooltipProvider delayDuration={150}>
-                              <Tooltip>
-                                <TooltipTrigger asChild>
-                                  <button
-                                    type="button"
-                                    className="flex items-center gap-1 rounded-sm text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                                    aria-label={`${risingStreak(row.recentChanges)} consecutive rounds of Elo gains`}
-                                  >
-                                    <Flame aria-hidden="true" className="size-4" />
-                                    <span className="text-sm tabular-nums">{risingStreak(row.recentChanges)}</span>
-                                  </button>
-                                </TooltipTrigger>
-                                <TooltipContent>
-                                  Elo increased in each of the last {risingStreak(row.recentChanges)} rated rounds.
-                                </TooltipContent>
-                              </Tooltip>
-                            </TooltipProvider>
-                          )}
-                        </span>
-                        <RankTitle rating={row.rating} className="self-start" />
+                      <div className="flex flex-col items-start gap-1">
+                        <span className="font-medium">{row.handle}</span>
+                        <RankTitle rating={row.rating} />
                       </div>
                     </TableCell>
                     <TableCell className="text-right font-medium tabular-nums">
                       {row.rating.toLocaleString("en-US")}
                     </TableCell>
-                    <TableCell
-                      className={cn(
-                        "text-right tabular-nums",
-                        row.change > 0
-                          ? "text-primary"
-                          : "text-muted-foreground",
-                      )}
-                    >
+                    <TableCell className="text-right tabular-nums">
                       {row.change > 0 ? "+" : ""}
                       {row.change}
                     </TableCell>
@@ -123,22 +114,29 @@ export function Rankings({ search, onSearchChange }: {
           ) : (
             <Empty>
               <EmptyHeader>
-                <EmptyTitle>No matching contestants</EmptyTitle>
+                <EmptyTitle>
+                  {search.trim()
+                    ? "No matching contestants"
+                    : "No rated results yet"}
+                </EmptyTitle>
                 <EmptyDescription>
-                  Try another handle, or clear the search to see the sample
-                  leaderboard.
+                  {search.trim()
+                    ? "Try another handle or clear your search."
+                    : "Public rankings will appear after rated contest results are published. Practice and private submissions do not affect Elo."}
                 </EmptyDescription>
               </EmptyHeader>
-              <Button variant="outline" onClick={() => onSearchChange("")}>
-                Clear search
-              </Button>
+              {search.trim() && (
+                <Button variant="outline" onClick={() => onSearchChange("")}>
+                  Clear search
+                </Button>
+              )}
             </Empty>
           )}
         </CardContent>
       </Card>
       <p className="text-sm leading-relaxed text-muted-foreground">
-        Front-end preview · All ratings and ranks are illustrative. A real Elo
-        system will be connected with the back-end.
+        Only explicitly public handles are shown. Account names, email addresses
+        and private attempts are never published here.
       </p>
     </div>
   );

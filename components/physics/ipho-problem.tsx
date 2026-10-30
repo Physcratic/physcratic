@@ -20,7 +20,7 @@ import {
   type IphoPaper,
   type IphoSubproblem,
 } from "@/lib/ipho-archive";
-import { iphoTasks } from "@/lib/ipho-demo";
+import { iphoTasks } from "@/lib/ipho-checks";
 import { IphoPageReader } from "./ipho-page-reader";
 import { MathFormula } from "./math-formula";
 import { SymbolicAnswer } from "./symbolic-answer";
@@ -161,9 +161,9 @@ export function IphoProblem({
             aria-describedby="ipho-working-help"
           />
           <FieldDescription id="ipho-working-help">
-            Session-only scratchpad, not submitted or graded. Your notes remain
-            when you switch between subproblems, but reset when you leave or
-            refresh.
+            Not graded. Use Save subproblem progress below to save notes to your
+            private account. Unsaved edits remain while switching subproblems,
+            but are lost on leaving or refresh.
           </FieldDescription>
         </Field>
 

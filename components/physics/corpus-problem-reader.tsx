@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, Check, FileText, Info } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -26,6 +27,10 @@ export function CorpusProblemReader({
   reviewed,
   onNotesChange,
   onReviewToggle,
+  onSaveProgress,
+  signedIn,
+  savedTask,
+  saving,
   onBack,
 }: {
   problem: CorpusProblem;
@@ -33,6 +38,10 @@ export function CorpusProblemReader({
   reviewed: Set<string>;
   onNotesChange: (id: string, value: string) => void;
   onReviewToggle: (id: string) => void;
+  onSaveProgress: (id: string) => Promise<void>;
+  signedIn: boolean;
+  savedTask: string | null;
+  saving: boolean;
   onBack: () => void;
 }) {
   const [partId, setPartId] = useState(problem.parts[0].id);
@@ -196,7 +205,7 @@ export function CorpusProblemReader({
                 id="corpus-working"
                 value={notes[taskKey] ?? ""}
                 onChange={(value) => onNotesChange(taskKey, value)}
-                description="Session-only notes. Kept while switching subparts or problems in this collection; cleared on refresh or leaving this page. Not submitted, graded, or used for Elo."
+                description="Use Save subpart progress below to keep your notes and self-review mark in your private account. Unsaved edits are lost on leaving or refresh. No marks or Elo are awarded."
               />
               <details
                 key={taskKey}
@@ -234,6 +243,26 @@ export function CorpusProblemReader({
                 {isReviewed && <Check data-icon="inline-start" />}
                 {isReviewed ? "Reviewed · undo" : "Mark as reviewed"}
               </Button>
+              {signedIn ? (
+                <Button
+                  size="sm"
+                  onClick={() => onSaveProgress(taskKey)}
+                  disabled={saving}
+                >
+                  {saving ? "Saving…" : "Save subpart progress"}
+                </Button>
+              ) : (
+                <Button size="sm" variant="outline" asChild>
+                  <Link href="/sign-in?returnTo=%2Fdashboard%3Fview%3Dproblems">
+                    Sign in to save progress
+                  </Link>
+                </Button>
+              )}
+              {savedTask === taskKey && (
+                <p role="status" className="text-sm text-muted-foreground">
+                  Notes and review mark saved privately.
+                </p>
+              )}
               <a
                 className="inline-flex items-center gap-1 text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
                 href={

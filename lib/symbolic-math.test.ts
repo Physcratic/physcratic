@@ -2,8 +2,8 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import { renderToString } from "katex";
-import { demoRankings, risingStreak } from "./contest-demo";
-import { iphoTasks } from "./ipho-demo";
+import { risingStreak } from "./dashboard-data";
+import { iphoTasks } from "./ipho-checks";
 import { checkSymbolicAnswer, parseAnswer } from "./symbolic-math";
 
 for (const task of iphoTasks) {
@@ -72,5 +72,4 @@ test("consecutive rating streak resets on a loss or a flat round", () => {
   assert.equal(risingStreak([4, 12, -1]), 0);
   assert.equal(risingStreak([4, 0, 12]), 1);
   assert.equal(risingStreak([]), 0);
-  for (const row of demoRankings) assert.equal(row.recentChanges.at(-1), row.change);
 });

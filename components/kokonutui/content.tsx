@@ -13,7 +13,6 @@ import { ArchiveStats } from "@/components/physics/archive-stats";
 import { LearningGuide } from "@/components/physics/learning-guide";
 import { Contests } from "@/components/physics/contests";
 import { Rankings } from "@/components/physics/rankings";
-import { Badge } from "@/components/ui/badge";
 
 const subtitles: Record<View, string> = {
   overview: "Less memorizing. More understanding.",
@@ -62,20 +61,17 @@ export default function Content({
               {subtitles[view]}
             </p>
           </div>
-          {view === "contests" && (
-            <Badge variant="outline">Front-end preview</Badge>
-          )}
           {view === "rankings" && (
             <Field className="w-full sm:w-72">
               <FieldLabel htmlFor="ranking-search" className="sr-only">
-                Search sample contestants
+                Search contestants
               </FieldLabel>
               <Input
                 id="ranking-search"
                 type="search"
                 value={rankingSearch}
                 onChange={(event) => setRankingSearch(event.target.value)}
-                placeholder="Search sample contestants…"
+                placeholder="Search contestants…"
                 aria-controls="rankings-table"
               />
             </Field>

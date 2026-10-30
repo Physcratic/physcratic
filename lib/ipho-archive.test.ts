@@ -9,7 +9,7 @@ import {
   iphoSubproblems,
   iphoTheoryCount,
 } from "./ipho-archive";
-import { iphoTasks } from "./ipho-demo";
+import { iphoTasks } from "./ipho-checks";
 
 const expectedParts = {
   t1: { A: 5, B: 3, C: 5, D: 4 },

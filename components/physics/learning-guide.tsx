@@ -18,8 +18,8 @@ export function LearningGuide() {
           You don&apos;t have to be a physicist to think like one.
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-          Newton is a quiet space to understand how the world works. Start with
-          a question, reason through the possibilities, and let each small
+          Physcratic is a quiet space to understand how the world works. Start
+          with a question, reason through the possibilities, and let each small
           discovery lead to the next.
         </p>
       </div>
@@ -29,7 +29,7 @@ export function LearningGuide() {
             icon: BookOpen,
             title: "Find your starting point",
             description:
-              "Browse 12 problems across mechanics, electricity, waves, and thermodynamics. Filter by Elo difficulty, or search for a concept you want to explore.",
+              "Browse imported olympiad problems and introductory quick practice across physics topics. Filter by subject, or search for a concept you want to explore.",
             href: "/dashboard?view=problems",
             action: "Explore the library",
           },
@@ -37,7 +37,7 @@ export function LearningGuide() {
             icon: Trophy,
             title: "Put your intuition to the test",
             description:
-              "Try a timed demo round, solve problems in any order, and compare your progress with sample competitors. After the round, review the worked solutions at your own pace.",
+              "Explore published contests and register for upcoming rounds. Between events, work through the official IPhO archive and save your own notes and self-review marks.",
             href: "/dashboard?view=contests",
             action: "Explore contests",
           },
@@ -88,9 +88,9 @@ export function LearningGuide() {
             <strong className="font-medium text-foreground">
               This is an open practice workspace.
             </strong>{" "}
-            No account is required. Answers and feedback stay in the current
-            practice view and are not saved when you close it or refresh the
-            page.
+            Browse without an account. Sign in to save checked practice answers,
+            full solution attempts and archive progress privately across
+            devices. Unsubmitted edits are not saved.
           </p>
         </div>
       </section>

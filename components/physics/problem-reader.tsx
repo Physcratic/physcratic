@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   ArrowRight,
   ArrowLeft,
@@ -50,19 +50,45 @@ export function ProblemReader({ problem }: { problem: Problem }) {
         problems.length
     ];
 
-  function checkAnswer(event: React.FormEvent) {
+  const [busy, setBusy] = useState(false);
+  const [saveError, setSaveError] = useState("");
+  const [saved, setSaved] = useState(false);
+  const retry = useRef<{ signature: string; key: string } | null>(null);
+
+  async function checkAnswer(event: React.FormEvent) {
     event.preventDefault();
+    if (busy) return;
     const numericAnswer = Number(answer.trim());
     if (!answer.trim() || !Number.isFinite(numericAnswer)) {
       setResult("invalid");
       return;
     }
-    const correct =
-      Math.abs(numericAnswer - problem.answer) <=
-      Math.max(0.005, Math.abs(problem.answer) * 0.005);
-    setResult(correct ? "correct" : "incorrect");
-    recordResult(problem.id, correct);
-    if (correct) setShowSolution(true);
+    const signature = JSON.stringify([problem.id, numericAnswer, working]);
+    if (retry.current?.signature !== signature)
+      retry.current = { signature, key: crypto.randomUUID() };
+    setBusy(true);
+    setSaveError("");
+    setResult(null);
+    setSaved(false);
+    try {
+      const checked = await recordResult(
+        problem.id,
+        numericAnswer,
+        working,
+        retry.current.key,
+      );
+      setResult(checked.correct ? "correct" : "incorrect");
+      setSaved(checked.saved);
+      if (checked.correct) setShowSolution(true);
+    } catch (reason) {
+      setSaveError(
+        reason instanceof Error
+          ? reason.message
+          : "Your answer could not be saved. Please retry.",
+      );
+    } finally {
+      setBusy(false);
+    }
   }
 
   return (
@@ -114,7 +140,7 @@ export function ProblemReader({ problem }: { problem: Problem }) {
             id="practice-working"
             value={working}
             onChange={setWorking}
-            description="Session-only scratchpad. Cleared on refresh or leaving this problem. Your derivation is not graded; check your numerical final answer below."
+            description="Working is saved with each checked answer when you are signed in. Unchecked edits are not saved. Your derivation is not graded; check your numerical final answer below."
           />
           <form
             onSubmit={checkAnswer}
@@ -144,6 +170,7 @@ export function ProblemReader({ problem }: { problem: Problem }) {
                     autoComplete="off"
                     placeholder="Enter a numerical value"
                     value={answer}
+                    disabled={busy}
                     aria-invalid={
                       result === "invalid" || result === "incorrect"
                     }
@@ -157,8 +184,8 @@ export function ProblemReader({ problem }: { problem: Problem }) {
                       setResult(null);
                     }}
                   />
-                  <Button type="submit">
-                    Check answer
+                  <Button type="submit" disabled={busy}>
+                    {busy ? "Checking & saving…" : "Check answer"}
                     <ArrowRight data-icon="inline-end" />
                   </Button>
                 </div>
@@ -179,6 +206,32 @@ export function ProblemReader({ problem }: { problem: Problem }) {
               </Field>
             </FieldGroup>
           </form>
+          {saveError && (
+            <Alert variant="destructive" role="alert">
+              <AlertTitle>Could not check your answer</AlertTitle>
+              <AlertDescription>
+                {saveError} Your working is unchanged.
+              </AlertDescription>
+            </Alert>
+          )}
+          {(result === "correct" || result === "incorrect") && (
+            <p role="status" className="text-sm text-muted-foreground">
+              {saved
+                ? "Answer and working saved to your private progress."
+                : "Answer checked, but not saved. Sign in to keep your progress."}
+              {!saved && (
+                <>
+                  {" "}
+                  <Link
+                    href={`/sign-in?returnTo=${encodeURIComponent(`/dashboard/problems/${problem.id}`)}`}
+                    className="underline underline-offset-4"
+                  >
+                    Sign in
+                  </Link>
+                </>
+              )}
+            </p>
+          )}
           {result === "correct" && (
             <Alert>
               <CheckCircle2 className="size-4" />
@@ -253,7 +306,11 @@ export function ProblemReader({ problem }: { problem: Problem }) {
               setResult(null);
               setShowSolution(false);
               setShowHint(false);
+              setSaveError("");
+              setSaved(false);
+              retry.current = null;
             }}
+            disabled={busy}
           >
             <RotateCcw data-icon="inline-start" />
             Start over

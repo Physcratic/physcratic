@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useArchiveProgress } from "@/hooks/use-archive-progress";
 import { ArrowRight, BookOpen, Download, Info, RotateCcw } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -42,30 +43,97 @@ export function CorpusCollection({
   const active = corpusProblems.find(
     (problem) => problem.id === activeProblemId,
   );
-  const [notes, setNotes] = useState<Record<string, string>>({});
-  const [reviewed, setReviewed] = useState<Set<string>>(new Set());
+  const saved = useArchiveProgress();
+  const [noteEdits, setNotes] = useState<Record<string, string>>({});
+  const [reviewEdits, setReviewed] = useState<Record<string, boolean>>({});
+  const notes = {
+    ...Object.fromEntries(
+      Object.values(saved.stored).map((entry) => [entry.taskId, entry.notes]),
+    ),
+    ...noteEdits,
+  };
+  const reviewed = new Set(
+    Object.entries({
+      ...Object.fromEntries(
+        Object.values(saved.stored).map((entry) => [
+          entry.taskId,
+          entry.reviewed,
+        ]),
+      ),
+      ...reviewEdits,
+    })
+      .filter(([, value]) => value)
+      .map(([id]) => id),
+  );
+  const disabled =
+    saved.saving ||
+    saved.session.isPending ||
+    saved.progress.isLoading ||
+    !!saved.session.error ||
+    !!saved.progress.error;
   const filtered = filterCorpus({ query, topic, difficulty });
 
   if (active)
     return (
-      <CorpusProblemReader
-        key={active.id}
-        problem={active}
-        notes={notes}
-        reviewed={reviewed}
-        onBack={() => onActiveProblemChange(undefined)}
-        onNotesChange={(id, value) =>
-          setNotes((current) => ({ ...current, [id]: value }))
-        }
-        onReviewToggle={(id) =>
-          setReviewed((current) => {
-            const next = new Set(current);
-            if (next.has(id)) next.delete(id);
-            else next.add(id);
-            return next;
-          })
-        }
-      />
+      <div className="flex flex-col gap-4">
+        {(saved.session.isPending || saved.progress.isLoading) && (
+          <p role="status" className="text-sm text-muted-foreground">
+            Loading your saved archive notes…
+          </p>
+        )}
+        {(saved.session.error || saved.progress.error) && (
+          <div className="flex flex-col items-start gap-3">
+            <p role="alert" className="text-sm text-destructive">
+              Could not load saved progress. Retry before editing.
+            </p>
+            <Button
+              variant="outline"
+              onClick={() => {
+                void saved.session.refetch();
+                void saved.progress.mutate();
+              }}
+            >
+              Retry progress
+            </Button>
+          </div>
+        )}
+        <fieldset disabled={disabled} className="min-w-0">
+          <CorpusProblemReader
+            key={active.id}
+            problem={active}
+            notes={notes}
+            reviewed={reviewed}
+            onBack={() => onActiveProblemChange(undefined)}
+            onNotesChange={(id, value) => {
+              saved.setSavedTask(null);
+              setNotes((current) => ({ ...current, [id]: value }));
+            }}
+            onReviewToggle={(id) => {
+              saved.setSavedTask(null);
+              setReviewed((current) => ({
+                ...current,
+                [id]: !reviewed.has(id),
+              }));
+            }}
+            onSaveProgress={(id) =>
+              saved.saveTask({
+                taskId: id,
+                notes: notes[id] ?? "",
+                answer: "",
+                reviewed: reviewed.has(id),
+              })
+            }
+            signedIn={!!saved.session.data?.user}
+            savedTask={saved.savedTask}
+            saving={saved.saving}
+          />
+        </fieldset>
+        {saved.saveError && (
+          <p role="alert" className="text-sm text-destructive">
+            {saved.saveError}
+          </p>
+        )}
+      </div>
     );
 
   return (

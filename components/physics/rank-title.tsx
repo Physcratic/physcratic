@@ -1,4 +1,4 @@
-import { ratingTitle } from "@/lib/contest-demo";
+import { ratingTitle } from "@/lib/dashboard-data";
 import { cn } from "@/lib/utils";
 
 export function RankTitle({ rating, className }: { rating: number; className?: string }) {

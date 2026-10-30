@@ -20,10 +20,14 @@ import {
   type ChartConfig,
 } from "@/components/ui/chart";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { useDashboard } from "@/hooks/use-dashboard";
+import { Button } from "@/components/ui/button";
 import {
-  demoProfile,
-  demoRatingHistory,
-} from "@/lib/contest-demo";
+  Empty,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyTitle,
+} from "@/components/ui/empty";
 import { RankTitle } from "./rank-title";
 import { cn } from "@/lib/utils";
 
@@ -34,7 +38,7 @@ const horizontalChartConfig = {
   rating: { label: "Elo", color: "var(--chart-2)" },
 } satisfies ChartConfig;
 const dateLabel = (date: string) =>
-  new Date(`${date}T12:00:00Z`).toLocaleDateString("en-US", {
+  new Date(date).toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
     timeZone: "UTC",
@@ -49,22 +53,85 @@ export function RatingCard({
 }) {
   const [range, setRange] = useState("3M");
   const chartId = `rating-fill-${useId().replace(/:/g, "")}`;
-  const latest = new Date(`${demoRatingHistory.at(-1)!.date}T12:00:00Z`);
-  const threshold = new Date(latest);
+  const dashboard = useDashboard();
+  const history =
+    dashboard.data?.ratings.map((point) => ({
+      date: point.createdAt,
+      rating: point.rating,
+      contest: point.contestName,
+    })) ?? [];
+  const threshold = new Date();
   threshold.setUTCMonth(threshold.getUTCMonth() - (range === "1M" ? 1 : 3));
-  const filtered =
+  const firstIndex =
     range === "All"
-      ? demoRatingHistory
-      : demoRatingHistory.filter(
-          (point) => new Date(`${point.date}T12:00:00Z`) >= threshold,
-        );
-  const firstIndex = demoRatingHistory.indexOf(filtered[0]);
-  const baseline =
-    range === "All"
-      ? filtered[0]
-      : demoRatingHistory[Math.max(0, firstIndex - 1)];
-  const data = baseline === filtered[0] ? filtered : [baseline, ...filtered];
-  const gain = demoProfile.rating - baseline.rating;
+      ? 0
+      : history.findIndex((point) => new Date(point.date) >= threshold);
+  const data =
+    firstIndex < 0
+      ? history.slice(-1)
+      : history.slice(Math.max(0, firstIndex - 1));
+  const baseline = data[0];
+  const latestRating = history.at(-1)?.rating;
+  const gain =
+    baseline && latestRating !== undefined ? latestRating - baseline.rating : 0;
+
+  if (dashboard.isLoading || dashboard.error || !history.length)
+    return (
+      <Card className="shadow-none">
+        <CardHeader>
+          <CardTitle>
+            <h2 className="text-base font-medium">Your rating</h2>
+          </CardTitle>
+          <CardDescription>
+            Earned through published rated contest results.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          {dashboard.isLoading ? (
+            <p role="status" className="text-sm text-muted-foreground">
+              Loading your rating…
+            </p>
+          ) : dashboard.error ? (
+            <div className="flex flex-col items-start gap-3">
+              <p role="alert" className="text-sm text-destructive">
+                Your rating could not be loaded.
+              </p>
+              <Button variant="outline" onClick={() => dashboard.mutate()}>
+                Retry rating
+              </Button>
+            </div>
+          ) : (
+            <Empty>
+              <EmptyHeader>
+                <EmptyTitle>
+                  {dashboard.data?.user
+                    ? "Not rated yet"
+                    : "Your rating starts with you"}
+                </EmptyTitle>
+                <EmptyDescription>
+                  {dashboard.data?.user
+                    ? "Your first published rated result will start your rating history. Practice and self-review do not change Elo."
+                    : "Sign in to track your rating and save your progress across devices."}
+                </EmptyDescription>
+              </EmptyHeader>
+              {!dashboard.data?.user && (
+                <Button variant="outline" asChild>
+                  <Link href="/sign-in?returnTo=%2Fdashboard">Sign in</Link>
+                </Button>
+              )}
+            </Empty>
+          )}
+        </CardContent>
+        <CardFooter>
+          <Link
+            href="/dashboard?view=rankings"
+            className="text-sm text-muted-foreground underline underline-offset-4"
+          >
+            View rankings
+          </Link>
+        </CardFooter>
+      </Card>
+    );
 
   return (
     <Card className="flex min-w-0 flex-col justify-between overflow-hidden shadow-none">
@@ -75,7 +142,7 @@ export function RatingCard({
               {expanded ? "Your rating journey" : "Your rating"}
             </h2>
           </CardTitle>
-          <Badge variant="outline">Demo</Badge>
+          <Badge variant="outline">Rated results</Badge>
         </div>
         {expanded && (
           <CardDescription>
@@ -103,11 +170,11 @@ export function RatingCard({
                   horizontal ? "text-6xl text-rating" : "text-4xl",
                 )}
               >
-                {demoProfile.rating.toLocaleString("en-US")}
+                {latestRating!.toLocaleString("en-US")}
               </span>
               <span className="text-sm text-muted-foreground">Elo</span>
             </div>
-            <RankTitle rating={demoProfile.rating} className="self-start" />
+            <RankTitle rating={latestRating!} className="self-start" />
           </div>
           <div
             className="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground"
@@ -171,7 +238,7 @@ export function RatingCard({
                   ? "h-32 aspect-auto"
                   : "h-28 aspect-auto",
             )}
-            aria-label={`Demo Elo history, ${baseline.rating} to ${demoProfile.rating}`}
+            aria-label={`Elo history, ${baseline.rating} to ${latestRating!}`}
           >
             <AreaChart
               accessibilityLayer
@@ -261,11 +328,11 @@ export function RatingCard({
       </CardContent>
       <CardFooter className="justify-between border-t py-3">
         <span className="text-sm text-muted-foreground">
-          #{demoProfile.rank} overall
+          {history.length} rated {history.length === 1 ? "result" : "results"}
         </span>
         {expanded ? (
           <span className="text-sm text-muted-foreground">
-            {demoProfile.contests} rated contests
+            Published results only
           </span>
         ) : (
           <Link

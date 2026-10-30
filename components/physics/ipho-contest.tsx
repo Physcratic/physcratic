@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { useArchiveProgress } from "@/hooks/use-archive-progress";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -21,10 +23,48 @@ export function IphoContest({ onExit }: { onExit: () => void }) {
   const [lastTaskByPaper, setLastTaskByPaper] = useState<
     Record<string, string>
   >({});
-  const [answers, setAnswers] = useState<Record<string, string>>({});
-  const [notes, setNotes] = useState<Record<string, string>>({});
+  const {
+    session,
+    progress,
+    stored,
+    saving,
+    saveError,
+    savedTask,
+    setSavedTask,
+    saveTask,
+  } = useArchiveProgress();
+  const [answerEdits, setAnswers] = useState<Record<string, string>>({});
+  const [noteEdits, setNotes] = useState<Record<string, string>>({});
+  const [reviewEdits, setReviewed] = useState<Record<string, boolean>>({});
   const [accepted, setAccepted] = useState<string[]>([]);
-  const [reviewed, setReviewed] = useState<string[]>([]);
+  const answers = Object.fromEntries(
+    iphoSubproblems.map((entry) => [
+      entry.id,
+      answerEdits[entry.id] ?? stored[entry.id]?.answer ?? "",
+    ]),
+  );
+  const notes = Object.fromEntries(
+    iphoSubproblems.map((entry) => [
+      entry.id,
+      noteEdits[entry.id] ?? stored[entry.id]?.notes ?? "",
+    ]),
+  );
+  const reviewed = iphoSubproblems
+    .filter(
+      (entry) => reviewEdits[entry.id] ?? stored[entry.id]?.reviewed ?? false,
+    )
+    .map((entry) => entry.id);
+  async function saveProgress() {
+    if (saving || !session.data?.user) return;
+    const taskId = activeId;
+    const input = {
+      taskId,
+      answer: answers[taskId],
+      notes: notes[taskId],
+      reviewed: reviewed.includes(taskId),
+    };
+    await saveTask(input);
+  }
   const index = iphoSubproblems.findIndex((task) => task.id === activeId);
   const task = iphoSubproblems[index];
   const paper = iphoPapers.find((item) => item.id === task.paperId)!;
@@ -87,7 +127,7 @@ export function IphoContest({ onExit }: { onExit: () => void }) {
             {reviewed.length} of {iphoSubproblems.length} subproblems reviewed
           </span>
           <span className="text-muted-foreground">
-            Self-paced · Progress stays in this session only
+            Self-paced · Save each subproblem to keep changes
           </span>
         </div>
         <Progress
@@ -139,33 +179,105 @@ export function IphoContest({ onExit }: { onExit: () => void }) {
           onSelect={selectTask}
         />
         <div className="flex min-w-0 flex-col gap-4">
-          <IphoProblem
-            key={task.id}
-            task={task}
-            paper={paper}
-            answer={answers[task.id] || ""}
-            accepted={accepted.includes(task.id)}
-            notes={notes[task.id] || ""}
-            reviewed={reviewed.includes(task.id)}
-            onNotesChange={(value) =>
-              setNotes((current) => ({ ...current, [task.id]: value }))
+          {(session.isPending || progress.isLoading) && (
+            <p role="status" className="text-sm text-muted-foreground">
+              Loading your saved archive progress…
+            </p>
+          )}
+          {(session.error || progress.error) && (
+            <div className="flex flex-col items-start gap-3">
+              <p role="alert" className="text-sm text-destructive">
+                Your saved progress could not be loaded. Retry before editing to
+                avoid overwriting saved work.
+              </p>
+              <Button
+                variant="outline"
+                onClick={() => {
+                  void session.refetch();
+                  void progress.mutate();
+                }}
+              >
+                Retry saved progress
+              </Button>
+            </div>
+          )}
+          {!session.isPending && !session.error && !session.data?.user && (
+            <p className="text-sm text-muted-foreground">
+              <Link
+                href="/sign-in?returnTo=%2Fdashboard%3Fview%3Dcontests"
+                className="underline underline-offset-4"
+              >
+                Sign in
+              </Link>{" "}
+              before working to save archive notes and review marks. Guest edits
+              are not saved.
+            </p>
+          )}
+          <fieldset
+            disabled={
+              saving ||
+              session.isPending ||
+              progress.isLoading ||
+              !!progress.error ||
+              !!session.error
             }
-            onReviewToggle={() =>
-              setReviewed((current) =>
-                current.includes(task.id)
-                  ? current.filter((id) => id !== task.id)
-                  : [...current, task.id],
-              )
-            }
-            onAnswerChange={(value) =>
-              setAnswers((current) => ({ ...current, [task.id]: value }))
-            }
-            onAccepted={() =>
-              setAccepted((current) =>
-                current.includes(task.id) ? current : [...current, task.id],
-              )
-            }
-          />
+            className="min-w-0"
+          >
+            <IphoProblem
+              key={task.id}
+              task={task}
+              paper={paper}
+              answer={answers[task.id] || ""}
+              accepted={accepted.includes(task.id)}
+              notes={notes[task.id] || ""}
+              reviewed={reviewed.includes(task.id)}
+              onNotesChange={(value) => {
+                setSavedTask(null);
+                setNotes((current) => ({ ...current, [task.id]: value }));
+              }}
+              onReviewToggle={() => {
+                setSavedTask(null);
+                setReviewed((current) => ({
+                  ...current,
+                  [task.id]: !reviewed.includes(task.id),
+                }));
+              }}
+              onAnswerChange={(value) => {
+                setSavedTask(null);
+                setAnswers((current) => ({ ...current, [task.id]: value }));
+              }}
+              onAccepted={() =>
+                setAccepted((current) =>
+                  current.includes(task.id) ? current : [...current, task.id],
+                )
+              }
+            />
+          </fieldset>
+          {session.data?.user && (
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <p role="status" className="text-sm text-muted-foreground">
+                {savedTask === task.id
+                  ? "Notes, expression and review mark saved privately."
+                  : "Save this subproblem to keep your changes across devices."}
+              </p>
+              <Button
+                onClick={saveProgress}
+                disabled={
+                  saving ||
+                  progress.isLoading ||
+                  !!progress.error ||
+                  !!session.error
+                }
+              >
+                {saving ? "Saving…" : "Save subproblem progress"}
+              </Button>
+            </div>
+          )}
+          {saveError && (
+            <p role="alert" className="text-sm text-destructive">
+              {saveError}
+            </p>
+          )}
           <div className="flex items-center justify-between gap-2">
             <Button
               variant="ghost"
@@ -205,7 +317,8 @@ export function IphoContest({ onExit }: { onExit: () => void }) {
         </a>
         . Review marks are self-assessed, not scores. The three adapted
         calculator checks run in your browser and do not grade full subproblems.
-        Notes, expressions, and progress reset when you leave this collection or
+        Use Save subproblem progress to store notes, expressions and self-review
+        marks in your private account. Unsaved edits are lost when you leave or
         refresh.
       </p>
     </section>
