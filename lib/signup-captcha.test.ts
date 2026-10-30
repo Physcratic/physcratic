@@ -11,11 +11,13 @@ test("signup CAPTCHA HTTP boundary and registration regression", async (t) => {
   const originalFetch = globalThis.fetch;
   let verdict: unknown = { success: true, score: 0.9, action: "signup", hostname: "physcratic.com" };
   let failProvider = false;
+  let throwProvider = false;
   let calls = 0;
   const consumed = new Set<string>();
   globalThis.fetch = async (input, init) => {
     assert.equal(String(input), "https://www.google.com/recaptcha/api/siteverify");
     calls++;
+    if (throwProvider) throw new Error("sensitive-provider-diagnostic");
     if (failProvider) return Response.json({}, { status: 503 });
     const token = new URLSearchParams(String(init?.body)).get("response")!;
     const result = consumed.has(token) ? { success: false, "error-codes": ["timeout-or-duplicate"] } : verdict;
@@ -52,6 +54,11 @@ test("signup CAPTCHA HTTP boundary and registration regression", async (t) => {
   failProvider = true;
   assert.equal((await request("outage")).status, 500);
   failProvider = false;
+  throwProvider = true;
+  const transportFailure = await request("transport-failure");
+  assert.equal(transportFailure.status, 500);
+  assert.doesNotMatch(await transportFailure.text(), /sensitive-provider-diagnostic/);
+  throwProvider = false;
   assert.equal(database.user.length, 0);
   verdict = { success: true, score: 0.9, action: "signup", hostname: "physcratic.com" };
   assert.equal((await request("forged", { termsAcceptedAt: "2000-01-01", termsAcceptedVersion: "forged" })).status, 400);
@@ -81,11 +88,28 @@ test("signup CAPTCHA HTTP boundary and registration regression", async (t) => {
 });
 
 test("missing server configuration fails closed only on signup", async () => {
-  for (const env of [{}, { RECAPTCHA_SECRET_KEY: "secret" }, { RECAPTCHA_ALLOWED_HOSTNAMES: "physcratic.com" }]) {
+  for (const env of [
+    {}, { RECAPTCHA_SECRET_KEY: "secret" }, { RECAPTCHA_ALLOWED_HOSTNAMES: "physcratic.com" },
+    { RECAPTCHA_SECRET_KEY: "   ", RECAPTCHA_ALLOWED_HOSTNAMES: "physcratic.com" },
+    { RECAPTCHA_SECRET_KEY: "secret", RECAPTCHA_ALLOWED_HOSTNAMES: " ,  , " },
+  ]) {
     const plugin = signupCaptcha(env);
     const ctx = { options: {}, logger: { error: () => { throw new Error("must not log raw provider errors"); } } };
     const run = plugin.onRequest as unknown as (request: Request, ctx: unknown) => Promise<{ response: Response } | undefined>;
     assert.equal((await run(new Request("https://physcratic.com/api/auth/sign-up/email/", { headers: { "x-captcha-response": "token" } }), ctx))?.response.status, 500);
     assert.equal(await run(new Request("https://physcratic.com/api/auth/sign-in/email"), ctx), undefined);
   }
+});
+
+test("provider exception is not logged or exposed", async (t) => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async () => { throw new Error("secret-provider-diagnostic"); };
+  t.after(() => { globalThis.fetch = originalFetch; });
+  const plugin = signupCaptcha({ RECAPTCHA_SECRET_KEY: "test-secret", RECAPTCHA_ALLOWED_HOSTNAMES: "physcratic.com" });
+  let logs = 0;
+  const run = plugin.onRequest as unknown as (request: Request, ctx: unknown) => Promise<{ response: Response }>;
+  const result = await run(new Request("https://physcratic.com/api/auth/sign-up/email", { headers: { "x-captcha-response": "test-token" } }), { options: {}, logger: { error: () => { logs++; } } });
+  assert.equal(result.response.status, 500);
+  assert.doesNotMatch(await result.response.text(), /secret-provider-diagnostic|test-secret|test-token/);
+  assert.equal(logs, 0);
 });

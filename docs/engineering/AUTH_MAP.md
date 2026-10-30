@@ -68,6 +68,8 @@ This is a source audit; production settings, live DDL, and external edge control
 - Signup uses Better Auth CAPTCHA plugin with Google v3; see [SIGNUP_CAPTCHA.md](SIGNUP_CAPTCHA.md).
 - Fresh token in x-captcha-response; server enforces signup only, score 0.5/action/hostname.
 - Sign-in/resend/recovery remain CAPTCHA-free in this phase; shared rate limits remain unresolved.
+- Smallest shared option: built-in database storage on existing PostgreSQL; migration/concurrency/IP
+  prerequisites documented in SIGNUP_CAPTCHA.md. Not activated against an unverified table.
 - No demonstrated Terms HTTP bypass: both hooks reject omission/stale version; valid programmatic consent is expected.
 - Nullable legacy fields and absence of reacceptance gating are not evidence of a signup bypass.
 - Integration tests must verify body parsing retains Terms fields and hooks persist authoritative audit values.

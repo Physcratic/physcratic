@@ -50,3 +50,30 @@ Plugin raw exception/URL logging is suppressed so provider diagnostics and token
 - Review provider data processing/privacy before enabling production. Do not relax CSP blindly.
 Deterministic tests mock Google and mail with a disposable in-memory DB; they do not establish live
 Google, Resend, Vercel, PostgreSQL or accessibility compatibility. No live provider verification performed.
+
+## Smallest shared limiter recommendation (not activated)
+Use Better Auth 1.7.14's existing `rateLimit.storage: "database"` with the existing PostgreSQL Pool.
+No Redis, new database, custom limiter, or application dependency is needed. This is a recommendation,
+not a config-only production fix: first establish the required table through a reviewed migration.
+Installed `dist/api/rate-limiter/index.mjs` uses unique-key insert/collision retry, conditional
+`incrementOne` with `count < max`, and compare-and-set window reset. Its Kysely adapter emits guarded
+PostgreSQL UPDATE/RETURNING; it does not use a racy separate read/write increment.
+Required Better Auth model: `rateLimit`, id primary key, key unique/not-null, count not-null integer,
+lastRequest not-null bigint milliseconds (confirm generated DDL against the locked version).
+Preserve adapter-generated IDs, configure an expiry-cleanup strategy/index appropriate to traffic,
+and keep existing connection/statement timeouts. Built-in pruning runs on expired-window reset.
+Before activation: isolated PostgreSQL concurrent first-insert/reset/saturation tests, outage behavior,
+cleanup/query-plan checks, and Vercel trusted-proxy/IP-header validation. Missing IP uses a shared
+per-path bucket; spoofable/unverified IP headers can undermine limits. Database failure must not
+fall back to process memory. Never activate database storage before the table is ready.
+Limiter runs before CAPTCHA provider verification. Actual production capacity/edge controls are unknown.
+
+## Build and lint readiness
+Inter uses standard `next/font/google`; no font redesign is required by evidence in this checkout.
+Codex proxy denied CONNECT to both fonts.googleapis.com and fonts.gstatic.com with HTTP 403.
+The enforced network allow-list excludes both hosts. This explains the local build failure, but
+is not proof of production build success: verify a normal Vercel staging build with font access.
+Do not disable TLS, bypass the proxy, or replace fonts merely to make this environment appear green.
+Lint uses ESLint 10, the TypeScript parser, and the Next 15 plugin (recommended/Core Web Vitals rules),
+plus basic correctness rules; TypeScript remains the type checker. Use Node ^20.19, ^22.13 or >=24
+for ESLint 10 (verified here on Node 24.19). No unrelated image warning was auto-fixed.
