@@ -7,7 +7,9 @@ import { ArrowLeft, Loader2 } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
+import { Field, FieldContent, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field";
+import { Checkbox } from "@/components/ui/checkbox";
+import { TERMS_VERSION } from "@/lib/terms";
 import { Input } from "@/components/ui/input";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { VerificationNotice } from "@/components/verification-notice";
@@ -16,11 +18,16 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const [verificationEmail, setVerificationEmail] = useState<string | null>(null);
   const creating = mode === "sign-up";
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (busy) return;
+    if (creating && !termsAccepted) {
+      setError("Please read and accept the Terms of Service to create an account.");
+      return;
+    }
     setBusy(true);
     setError("");
     const form = new FormData(event.currentTarget);
@@ -28,9 +35,13 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
     const callbackURL = `/sign-in?verified=1&returnTo=${encodeURIComponent(returnTo)}`;
     try {
       const result = creating
-        ? await authClient.signUp.email({ ...credentials, name: String(form.get("name")).trim(), callbackURL })
+        ? await authClient.signUp.email({ ...credentials, name: String(form.get("name")).trim(), callbackURL }, { body: { termsAccepted, termsVersion: TERMS_VERSION } })
         : await authClient.signIn.email({ ...credentials, callbackURL });
       if (result.error) {
+        if (creating && result.error.code === "TERMS_ACCEPTANCE_REQUIRED") {
+          setError("Please reload this page, review the current Terms of Service, and accept them before continuing.");
+          return;
+        }
         if (!creating && result.error.code === "EMAIL_NOT_VERIFIED") {
           setVerificationEmail(credentials.email);
           return;
@@ -66,6 +77,13 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
                 {creating && <Field><FieldLabel htmlFor="account-name">Name</FieldLabel><Input id="account-name" name="name" autoComplete="name" required minLength={1} maxLength={80} /></Field>}
                 <Field><FieldLabel htmlFor="account-email">Email</FieldLabel><Input id="account-email" name="email" type="email" autoComplete="email" required maxLength={254} /></Field>
                 <Field><FieldLabel htmlFor="account-password">Password</FieldLabel><Input id="account-password" name="password" type="password" autoComplete={creating ? "new-password" : "current-password"} required minLength={8} maxLength={128} />{creating && <p className="text-sm leading-relaxed text-muted-foreground">Use at least 8 characters. Choose a password you do not use elsewhere.</p>}</Field>
+                {creating && <Field orientation="horizontal">
+                  <Checkbox id="account-terms" name="termsAccepted" required checked={termsAccepted} onCheckedChange={(checked) => setTermsAccepted(checked === true)} aria-describedby="account-terms-description" />
+                  <FieldContent>
+                    <FieldLabel htmlFor="account-terms">I agree to the Terms of Service.</FieldLabel>
+                    <FieldDescription id="account-terms-description"><Link href="/terms" target="_blank" rel="noopener noreferrer">Read the Terms of Service (opens in a new tab)</Link>. We record the version and acceptance time with your account.</FieldDescription>
+                  </FieldContent>
+                </Field>}
                 {error && <Alert variant="destructive" role="alert"><AlertTitle>Could not continue</AlertTitle><AlertDescription>{error}</AlertDescription></Alert>}
               </FieldGroup></fieldset>
             </form>
@@ -74,6 +92,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
             <Button form="account-form" type="submit" disabled={busy}>{busy && <Loader2 data-icon="inline-start" className="animate-spin" />}{creating ? "Create account" : "Sign in"}</Button>
             <p className="text-center text-sm leading-relaxed text-muted-foreground">{creating ? "Already have an account? " : "New to Physcratic? "}<Link className="text-foreground underline underline-offset-4" href={`/${creating ? "sign-in" : "sign-up"}?returnTo=${encodeURIComponent(returnTo)}`}>{creating ? "Sign in" : "Create an account"}</Link></p>
             {!creating && <Button type="button" variant="ghost" disabled={busy} onClick={() => setVerificationEmail("")}>Need a verification email?</Button>}
+            <Link href="/terms" className="text-center text-sm text-muted-foreground underline underline-offset-4">Terms of Service</Link>
           </CardFooter>
         </Card>}
       </div>

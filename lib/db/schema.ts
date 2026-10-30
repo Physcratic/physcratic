@@ -4,6 +4,7 @@ import type { SolutionSubmission } from "@/lib/solution-grading";
 export const user = pgTable("user", {
   id: text("id").primaryKey(), name: text("name").notNull(), email: text("email").notNull().unique(),
   emailVerified: boolean("emailVerified").notNull().default(false), image: text("image"),
+  termsAcceptedVersion: text("termsAcceptedVersion"), termsAcceptedAt: timestamp("termsAcceptedAt", { withTimezone: true }),
   createdAt: timestamp("createdAt").notNull().defaultNow(), updatedAt: timestamp("updatedAt").notNull().defaultNow(),
 });
 export const session = pgTable("session", {
