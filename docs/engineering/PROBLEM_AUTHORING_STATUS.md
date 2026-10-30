@@ -1,8 +1,8 @@
 # Problem authoring implementation status
 
 - Updated: 2026-10-31 (Asia/Makassar). Phase 2 ONLY; phases 0/1 merged.
-- Fresh fetched base: `365eb62a47116e710723418d0b8e6148ce8ccd7b`, squash merge of PR #6 with reviewed UUID/sealing/timestamp fixes.
-- Branch: `codex/problem-authoring-phase-2`; implementation commit `1e6ef0e`; delivery update HEAD via git log -1.
+- Latest fetched/reconciled main: `e4fbc88264a2c4280e6077f31346c06722fce6c4`, Phase 1 recovery PR #12, retaining reviewed UUID/sealing/timestamp fixes.
+- Branch: existing `codex/problem-authoring-phase-2`; original implementation `1e6ef0e`; prior tip `712400c`; reconciliation commit via git log -1.
 - Delivery: branch pushed and remote SHA verified; compare URL supplied instead of automated PR (prior GitHub API Forbidden).
 - Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-2?expand=1
 - Read WORK_STATUS/map/status first; no AGENTS.md. Only authored schema/contracts, auth/origin/request helpers and DB dependencies inspected; no repeated audit.
@@ -46,6 +46,15 @@
 - Public GET is published-only and private/no-store; owner preview is NOT a public draft URL. Old history is retained but no old-revision public route added.
 - Expression keys get Phase 1 structural validation only; CAS/AST/equivalence/resource enforcement remains Phase 5. No grading certainty claimed.
 - No runtime model switch control; playbook high-effort review/test requirements retained. No production readiness claim with inherited blockers.
+
+## Recovery reconciliation (2026-10-31)
+- Merged latest main into existing Phase 2 without rebasing/force push. No conflicts and no runtime implementation changes; both histories preserved.
+- Phase 1 migrations/tests exactly match recovered main; Phase 2 code matches prior tip 712400c. Unrelated auth/packages and signup CAPTCHA removal match main.
+- Re-ran Phase 1 targeted 13/13 PASS, route typegen/TypeScript PASS, PostgreSQL integration 10/10 PASS and full suite 116/117 (only inherited translation failure).
+- Re-ran lint/build: same missing eslint and unavailable Google Inter font blockers. No new failures.
+- Fresh independent read-only security review: no confirmed blockers in verified/owner auth, origin/limits, row-lock/version races, immutable publication and public key isolation.
+- Logs: /tmp/physcratic-p2-reconcile-{full,lint,build}.log; disposable PostgreSQL containers cleaned by test script; no production DB used.
+- Application source unchanged by reconciliation; only handoffs updated alongside merge history. Phase 3 remains unstarted.
 
 ## Exact next task
 - Review/merge Phase 2 only by user; create draft PR via compare URL if GitHub API remains blocked. Do not auto-merge/deploy or run production migrations.

@@ -1,6 +1,6 @@
 # Problem authoring architecture map
 
-Phase 2 based on merged main `365eb62a47116e710723418d0b8e6148ce8ccd7b` (2026-10-31, Asia/Makassar).
+Phase 2 reconciled with recovered main `e4fbc88264a2c4280e6077f31346c06722fce6c4` (2026-10-31, Asia/Makassar).
 Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md; Phase 2 adds draft/publication APIs; editor, media uploads and grading remain deferred.
 Read this and [status](PROBLEM_AUTHORING_STATUS.md) before each phase; inspect only affected code/dependencies.
 
