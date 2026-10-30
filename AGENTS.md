@@ -1,0 +1,24 @@
+# Engineering handoff
+
+- Read `docs/engineering/AUTH_MAP.md` before changing signup, auth, legal, or DB code.
+- Read `docs/engineering/WORK_STATUS.md` for baseline failures and the next task.
+- Keep changes scoped; follow imports rather than scanning unrelated content.
+- Use pnpm and preserve `pnpm-lock.yaml`; pnpm 10 supports the current overrides.
+- Do not silently regenerate the lockfile to accommodate a different pnpm major.
+- Run `pnpm test`, `pnpm exec tsc --noEmit`, `pnpm lint`, and `pnpm build`.
+- Record actual failures separately from environment restrictions; never imply a green baseline.
+- Do not fix unrelated corpus/content failures as part of auth changes.
+- Keep secrets server-side; never print credentials, tokens, cookies, or database URLs.
+- Test auth against an isolated disposable database and stub email delivery.
+- Do not apply schema changes or migrations to a live database without explicit authorization.
+- Schema declarations are not evidence of deployed database state.
+- Preserve explicit current Terms acceptance at the server boundary and user-create hook.
+- Generate acceptance audit values server-side; never infer legacy users' consent.
+- Keep email verification required and automatic signup/verification sign-in disabled.
+- Retain safe return paths, trusted-origin checks, request limits, and generic delivery errors.
+- Enforce abuse controls server-side; client cooldowns and CAPTCHA widgets alone are insufficient.
+- Verify shared limiter atomicity and proxy/IP assumptions before claiming global limits.
+- Add direct HTTP auth tests for security boundaries; helper tests alone are insufficient.
+- Update the two handoff documents when architecture or baseline status changes.
+- README says merging to main automatically deploys; keep audit work on feature branches.
+- Do not merge, deploy, or send real verification mail unless the task authorizes it.
