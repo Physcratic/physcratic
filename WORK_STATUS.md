@@ -12,6 +12,6 @@
 - Handoffs: [map](docs/engineering/PROBLEM_AUTHORING_MAP.md), [status](docs/engineering/PROBLEM_AUTHORING_STATUS.md) include commands, design decisions and validation limits.
 - Live Better Auth/browser staging flow not exercised; browser harness injects verified sessions into real APIs. No production DB/migrations or deployment.
 - Phase 1/2 code, API contracts, auth, schema/migrations, packages and CAPTCHA removal preserved.
-- Delivery: commit/push pending final verification; draft PR or compare URL after push. Commit containing this file is implementation SHA.
+- Delivery: implementation 1ae01a1 pushed; draft PR blocked by GitHub API Forbidden. Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-3?expand=1
 - No image/PDF upload, CAS, student submissions, comments or stars. Phase 4 unstarted.
 - Next: user review/merge, then separately request Phase 4 from fresh main; read handoffs and inspect affected code only.
