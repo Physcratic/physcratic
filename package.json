@@ -8,6 +8,7 @@
     "lint": "eslint .",
     "test": "tsx --test lib/*.test.ts",
     "audit:catalog": "tsx scripts/audit-catalog-sources.ts",
+    "build:arena": "tsx scripts/build-arena.ts",
     "translate:corpus": "tsx scripts/translate-corpus.ts",
     "start": "next start"
   },

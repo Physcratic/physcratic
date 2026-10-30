@@ -37,6 +37,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CorpusCollection } from "./corpus-collection";
 import { OlympiadCatalog } from "./olympiad-catalog";
 import { catalogProblems, competitions } from "@/lib/corpus-catalog";
+import arena from "@/lib/arena/index.json";
+import { ArenaCollection } from "./arena-collection";
 
 export function ProblemLibrary({
   topic,
@@ -50,7 +52,7 @@ export function ProblemLibrary({
   const params = useSearchParams();
   const requestedCollection = params.get("collection");
   const [collection, setCollection] = useState(
-    requestedCollection === "practice" || requestedCollection === "pilot"
+    requestedCollection === "practice" || requestedCollection === "pilot" || requestedCollection === "arena"
       ? requestedCollection
       : "catalog",
   );
@@ -63,6 +65,7 @@ export function ProblemLibrary({
   const [difficulty, setDifficulty] = useState("all");
   const tagOptions = getTagOptions([
     ...catalogProblems,
+    ...arena.problems,
     ...corpusProblems,
     ...problems,
   ]);
@@ -94,6 +97,9 @@ export function ProblemLibrary({
           aria-label="Problem collections"
           className="h-auto w-fit max-w-full flex-wrap"
         >
+          <TabsTrigger value="arena">
+            Physcratic Arena · {arena.count}
+          </TabsTrigger>
           <TabsTrigger value="catalog">
             Olympiad archive · {catalogProblems.length}
           </TabsTrigger>
@@ -108,7 +114,9 @@ export function ProblemLibrary({
           className="text-sm leading-relaxed text-muted-foreground"
           aria-live="polite"
         >
-          {collection === "catalog"
+          {collection === "arena"
+            ? "Your uploaded Arena problems, transcribed as native text and LaTeX with complete worked solutions."
+            : collection === "catalog"
             ? "Full IPhO, APhO and EuPhO exercises. Colours identify the competition; topic tags describe the physics."
             : collection === "pilot"
               ? "Five exercises from the olympiad archive, with step-by-step subpart guides. These are not additional problems."
@@ -206,6 +214,9 @@ export function ProblemLibrary({
           </FieldGroup>
         </CardContent>
       </Card>
+      <TabsContent value="arena" className="min-w-0">
+        <ArenaCollection query={search} topic={selectedTopic} difficulty={difficulty} onReset={reset} />
+      </TabsContent>
       <TabsContent value="catalog" className="min-w-0">
         <OlympiadCatalog
           query={search}

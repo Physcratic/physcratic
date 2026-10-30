@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/sheet";
 import { problems, topics, type View } from "@/lib/physics";
 import { catalogProblems } from "@/lib/corpus-catalog";
+import arena from "@/lib/arena/index.json";
 import { cn } from "@/lib/utils";
 
 export default function Sidebar({
@@ -82,7 +83,7 @@ export default function Sidebar({
                   {itemView === "problems" && (
                     <span className="ml-auto text-sm opacity-70">
                       {(
-                        problems.length + catalogProblems.length
+                        problems.length + catalogProblems.length + arena.count
                       ).toLocaleString("en-US")}
                     </span>
                   )}

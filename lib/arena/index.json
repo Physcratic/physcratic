@@ -1,0 +1,276 @@
+{
+  "collection": "Physcratic Arena",
+  "count": 18,
+  "problems": [
+    {
+      "id": "arena-mind-the-gap",
+      "title": "Mind the Gap",
+      "topic": "Optics",
+      "tags": [
+        "Interference",
+        "Newton’s rings",
+        "Curvature"
+      ],
+      "summary": "Determine a lens surface’s radius of curvature using Newton’s rings and consecutive ring measurements.",
+      "statementFile": "01_Mind_the_Gap_Problem.pdf",
+      "solutionFile": "01_Mind_the_Gap_Solution.pdf",
+      "importedOn": "2026-10-31",
+      "path": "/corpus/arena/arena-mind-the-gap.json"
+    },
+    {
+      "id": "arena-the-bubble-treaty",
+      "title": "The Bubble Treaty",
+      "topic": "Thermodynamics",
+      "tags": [
+        "Surface tension",
+        "Pressure",
+        "Ideal gas"
+      ],
+      "summary": "Find the pressures, radii and shared-film geometry of equal and unequal attached soap bubbles.",
+      "statementFile": "01_The_Bubble_Treaty_Problem.pdf",
+      "solutionFile": "01_The_Bubble_Treaty_Solution.pdf",
+      "importedOn": "2026-10-31",
+      "path": "/corpus/arena/arena-the-bubble-treaty.json"
+    },
+    {
+      "id": "arena-the-cosmic-kitchen",
+      "title": "The Cosmic Kitchen",
+      "topic": "Thermodynamics",
+      "tags": [
+        "Cosmology",
+        "Statistical mechanics",
+        "Nucleosynthesis"
+      ],
+      "summary": "Use thermal distributions and cosmic expansion to estimate primordial nucleosynthesis and the helium abundance.",
+      "statementFile": "01_The_Cosmic_Kitchen_Problem.pdf",
+      "solutionFile": "01_The_Cosmic_Kitchen_Solution.pdf",
+      "importedOn": "2026-10-31",
+      "path": "/corpus/arena/arena-the-cosmic-kitchen.json"
+    },
+    {
+      "id": "arena-the-five-fold-collision",
+      "title": "The Five-Fold Collision",
+      "topic": "Modern physics",
+      "tags": [
+        "Special relativity",
+        "Collisions",
+        "Four-momentum"
+      ],
+      "summary": "Explore relativistic collisions, maximum deflection and two- or three-photon final states.",
+      "statementFile": "01_The_Five_Fold_Collision_Problem.pdf",
+      "solutionFile": "01_The_Five_Fold_Collision_Solution.pdf",
+      "importedOn": "2026-10-31",
+      "path": "/corpus/arena/arena-the-five-fold-collision.json"
+    },
+    {
+      "id": "arena-the-phantom-charge",
+      "title": "The Phantom Charge",
+      "topic": "Electromagnetism",
+      "tags": [
+        "Electrostatics",
+        "Potential",
+        "Continuous charge"
+      ],
+      "summary": "Find the axial field of a nonuniform charged sheet and the point charge that reproduces it.",
+      "statementFile": "01_The_Phantom_Charge_Problem.pdf",
+      "solutionFile": "01_The_Phantom_Charge_Solution.pdf",
+      "importedOn": "2026-10-31",
+      "path": "/corpus/arena/arena-the-phantom-charge.json"
+    },
+    {
+      "id": "arena-the-string-that-answered-back",
+      "title": "The String That Answered Back",
+      "topic": "Waves",
+      "tags": [
+        "Driven oscillations",
+        "String waves",
+        "Boundary conditions"
+      ],
+      "summary": "Derive the steady periodic displacement of a fixed string driven at two different positions.",
+      "statementFile": "01_The_String_That_Answered_Back_Problem.pdf",
+      "solutionFile": "01_The_String_That_Answered_Back_Solution.pdf",
+      "importedOn": "2026-10-31",
+      "path": "/corpus/arena/arena-the-string-that-answered-back.json"
+    },
+    {
+      "id": "arena-the-clock-in-the-racing-mirror",
+      "title": "The Clock in the Racing Mirror",
+      "topic": "Modern physics",
+      "tags": [
+        "Special relativity",
+        "Moving mirrors",
+        "Doppler effect"
+      ],
+      "summary": "Infer the arrival time, physical height and virtual-image distance of a relativistically approaching mirror.",
+      "statementFile": "02_The_Clock_in_the_Racing_Mirror_Problem.pdf",
+      "solutionFile": "02_The_Clock_in_the_Racing_Mirror_Solution.pdf",
+      "importedOn": "2026-10-31",
+      "path": "/corpus/arena/arena-the-clock-in-the-racing-mirror.json"
+    },
+    {
+      "id": "arena-the-dodecahedron-conspiracy",
+      "title": "The Dodecahedron Conspiracy",
+      "topic": "Electromagnetism",
+      "tags": [
+        "Gauss’s law",
+        "Symmetry",
+        "Solid angle"
+      ],
+      "summary": "Use symmetry and solid angle to find flux and central fields for a charged regular dodecahedron.",
+      "statementFile": "02_The_Dodecahedron_Conspiracy_Problem.pdf",
+      "solutionFile": "02_The_Dodecahedron_Conspiracy_Solution.pdf",
+      "importedOn": "2026-10-31",
+      "path": "/corpus/arena/arena-the-dodecahedron-conspiracy.json"
+    },
+    {
+      "id": "arena-the-gas-with-elbows",
+      "title": "The Gas with Elbows",
+      "topic": "Thermodynamics",
+      "tags": [
+        "Partition functions",
+        "Van der Waals gas",
+        "Statistical mechanics"
+      ],
+      "summary": "Build the van der Waals equation from quantum state counting, excluded volume and mean-field attraction.",
+      "statementFile": "02_The_Gas_with_Elbows_Problem.pdf",
+      "solutionFile": "02_The_Gas_with_Elbows_Solution.pdf",
+      "importedOn": "2026-10-31",
+      "path": "/corpus/arena/arena-the-gas-with-elbows.json"
+    },
+    {
+      "id": "arena-the-quantum-escape-room",
+      "title": "The Quantum Escape Room",
+      "topic": "Modern physics",
+      "tags": [
+        "Quantum tunnelling",
+        "Potential barriers",
+        "Boundary conditions"
+      ],
+      "summary": "Calculate oblique-incidence tunnelling through a wall and escape from a square quantum box.",
+      "statementFile": "02_The_Quantum_Escape_Room_Problem.pdf",
+      "solutionFile": "02_The_Quantum_Escape_Room_Solution.pdf",
+      "importedOn": "2026-10-31",
+      "path": "/corpus/arena/arena-the-quantum-escape-room.json"
+    },
+    {
+      "id": "arena-the-three-way-wave-split",
+      "title": "The Three-Way Wave Split",
+      "topic": "Waves",
+      "tags": [
+        "String waves",
+        "Impedance matching",
+        "Energy transmission"
+      ],
+      "summary": "Find the transmitted waves at a three-string junction and tune the densities for zero reflection.",
+      "statementFile": "02_The_Three_Way_Wave_Split_Problem.pdf",
+      "solutionFile": "02_The_Three_Way_Wave_Split_Solution.pdf",
+      "importedOn": "2026-10-31",
+      "path": "/corpus/arena/arena-the-three-way-wave-split.json"
+    },
+    {
+      "id": "arena-titans-double-take",
+      "title": "Titan’s Double Take",
+      "topic": "Optics",
+      "tags": [
+        "Rainbows",
+        "Refraction",
+        "Stationary deviation"
+      ],
+      "summary": "Infer Titan’s droplet refractive index and locate its secondary rainbow relative to the primary.",
+      "statementFile": "02_Titans_Double_Take_Problem.pdf",
+      "solutionFile": "02_Titans_Double_Take_Solution.pdf",
+      "importedOn": "2026-10-31",
+      "path": "/corpus/arena/arena-titans-double-take.json"
+    },
+    {
+      "id": "arena-a-grin-and-a-wiggle",
+      "title": "A GRIN and a Wiggle",
+      "topic": "Optics",
+      "tags": [
+        "Graded-index optics",
+        "Aberration",
+        "Ray trajectories"
+      ],
+      "summary": "Follow rays through a graded-index cylinder and calculate paraxial imaging and third-order aberrations.",
+      "statementFile": "03_A_GRIN_and_a_Wiggle_Problem.pdf",
+      "solutionFile": "03_A_GRIN_and_a_Wiggle_Solution.pdf",
+      "importedOn": "2026-10-31",
+      "path": "/corpus/arena/arena-a-grin-and-a-wiggle.json"
+    },
+    {
+      "id": "arena-an-atom-with-stage-fright",
+      "title": "An Atom with Stage Fright",
+      "topic": "Modern physics",
+      "tags": [
+        "Two-level systems",
+        "Dipole radiation",
+        "Spontaneous emission"
+      ],
+      "summary": "Derive the semiclassical populations and radiated-power pulse of a nondegenerate two-level atom.",
+      "statementFile": "03_An_Atom_with_Stage_Fright_Problem.pdf",
+      "solutionFile": "03_An_Atom_with_Stage_Fright_Solution.pdf",
+      "importedOn": "2026-10-31",
+      "path": "/corpus/arena/arena-an-atom-with-stage-fright.json"
+    },
+    {
+      "id": "arena-the-invisible-brake",
+      "title": "The Invisible Brake",
+      "topic": "Mechanics",
+      "tags": [
+        "Viscosity",
+        "Kinetic theory",
+        "Poiseuille flow"
+      ],
+      "summary": "Connect molecular momentum transport to gas viscosity, pipe flow and viscous heating.",
+      "statementFile": "03_The_Invisible_Brake_Problem.pdf",
+      "solutionFile": "03_The_ Invisible_Brake_Solution.pdf",
+      "importedOn": "2026-10-31",
+      "path": "/corpus/arena/arena-the-invisible-brake.json"
+    },
+    {
+      "id": "arena-the-bending-beam-riddle",
+      "title": "The Bending Beam Riddle",
+      "topic": "Waves",
+      "tags": [
+        "Elasticity",
+        "Flexural waves",
+        "Dispersion"
+      ],
+      "summary": "Derive static beam bending, midpoint deflection and dispersive transverse waves including rotational inertia.",
+      "statementFile": "03_The_Bending_Beam_Riddle_Problem.pdf",
+      "solutionFile": "03_The_Bending_Beam_Riddle_Solution.pdf",
+      "importedOn": "2026-10-31",
+      "path": "/corpus/arena/arena-the-bending-beam-riddle.json"
+    },
+    {
+      "id": "arena-the-capacitors-missing-energy",
+      "title": "The Capacitor’s Missing Energy",
+      "topic": "Modern physics",
+      "tags": [
+        "Special relativity",
+        "Electromagnetic energy",
+        "Mechanical stress"
+      ],
+      "summary": "Resolve the apparent energy-transformation paradox of a moving capacitor by including its stressed supports.",
+      "statementFile": "03_The_Capacitors_Missing_Energy_Problem.pdf",
+      "solutionFile": "03_The_Capacitors_Missing_Energy_Solution.pdf",
+      "importedOn": "2026-10-31",
+      "path": "/corpus/arena/arena-the-capacitors-missing-energy.json"
+    },
+    {
+      "id": "arena-the-infinite-v",
+      "title": "The Infinite V",
+      "topic": "Electromagnetism",
+      "tags": [
+        "Charged sheets",
+        "Electrostatics",
+        "Stability"
+      ],
+      "summary": "Examine fields inside two charged half-planes, the infinite-limit divergence and regularized small oscillations.",
+      "statementFile": "03_The_Infinite_V_Problem.pdf",
+      "solutionFile": "03_The_Infinite_V_Solution.pdf",
+      "importedOn": "2026-10-31",
+      "path": "/corpus/arena/arena-the-infinite-v.json"
+    }
+  ]
+}

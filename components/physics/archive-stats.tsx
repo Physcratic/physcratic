@@ -4,6 +4,7 @@ import { getArchiveStats } from "@/lib/problem-archive";
 import { problems } from "@/lib/physics";
 import { corpusProblems } from "@/lib/corpus-pilot";
 import { catalogProblems, competitions } from "@/lib/corpus-catalog";
+import arena from "@/lib/arena/index.json";
 
 const competitionVariants = {
   IPhO: "ipho",
@@ -14,6 +15,7 @@ const competitionVariants = {
 export function ArchiveStats() {
   const { total, addedLast24Hours } = getArchiveStats([
     ...problems,
+    ...arena.problems.map((problem) => ({ addedAt: problem.importedOn })),
     ...catalogProblems.map(() => ({ addedAt: undefined })),
   ]);
 
@@ -31,7 +33,7 @@ export function ArchiveStats() {
             {total.toLocaleString("en-US")} problems in the archive
           </p>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            {catalogProblems.length} olympiad exercises + {problems.length}{" "}
+            {catalogProblems.length} olympiad exercises + {arena.count} Arena problems + {problems.length}{" "}
             quick-practice exercises. {corpusProblems.length} olympiad exercises
             also include a guided breakdown.
           </p>
@@ -45,6 +47,7 @@ export function ArchiveStats() {
           className="flex shrink-0 flex-wrap gap-2"
           aria-label="Archive by competition"
         >
+          <Badge variant="secondary">Arena · {arena.count}</Badge>
           {competitions.map((competition) => (
             <Badge key={competition} variant={competitionVariants[competition]}>
               {competition} ·{" "}
