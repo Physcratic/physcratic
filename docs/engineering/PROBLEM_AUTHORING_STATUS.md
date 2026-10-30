@@ -1,64 +1,62 @@
 # Problem authoring implementation status
 
-- Updated: 2026-10-31 (Asia/Makassar). Phase 2 ONLY; phases 0/1 merged.
-- Latest fetched/reconciled main: `e4fbc88264a2c4280e6077f31346c06722fce6c4`, Phase 1 recovery PR #12, retaining reviewed UUID/sealing/timestamp fixes.
-- Branch: existing `codex/problem-authoring-phase-2`; original implementation `1e6ef0e`; prior tip `712400c`; reconciliation commit via git log -1.
-- Delivery: branch pushed and remote SHA verified; compare URL supplied instead of automated PR (prior GitHub API Forbidden).
-- Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-2?expand=1
-- Read WORK_STATUS/map/status first; no AGENTS.md. Only authored schema/contracts, auth/origin/request helpers and DB dependencies inspected; no repeated audit.
+- Updated: 2026-10-31 (Asia/Makassar). Phase 3 ONLY; phases 0/1/2 merged.
+- Fresh fetched base: `6837ae319d2e8a856e2188e5a269d96050deef84` (Phase 2 PR #13).
+- Branch: `codex/problem-authoring-phase-3`; implementation `1ae01a1`; delivery update HEAD via git log -1.
+- Delivery: pushed and remote verified; draft PR creation blocked by GitHub API Forbidden.
+- Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-3?expand=1
+- Read WORK_STATUS/map/status first; no AGENTS.md. Inspected only affected auth/layout/math/editor/API dependencies; no repeated audit.
 
-## Completed phases and Phase 2 changes
-- Phase 1 contracts/schema preserved: normalized UUIDs, separate private draft/revision keys, immutable revisions, exact document/part map and Date-to-ISO serialization.
-- lib/problem-authoring-api.ts: injectable server HTTP boundary backed by existing pg Pool and parameterized SQL; production adapter uses existing Better Auth session/origin helpers.
-- app/api/authored-problems: verified-owner create/list/read/update/delete drafts; solver-shaped owner-only preview; atomic publish/unpublish; anonymous published reader.
-- Owner checks in every private query; unknown/cross-owner IDs return 404. Missing session 401, unverified 403, stale version 409.
-- Strict request contracts reject identity/counter/unknown fields; UUID normalization reused; writes bounded to 2 MB actual bytes and 15 s request deadline.
-- Same-origin write checks; persistent 60 writes/minute/user; max 100 retained problems/author. List metadata has stable UUID cursor, max 50.
-- migrations/0002_authored_write_limit up/down and Drizzle declaration: bounded per-user fixed-minute counters, atomic across instances. No new package/dependency.
-- Problem+draft row locks serialize saves/publication/deletion and keep private read snapshots consistent. All mutations require expected draft version.
-- Publish/unpublish increment draft version; same-version concurrent actions cannot publish duplicate revisions or overwrite each other.
-- Publication transaction inserts parts/private keys before revision sealing, then pointer/version, then COMMIT; no nested transactions/savepoints, preserving xmin invariants.
-- Validates rights/provenance, native statement, part/key alignment and explicit manual mode from stored snapshot before publication.
-- Private keys/hints/solutions remain separate DB rows; public query loads only published statement revision, never private tables. Preview owner-only, content allowlisted.
-- Extracted shared publicAuthoredContent serializer without changing public revision shape. Authorization stays in handlers, not serializer.
-- All media refs including private solution/hint images rejected until Phase 4 supplies ownership registry. No unsafe reuse of solver evidence uploads.
-- Delete requires unpublish first if currently public; removes working draft, preserves immutable history/stable archived problem; never-published metadata can be deleted.
-- Existing archive/practice/auth code, schema contracts and package/lockfile unchanged. No UI/editor, grader, upload/social feature or production data changes.
+## Completed Phase 3
+- `/dashboard/author`: dynamic server gate using existing Better Auth session; unauthenticated redirect, unverified notice, verified author workspace only. No auth changes.
+- Sidebar Problem studio entry; responsive draft manager uses Phase 2 paginated list/create/read/delete, explicit deletion confirmation and visible failures.
+- Native Tally-style document editor: title/tags/difficulty/provenance; sections, subparts, text/math blocks, inline math spans; add/edit/delete/reorder while preserving IDs/order.
+- Existing KaTeX with trust:false, maxExpand/maxSize, MathML and invalid-equation feedback. Cursor-aware equation templates; no browser CAS/answer evaluation.
+- Author-only panels for numeric values/units/tolerances, expression variables/domains/angles/exclusions, manual keys, hints and worked solutions.
+- Local numeric prefixes/blank fields and expression drafts remain recoverable; Phase 1 contracts gate saving/publishing. Server schemas/APIs unchanged.
+- Debounced 1800ms autosave, one request at a time; saves serialize newer edits against acknowledged versions; explicit saving/saved/error indicators and manual retry.
+- 409 freezes automatic writes and preserves local content; author loads/inspects latest, explicitly chooses server content or local replacement against that version.
+- Owner+problem-scoped sessionStorage backups, beforeunload protection, explicit local restore/discard/private JSON download; no automatic overwrite of either copy.
+- Uncertain in-flight saves remain protected even after undo-to-old-baseline and repeated reloads; malformed/raw backups are preserved for explicit export/discard.
+- Safe local student preview uses shared allowlisted content serializer, unmounts private panels and conflict-inspection JSON, handles invalid aggregate documents safely.
+- Publication checks from publishableDraftSchema; publish/unpublish use Phase 2 versioned APIs after save, display clear confirmation/state and never mutate old revisions.
+- Keyboard move controls and focus restoration after reorder/delete; position announcements, associated labels/help, inline error indicators and 375px responsive layout.
+- Tiptap/dnd-kit evaluated: explicit native schema plus move buttons cover current math/order/accessibility needs; no extra product dependencies or licensing risk.
+- No image/PDF uploads, CAS grading, solver submissions, comments/stars, migrations, package/lockfile edits or Phase 4 implementation.
 
-## Verification and inherited blockers
-- Targeted: `bash scripts/test-problem-authoring.sh` PASS 10/10 (parent + 9 integration cases), PostgreSQL17 disposable local container, no ambient DATABASE_URL.
-- Integration: all private actions missing/unverified denial; owner CRUD/list/preview; IDOR; stale/concurrent saves; concurrent publish and publish/update race; invalid rights/statements/keys; no public draft/key/solution leakage; media/origin/type/size/limiter checks.
-- Original Phase 1 SQL constraint/sealing regressions also executed on disposable DB. 0002 down/up preserves revision history and verifies user FK.
-- Full tests with integration enabled: 116/117 PASS; ONLY inherited lib/corpus-translation.test.ts:66 punctuation mismatch fails (same pre-Phase-2 baseline 106/107).
-- TypeScript `pnpm exec tsc --noEmit`: PASS.
-- `pnpm lint`: inherited failure, eslint executable/dependency/config absent.
-- `pnpm build`: inherited blocker, app/layout.tsx next/font cannot fetch Inter from fonts.googleapis.com.
-- `git diff --check`: PASS; map <=120/status <=100/WORK_STATUS <100 lines; local links checked.
-- Existing pnpm10.20.0 installation reused via /tmp/physcratic-npm/_npx/fed63785a0df9524/node_modules/pnpm/bin/pnpm.cjs; no dependency changes.
-- Full command: bash scripts/test-problem-authoring.sh node /tmp/physcratic-npm/_npx/fed63785a0df9524/node_modules/pnpm/bin/pnpm.cjs test.
-- Logs: /tmp/physcratic-p2-full.log and /tmp/physcratic-p2-check-{0,1,2}.log (session-local). All test containers cleaned by trap.
+## Test evidence and inherited blockers
+- Editor state tests: 15/15 PASS; contracts targeted: 13/13 PASS.
+- Tests cover debounce, edits during save, 503 retry, 409 pause/explicit resolution, private/partial-field recovery, repeated reload, uncertain undo, malformed backup, publication version/lock and HTTP adapter.
+- Chromium + actual editor + Phase 2 HTTP handler factory + disposable PostgreSQL17: PASS end-to-end create/list/open/delete, inline math rendering, sections/parts, keyboard reorder/delete, negative fractional numeric/domain values.
+- Browser additionally verifies 503 autosave failure/reload recovery, 409 keep-local resolution, immutable publish/unpublish, public/preview key isolation and original statement round-trip.
+- axe desktop and 375px mobile scans: zero violations in tested states; no mobile horizontal overflow. Independent desktop/mobile visual inspection found no clipping/blocker.
+- Full suite with PostgreSQL integration enabled: 131/132 PASS; only inherited lib/corpus-translation.test.ts:66 punctuation mismatch fails (Phase 2 baseline 116/117).
+- Disposable PostgreSQL integration from full suite: 10/10 PASS, including original Phase 1 sealing regressions and 0002 limiter rollback/up. Containers removed by trap.
+- TypeScript PASS after next typegen. Run typecheck sequentially with build/typegen to avoid .next generated-file races.
+- Lint: inherited failure, eslint executable/dependency/config absent.
+- Build: inherited next/font blocker fetching Inter from fonts.googleapis.com; no claim of complete production build.
+- git diff --check PASS; only editor/entry/tests/handoffs changed. Phase 1/2 contracts, APIs, migrations and auth behavior preserved.
+- Session-local logs: /tmp/physcratic-p3-full.log, /tmp/physcratic-p3-check-{0,1,2}.log; final typegen/tsc terminal exit 0.
+- Screenshots: /tmp/physcratic-editor-desktop.png and /tmp/physcratic-editor-mobile.png (session-local; not committed).
 
-## Independent security review / limitations
-- Independent read-only adversarial reviewer found no confirmed blocking issues; root reviewed diff and transaction/visibility contracts separately.
-- Reviewed verified/owner authorization, origins, actual payload limits, persistent rate budget, parameterization, race behavior, key isolation/media denial and COMMIT/rollback.
-- Publication ordering/advisory locks/xmin checks/immutable history unchanged. No migrations run at app startup/build.
-- Tests inject sessions into production handler factory and use real PostgreSQL; they do not exercise live Better Auth/browser/staging flow. Existing auth code unchanged.
-- Public GET is published-only and private/no-store; owner preview is NOT a public draft URL. Old history is retained but no old-revision public route added.
-- Expression keys get Phase 1 structural validation only; CAS/AST/equivalence/resource enforcement remains Phase 5. No grading certainty claimed.
-- No runtime model switch control; playbook high-effort review/test requirements retained. No production readiness claim with inherited blockers.
+## Reproducible checks / test limitations
+- pnpm10.20.0 reused via node /tmp/physcratic-npm/_npx/fed63785a0df9524/node_modules/pnpm/bin/pnpm.cjs; no dependency changes.
+- Targeted: node_modules/.bin/tsx --test lib/problem-authoring-editor.test.ts lib/problem-authoring.test.ts.
+- Full with DB: bash scripts/test-problem-authoring.sh node /tmp/physcratic-npm/_npx/fed63785a0df9524/node_modules/pnpm/bin/pnpm.cjs test.
+- Browser test tools installed outside repository: npm install --prefix /tmp/physcratic-editor-test --no-save playwright @axe-core/playwright.
+- Browser: AUTHORING_BROWSER_TOOLS=/tmp/physcratic-editor-test bash scripts/test-problem-authoring.sh node_modules/.bin/tsx tests/problem-authoring.browser.mjs.
+- Chromium defaults /usr/bin/chromium; override CHROMIUM_PATH. Harness bundles real editor via existing esbuild/tsx and app CSS; server injects verified session into real handlers.
+- Live Better Auth login/email delivery/Next SSR/browser staging path is not exercised; server gate typechecked/read-reviewed, auth unchanged. No ambient DATABASE_URL or production data used.
 
-## Recovery reconciliation (2026-10-31)
-- Merged latest main into existing Phase 2 without rebasing/force push. No conflicts and no runtime implementation changes; both histories preserved.
-- Phase 1 migrations/tests exactly match recovered main; Phase 2 code matches prior tip 712400c. Unrelated auth/packages and signup CAPTCHA removal match main.
-- Re-ran Phase 1 targeted 13/13 PASS, route typegen/TypeScript PASS, PostgreSQL integration 10/10 PASS and full suite 116/117 (only inherited translation failure).
-- Re-ran lint/build: same missing eslint and unavailable Google Inter font blockers. No new failures.
-- Fresh independent read-only security review: no confirmed blockers in verified/owner auth, origin/limits, row-lock/version races, immutable publication and public key isolation.
-- Logs: /tmp/physcratic-p2-reconcile-{full,lint,build}.log; disposable PostgreSQL containers cleaned by test script; no production DB used.
-- Application source unchanged by reconciliation; only handoffs updated alongside merge history. Phase 3 remains unstarted.
+## Independent accessibility / UX / correctness review
+- Independent read-only reviewer found and verified fixes for in-flight undo loss, invalid backup deletion, negative/partial numeric typing, delete/reorder focus and help associations.
+- Regression tests reproduce these state-loss paths. Recovery uncertainty survives repeated reloads; invalid buffers remain private/recoverable; server validation stays strict.
+- No remaining blocking findings after fixes; preview/key separation, verified author gate, safe math rendering and version decisions reviewed.
+- Screenshot visual inspection and browser axe checks supplement source review; mathematical validity remains Phase 5, media ownership Phase 4.
 
 ## Exact next task
-- Review/merge Phase 2 only by user; create draft PR via compare URL if GitHub API remains blocked. Do not auto-merge/deploy or run production migrations.
-- After merge and a separate user request: Phase 3 ONLY, from fresh merged main, read these handoffs before affected code.
-- Build native author editor using the documented draft APIs/version conflicts, private key panels and owner-only safe preview; no PDF import/media upload until Phase 4.
-- Preserve drafts on autosave errors/stale versions; support ordered sections/parts/text/math, accessible reorder and safe live math preview; evaluate editor libraries only if justified.
-- Run targeted + required checks, independent UI critic, update handoffs, commit/push/draft PR then stop.
+- User reviews/merges Phase 3 only. No automated merge/deployment or production migrations.
+- After merge and separate request: Phase 4 ONLY from fresh main, read handoffs and inspect author media/API/editor dependencies only.
+- Add verified-owner author media registry/uploads, MIME/signature/size/quota checks, scoped public statement versus private solution/draft access; remove Phase 2 media denial only with ownership checks/tests.
+- Preserve native text, stable block IDs, ordered round-trip, autosave/409/recovery and immutable revisions. No PDF OCR/import or mathematical grading.
+- Run targeted/full checks, independent security critic, update handoffs, commit/push/draft PR and stop.

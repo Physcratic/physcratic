@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import {
   BookOpen,
+  FilePenLine,
   LayoutGrid,
   Menu,
   Orbit,
@@ -57,6 +58,14 @@ export default function Sidebar({
         aria-label="Main navigation"
         className="flex flex-1 flex-col gap-8 overflow-y-auto px-4"
       >
+        <Link
+          href="/dashboard/author"
+          onClick={() => setMobileOpen(false)}
+          className="flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+        >
+          <FilePenLine className="size-[18px]" strokeWidth={1.7} />
+          Problem studio
+        </Link>
         <div className="flex flex-col gap-3">
           <h2 className="px-3 text-base font-semibold tracking-tight text-foreground">
             Workspace
