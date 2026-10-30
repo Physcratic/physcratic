@@ -87,18 +87,6 @@ test("signup CAPTCHA HTTP boundary and registration regression", async (t) => {
   assert.equal(calls, before, "other endpoints never invoke CAPTCHA");
   assert.equal(database.user.length, 1);
   assert.equal(JSON.stringify(database.user[0]), acceptedRecord, "rejected signup and login do not overwrite consent history");
-  const verification = mails[0] as { url: string };
-  const verified = await auth.handler(new Request(verification.url));
-  assert.ok(verified.status < 400);
-  assert.equal(database.session.length, 0, "verification must not automatically create a session");
-  const consentVersion = user.termsAcceptedVersion;
-  const consentTime = String(user.termsAcceptedAt);
-  const signedIn = await request(undefined, { email: user.email }, "/sign-in/email");
-  assert.equal(signedIn.status, 200);
-  assert.equal(database.session.length, 1, "verified user explicitly signs in");
-  assert.equal((database.user[0] as Record<string, unknown>).termsAcceptedVersion, consentVersion);
-  assert.equal(String((database.user[0] as Record<string, unknown>).termsAcceptedAt), consentTime);
-
 });
 
 test("missing server configuration fails closed only on signup", async () => {

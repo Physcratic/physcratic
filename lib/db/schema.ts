@@ -1,4 +1,4 @@
-import { bigint, index, boolean, doublePrecision, integer, jsonb, pgTable, primaryKey, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
+import { boolean, doublePrecision, integer, jsonb, pgTable, primaryKey, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
 import type { SolutionSubmission } from "@/lib/solution-grading";
 
 export const user = pgTable("user", {
@@ -60,11 +60,3 @@ export const archiveProgress = pgTable("archive_progress", {
   userId: text("userId").notNull(), taskId: text("taskId").notNull(), reviewed: boolean("reviewed").notNull().default(false),
   notes: text("notes").notNull().default(""), answer: text("answer").notNull().default(""), updatedAt: timestamp("updatedAt", { withTimezone: true }).notNull().defaultNow(),
 }, (table) => [primaryKey({ columns: [table.userId, table.taskId] })]);
-
-// Better Auth supplies ids and millisecond timestamps; no relation to user acceptance records.
-export const authRateLimit = pgTable("rateLimit", {
-  id: text("id").primaryKey(),
-  key: text("key").notNull().unique(),
-  count: integer("count").notNull(),
-  lastRequest: bigint("lastRequest", { mode: "number" }).notNull(),
-}, (table) => [index("rateLimit_lastRequest_idx").on(table.lastRequest)]);
