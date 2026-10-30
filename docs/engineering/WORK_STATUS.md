@@ -1,64 +1,61 @@
-# Phase 3 auth production hardening
+# Staging security readiness
 
-Date: 2026-10-31 (Asia/Makassar). Branch codex/auth-hardening from codex/terms-review at 2f7870b.
-NOT production-ready until release gates below are evidenced. No live credentials, DB, deployment or merge.
-Proposed Terms draft and active policy text/version unchanged; Phase 1/2 branches untouched.
+2026-10-31 (Asia/Makassar). New isolated codex/staging-security-readiness from remote auth-hardening052fe92.
+Original auth-hardening, main and problem-authoring branches untouched. Local c723d5b audit was not the base.
+All remote heads fetched; no remerge/revert reversal, deployment, live migration, Neon connection or real email.
 
 ## Implementation
-- Explicit Better Auth 1.7.14 built-in storage=database, existing pg Pool/Kysely; thresholds unchanged.
-- Additive migrations/20261031_auth_rate_limit.sql + mirrored Drizzle rateLimit declaration:
-  text id PK, required unique text key, integer count, bigint lastRequest; lastRequest cleanup index.
-- Exact logical fields verified against installed getAuthTables in test, physical columns queried from PG.
-- Migration reviewed by independent critic; transaction and lock/statement timeouts; no auto-runner.
-  Only applied inside random isolated test schemas. No auth/user/consent table migration or history overwrite.
-- Added opt-in test:auth:pg command; rejects non-loopback/non-*_test URLs and requires production mode
-  before imports. Never reads DATABASE_URL. No Redis, runtime dependency or custom limiter introduced.
-- Extended verification test: signup unverified/no session; email confirmation still no session; explicit
-  login creates session and preserves server Terms version/time. No API/interface or legal text change.
+- verification-email-delivery.ts enforces server-only exact staging mailbox allow-list before Resend invocation.
+  VERCEL_ENV=production preserves normal production mail; Preview/development/absent target restrict delivery.
+  Max20 validated comma-separated recipients; no wildcards/empty entries, domain-case normalization.
+  Staging link origin must match explicit HTTPS BETTER_AUTH_URL; provider errors sanitized, no token/body logs.
+- scripts/staging-preflight.ts reads ONLY explicitly selected env file (Node parseEnv); no ambient PG/URL fallback.
+  Rejects absent/encoded-redacted placeholders, routing query overrides, identity/origin/host ambiguity.
+  Explicit read-only PG session queries actual DB/role/schema plus exact limiter PK/unique/type contracts.
+  No user data reads or writes; never infers Neon branch isolation solely from schema/table/name/role.
+- Existing auth/Terms/CAPTCHA/verification/session interfaces and production DB configuration preserved.
+  Preflight is an operator deployment gate, NOT a newly installed runtime DB isolation guard.
+- STAGING_RELEASE_PREFLIGHT.md: owner-friendly PowerShell procedures; AUTH_RELEASE_RECOVERY_PLAN.md:
+  verified Git topology and future main-based integration preserving authoring, no production-release PR.
 
-## Exact verification
-Node 24.19.0, pnpm 10.20.0; local disposable postgres:16 Docker, version 16 series, loopback port55439.
-Image digest sha256:1beaa3084eee2676f20a9cd9928f0bf2c5bf674f8e49f81017912183d377c61c.
-Test DB auth_hardening_test; random schemas created/dropped; test-only credentials, no production access.
-- With AUTH_TEST_DATABASE_URL selecting that local DB and NODE_ENV=production set BEFORE process:
-  `pnpm exec tsx --test lib/auth-rate-limit.pg.test.ts lib/signup-captcha.test.ts
-  lib/signup-captcha-client.test.ts lib/terms.test.ts`: exit0, **7 passed, 0 skipped/failed**.
-- Real PG: 30 simultaneous requests via two independent auth instances/pools; exactly3 admitted/27 denied
-  on first-insert and expired reset waves, persisted count3, saturation retained across instances.
-- Tests path isolation/trailing slash, different single-IP buckets, invalid/multi-hop/missing IP fallback
-  with persisted no-trusted-ip|/ok assertion, IPv6 /64 grouping; other headers cannot override selected XFF.
-- Missing table and refused connection fail closed; no downstream provider-boundary hook reached;
-  restoring table retains saturated bucket. Direct Better Auth test models Next's generic503 mapping,
-  not a claim that the Next route wrapper was exercised against PG or a full PG signup/mail E2E.
-- `pnpm test`: exit1, **99 total: 97 passed, 1 failed, 1 skipped** (opt-in PG tested separately above).
-  Existing lib/corpus-translation.test.ts:66 protected-editorial punctuation mismatch; outside auth scope.
-- `pnpm exec tsc --noEmit`: exit0 (test-only readonly NODE_ENV assignment corrected before final run).
-- `pnpm lint`: exit0, 0 errors/1 existing image warning at imported-source-content.tsx:46.
-- `pnpm build`: exit1, next/font Inter fetch fails; existing Codex Google Fonts proxy403 restriction,
-  not established production font defect. No TLS/network bypass or font rewrite.
-- `git diff --check`: passes. Mocks prove CAPTCHA outcome handling, not live provider verification.
+## Verified vs supplied
+Founder supplies Neon project neon-indigo-dog / physcratic-staging, prepared staging schema/rateLimit,
+Vercel team neuterions-projects / financial-dashboard, branch Preview overrides and author membership blocker.
+These were NOT dashboard/Neon-verified. Staging migration must NOT be reapplied based on this guide.
+Remote main0845052 has restored/merged authoring phases; stacked auth branches contain different revert merges.
+Recovery requires future explicit integration; blind remerge or whole-tree copying would be unsafe.
 
-## Independent security/reliability review
-GPT-6.1 Sol High read-only critic reviewed installed algorithm, migration, schema, tests and rollout.
-No confirmed runtime defect in built-in DB adapter paths; conditional increment/reset and unique insert
-retry verified in installed source AND real concurrent PostgreSQL execution, not mock-only claims.
-Critic caught import-time NODE_ENV capture: corrected command/guard and persisted fallback-key assertion.
-Confirmed limits are PER PATH, not aggregate; allowed requests move inactivity window, denied do not.
-Built-in pruning only on expired reset is not guaranteed TTL for one-off keys; cleanup remains release gate.
-CAPTCHA fails closed on missing config/provider errors; plugin's optional numeric-score shape limitation remains.
-Terms strict validation/audit fields and verification/session behavior remain preserved by regression tests.
+## Actual checks
+Node24.19.0, pnpm10.20.0; no new project dependencies/lock changes.
+- `pnpm exec tsx --test lib/staging-preflight.test.ts lib/verification-email.test.ts
+  lib/signup-captcha.test.ts lib/signup-captcha-client.test.ts lib/terms.test.ts`: **10 pass**, exit0; includes actual Better Auth staging-origin signup with recipient-gated fake transport.
+- `pnpm test:auth:pg` with explicit disposable loopback AUTH_TEST_DATABASE_URL: **1 pass**, exit0.
+  Actual PostgreSQL16 Docker; real30-request first-insert/reset waves, two instances, exact3 admitted;
+  saturation, IP/path, outage and restored-state checks. No Neon or production connection; disposable container removed after tests.
+- `pnpm exec tsx scripts/staging-preflight.ts /tmp/physcratic-preflight-local.env`: passed read-only identity
+  and schema on synthetic local fixture; negative partial-key and wrong INCLUDE-index checks failed as expected.
+  No actual provider invocation; temporary selected file contained only test configuration.
+- `pnpm test`: **103 total:101 pass,1 fail,1 skip**. Inherited corpus-translation.test.ts:66 punctuation
+  mismatch remains; opt-in PG skipped in default suite but independently passed above.
+- `pnpm exec tsc --noEmit`: passed after fixing new optional-env typing and test-only Better Auth callback email mapping.
+- `pnpm lint`: passed,0 errors/1 existing no-img-element warning at imported-source-content.tsx:46.
+- `pnpm build`: failed fetching Inter via next/font; known Codex Google Fonts restriction, not production evidence.
+- `git diff --check`: passes. No safety controls weakened or unrelated corpus files changed.
+Tests use mocks, synthetic schemas and isolated PG; no actual staging integration/E2E claim.
 
-## Concise release checklist / blockers
-See SIGNUP_CAPTCHA.md release gate and migrations/README.md for procedure, privileges and rollback.
-- Inspect deployed DDL, establish isolated Preview/staging DATABASE_URL, backup/restore and reviewed schema-first
-  migration, then separately authorize production migration before code. Nothing applied to live DB here.
-- Confirm Vercel overwrites client XFF to one validated IP; default rejects untrusted chains/falls back shared.
-  Confirm NAT/IPv6 bucket behavior, DB connection load/outage handling and monitoring; no invented trusted CIDRs.
-- Approve normalized IP|path retention/access and monitored expiry cleanup: new DB persistence is not an
-  implicit privacy-policy approval. Existing active/proposed legal texts are unchanged.
-- Configure BETTER_AUTH_SECRET, canonical BETTER_AUTH_URL/origins, matching v3 public/secret/host keys,
-  verified RESEND_EMAIL_DOMAIN/API permissions; prove after() delivery, real CAPTCHA score/context/replay/expiry,
-  verification then explicit login, accessibility and normal staging build with font egress.
-- Roll back app first, retain limiter table; prior memory limits weaken cross-instance protection.
-  Never drop/truncate while any instance uses database storage. No automatic memory fallback on DB failure.
-- Terms draft remains unapproved/document-only; all Phase 2 human approval gates remain open.
+## Independent review and findings
+Independent security reviewer examined full implementation, auth source and recovery/operator documents.
+See STAGING_SECURITY_FINDINGS.md for severity/evidence/impact/tests/approval matrix. No critical finding invented.
+Fixed high staging arbitrary-recipient delivery risk; confirmed preflight placeholder/query/index assurance gaps
+and repaired them. Runtime missing DATABASE_URL fallback, effective Preview scope and edge header trust remain
+release gates; speculative production changes avoided. No policy draft changed or made binding.
+
+## Owner next actions / remaining blockers
+Resolve Vercel author authorization normally; no rewritten authors/CLI bypass. Review this branch first.
+Configure explicit approved STAGING_VERIFICATION_EMAIL_ALLOWLIST (server only) and isolated sender credentials.
+Supply independent Neon expected host/name/role and copied-data provenance; run read-only preflight ONLY with
+staging authorization. Check effective Preview env branch scopes, explicit staging auth origin and Google v3 keys.
+After separately authorized Preview deployment: complete allow-listed signup/mail/verification/sign-in, live
+CAPTCHA replay/expiry/context, Terms accessibility, forged-XFF and shared-limit smoke; inspect safe logs.
+Approve IP retention/cleanup, capacity/alerts and backups/rollback. No production readiness claim.
+Before production, separately approve main-based auth recovery compatible with authoring and schema-first rollout.

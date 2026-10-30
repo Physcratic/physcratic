@@ -38,6 +38,8 @@ This is a source audit; production settings, live DDL, and external edge control
 - `components/verification-notice.tsx`: resend and 60s browser cooldown; not a security boundary.
 - `lib/submission-security.ts`: return path restricted to `/dashboard` and rejects backslashes/control chars.
 - `lib/submission-server.ts`: downstream session lookup and configured submission-origin checks.
+- `lib/verification-email-delivery.ts`: Preview/unknown targets require server mailbox allow-list; production target unchanged.
+- `scripts/staging-preflight.ts`: explicit selected-file, read-only DB identity/schema gate, not runtime isolation proof.
 - `lib/terms.ts`: canonical text/version `2026-10-30-draft-1`; strict true + exact version required.
 - `components/terms-content.tsx`: shared active policy renderer for public page and consent dialog.
 - `components/terms-consent.tsx`: controlled checkbox + explicit-accept Radix dialog; no implicit consent.
