@@ -27,7 +27,7 @@ export async function checkAndRateSubmission(transaction: Transaction, userId: s
   const [previous] = await transaction.select({ id: individualRatingEvents.id }).from(individualRatingEvents).where(and(eq(individualRatingEvents.userId, userId), eq(individualRatingEvents.problemId, submission.problemId))).limit(1);
   if (previous) return;
   const firstChecks = await transaction.selectDistinctOn([solutionChecks.partId], { partId: solutionChecks.partId, maxPoints: solutionChecks.maxPoints, awardedPoints: solutionChecks.awardedPoints }).from(solutionChecks).where(and(eq(solutionChecks.userId, userId), eq(solutionChecks.problemId, submission.problemId), eq(solutionChecks.sourceVersion, submission.problemVersion), eq(solutionChecks.ratingVersion, configuration.ratingVersion))).orderBy(asc(solutionChecks.partId), asc(solutionChecks.createdAt), asc(solutionChecks.attemptId));
-  // Rating the first checked answer for each subpart prevents retry-based Elo farming.
+  // Rating the first checked answer for each subpart prevents retry-based ELO farming.
   const score = completeProblemScore(configured.data, firstChecks);
   if (score === null) return;
   await transaction.insert(individualRatings).values({ userId, rating: initialIndividualRating }).onConflictDoNothing();

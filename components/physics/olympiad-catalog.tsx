@@ -45,6 +45,7 @@ import {
 import { OlympiadProblemCard } from "./olympiad-problem-card";
 import { ImportedProblemReader } from "./imported-problem-reader";
 import translationIndex from "@/lib/corpus/translation-index.json";
+import { filterProblemsByTag } from "@/lib/problem-tags";
 
 export function OlympiadCatalog({
   query,
@@ -61,6 +62,7 @@ export function OlympiadCatalog({
   onReset: () => void;
   onOpenImported: (id: string) => void;
 }) {
+  const topicProblems = filterProblemsByTag(catalogProblems, topic);
   const filtered = filterCatalog({
     query,
     topic,
@@ -119,7 +121,7 @@ export function OlympiadCatalog({
               The olympiad library
             </h2>
             <Badge variant="secondary">
-              {catalogProblems.length} full problems
+              {topicProblems.length} full problems
             </Badge>
           </div>
           <p className="text-sm leading-relaxed text-muted-foreground">
@@ -131,9 +133,9 @@ export function OlympiadCatalog({
             className="flex flex-wrap gap-2"
             aria-label="Competition colour key"
           >
-            <Badge variant="ipho">IPhO · 40</Badge>
-            <Badge variant="apho">APhO · 35</Badge>
-            <Badge variant="eupho">EuPhO · 25</Badge>
+            <Badge variant="ipho">IPhO · {topicProblems.filter((problem) => problem.competition === "IPhO").length}</Badge>
+            <Badge variant="apho">APhO · {topicProblems.filter((problem) => problem.competition === "APhO").length}</Badge>
+            <Badge variant="eupho">EuPhO · {topicProblems.filter((problem) => problem.competition === "EuPhO").length}</Badge>
           </div>
           <p className="text-sm text-muted-foreground">
             All exercises are unrated and intended for self-review.
@@ -243,7 +245,7 @@ export function OlympiadCatalog({
             </h3>
           </CardTitle>
           <CardDescription aria-live="polite">
-            {filtered.length} of {catalogProblems.length} problems
+            {filtered.length} of {topicProblems.length} problems
             {filtered.length > 0 &&
               ` · Showing ${(page - 1) * pageSize + 1}–${Math.min(page * pageSize, filtered.length)}`}{" "}
             · Self-review only
@@ -270,7 +272,7 @@ export function OlympiadCatalog({
                 <EmptyTitle>No catalog problems match</EmptyTitle>
                 <EmptyDescription>
                   {difficulty !== "all" && difficulty !== "unrated"
-                    ? "Catalog problems have no calibrated Elo. Select Unrated or All ratings."
+                    ? "Catalog problems have no calibrated ELO. Select Unrated or All ratings."
                     : "Try another competition, year, concept or topic."}
                 </EmptyDescription>
               </EmptyHeader>

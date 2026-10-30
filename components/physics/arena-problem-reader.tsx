@@ -36,6 +36,5 @@ export function ArenaProblemReader({ problem }: { problem: ArenaCatalogEntry }) 
         <Card className="min-w-0 shadow-none"><CardHeader><CardTitle>{kind === "statement" ? "Problem statement" : "Worked solution"}</CardTitle><CardDescription>{kind === "statement" ? "Transcribed text and LaTeX, with original diagrams." : "Contains spoilers. Transcribed from the supplied worked solution, including its assumptions and qualifications."}</CardDescription></CardHeader><CardContent className="min-w-0"><ArenaDocument content={data[kind]} /></CardContent></Card>
       </TabsContent>)}
     </Tabs>}
-    <details className="rounded-lg border border-border px-4 py-3 text-sm leading-relaxed"><summary className="cursor-pointer font-medium">Transcription & source details</summary><div className="flex flex-col gap-3 pt-4 text-muted-foreground"><p>From your uploaded Physcratic Arena Problems archive. Statements and solutions are stored as editable text and LaTeX, not embedded PDFs. Only original physics diagrams are images.</p><p>Problem: {problem.statementFile}<br />Solution: {problem.solutionFile}</p><p>Imported {problem.importedOn}. Source qualifications are preserved. Independent physics review is pending; these problems do not award marks or Elo.</p></div></details>
   </section>;
 }

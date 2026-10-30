@@ -1,6 +1,6 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { arenaProblemSchema } from "../lib/arena-schema";
+import { arenaProblemSchema, arenaProvenance } from "../lib/arena-schema";
 import { source01 } from "../lib/arena/source-01";
 import { source02 } from "../lib/arena/source-02";
 import { source03 } from "../lib/arena/source-03";
@@ -17,5 +17,5 @@ const problems = seeds.map((seed) => {
   const { statement, solution, ...metadata } = problem;
   return { ...metadata, path: `/corpus/arena/${problem.id}.json` };
 });
-writeFileSync(join(process.cwd(), "lib/arena/index.json"), JSON.stringify({ collection: "Physcratic Arena", count: problems.length, problems }, null, 2) + "\n");
+writeFileSync(join(process.cwd(), "lib/arena/index.json"), JSON.stringify({ collection: "Physcratic Arena", provenance: arenaProvenance, count: problems.length, problems }, null, 2) + "\n");
 console.log(`Published ${problems.length} native Arena statements and worked solutions.`);

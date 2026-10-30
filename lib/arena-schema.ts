@@ -1,5 +1,13 @@
 import { z } from "zod";
 
+export const arenaProvenance = {
+  sourceArchive: "Physcratic Arena Problems",
+  representation: "Editable text and LaTeX; only original physics diagrams are images, not embedded PDFs.",
+  qualifications: "Source assumptions and qualifications are preserved.",
+  reviewStatus: "Independent physics review pending.",
+  grading: "Unrated self-review; no marks or ELO awarded.",
+} as const;
+
 export const arenaTopics = ["Mechanics", "Electromagnetism", "Waves", "Thermodynamics", "Optics", "Modern physics"] as const;
 export const arenaProblemSchema = z.object({
   id: z.string().regex(/^arena-[a-z]+(?:-[a-z]+)*$/),

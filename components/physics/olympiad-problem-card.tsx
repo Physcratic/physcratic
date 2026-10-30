@@ -62,6 +62,7 @@ export function OlympiadProblemCard({
           </p>
         </div>
         <Button
+          variant="outline-transparent"
           size="sm"
           onClick={() => onOpen(problem.id)}
           aria-label={`Exercise: ${problem.competition} ${problem.year} ${problem.code} — ${problem.title}`}
@@ -81,7 +82,7 @@ export function OlympiadProblemCard({
         </div>
         <span
           className="text-sm"
-          title="Practice and self-review only. This exercise does not award Elo."
+          title="Practice and self-review only. This exercise does not award ELO."
         >
           Unrated · Self-review
         </span>

@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import { problems, viewTitles, type Problem, type View } from "@/lib/physics";
 import { Overview } from "@/components/physics/overview";
 import { ProblemLibrary } from "@/components/physics/problem-library";
-import { ArchiveStats } from "@/components/physics/archive-stats";
 import { LearningGuide } from "@/components/physics/learning-guide";
 import { Contests } from "@/components/physics/contests";
 import { Rankings } from "@/components/physics/rankings";
@@ -48,7 +47,6 @@ export default function Content({
 
   return (
     <div className="workspace-enter flex flex-col gap-7">
-      {view === "problems" && <ArchiveStats />}
       {view === "overview" ? (
         <h1 className="sr-only">Lobby</h1>
       ) : (

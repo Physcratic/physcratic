@@ -1,23 +1,94 @@
-import { Fragment } from "react";
+import { Fragment, useId } from "react";
+import { parseArenaDocument, type ArenaBlock } from "@/lib/arena-document";
 import katex from "katex";
 import { MathFormula } from "./math-formula";
 
 function MathText({ text }: { text: string }) {
   return text.split(/(\$\$[\s\S]*?\$\$)/g).map((part, index) => {
     if (!part.startsWith("$$")) return <Fragment key={index}>{part}</Fragment>;
-    const html = katex.renderToString(part.slice(2, -2), { displayMode: false, throwOnError: false, trust: false, output: "htmlAndMathml" });
+    const html = katex.renderToString(part.slice(2, -2), {
+      displayMode: false,
+      throwOnError: false,
+      trust: false,
+      output: "htmlAndMathml",
+    });
     return <span key={index} dangerouslySetInnerHTML={{ __html: html }} />;
   });
 }
 
+function ArenaParagraph({ text }: { text: string }) {
+  const figure =
+    /^!\[([^\]]+)\]\((\/corpus\/arena\/figures\/[a-z-]+\.png)\)$/.exec(text);
+  if (figure)
+    return (
+      <figure className="flex justify-center">
+        <img
+          src={figure[2]}
+          alt={figure[1]}
+          loading="lazy"
+          decoding="async"
+          className="h-auto max-h-96 max-w-full rounded-md"
+        />
+      </figure>
+    );
+  if (/^\$\$[^$]*\$\$$/.test(text)) return <MathFormula formula={text} />;
+  return (
+    <p className="text-pretty">
+      <MathText text={text} />
+    </p>
+  );
+}
+
+function ArenaBlocks({ blocks }: { blocks: ArenaBlock[] }) {
+  return blocks.map((block, index) =>
+    block.type === "paragraph" ? (
+      <ArenaParagraph key={index} text={block.text} />
+    ) : (
+      <ol
+        key={index}
+        role="list"
+        className="flex min-w-0 list-none flex-col gap-5 pl-5 sm:pl-8"
+      >
+        {block.items.map((paragraphs, itemIndex) => (
+          <li key={itemIndex} className="flex min-w-0 flex-col gap-4">
+            {paragraphs.map((text, paragraphIndex) => (
+              <ArenaParagraph key={paragraphIndex} text={text} />
+            ))}
+          </li>
+        ))}
+      </ol>
+    ),
+  );
+}
+
 export function ArenaDocument({ content }: { content: string }) {
-  return <article lang="en" className="arena-document flex min-w-0 flex-col gap-5 text-base leading-relaxed">
-    {content.split(/\n\s*\n/).map((paragraph, index) => {
-      const figure = /^!\[([^\]]+)\]\((\/corpus\/arena\/figures\/[a-z-]+\.png)\)$/.exec(paragraph);
-      if (figure) return <figure key={index} className="flex justify-center"><img src={figure[2]} alt={figure[1]} loading="lazy" decoding="async" className="h-auto max-h-96 max-w-full rounded-md" /></figure>;
-      if (paragraph.startsWith("## ")) return <h3 key={index} className="text-pretty pt-3 text-lg font-medium"><MathText text={paragraph.slice(3)} /></h3>;
-      if (/^\$\$[^$]*\$\$$/.test(paragraph)) return <MathFormula key={index} formula={paragraph} />;
-      return <p key={index} className="text-pretty"><MathText text={paragraph} /></p>;
-    })}
-  </article>;
+  const id = useId();
+  return (
+    <article
+      lang="en"
+      className="arena-document flex min-w-0 flex-col gap-5 text-base leading-relaxed"
+    >
+      {parseArenaDocument(content).map((section, index) =>
+        section.heading ? (
+          <section
+            key={index}
+            aria-labelledby={`${id}-${index}`}
+            className="flex min-w-0 flex-col gap-5 rounded-xl border border-border bg-muted/40 p-4 text-foreground sm:p-6"
+          >
+            <h3
+              id={`${id}-${index}`}
+              className="text-pretty text-lg font-medium"
+            >
+              <MathText text={section.heading} />
+            </h3>
+            <ArenaBlocks blocks={section.blocks} />
+          </section>
+        ) : (
+          <Fragment key={index}>
+            <ArenaBlocks blocks={section.blocks} />
+          </Fragment>
+        ),
+      )}
+    </article>
+  );
 }

@@ -5,6 +5,7 @@ import { problems } from "@/lib/physics";
 import { corpusProblems } from "@/lib/corpus-pilot";
 import { catalogProblems, competitions } from "@/lib/corpus-catalog";
 import arena from "@/lib/arena/index.json";
+import { filterProblemsByTag } from "@/lib/problem-tags";
 
 const competitionVariants = {
   IPhO: "ipho",
@@ -12,11 +13,15 @@ const competitionVariants = {
   EuPhO: "eupho",
 } as const;
 
-export function ArchiveStats() {
+export function ArchiveStats({ topic }: { topic?: string }) {
+  const practice = filterProblemsByTag(problems, topic);
+  const arenaProblems = filterProblemsByTag(arena.problems, topic);
+  const catalog = filterProblemsByTag(catalogProblems, topic);
+  const guided = filterProblemsByTag(corpusProblems, topic);
   const { total, addedLast24Hours } = getArchiveStats([
-    ...problems,
-    ...arena.problems.map((problem) => ({ addedAt: problem.importedOn })),
-    ...catalogProblems.map(() => ({ addedAt: undefined })),
+    ...practice,
+    ...arenaProblems.map((problem) => ({ addedAt: problem.importedOn })),
+    ...catalog.map(() => ({ addedAt: undefined })),
   ]);
 
   return (
@@ -33,8 +38,8 @@ export function ArchiveStats() {
             {total.toLocaleString("en-US")} problems in the archive
           </p>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            {catalogProblems.length} olympiad exercises + {arena.count} Arena problems + {problems.length}{" "}
-            quick-practice exercises. {corpusProblems.length} olympiad exercises
+            {catalog.length} olympiad exercises + {arenaProblems.length} Arena problems + {practice.length}{" "}
+            quick-practice exercises. {guided.length} olympiad exercises
             also include a guided breakdown.
           </p>
           <p className="text-sm text-muted-foreground">
@@ -47,12 +52,12 @@ export function ArchiveStats() {
           className="flex shrink-0 flex-wrap gap-2"
           aria-label="Archive by competition"
         >
-          <Badge variant="secondary">Arena · {arena.count}</Badge>
+          <Badge variant="secondary">Arena · {arenaProblems.length}</Badge>
           {competitions.map((competition) => (
             <Badge key={competition} variant={competitionVariants[competition]}>
               {competition} ·{" "}
               {
-                catalogProblems.filter(
+                catalog.filter(
                   (problem) => problem.competition === competition,
                 ).length
               }

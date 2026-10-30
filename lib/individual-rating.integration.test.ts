@@ -7,7 +7,7 @@ import { individualRatingEvents, individualRatings, problemRatings, solutionChec
 import { checkAndRateSubmission } from "./individual-rating-server";
 import type { SolutionSubmission } from "./solution-grading";
 
-test("live database: version gates, partial results, atomic Elo, repeat protection and per-user isolation", { skip: process.env.RUN_DATABASE_TESTS !== "1" }, async () => {
+test("live database: version gates, partial results, atomic ELO, repeat protection and per-user isolation", { skip: process.env.RUN_DATABASE_TESTS !== "1" }, async () => {
   const rollback = new Error("Verification transaction rollback");
   const userId = `verification-${randomUUID()}`;
   const otherUser = `verification-${randomUUID()}`;
@@ -22,7 +22,7 @@ test("live database: version gates, partial results, atomic Elo, repeat protecti
       assert.equal(checks.length, 0, "Stale source must not be graded");
       await checkAndRateSubmission(transaction, userId, randomUUID(), submission("A", "a=g*sin(theta)*2^(½)"));
       let events = await transaction.select().from(individualRatingEvents).where(eq(individualRatingEvents.userId, userId));
-      assert.equal(events.length, 0, "Partial problem must not award Elo");
+      assert.equal(events.length, 0, "Partial problem must not award ELO");
       await checkAndRateSubmission(transaction, userId, randomUUID(), submission("B", "-m*g"));
       events = await transaction.select().from(individualRatingEvents).where(eq(individualRatingEvents.userId, userId));
       assert.equal(events.length, 1);
@@ -30,7 +30,7 @@ test("live database: version gates, partial results, atomic Elo, repeat protecti
       assert.equal(events[0].afterRating, 1192);
       await checkAndRateSubmission(transaction, userId, randomUUID(), submission("B", "m*g"));
       const [account] = await transaction.select().from(individualRatings).where(eq(individualRatings.userId, userId));
-      assert.equal(account.rating, 1192, "Retries must not farm Elo");
+      assert.equal(account.rating, 1192, "Retries must not farm ELO");
       assert.equal(account.ratedAttempts, 1);
       const unrelated = await transaction.select().from(individualRatingEvents).where(and(eq(individualRatingEvents.userId, otherUser), eq(individualRatingEvents.problemId, problemId)));
       assert.equal(unrelated.length, 0);

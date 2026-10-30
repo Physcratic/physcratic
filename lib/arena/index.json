@@ -1,5 +1,12 @@
 {
   "collection": "Physcratic Arena",
+  "provenance": {
+    "sourceArchive": "Physcratic Arena Problems",
+    "representation": "Editable text and LaTeX; only original physics diagrams are images, not embedded PDFs.",
+    "qualifications": "Source assumptions and qualifications are preserved.",
+    "reviewStatus": "Independent physics review pending.",
+    "grading": "Unrated self-review; no marks or ELO awarded."
+  },
   "count": 18,
   "problems": [
     {

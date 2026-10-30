@@ -224,7 +224,7 @@ test("catalog search composes competition, year, concept and unrated filters", (
   assert.equal(filterCatalog({ difficulty: "unrated" }).length, 100);
 });
 
-test("catalog rejects unsafe URLs, inconsistent identity and invented Elo", () => {
+test("catalog rejects unsafe URLs, inconsistent identity and invented ELO", () => {
   const source = catalogProblems[0];
   for (const change of [
     { statementUrl: "javascript:alert(1)" },

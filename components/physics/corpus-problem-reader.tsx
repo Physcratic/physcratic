@@ -205,7 +205,7 @@ export function CorpusProblemReader({
                 id="corpus-working"
                 value={notes[taskKey] ?? ""}
                 onChange={(value) => onNotesChange(taskKey, value)}
-                description="Use Save subpart progress below to keep your notes and self-review mark in your private account. Unsaved edits are lost on leaving or refresh. No marks or Elo are awarded."
+                description="Use Save subpart progress below to keep your notes and self-review mark in your private account. Unsaved edits are lost on leaving or refresh. No marks or ELO are awarded."
               />
               <details
                 key={taskKey}
@@ -323,7 +323,7 @@ export function CorpusProblemReader({
         <AlertTitle>Learning, not a rating event</AlertTitle>
         <AlertDescription>
           Reviews are your own learning notes. This pilot has no contest
-          submissions, automatic full-problem judging, or Elo changes.
+          submissions, automatic full-problem judging, or ELO changes.
         </AlertDescription>
       </Alert>
     </section>

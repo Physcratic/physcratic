@@ -155,7 +155,7 @@ export const corpusPilot = {
     rated: false,
     elo: null,
     notes:
-      "No automatic correctness, accepted-solution, leaderboard, or Elo claims. Existing isolated calculator adaptations are not full-problem judges.",
+      "No automatic correctness, accepted-solution, leaderboard, or ELO claims. Existing isolated calculator adaptations are not full-problem judges.",
   },
   review: {
     status: "cofounder-review-pending",

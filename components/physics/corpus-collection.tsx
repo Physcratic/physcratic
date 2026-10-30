@@ -238,7 +238,7 @@ export function CorpusCollection({
                 <EmptyTitle>No pilot problems match</EmptyTitle>
                 <EmptyDescription>
                   {difficulty !== "all" && difficulty !== "unrated"
-                    ? "These source problems have no calibrated Elo yet. Select Unrated or All ratings."
+                    ? "These source problems have no calibrated ELO yet. Select Unrated or All ratings."
                     : "Try another year, topic, title, or concept."}
                 </EmptyDescription>
               </EmptyHeader>

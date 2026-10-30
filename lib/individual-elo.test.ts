@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { calculateIndividualElo, completeProblemScore, problemAnswerChecksSchema } from "./individual-elo";
 
-test("standard Elo supports wins, losses and fractional credit", () => {
+test("standard ELO supports wins, losses and fractional credit", () => {
   assert.equal(calculateIndividualElo(1200, 1200, 1).rating, 1216);
   assert.equal(calculateIndividualElo(1200, 1200, 0).rating, 1184);
   assert.equal(calculateIndividualElo(1200, 1200, 0.5).change, 0);
