@@ -24,7 +24,7 @@ figures = [
     ("the-string-that-answered-back-solution-b", "01_The_String_That_Answered_Back_Solution.pdf", 2, (135, 312, 450, 428)),
     ("the-clock-in-the-racing-mirror-statement", "02_The_Clock_in_the_Racing_Mirror_Problem.pdf", 1, (145, 150, 470, 247)),
     ("the-clock-in-the-racing-mirror-solution", "02_The_Clock_in_the_Racing_Mirror_Solution.pdf", 2, (155, 145, 455, 248)),
-    ("the-dodecahedron-conspiracy-statement", "02_The_Dodecahedron_Conspiracy_Problem.pdf", 1, (185, 140, 375, 310)),
+    ("the-dodecahedron-conspiracy-statement", "02_The_Dodecahedron_Conspiracy_Problem.pdf", 1, (185, 140, 375, 300)),
     ("the-dodecahedron-conspiracy-solution", "02_The_Dodecahedron_Conspiracy_Solution.pdf", 1, (230, 145, 365, 275)),
     ("the-quantum-escape-room-statement", "02_The_Quantum_Escape_Room_Problem.pdf", 1, (210, 265, 375, 380)),
     ("the-quantum-escape-room-solution", "02_The_Quantum_Escape_Room_Solution.pdf", 2, (210, 232, 395, 354)),
