@@ -2,8 +2,9 @@
 
 - Updated: 2026-10-31 (Asia/Makassar). Phase 2 ONLY; phases 0/1 merged.
 - Fresh fetched base: `365eb62a47116e710723418d0b8e6148ce8ccd7b`, squash merge of PR #6 with reviewed UUID/sealing/timestamp fixes.
-- Branch: `codex/problem-authoring-phase-2`; implementation SHA is the commit containing this file (git log -1).
-- Delivery: dedicated branch commit/push pending final verification; prior GitHub API Forbidden means compare URL is supported fallback.
+- Branch: `codex/problem-authoring-phase-2`; implementation commit `1e6ef0e`; delivery update HEAD via git log -1.
+- Delivery: branch pushed and remote SHA verified; compare URL supplied instead of automated PR (prior GitHub API Forbidden).
+- Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-2?expand=1
 - Read WORK_STATUS/map/status first; no AGENTS.md. Only authored schema/contracts, auth/origin/request helpers and DB dependencies inspected; no repeated audit.
 
 ## Completed phases and Phase 2 changes

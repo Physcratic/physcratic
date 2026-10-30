@@ -11,6 +11,6 @@
 - TypeScript PASS. Inherited lint failure (eslint absent) and build blocker (Google Fonts download) reproduced unchanged.
 - Independent adversarial security review: no confirmed blocking issues. Auth session injection tested; live Better Auth/browser staging flow not exercised.
 - Test script creates/removes local PostgreSQL17 only; no ambient DATABASE_URL, production migration or production data operations.
-- Delivery: branch commit/push pending; draft PR or compare URL after push. Commit containing this file is implementation SHA.
+- Delivery: implementation 1e6ef0e pushed; delivery update on same branch. Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-2?expand=1
 - No editor UI, uploads, CAS, comments/stars, production merge or deployment. Phase 3 unstarted.
 - Next: user reviews/merges Phase 2, then separately requests Phase 3 from fresh main; read handoffs and only affected code.
