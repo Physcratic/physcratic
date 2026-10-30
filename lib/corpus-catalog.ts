@@ -22,13 +22,14 @@ const catalogSourceSchema = z.object({
     httpsUrl,
     z.string().regex(/^\/ipho\/\d{4}-t[123]-solutions\.pdf$/),
   ]),
-  sourceHost: z.enum(["eupho.ee", "ipho-new.org", "ipho2025.fr", "pho.rs"]),
+  sourceHost: z.enum(["eupho.ee", "ipho-new.org", "ipho2025.fr", "pho.rs", "olimpicos.net"]),
   language: z.enum(["en", "ru"]),
   sourceKind: z.enum([
     "official-pdf",
     "official-bundle",
     "imported-official",
     "mirror",
+    "english-archive",
   ]),
   discoveryUrl: httpsUrl,
 });
@@ -54,7 +55,7 @@ export const catalogProblemSchema = catalogSourceSchema
     hasPilotGuide: z.boolean(),
     importPath: z
       .string()
-      .regex(/^\/corpus\/problems\/(ipho|apho|eupho)-\d{4}-t\d+\.json$/),
+      .regex(/^\/corpus\/(?:problems|english-problems)\/(ipho|apho|eupho)-\d{4}-t\d+\.json$/),
     importLanguage: z.enum(["en", "ru"]),
     attribution: z.string().min(20),
     reviewStatus: z.literal("independent-review-pending"),
@@ -147,7 +148,7 @@ export const catalogProblems: CatalogProblem[] = (
       hasPilotGuide: Boolean(imported),
       importPath: document.path,
       importLanguage: document.language,
-      attribution: `${competition} ${year}, theoretical problem ${code}. Original problem credited to the competition organisers. ${source.sourceKind === "mirror" ? "Russian statement and solution hosted by pho.rs. Translation and solution authorship require review." : "Linked from the competition’s source archive. See the original documents for contributor credits."}`,
+      attribution: `${competition} ${year}, theoretical problem ${code}. Original problem credited to the competition organisers. ${source.sourceKind === "english-archive" ? "Original English Problem and Solution PDFs collected by Olimpicos from competition sources. See the PDFs for contributor credits. No public-domain license is inferred." : source.sourceKind === "mirror" ? "Russian statement and solution hosted by pho.rs. Translation and solution authorship require review." : "Linked from the competition’s source archive. See the original documents for contributor credits."}`,
       reviewStatus: "independent-review-pending",
       rightsStatus: "permission-review-required",
       rating: { status: "unrated", elo: null },
@@ -222,7 +223,7 @@ export const catalogExport = {
   checkedOn: sources.checkedOn,
   verification: sources.verification,
   notes:
-    "100 distinct imported theory statements: 40 IPhO, 35 APhO, 25 EuPhO. Local source JSON, diagrams, PDF layouts and shared material are retained. Some imported mirror solution pages contain only repeated questions, not worked derivations. See the solution-readiness audit. English drafts are stored separately and retain original source hashes. Includes the original five structured pilot guides. No imported source is an approved grading rubric. Independent physics, translation and rights reviews remain pending.",
+    "100 distinct imported theory statements: 40 IPhO, 35 APhO, 25 EuPhO. IPhO and APhO use the original English Problem and Solution PDFs linked by Olimpicos, not LaTeX transcriptions or Russian mirrors. Legacy mirror sources and translation drafts are retained only for historical provenance. Includes the original five structured pilot guides. No imported PDF is automatically an approved grading rubric. Independent physics and rights reviews remain pending.",
   publication: {
     mode: "imported-local-corpus",
     rightsStatus: "permission-review-required",

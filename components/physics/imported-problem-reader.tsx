@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import Image from "next/image";
+import dynamic from "next/dynamic";
 import useSWRImmutable from "swr/immutable";
 import {
   ArrowLeft,
@@ -42,6 +42,11 @@ import { assessSolutionSource } from "@/lib/corpus-readiness";
 import { ImportedSourceContent } from "./imported-source-content";
 import { SolutionSubmissionForm } from "./solution-submission-form";
 
+const PdfPageViewer = dynamic(() => import("./pdf-page-viewer"), {
+  ssr: false,
+  loading: () => <Skeleton className="h-96 w-full" />,
+});
+
 async function loadProblem(url: string) {
   const response = await fetch(url);
   if (!response.ok)
@@ -64,16 +69,15 @@ function PdfReader({
 }) {
   const topId = useId();
   const [page, setPage] = useState(
-    Math.min(document.initialPage, document.pages.length),
+    Math.min(document.initialPage, document.sourcePages.length),
   );
-  const image = document.pages[page - 1];
-  const [failedImage, setFailedImage] = useState<string | null>(null);
   function changePage(next: number) {
     setPage(next);
     window.document.getElementById(topId)?.scrollIntoView({ block: "start" });
   }
   return (
     <div className="flex min-w-0 flex-col gap-4" id={topId}>
+      {document.textExtraction === "image-only" && <p className="text-sm leading-relaxed text-muted-foreground">This original PDF contains scanned pages. Search and screen-reader text may not be available.</p>}
       {document.shared && (
         <p className="text-sm leading-relaxed text-muted-foreground">
           This original document contains several problems. Locate the problem
@@ -103,9 +107,9 @@ function PdfReader({
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                {document.pages.map((_, index) => (
+                {document.sourcePages.map((_, index) => (
                   <SelectItem key={index} value={String(index + 1)}>
-                    Page {index + 1} of {document.pages.length}
+                    Page {index + 1} of {document.sourcePages.length}
                   </SelectItem>
                 ))}
               </SelectGroup>
@@ -115,63 +119,26 @@ function PdfReader({
             variant="outline"
             size="icon"
             aria-label={`Next ${label} page`}
-            disabled={page === document.pages.length}
+            disabled={page === document.sourcePages.length}
             onClick={() => changePage(page + 1)}
           >
             <ArrowRight />
           </Button>
         </div>
-        <Button variant="outline" size="sm" asChild>
-          <a href={document.pdf} download>
-            <Download data-icon="inline-start" /> Download local PDF
-          </a>
-        </Button>
+        <div className="flex flex-wrap gap-2">
+          <Button variant="outline" size="sm" asChild>
+            <a href={`${document.pdf}#page=${page}`} target="_blank" rel="noopener noreferrer">
+              <ArrowUpRight data-icon="inline-start" /> Open PDF
+            </a>
+          </Button>
+          <Button variant="outline" size="sm" asChild>
+            <a href={document.pdf} download>
+              <Download data-icon="inline-start" /> Download PDF
+            </a>
+          </Button>
+        </div>
       </nav>
-      <figure className="min-w-0 overflow-hidden rounded-lg border border-border">
-        {failedImage === image.src ? (
-          <Alert>
-            <AlertTitle>Page image could not load</AlertTitle>
-            <AlertDescription>
-              The complete imported PDF is still available using the download
-              button above.
-            </AlertDescription>
-          </Alert>
-        ) : (
-          <a
-            href={image.src}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Enlarge ${label}, page ${page}`}
-          >
-            <Image
-              src={image.src}
-              alt={`${label}, page ${page} of ${document.pages.length}. Original equations, diagrams and tables. Selectable text is available below.`}
-              width={image.width}
-              height={image.height}
-              unoptimized
-              className="h-auto w-full"
-              onError={() => setFailedImage(image.src)}
-            />
-          </a>
-        )}
-        <figcaption className="px-4 py-3 text-sm leading-relaxed text-muted-foreground">
-          {label} · Page {page} of {document.pages.length} · Original layout ·
-          Click to enlarge
-        </figcaption>
-      </figure>
-      <details className="rounded-lg border border-border px-4 py-3">
-        <summary className="cursor-pointer text-sm font-medium">
-          Selectable source text
-        </summary>
-        <p className="py-3 text-sm leading-relaxed text-muted-foreground">
-          Extracted from the original PDF for searching and accessibility.
-          Formula positioning may differ. Use the original page for
-          authoritative notation.
-        </p>
-        <pre className="whitespace-pre-wrap break-words font-sans text-sm leading-relaxed">
-          {document.text}
-        </pre>
-      </details>
+      <PdfPageViewer file={document.pdf} page={page} label={`${label}, page ${page}`} />
       {"appendix" in document && document.appendix && (
         <details className="rounded-lg border border-border px-4 py-3">
           <summary className="cursor-pointer text-sm font-medium">
@@ -193,17 +160,17 @@ export function ImportedProblemReader({
 }: {
   problem: CatalogProblem;
   onBack: () => void;
-  onOpenPilot: (id: string) => void;
+  onOpenPilot?: (id: string) => void;
 }) {
   const { data, error, isLoading, mutate } = useSWRImmutable(
-    `/corpus/problems/${problem.id}.json`,
+    problem.importPath,
     loadProblem,
   );
   const [tab, setTab] = useState("statement");
   const [language, setLanguage] = useState("en");
-  const translationRecord = translationIndex.records.find(
+  const translationRecord = problem.importLanguage === "ru" ? translationIndex.records.find(
     (record) => record.id === problem.id,
-  );
+  ) : undefined;
   const {
     data: english,
     error: translationError,
@@ -226,7 +193,7 @@ export function ImportedProblemReader({
         <Button variant="ghost" onClick={onBack}>
           <ArrowLeft data-icon="inline-start" /> Back to all 100 problems
         </Button>
-        {problem.hasPilotGuide && (
+        {problem.hasPilotGuide && onOpenPilot && (
           <Button
             variant="outline"
             size="sm"
@@ -434,7 +401,7 @@ export function ImportedProblemReader({
         <div className="flex flex-col gap-3 pt-4 text-sm leading-relaxed text-muted-foreground">
           <p>{problem.attribution}</p>
           <p>
-            Imported 28 October 2026. Source credits are retained. Importing
+            Imported {data?.importedOn ?? "2026-10-31"}. Source credits are retained. Importing
             does not establish republication permission. Rights review and
             independent physics review are pending.
           </p>

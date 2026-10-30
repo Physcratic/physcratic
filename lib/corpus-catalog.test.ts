@@ -194,7 +194,7 @@ test("every external statement and solution has recorded successful URL verifica
         );
       else assert.ok(verified.has(url), `${problem.id}: ${url}`);
     }
-    assert.equal(problem.checkedOn, "2026-10-28");
+    assert.equal(problem.checkedOn, problem.sourceKind === "english-archive" ? "2026-10-31" : "2026-10-28");
     if (problem.sourceKind === "official-bundle") {
       assert.equal(problem.statementUrl, problem.solutionUrl);
       assert.match(

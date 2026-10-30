@@ -32,8 +32,8 @@ test("every one of the 100 catalog problems has complete local statement and sol
           readLocal(document.pdf).subarray(0, 5).toString(),
           "%PDF-",
         );
-        assert.equal(document.pages.length, document.sourcePages.length);
-        assert.ok(document.initialPage <= document.pages.length);
+        if (document.pages.length) assert.equal(document.pages.length, document.sourcePages.length);
+        assert.ok(document.initialPage <= document.sourcePages.length);
         if (document.appendix) {
           assert.equal(
             readLocal(document.appendix.pdf).subarray(0, 5).toString(),
@@ -103,23 +103,27 @@ test("2019 official solutions are split by the actual solution code, not the rep
   ] as const) {
     const solution = content.find((problem) => problem.id === id)!.solution;
     assert.equal(solution.format, "pdf");
-    if (solution.format === "pdf") assert.equal(solution.pages.length, pages);
+    if (solution.format === "pdf") assert.equal(solution.sourcePages.length, pages);
   }
 });
 
-test("the complete 2016 mechanics problem includes both mirror sections and source credits", () => {
-  const problem = content.find((record) => record.id === "ipho-2016-t1")!;
-  assert.equal(problem.language, "ru");
-  assert.equal(problem.sources[0].urls?.length, 2);
-  assert.equal(problem.sources[1].urls?.length, 2);
-  assert.ok(problem.statement.text.includes("диск"));
-  assert.ok(problem.statement.text.includes("станци"));
+test("all 75 IPhO and APhO imports use original English problem and solution PDFs", () => {
+  const originals = content.filter((record) => /^(ipho|apho)-/.test(record.id));
+  assert.equal(originals.length, 75);
+  for (const problem of originals) {
+    assert.equal(problem.language, "en", problem.id);
+    assert.equal(problem.statement.format, "pdf", problem.id);
+    assert.equal(problem.solution.format, "pdf", problem.id);
+    for (const source of problem.sources) {
+      assert.match(source.url, /^https:\/\/olimpicos\.net\/files\/(ipho|apho)\//);
+      assert.doesNotMatch(source.url, /_tex\.pdf$/);
+      assert.ok(source.note?.includes("Original English"));
+    }
+  }
 });
 
 test("imported source schemas reject executable markup and remote image references", () => {
-  const source = content.find(
-    (problem) => problem.statement.format === "html",
-  )!;
+  const source = importedProblemSchema.parse(JSON.parse(readLocal("/corpus/problems/apho-2014-t2.json").toString()));
   for (const node of [
     { type: "element", tag: "script", children: [] },
     {
