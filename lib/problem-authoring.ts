@@ -94,13 +94,18 @@ export function normalizeAuthoredRevisionRow(input: unknown) {
   }).parse(input);
 }
 
+export function publicAuthoredContent(input: unknown) {
+  const content = authoredDocumentSchema.parse(input);
+  return { ...content, attachments: content.attachments.filter(a => a.purpose !== "solution-pdf") };
+}
+
 // Serialization is not authorization: callers must establish published visibility first.
 // Explicit mapping: even an over-fetched row must never forward private fields or solution attachments.
 export function publicAuthoredRevision(input: unknown) {
   const row = normalizeAuthoredRevisionRow(input);
-  const content = authoredDocumentSchema.parse(row.content);
+  const content = publicAuthoredContent(row.content);
   return { id: row.id, problemId: row.problemId, number: row.number, schemaVersion: row.schemaVersion,
-    publishedAt: row.publishedAt, content: { ...content, attachments: content.attachments.filter(a => a.purpose !== "solution-pdf") } };
+    publishedAt: row.publishedAt, content };
 }
 export type AuthoredDocument = z.infer<typeof authoredDocumentSchema>;
 export type PrivatePart = z.infer<typeof privatePartSchema>;

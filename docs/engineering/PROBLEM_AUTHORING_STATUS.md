@@ -1,63 +1,64 @@
 # Problem authoring implementation status
 
-- Updated: 2026-10-31 (Asia/Makassar). Phase 1 only; Phase 0 merged by user.
-- Verified merged main / starting HEAD: `ecee0baa8d56408f9fc9bd22c156a4feac7b8ecb`.
-- Branch: `codex/problem-authoring-phase-1`; initial implementation `008c377`; review-fix commit is the commit containing this update (git log -1).
-- Delivery: branch pushed successfully; gh pr create --draft failed with GitHub API Forbidden. No PR exists from this session.
-- Read map/status/WORK_STATUS first; no AGENTS.md found. Only schema/contracts/direct dependencies inspected; no repeated repository audit.
+- Updated: 2026-10-31 (Asia/Makassar). Phase 2 ONLY; phases 0/1 merged.
+- Latest fetched/reconciled main: `e4fbc88264a2c4280e6077f31346c06722fce6c4`, Phase 1 recovery PR #12, retaining reviewed UUID/sealing/timestamp fixes.
+- Branch: existing `codex/problem-authoring-phase-2`; original implementation `1e6ef0e`; prior tip `712400c`; reconciliation commit via git log -1.
+- Delivery: branch pushed and remote SHA verified; compare URL supplied instead of automated PR (prior GitHub API Forbidden).
+- Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-2?expand=1
+- Read WORK_STATUS/map/status first; no AGENTS.md. Only authored schema/contracts, auth/origin/request helpers and DB dependencies inspected; no repeated audit.
 
-## Completed Phase 1
-- lib/problem-authoring.ts: bounded strict Zod contracts/inferred types for native ordered content, problems, drafts, revisions and private keys.
-- Drafts permit incomplete keys/rights; publishable contract requires native content, parts, rights and matching key/manual mode per part.
-- Unique section/part/block IDs, bounded tags/media references, finite numeric/tolerance values and declared expression variable domains.
-- Explicit public revision mapper discards extra private row fields and solution-PDF references; strict nested content rejects injected key fields.
-- lib/db/schema.ts: additive authored problem/draft/revision, separate draft/revision private parts and stable relational revision-part identities.
-- Owner FK, unique slug/revision numbers, composite same-problem revision pointer, key/mode/part FKs, indexes and identity/version checks.
-- migrations/0001_problem_authoring.{up,down,test}.sql: immutable published revisions/keys/parts; exact document/part map; deferred completeness and same-transaction sealing.
-- migrations/README.md: explicit migration/checksum-ledger procedure, publication insert order and destructive-rollback restrictions.
-- SQL is authoritative for deferred constraints/triggers beyond Drizzle declarations; do not use Drizzle schema push.
-- Existing schema tables, archive/practice contracts, auth, dependencies and lockfile unchanged.
-- Author media storage remains Phase 4; typed media references only here. No stars/comments tables until Phase 7.
-- No APIs, UI, upload processing, CAS evaluation, authorization endpoints or production DB operations added.
+## Completed phases and Phase 2 changes
+- Phase 1 contracts/schema preserved: normalized UUIDs, separate private draft/revision keys, immutable revisions, exact document/part map and Date-to-ISO serialization.
+- lib/problem-authoring-api.ts: injectable server HTTP boundary backed by existing pg Pool and parameterized SQL; production adapter uses existing Better Auth session/origin helpers.
+- app/api/authored-problems: verified-owner create/list/read/update/delete drafts; solver-shaped owner-only preview; atomic publish/unpublish; anonymous published reader.
+- Owner checks in every private query; unknown/cross-owner IDs return 404. Missing session 401, unverified 403, stale version 409.
+- Strict request contracts reject identity/counter/unknown fields; UUID normalization reused; writes bounded to 2 MB actual bytes and 15 s request deadline.
+- Same-origin write checks; persistent 60 writes/minute/user; max 100 retained problems/author. List metadata has stable UUID cursor, max 50.
+- migrations/0002_authored_write_limit up/down and Drizzle declaration: bounded per-user fixed-minute counters, atomic across instances. No new package/dependency.
+- Problem+draft row locks serialize saves/publication/deletion and keep private read snapshots consistent. All mutations require expected draft version.
+- Publish/unpublish increment draft version; same-version concurrent actions cannot publish duplicate revisions or overwrite each other.
+- Publication transaction inserts parts/private keys before revision sealing, then pointer/version, then COMMIT; no nested transactions/savepoints, preserving xmin invariants.
+- Validates rights/provenance, native statement, part/key alignment and explicit manual mode from stored snapshot before publication.
+- Private keys/hints/solutions remain separate DB rows; public query loads only published statement revision, never private tables. Preview owner-only, content allowlisted.
+- Extracted shared publicAuthoredContent serializer without changing public revision shape. Authorization stays in handlers, not serializer.
+- All media refs including private solution/hint images rejected until Phase 4 supplies ownership registry. No unsafe reuse of solver evidence uploads.
+- Delete requires unpublish first if currently public; removes working draft, preserves immutable history/stable archived problem; never-published metadata can be deleted.
+- Existing archive/practice/auth code, schema contracts and package/lockfile unchanged. No UI/editor, grader, upload/social feature or production data changes.
 
-## Verification: regressions versus baseline
-- Before editing: unchanged merged-main full suite 93/94 passed, reproducing protected editorial draft translation punctuation mismatch at lib/corpus-translation.test.ts:66.
-- New targeted contracts: 13/13 PASS, including review regressions for UUID normalization and Drizzle Date serialization.
-- After review fixes: full suite 106/107 passed; ONLY the same pre-existing translation assertion fails. No new test failures.
+## Verification and inherited blockers
+- Targeted: `bash scripts/test-problem-authoring.sh` PASS 10/10 (parent + 9 integration cases), PostgreSQL17 disposable local container, no ambient DATABASE_URL.
+- Integration: all private actions missing/unverified denial; owner CRUD/list/preview; IDOR; stale/concurrent saves; concurrent publish and publish/update race; invalid rights/statements/keys; no public draft/key/solution leakage; media/origin/type/size/limiter checks.
+- Original Phase 1 SQL constraint/sealing regressions also executed on disposable DB. 0002 down/up preserves revision history and verifies user FK.
+- Full tests with integration enabled: 116/117 PASS; ONLY inherited lib/corpus-translation.test.ts:66 punctuation mismatch fails (same pre-Phase-2 baseline 106/107).
 - TypeScript `pnpm exec tsc --noEmit`: PASS.
-- `pnpm lint`: same baseline failure, eslint executable/dependency/config absent.
-- `pnpm build`: same baseline blocker, app/layout.tsx next/font cannot fetch Inter from fonts.googleapis.com.
-- PostgreSQL 17 disposable container: migration up/constraint tests/down/up PASS; pre-existing user survives. No ambient DATABASE_URL used.
-- Existing pnpm 10.20.0 installation reused; no package/lockfile changes. Default pnpm 11 override mismatch remains outside scope.
-- Commands used session-local pnpm executable via node /tmp/physcratic-npm/_npx/fed63785a0df9524/node_modules/pnpm/bin/pnpm.cjs.
-- Review logs: /tmp/physcratic-p1-review-{targeted,final,0,1,2,3}.log (session-local); final TypeScript rerun exit 0.
+- `pnpm lint`: inherited failure, eslint executable/dependency/config absent.
+- `pnpm build`: inherited blocker, app/layout.tsx next/font cannot fetch Inter from fonts.googleapis.com.
+- `git diff --check`: PASS; map <=120/status <=100/WORK_STATUS <100 lines; local links checked.
+- Existing pnpm10.20.0 installation reused via /tmp/physcratic-npm/_npx/fed63785a0df9524/node_modules/pnpm/bin/pnpm.cjs; no dependency changes.
+- Full command: bash scripts/test-problem-authoring.sh node /tmp/physcratic-npm/_npx/fed63785a0df9524/node_modules/pnpm/bin/pnpm.cjs test.
+- Logs: /tmp/physcratic-p2-full.log and /tmp/physcratic-p2-check-{0,1,2}.log (session-local). All test containers cleaned by trap.
 
-## Independent critic / decisions
-- Independent schema/security and contract review performed as required by the playbook; root separately reviewed schema SQL/constraints.
-- Fixed NULL-passing JSON identity checks with IS TRUE; fixed concurrent late-child insertion via shared advisory locks and deferred same-inserting-transaction checks.
-- Published state requires revision pointer; archived may retain prior pointer, but public-state authorization belongs to Phase 2.
-- Keys are separate private rows. Public mapper is not authorization: caller must prove published visibility before serializing.
-- Full JSON semantics/ownership/email verification remain mandatory service checks in Phase 2; SQL does not replace Zod/auth.
-- Expression AST/equivalence/resource limits are Phase 5; contracts do not evaluate or claim mathematical validity.
-- Publication assembly requires deferred FK transaction and documented insert order; no separate savepoints for revision/children due xmin identity checks.
-- Trusted application DB role only; no generic public SQL/RLS exposure. Media authorization and private/public asset lifecycle are Phase 4.
-- Runtime model selection is not exposed; no model switch claimed. Later phases retain playbook model/testing/review requirements.
+## Independent security review / limitations
+- Independent read-only adversarial reviewer found no confirmed blocking issues; root reviewed diff and transaction/visibility contracts separately.
+- Reviewed verified/owner authorization, origins, actual payload limits, persistent rate budget, parameterization, race behavior, key isolation/media denial and COMMIT/rollback.
+- Publication ordering/advisory locks/xmin checks/immutable history unchanged. No migrations run at app startup/build.
+- Tests inject sessions into production handler factory and use real PostgreSQL; they do not exercise live Better Auth/browser/staging flow. Existing auth code unchanged.
+- Public GET is published-only and private/no-store; owner preview is NOT a public draft URL. Old history is retained but no old-revision public route added.
+- Expression keys get Phase 1 structural validation only; CAS/AST/equivalence/resource enforcement remains Phase 5. No grading certainty claimed.
+- No runtime model switch control; playbook high-effort review/test requirements retained. No production readiness claim with inherited blockers.
 
-## Phase 1 review corrections (same branch)
-- Shared Zod UUID normalization lowercases before uniqueness/reference refinements; parsed persistence payloads now match PostgreSQL UUID text semantics.
-- Regressions cover mixed-case duplicate IDs/private references/media refs, uppercase references and private-part JSON/PostgreSQL round trips.
-- Corrected existing, unapplied 0001 migration: canonical document IDs must be unique, with exact ID/mode pairs compared both directions using EXCEPT.
-- SQL regressions reject [A,A] vs {A,B}, mixed-case duplicates, missing/extra parts, missing IDs/modes and mode mismatch; reordered exact maps still commit.
-- Explicit row adapter accepts valid Drizzle Date timestamps and prior ISO strings; public output remains ISO strings with private fields/solution PDFs filtered.
-- Authorization remains separate: callers must establish published visibility before serialization. No public routes added.
-- Disposable PostgreSQL17 up/all constraints/down/up PASS, preserved user count 1; container removed. No production DB used.
-- Adversarial critic: no blockers; xmin checks, advisory locks, immutable triggers, insertion order and rollback semantics unchanged.
-- TypeScript test-fixture typing failure corrected; final typecheck PASS. Existing lint/build blockers reproduced unchanged.
+## Recovery reconciliation (2026-10-31)
+- Merged latest main into existing Phase 2 without rebasing/force push. No conflicts and no runtime implementation changes; both histories preserved.
+- Phase 1 migrations/tests exactly match recovered main; Phase 2 code matches prior tip 712400c. Unrelated auth/packages and signup CAPTCHA removal match main.
+- Re-ran Phase 1 targeted 13/13 PASS, route typegen/TypeScript PASS, PostgreSQL integration 10/10 PASS and full suite 116/117 (only inherited translation failure).
+- Re-ran lint/build: same missing eslint and unavailable Google Inter font blockers. No new failures.
+- Fresh independent read-only security review: no confirmed blockers in verified/owner auth, origin/limits, row-lock/version races, immutable publication and public key isolation.
+- Logs: /tmp/physcratic-p2-reconcile-{full,lint,build}.log; disposable PostgreSQL containers cleaned by test script; no production DB used.
+- Application source unchanged by reconciliation; only handoffs updated alongside merge history. Phase 3 remains unstarted.
 
 ## Exact next task
-- Finish delivery/review of Phase 1 only; if GitHub API remains blocked, create draft PR when authorized access is available.
-- After user merges Phase 1 and explicitly requests continuation: Phase 2 only, from freshly fetched merged main (Sol High per playbook).
-- Read these handoffs first; inspect authored contracts/schema and auth/origin/request helpers only as needed.
-- Implement verified-owner draft CRUD/list, optimistic saves, allowlisted preview, transactional publish/unpublish with rights/key/media/version validation.
-- Preserve immutable revision insertion contract and no key leaks; route integration tests for IDOR, unverified users, concurrency and failed publication.
-- No UI until Phase 3. Run targeted tests then required checks, independent security critic, update handoffs, commit/push/draft PR and stop.
+- Review/merge Phase 2 only by user; create draft PR via compare URL if GitHub API remains blocked. Do not auto-merge/deploy or run production migrations.
+- After merge and a separate user request: Phase 3 ONLY, from fresh merged main, read these handoffs before affected code.
+- Build native author editor using the documented draft APIs/version conflicts, private key panels and owner-only safe preview; no PDF import/media upload until Phase 4.
+- Preserve drafts on autosave errors/stale versions; support ordered sections/parts/text/math, accessible reorder and safe live math preview; evaluate editor libraries only if justified.
+- Run targeted + required checks, independent UI critic, update handoffs, commit/push/draft PR then stop.
