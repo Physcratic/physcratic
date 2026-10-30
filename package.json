@@ -9,7 +9,8 @@
     "test": "tsx --test lib/*.test.ts",
     "audit:catalog": "tsx scripts/audit-catalog-sources.ts",
     "translate:corpus": "tsx scripts/translate-corpus.ts",
-    "start": "next start"
+    "start": "next start",
+    "test:auth:pg": "NODE_ENV=production tsx --test lib/auth-rate-limit.pg.test.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

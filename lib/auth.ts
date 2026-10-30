@@ -41,6 +41,8 @@ export const auth = betterAuth({
   },
   rateLimit: {
     enabled: true,
+    // Apply migrations/20261031_auth_rate_limit.sql before deploying this version.
+    storage: "database",
     window: 60,
     max: 60,
     customRules: {

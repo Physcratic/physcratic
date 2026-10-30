@@ -47,7 +47,7 @@ This is a source audit; production settings, live DDL, and external edge control
 - `lib/submission-security.test.ts`: safe redirects/origins; `lib/submission-request.test.ts`: body limits/timeouts.
 - `lib/signup-captcha*.test.ts`: real Better Auth HTTP pipeline, memory DB, mocked Google/mail.
 - `lib/signup-policy.ts` shares unchanged production Terms hooks with those tests.
-- Live PostgreSQL/provider integration remains unverified.
+- Real PostgreSQL limiter tests: lib/auth-rate-limit.pg.test.ts; live provider/deployed DB parity unverified.
 
 ## Database invariants and migration status
 - `lib/db/schema.ts`: user id PK; email unique/not-null; emailVerified default false/not-null.
@@ -57,22 +57,23 @@ This is a source audit; production settings, live DDL, and external edge control
 - Session id PK, token unique/not-null, userId FK cascades on user deletion.
 - Account id PK, userId FK cascades; credential password is handled by Better Auth, not custom hashing.
 - Verification stores id/identifier/value/expiry; schema alone does not establish deployed token behavior.
-- No tracked SQL migrations, migration journal/config, or package migration command found.
+- migrations/20261031_auth_rate_limit.sql adds only the limiter table; no automatic migration runner.
+- Existing auth-table/Terms deployed DDL remains unverified; follow migrations/README.md schema-first rollout.
 - No deployed DDL snapshot was supplied; Terms-column existence/types and constraints are UNVERIFIED.
 - Missing deployed Terms columns could break signup; this is a conditional risk, not observed divergence.
 - Next DB task needs a redacted read-only schema export and migration history; do not run push/migrate on live DB.
 
 ## Security findings and insertion points
-- Confirmed: rate limits use process-local memory, not PostgreSQL merely because a Pool is configured.
+- Phase 3 explicitly sets rateLimit.storage=database using the existing pg Pool, without Redis/custom storage.
 - Evidence: locked Better Auth `dist/context/create-context.mjs` selects memory without explicit/secondary storage;
   `dist/api/rate-limiter/index.mjs` uses a module Map. Restarts/other instances do not share counters.
-- Config: 60 requests/60s global, sign-in 5/60s, signup and resend each 3/60s.
+- Config: per-path default 60/60s, sign-in 5/60s, signup/resend 3/60s; allowed requests move lastRequest.
 - Deployment-wide abuse exposure depends on unseen scaling/edge controls; none are assumed.
 - Signup uses Better Auth CAPTCHA plugin with Google v3; see [SIGNUP_CAPTCHA.md](SIGNUP_CAPTCHA.md).
 - Fresh token in x-captcha-response; server enforces signup only, score 0.5/action/hostname.
-- Sign-in/resend/recovery remain CAPTCHA-free in this phase; shared rate limits remain unresolved.
-- Smallest shared option: built-in database storage on existing PostgreSQL; migration/concurrency/IP
-  prerequisites documented in SIGNUP_CAPTCHA.md. Not activated against an unverified table.
+- Sign-in/resend/recovery remain CAPTCHA-free; shared storage implemented, schema-first deployment required.
+- Real isolated PG validates atomicity across two instances; deployment/IP/retention prerequisites
+  remain release gates in SIGNUP_CAPTCHA.md. No live database migration was performed.
 - No demonstrated Terms HTTP bypass: both hooks reject omission/stale version; valid programmatic consent is expected.
 - Nullable legacy fields and absence of reacceptance gating are not evidence of a signup bypass.
 - Integration tests must verify body parsing retains Terms fields and hooks persist authoritative audit values.
