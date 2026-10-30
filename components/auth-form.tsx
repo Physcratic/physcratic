@@ -1,5 +1,6 @@
 "use client";
 
+import { getSignupCaptchaToken } from "@/lib/signup-captcha-client";
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
@@ -17,6 +18,7 @@ import { VerificationNotice } from "@/components/verification-notice";
 export function AuthForm({ mode, returnTo, verified = false, verificationError = false }: { mode: "sign-in" | "sign-up"; returnTo: string; verified?: boolean; verificationError?: boolean }) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
+  const [checkingCaptcha, setCheckingCaptcha] = useState(false);
   const [error, setError] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [verificationEmail, setVerificationEmail] = useState<string | null>(null);
@@ -34,8 +36,15 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
     const credentials = { email: String(form.get("email")).trim(), password: String(form.get("password")) };
     const callbackURL = `/sign-in?verified=1&returnTo=${encodeURIComponent(returnTo)}`;
     try {
+      let captchaToken: string | undefined;
+      if (creating) {
+        setCheckingCaptcha(true);
+        try { captchaToken = await getSignupCaptchaToken(); }
+        catch { setError("Security check unavailable. Please check your connection and submit again to retry."); return; }
+        finally { setCheckingCaptcha(false); }
+      }
       const result = creating
-        ? await authClient.signUp.email({ ...credentials, name: String(form.get("name")).trim(), callbackURL }, { body: { termsAccepted, termsVersion: TERMS_VERSION } })
+        ? await authClient.signUp.email({ ...credentials, name: String(form.get("name")).trim(), callbackURL }, { body: { termsAccepted, termsVersion: TERMS_VERSION }, headers: { "x-captcha-response": captchaToken! } })
         : await authClient.signIn.email({ ...credentials, callbackURL });
       if (result.error) {
         if (creating && result.error.code === "TERMS_ACCEPTANCE_REQUIRED") {
@@ -46,7 +55,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
           setVerificationEmail(credentials.email);
           return;
         }
-        setError(creating ? "We could not create your account. Check your details or try signing in." : "Sign-in failed. Check your details and try again.");
+        setError(creating ? "We could not create your account or complete the security check. Submit again for a fresh check, or try signing in." : "Sign-in failed. Check your details and try again.");
         return;
       }
       if (creating) {
@@ -68,7 +77,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
         {verificationEmail !== null ? <VerificationNotice email={verificationEmail} returnTo={returnTo} onBack={() => setVerificationEmail(null)} /> : <Card>
           <CardHeader><CardTitle>{creating ? "Keep your working. Track your progress." : "Welcome back."}</CardTitle><CardDescription>{creating ? "Create an account to privately save your olympiad solutions." : "Sign in to return to your saved attempts."}</CardDescription></CardHeader>
           <CardContent>
-            <form id="account-form" onSubmit={submit} onKeyDown={(event) => {
+            <form id="account-form" aria-busy={busy} onSubmit={submit} onKeyDown={(event) => {
               if (event.key === "Enter" && (event.nativeEvent.isComposing || event.keyCode === 229)) event.preventDefault();
             }}>
               <fieldset disabled={busy}><FieldGroup>
@@ -89,6 +98,8 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
             </form>
           </CardContent>
           <CardFooter className="flex flex-col items-stretch gap-4">
+            {creating && <p role="status" aria-live="polite" className="text-sm text-muted-foreground">{checkingCaptcha ? "Running security check…" : busy ? "Creating account…" : "Submit to run a security check. If it fails, submit again to retry."}</p>}
+            {creating && <p className="text-xs text-muted-foreground">Protected by reCAPTCHA. Google <a href="https://policies.google.com/privacy" className="underline">Privacy Policy</a> and <a href="https://policies.google.com/terms" className="underline">Terms of Service</a> apply.</p>}
             <Button form="account-form" type="submit" disabled={busy}>{busy && <Loader2 data-icon="inline-start" className="animate-spin" />}{creating ? "Create account" : "Sign in"}</Button>
             <p className="text-center text-sm leading-relaxed text-muted-foreground">{creating ? "Already have an account? " : "New to Physcratic? "}<Link className="text-foreground underline underline-offset-4" href={`/${creating ? "sign-in" : "sign-up"}?returnTo=${encodeURIComponent(returnTo)}`}>{creating ? "Sign in" : "Create an account"}</Link></p>
             {!creating && <Button type="button" variant="ghost" disabled={busy} onClick={() => setVerificationEmail("")}>Need a verification email?</Button>}

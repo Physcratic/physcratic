@@ -1,41 +1,14 @@
+import { signupCaptcha } from "@/lib/signup-captcha";
 import { betterAuth } from "better-auth";
-import { APIError, createAuthMiddleware } from "better-auth/api";
 import { after } from "next/server";
 import { pool } from "@/lib/db";
 import { sendVerificationEmail } from "@/lib/verification-email";
-import { getTermsAcceptance } from "@/lib/terms";
+import { signupPolicy } from "@/lib/signup-policy";
 
 export const auth = betterAuth({
   database: pool,
-  user: {
-    additionalFields: {
-      termsAcceptedVersion: { type: "string", required: false, input: false },
-      termsAcceptedAt: { type: "date", required: false, input: false },
-    },
-  },
-  hooks: {
-    before: createAuthMiddleware(async (ctx) => {
-      if (ctx.path !== "/sign-up/email") return;
-      try {
-        getTermsAcceptance(ctx.body);
-      } catch {
-        throw new APIError("BAD_REQUEST", { code: "TERMS_ACCEPTANCE_REQUIRED", message: "Accept the current Terms of Service before creating an account." });
-      }
-    }),
-  },
-  databaseHooks: {
-    user: {
-      create: {
-        before: async (user, ctx) => {
-          try {
-            return { data: { ...user, ...getTermsAcceptance(ctx?.body) } };
-          } catch {
-            throw new APIError("BAD_REQUEST", { code: "TERMS_ACCEPTANCE_REQUIRED", message: "Accept the current Terms of Service before creating an account." });
-          }
-        },
-      },
-    },
-  },
+  plugins: [signupCaptcha()],
+  ...signupPolicy,
   baseURL:
     process.env.BETTER_AUTH_URL ??
     (process.env.VERCEL_PROJECT_PRODUCTION_URL
