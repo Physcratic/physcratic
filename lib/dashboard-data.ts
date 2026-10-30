@@ -1,0 +1,42 @@
+export interface PublishedContest {
+  id: string;
+  name: string;
+  description: string;
+  startsAt: string;
+  durationMinutes: number;
+  rated: boolean;
+  registrationOpen: boolean;
+  problemIds: string[];
+  creators: string[];
+  participants: number;
+  registered: boolean;
+}
+
+export interface RatingPoint {
+  rating: number;
+  change: number;
+  createdAt: string;
+  contestName: string;
+}
+
+export interface DashboardData {
+  user: { name: string } | null;
+  savedAttempts: number;
+  practiceAttempts: number;
+  solvedProblems: number;
+  ratings: RatingPoint[];
+  contests: PublishedContest[];
+}
+
+export interface PublicRanking {
+  handle: string;
+  rating: number;
+  change: number;
+  contests: number;
+  updatedAt: string;
+}
+
+export function contestStatus(contest: Pick<PublishedContest, "startsAt" | "durationMinutes">, now = Date.now()) {
+  const start = new Date(contest.startsAt).getTime();
+  return now < start ? "upcoming" : now < start + contest.durationMinutes * 60_000 ? "live" : "past";
+}
