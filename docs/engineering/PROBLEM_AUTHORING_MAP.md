@@ -9,7 +9,7 @@ Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspe
 - [Database](../../lib/db/index.ts): PostgreSQL Pool + Drizzle; trusted application role, not standalone RLS. Never expose raw authored/private tables.
 - [Schema](../../lib/db/schema.ts): authored tables isolated from user/session, practice_attempt, solution_attempt/evidence, archive and contest contracts.
 - Better Auth and [submission adapters](../../lib/submission-server.ts) provide session/configured origin; every author operation explicitly requires emailVerified === true.
-- Existing practice/archive/source resolver/grading/auth behavior and intentional signup CAPTCHA removal remain unchanged.
+- Legacy practice/archive/source resolver/grading behavior remains unchanged; Phase 3A restores reviewed signup CAPTCHA and shared auth limits.
 - Existing symbolic worker exposes expected answers for legacy preview only; never reuse it for authored server grading.
 - [Migrations](../../migrations/README.md): explicit, additive 0001/0002/0003; SQL authoritative for deferred FKs/triggers. No schema push/startup/build migration.
 

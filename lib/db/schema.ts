@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
 import type { AuthoredDocument, PrivatePart } from "@/lib/problem-authoring";
-import { check, foreignKey, index, type AnyPgColumn, boolean, date, doublePrecision, integer, jsonb, pgTable, primaryKey, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
+import { bigint, check, foreignKey, index, type AnyPgColumn, boolean, date, doublePrecision, integer, jsonb, pgTable, primaryKey, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
 import type { SolutionSubmission } from "@/lib/solution-grading";
 
 export const user = pgTable("user", {
@@ -240,3 +240,11 @@ export const authorRevisionMedia = pgTable(
     }),
   ],
 );
+
+// Better Auth supplies ids and millisecond timestamps; no relation to user acceptance records.
+export const authRateLimit = pgTable("rateLimit", {
+  id: text("id").primaryKey(),
+  key: text("key").notNull().unique(),
+  count: integer("count").notNull(),
+  lastRequest: bigint("lastRequest", { mode: "number" }).notNull(),
+}, (table) => [index("rateLimit_lastRequest_idx").on(table.lastRequest)]);

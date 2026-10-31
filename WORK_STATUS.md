@@ -16,3 +16,5 @@
 - Implementation 0b0f772 pushed; handoffs updated; final SHA via git log -1. Draft PR creation blocked by GitHub API Forbidden.
 - Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-5b
 - Next: user review Phase 5B only; stop. Phase 6 requires separate request, merged main and handoffs first.
+
+Phase 3A auth integration verification: see docs/engineering/INTEGRATION_STATUS.md.

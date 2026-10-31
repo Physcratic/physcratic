@@ -9,7 +9,8 @@
     "test": "tsx --conditions=react-server --test lib/*.test.ts",
     "audit:catalog": "tsx scripts/audit-catalog-sources.ts",
     "translate:corpus": "tsx scripts/translate-corpus.ts",
-    "start": "next start"
+    "start": "next start",
+    "test:auth:pg": "NODE_ENV=production tsx --test lib/auth-rate-limit.pg.test.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -89,6 +90,9 @@
     "postcss": "^8.5",
     "tailwindcss": "^3.4.17",
     "tsx": "^4.23.15",
-    "typescript": "^5"
+    "typescript": "^5",
+    "@next/eslint-plugin-next": "15.5.28",
+    "@typescript-eslint/parser": "^8.72.1",
+    "eslint": "^10.14.0"
   }
 }

@@ -49,3 +49,46 @@ The proxy serves statement assets only while the problem is published, bound to 
 Cleanup is owner-triggered, at most five objects per request. Ready unlinked objects wait 24 hours; pending/deleting objects wait one hour. Saved drafts and immutable historical bindings block retirement. Retirement marks the row first, deletes storage second and registry last; failures keep a retryable tombstone. Ambiguous recent PUT failures keep a tombstone for at least an hour and repeat deletion to catch late completion. Unsaved recovery references older than the grace period can require replacement; the UI warns before cleanup. Deleting the final orphan also removes an otherwise empty never-published problem, recovering its quota slot.
 
 Rollback application exposure first. `0003_author_media.down.sql` **refuses any nonempty media registry**; never delete registry/history while physical objects or published bindings exist. Empty-registry up/down/up, populated rollback refusal, legacy sealing SQL, exact missing/extra media bindings, failure cleanup and concurrency are covered by disposable PostgreSQL integration with memory storage. No production migration/storage operation is authorized here.
+
+## Restored authentication shared limiter
+
+### Auth rate-limit migration
+
+`20261031_auth_rate_limit.sql` is additive and reviewed against locked Better Auth 1.7.14:
+`better-auth/db.getAuthTables({rateLimit:{storage:'database'}})` and Kysely PostgreSQL adapter.
+Expected table is quoted `rateLimit`: adapter-generated text id PK, required unique text key,
+required integer count, required bigint lastRequest (epoch milliseconds). No user/Terms rows touched.
+Drizzle declaration mirrors the table for engineering visibility; Better Auth uses pg/Kysely directly.
+
+No migration runner executes this on startup/build/deploy. Do not run against a live database without
+separate authorization. First review existing schema: CREATE intentionally fails on a name collision.
+Use a reviewed database session and `psql --set ON_ERROR_STOP=1 --file migrations/20261031_auth_rate_limit.sql`
+with the connection selected externally, never paste credentials into history/logs. Transaction + bounded
+lock/statement timeout prevent partial table/index creation. Record migration hash/application in deployment records.
+
+Isolated verification: start disposable postgres:16 on loopback with a *_test database, then set ONLY
+AUTH_TEST_DATABASE_URL and run `pnpm test:auth:pg`. The test refuses non-loopback/non-*_test URLs,
+creates a random schema, applies this exact SQL, runs real concurrent HTTP requests and drops that schema.
+It never reads DATABASE_URL. Do not use an SSH tunnel to point this test at a live/staging database.
+Default `pnpm test` skips this suite without the explicit URL; a skip is not concurrency evidence.
+
+Rollout: inspect redacted deployed auth schema and backup/restore readiness; apply additive SQL to isolated
+staging, validate tests/permissions and full auth smoke, then separately authorize production schema-first
+rollout before deploying this code. Missing table/DB failure blocks auth rather than reverting to memory.
+App role needs SELECT/INSERT/UPDATE/DELETE on rateLimit; migration role needs DDL privileges.
+
+Rollback: restore prior application version FIRST while retaining this harmless additive table/index.
+Prior code returns to memory limits, which weakens global abuse protection: monitor or restrict registration
+until repaired. Never DROP/TRUNCATE while any instance uses DB storage, and never delete user/consent data.
+A future separately approved cleanup migration may remove the table only after all old deployments stop using it.
+Persisted keys contain normalized client IP/path; agree retention, access and cleanup before production.
+Built-in opportunistic pruning is not a TTL guarantee for one-off keys; see engineering release checklist.
+
+### Integration Preview scope (not verified)
+
+The source branch's staging configuration was scoped to `codex/auth-hardening`.
+Do not assume those database, origin, CAPTCHA or email allow-list overrides apply to
+`codex/integrate-auth-authoring-v1`. Inspect the actual Preview branch settings and
+confirm database isolation before any push-triggered Preview execution or smoke test.
+No migration or deployment is performed by this integration. Existing staging migrations
+must be inspected rather than reapplied; no production migration is authorized.
