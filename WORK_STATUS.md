@@ -12,5 +12,6 @@
 - Independent mathematical/security review complete: separate 10,000-case oracle agrees; no confirmed blockers.
 - Existing ESLint missing / Inter font build blockers documented Phase 4; unchanged. No UI/API/schema/migration/auth/media changes, no production data/storage actions.
 - Handoffs: docs/engineering/PROBLEM_AUTHORING_MAP.md and PROBLEM_AUTHORING_STATUS.md include policies, commands and future transport limits.
-- Delivery pending commit/push/draft PR attempt; final SHA via git log -1.
+- Implementation 56c5067 pushed; final handoff SHA via git log -1. Draft PR creation blocked by GitHub API Forbidden.
+- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-5a
 - Stop after Phase 5A. User review first; Phase 5B only after separate request/merge/fresh main. No merge or deployment.
