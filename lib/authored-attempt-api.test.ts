@@ -397,7 +397,11 @@ test(
           ).json();
           assert.equal(metadata.revisionId, r.id);
           assert.equal(metadata.limits.reveal, "disabled");
-          assert.equal(metadata.parts[0].attemptsUsed >= 0, true);
+          assert.match(metadata.parts[0].attemptsUsed, /^[0-9]+$/);
+          assert.equal(metadata.limits.attemptsPerPart, null);
+          assert.ok(
+            metadata.parts.every((p: any) => p.attemptsRemaining === null),
+          );
           assert.equal(
             metadata.links.submit,
             `/api/authored-problems/${d.problemId}/attempts`,
@@ -559,7 +563,7 @@ test(
         },
       );
       await t.test(
-        "persistent per-part and daily limits serialize across instances; POST exhaustion still permits own reads",
+        "unlimited per-part practice keeps sequential numbering, persistent daily/minute limits and own reads",
         async () => {
           const { student, d, r } = await setup(),
             second = createAuthoredAttemptApi(deps);
@@ -568,13 +572,17 @@ test(
               submit(student, d, r, input(d, r), i % 2 ? attempts : second),
             ),
           );
-          assert.equal(results.filter((x) => x.status === 201).length, 10);
-          assert.equal(results.filter((x) => x.status === 429).length, 2);
-          assert.equal(
-            results.find((x) => x.status === 429)?.headers.get("retry-after"),
-            null,
+          assert.equal(results.filter((x) => x.status === 201).length, 12);
+          const saved = await Promise.all(results.map((r) => r.json()));
+          assert.deepEqual(
+            saved
+              .map((r) => Number(r.attempt.attemptNumber))
+              .sort((a, b) => a - b),
+            Array.from({ length: 12 }, (_, i) => i + 1),
           );
-          assert.equal(await total(student), 10);
+          assert.equal(results.filter((x) => x.status === 429).length, 0);
+
+          assert.equal(await total(student), 12);
           const keys = await pool.query(
             "SELECT idempotency_key,answer FROM authored_attempt WHERE user_id=$1 LIMIT 1",
             [student],
@@ -587,7 +595,7 @@ test(
             }),
             200,
           );
-          assert.equal(await total(student), 10);
+          assert.equal(await total(student), 12);
           await pool.query(
             "INSERT INTO authored_student_rate VALUES($1,date_trunc('minute',clock_timestamp()),20,20) ON CONFLICT(user_id) DO UPDATE SET requests=20,submissions=20,window_start=date_trunc('minute',clock_timestamp())",
             [student],
@@ -608,33 +616,161 @@ test(
             [student],
           );
           await assertStatus(await attempts("list", req(student)), 200);
-          const quota = await setup(Array(11).fill("numeric"));
-          for (const part of quota.d.content.sections[0].parts.slice(0, 10))
-            await seed(quota.student, quota.d, quota.r, part.id, 10);
-          await assertStatus(
-            await submit(
-              quota.student,
-              quota.d,
-              quota.r,
-              input(quota.d, quota.r, 10),
+          const quota = await setup();
+          const part = quota.d.content.sections[0].parts[0].id;
+          await seed(quota.student, quota.d, quota.r, part, 98);
+          const raced = await Promise.all(
+            Array.from({ length: 4 }, (_, i) =>
+              submit(
+                quota.student,
+                quota.d,
+                quota.r,
+                input(quota.d, quota.r),
+                i % 2 ? attempts : second,
+              ),
             ),
-            429,
+          );
+          assert.deepEqual(
+            raced.map((r) => r.status).sort(),
+            [201, 201, 429, 429],
+          );
+          assert.equal(
+            raced.find((r) => r.status === 429)?.headers.get("retry-after"),
+            null,
           );
           assert.equal(await total(quota.student), 100);
-          const old = await user();
-          for (const part of quota.d.content.sections[0].parts.slice(0, 10))
-            await seed(
-              old,
-              quota.d,
-              quota.r,
-              part.id,
-              10,
-              new Date(Date.now() - 25 * 3600000),
-            );
-          await assertStatus(
-            await submit(old, quota.d, quota.r, input(quota.d, quota.r, 10)),
-            201,
+          const committed = await pool.query(
+            "SELECT idempotency_key,answer,attempt_number::text AS n FROM authored_attempt WHERE user_id=$1 ORDER BY attempt_number DESC LIMIT 1",
+            [quota.student],
           );
+          assert.equal(committed.rows[0].n, "100");
+          const replay = await (
+            await assertStatus(
+              await submit(quota.student, quota.d, quota.r, {
+                ...input(quota.d, quota.r),
+                idempotencyKey: committed.rows[0].idempotency_key,
+                answer: committed.rows[0].answer,
+              }),
+              200,
+            )
+          ).json();
+          assert.equal(replay.attempt.attemptNumber, "100");
+          assert.equal(await total(quota.student), 100);
+          const old = await user();
+          await seed(
+            old,
+            quota.d,
+            quota.r,
+            part,
+            100,
+            new Date(Date.now() - 25 * 3600000),
+          );
+          const resumed = await (
+            await assertStatus(
+              await submit(old, quota.d, quota.r, input(quota.d, quota.r)),
+              201,
+            )
+          ).json();
+          assert.equal(resumed.attempt.attemptNumber, "101");
+          const info = await (
+            await attempts("info", req(old), quota.d.problemId)
+          ).json();
+          assert.equal(info.parts[0].attemptsUsed, "101");
+          assert.equal(info.parts[0].attemptsRemaining, null);
+        },
+      );
+      await t.test(
+        "bigint ordinals never overflow or round, retain uniqueness and preserve replay at representation boundary",
+        async () => {
+          for (const previous of ["2147483647", "9007199254740991"]) {
+            const { student, d, r } = await setup(),
+              part = d.content.sections[0].parts[0].id;
+            // Seed a sparse boundary fixture, not billions of physical rows.
+            await pool.query(
+              `INSERT INTO authored_attempt(id,user_id,problem_id,revision_id,part_id,idempotency_key,answer,status,reason,engine_version,attempt_number,created_at) VALUES($1,$2,$3,$4,$5,$6,$7,'correct','within-tolerance','numeric-v1',$8,now()-interval '25 hours')`,
+              [
+                randomUUID(),
+                student,
+                d.problemId,
+                r.id,
+                part,
+                randomUUID(),
+                JSON.stringify({ kind: "numeric", value: 2, units: "" }),
+                previous,
+              ],
+            );
+            const firstBody = input(d, r),
+              first = await (
+                await assertStatus(await submit(student, d, r, firstBody), 201)
+              ).json();
+            assert.equal(
+              first.attempt.attemptNumber,
+              (BigInt(previous) + BigInt(1)).toString(),
+            );
+            assert.equal(typeof first.attempt.attemptNumber, "string");
+            const again = await (
+              await assertStatus(await submit(student, d, r, firstBody), 200)
+            ).json();
+            assert.deepEqual(again.attempt, first.attempt);
+            const second = await (
+              await assertStatus(await submit(student, d, r, input(d, r)), 201)
+            ).json();
+            assert.equal(
+              second.attempt.attemptNumber,
+              (BigInt(previous) + BigInt(2)).toString(),
+            );
+            const info = await (
+              await attempts("info", req(student), d.problemId)
+            ).json();
+            assert.equal(
+              info.parts[0].attemptsUsed,
+              second.attempt.attemptNumber,
+            );
+            assert.equal(info.parts[0].attemptsRemaining, null);
+            const duplicated = await pool.query(
+              "SELECT * FROM authored_attempt WHERE user_id=$1 ORDER BY attempt_number DESC LIMIT 1",
+              [student],
+            );
+            await assert.rejects(
+              pool.query(
+                `INSERT INTO authored_attempt(id,user_id,problem_id,revision_id,part_id,idempotency_key,answer,status,reason,engine_version,attempt_number) VALUES($1,$2,$3,$4,$5,$6,$7,'correct','within-tolerance','numeric-v1',$8)`,
+                [
+                  randomUUID(),
+                  student,
+                  d.problemId,
+                  r.id,
+                  part,
+                  randomUUID(),
+                  JSON.stringify(duplicated.rows[0].answer),
+                  duplicated.rows[0].attempt_number,
+                ],
+              ),
+              /unique constraint/,
+            );
+          }
+          const { student, d, r } = await setup(),
+            body = input(d, r),
+            id = randomUUID();
+          await pool.query(
+            `INSERT INTO authored_attempt(id,user_id,problem_id,revision_id,part_id,idempotency_key,answer,status,reason,engine_version,attempt_number) VALUES($1,$2,$3,$4,$5,$6,$7,'correct','within-tolerance','numeric-v1',9223372036854775807)`,
+            [
+              id,
+              student,
+              d.problemId,
+              r.id,
+              body.partId,
+              body.idempotencyKey,
+              JSON.stringify(body.answer),
+            ],
+          );
+          await assertStatus(await submit(student, d, r, input(d, r)), 503);
+          assert.equal(await total(student), 1);
+          const replay = await (
+            await assertStatus(await submit(student, d, r, body), 200)
+          ).json();
+          assert.equal(replay.attempt.id, id);
+          assert.equal(replay.attempt.attemptNumber, "9223372036854775807");
+          assert.equal((await attempts("read", req(student), id)).status, 200);
         },
       );
       await t.test(
@@ -740,7 +876,7 @@ test(
             )
           ).json();
           assert.equal(current.attempt.status, "correct");
-          assert.equal(current.attempt.attemptNumber, 1);
+          assert.equal(current.attempt.attemptNumber, "1");
           await assertStatus(
             await submit(two.student, two.d, newRevision, {
               ...input(two.d, newRevision),
@@ -997,7 +1133,7 @@ test(
                 partId: d.content.sections[0].parts[0].id,
                 status: "correct",
                 reason: "within-tolerance",
-                ordinal: 11,
+                ordinal: 0,
               },
             ),
             /check constraint/,

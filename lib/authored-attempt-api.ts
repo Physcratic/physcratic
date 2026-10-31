@@ -42,7 +42,7 @@ type Row = {
   status: string;
   reason: string;
   engine_version: string;
-  attempt_number: number;
+  attempt_number: string;
   created_at: Date;
   spoiler_policy: string;
   assisted: boolean;
@@ -199,14 +199,14 @@ export function createAuthoredAttemptApi(deps: Deps) {
       }
       if (action === "info") {
         // One snapshot of the same published pointer used by the public reader. No
-        // private key/content/solution join; counts always scoped to this student.
+        // private key/content/solution join; indexed ordinal usage is student-scoped.
         const { rows } = await deps.pool.query<{
           revision_id: string;
           part_id: string;
           answer_mode: string;
-          used: number;
+          used: string;
         }>(
-          `SELECT p.published_revision_id AS revision_id,rp.part_id,rp.answer_mode,(SELECT count(*)::integer FROM authored_attempt a WHERE a.user_id=$2 AND a.revision_id=rp.revision_id AND a.part_id=rp.part_id) AS used
+          `SELECT p.published_revision_id AS revision_id,rp.part_id,rp.answer_mode,coalesce((SELECT a.attempt_number FROM authored_attempt a WHERE a.user_id=$2 AND a.revision_id=rp.revision_id AND a.part_id=rp.part_id ORDER BY a.attempt_number DESC LIMIT 1),0)::text AS used
      FROM authored_problem p JOIN authored_revision r ON r.problem_id=p.id AND r.id=p.published_revision_id JOIN authored_revision_part rp ON rp.revision_id=r.id WHERE p.id=$1 AND p.state='published' ORDER BY rp.part_id`,
           [id, user.id],
         );
@@ -219,7 +219,7 @@ export function createAuthoredAttemptApi(deps: Deps) {
             partId: r.part_id,
             answerMode: r.answer_mode,
             attemptsUsed: r.used,
-            attemptsRemaining: Math.max(0, policy.attemptsPerPart - r.used),
+            attemptsRemaining: null, // No per-part lifetime cap.
           })),
           limits: policy,
           links: {
@@ -251,7 +251,7 @@ export function createAuthoredAttemptApi(deps: Deps) {
       await client.query("SET LOCAL statement_timeout='5s'");
       await client.query("SET LOCAL lock_timeout='2s'");
       await client.query("SET LOCAL idle_in_transaction_session_timeout='10s'");
-      // Serialize this student's idempotency and rolling/part usage across problems.
+      // Serialize this student's idempotency, rolling usage and ordinal allocation across problems.
       await client.query(
         "SELECT pg_advisory_xact_lock(hashtextextended($1,6))",
         [`authored-student:${user.id}`],
@@ -290,18 +290,25 @@ export function createAuthoredAttemptApi(deps: Deps) {
       );
       if (!part.rows[0])
         throw new AttemptError(404, "Published part not found.");
-      const usage = await client.query<{ daily: number; part: number }>(
-        `SELECT (SELECT count(*)::integer FROM authored_attempt WHERE user_id=$1 AND created_at>=clock_timestamp()-interval '24 hours') AS daily,(SELECT count(*)::integer FROM authored_attempt WHERE user_id=$1 AND revision_id=$2 AND part_id=$3) AS part`,
-        [user.id, input.revisionId, input.partId],
+      // Both lookups stay bounded/indexed as immutable history grows. Count only
+      // up to the rolling-day threshold; use the ordinal index, not COUNT(*),
+      // for the next per-revision/part sequence number.
+      const usage = await client.query<{ daily: number; last_number: string }>(
+        `SELECT (SELECT count(*)::integer FROM (SELECT 1 FROM authored_attempt WHERE user_id=$1 AND created_at>=statement_timestamp()-interval '24 hours' LIMIT $4) recent) AS daily,
+        coalesce((SELECT attempt_number FROM authored_attempt WHERE user_id=$1 AND revision_id=$2 AND part_id=$3 ORDER BY attempt_number DESC LIMIT 1),0)::text AS last_number`,
+        [user.id, input.revisionId, input.partId, policy.attemptsPerDay],
       );
-      if (
-        usage.rows[0].daily >= policy.attemptsPerDay ||
-        usage.rows[0].part >= policy.attemptsPerPart
-      )
+      if (usage.rows[0].daily >= policy.attemptsPerDay)
         throw new AttemptError(
           429,
-          "Attempt limit reached. No hints or solutions are unlocked.",
+          "Rolling 24-hour attempt limit reached. Submitting does not unlock private answers.",
         );
+      const previous = BigInt(usage.rows[0].last_number);
+      // This is a storage representation guard, not a practice policy limit.
+      // Check before addition/grading; preserve retry/history at the bigint edge.
+      if (previous < BigInt(0) || previous >= BigInt("9223372036854775807"))
+        throw Error("Attempt ordinal exhausted");
+      const nextNumber = (previous + BigInt(1)).toString();
       const selection = gradeSelectionSchema.parse({
           problemId: id,
           revisionId: input.revisionId,
@@ -345,7 +352,7 @@ export function createAuthoredAttemptApi(deps: Deps) {
           grade.status,
           grade.reason,
           grade.engineVersion,
-          usage.rows[0].part + 1,
+          nextNumber,
         ],
       );
       const attempt = view(created.rows[0]);

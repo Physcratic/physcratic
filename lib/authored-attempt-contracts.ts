@@ -8,12 +8,12 @@ export const authoredAttemptPolicy = Object.freeze({
   requestsPerMinute: 60,
   submissionsPerMinute: 20,
   attemptsPerDay: 100,
-  attemptsPerPart: 10,
+  attemptsPerPart: null, // Unlimited practice; request and rolling-day limits remain.
   maxBodyBytes: 20000,
   bodyTimeoutMs: 5000,
   historyPageSize: 50,
   spoilerPolicy: "no-reveal-v1" as const,
-  reveal: "disabled" as const,
+  reveal: "disabled" as const, // No reveal endpoint in Phase 6A, not a permanent ban.
 });
 export const studentSubmissionSchema = gradeSelectionSchema
   .omit({ problemId: true })
@@ -86,7 +86,7 @@ export type AuthoredAttempt = {
   status: StudentGrade["status"];
   reason: StudentGrade["reason"];
   engineVersion: StudentGrade["engineVersion"];
-  attemptNumber: number;
+  attemptNumber: string; // Exact positive bigint decimal; never round through Number.
   createdAt: string;
   spoilerPolicy: "no-reveal-v1";
   assisted: false;

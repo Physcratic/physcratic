@@ -96,13 +96,13 @@ Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspe
 
 ## Phase 6A student attempt persistence/API
 - [Contracts](../../lib/authored-attempt-contracts.ts), [API](../../lib/authored-attempt-api.ts), [production adapter](../../lib/authored-attempt-server.ts), [tests](../../lib/authored-attempt-api.test.ts); full contracts/limits/locking/retention in [student policy](AUTHORED_STUDENT_SUBMISSIONS.md).
-- Explicit0004 adds immutable authored_attempt + persistent authored_student_rate, same-problem/revision/part/user FKs, unique user/idempotency + per-part ordinal1..10; down refuses populated history. No private key duplication.
+- Explicit0004 adds immutable authored_attempt + persistent authored_student_rate, same-problem/revision/part/user FKs, unique user/idempotency + positive bigint per-part ordinals (JSON decimal strings); down refuses populated history. No private key duplication.
 - Verified student POST /[id]/attempts requires strict revisionId/partId/answer/idempotencyKey JSON, configured origin, actual20KB/5s body; user/results/policy/timestamps server-owned. Numeric/symbolic/manual outcomes preserved.
 - Per-user advisory lock -> canonical idempotency lookup -> current published parent FOR SHARE -> limits -> existing grader on same PoolClient -> allowlisted result/selection -> immutable insert/commit. Publish/unpublish FOR UPDATE serializes; no second grading connection/deadlock.
-- Limits:60requests/minute incl reads,20POST/minute,100new attempts/rolling24h,10/user/revision/part lifetime. Replay does not regrade/use attempt slots; different payload same key409. Minute-specific Retry-After only for rate bucket.
+- Limits:60requests/minute incl reads,20POST/minute,100new attempts/rolling24h; no per-part/lifetime cap. Indexed ordinal allocation stays sequential under the user lock, with exact bigint overflow guard. Replay does not regrade/use attempt slots; different payload same key409. Minute-specific Retry-After only for rate bucket.
 - GET /attempts (+ optional problemId/keyset after) and /attempts/[attemptId] return own submitted answer/result/IDs only, even after unpublish; never other students/author. Timestamp(3)+UUID stable newest-first cursor.
-- Existing public revision GET body unchanged; Link to verified /[id]/submission-info companion supplies current revision/public parts/own remaining/policy/URLs from one published snapshot. No drafts/private content or solving UI.
-- no-reveal-v1 never unlocks hints/solutions/assets after correctness/exhaustion; app-assisted=false. Healthy grader exceptions persist generic review; malformed outputs/DB-aborted transactions rollback503 and retry same key.
+- Existing public revision GET body unchanged; Link to verified /[id]/submission-info companion supplies current revision/public parts/own usage/unlimited remaining/policy/URLs from one published snapshot. No drafts/private content or solving UI.
+- no-reveal-v1 prevents automatic private-answer disclosure on submission/grading, without banning a future separately authorized explicit solution view (not implemented); app-assisted=false. Healthy grader exceptions persist generic review; malformed outputs/DB-aborted transactions rollback503 and retry same key.
 - Numeric/dimensionless/symbolic limits, legacy practice/archive/auth/media contracts preserved; no production migrations/storage or social features. Next UI/reveal work requires separate request.
 
 ## Verification and later-phase boundaries

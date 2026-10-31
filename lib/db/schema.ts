@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
 import type { AuthoredDocument, PrivatePart } from "@/lib/problem-authoring";
-import { check, foreignKey, index, type AnyPgColumn, boolean, date, doublePrecision, integer, jsonb, pgTable, primaryKey, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
+import { check, foreignKey, index, type AnyPgColumn, boolean, bigint, date, doublePrecision, integer, jsonb, pgTable, primaryKey, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
 import type { SolutionSubmission } from "@/lib/solution-grading";
 
 export const user = pgTable("user", {
@@ -294,7 +294,7 @@ export const authoredAttempts = pgTable(
         import("@/lib/authored-attempt-contracts").StudentGrade["engineVersion"]
       >()
       .notNull(),
-    attemptNumber: integer("attempt_number").notNull(),
+    attemptNumber: bigint("attempt_number", { mode: "bigint" }).notNull(),
     spoilerPolicy: text("spoiler_policy").notNull().default("no-reveal-v1"),
     assisted: boolean("assisted").notNull().default(false),
     createdAt: timestamp("created_at", { withTimezone: true, precision: 3 })
@@ -334,7 +334,7 @@ export const authoredAttempts = pgTable(
     }).onDelete("restrict"),
     check(
       "authored_attempt_attempt_number_check",
-      sql`${t.attemptNumber} between 1 and 10`,
+      sql`${t.attemptNumber} > 0`,
     ),
     check(
       "authored_attempt_engine_version_check",

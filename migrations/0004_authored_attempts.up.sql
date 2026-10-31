@@ -10,10 +10,11 @@ CREATE TABLE authored_attempt (
  idempotency_key uuid NOT NULL, answer jsonb NOT NULL,
  status text NOT NULL, reason text NOT NULL,
  engine_version text NOT NULL CHECK(engine_version IN ('numeric-v1','symbolic-v1')),
- attempt_number integer NOT NULL CHECK(attempt_number BETWEEN 1 AND 10),
+ attempt_number bigint NOT NULL CHECK(attempt_number > 0),
  spoiler_policy text NOT NULL DEFAULT 'no-reveal-v1' CHECK(spoiler_policy='no-reveal-v1'),
  assisted boolean NOT NULL DEFAULT false CHECK(assisted=false),
  created_at timestamptz(3) NOT NULL DEFAULT clock_timestamp(),
+ -- Ordinal uniqueness prevents duplicate numbering; it is not an attempt cap.
  UNIQUE(user_id,idempotency_key), UNIQUE(user_id,revision_id,part_id,attempt_number),
  FOREIGN KEY(problem_id,revision_id) REFERENCES authored_revision(problem_id,id) ON DELETE RESTRICT,
  FOREIGN KEY(revision_id,part_id) REFERENCES authored_revision_part(revision_id,part_id) ON DELETE RESTRICT,
