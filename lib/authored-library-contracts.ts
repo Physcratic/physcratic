@@ -4,7 +4,8 @@ import { publicAuthoredMetadataSchema } from "./problem-authoring";
 export const authoredLibraryFiltersSchema = z.strictObject({
   q: z.string().trim().max(200).default(""),
   tag: z.string().trim().max(80).default(""),
-  difficulty: z.string().trim().max(80).default(""),
+  // Published difficulty labels preserve whitespace; exact filters must too.
+  difficulty: z.string().max(80).default(""),
   provenance: z.enum(["", "original", "authorized"]).default(""),
   after: z
     .uuid()

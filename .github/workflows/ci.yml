@@ -3,7 +3,7 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, codex/physcratic-authoring-completion]
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -14,14 +14,23 @@ permissions:
 
 jobs:
   check:
-    name: Typecheck and unit tests
+    name: Lint, types, PostgreSQL tests and production build
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_PASSWORD: local-test-only
+          POSTGRES_DB: physcratic_authoring_test
+        ports: [5432:5432]
+        options: >-
+          --health-cmd "pg_isready -U postgres -d physcratic_authoring_test"
+          --health-interval 5s --health-timeout 5s --health-retries 10
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
-        with:
-          version: 10
+        # Uses the exact packageManager version in package.json.
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -30,8 +39,14 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Typecheck
         run: pnpm exec next typegen && pnpm exec tsc --noEmit
-      - name: Unit tests
-        shell: bash
-        # *.pg.test.ts need Postgres; a DB job can come later.
-        # lib/corpus-translation.test.ts test 64 is marked todo in the file (inherited corpus punctuation drift; remove todo after PR #2 merges).
-        run: pnpm exec tsx --conditions=react-server --test $(ls lib/*.test.ts | grep -v '\.pg\.test\.ts$')
+      - name: ESLint
+        run: pnpm lint --max-warnings=0
+      - name: Full unit and disposable PostgreSQL integration tests
+        env:
+          # CI service only; never a shared/production DATABASE_URL or secret.
+          AUTHORING_TEST_DATABASE_URL: postgresql://postgres:local-test-only@127.0.0.1:5432/physcratic_authoring_test
+        run: pnpm test
+      - name: Production build (local licensed Inter; no live font download)
+        run: pnpm build
+      # Browser harnesses additionally require Playwright, axe and Chromium.
+      # They remain explicit local checks; no browser run is claimed by this job.

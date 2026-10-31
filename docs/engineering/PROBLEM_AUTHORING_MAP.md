@@ -1,5 +1,15 @@
 # Problem authoring architecture map
 
+Phase8A hardening complete: [build/lint/corpus/workflow evidence](AUTHORING_PHASE8A.md)
+and [remaining release gates](AUTHORING_RELEASE_BLOCKERS.md). Mainc2139de safely
+integrated by5d1e20b;6C-A/6C-B/7 preserved. Pinned ESLint/Next rules and pnpm,
+licensed local Inter, strict corpus seed reproduction restored; independent
+6C-B/7 review/follow-up complete. Exact difficulty filter and long-reader-title
+regressions fixed. Authorization, assistance, media and migration contracts below
+remain unchanged;0001–0006 untouched. Full225/225 with no skips/TODO and all
+browser/type/lint/build checks pass. Ready for Phase8B review, not deployment.
+
+
 Phase 7 integrates published authored problems into the existing library; see
 [discovery contract and verification](AUTHORED_LIBRARY.md). Main integration
 `2e0b90ca0571ac15607ad198545e5e29b3f82e63` merges main

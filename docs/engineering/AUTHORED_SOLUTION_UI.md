@@ -1,5 +1,13 @@
 # Phase6C-B solution controls and explicit viewing
 
+Phase8A completed the previously outstanding independent follow-up of these
+controls, protected media, assistance and account/revision races. One Phase7
+exact-label filtering finding was fixed; final independent PG33/33 and both
+browser suites pass with no remaining confirmed finding. Root's unified
+editor-to-student workflow also passes. See [Phase8A](AUTHORING_PHASE8A.md) for
+scope/limits and the current build/lint/corpus status; older notes below are
+historical.
+
 Phase7 library discovery links into this existing reader; no permission,
 confirmation, reveal, media or assistance policy changes. Discovery never
 fetches solution permissions or preloads a solution. See

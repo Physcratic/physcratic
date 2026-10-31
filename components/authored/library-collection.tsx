@@ -24,7 +24,7 @@ export function AuthoredLibraryCollection({ query }: { query: string }) {
   const filters = JSON.stringify([
     query.trim(),
     tag.trim(),
-    difficulty.trim(),
+    difficulty,
     provenance,
   ]);
   const [previousFilters, setPreviousFilters] = useState(filters);
@@ -50,7 +50,7 @@ export function AuthoredLibraryCollection({ query }: { query: string }) {
         const params = new URLSearchParams({
           q: query.trim(),
           tag: tag.trim(),
-          difficulty: difficulty.trim(),
+          difficulty,
           provenance,
         });
         if (after) params.set("after", after);

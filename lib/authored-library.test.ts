@@ -288,6 +288,31 @@ test(
         },
       );
       await t.test(
+        "exact difficulty preserves valid published edge whitespace",
+        async () => {
+          const body = input("Whitespace-bearing difficulty");
+          body.content.estimatedDifficulty = " Intermediate ";
+          const d = await action("create", undefined, body);
+          await action("publish", d.problemId, { version: 1 });
+          const exact: AuthoredLibraryPage = await (
+            await list({ difficulty: " Intermediate " })
+          ).json();
+          assert.deepEqual(
+            exact.problems.map((p) => p.problemId),
+            [d.problemId],
+          );
+          const unpadded: AuthoredLibraryPage = await (
+            await list({ difficulty: "Intermediate" })
+          ).json();
+          assert.equal(
+            unpadded.problems.some((p) => p.problemId === d.problemId),
+            false,
+          );
+          await action("unpublish", d.problemId, { version: 2 });
+          await action("delete", d.problemId, { version: 3 }, "DELETE");
+        },
+      );
+      await t.test(
         "keyset remains stable through republish, unpublish, draft edit and deletion",
         async () => {
           const first: AuthoredLibraryPage = await (await list()).json();

@@ -79,7 +79,7 @@ try {
         title: `Pendulum ${i} ` + (i === 0 ? "x^{2}+".repeat(27) : "motion"),
         topicTags: ["Mechanics"],
         methodTags: ["Energy"],
-        estimatedDifficulty: "Intermediate",
+        estimatedDifficulty: i === 0 ? " Intermediate " : "Intermediate",
         context: [
           text("Study the motion."),
           { id: randomUUID(), kind: "math", latex: "x^2+v^2" },
@@ -270,6 +270,22 @@ try {
   await page
     .getByText("24 published problems on this page", { exact: true })
     .waitFor();
+  await page
+    .getByLabel("Author-estimated difficulty", { exact: true })
+    .fill(" Intermediate ");
+  await page
+    .getByText("1 published problems on this page", { exact: true })
+    .waitFor();
+  assert.equal(
+    await resultLinks().first().getAttribute("href"),
+    `/dashboard/authored/${fixtures[0].id}`,
+  );
+  await page
+    .getByLabel("Author-estimated difficulty", { exact: true })
+    .fill("");
+  await page
+    .getByText("24 published problems on this page", { exact: true })
+    .waitFor();
   // A slow obsolete search must never replace the newer filter's results.
   slowLibrary = true;
   const obsoleteRequest = page.waitForRequest((r) =>
@@ -319,6 +335,12 @@ try {
         fullPage: true,
       });
     }
+  // A legal long, unbroken physics title must wrap in the reader as well as its card.
+  await page.goto(`${origin}/dashboard/authored/${fixtures[0].id}`);
+  await page.getByRole("heading", { name: fixtures[0].body.content.title, exact: true }).waitFor();
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, "long authored reader title must not overflow mobile viewport");
+  await page.goto(route);
+  await page.getByText("24 published problems on this page", { exact: true }).waitFor();
   await page
     .getByRole("tab", { name: "Authored problems", exact: true })
     .focus();

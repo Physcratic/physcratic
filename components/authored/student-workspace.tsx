@@ -220,14 +220,14 @@ export function StudentWorkspace({
       </header>
       <main
         id="solver-main"
-        className="mx-auto max-w-[1440px] space-y-7 px-4 py-6 sm:px-8 sm:py-10"
+        className="mx-auto w-full min-w-0 max-w-[1440px] space-y-7 px-4 py-6 sm:px-8 sm:py-10"
       >
         <div className="flex flex-wrap items-end justify-between gap-4 border-b pb-6">
-          <div>
+          <div className="min-w-0 max-w-full">
             <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
               Authored physics · Practice
             </p>
-            <h1 className="max-w-4xl break-words text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h1 className="max-w-4xl text-3xl font-semibold tracking-tight [overflow-wrap:anywhere] sm:text-4xl">
               {availability === "ready"
                 ? revision?.content.title
                 : "Physics problem"}
@@ -458,23 +458,30 @@ function PrivateWorkspace({
     historyTitle = useRef<HTMLHeadingElement>(null),
     partTitle = useRef<HTMLHeadingElement>(null),
     seenResult = useRef<string | null>(null);
+  const revisionId = revision?.id;
   const parts =
       revision?.content.sections.flatMap((s) =>
         s.parts.map((p) => ({ ...p, sectionTitle: s.title })),
       ) ?? [],
     part = parts.find((p) => p.id === selected) ?? parts[0];
+  const cancelInfo = useCallback(() => {
+    infoSerial.current++;
+    infoAbort.current?.abort();
+  }, []);
+  const cancelHistory = useCallback(() => {
+    historySerial.current++;
+    historyAbort.current?.abort();
+  }, []);
   useEffect(() => {
     session.activate();
     mounted.current = true;
     return () => {
       mounted.current = false;
       session.dispose();
-      historyAbort.current?.abort();
-      infoAbort.current?.abort();
-      infoSerial.current++;
-      historySerial.current++;
+      cancelHistory();
+      cancelInfo();
     };
-  }, [session]);
+  }, [session, cancelHistory, cancelInfo]);
   useEffect(() => {
     const unload = (e: BeforeUnloadEvent) => {
       if (
@@ -489,11 +496,12 @@ function PrivateWorkspace({
     window.addEventListener("beforeunload", unload);
     return () => window.removeEventListener("beforeunload", unload);
   }, [state.book, state.rawRecovery]);
+  const firstPartId = parts[0]?.id ?? "";
   useEffect(() => {
-    setSelected(parts[0]?.id ?? "");
-  }, [revision?.id]);
+    setSelected(firstPartId);
+  }, [revisionId, firstPartId]);
   const refreshInfo = useCallback(async () => {
-    if (!revision || availability !== "ready") return;
+    if (!revisionId || availability !== "ready") return;
     const serial = ++infoSerial.current;
     infoAbort.current?.abort();
     const controller = new AbortController();
@@ -507,7 +515,7 @@ function PrivateWorkspace({
         }),
       );
       if (!mounted.current || serial !== infoSerial.current) return;
-      if (data.problemId !== problemId || data.revisionId !== revision.id) {
+      if (data.problemId !== problemId || data.revisionId !== revisionId) {
         invalidate();
         return;
       }
@@ -520,14 +528,11 @@ function PrivateWorkspace({
       if (e instanceof StudentRequestError && [404, 409].includes(e.status))
         invalidate();
     }
-  }, [revision?.id, availability, problemId, invalidate, denyAuth]);
+  }, [revisionId, availability, problemId, invalidate, denyAuth]);
   useEffect(() => {
     void refreshInfo();
-    return () => {
-      infoSerial.current++;
-      infoAbort.current?.abort();
-    };
-  }, [refreshInfo]);
+    return cancelInfo;
+  }, [refreshInfo, cancelInfo]);
   const loadHistory = useCallback(
     async (cursor: string | null = null, focus = false) => {
       const serial = ++historySerial.current;
@@ -576,16 +581,19 @@ function PrivateWorkspace({
     const a = state.lastResult;
     if (!a || seenResult.current === a.id) return;
     seenResult.current = a.id;
-    if (info && a.revisionId === info.revisionId)
-      setInfo({
-        ...info,
-        parts: info.parts.map((p) =>
-          p.partId === a.partId &&
-          BigInt(p.attemptsUsed) < BigInt(a.attemptNumber)
-            ? { ...p, attemptsUsed: a.attemptNumber }
-            : p,
-        ),
-      });
+    setInfo((current) =>
+      current && a.revisionId === current.revisionId
+        ? {
+            ...current,
+            parts: current.parts.map((p) =>
+              p.partId === a.partId &&
+              BigInt(p.attemptsUsed) < BigInt(a.attemptNumber)
+                ? { ...p, attemptsUsed: a.attemptNumber }
+                : p,
+            ),
+          }
+        : current,
+    );
     historyAbort.current?.abort();
     historySerial.current++;
     setHistory([]);
@@ -594,9 +602,9 @@ function PrivateWorkspace({
     setHistoryBusy(false);
     setHistoryLoaded(false);
     setHistoryEpoch((x) => x + 1);
-    if (part?.id === a.partId && revision?.id === a.revisionId)
+    if (part?.id === a.partId && revisionId === a.revisionId)
       requestAnimationFrame(() => resultRef.current?.focus());
-  }, [state.lastResult]);
+  }, [state.lastResult, part?.id, revisionId]);
   useEffect(() => {
     if ([401, 403].includes(state.lastStatus)) denyAuth();
   }, [state.lastStatus, denyAuth]);
@@ -607,7 +615,7 @@ function PrivateWorkspace({
       pending?.body.revisionId === revision?.id
     )
       invalidate();
-  }, [state.lastStatus, revision?.id, invalidate]);
+  }, [state.lastStatus, state.book.pending, revision?.id, invalidate]);
   const jump = (partId: string) => {
     setSelected(partId);
     setTab("problem");

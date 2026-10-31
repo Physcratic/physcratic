@@ -1,6 +1,6 @@
 # Explicit authored solution access — Phase 6C-A
 
-This is the Phase6C-A backend specification; Phase6C-B now supplies the [explicit author/student UI](AUTHORED_SOLUTION_UI.md). Solutions remain private by default. Migration0005 creates no grants for existing publications and changes no sealed worked-solution content or historical attempts. There is no solution-view UI/preload/public-reader/grading-response disclosure. The existing no-reveal-v1 contract continues to mean that submitting or receiving a grade does not automatically unlock private material.
+This is the Phase6C-A backend specification; Phase6C-B now supplies the [explicit author/student UI](AUTHORED_SOLUTION_UI.md). Solutions remain private by default. Migration0005 creates no grants for existing publications and changes no sealed worked-solution content or historical attempts. There is no automatic preload or public-reader/grading-response disclosure. The existing no-reveal-v1 contract continues to mean that submitting or receiving a grade does not automatically unlock private material. Phase8A independent follow-up and workflow verification are recorded in [AUTHORING_PHASE8A.md](AUTHORING_PHASE8A.md); authorization/migrations remain unchanged.
 
 ## Author authorization
 

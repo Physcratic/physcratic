@@ -1,5 +1,10 @@
 # Explicit SQL migrations
 
+Phase8A verified0001–0006 unchanged, ordering/additivity/rollback and absence of
+build/startup/deploy migration hooks. Only disposable local DBs were migrated;
+shared/production ledger state was not accessed or verified. See
+[release gates and0005/0006 checksums](../docs/engineering/AUTHORING_RELEASE_BLOCKERS.md).
+
 ## Phase 7 discovery indexes (0006)
 
 `0006_authored_discovery.up.sql` is additive after0005: immutable public metadata

@@ -43,6 +43,7 @@ function SourceNode({ node }: { node: ImportedNode }) {
   if (node.tag === "img") {
     // Source figures are copied to a validated, local-only asset path during import.
     return (
+      // eslint-disable-next-line @next/next/no-img-element -- Validated local archival figures retain source dimensions; site image optimization is disabled.
       <img src={node.src} alt={node.alt} loading="lazy" decoding="async" />
     );
   }

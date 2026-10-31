@@ -23,6 +23,7 @@ function StatementImage({
           This statement image is unavailable. Recheck the current publication.
         </p>
       ) : (
+        // eslint-disable-next-line @next/next/no-img-element -- Revision-scoped proxy must be fetched directly with current publication authorization.
         <img
           src={authorMediaPath(problemId, block.mediaId, revisionId)}
           alt={block.alt}

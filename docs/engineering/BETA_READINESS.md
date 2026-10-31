@@ -57,3 +57,38 @@ no shared/production migration, deployment or PR. Full contract and evidence:
 [AUTHORED_LIBRARY.md](AUTHORED_LIBRARY.md). Stop after Phase7 commit/push.
 
 Final post-refresh focused regression45/45; full224 tests/223 pass/0 fail/0 skip/1 inherited TODO. Typegen/TypeScript/diff pass.
+
+## 2026-10-31 — Phase 8A — Build and integration hardening
+
+Mainc2139de (empty deployment-purpose commit) integrated safely by5d1e20b,
+no conflicts/file changes;6C-A/6C-B/7 and incoming work preserved.
+
+Pinned ESLint9.39.5/Next15.5.28/FlatCompat3.3.5/pnpm10.34.9; fixed12 errors/19
+warnings without a formatting sweep or blanket rule disabling. Final lint0/0.
+Local OFL Inter5.3.0 retains visual family/weights and removes Google Fonts
+build fetches. Node22 typegen/TypeScript and actual production build pass.
+
+Corpus diagnosis proved17 punctuation seed/output drifts from8e5914a. Restored
+only four original editorial seed blobs, identical to pending PR#2; no source,
+generated translation/index/hash or formula change. Strict6/6 tests pass, TODO
+removed after repair. No comparison relaxation.
+
+Independent6C-B/7 read-only review and follow-up complete: exact difficulty
+whitespace bug fixed/tested, no remaining confirmed findings,33/33 PG + both
+browser suites independently pass. Root compiled smoke found/fixed mobile long
+title overflow; final CSS reviewed independently and final root browser/compiled
+smoke passes.
+
+Frozen clean install; full225/225,0 fail/skip/TODO on disposable PG17; all three
+browser suites (including unified editor-to-student-to-revoke workflow), desktop/
+mobile axe and math overflow pass. Actual compiled Next guest routes and local
+WOFF2 loading pass at1440/375px, light/dark, with no Google font requests.
+CI now tests integration pushes, pinned tooling, lint/types/full PG service suite
+and production build. Browser tools remain an explicit local gate.
+
+0001–0006 unchanged; only disposable DB/storage used. No remote ledger state
+verified, shared/production migration, PR, main merge or deployment performed.
+Live isolated Better Auth/email/origin and Blob staging, authorized migration
+ledger review and Phase8B remain release gates. Ready to enter Phase8B review.
+See [Phase8A evidence](AUTHORING_PHASE8A.md) and
+[release blockers](AUTHORING_RELEASE_BLOCKERS.md). Stop after Phase8A commit/push.

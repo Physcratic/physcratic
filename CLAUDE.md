@@ -5,7 +5,8 @@ Next.js 15.5 App Router, TypeScript, Tailwind, shadcn/ui (components/ui), Better
 ## Commands
 - Unit tests: `pnpm test` (node:test via tsx over lib/*.test.ts). One file: `pnpm exec tsx --conditions=react-server --test lib/<name>.test.ts`
 - Typecheck and CI steps: `.github/workflows/ci.yml` is the source of truth.
-- `pnpm build` needs network: next/font downloads Inter from Google Fonts.
+- Use pnpm10.34.9 (packageManager) and Node22. `pnpm lint --max-warnings=0` checks the Next/React/TypeScript rules.
+- `pnpm build` uses pinned, licensed local Inter; no Google Fonts download.
 - Do not run tests/*.browser.mjs suites unless asked.
 
 ## Parallel work: do not edit these paths (other branches own them)

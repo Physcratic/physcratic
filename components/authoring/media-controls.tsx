@@ -1,6 +1,7 @@
 "use client";
 import {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useId,
@@ -172,6 +173,7 @@ export function MediaImage({
           work is retained.
         </p>
       ) : (
+        // eslint-disable-next-line @next/next/no-img-element -- Owner-only media must use the authenticated proxy without an optimizer cache.
         <img
           src={authorMediaPath(ctx.problemId, mediaId)}
           alt={alt}
@@ -218,18 +220,21 @@ export function MediaAttachments({
     [files, setFiles] = useState<AuthorMediaInfo[]>([]),
     [message, setMessage] = useState(""),
     [error, setError] = useState("");
-  async function refresh() {
-    if (!ctx) return;
+  const mediaProblemId = ctx?.problemId;
+  const refresh = useCallback(async () => {
+    if (!mediaProblemId) return;
     try {
-      const result = await draftRequest(`${editorBase}/${ctx.problemId}/media`);
+      const result = await draftRequest(
+        `${editorBase}/${mediaProblemId}/media`,
+      );
       setFiles(result.files);
     } catch (e) {
       setError(e instanceof Error ? e.message : "Could not load media.");
     }
-  }
+  }, [mediaProblemId]);
   useEffect(() => {
     void refresh();
-  }, [draft.problemId, draft.version]);
+  }, [draft.version, refresh]);
   if (!ctx) return null;
   let localRefs: Set<string>;
   try {

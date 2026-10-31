@@ -680,7 +680,7 @@ test(
           const data = await parsed(await view(f));
           cleanOutput(data);
           assert.deepEqual(
-            new Set(data.media.map((m: any) => m.id)),
+            new Set(data.media.map((m: { id: string }) => m.id)),
             new Set([f.files.a, f.files.pdf]),
           );
           for (const id of [
@@ -879,11 +879,11 @@ test(
             ),
           );
           assert.equal(
-            history.attempts.filter((a: any) => a.assisted).length,
+            history.attempts.filter((a: { assisted: boolean }) => a.assisted).length,
             5,
           );
           assert.equal(
-            history.attempts.find((a: any) => a.id === old.attempt.id).assisted,
+            history.attempts.find((a: { id: string }) => a.id === old.attempt.id).assisted,
             false,
           );
           assert.equal(

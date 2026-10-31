@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   solutionViewSchema,
   solutionMediaPath,
@@ -29,6 +29,10 @@ export function WorkedSolution({
   const running = useRef(false),
     epoch = useRef(0),
     controller = useRef<AbortController | null>(null);
+  const cancelRequest = useCallback(() => {
+    epoch.current++;
+    controller.current?.abort();
+  }, []);
   const clear = () => {
     shown.current = false;
     epoch.current++;
@@ -49,13 +53,12 @@ export function WorkedSolution({
     window.addEventListener("focus", hide);
     document.addEventListener("visibilitychange", hide);
     return () => {
-      epoch.current++;
-      controller.current?.abort();
+      cancelRequest();
       window.removeEventListener("blur", hide);
       window.removeEventListener("focus", hide);
       document.removeEventListener("visibilitychange", hide);
     };
-  }, []);
+  }, [cancelRequest]);
   useEffect(() => {
     if (!value) return;
     const timer = setTimeout(() => {
@@ -228,6 +231,7 @@ export function WorkedSolution({
               <MathPreview key={b.id} latex={b.latex} keyboardScrollable />
             ) : (
               <figure key={b.id}>
+                {/* eslint-disable-next-line @next/next/no-img-element -- Private approved media must use its authenticated no-store proxy directly. */}
                 <img
                   className="max-w-full"
                   alt={b.alt}

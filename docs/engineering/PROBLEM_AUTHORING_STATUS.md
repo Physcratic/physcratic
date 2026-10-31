@@ -1,6 +1,18 @@
 # Problem authoring implementation status
 
-## Current checkpoint: Phase 7 — 2026-10-31 (Asia/Makassar)
+## Current checkpoint: Phase 8A — 2026-10-31 (Asia/Makassar)
+
+- Same integration branch;6C-A c259602,6C-B0418b9a and Phase7 8293f26 preserved. Mainc2139de integrated by5d1e20b, no conflicts/file changes.
+- Lint dependencies/config restored/pinned, all12 initial errors/19 warnings addressed; final zero-warning lint, typegen/TypeScript and real Node22 production build pass. Local licensed Inter removes live font dependency.
+- Corpus17 exact seed/output drifts traced to8e5914a; four original seed blobs restored identically to pending PR#2, source/generated data/formulas/strict invariant unchanged.6/6 corpus tests pass, no TODO.
+- Independent read-only6C-B/7 review AND follow-ups complete: exact-label difficulty bug fixed with tests, no remaining confirmed findings. Independent33/33 PG and both browser suites pass; hook/cancellation changes inspected. Compiled smoke long-title overflow fixed/tested by root; final CSS independently inspected.
+- Full225/225 on disposable PG17,0 fail/skip/TODO. Frozen clean install, all three browser suites, desktop/mobile axe/math overflow, compiled Next guest/font/layout smoke and whitespace checks pass. Unified one-problem editor→library→attempts/history→explicit solution/assistance→revoke/unpublish flow is tested with injected sessions/isolated storage.
+- CI now includes integration pushes, exact pnpm, zero-warning lint, full PG service tests and actual build. Browser binaries/tooling remain an explicit local gate. Updated remote workflow execution is not claimed by local evidence.
+-0001–0006 unchanged; no automatic migration, shared/production operation, PR, deployment or main merge. Remote migration ledger state unavailable; live isolated auth/mail/origin and Blob verification plus authorized ledger review remain release gates.
+- Ready to enter Phase8B audit only after this separate Phase8A commit/push. Stop now. Details/commands: [Phase8A](AUTHORING_PHASE8A.md); [release blockers](AUTHORING_RELEASE_BLOCKERS.md). Prior checkpoint notes below are historical.
+
+
+## Historical checkpoint: Phase 7 — 2026-10-31 (Asia/Makassar)
 
 - Existing integration branch `codex/physcratic-authoring-completion`; Phases6C-A `c259602` and6C-B `0418b9a` verified as ancestors. Main `54f373e8f93dd2dc2b94d85aae9a11c67b19cf48` integrated by non-destructive merge `2e0b90ca0571ac15607ad198545e5e29b3f82e63`, no conflicts. CI, CLAUDE.md, Analytics and corpus TODO preserved.
 - Existing library collection tab, bounded public metadata search/exact filters, stable UUID keyset pagination and direct authored-reader links; current published revision only. Rights/provenance retained; no draft/private/permission/reveal/attempt data in discovery. Existing archive/practice/submission/explicit solution behavior preserved.
@@ -63,7 +75,7 @@
 
 ## Next checkpoint
 
-- Phase7 complete: stop after its separate commit/push; await the separately supplied Phase8A prompt.
+- Phase8A complete: stop after its separate commit/push; await the separately supplied Phase8B prompt.
 - Next phase must read handoffs and reuse exact explicit permission/reveal/media contracts and server-derived assistance on this SAME integration branch. No repeat audit or automatic solution preloading.
 - Branch: https://github.com/Physcratic/physcratic/tree/codex/physcratic-authoring-completion
 

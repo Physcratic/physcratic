@@ -1,5 +1,12 @@
 # Phase 7 authored problem discovery
 
+Phase8A follow-up: exact difficulty input now preserves the published label's
+edge whitespace; SQL/index semantics remain unchanged. Long titles wrap in both
+cards and the reader. Independent review/follow-up completed, with33/33 PG and
+both browser suites passing; no remaining confirmed finding. Earlier outstanding
+review/build/lint/corpus notes below are historical. Current evidence and limits:
+[Phase8A](AUTHORING_PHASE8A.md), [release gates](AUTHORING_RELEASE_BLOCKERS.md).
+
 The existing dashboard library now has an **Authored problems** collection at
 `/dashboard?view=problems&collection=authored`. The imported catalog, imported
 pilot and quick-practice collections retain their existing filters, readers and
