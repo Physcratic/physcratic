@@ -5,7 +5,6 @@ import {
   parseDashboardParams,
   type DashboardParams,
 } from "@/lib/dashboard-route";
-import { jsonLdScript, organization, website } from "@/lib/seo/json-ld";
 
 type Props = { searchParams: Promise<DashboardParams> };
 
@@ -19,16 +18,6 @@ export async function generateMetadata({
 export default async function DashboardPage({ searchParams }: Props) {
   const { view, topic, query } = parseDashboardParams(await searchParams);
   return (
-    <>
-      {view === "overview" ? (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: jsonLdScript([organization(), website()]),
-          }}
-        />
-      ) : null}
-      <Dashboard view={view} topic={topic} query={query} />
-    </>
+    <Dashboard view={view} topic={topic} query={query} />
   );
 }
