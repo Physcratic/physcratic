@@ -13,5 +13,6 @@
 - Handoffs: docs/engineering/PROBLEM_AUTHORING_MAP.md and PROBLEM_AUTHORING_STATUS.md; migrations/README.md documents policy/order/cleanup/rollback.
 - Production Better Auth/Blob/staging flow not exercised; only disposable local PostgreSQL + mocks. No production files, DB/migrations, merge or deployment.
 - No package/dependency/auth/CAPTCHA changes, OCR/conversion, grading, submissions or social features.
-- Delivery pending final checks/commit/push/PR attempt; final SHA via git log -1.
+- Implementation d6b6abb pushed; final delivery SHA via git log -1. Draft PR creation blocked by GitHub API Forbidden.
+- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-4
 - Next: user review Phase 4; stop. Future phase requires separate request, merged main and handoffs first.
