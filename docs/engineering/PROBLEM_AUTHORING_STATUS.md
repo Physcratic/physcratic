@@ -1,63 +1,67 @@
 # Problem authoring implementation status
 
-- Updated: 2026-10-31 (Asia/Makassar). Phase 4 ONLY; phases 0–3 merged.
-- Fresh fetched main/base: `0845052fff6cf36760fa8c69e5b9a1d89a22447d` (Phase 3 PR #14).
-- Branch: `codex/problem-authoring-phase-4`; final commit via git log -1.
-- Implementation commit: `d6b6abb`; branch pushed and remote verified. Final handoff commit via git log -1.
+- Updated: 2026-10-31 (Asia/Makassar). Phase 5A ONLY; phases 0–4 merged.
+- Fresh fetched main/base: `7335d264b32b9deb2ef2d227764ded3257b94c89` (Phase 4 PR #15).
+- Verified Phase 4 squash merge matches reviewed branch tree exactly; clean branch `codex/problem-authoring-phase-5a` created from fetched main.
+- Foundation `56c5067`; premerge dimensionless correction delivered on this same branch, final commit via git log -1.
 - Draft PR creation blocked: GitHub API returned Forbidden (Post https://api.github.com/graphql).
-- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-4
-- Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-4?expand=1
-- Read WORK_STATUS/map/status first; no repository-wide audit or unrelated auth changes. Intentional CAPTCHA removal preserved.
+- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-5a
+- Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-5a?expand=1
+- Read WORK_STATUS/map/status first; inspected grading/contracts/private revision schema/dependencies only. No repeated audit or unrelated auth/editor/media changes.
 
-## Completed Phase 4
-- Server-owned registry with pending/ready/deleting lifecycle, immutable metadata/content identity, safe owner metadata projection, daily budget and draft/revision bindings.
-- Explicit additive 0003 up/down SQL, Drizzle declarations, ready-state/FK/sealing/immutability/deferred xmin checks. Existing 0001/0002 unchanged.
-- Verified-author, strict-owner upload/list/delete/cleanup; existing Better Auth and configured-origin helpers reused. No client owner/blob pathname authority.
-- Four immutable purposes: statement-image, solution-image, statement-pdf, solution-pdf. Same-problem/owner/ready/purpose validation replaces old media denial on saves/publication.
-- Multipart actual-byte limit, 15s parse deadline, 3MiB/file; exact declared MIME versus binary signature/structure; SVG/HTML/animated WebP rejected; image dimension/pixel caps.
-- 60 shared writes/minute, 30 uploads/day including failures, 100 tracked files/100MiB per owner; atomic persistent quota reservations and server-generated nonce paths/hash.
-- Existing Vercel Blob SDK with private access only, no overwrite, 10s operation timeouts; no storage URLs/redirects/tokens in responses or document fields.
-- Owner reads all own ready files. Public reads only statement assets bound to current or explicitly selected same-problem historical revision while problem is published.
-- Unpublish revokes anonymous current/history media access. Private solution images/PDFs remain author-only, including during publication; public JSON and preview exclude solution asset IDs.
-- Local proxy responses no-store/nosniff/same-origin/no-referrer/sandbox; PDFs forced attachment download; images rendered with descriptive alt/caption.
-- Publication atomically pins exact statement+private reference set; parts/private keys/media bindings inserted before final immutable revision, no released savepoints.
-- Parent/media locks serialize save/link/publication/retirement; saved drafts and all historical references protect files permanently.
-- Owner-triggered cleanup <=5 objects/request: unlinked ready >24h, pending/deleting >1h. Mark row -> delete private blob -> remove registry; failures retain retryable tombstones.
-- Recent ambiguous PUT failures retain >=1h tombstones and repeat storage deletion; last deleted-draft orphan prunes empty never-published parent to recover problem quota.
-- Editor statement/hint/worked-solution images, private proxy previews, alt/caption, replacement/removal; optional statement/private solution PDFs upload/replace/download/remove.
-- Removing/replacing alters references through existing versioned autosave; immutable published history retained. File manager exposes retention state, safe unused deletion and cleanup; workspace cleanup works without active drafts.
-- Pending uploads freeze editing/navigation/publication and conflict-copy replacement, protect unload, show progress/error; failures retain original references. Successful edits invalidate stale server comparison.
-- Existing autosave, explicit 409 choices, tab recovery, native text/math, practice/archive/auth behavior preserved. No new product dependencies/package/lockfile changes.
-- No OCR/conversion, grading, submissions, social features, Phase 5, production migrations/storage operations, deployment or merge.
+## Completed Phase 5A
+- Client-safe strict grading transport schemas and typed correct/incorrect/needs-review/ungraded results, fixed reason codes, engineVersion numeric-v1 and canonical immutable selection.
+- Server-only factory + production Better Auth/pool adapter; no public endpoint, client calls, student UI, submissions or result persistence.
+- Trusted verified actor derived outside answer payload; no client-supplied user/owner/key/tolerance/current-version override accepted.
+- Single indexed SQL statement joins exact problem/revision/part/private key with authorization in the same snapshot. No draft/current-revision/public JSON/worker key fallback.
+- Verified owners can grade their immutable history even after unpublish; other verified users only while problem is currently published, including explicitly selected historical revisions.
+- Missing or hidden selections return generic ungraded/revision-unavailable. Private schema/part/mode/key inconsistency needs review; DB/session failure returns generic review without diagnostics.
+- Result contains only status/reason/version/selection; no submitted text, expected value/units/tolerances, private key/hints/solutions, SQL or Zod diagnostics.
+- Numeric policy: abs(submitted-expected) <= max(absTol,relTol*abs(expected)), inclusive; tolerances finite/nonnegative from existing private key only, no default epsilon/rounding.
+- Exact dyadic comparison of encoded binary64 inputs with bounded BigInts (<4300 bits) avoids overflow, underflow and floating-operation boundary rounding. Zero relative error uses absolute tolerance only; signed zero equivalent.
+- Decimal JSON literals retain JavaScript binary64 semantics: e.g. 0.1+0.2 differs from 0.3 at zero tolerance. Set explicit author tolerances for intended rounding; no hidden decimal parser.
+- Units policy: explicit units string required, <=80 characters. After edge trimming, blank and ASCII "1" are equivalent dimensionless labels (the sole alias); saved author keys retain their original labels. Other unit labels remain case-sensitive and allowlisted.
+- Supported exact labels are listed in authored-numeric-grading.ts (SI/common scaled labels and selected compounds). Unknown labels, alternative spellings, mismatches or unsupported conversions -> needs-review.
+- Shared client-safe normalizeNumericUnits/numericUnitsHelp align student-answer parsing, server key comparison and existing author Units help. No other aliases/conversions, unit stripping, case/Unicode folding, offset-temperature handling or dimensional expression evaluation; physical units remain distinct.
+- Manual keys explicitly ungraded. Expression keys/answer-mode mismatches need review; expressions are bounded opaque strings, never evaluated. Phase 5B symbolic engine remains unimplemented.
+- Strict finite number input, bounded fields, no coercion/eval, fixed arithmetic work, indexed single-key lookup with 5s client query deadline; existing production connection5s/statement10s pool limits preserved.
+- Promoted existing transitively locked server-only@0.0.1 marker to a direct dependency for client-import prohibition. No new numeric/CAS/property-test library.
+- pnpm test now passes --conditions=react-server so server-only modules load in Node test workers; default-condition import rejection is separately tested.
+- Private schema/migrations/public APIs/auth/CAPTCHA removal/practice/archive/media unchanged; author editor only receives shared dimensionless guidance.
 
-## Verification evidence
-- Targeted author-media/API/contracts/editor: 49/49 PASS, disposable PostgreSQL17 and isolated memory storage.
-- Security tests: missing/unverified sessions, origin/cross-account/guessed IDs, spoofed MIME/SVG/truncation/actual oversize, private/public purpose reuse, cross-problem/pending references.
-- Lifecycle tests: failed/ambiguous PUT and DELETE retry, aggregate/daily quotas, old orphan grace, empty-parent quota recovery, immutable/history retention, concurrent publication/link/delete.
-- SQL: empty-registry 0003 up/down/up, populated down refusal, exact missing/extra binding rejection, original Phase 1 sealing tests and 0002 rollback/reapply.
-- Browser: real editor + actual API factories + disposable PG + mock private storage, injected verified session; upload/proxy preview/replacement/failure/PDFs/private preview, reload recovery and 409 decisions.
-- Delayed positive upload during conflict comparison verifies both copy-replacement actions disabled until callback and old comparison invalidated afterward.
-- Desktop/mobile axe scans zero violations; 375px no horizontal overflow. Existing math/keyboard CRUD/publication/privacy/round-trip assertions retained.
-- Full suite with PostgreSQL enabled: 142/143 PASS; only inherited lib/corpus-translation.test.ts:66 punctuation mismatch fails. No Phase 4 regression.
-- TypeScript PASS; run sequentially after build/typegen to avoid .next generated-file races.
-- Lint inherited blocker: eslint executable/dependency/config absent.
-- Build inherited blocker confirmed: next/font cannot fetch Inter from Google Fonts (network EPERM). Normal worker hides details; diagnostic with in-process webpack worker disabled reports only app/layout.tsx font failure. No tracked configuration changed.
-- git diff --check PASS. Logs /tmp/physcratic-p4-{target,full,browser,typecheck,lint,build}.log; session-local, not committed.
+## Verification
+- Targeted after dimensionless fix: 33/33 PASS (numeric/service/private-key DB integration + existing authored contracts).
+- Numeric coverage: ±0, negative keys, inclusive absolute/relative equality and adjacent representable values, max not sum, decimal rounding, MAX_VALUE overflow, MIN_VALUE/subnormal products and opposite signs.
+- 2,500 seeded finite IEEE754 tuples checked against independent fixed-common-denominator exact oracle; sign symmetry, reflexivity, determinism, monotonic tolerances; 600 exact power-of-two scaling cases.
+- Adversarial: NaN/Infinity/non-number/BigInt/null/coercion strings, negative/infinite tolerances, excessive fields/strings, unknown units/case/control/Unicode/injection labels, forged keys/actor/version IDs.
+- Security: no DB lookup for invalid/anonymous/unverified input; default client-condition import rejected; exact output allowlist; malformed private keys/identity/schema/modes and DB failures fail closed without secret diagnostics.
+- Disposable PostgreSQL17: migrations 0001–0003, exact historical/current/draft distinction, cross-problem/guessed part denial, owner/unpublish gate, key update immutability, concurrent publication stability, real blocked-read timeout/recovery.
+- Full after dimensionless fix: 161/162 PASS; sole inherited lib/corpus-translation.test.ts:66 punctuation mismatch (earlier Phase 5A 159/160). No new regressions.
+- TypeScript PASS. Frozen/offline lockfile consistency check and git diff --check PASS. No production databases, files, migrations, storage operations, deployment or merge.
+- Existing lint missing ESLint / build Inter font network blockers remain documented Phase 4 baseline; not re-audited or changed by this phase.
+- Session-local fix logs: /tmp/physcratic-p5a-dimensionless-{target,full,typecheck,browser}.log (not committed).
 
-## Independent adversarial review
-- Read-only independent reviewer checked ownership/verified session/origin, private storage/proxy visibility, exact revision binding, race locks, quota and lifecycle.
-- Confirmed/fixed storage Buffer serialization signature, empty-problem quota leak after final orphan, and upload callback versus conflict-copy replacement race.
-- Added quota/tombstone and gated positive-upload browser regressions; reviewer reread final fixes and reported no remaining confirmed actionable blockers.
+## Independent mathematical correctness and security review
+- Independent read-only reviewer checked dyadic decomposition/subnormals/signs/tolerance formula, strict schemas, units, private exact revision joins, authorization snapshots, safe output and server-only guard.
+- Reviewer independently executed 10,000 finite binary64 cases against a separate common-denominator oracle; all agreed.
+- Final review includes PostgreSQL historical/concurrency/timeout tests; no confirmed actionable correctness/security blockers found. No review modifications.
 
-## Commands and limits
-- Targeted: bash scripts/test-problem-authoring.sh node_modules/.bin/tsx --test lib/author-media.test.ts lib/author-media-api.test.ts lib/problem-authoring-api.test.ts lib/problem-authoring.test.ts lib/problem-authoring-editor.test.ts
+## Premerge dimensionless integration correction
+- Confirmed editor guidance allowed "1" while grader rejected it; fixed on the same Phase 5A branch. No Phase 5B work.
+- Focused cross-component review followed author input -> unchanged draft/private key schemas -> immutable publication -> shared student schema and evaluator normalization. No saved-key rewrite or arithmetic changes.
+- Regression matrix covers blank/"1"/edge whitespace on both sides, correct and incorrect values, physical-unit mismatch both ways and unsupported "1/s", "1*m", "1.0", "01" and fullwidth "１".
+- Disposable DB verifies stored author labels survive publication and verified-student grading; real editor browser verifies shared help and "1" autosave/recovery/409/publication/readback with zero axe/mobile violations.
+- Focused source/diff review found no other normalization or client/server boundary changes; existing private-key isolation and symbolic/manual refusals preserved.
+
+## Reproducible checks and limits
+- Targeted: bash scripts/test-problem-authoring.sh node_modules/.bin/tsx --conditions=react-server --test lib/authored-grading.test.ts lib/authored-numeric-grading.test.ts lib/authored-grading-db.test.ts lib/problem-authoring.test.ts
 - Full: bash scripts/test-problem-authoring.sh node /tmp/physcratic-npm/_npx/fed63785a0df9524/node_modules/pnpm/bin/pnpm.cjs test
-- Browser: AUTHORING_BROWSER_TOOLS=/tmp/physcratic-editor-test bash scripts/test-problem-authoring.sh node_modules/.bin/tsx tests/problem-authoring.browser.mjs
-- Browser tools outside repository: playwright, @axe-core/playwright; Chromium /usr/bin/chromium. Tests never use ambient DATABASE_URL or real Blob credentials/files.
-- Live Better Auth login/email and deployed Vercel private Blob/staging flow not exercised; production adapter typechecked/reviewed, storage behavior tested through isolated mocks.
-- Signature/structure checks are not complete decoding, PDF sanitization or antivirus. PDF handling deliberately forces download and never embeds active content.
-- Explicit private Blob configuration + reviewed 0003 migration/ledger needed for separately authorized release; no startup/build migration. Populated-registry rollback refuses; preserve history/storage.
+- TypeScript: node_modules/.bin/tsc --noEmit (sequential with any build/typegen).
+- Direct server-only Node test imports need --conditions=react-server; normal import deliberately throws. Browser harness remains under normal React conditions and verifies shared help + author "1" key persistence.
+- Test DB explicitly restricted to 127.0.0.1/physcratic_authoring_test, unique test schema per suite, disposable container cleanup. No ambient DATABASE_URL read by tests.
+- Production adapter/session path typechecked; tests inject server actors into actual factory. No deployed Better Auth/staging flow exercised.
+- Phase 6 transport must add origin/session/rate/idempotency/byte/deadline protections before exposing grading. This internal service is not an authorized public grading endpoint.
 
 ## Exact next task
-- Review Phase 4 branch/PR; stop here. No automatic merge/deploy or production migration.
-- Later phases require a separate request after merge, fresh main and handoffs first; inspect only affected code. Grading remains Phase 5 with approved domain/resource/privacy contracts.
+- Review Phase 5A only; stop after delivery. No merge/deploy/production changes.
+- Phase 5B requires separate request after merge, fresh main and handoffs first; reuse this interface/private selection and add constrained symbolic equivalence/domain/resource tests only then.

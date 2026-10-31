@@ -1,11 +1,11 @@
 # Problem authoring architecture map
 
-Phase 4 from merged main `0845052fff6cf36760fa8c69e5b9a1d89a22447d` (Phase 3 PR #14; 2026-10-31 Asia/Makassar).
-Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md. Phases 0–3 merged; Phase 4 adds secure images/PDFs only.
+Phase 5A from merged main `7335d264b32b9deb2ef2d227764ded3257b94c89` (Phase 4 PR #15; 2026-10-31 Asia/Makassar).
+Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md. Phases 0–4 merged; Phase 5A adds server-only numeric grading only.
 Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspect affected code/dependencies only.
 
 ## Established architecture (reuse; do not repeat audits)
-- Next 15.5.28 / React 19 / TypeScript / pnpm; existing Zod, KaTeX, mathjs, Drizzle, Better Auth and Vercel Blob. No new product dependencies.
+- Next 15.5.28 / React 19 / TypeScript / pnpm; existing Zod, KaTeX, mathjs, Drizzle, Better Auth and Vercel Blob. Phase 5A promotes the already locked tiny Next.js server-only marker to a direct dependency for enforced client-import rejection.
 - [Database](../../lib/db/index.ts): PostgreSQL Pool + Drizzle; trusted application role, not standalone RLS. Never expose raw authored/private tables.
 - [Schema](../../lib/db/schema.ts): authored tables isolated from user/session, practice_attempt, solution_attempt/evidence, archive and contest contracts.
 - Better Auth and [submission adapters](../../lib/submission-server.ts) provide session/configured origin; every author operation explicitly requires emailVerified === true.
@@ -69,11 +69,25 @@ Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspe
 - Pending upload freezes edits/back/publish/conflict copy replacement and protects beforeunload; successful callback invalidates stale comparison. Failures retain original reference and show error.
 - Student preview uses only public mapper; private panels/comparison JSON unmounted. It renders statement images/PDF links only, never private assets or unsafe PDF iframe.
 
+## Phase 5A secure grading foundation
+- [Client-safe types](../../lib/authored-grading-contracts.ts), [server service](../../lib/authored-grading.ts), [numeric evaluator](../../lib/authored-numeric-grading.ts), [session adapter](../../lib/authored-grading-server.ts). No new routes/student UI or grading persistence; existing author Units help shares the client-safe units policy.
+- Strict {problemId,revisionId,partId,answer}; UUID lowercase; numeric answer {kind,value,units} requires finite number and explicit units string <=80; expression <=180/manual text <=4000 are bounded transport cases only.
+- Output has status correct/incorrect/needs-review/ungraded, fixed reason, engineVersion numeric-v1 and canonical selection (null for invalid input). Never returns key/value/expected units/tolerances/private hints/diagnostics.
+- Trusted verified session is injected separately. One indexed SQL snapshot authorizes owner OR currently published problem and joins exact requested problem/revision/part/private key; no draft/public JSON/worker/current-key fallback.
+- Verified nonowners may grade explicit historical revisions while problem is published; unpublish blocks them. Owner may grade retained unpublished history; all grading still requires verified email.
+- Private schema/part/mode/key mismatches -> needs-review; missing/hidden revision -> ungraded; DB/session failures -> generic needs-review. Client query deadline5s, production pool connection/statement limits retained.
+- Numeric policy: |submitted-expected| <= max(absTol,relTol*|expected|), inclusive. absTol/relTol finite/nonnegative from existing private key; no defaults, added epsilon, rounding or sum-of-tolerances.
+- Exact dyadic BigInt comparison over stored binary64 values prevents overflow/underflow/rounded-boundary errors; four finite inputs bound integer width <4300 bits. Decimal-looking JSON numbers are binary64, not arbitrary-precision decimal input.
+- Units: blank and ASCII "1" are equivalent dimensionless labels after edge trimming (the sole alias). Shared normalizeNumericUnits/numericUnitsHelp in client-safe grading contracts govern student-answer parsing, evaluator key comparison and author guidance; saved author labels remain unchanged. Other labels stay case-sensitive/allowlisted, no conversions/Unicode folding/dimensional algebra; unsupported expressions or physical mismatches need review.
+- Manual keys -> ungraded; expression keys or mismatched answer modes -> needs-review. No parsing/eval/symbolic equivalence. Phase 5B can extend the typed dispatch without changing private key selection.
+- server-only guards evaluator/service/production adapter; only transport contracts are client-safe. Test command uses --conditions=react-server; default-condition import rejection is independently tested.
+- [Numeric properties](../../lib/authored-numeric-grading.test.ts), [service security](../../lib/authored-grading.test.ts), [disposable PostgreSQL](../../lib/authored-grading-db.test.ts): exact oracle, boundaries/extremes, units, isolation, immutable selection, concurrent publication and timeout.
+
 ## Verification and later-phase boundaries
 - [Security integration](../../lib/author-media-api.test.ts): isolated PostgreSQL schema + memory storage; owner/origin/type/size/scope/quota, failure tombstones, exact sealing, historical retention and publication/link/delete races.
 - [Browser](../../tests/problem-authoring.browser.mjs): real editor/API/disposable PG, injected sessions; upload/failed replacement/private preview, gated conflict upload, autosave/recovery, accessibility/mobile.
 - Commands/results/limitations in status. Full tests, typecheck, lint/build attempts required; report inherited blockers separately. No production data/migrations/storage calls in tests.
-- Phase 5 grading remains separate: restricted AST/resource limits, domain/unit/singularity/angle checks; numerical sampling cannot prove equivalence, indeterminate -> needs-review.
+- Phase 5B symbolic equivalence remains separate: restricted AST/resource limits, domain/unit/singularity/angle checks; numerical sampling cannot prove equivalence, indeterminate -> needs-review.
 - Phase 6 solver/reveal binds immutable revision+part+user+idempotency; assisted/revealed state; no private keys in HTML/RSC/JSON/worker. Never affect existing Elo.
 - Phase 7 social: unique non-self stars, same-problem/depth-bound comments, ownership/tombstones/pagination/private reports. Phase 8 staged end-to-end/release review; main merge auto-deploys.
 - Playbook model/effort: P0 Sol Medium; P1/2/4/6/8 Sol High; P3/7 Sol Medium; P5 Astra Medium or Sol High. No runtime model switch control exposed.

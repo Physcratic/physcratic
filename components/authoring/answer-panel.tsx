@@ -1,5 +1,6 @@
 "use client";
 import { BlocksEditor, Field, inputClass, NumberInput } from "./editor-fields";
+import { numericUnitsHelp } from "@/lib/authored-grading-contracts";
 import type { EditorDraft } from "@/lib/problem-authoring-editor";
 type Entry = EditorDraft["privateParts"][number];
 export function AnswerPanel({
@@ -56,7 +57,7 @@ export function AnswerPanel({
               )}
             </Field>
           ))}
-          <Field label="Units" help="Use 1 for a dimensionless answer.">
+          <Field label="Units" help={numericUnitsHelp}>
             {(id) => (
               <input
                 id={id}

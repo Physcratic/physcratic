@@ -2,6 +2,7 @@
 // Browser harness uses real production editor + API factory on disposable PostgreSQL.
 // Better Auth sessions are injected, not simulated browser login. Test tooling is external.
 import assert from "node:assert/strict";
+import { numericUnitsHelp } from "../lib/authored-grading-contracts.ts";
 import { createServer } from "node:http";
 import { createRequire } from "node:module";
 import { readFile, mkdtemp, rm } from "node:fs/promises";
@@ -246,7 +247,8 @@ try {
     await page.getByLabel("Expected value", { exact: true }).inputValue(),
     "-0.5",
   );
-  await page.getByLabel("Units", { exact: true }).fill("m");
+  await page.getByText(numericUnitsHelp, { exact: true }).waitFor();
+  await page.getByLabel("Units", { exact: true }).fill("1");
   await page
     .getByRole("button", { name: "Add text to worked solution", exact: true })
     .click();
@@ -524,7 +526,8 @@ try {
   )
     .split("/")
     .pop();
-  current.content.attachments.find(a=>a.purpose==="statement-image").id=current.content.context[1].mediaId;
+  current.content.attachments.find((a) => a.purpose === "statement-image").id =
+    current.content.context[1].mediaId;
   await page
     .getByRole("button", {
       name: "Compare with latest server copy",
@@ -660,6 +663,11 @@ try {
     ownerResult.privateParts.find((p) => p.key?.kind === "expression").key
       .variables[0].min,
     -0.5,
+  );
+  assert.equal(
+    ownerResult.privateParts.find((p) => p.key?.kind === "numeric").key.units,
+    "1",
+    "dimensionless author label survives autosave, recovery, publication and readback",
   );
   await page.getByRole("button", { name: "← Drafts", exact: true }).click();
   await page
