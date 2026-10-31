@@ -8,7 +8,7 @@ import { createProblemAuthoringApi } from "./problem-authoring-api";
 import type { AuthoredDocument, PrivatePart } from "./problem-authoring";
 const testUrl = process.env.AUTHORING_TEST_DATABASE_URL;
 test(
-  "revision-bound private numeric grading on disposable PostgreSQL",
+  "revision-bound private numeric and symbolic grading on disposable PostgreSQL",
   {
     skip:
       !testUrl &&
@@ -135,6 +135,209 @@ test(
             (await readFile(`migrations/${name}.up.sql`, "utf8")) +
             "\nCOMMIT;",
         );
+      await t.test(
+        "symbolic private revision dispatch stays immutable and isolated during concurrent publication",
+        async () => {
+          const owner = await user(),
+            student = await user(),
+            d = doc(0);
+          d.content.sections[0].parts[0].answerMode = "expression";
+          d.privateParts[0].key = {
+            kind: "expression",
+            expected: "x^2+137",
+            variables: [{ name: "x", domain: "real", assumptions: [] }],
+            angleUnit: "radians",
+            exclusions: [],
+          };
+          const created = await api("create", request(owner, d));
+          assert.equal(created.status, 201);
+          const problem = await created.json(),
+            revision = await publish(owner, problem.problemId, 1),
+            ids = selection({ ...problem, ...d }, revision.id);
+          const candidate = { kind: "expression", expression: "x*x+137" };
+          let result = await grader(student)({ ...ids, answer: candidate });
+          assert.equal(result.status, "correct");
+          assert.equal(result.engineVersion, "symbolic-v1");
+          for (const value of [
+            JSON.stringify(result),
+            await (
+              await api("public", request(student), problem.problemId)
+            ).text(),
+          ])
+            for (const secret of [
+              "x^2+137",
+              "PRIVATE_REVISION_SOLUTION",
+              '"expected"',
+              '"variables"',
+              '"key"',
+            ])
+              assert.equal(value.includes(secret), false);
+          const next = structuredClone(d);
+          if (next.privateParts[0].key?.kind !== "expression")
+            throw Error("fixture");
+          next.privateParts[0].key.expected = "x^2+999";
+          assert.equal(
+            (
+              await api(
+                "update",
+                request(owner, { version: 2, ...next }),
+                problem.problemId,
+              )
+            ).status,
+            200,
+          );
+          const [newRevision, ...oldResults] = await Promise.all([
+            publish(owner, problem.problemId, 3),
+            ...Array.from({ length: 8 }, () =>
+              grader(student)({ ...ids, answer: candidate }),
+            ),
+          ]);
+          for (const r of oldResults) {
+            assert.equal(r.status, "correct");
+            assert.equal(r.selection?.revisionId, revision.id);
+          }
+          result = await grader(student)({
+            ...ids,
+            revisionId: newRevision.id,
+            answer: candidate,
+          });
+          assert.equal(result.status, "incorrect");
+          assert.equal(
+            (
+              await grader(student)({
+                ...ids,
+                revisionId: newRevision.id,
+                answer: { kind: "expression", expression: "x*x+999" },
+              })
+            ).status,
+            "correct",
+          );
+          const foreign = await create(student),
+            foreignRev = await publish(student, foreign.problemId, 1);
+          assert.equal(
+            (
+              await grader(student)({
+                ...ids,
+                revisionId: foreignRev.id,
+                answer: candidate,
+              })
+            ).reason,
+            "revision-unavailable",
+          );
+          const unverified = await user(false);
+          assert.equal(
+            (await grader(unverified)({ ...ids, answer: candidate })).reason,
+            "not-authorized",
+          );
+          assert.equal(
+            (
+              await grader(student)({
+                ...ids,
+                expected: "x*x+137",
+                answer: candidate,
+              })
+            ).reason,
+            "invalid-input",
+          );
+          assert.equal(
+            (
+              await api(
+                "unpublish",
+                request(owner, { version: 4 }),
+                problem.problemId,
+              )
+            ).status,
+            200,
+          );
+          assert.equal(
+            (await grader(student)({ ...ids, answer: candidate })).reason,
+            "revision-unavailable",
+          );
+          assert.equal(
+            (await grader(owner)({ ...ids, answer: candidate })).status,
+            "correct",
+          );
+        },
+      );
+      await t.test(
+        "symbolic exclusions and bounds are loaded from the selected private revision only",
+        async () => {
+          const owner = await user(),
+            student = await user(),
+            d = doc(0);
+          d.content.sections[0].parts[0].answerMode = "expression";
+          d.privateParts[0].key = {
+            kind: "expression",
+            expected: "x+1",
+            variables: [{ name: "x", domain: "real", assumptions: [] }],
+            angleUnit: "radians",
+            exclusions: [],
+          };
+          const created = await api("create", request(owner, d));
+          assert.equal(created.status, 201);
+          const problem = await created.json(),
+            first = await publish(owner, problem.problemId, 1),
+            ids = selection({ ...problem, ...d }, first.id),
+            answer = { kind: "expression", expression: "(x^2-1)/(x-1)" };
+          assert.equal(
+            (await grader(student)({ ...ids, answer })).reason,
+            "symbolic-domain",
+          );
+          if (d.privateParts[0].key?.kind !== "expression")
+            throw Error("fixture");
+          d.privateParts[0].key.exclusions = ["x != 1"];
+          assert.equal(
+            (
+              await api(
+                "update",
+                request(owner, { version: 2, ...d }),
+                problem.problemId,
+              )
+            ).status,
+            200,
+          );
+          const second = await publish(owner, problem.problemId, 3);
+          assert.equal(
+            (await grader(student)({ ...ids, revisionId: second.id, answer }))
+              .status,
+            "correct",
+          );
+          assert.equal(
+            (await grader(student)({ ...ids, answer })).reason,
+            "symbolic-domain",
+          );
+          d.privateParts[0].key.expected = "x";
+          d.privateParts[0].key.variables[0].min = 0;
+          d.privateParts[0].key.exclusions = [];
+          assert.equal(
+            (
+              await api(
+                "update",
+                request(owner, { version: 4, ...d }),
+                problem.problemId,
+              )
+            ).status,
+            200,
+          );
+          const third = await publish(owner, problem.problemId, 5);
+          assert.equal(
+            (
+              await grader(student)({
+                ...ids,
+                revisionId: third.id,
+                answer: { kind: "expression", expression: "sqrt(x^2)" },
+              })
+            ).status,
+            "correct",
+          );
+          const row = await pool.query(
+            "SELECT data->'key' AS key FROM authored_revision_private_part WHERE revision_id=$1",
+            [first.id],
+          );
+          assert.deepEqual(row.rows[0].key.exclusions, []);
+          assert.equal(row.rows[0].key.expected, "x+1");
+        },
+      );
       await t.test(
         "saved dimensionless author keys and student labels agree across immutable revisions",
         async () => {

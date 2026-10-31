@@ -1,67 +1,62 @@
 # Problem authoring implementation status
 
-- Updated: 2026-10-31 (Asia/Makassar). Phase 5A ONLY; phases 0–4 merged.
-- Fresh fetched main/base: `7335d264b32b9deb2ef2d227764ded3257b94c89` (Phase 4 PR #15).
-- Verified Phase 4 squash merge matches reviewed branch tree exactly; clean branch `codex/problem-authoring-phase-5a` created from fetched main.
-- Foundation `56c5067`; premerge dimensionless correction delivered on this same branch, final commit via git log -1.
-- Draft PR creation blocked: GitHub API returned Forbidden (Post https://api.github.com/graphql).
-- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-5a
-- Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-5a?expand=1
-- Read WORK_STATUS/map/status first; inspected grading/contracts/private revision schema/dependencies only. No repeated audit or unrelated auth/editor/media changes.
+- Updated: 2026-10-31 (Asia/Makassar). Phase 5B ONLY; phases 0–5A merged.
+- Fresh fetched main/base: `b0b7cc2755305f4e286f68a7e5b229f1e52608ed` (Phase 5A PR #17).
+- Verified merged tree exactly matches reviewed Phase 5A + dimensionless fix `d061253`; branch `codex/problem-authoring-phase-5b` created from fetched main.
+- Implementation `0b0f772` committed/pushed; final handoff SHA via git log -1.
+- Draft PR creation blocked by GitHub API Forbidden (Post https://api.github.com/graphql).
+- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-5b
+- Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-5b?expand=1
+- Read WORK_STATUS/map/status first; inspected grading/contracts/private revision dependencies only. No repeated repository audit.
 
-## Completed Phase 5A
-- Client-safe strict grading transport schemas and typed correct/incorrect/needs-review/ungraded results, fixed reason codes, engineVersion numeric-v1 and canonical immutable selection.
-- Server-only factory + production Better Auth/pool adapter; no public endpoint, client calls, student UI, submissions or result persistence.
-- Trusted verified actor derived outside answer payload; no client-supplied user/owner/key/tolerance/current-version override accepted.
-- Single indexed SQL statement joins exact problem/revision/part/private key with authorization in the same snapshot. No draft/current-revision/public JSON/worker key fallback.
-- Verified owners can grade their immutable history even after unpublish; other verified users only while problem is currently published, including explicitly selected historical revisions.
-- Missing or hidden selections return generic ungraded/revision-unavailable. Private schema/part/mode/key inconsistency needs review; DB/session failure returns generic review without diagnostics.
-- Result contains only status/reason/version/selection; no submitted text, expected value/units/tolerances, private key/hints/solutions, SQL or Zod diagnostics.
-- Numeric policy: abs(submitted-expected) <= max(absTol,relTol*abs(expected)), inclusive; tolerances finite/nonnegative from existing private key only, no default epsilon/rounding.
-- Exact dyadic comparison of encoded binary64 inputs with bounded BigInts (<4300 bits) avoids overflow, underflow and floating-operation boundary rounding. Zero relative error uses absolute tolerance only; signed zero equivalent.
-- Decimal JSON literals retain JavaScript binary64 semantics: e.g. 0.1+0.2 differs from 0.3 at zero tolerance. Set explicit author tolerances for intended rounding; no hidden decimal parser.
-- Units policy: explicit units string required, <=80 characters. After edge trimming, blank and ASCII "1" are equivalent dimensionless labels (the sole alias); saved author keys retain their original labels. Other unit labels remain case-sensitive and allowlisted.
-- Supported exact labels are listed in authored-numeric-grading.ts (SI/common scaled labels and selected compounds). Unknown labels, alternative spellings, mismatches or unsupported conversions -> needs-review.
-- Shared client-safe normalizeNumericUnits/numericUnitsHelp align student-answer parsing, server key comparison and existing author Units help. No other aliases/conversions, unit stripping, case/Unicode folding, offset-temperature handling or dimensional expression evaluation; physical units remain distinct.
-- Manual keys explicitly ungraded. Expression keys/answer-mode mismatches need review; expressions are bounded opaque strings, never evaluated. Phase 5B symbolic engine remains unimplemented.
-- Strict finite number input, bounded fields, no coercion/eval, fixed arithmetic work, indexed single-key lookup with 5s client query deadline; existing production connection5s/statement10s pool limits preserved.
-- Promoted existing transitively locked server-only@0.0.1 marker to a direct dependency for client-import prohibition. No new numeric/CAS/property-test library.
-- pnpm test now passes --conditions=react-server so server-only modules load in Node test workers; default-condition import rejection is separately tested.
-- Private schema/migrations/public APIs/auth/CAPTCHA removal/practice/archive/media unchanged; author editor only receives shared dimensionless guidance.
+## Completed Phase 5B
+- Server-only restricted symbolic prover extending existing grading factory/typed response; immutable selection, private SQL query/session/publication authorization unchanged.
+- [SYMBOLIC_GRADING_POLICY.md](SYMBOLIC_GRADING_POLICY.md) specifies grammar, proof obligation, domains, exact arithmetic, limits, examples and deliberate unsupported cases; do not claim general equivalence.
+- Custom bounded lexer/Pratt AST: exact rational decimals, declared real variables, explicit + - * / ^, unary signs, parentheses, whitelisted one-argument functions. Real precedence/right-associative powers; no implicit multiplication.
+- Existing legacy mathjs browser preview lacks this exact-literal/domain proof boundary; left unchanged. No eval/Function, compiled expressions, generic CAS or new dependencies.
+- Rational-coefficient multivariate polynomials and rational expressions: exact cross-products prove identity only when all original definedness guards hold on a declared nonempty domain.
+- Preserves holes through cancellation/zero products/zero powers; no unsafe removable-singularity or 0^0 simplification.
+- Nonzero proofs use sound rational interval enclosures, monomial factors and one-variable affine roots excluded by bounds/assumptions/exclusions; other cases may need review.
+- Variable domains enforce inclusive binary64 min/max, strict positive, nonnegative, nonzero and restricted variable != rational exclusions. Unsupported exclusions and empty domains never ignored; unused variable declarations checked too.
+- Bounds retain exact stored binary64; expression/exclusion decimal literals are exact decimal rationals. Singleton bound 0.1 intentionally differs from symbolic 1/10; documented/tested prominently.
+- Principal sqrt of perfect rational squares and supported real-square -> abs rules; abs constants/sign-proven expressions/declared variables. No unrestricted sqrt(x^2)->x.
+- Only exact trig/log constants sin/tan0, cos0, log1; all other trig/log identities require review, including identical unsupported calls. Angle convention preserved; supported constants valid in radians/degrees.
+- A non-equivalent result needs an exact rational both-defined unequal witness satisfying every domain declaration. Finite agreeing points never establish equivalence; no floating sampling/tolerance.
+- Proven equivalent -> correct/symbolic-equivalent; exact counterexample -> incorrect/symbolic-counterexample; unsupported/domain/inconclusive/resource limits -> needs-review with fixed reason.
+- Dispatched expression engineVersion symbolic-v1; numeric/manual remain numeric-v1. Safe response stays status/reason/version/selection only, no expression/AST/witness/private domain/key/error details.
+- Explicit caps:180chars,128tokens,96nodes,depth16,8variables,128terms,degree16,exponent8,2048-bit rationals,128guards,64witnesses,40k ticks,cooperative100ms deadline.
+- Native BigInt operands and AST/maps/term vectors/allocated work bounded. No hard OS-level heap/preemption claim; no unchecked external CAS/evaluation call.
+- Phase 5A exact numeric tolerances, manual behavior, blank/ASCII 1 dimensionless alias, public serialization/private isolation preserved.
+- No routes/student APIs/UI/uploads/social, schema/migrations, dependencies, auth/media behavior, production DB/storage changes, merge or deployment.
 
 ## Verification
-- Targeted after dimensionless fix: 33/33 PASS (numeric/service/private-key DB integration + existing authored contracts).
-- Numeric coverage: ±0, negative keys, inclusive absolute/relative equality and adjacent representable values, max not sum, decimal rounding, MAX_VALUE overflow, MIN_VALUE/subnormal products and opposite signs.
-- 2,500 seeded finite IEEE754 tuples checked against independent fixed-common-denominator exact oracle; sign symmetry, reflexivity, determinism, monotonic tolerances; 600 exact power-of-two scaling cases.
-- Adversarial: NaN/Infinity/non-number/BigInt/null/coercion strings, negative/infinite tolerances, excessive fields/strings, unknown units/case/control/Unicode/injection labels, forged keys/actor/version IDs.
-- Security: no DB lookup for invalid/anonymous/unverified input; default client-condition import rejected; exact output allowlist; malformed private keys/identity/schema/modes and DB failures fail closed without secret diagnostics.
-- Disposable PostgreSQL17: migrations 0001–0003, exact historical/current/draft distinction, cross-problem/guessed part denial, owner/unpublish gate, key update immutability, concurrent publication stability, real blocked-read timeout/recovery.
-- Full after dimensionless fix: 161/162 PASS; sole inherited lib/corpus-translation.test.ts:66 punctuation mismatch (earlier Phase 5A 159/160). No new regressions.
-- TypeScript PASS. Frozen/offline lockfile consistency check and git diff --check PASS. No production databases, files, migrations, storage operations, deployment or merge.
-- Existing lint missing ESLint / build Inter font network blockers remain documented Phase 4 baseline; not re-audited or changed by this phase.
-- Session-local fix logs: /tmp/physcratic-p5a-dimensionless-{target,full,typecheck,browser}.log (not committed).
+- Targeted final mathematical/property/security/private DB/contracts: 43/43 PASS.
+- Required adversarial identities: polynomial equality, removable singularities incl x=1/exclusion, sqrt-square sign domains, abs identity, unsupported trig/log identities incl negative arguments, undefined functions/division, empty/incompatible domains.
+- Parser/degree/term/coefficient/exponent/nesting/size attacks return review, with injection/assignment/accessor/implicit multiplication refused. No expression execution.
+- 220 seeded polynomial expansion and total rational identity cases plus non-equivalent variants; deterministic exact arithmetic only.
+- Regression polynomial vanishes at every searched witness but is not identically zero: result inconclusive, never correct.
+- Disposable PostgreSQL17: original numeric/domainless contracts plus immutable historical expression/private domain/exclusion selection, concurrent publication, foreign revision denial, verified owner/student/unpublish gates and public/result privacy.
+- Full suite with all PostgreSQL tests enabled: 171/172 PASS; sole inherited corpus-translation punctuation failure at lib/corpus-translation.test.ts:66 (Phase 5A baseline 161/162). No new regressions.
+- TypeScript PASS, including final sequential typegen after build. git diff --check PASS.
+- Lint attempted: inherited missing eslint executable. Build attempted: inherited Inter/Google Fonts network EPERM; diagnostic disabled webpack worker in-process only to expose font error, no tracked config changes.
+- Logs /tmp/physcratic-p5b-{math,target,full,typecheck,lint,build,build-diagnostic}.log are session-local, not committed.
 
-## Independent mathematical correctness and security review
-- Independent read-only reviewer checked dyadic decomposition/subnormals/signs/tolerance formula, strict schemas, units, private exact revision joins, authorization snapshots, safe output and server-only guard.
-- Reviewer independently executed 10,000 finite binary64 cases against a separate common-denominator oracle; all agreed.
-- Final review includes PostgreSQL historical/concurrency/timeout tests; no confirmed actionable correctness/security blockers found. No review modifications.
+## Independent mathematical/security review
+- Independent read-only reviewer audited parser precedence, exact rationals, interval/nonzero/sign proofs, singularity guards, domain nonemptiness, resources, private dispatch and outputs; no confirmed actionable blockers.
+- Independently generated 1,200 rational-expression pairs; 380 accepted proofs checked on exact rational grids, with no accepted unequal/undefined values.
+- Independently generated 5,400 bounded-domain division/abs cases; 436 accepted proofs checked for nonzero divisors and correct signs, no discrepancies.
+- These independent grids are adversarial test evidence, not the implementation's equality proof or a claim of exhaustive verification. Source proof conditions remain authoritative.
+- Reviewer checked actual PostgreSQL historical-key/publication/privacy tests; no files modified by reviewer.
 
-## Premerge dimensionless integration correction
-- Confirmed editor guidance allowed "1" while grader rejected it; fixed on the same Phase 5A branch. No Phase 5B work.
-- Focused cross-component review followed author input -> unchanged draft/private key schemas -> immutable publication -> shared student schema and evaluator normalization. No saved-key rewrite or arithmetic changes.
-- Regression matrix covers blank/"1"/edge whitespace on both sides, correct and incorrect values, physical-unit mismatch both ways and unsupported "1/s", "1*m", "1.0", "01" and fullwidth "１".
-- Disposable DB verifies stored author labels survive publication and verified-student grading; real editor browser verifies shared help and "1" autosave/recovery/409/publication/readback with zero axe/mobile violations.
-- Focused source/diff review found no other normalization or client/server boundary changes; existing private-key isolation and symbolic/manual refusals preserved.
-
-## Reproducible checks and limits
-- Targeted: bash scripts/test-problem-authoring.sh node_modules/.bin/tsx --conditions=react-server --test lib/authored-grading.test.ts lib/authored-numeric-grading.test.ts lib/authored-grading-db.test.ts lib/problem-authoring.test.ts
+## Reproducible checks / limits
+- Targeted: bash scripts/test-problem-authoring.sh node_modules/.bin/tsx --conditions=react-server --test lib/authored-symbolic-grading.test.ts lib/authored-grading.test.ts lib/authored-grading-db.test.ts lib/authored-numeric-grading.test.ts lib/problem-authoring.test.ts
 - Full: bash scripts/test-problem-authoring.sh node /tmp/physcratic-npm/_npx/fed63785a0df9524/node_modules/pnpm/bin/pnpm.cjs test
-- TypeScript: node_modules/.bin/tsc --noEmit (sequential with any build/typegen).
-- Direct server-only Node test imports need --conditions=react-server; normal import deliberately throws. Browser harness remains under normal React conditions and verifies shared help + author "1" key persistence.
-- Test DB explicitly restricted to 127.0.0.1/physcratic_authoring_test, unique test schema per suite, disposable container cleanup. No ambient DATABASE_URL read by tests.
-- Production adapter/session path typechecked; tests inject server actors into actual factory. No deployed Better Auth/staging flow exercised.
-- Phase 6 transport must add origin/session/rate/idempotency/byte/deadline protections before exposing grading. This internal service is not an authorized public grading endpoint.
+- TypeScript: node_modules/.bin/next typegen then node_modules/.bin/tsc --noEmit, sequentially with build.
+- Node server tests require --conditions=react-server; existing default-condition marker rejection regression retained. Only disposable localhost physcratic_authoring_test DB + unique test schemas used.
+- No ambient DATABASE_URL/production storage used by tests; production adapter typechecked, sessions injected into real factory, deployed auth/staging flow not exercised.
+- No general radicals/trig/log/constants/complex/unit algebra. Unsupported true identities intentionally require review; see capability policy before expanding language.
+- Existing input/private key contracts still cap expression180/exclusions20/variables20; prover can conservatively refuse beyond its stricter eight-variable budget.
 
 ## Exact next task
-- Review Phase 5A only; stop after delivery. No merge/deploy/production changes.
-- Phase 5B requires separate request after merge, fresh main and handoffs first; reuse this interface/private selection and add constrained symbolic equivalence/domain/resource tests only then.
+- User review Phase 5B only; stop after delivery. No merge/deploy/production migrations.
+- Phase 6 requires separate request after merge/fresh main/handoffs; reuse private immutable selection and typed result. Add origin/session/rate/idempotency/body/deadline controls before exposing any student grading/reveal API.

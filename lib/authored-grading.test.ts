@@ -94,7 +94,7 @@ test("safe results contain only status, fixed reason/version and canonical immut
   );
   assert.equal((await fixture([]).grade(input)).reason, "revision-unavailable");
 });
-test("manual is explicitly ungraded; symbolic and mode mismatches never produce a false boolean grade", async () => {
+test("manual remains ungraded; symbolic dispatch proves supported identities and mode mismatches need review", async () => {
   const manual = fixture([
     {
       ...row,
@@ -112,7 +112,7 @@ test("manual is explicitly ungraded; symbolic and mode mismatches never produce 
   const expression = {
     kind: "expression",
     expected: "x^2",
-    variables: [],
+    variables: [{ name: "x", domain: "real", assumptions: [] }],
     angleUnit: "radians",
     exclusions: [],
   };
@@ -131,7 +131,7 @@ test("manual is explicitly ungraded; symbolic and mode mismatches never produce 
         answer: { kind: "expression", expression: "x*x" },
       })
     ).reason,
-    "answer-mode-unsupported",
+    "symbolic-equivalent",
   );
   assert.equal(
     (

@@ -7,6 +7,7 @@ import {
   type GradeEvaluation,
   type GradeSelection,
 } from "./authored-grading-contracts";
+import { evaluateExpressionAnswer } from "./authored-symbolic-grading";
 import { evaluateNumericAnswer } from "./authored-numeric-grading";
 
 type Dependencies = {
@@ -19,9 +20,10 @@ type Dependencies = {
 export function createAuthoredGrader(deps: Dependencies) {
   return async function grade(input: unknown): Promise<AuthoredGradeResult> {
     let selection: GradeSelection | null = null;
+    let engineVersion: AuthoredGradeResult["engineVersion"] = "numeric-v1";
     const result = (evaluation: GradeEvaluation): AuthoredGradeResult => ({
       ...evaluation,
-      engineVersion: "numeric-v1",
+      engineVersion,
       selection,
     });
     try {
@@ -61,6 +63,10 @@ export function createAuthoredGrader(deps: Dependencies) {
         return result({ status: "needs-review", reason: "key-unavailable" });
       if (key.data.kind === "manual")
         return result({ status: "ungraded", reason: "manual" });
+      if (key.data.kind === "expression" && answer.kind === "expression") {
+        engineVersion = "symbolic-v1";
+        return result(evaluateExpressionAnswer(answer, key.data));
+      }
       if (key.data.kind !== "numeric" || answer.kind !== "numeric")
         return result({
           status: "needs-review",

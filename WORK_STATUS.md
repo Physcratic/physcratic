@@ -1,17 +1,18 @@
 # Work status
 
-- Scope: Phase 5A server-only numeric grading foundation, 2026-10-31 (Asia/Makassar).
-- Base: freshly fetched main 7335d264b32b9deb2ef2d227764ded3257b94c89, Phase 4 PR #15 merged; verified squash tree matches reviewed Phase 4 branch.
-- Branch: codex/problem-authoring-phase-5a. Read handoffs first; only grading/contracts/private revision dependencies inspected.
-- Added strict typed grading service + verified-session adapter; exact problem/revision/part private-key query, snapshot authorization, safe four-status outputs without key/tolerance/solution details.
-- Numeric formula abs(x-y) <= max(absTol,relTol*abs(y)); exact bounded binary64 dyadic arithmetic handles zero/negatives/extremes without overflow/underflow or hidden epsilon.
-- Premerge fix: blank and ASCII "1" are equivalent dimensionless labels after trimming; shared student schema/evaluator policy and author help. Saved author key labels retained; other physical/unsupported units remain strict. No Phase 5B.
-- Promoted already locked server-only marker to direct dependency; tests use react-server condition, separate default-condition rejection test. No CAS/testing-library dependency.
-- Fix targeted 33/33 PASS, TypeScript PASS; existing exact-oracle properties, DB authorization/history/concurrency plus dimensionless author/student regressions. Browser shared-help/key persistence/recovery/publication/axe/mobile PASS.
-- Full fix suite 161/162 PASS; sole inherited corpus-translation punctuation failure at lib/corpus-translation.test.ts:66. No regressions.
-- Independent mathematical/security review complete: separate 10,000-case oracle agrees; no confirmed blockers.
-- Existing ESLint missing / Inter font build blockers documented Phase 4; unchanged. Only author units help changes in UI; no API/schema/migration/auth/media changes, no production data/storage actions.
-- Handoffs: docs/engineering/PROBLEM_AUTHORING_MAP.md and PROBLEM_AUTHORING_STATUS.md include policies, commands and future transport limits.
-- Foundation 56c5067; dimensionless correction delivered on same branch, final SHA via git log -1. Existing draft PR creation blocker: GitHub API Forbidden.
-- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-5a
-- Stop after Phase 5A. User review first; Phase 5B only after separate request/merge/fresh main. No merge or deployment.
+- Scope: Phase 5B restricted server-only symbolic grading, 2026-10-31 (Asia/Makassar).
+- Fresh main b0b7cc2755305f4e286f68a7e5b229f1e52608ed (Phase 5A PR #17); exact tree verified against numeric + dimensionless fix d061253.
+- Branch codex/problem-authoring-phase-5b. Read handoffs first, affected grading/private revision dependencies only; no repeated audit.
+- Added bounded AST parser/exact rational polynomial and rational-function prover; existing private SQL/session/publication/immutable selection architecture retained.
+- Acceptance requires exact algebra + nonempty domain + all original definedness guards; exact both-defined unequal rational witnesses can reject. Agreeing points never prove equality.
+- Bounds/assumptions/restricted exclusions, removable singularities, safe principal sqrt/abs and tiny exact trig/log constant subset; unsupported or resource-limited cases need review.
+- Documented explicit grammar/proof/domain/limits in docs/engineering/SYMBOLIC_GRADING_POLICY.md; not a general equivalence engine. Numeric/manual/dimensionless behavior preserved.
+- Caps AST/depth/terms/degree/exponents/coefficients/guards/witnesses/work + cooperative100ms; no eval/Function/CAS execution or new dependencies.
+- Targeted 43/43 PASS; exact identity/property/adversarial tests + disposable PostgreSQL immutable expression/domain selection, publication races, auth/privacy.
+- Full 171/172 PASS; only inherited corpus-translation punctuation assertion lib/corpus-translation.test.ts:66. TypeScript/typegen/diff checks PASS; no regressions.
+- Independent mathematical/security audit complete; 1,200 rational pairs + 5,400 bounded-domain sign/division cases checked independently; no confirmed blockers.
+- Lint inherited missing ESLint; build inherited Inter/Google Fonts network failure confirmed by diagnostic. No tracked config changes.
+- No student/public grading APIs/UI, schema/migrations, uploads/social/auth/media changes or production data/storage actions. No merge/deploy.
+- Implementation 0b0f772 pushed; handoffs updated; final SHA via git log -1. Draft PR creation blocked by GitHub API Forbidden.
+- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-5b
+- Next: user review Phase 5B only; stop. Phase 6 requires separate request, merged main and handoffs first.
