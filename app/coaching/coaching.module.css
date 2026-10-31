@@ -1,5 +1,4 @@
 .page {
-  --background: 223 37% 7%;
   --foreground: 220 50% 97%;
   --card: 223 37% 7%;
   --card-foreground: var(--foreground);
