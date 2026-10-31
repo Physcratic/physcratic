@@ -1,19 +1,10 @@
-import Link from "next/link";
-import Image from "next/image";
-import { filterProblemsByTag } from "@/lib/problem-tags";
-import { ArrowUpRight, BookOpen, RotateCcw } from "lucide-react";
+import { filterProblemsByTag, getProblemTags } from "@/lib/problem-tags";
+import { BookOpen, RotateCcw } from "lucide-react";
 import arena from "@/lib/arena/index.json";
 import { filterArena, type ArenaCatalogEntry } from "@/lib/arena-schema";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { ProblemCard } from "./problem-card";
 import {
   Empty,
   EmptyContent,
@@ -64,58 +55,21 @@ export function ArenaCollection({
         </p>
       </header>
       {filtered.length ? (
-        <div className="grid min-w-0 gap-4 md:grid-cols-2">
+        <ul className="flex min-w-0 flex-col gap-4">
           {filtered.map((problem) => (
-            <Card
-              key={problem.id}
-              className="flex min-w-0 flex-col overflow-hidden shadow-none"
-            >
-              {problem.id === "arena-mind-the-gap" && (
-                <Image
-                  src="/mind-the-gap-hero.png"
-                  alt="Newton’s interference rings in a lens resting on a glass plate"
-                  width={1568}
-                  height={643}
-                  sizes="(max-width: 767px) 100vw, (max-width: 1279px) 45vw, 550px"
-                  className="h-44 w-full object-cover"
-                />
-              )}
-              <CardHeader>
-                <div>
-                  <Badge variant="outline">{problem.topic}</Badge>
-                </div>
-                <CardTitle>
-                  <Link
-                    href={`/dashboard/problems/${problem.id}`}
-                    className="text-pretty hover:underline focus-visible:underline"
-                  >
-                    {problem.title}
-                  </Link>
-                </CardTitle>
-                <CardDescription>{problem.summary}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex flex-1 flex-wrap items-start gap-2">
-                {problem.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary">
-                    {tag}
-                  </Badge>
-                ))}
-              </CardContent>
-              <CardFooter className="flex-wrap justify-between gap-3">
-                <span className="text-sm text-muted-foreground">
-                  Statement + worked solution
-                </span>
-                <Button variant="ghost" size="sm" asChild>
-                  <Link href={`/dashboard/problems/${problem.id}`}>
-                    Exercise
-                    <ArrowUpRight data-icon="inline-end" />
-                    <span className="sr-only">{problem.title}</span>
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
+            <li key={problem.id} className="min-w-0">
+              <ProblemCard
+                id={problem.id}
+                title={problem.title}
+                source="Physcratic Arena"
+                description={problem.summary}
+                details={["Statement + worked solution", "Self-review"]}
+                tags={getProblemTags(problem)}
+                href={`/dashboard/problems/${problem.id}`}
+              />
+            </li>
           ))}
-        </div>
+        </ul>
       ) : (
         <Empty>
           <EmptyHeader>

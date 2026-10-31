@@ -126,7 +126,7 @@
   color: hsl(var(--secondary-foreground));
   border-top: 1px solid hsl(var(--border));
 }
-.problem-entry:has(button:focus-visible),
+.problem-entry:has(:focus-visible),
 .problem-entry:hover {
   border-color: hsl(var(--problem-color) / 0.65);
 }
