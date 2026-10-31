@@ -1,8 +1,8 @@
 import type { Problem } from "../physics";
 import { SITE, siteUrl } from "../site";
 
-/** Largest raster icon in public/ (apple-icon.png, 180×180). */
-const LOGO_PATH = "/apple-icon.png";
+/** Largest raster icon in public/ (512×512). */
+const LOGO_PATH = "/icon-512.png";
 
 const orgId = () => `${siteUrl()}/#organization`;
 

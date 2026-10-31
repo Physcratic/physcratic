@@ -15,7 +15,7 @@ describe("json-ld", () => {
     const org = organization();
     const site = website();
     assert.equal(org["@id"], `${siteUrl()}/#organization`);
-    assert.ok(org.logo.endsWith("/apple-icon.png"));
+    assert.ok(org.logo.endsWith("/icon-512.png"));
     assert.equal(site.publisher["@id"], org["@id"]);
     assert.ok(!("potentialAction" in site));
   });
