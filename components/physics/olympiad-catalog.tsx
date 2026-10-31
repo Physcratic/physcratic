@@ -64,7 +64,7 @@ function CatalogPagination({
   );
 
   return placement === "top" ? (
-    <div className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-border px-4 py-3">
+    <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-6 py-4">
       {controls}
     </div>
   ) : (
@@ -148,18 +148,18 @@ export function OlympiadCatalog({
           </a>
         </Button>
       </header>
-      {filtered.length > 0 && (
-        <CatalogPagination
-          page={page}
-          pageCount={pageCount}
-          onPageChange={changePage}
-          placement="top"
-        />
-      )}
       <Card
         id="catalog-results"
         className="min-w-0 scroll-mt-6 overflow-hidden shadow-none"
       >
+        {filtered.length > 0 && (
+          <CatalogPagination
+            page={page}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            placement="top"
+          />
+        )}
         <CardHeader>
           <CardTitle>
             <h3
