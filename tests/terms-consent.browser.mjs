@@ -35,7 +35,7 @@ try {
   assert.equal(await page.locator('#account-terms-description').textContent(),'Required.');
   assert.deepEqual(await dialog.locator('article p').allTextContents(),policy.flatMap(section=>section.paragraphs));
   assert.doesNotMatch(await dialog.innerText(),/2026-10-30-draft-1|pending legal review|Starter terms/);
-  const scroller=page.getByLabel('Complete Terms of Service'); await scroller.evaluate(el=>{el.scrollTop=el.scrollHeight}); assert.equal(await checkbox.isChecked(),false); assert.ok(await scroller.evaluate(el=>el.scrollHeight>el.clientHeight));
+  const scroller=page.getByRole('region',{name:'Complete Terms of Service'}); await scroller.evaluate(el=>{el.scrollTop=el.scrollHeight}); assert.equal(await checkbox.isChecked(),false); assert.ok(await scroller.evaluate(el=>el.scrollHeight>el.clientHeight));
   const bounds=await dialog.boundingBox(); assert.ok(bounds.width<=viewport.width && bounds.height<=viewport.height);
   for(let i=0;i<10;i++){await page.keyboard.press('Tab'); assert.ok(await dialog.evaluate(el=>el.contains(document.activeElement)));}
   await page.keyboard.press('Escape'); await dialog.waitFor({state:'hidden'}); assert.equal(await checkbox.isChecked(),false);
