@@ -28,8 +28,8 @@
 .page :global(a:focus-visible), .page :global(button:focus-visible), .page :global(summary:focus-visible), .page :global(input:focus-visible), .page :global(select:focus-visible) { outline: 2px solid hsl(var(--accent)); outline-offset: 4px; }
 .page :global(.coaching-hero) { display: grid; gap: 2.5rem; padding-top: 3rem; }
 .page :global(.coaching-marquee) { display: grid; height: 26rem; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; overflow: hidden; mask-image: linear-gradient(to bottom, transparent, black 14%, black 86%, transparent); }
-.page :global(.coaching-marquee-column) { align-self: start; animation: coaching-marquee var(--marquee-duration, 90s) linear infinite; animation-delay: var(--marquee-delay, 0s); }
-.page :global(.coaching-marquee:hover .coaching-marquee-column), .page :global([data-paused="true"] .coaching-marquee-column) { animation-play-state: paused; }
+.page :global(.coaching-marquee-column) { align-self: start; will-change: transform; backface-visibility: hidden; animation: coaching-marquee var(--marquee-duration, 80s) linear infinite var(--marquee-direction, normal); }
+.page :global(.coaching-marquee:hover .coaching-marquee-column), .page :global(.coaching-marquee:focus-within .coaching-marquee-column), .page :global([data-paused="true"] .coaching-marquee-column) { animation-play-state: paused; }
 .page :global(.coaching-portrait) { position: relative; overflow: hidden; border-radius: 1rem; background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
 .page :global(.coaching-portrait-image) { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
 .page :global(.coaching-portrait-copy) { position: absolute; inset: auto 0 0; display: flex; flex-direction: column; gap: .375rem; padding: 5rem 1rem 1rem; background: linear-gradient(transparent, hsl(var(--background) / .88)); color: hsl(var(--foreground)); }
@@ -40,9 +40,9 @@
 .page :global(.coaching-mobile-cta) { position: fixed; inset: auto 1rem 1rem; z-index: 30; display: flex; min-height: 3rem; align-items: center; justify-content: center; border-radius: .5rem; background: hsl(var(--accent)); color: hsl(var(--accent-foreground)); font-weight: 700; box-shadow: 0 4px 24px hsl(var(--background) / .7); }
 .page :global(.coaching-input) { width: 100%; min-height: 3rem; border: 1px solid hsl(var(--border)); border-radius: .5rem; padding: .75rem; background: hsl(var(--muted)); color: hsl(var(--foreground)); }
 
-@keyframes coaching-marquee { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+@keyframes coaching-marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(0, -50%, 0); } }
 @keyframes coaching-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 @media (min-width: 640px) { .page :global(.coaching-marquee) { height: 34rem; } .page :global(.coaching-gallery > li) { width: 18rem; } }
 @media (min-width: 768px) { .page :global(.coaching-mobile-cta) { display: none; } }
 @media (min-width: 1024px) { .page :global(.coaching-hero) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3.5rem; padding-block: 4rem; } .page :global(.coaching-marquee) { height: 44rem; gap: 1rem; } .page :global(.coaching-hero-slideshow) { margin-top: -4rem; } }
-@media (prefers-reduced-motion: reduce) { .page :global(.coaching-marquee-column), .page :global(.coaching-rise) { animation: none; } .page :global(.coaching-marquee) { overflow-y: auto; mask-image: none; } }
+@media (prefers-reduced-motion: reduce) { .page :global(.coaching-rise) { animation: none; } }
