@@ -91,16 +91,16 @@ export default function Sidebar({
                 </Link>
               );
             })}
+            <Link
+              href="/coaching"
+              onClick={() => setMobileOpen(false)}
+              className="flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            >
+              <GraduationCap className="size-[18px]" strokeWidth={1.7} />
+              Coaching
+            </Link>
           </div>
         </div>
-        <Link
-          href="/coaching"
-          onClick={() => setMobileOpen(false)}
-          className="flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-        >
-          <GraduationCap className="size-[18px]" strokeWidth={1.7} />
-          Coaching
-        </Link>
         <div className="flex flex-col gap-3">
           <h2 className="px-3 text-base font-semibold tracking-tight text-foreground">
             Explore
