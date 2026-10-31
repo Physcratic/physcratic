@@ -2,6 +2,8 @@
 
 This phase adds persistent student attempts and API integration only. It adds no solving UI, reveal endpoint, comments/stars, ratings or changes to legacy practice/archive submissions.
 
+Phase6B now consumes these unchanged APIs through the [student solving interface](AUTHORED_STUDENT_UI.md); that document specifies client recovery, revision visibility and browser verification. This document remains the Phase6A server/persistence policy.
+
 ## Published reader integration
 
 `GET /api/authored-problems/[problemId]` keeps its existing allowlisted current revision body. A successful response adds a `Link` header with `rel="submission-info"` pointing to `/api/authored-problems/[problemId]/submission-info`.

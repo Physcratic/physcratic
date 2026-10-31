@@ -1,7 +1,7 @@
 # Problem authoring architecture map
 
-Phase 6A from merged main `058fa3cf125920296227d0c8473cf70abe6ff593` (Phase 5B PR #19; 2026-10-31 Asia/Makassar).
-Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md. Phases 0–5B merged; Phase 6A adds persistent student attempts/API only.
+Phase 6B from merged main `268a4e61f08e960140bf691d77090deb17af88e1` (Phase 6A PR #21; 2026-10-31 Asia/Makassar).
+Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md. Phases 0–6A merged; Phase 6B adds only the student solving interface.
 Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspect affected code/dependencies only.
 
 ## Established architecture (reuse; do not repeat audits)
@@ -9,8 +9,7 @@ Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspe
 - [Database](../../lib/db/index.ts): PostgreSQL Pool + Drizzle; trusted application role, not standalone RLS. Never expose raw authored/private tables.
 - [Schema](../../lib/db/schema.ts): authored tables isolated from user/session, practice_attempt, solution_attempt/evidence, archive and contest contracts.
 - Better Auth and [submission adapters](../../lib/submission-server.ts) provide session/configured origin; every author operation explicitly requires emailVerified === true.
-- Existing practice/archive/source resolver/grading/auth behavior and intentional signup CAPTCHA removal remain unchanged.
-- Existing symbolic worker exposes expected answers for legacy preview only; never reuse it for authored server grading.
+- Existing practice/archive/source resolver/grading/auth behavior and intentional signup CAPTCHA removal remain unchanged. Legacy symbolic preview workers expose expected answers; never reuse them for authored server grading.
 - [Migrations](../../migrations/README.md): explicit, additive 0001/0002/0003/0004; SQL authoritative for deferred FKs/triggers. No schema push/startup/build migration.
 
 ## Approved document and privacy contracts
@@ -91,8 +90,7 @@ Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspe
 - Safe principal sqrt/abs rules and exact sin/tan0, cos0, log1 constants only; general trig/log/radicals/transcendental constants require review. No sqrt(x^2)->x without sign proof.
 - Non-equivalence requires an exact rational, both-defined unequal witness satisfying all domain constraints. Agreeing samples never prove equality; no floating sampling. Unproved/resource-limited cases need review.
 - Caps:180chars/128tokens/96nodes/depth16;8variables/128terms/degree16/exponent8/2048-bit rationals/128guards/64witnesses/40k ticks/cooperative100ms. Native work and allocated structures bounded; no hard OS heap/preemption claim.
-- Expression results use symbolic-v1 and fixed symbolic reason codes; no expected expression/AST/witness/private domain/diagnostics forwarded. Numeric/manual/units and exact SQL authorization/revision selection preserved.
-- Disposable PG tests cover historical expression keys/domains, publication races, ownership/verification/unpublish and public result/key isolation. No student APIs/UI/schema/migrations/media changes.
+- Expression results use symbolic-v1 and fixed reason codes; no expected expression/AST/witness/private domain/diagnostics forwarded. Numeric/manual/units and exact SQL selection preserved; disposable PG verifies historical keys/domains, races, auth/unpublish and public isolation.
 
 ## Phase 6A student attempt persistence/API
 - [Contracts](../../lib/authored-attempt-contracts.ts), [API](../../lib/authored-attempt-api.ts), [production adapter](../../lib/authored-attempt-server.ts), [tests](../../lib/authored-attempt-api.test.ts); full contracts/limits/locking/retention in [student policy](AUTHORED_STUDENT_SUBMISSIONS.md).
@@ -101,16 +99,22 @@ Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspe
 - Per-user advisory lock -> canonical idempotency lookup -> current published parent FOR SHARE -> limits -> existing grader on same PoolClient -> allowlisted result/selection -> immutable insert/commit. Publish/unpublish FOR UPDATE serializes; no second grading connection/deadlock.
 - Limits:60requests/minute incl reads,20POST/minute,100new attempts/rolling24h; no per-part/lifetime cap. Indexed ordinal allocation stays sequential under the user lock, with exact bigint overflow guard. Replay does not regrade/use attempt slots; different payload same key409. Minute-specific Retry-After only for rate bucket.
 - GET /attempts (+ optional problemId/keyset after) and /attempts/[attemptId] return own submitted answer/result/IDs only, even after unpublish; never other students/author. Timestamp(3)+UUID stable newest-first cursor.
-- Existing public revision GET body unchanged; Link to verified /[id]/submission-info companion supplies current revision/public parts/own usage/unlimited remaining/policy/URLs from one published snapshot. No drafts/private content or solving UI.
+- Existing public revision GET body unchanged; Link to verified /[id]/submission-info companion supplies current revision/public parts/own usage/unlimited remaining/policy/URLs from one published snapshot. No drafts/private content; UI is Phase 6B below.
 - no-reveal-v1 prevents automatic private-answer disclosure on submission/grading, without banning a future separately authorized explicit solution view (not implemented); app-assisted=false. Healthy grader exceptions persist generic review; malformed outputs/DB-aborted transactions rollback503 and retry same key.
-- Numeric/dimensionless/symbolic limits, legacy practice/archive/auth/media contracts preserved; no production migrations/storage or social features. Next UI/reveal work requires separate request.
+- Numeric/dimensionless/symbolic limits, legacy practice/archive/auth/media contracts preserved; no production migrations/storage or social features. No reveal endpoint added.
+
+## Phase 6B student solving interface
+- [Public route](../../app/dashboard/authored/[id]/page.tsx), [session shell](../../components/authored/student-page-client.tsx), [workspace](../../components/authored/student-workspace.tsx), [public blocks](../../components/authored/public-content.tsx); [UI policy](AUTHORED_STUDENT_UI.md) specifies state/recovery/privacy/testing.
+- [Client state](../../lib/authored-student.ts) stores account/problem/revision/part-scoped sessionStorage input + exact pending payload/key + safe receipt. Persist-before-send, explicit same-key retries, atomic acknowledgement and separate new-intent action prevent accidental duplicate attempts; no automatic restored POST.
+- Public serializer/current revision GET and media proxy only; statement PDFs only. Verified session/info required for new submissions. Account changes/401/403 remove private panels and ignore/abort late requests; no auth/backend changes.
+- Changed/unavailable publication hides stale statements/labels and latches until explicit reload. Pending historical replay retains original selection; never retarget input. Own history50-row cursor pages show immutable IDs, not withdrawn content; success invalidates page+cursor together.
+- Reuses shared units policy, bounded answer schemas, KaTeX and design system. Exact four outcomes; opaque expressions and conservative grammar guidance; no grader/key/worker/reveal on client. Keyboard/mobile math scrolling; no dependencies/migrations/limits/math/media-policy changes.
+- [Model tests](../../lib/authored-student.test.ts), [rendered browser+PG](../../tests/authored-student.browser.mjs): duplicates/reload/retries, accounts/IDOR, publication/focus race, pagination, privacy and desktop/mobile axe/overflow. Injected sessions and memory storage only; live Better Auth/Vercel staging untested.
 
 ## Verification and later-phase boundaries
 - [Security integration](../../lib/author-media-api.test.ts): isolated PostgreSQL schema + memory storage; owner/origin/type/size/scope/quota, failure tombstones, exact sealing, historical retention and publication/link/delete races.
 - [Browser](../../tests/problem-authoring.browser.mjs): real editor/API/disposable PG, injected sessions; upload/failed replacement/private preview, gated conflict upload, autosave/recovery, accessibility/mobile.
 - Commands/results/limitations in status. Full tests, typecheck, lint/build attempts required; report inherited blockers separately. No production data/migrations/storage calls in tests.
-- Broader symbolic identities remain unsupported unless separately justified with proofs/domain/resource tests; symbolic-v1 is not a general equivalence engine.
-- Phase 6 solver/reveal binds immutable revision+part+user+idempotency; assisted/revealed state; no private keys in HTML/RSC/JSON/worker. Never affect existing Elo.
 - Phase 7 social: unique non-self stars, same-problem/depth-bound comments, ownership/tombstones/pagination/private reports. Phase 8 staged end-to-end/release review; main merge auto-deploys.
 - Playbook model/effort: P0 Sol Medium; P1/2/4/6/8 Sol High; P3/7 Sol Medium; P5 Astra Medium or Sol High. No runtime model switch control exposed.
 - Stop after exactly one phase: fresh merged main, persistent handoffs first, targeted then full checks, independent critic, handoffs/commit/push/PR. No automatic merge/deploy.

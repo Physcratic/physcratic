@@ -1067,6 +1067,16 @@ export function ProblemEditor({
                   )}
                 </div>
                 {draft.state === "published" && (
+                  <a
+                    href={`/dashboard/authored/${draft.problemId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-11 items-center text-sm font-medium underline underline-offset-4"
+                  >
+                    Open student problem room
+                  </a>
+                )}
+                {draft.state === "published" && (
                   <Button
                     type="button"
                     variant="outline"

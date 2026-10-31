@@ -1,19 +1,21 @@
 # Work status
 
-- Scope: Phase 6A persistent secure student attempts/API only, 2026-10-31 (Asia/Makassar).
-- Fresh main058fa3cf125920296227d0c8473cf70abe6ff593 (Phase 5B PR #19); exact reviewed tree verified. Branch codex/problem-authoring-phase-6a.
-- Handoffs read first; affected API/auth/grading/reader/database dependencies only, no repeated audit.
-- Additive explicit0004 immutable attempt/rate tables with exact user/problem/revision/part FKs, unique idempotency/ordinals, strict JSON/outcome and publication guards; populated rollback refuses.
-- Verified same-origin bounded POSTs;60requests/min,20POST/min,100new rolling24h, no lifetime/per-part cap. Positive bigint ordinals remain sequential/unique and serialize as decimal strings. Per-user lock + current parent share lock + same-client grader + atomic insert/commit.
-- Normalized idempotent replay never regrades/uses attempt slots; different work409. Stale/hidden new submissions denied. Own history survives unpublish without exposing revision/private content.
-- Four outcomes and engine versions preserved. Healthy grader failure saved as review; DB/malformed-result failure rolls back503 for same-key retry.
-- Own-only history/detail + public-reader Link/verified companion metadata; no solving UI. no-reveal-v1 prevents automatic private disclosure on submission/grading, while allowing a separately authorized future explicit solution view (not implemented).
-- Revised targeted56/56 and focused PostgreSQL13/13 PASS; full184/185 PASS, sole inherited corpus punctuation assertion lib/corpus-translation.test.ts:66. TypeScript/diff PASS.
-- Disposable PG17 + isolated storage tests include IDOR, bodies/deadline, concurrency, limits/retries, publication/unpublish races, grading failures, poolmax1, SQL integrity and private PDF denial.
-- Independent security/data-integrity review complete; fixed read-rate blocking, internal-validation classification and misleading Retry-After; no remaining confirmed blockers.
-- Inherited lint missing ESLint / build Inter font network failure confirmed; no tracked config changes. Handoffs + AUTHORED_STUDENT_SUBMISSIONS.md + migration README updated.
-- No dependencies, legacy practice/archive/auth/media changes, social/rating/solving UI, merge/deploy or production data/storage/migrations.
-- Foundation e4a89fb; uncapped-practice correction delivered on the same branch, final SHA via git log -1. Existing draft PR creation blocker: GitHub API Forbidden.
-- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-6a
-- Focused policy review: indexed bigint allocation under existing user lock; replay before quotas, exact boundary guard, no purge/new permanent cap; bounded daily scan and history pagination handle long-term growth.
-- Next: user review Phase 6A, stop. UI/reveal requires separate phase/request after merge/fresh main/handoffs.
+- Scope: Phase6B student solving interface ONLY,2026-10-31 (Asia/Makassar).
+- Fresh main `268a4e61f08e960140bf691d77090deb17af88e1` (Phase6A PR#21); reviewed Phase6A tree verified. Branch `codex/problem-authoring-phase-6b`.
+- Required handoffs/student/symbolic policies read first; affected dependencies only, no repeated audit.
+- Public `/dashboard/authored/[id]`: ordered native statements/math/images/public PDFs, metadata and multipart navigation; existing safe public serializer/proxy, no private or historical statement fetch. Author editor links published student view.
+- Verified Better Auth gates own submissions/history; guests read. Account/problem remounts, abort/generation guards and API401/403 invalidate private panels.
+- Numeric/shared dimensionless, bounded expression guidance and explicit manual ungraded inputs; four conservative feedback outcomes, no client grader/keys/witnesses/internal diagnostics.
+- Per-account/problem/revision/part tab-local recovery; persist exact payload/key before send, explicit same-key retries after uncertainty/reload, atomic receipt acknowledgement and separate new-intent action prevent duplicate attempts. Storage failures pause new sends; work downloadable.
+- Stale/unavailable revisions hidden and explicitly reloaded; no silent answer retargeting. Own history paginated50, selection IDs preserved; successful submit resets page+cursor to avoid gaps. Temporary limits/counts shown, no lifetime cap/reveal.
+- Targeted64/64 PASS incl8 new model tests; rendered actual UI/API/grader/disposable PG+memory storage browser PASS, including retry/reload, multipart, all modes/outcomes, rate/errors/read failure, IDOR/account race,50+ pagination, revision/reload-focus/unpublish, media/private isolation.
+- Desktop/mobile axe zero; keyboard formula scrolling,375px overflow and independent screenshot review PASS.
+- Full192/193 PASS; sole inherited corpus punctuation assertion lib/corpus-translation.test.ts:66 unchanged from baseline. Next typegen/TypeScript/diff PASS.
+- Inherited lint missing ESLint; build Inter/Google Fonts network EPERM confirmed by in-process diagnostic. No tracked config workarounds.
+- Independent read-only UX/accessibility/security/data-integrity review complete; fixed five confirmed findings, no remaining confirmed blockers. Reviewer independently reran8/8 model tests.
+- Handoffs/map/status + AUTHORED_STUDENT_UI.md updated; Phase6A/symbolic policies preserved. No backend/auth/media-policy/grading/limit/migration/dependency/social/Elo changes, merge/deploy or production services/data.
+- Browser uses injected sessions with real production API/grader factories; live Better Auth/Vercel staging not exercised. Recovery is tab-local; own persistent history remains server-owned.
+- Implementation `a111a5f` pushed; final SHA via git log -1. Draft PR creation blocked: both GitHub GraphQL and REST POST returned Forbidden; no PR number created.
+- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-6b
+- Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-6b?expand=1
+- Next: user review Phase6B; stop. No next phase or explicit worked-solution reveal without separate request.
