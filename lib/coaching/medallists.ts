@@ -20,6 +20,19 @@ export const medalLabel: Record<Medal, string> = {
   hm: 'Honorable Mention',
 }
 
+export const countryFlagCodes: Record<string, string> = {
+  India: 'in',
+  Indonesia: 'id',
+  Mongolia: 'mn',
+  Philippines: 'ph',
+  Iran: 'ir',
+  Peru: 'pe',
+  Japan: 'jp',
+  Kyrgyzstan: 'kg',
+  Pakistan: 'pk',
+  'Costa Rica': 'cr',
+}
+
 // Tutor achievement records. Photos live in public/medallists/<slug>.webp.
 // Placeholder portraits are used until the remaining tutor photos are added.
 export const medallists: Medallist[] = [

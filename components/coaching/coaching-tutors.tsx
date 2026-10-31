@@ -3,16 +3,19 @@
 import Image from "next/image";
 import { useState, type CSSProperties } from "react";
 import { Pause, Play } from "lucide-react";
-import { medallists, medallistStats, medalLabel, type Medallist } from "@/lib/coaching/medallists";
+import { countryFlagCodes, medallists, medallistStats, medalLabel, type Medallist } from "@/lib/coaching/medallists";
+import abhikaPortrait from "@/public/coaching/medallists/abhika-atmaja-cutout.webp";
 
-export function CoachingTutorCard({ tutor, priority = false, eager = false, revealBackground = false, focusable = true }: { tutor: Medallist; priority?: boolean; eager?: boolean; revealBackground?: boolean; focusable?: boolean }) {
+export function CoachingTutorCard({ tutor, priority = false, eager = false, countryBackdrop = false, focusable = true }: { tutor: Medallist; priority?: boolean; eager?: boolean; countryBackdrop?: boolean; focusable?: boolean }) {
   const extension = ["angel", "kanishk", "ermuun-battulga", "reuben-felix"].includes(tutor.slug) ? "png" : "webp";
   const hasPortrait = !["nima", "yota"].includes(tutor.slug);
-  return <article className="coaching-portrait" data-reveal-background={revealBackground || undefined} tabIndex={revealBackground && hasPortrait && focusable ? 0 : undefined}>
-    {hasPortrait ? <>
-      <Image src={`/coaching/medallists/${tutor.slug}.${extension}`} alt={`${tutor.name}, physics tutor from ${tutor.country}`} width={720} height={900} sizes="(min-width: 640px) 288px, 256px" priority={priority} loading={priority ? undefined : eager ? "eager" : "lazy"} className={revealBackground ? "coaching-portrait-image coaching-portrait-scene" : "coaching-portrait-image"} />
-      {revealBackground && <Image src={`/coaching/medallists/${tutor.slug}-cutout.webp`} alt="" aria-hidden="true" width={720} height={900} sizes="(min-width: 640px) 288px, 256px" loading="lazy" className="coaching-portrait-image coaching-portrait-cutout" />}
-    </> : <div className="coaching-portrait-image flex items-center justify-center font-serif text-7xl" aria-hidden="true">{tutor.name.charAt(0)}</div>}
+  const flagCode = countryFlagCodes[tutor.country];
+  const cutout = tutor.slug === "abhika-atmaja" ? abhikaPortrait : `/coaching/medallists/${tutor.slug}-cutout.webp`;
+  return <article className="coaching-portrait" data-country-backdrop={countryBackdrop || undefined} tabIndex={countryBackdrop && focusable ? 0 : undefined}>
+    <div className={countryBackdrop ? "coaching-portrait-artwork" : undefined}>
+      {countryBackdrop && flagCode && <Image src={`/coaching/flags/${flagCode}.png`} alt="" aria-hidden="true" fill sizes="(min-width: 640px) 288px, 256px" className="coaching-country-flag" />}
+      {hasPortrait ? <Image src={countryBackdrop ? cutout : `/coaching/medallists/${tutor.slug}.${extension}`} alt={`${tutor.name}, physics tutor from ${tutor.country}`} width={720} height={900} sizes="(min-width: 640px) 288px, 256px" priority={priority} loading={priority ? undefined : eager ? "eager" : "lazy"} className="coaching-portrait-image" /> : <div className="coaching-portrait-image flex items-center justify-center font-serif text-7xl" aria-hidden="true">{tutor.name.charAt(0)}</div>}
+    </div>
     <div className="coaching-portrait-copy">
       <p className="text-sm uppercase tracking-widest opacity-80">{tutor.country}</p>
       <h3 className="font-serif text-lg uppercase leading-tight text-balance sm:text-xl">{tutor.name}</h3>
@@ -41,10 +44,7 @@ export function CoachingTutors() {
   return <section id="tutors" className="py-20">
     <div className="coaching-container flex min-w-0 flex-col gap-8">
       <div className="flex w-full max-w-2xl flex-col items-center gap-4 self-center text-center">
-        <div className="coaching-tutor-heading">
-          <Image src="/coaching/gold-laurel.png" alt="" aria-hidden="true" fill sizes="(min-width: 640px) 512px, 90vw" className="coaching-laurel" />
-          <h2 className="relative max-w-[70%] text-balance text-2xl font-bold tracking-tight sm:text-4xl">Meet Our Tutors</h2>
-        </div>
+        <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">Meet Our Tutors</h2>
         <p className="max-w-xl leading-relaxed text-muted-foreground">Every tutor has medalled at national, Asian, or international level. We match each student to the tutor whose strengths fit their syllabus and goals.</p>
         <dl className="flex flex-wrap justify-center gap-10">
           <div><dt className="text-sm text-muted-foreground">Tutors</dt><dd className="text-2xl font-semibold">{medallistStats.count}</dd></div>
@@ -58,7 +58,7 @@ export function CoachingTutors() {
       <div id="coaching-tutor-gallery" className="coaching-gallery-viewport" data-paused={paused} role="region" aria-label="Tutor slideshow; hover or focus to pause" tabIndex={0} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) event.currentTarget.scrollLeft = 0; }}>
         <div className="coaching-gallery-track">
           {[0, 1].map((copy) => <ul key={copy} className="coaching-gallery" aria-label={copy === 0 ? "Physcratic tutors" : undefined} aria-hidden={copy === 1 ? true : undefined}>
-            {medallists.map((tutor) => <li key={tutor.slug}><CoachingTutorCard tutor={tutor} revealBackground focusable={copy === 0} /></li>)}
+            {medallists.map((tutor) => <li key={tutor.slug}><CoachingTutorCard tutor={tutor} countryBackdrop focusable={copy === 0} /></li>)}
           </ul>)}
         </div>
       </div>
