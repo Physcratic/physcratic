@@ -43,3 +43,17 @@ Before enabling authentication testing:
 - Confirm test-email safeguards.
 - Deploy `codex/auth-hardening` to Vercel Preview only.
 - Do not apply migrations to production without separate approval.
+
+
+### Staging email verification safety
+
+Staging authentication tests require the server-side
+STAGING_VERIFICATION_EMAIL_ALLOWLIST environment variable.
+
+The variable is scoped to the codex/auth-hardening
+Preview branch in Vercel.
+
+After changing staging environment variables,
+create a fresh Preview deployment before testing.
+
+Do not send verification emails to unapproved recipients.
