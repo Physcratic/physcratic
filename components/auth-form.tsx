@@ -2,12 +2,12 @@
 
 import { getSignupCaptchaToken } from "@/lib/signup-captcha-client";
 import Link from "next/link";
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, Loader2 } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader } from "@/components/ui/card";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { TermsConsent } from "@/components/terms-consent";
 import { TERMS_VERSION } from "@/lib/terms";
@@ -17,6 +17,7 @@ import { VerificationNotice } from "@/components/verification-notice";
 
 export function AuthForm({ mode, returnTo, verified = false, verificationError = false }: { mode: "sign-in" | "sign-up"; returnTo: string; verified?: boolean; verificationError?: boolean }) {
   const router = useRouter();
+  const heading = useRef<HTMLHeadingElement>(null);
   const [busy, setBusy] = useState(false);
   const [checkingCaptcha, setCheckingCaptcha] = useState(false);
   const [error, setError] = useState("");
@@ -42,7 +43,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
       if (creating) {
         setCheckingCaptcha(true);
         try { captchaToken = await getSignupCaptchaToken(); }
-        catch { setError("Security check unavailable. Please check your connection and submit again to retry."); return; }
+        catch { setError("Security check unavailable. Please try again."); return; }
         finally { setCheckingCaptcha(false); }
       }
       const result = creating
@@ -57,7 +58,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
           setVerificationEmail(credentials.email);
           return;
         }
-        setError(creating ? "We could not create your account or complete the security check. Submit again for a fresh check, or try signing in." : "Sign-in failed. Check your details and try again.");
+        setError(creating ? "We could not create your account. Please try again or sign in." : "Sign-in failed. Check your details and try again.");
         return;
       }
       if (creating) {
@@ -73,29 +74,29 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
     }
   }
   return (
-    <main className="flex min-h-dvh flex-col items-center justify-center px-5 py-10 font-sans">
+    <main className="flex min-h-dvh flex-col items-center justify-center px-5 py-10 font-sans [--ring:var(--foreground)]">
       <div className="flex w-full max-w-md flex-col gap-6">
         <Button variant="ghost" className="w-fit" asChild><Link href="/dashboard"><ArrowLeft data-icon="inline-start" /> Back to Physcratic</Link></Button>
-        {verificationEmail !== null ? <VerificationNotice email={verificationEmail} returnTo={returnTo} onBack={() => setVerificationEmail(null)} /> : <Card>
-          <CardHeader><CardTitle>{creating ? "Keep your working. Track your progress." : "Welcome back."}</CardTitle><CardDescription>{creating ? "Create an account to privately save your olympiad solutions." : "Sign in to return to your saved attempts."}</CardDescription></CardHeader>
+        {verificationEmail !== null ? <VerificationNotice email={verificationEmail} returnTo={returnTo} onBack={() => { setVerificationEmail(null); requestAnimationFrame(() => heading.current?.focus()); }} /> : <Card>
+          <CardHeader><h1 ref={heading} tabIndex={-1} className="text-2xl font-semibold leading-tight tracking-tight">{creating ? "Keep your working. Track your progress." : "Welcome back."}</h1><CardDescription>{creating ? "Create an account to privately save your olympiad solutions." : "Sign in to return to your saved attempts."}</CardDescription></CardHeader>
           <CardContent>
             <form id="account-form" aria-busy={busy} onInvalidCapture={() => { if (creating && !termsAccepted) setTermsInvalid(true); }} onSubmit={submit} onKeyDown={(event) => {
               if (event.key === "Enter" && (event.nativeEvent.isComposing || event.keyCode === 229)) event.preventDefault();
             }}>
               <fieldset disabled={busy}><FieldGroup>
-                {!creating && verified && !verificationError && <Alert role="status"><AlertTitle>Ready to sign in</AlertTitle><AlertDescription>If your email verification succeeded, sign in below to continue.</AlertDescription></Alert>}
-                {!creating && verificationError && <Alert variant="destructive" role="alert"><AlertTitle>Link unavailable</AlertTitle><AlertDescription>This verification link is invalid or has expired. Request a new email below.</AlertDescription></Alert>}
-                {creating && <Field><FieldLabel htmlFor="account-name">Name</FieldLabel><Input id="account-name" name="name" autoComplete="name" required minLength={1} maxLength={80} /></Field>}
-                <Field><FieldLabel htmlFor="account-email">Email</FieldLabel><Input id="account-email" name="email" type="email" autoComplete="email" required maxLength={254} /></Field>
-                <Field><FieldLabel htmlFor="account-password">Password</FieldLabel><Input id="account-password" name="password" type="password" autoComplete={creating ? "new-password" : "current-password"} required minLength={8} maxLength={128} />{creating && <p className="text-sm leading-relaxed text-muted-foreground">Use at least 8 characters. Choose a password you do not use elsewhere.</p>}</Field>
+                {!creating && verified && !verificationError && <Alert role="status"><AlertTitle aria-level={2}>Ready to sign in</AlertTitle><AlertDescription>If your email verification succeeded, sign in below to continue.</AlertDescription></Alert>}
+                {!creating && verificationError && <Alert variant="destructive" role="alert"><AlertTitle aria-level={2}>Link unavailable</AlertTitle><AlertDescription>This verification link is invalid or has expired. Request a new email below.</AlertDescription></Alert>}
+                {creating && <Field><FieldLabel htmlFor="account-name">Name</FieldLabel><Input className="border-muted-foreground" id="account-name" name="name" autoComplete="name" required minLength={1} maxLength={80} /></Field>}
+                <Field><FieldLabel htmlFor="account-email">Email</FieldLabel><Input className="border-muted-foreground" id="account-email" name="email" type="email" autoComplete="email" required maxLength={254} /></Field>
+                <Field><FieldLabel htmlFor="account-password">Password</FieldLabel><Input className="border-muted-foreground" id="account-password" aria-describedby={creating ? "account-password-help" : undefined} name="password" type="password" autoComplete={creating ? "new-password" : "current-password"} required minLength={8} maxLength={128} />{creating && <p id="account-password-help" className="text-sm leading-relaxed text-muted-foreground">Use at least 8 characters.</p>}</Field>
                 {creating && <TermsConsent checked={termsAccepted} invalid={termsInvalid} onChange={(checked) => { setTermsAccepted(checked); if (checked) setTermsInvalid(false); }} />}
-                {error && <Alert variant="destructive" role="alert"><AlertTitle>Could not continue</AlertTitle><AlertDescription>{error}</AlertDescription></Alert>}
+                {error && <Alert variant="destructive" role="alert"><AlertTitle aria-level={2}>Could not continue</AlertTitle><AlertDescription>{error}</AlertDescription></Alert>}
               </FieldGroup></fieldset>
             </form>
           </CardContent>
           <CardFooter className="flex flex-col items-stretch gap-4">
-            {creating && <p role="status" aria-live="polite" className="text-sm text-muted-foreground">{checkingCaptcha ? "Running security check…" : busy ? "Creating account…" : "Submit to run a security check. If it fails, submit again to retry."}</p>}
-            {creating && <p className="text-xs text-muted-foreground">Protected by reCAPTCHA. Google <a href="https://policies.google.com/privacy" className="underline">Privacy Policy</a> and <a href="https://policies.google.com/terms" className="underline">Terms of Service</a> apply.</p>}
+            <p role="status" aria-live="polite" className={creating ? "text-sm text-muted-foreground" : "sr-only"}>{checkingCaptcha ? "Running security check…" : busy ? (creating ? "Creating account…" : "Signing in…") : creating ? "Submit to run a security check." : ""}</p>
+            {creating && <p className="mx-auto max-w-sm text-center text-xs leading-5 text-muted-foreground">Protected by reCAPTCHA. Google <a href="https://policies.google.com/privacy" className="underline">Privacy Policy</a> and <a href="https://policies.google.com/terms" className="underline">Terms of Service</a> apply.</p>}
             <Button form="account-form" type="submit" disabled={busy}>{busy && <Loader2 data-icon="inline-start" className="animate-spin" />}{creating ? "Create account" : "Sign in"}</Button>
             <p className="text-center text-sm leading-relaxed text-muted-foreground">{creating ? "Already have an account? " : "New to Physcratic? "}<Link className="text-foreground underline underline-offset-4" href={`/${creating ? "sign-in" : "sign-up"}?returnTo=${encodeURIComponent(returnTo)}`}>{creating ? "Sign in" : "Create an account"}</Link></p>
             {!creating && <Button type="button" variant="ghost" disabled={busy} onClick={() => setVerificationEmail("")}>Need a verification email?</Button>}
