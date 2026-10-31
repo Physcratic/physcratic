@@ -3,7 +3,10 @@
 - Updated: 2026-10-31 (Asia/Makassar). Phase 5B ONLY; phases 0–5A merged.
 - Fresh fetched main/base: `b0b7cc2755305f4e286f68a7e5b229f1e52608ed` (Phase 5A PR #17).
 - Verified merged tree exactly matches reviewed Phase 5A + dimensionless fix `d061253`; branch `codex/problem-authoring-phase-5b` created from fetched main.
-- Delivery: verification complete, commit/push/draft PR attempt pending; final SHA via git log -1.
+- Implementation `0b0f772` committed/pushed; final handoff SHA via git log -1.
+- Draft PR creation blocked by GitHub API Forbidden (Post https://api.github.com/graphql).
+- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-5b
+- Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-5b?expand=1
 - Read WORK_STATUS/map/status first; inspected grading/contracts/private revision dependencies only. No repeated repository audit.
 
 ## Completed Phase 5B

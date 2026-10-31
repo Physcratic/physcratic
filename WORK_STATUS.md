@@ -13,5 +13,6 @@
 - Independent mathematical/security audit complete; 1,200 rational pairs + 5,400 bounded-domain sign/division cases checked independently; no confirmed blockers.
 - Lint inherited missing ESLint; build inherited Inter/Google Fonts network failure confirmed by diagnostic. No tracked config changes.
 - No student/public grading APIs/UI, schema/migrations, uploads/social/auth/media changes or production data/storage actions. No merge/deploy.
-- Handoffs updated; delivery pending commit/push/draft PR attempt. Final SHA via git log -1.
+- Implementation 0b0f772 pushed; handoffs updated; final SHA via git log -1. Draft PR creation blocked by GitHub API Forbidden.
+- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-5b
 - Next: user review Phase 5B only; stop. Phase 6 requires separate request, merged main and handoffs first.
