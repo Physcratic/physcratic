@@ -29,3 +29,17 @@ until repaired. Never DROP/TRUNCATE while any instance uses DB storage, and neve
 A future separately approved cleanup migration may remove the table only after all old deployments stop using it.
 Persisted keys contain normalized client IP/path; agree retention, access and cleanup before production.
 Built-in opportunistic pruning is not a TTL guarantee for one-off keys; see engineering release checklist.
+
+## Staging deployment verification
+
+The staging environment uses the Neon branch
+`physcratic-staging`.
+
+Before enabling authentication testing:
+
+- Confirm the `rateLimit` table exists on staging.
+- Confirm Preview uses the staging `DATABASE_URL`.
+- Confirm reCAPTCHA and Better Auth staging configuration.
+- Confirm test-email safeguards.
+- Deploy `codex/auth-hardening` to Vercel Preview only.
+- Do not apply migrations to production without separate approval.
