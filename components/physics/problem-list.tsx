@@ -19,7 +19,6 @@ export function ProblemList({
             id={problem.id}
             title={problem.title}
             source="Quick practice"
-            description={problem.prompt}
             details={[`${problem.minutes} min`, "Hint + worked solution", "Practice only"]}
             tags={getProblemTags(problem)}
             elo={problem.elo}

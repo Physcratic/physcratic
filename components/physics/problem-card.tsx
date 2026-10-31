@@ -93,12 +93,12 @@ export function ProblemCard({
         {elo !== undefined && band ? (
           <Badge
             variant={band.variant}
-            aria-label={`Estimated difficulty ${elo.toLocaleString("en-US")} ELO, ${band.name}`}
+            aria-label={`Estimated difficulty ${elo.toLocaleString("en-US")}, ${band.name}`}
             title={`Illustrative estimate · ${band.name} · ${band.range}`}
-            className="shrink-0"
+            className="shrink-0 rounded-md"
           >
             <span className="text-sm tabular-nums">
-              ~{elo.toLocaleString("en-US")} ELO
+              {elo.toLocaleString("en-US")}
             </span>
           </Badge>
         ) : (
@@ -113,8 +113,8 @@ export function ProblemCard({
         <div
           className={
             highlightTitleRow
-              ? "flex items-start justify-between gap-4 rounded-lg border border-destructive p-3"
-              : "flex items-start justify-between gap-4"
+              ? "flex items-center justify-between gap-4 rounded-lg border border-destructive p-3"
+              : "flex items-center justify-between gap-4"
           }
         >
           <CardTitle className="min-w-0 flex-1">

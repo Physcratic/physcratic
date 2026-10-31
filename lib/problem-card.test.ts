@@ -26,6 +26,7 @@ test("problem cards share a labelled article, header, details and exercise actio
   assert.match(html, /data-problem-card="test-problem"/);
   assert.match(html, /problem-entry-header/);
   assert.match(html, /problem-entry-details/);
+  assert.match(html, /class="flex items-center justify-between gap-4"/);
   assert.match(html, /<h3[^>]*>.*A block on an incline/);
   assert.match(html, /5 min · Hint \+ worked solution/);
   assert.match(html, /English.*Unrated/);
@@ -50,8 +51,10 @@ test("practice cards identify difficulty ratings as estimates and preserve ratin
   ] as const) {
     const html = render({ ...base, elo, onOpen() {} });
     const formatted = elo.toLocaleString("en-US");
-    assert.ok(html.includes(`~${formatted} ELO`));
-    assert.ok(html.includes(`Estimated difficulty ${formatted} ELO, ${band}`));
+    assert.ok(html.includes(`>${formatted}</span>`));
+    assert.ok(html.includes(`Estimated difficulty ${formatted}, ${band}`));
+    assert.ok(html.includes("rounded-md"));
+    assert.doesNotMatch(html, /~[\d,]+|\bELO\b/);
     assert.ok(html.includes(`data-level="${level}"`));
     assert.doesNotMatch(html, /Unrated/);
   }
@@ -68,13 +71,14 @@ test("all olympiad competitions retain their identity, source references and tit
       competition,
       reference: "2025 · T1",
       statementLanguage: "ru",
-      description: "Russian statement · English draft available",
+      description: "Source title in Russian",
       onOpen() {},
     });
     assert.ok(html.includes(`data-competition="${competition}"`));
     assert.match(html, /2025 · T1/);
     assert.match(html, /<h4[^>]*lang="ru"/);
-    assert.match(html, /Russian statement · English draft available/);
+    assert.match(html, /Source title in Russian/);
+    assert.doesNotMatch(html, /Russian statement|English statement/);
     assert.match(html, /русский.*Unrated/);
     assert.match(html, /Exercise:/);
   }

@@ -2,7 +2,6 @@
 
 import type { CatalogProblem } from "@/lib/corpus-catalog";
 import { getProblemTags } from "@/lib/problem-tags";
-import translationIndex from "@/lib/corpus/translation-index.json";
 import { ProblemCard } from "./problem-card";
 
 export function OlympiadProblemCard({
@@ -12,15 +11,7 @@ export function OlympiadProblemCard({
   problem: CatalogProblem;
   onOpen: (id: string) => void;
 }) {
-  const hasEnglishDraft = translationIndex.records.some(
-    (record) => record.id === problem.id,
-  );
   const description = [
-    problem.importLanguage === "ru"
-      ? hasEnglishDraft
-        ? "Russian statement · English draft available"
-        : "Russian statement · English translation pending"
-      : "English statement",
     problem.titleLanguage === "ru" && "Source title in Russian",
     problem.titleOrigin === "problem-identifier" &&
       "Original paper has no descriptive title",
