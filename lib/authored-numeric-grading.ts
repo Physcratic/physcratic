@@ -2,10 +2,12 @@ import "server-only";
 import { authoredKeySchema } from "./problem-authoring";
 import {
   numericAnswerSchema,
+  normalizeNumericUnits,
   type GradeEvaluation,
 } from "./authored-grading-contracts";
 
-// Deliberately no conversions, prefixes, aliases, algebra or Unicode folding.
+// Only blank/ASCII "1" are aliases via the shared dimensionless policy.
+// No physical unit conversions, prefix expansion, algebra or Unicode folding.
 // These are exact unit labels, NOT an equivalence table. Unknown spellings need review.
 const units = new Set([
   "",
@@ -94,7 +96,7 @@ export function evaluateNumericAnswer(
   if (!answer.success) return { status: "ungraded", reason: "invalid-input" };
   if (!key.success)
     return { status: "needs-review", reason: "key-unavailable" };
-  const expectedUnits = key.data.units.trim(),
+  const expectedUnits = normalizeNumericUnits(key.data.units),
     actualUnits = answer.data.units;
   if (!units.has(expectedUnits) || !units.has(actualUnits))
     return { status: "needs-review", reason: "units-unsupported" };

@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { numericAnswerSchema } from "./authored-grading-contracts";
+import { authoredKeySchema } from "./problem-authoring";
 import { evaluateNumericAnswer } from "./authored-numeric-grading";
 const key = (value = 0, absTol = 0, relTol = 0, units = "") => ({
   kind: "numeric",
@@ -86,7 +88,12 @@ test("strict finite numeric validation fails closed without coercion, evaluation
     NaN,
     Infinity,
     -Infinity,
-    "1",
+    "1.0",
+    "01",
+    "１",
+    "1/s",
+    "1*m",
+    "dimensionless",
     "1e9999",
     "0x10",
     null,
@@ -125,7 +132,7 @@ test("strict finite numeric validation fails closed without coercion, evaluation
     "ungraded",
   );
 });
-test("units are explicit case-sensitive labels: no conversion, dimension erasure, alias or arbitrary parser", () => {
+test("units are explicit case-sensitive labels: no physical conversion, dimension erasure or arbitrary parser", () => {
   for (const units of ["", "m", "cm", "s", "kg", "N", "J", "m/s", "m/s^2", "Ω"])
     assert.equal(
       evaluateNumericAnswer(answer(2, units), key(2, 0, 0, units)).status,
@@ -148,7 +155,12 @@ test("units are explicit case-sensitive labels: no conversion, dimension erasure
     );
   for (const units of [
     "M",
-    "1",
+    "1.0",
+    "01",
+    "１",
+    "1/s",
+    "1*m",
+    "dimensionless",
     "meters",
     "m s^-1",
     "m/s²",
@@ -167,6 +179,45 @@ test("units are explicit case-sensitive labels: no conversion, dimension erasure
     evaluateNumericAnswer(answer(100, "cm"), key(1, 0, 0, "m")).status,
     "needs-review",
   );
+});
+
+test("blank and ASCII 1 are equivalent dimensionless labels for author keys and student answers", () => {
+  for (const authorUnits of ["", " ", "1", " 1 "]) {
+    const savedKey = authoredKeySchema.parse(key(2, 0, 0, authorUnits));
+    assert.equal(
+      savedKey.kind === "numeric" && savedKey.units,
+      authorUnits,
+      "author keys retain their stored label",
+    );
+    for (const studentUnits of ["", " ", "1", " 1 "]) {
+      assert.equal(
+        numericAnswerSchema.parse(answer(2, studentUnits)).units,
+        "",
+        "student contract uses shared dimensionless normalization",
+      );
+      assert.equal(
+        evaluateNumericAnswer(answer(2, studentUnits), savedKey).status,
+        "correct",
+      );
+      assert.equal(
+        evaluateNumericAnswer(answer(3, studentUnits), savedKey).status,
+        "incorrect",
+      );
+    }
+    for (const physicalUnit of ["m", "s", "N", "rad", "sr"]) {
+      assert.equal(
+        evaluateNumericAnswer(answer(2, physicalUnit), savedKey).reason,
+        "units-mismatch",
+      );
+      assert.equal(
+        evaluateNumericAnswer(
+          answer(2, authorUnits),
+          key(2, 0, 0, physicalUnit),
+        ).reason,
+        "units-mismatch",
+      );
+    }
+  }
 });
 
 // Independent oracle uses a fixed MIN_VALUE quantum for ALL numbers rather than

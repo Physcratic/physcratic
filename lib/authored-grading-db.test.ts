@@ -136,6 +136,80 @@ test(
             "\nCOMMIT;",
         );
       await t.test(
+        "saved dimensionless author keys and student labels agree across immutable revisions",
+        async () => {
+          const owner = await user(),
+            student = await user();
+          for (const authorUnits of ["1", ""]) {
+            const d = await create(owner, 2);
+            d.privateParts[0].key.units = authorUnits;
+            assert.equal(
+              (
+                await api(
+                  "update",
+                  request(owner, {
+                    version: 1,
+                    content: d.content,
+                    privateParts: d.privateParts,
+                  }),
+                  d.problemId,
+                )
+              ).status,
+              200,
+            );
+            const revision = await publish(owner, d.problemId, 2),
+              ids = selection(d, revision.id);
+            const stored = await pool.query(
+              "SELECT data->'key'->>'units' AS units FROM authored_revision_private_part WHERE revision_id=$1 AND part_id=$2",
+              [revision.id, ids.partId],
+            );
+            assert.equal(
+              stored.rows[0].units,
+              authorUnits,
+              "publication preserves existing author labels",
+            );
+            for (const units of ["", "1", " 1 "]) {
+              assert.equal(
+                (
+                  await grader(student)({
+                    ...ids,
+                    answer: { kind: "numeric", value: 2, units },
+                  })
+                ).status,
+                "correct",
+              );
+              assert.equal(
+                (
+                  await grader(student)({
+                    ...ids,
+                    answer: { kind: "numeric", value: 3, units },
+                  })
+                ).status,
+                "incorrect",
+              );
+            }
+            assert.equal(
+              (
+                await grader(student)({
+                  ...ids,
+                  answer: { kind: "numeric", value: 2, units: "m" },
+                })
+              ).reason,
+              "units-mismatch",
+            );
+            assert.equal(
+              (
+                await grader(student)({
+                  ...ids,
+                  answer: { kind: "numeric", value: 2, units: "1/s" },
+                })
+              ).reason,
+              "units-unsupported",
+            );
+          }
+        },
+      );
+      await t.test(
         "exact immutable historical selection cannot substitute draft/current or foreign keys",
         async () => {
           const owner = await user(),

@@ -1,6 +1,14 @@
 import { z } from "zod";
 
-// Client-safe transport types only; evaluation and key retrieval are server-only.
+// Client-safe transport policy/types; evaluation and key retrieval are server-only.
+export const numericUnitsHelp =
+  "Use 1 or leave blank for a dimensionless answer; they are equivalent. Other unit labels must match exactly.";
+// The sole label alias: blank and ASCII "1" both denote dimensionless quantities.
+// Do not rewrite stored author keys or interpret unit expressions/conversions.
+export function normalizeNumericUnits(units: string): string {
+  const label = units.trim();
+  return label === "1" ? "" : label;
+}
 const id = z.uuid().transform((value) => value.toLowerCase());
 export const gradeSelectionSchema = z.strictObject({
   problemId: id,
@@ -10,7 +18,7 @@ export const gradeSelectionSchema = z.strictObject({
 export const numericAnswerSchema = z.strictObject({
   kind: z.literal("numeric"),
   value: z.number().finite(),
-  units: z.string().max(80).trim(),
+  units: z.string().max(80).transform(normalizeNumericUnits),
 });
 export const authoredAnswerSchema = z.discriminatedUnion("kind", [
   numericAnswerSchema,
