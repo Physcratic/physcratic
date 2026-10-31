@@ -1,7 +1,7 @@
 # Problem authoring architecture map
 
-Phase 6B from merged main `268a4e61f08e960140bf691d77090deb17af88e1` (Phase 6A PR #21; 2026-10-31 Asia/Makassar).
-Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md. Phases 0–6A merged; Phase 6B adds only the student solving interface.
+Phase 6C-A from merged main `a8fac8f83722bfa9faed9a867cbb1582aa0b599f` (Phase6B PR#22); integration branch `codex/physcratic-authoring-completion`.
+Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md. Phases0–6B merged; Phase6C-A adds explicit solution authorization/reveal/assistance backend only.
 Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspect affected code/dependencies only.
 
 ## Established architecture (reuse; do not repeat audits)
@@ -9,29 +9,25 @@ Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspe
 - [Database](../../lib/db/index.ts): PostgreSQL Pool + Drizzle; trusted application role, not standalone RLS. Never expose raw authored/private tables.
 - [Schema](../../lib/db/schema.ts): authored tables isolated from user/session, practice_attempt, solution_attempt/evidence, archive and contest contracts.
 - Better Auth and [submission adapters](../../lib/submission-server.ts) provide session/configured origin; every author operation explicitly requires emailVerified === true.
-- Existing practice/archive/source resolver/grading/auth behavior and intentional signup CAPTCHA removal remain unchanged. Legacy symbolic preview workers expose expected answers; never reuse them for authored server grading.
-- [Migrations](../../migrations/README.md): explicit, additive 0001/0002/0003/0004; SQL authoritative for deferred FKs/triggers. No schema push/startup/build migration.
-
+- Preserve legacy practice/archive/auth/CAPTCHA removal; legacy preview workers expose keys and must never grade authored work. server-only service guards; client transports only; test with --conditions=react-server.
+- [Migrations](../../migrations/README.md): explicit, additive 0001/0002/0003/0004/0005; SQL authoritative for deferred FKs/triggers. No schema push/startup/build migration.
 ## Approved document and privacy contracts
 - [Contracts](../../lib/problem-authoring.ts): authored problem -> mutable draft -> immutable numbered revision. Stable UUIDs normalized lowercase before validation/persistence.
 - Ordered document context/sections/parts; ordered text spans, display/inline math and image blocks. Image = {id,kind:'image',mediaId,alt,caption}; descriptive alt required at publication.
 - Attachments = UUID + purpose statement-image/statement-pdf/solution-pdf. Private hint/solution image IDs live only in private parts, never public attachment indexes.
 - Provenance = original/authorized + source + rightsDeclaration; incomplete drafts allowed, publication requires meaningful native content, part/key completeness and rights.
 - Physically separate PrivatePart {partId,key|null,hints,solution}. Key modes numeric/expression/manual; modes must match relational revision parts.
-- Numeric keys finite with nonnegative tolerances; expressions have bounded variables/domains/angles/exclusions. No mathematical grading in Phases 1–4.
 - Public mapper explicitly allowlists revision fields, normalizes Drizzle Date to ISO and strips solution-pdf. Serialization does not authorize access.
 - Public content never includes keys, hints, worked solutions, private image IDs, solution PDFs or Blob paths/URLs.
-
 ## SQL integrity and publication order
 - 0001: owner FK; unique draft/problem and revision number; composite same-problem published pointer; exact document/relational part IDs/modes; duplicate IDs rejected.
 - Separate private rows and reverse FKs enforce one matching key per revision part. Immutable/sealed child and revision rows cannot be amended later.
 - Publication locks problem+draft, checks optimistic version and validates stored document/keys/rights/media.
 - Insert revision parts, private keys AND revision media bindings BEFORE final revision sealing insert, then pointer/version updates; commit once before responding.
-- No released savepoints: custom deferred PostgreSQL xmin equality checks require all children and revision to share the inserting transaction.
+- No released savepoints: deferred xmin checks require one inserting transaction for children/revision.
 - 0003 sealing verifies exact bidirectional set of document attachments/statement images/private hint+solution images versus relational media bindings.
 - Revision media bindings are immutable, sealed, same-problem/purpose FK constrained, ready-only, and subject to the same deferred xmin transaction rule.
 - Draft saves replace media bindings atomically with document/private rows. Ready media rows locked after parent; same parent lock serializes save/publish/delete/cleanup.
-
 ## Phase 2 APIs (extended by Phase 4, existing contracts preserved)
 - [API factory](../../lib/problem-authoring-api.ts), [production adapter](../../lib/problem-authoring-server.ts); injected session/origin/pool for disposable tests.
 - Base /api/authored-problems. GET/POST /drafts; GET/PUT/DELETE /drafts/[id]; GET /drafts/[id]/preview; POST publish/unpublish; GET /[id] public current revision.
@@ -40,7 +36,6 @@ Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspe
 - Preview is owner-only allowlisted statement; public GET requires published-state + same-problem pointer join and never queries private tables.
 - Delete requires unpublish first; removes working draft, retains immutable history/media registry. Last orphan cleanup prunes empty never-published parent to recover quota.
 - Old blanket media denial replaced only with [ownership/reference validation](../../lib/author-media-references.ts) on create/update/publication.
-
 ## Phase 4 registry, upload and access policy
 - [Media API](../../lib/author-media-api.ts), [validation](../../lib/author-media-validation.ts), [references](../../lib/author-media-references.ts), [private storage adapter](../../lib/author-media-storage.ts).
 - 0003 author_media stores server UUID/problem/purpose, private nonce pathname, canonical filename, detected MIME/bytes/hash, pending/ready/deleting state; metadata/content identity immutable.
@@ -79,7 +74,6 @@ Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspe
 - Exact dyadic BigInt comparison over stored binary64 values prevents overflow/underflow/rounded-boundary errors; four finite inputs bound integer width <4300 bits. Decimal-looking JSON numbers are binary64, not arbitrary-precision decimal input.
 - Units: blank and ASCII "1" are equivalent dimensionless labels after edge trimming (the sole alias). Shared normalizeNumericUnits/numericUnitsHelp in client-safe grading contracts govern student-answer parsing, evaluator key comparison and author guidance; saved author labels remain unchanged. Other labels stay case-sensitive/allowlisted, no conversions/Unicode folding/dimensional algebra; unsupported expressions or physical mismatches need review.
 - Manual keys remain ungraded; mismatched answer modes need review. Expression-key dispatch now uses the Phase 5B prover below without changing private selection or numeric behavior.
-- server-only guards evaluator/service/production adapter; only transport contracts are client-safe. Test command uses --conditions=react-server; default-condition import rejection is independently tested.
 - [Numeric properties](../../lib/authored-numeric-grading.test.ts), [service security](../../lib/authored-grading.test.ts), [disposable PostgreSQL](../../lib/authored-grading-db.test.ts): exact oracle, boundaries/extremes, units, isolation, immutable selection, concurrent publication and timeout.
 
 ## Phase 5B restricted symbolic prover
@@ -100,8 +94,7 @@ Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspe
 - Limits:60requests/minute incl reads,20POST/minute,100new attempts/rolling24h; no per-part/lifetime cap. Indexed ordinal allocation stays sequential under the user lock, with exact bigint overflow guard. Replay does not regrade/use attempt slots; different payload same key409. Minute-specific Retry-After only for rate bucket.
 - GET /attempts (+ optional problemId/keyset after) and /attempts/[attemptId] return own submitted answer/result/IDs only, even after unpublish; never other students/author. Timestamp(3)+UUID stable newest-first cursor.
 - Existing public revision GET body unchanged; Link to verified /[id]/submission-info companion supplies current revision/public parts/own usage/unlimited remaining/policy/URLs from one published snapshot. No drafts/private content; UI is Phase 6B below.
-- no-reveal-v1 prevents automatic private-answer disclosure on submission/grading, without banning a future separately authorized explicit solution view (not implemented); app-assisted=false. Healthy grader exceptions persist generic review; malformed outputs/DB-aborted transactions rollback503 and retry same key.
-- Numeric/dimensionless/symbolic limits, legacy practice/archive/auth/media contracts preserved; no production migrations/storage or social features. No reveal endpoint added.
+- no-reveal-v1 still prevents automatic disclosure by submission/grading. Phase6C-A adds separate explicit approval/reveal; future assisted flags derive from its ledger, with original replay flags preserved. Healthy grader failure persists review; malformed outputs/DB failures rollback503.
 
 ## Phase 6B student solving interface
 - [Public route](../../app/dashboard/authored/[id]/page.tsx), [session shell](../../components/authored/student-page-client.tsx), [workspace](../../components/authored/student-workspace.tsx), [public blocks](../../components/authored/public-content.tsx); [UI policy](AUTHORED_STUDENT_UI.md) specifies state/recovery/privacy/testing.
@@ -111,10 +104,17 @@ Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspe
 - Reuses shared units policy, bounded answer schemas, KaTeX and design system. Exact four outcomes; opaque expressions and conservative grammar guidance; no grader/key/worker/reveal on client. Keyboard/mobile math scrolling; no dependencies/migrations/limits/math/media-policy changes.
 - [Model tests](../../lib/authored-student.test.ts), [rendered browser+PG](../../tests/authored-student.browser.mjs): duplicates/reload/retries, accounts/IDOR, publication/focus race, pagination, privacy and desktop/mobile axe/overflow. Injected sessions and memory storage only; live Better Auth/Vercel staging untested.
 
+## Phase 6C-A explicit solution access backend
+- [Policy/API/locking/migration specification](AUTHORED_SOLUTION_ACCESS.md); [API](../../lib/authored-solution-api.ts), [contracts](../../lib/authored-solution-contracts.ts), [server adapter](../../lib/authored-solution-server.ts), [PG security tests](../../lib/authored-solution-api.test.ts).
+- Additive0005: default-empty per-revision/part owner permission + explicit image/PDF bindings + immutable per-user/revision/part/authorization-generation reveal ledger. No sealed content/old attempt updates. Down refuses populated audit/assisted state.
+- Verified owner GET/PUT /drafts/[id]/solutions/[partId]/permission, strict revision/version/enable/media/expiry. Whole worked solution + all its images explicitly approved; optional revision solution PDFs gain explicit part binding. Revocation/expiry/unpublish deny future access; delivered content cannot be recalled.
+- Verified same-origin POST /[id]/solutions/[partId]/view requires exact current published selection, no prior attempt. Commit/reuse own generation event before returning only solution blocks/approved proxy refs; never keys/hints/other parts. Shared60/min student requests, unchanged submission quotas.
+- Dedicated GET /[id]/solutions/[partId]/media/[mediaId]?revision checks own current-generation reveal+live permission/publication/binding on every read; bounded4s/3MiB private Blob buffer, final expiry check, private/no-store/sandbox/nosniff/CORP; no raw URLs. Existing private author proxy unchanged.
+- Any own reveal assists all later new attempts on the same revision, including other parts. Same user advisory6 -> parent SHARE -> permission SHARE; author writes parent UPDATE first, no user lock. SQL derives boolean; original attempts/replays unchanged, all grading outcomes preserved. Client accepts server boolean; no UI added.
+
 ## Verification and later-phase boundaries
 - [Security integration](../../lib/author-media-api.test.ts): isolated PostgreSQL schema + memory storage; owner/origin/type/size/scope/quota, failure tombstones, exact sealing, historical retention and publication/link/delete races.
-- [Browser](../../tests/problem-authoring.browser.mjs): real editor/API/disposable PG, injected sessions; upload/failed replacement/private preview, gated conflict upload, autosave/recovery, accessibility/mobile.
-- Commands/results/limitations in status. Full tests, typecheck, lint/build attempts required; report inherited blockers separately. No production data/migrations/storage calls in tests.
-- Phase 7 social: unique non-self stars, same-problem/depth-bound comments, ownership/tombstones/pagination/private reports. Phase 8 staged end-to-end/release review; main merge auto-deploys.
+- Commands/results/limitations in status; full tests/typecheck/available checks, inherited blockers separate. Disposable DB+mock storage only; live staging/deployment not claimed.
+- Completion phases6C-A/6C-B/7/8A/8B share the same integration branch; separate phase commits/pushes, no resets/overwrites or individual PRs. Consolidated PR at release readiness only. No contests/Elo/rankings/comments/stars/social/subscriptions.
 - Playbook model/effort: P0 Sol Medium; P1/2/4/6/8 Sol High; P3/7 Sol Medium; P5 Astra Medium or Sol High. No runtime model switch control exposed.
-- Stop after exactly one phase: fresh merged main, persistent handoffs first, targeted then full checks, independent critic, handoffs/commit/push/PR. No automatic merge/deploy.
+- Stop after each separately requested phase checkpoint. Preserve prior phase work; handoffs first, affected code only, targeted/broader tests, independent review, handoffs/commit/push. User alone triggers authorized deployment after readiness; no merge/deploy/shared DB changes.

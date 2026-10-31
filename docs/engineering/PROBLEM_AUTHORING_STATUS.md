@@ -1,46 +1,47 @@
 # Problem authoring implementation status
 
-- Updated: 2026-10-31 (Asia/Makassar). Phase 6B ONLY; phases0–6A merged.
-- Fresh fetched main/base `268a4e61f08e960140bf691d77090deb17af88e1` (Phase6A PR#21). Verified exact reviewed Phase6A uncapped-practice tree, including numeric/dimensionless/symbolic infrastructure.
-- Branch `codex/problem-authoring-phase-6b` created from fresh main. Required handoffs/policies read first; inspected affected public reader/session/UI/attempt/grading/media contracts only. No repeated audit.
-- Final commit: `git log -1`; delivery PR/compare links below. No merge/deploy/production changes.
+- Phase6C-A ONLY,2026-10-31. Phases0–6B merged; PR#22 baseline `a8fac8f83722bfa9faed9a867cbb1582aa0b599f` freshly fetched and exactly matches reviewed Phase6B tree.
+- Integration branch `codex/physcratic-authoring-completion` created from that main. Preserve this branch for6C-B/7/8A/8B; separate phase commits/pushes, never reset/overwrite prior work. No individual PR; one consolidated PR at release-readiness gate.
+- Required WORK_STATUS/map/status/student policy read first. Inspected affected revision/private-part/owner/media/attempt/grader/auth contracts only; no repeated repository audit.
+- Phase commit: `git log -1` after checkpoint delivery. No UI, merge/deploy/shared or production data/migrations/storage changes.
 
-## Completed Phase 6B
+## Completed Phase6C-A
 
-- Public `/dashboard/authored/[id]` reader with safe serializer, ordered context/sections/parts, tags/difficulty, native text/inline/display KaTeX, images and revision-pinned public statement PDF links. Published author editor links to student view.
-- Existing safe public GET/media proxy only; no private/draft/historical-statement fetch, static legacy answer model, browser worker or client grading. No private hints/solutions/PDFs/keys rendered.
-- Guests can read; verified Better Auth shell gates submission/history. Account-key remount, request cancellation/generation guards and API401/403 invalidation prevent stale private view reuse. Public route identity remounts on problem navigation.
-- Numeric input shares blank/ASCII1 dimensionless policy; rejects incomplete/nonfinite/nonzero-underflow input while retaining signed zero/subnormals. Binary64 precision is explicit. Bounded opaque expression text and conservative grammar guidance; manual answers explicitly ungraded.
-- Per-part local input stored in tab sessionStorage scoped to account/problem and immutable revision/part. Reload/navigation restoration never auto-submits. Downloadable work, storage-error pause and malformed-copy preservation avoid silent loss.
-- Durable exact intent+UUID before POST, synchronous duplicate guards, original-body/key retries, atomic pending-to-receipt acknowledgement and separate Start another attempt transition. Failed acknowledgement writes retain pending replay. One unresolved intent pauses new sends.
-- Clear401/403/404/408/409/429/5xx/network states; Retry-After countdown. Read failures have read-specific messages. Only explicit retries; no hidden fresh keys after uncertain delivery.
-- Current-publication revalidation hides withdrawn/stale content; explicit reload required after stale selection. Background focus/poll cannot abort explicit reload or clear stale latch. Old buffers/pending remain tied to old IDs; no silent retargeting.
-- Four fixed feedback explanations, including review not necessarily wrong; no raw grader diagnostics. Own counts are exact decimal strings; temporary60 requests/20POST per minute and100/rolling24h shown without lifetime cap.
-- Own50-row cursor history with answers/outcomes/timestamps/immutable selection, empty/loading/error/retry states and Previous/Next. Historical IDs never load withdrawn statements or use new revision labels. Success resets/refetches page+cursor together.
-- Responsive statement/answer layout, multipart jump/focus, accessible labels/statuses/headings/buttons, opt-in keyboard-scrollable long formulas. No editor dependency, new endpoint, migration, auth/media policy, grading math, submission limit, reveal/social/Elo changes.
-- State machine and recovery/visibility constraints: [AUTHORED_STUDENT_UI.md](AUTHORED_STUDENT_UI.md). Existing [student API policy](AUTHORED_STUDENT_SUBMISSIONS.md) and [symbolic limits](SYMBOLIC_GRADING_POLICY.md) preserved.
+- Additive explicit0005 adds per-immutable-revision/part permission, explicit media bindings and immutable reveal ledger. Empty/default deny; no existing solution auto-approved; sealed content and old attempt records untouched.
+- Verified owner GET/PUT /drafts/[id]/solutions/[partId]/permission with exact revision, independent optimistic permission version, explicit enable/media/expiry, server authorization generation. Shared60/min author write bucket; origin/20KB/5s body and SQL/lock/idle deadlines.
+- Whole part worked-solution blocks approved together; every native solution image requires explicit inclusion. Hint-only/other-part/statement/foreign files rejected. Optional revision solution PDFs gain explicit per-part association, never automatic inclusion. PDF-only solution supported. Owner metadata deduplicates repeated image IDs.
+- Revocation works for owned historical/unpublished revisions; enabling requires exact current publication. Each change rotates generation, removing/replacing media approvals. DB time expiry/unpublication deny future student access. Previously delivered/downloaded content cannot be recalled.
+- Separate verified same-origin POST /[id]/solutions/[partId]/view, strict {revisionId}, no previous submission/correct answer required. Selects only worked solution, never key/tolerances/hints/other private parts. Runtime response allowlist with approved local proxy refs only.
+- Durable immutable event committed before response; unique own revision/part/generation receipt reused for repeated/concurrent views. Current authorization/publication/expiry rechecked even on receipt reuse. Regrant requires a new explicit reveal. Commit failure rolls back ledger and discloses no solution.
+- Dedicated verified media proxy requires current-generation own reveal + exact current publication/permission/approved part binding on every GET. Bounded4s whole private read,3MiB/exact bytes, final expiry check, late/stalled stream cancellation. No raw private URLs, paths, redirects or credentials; private/no-store/VaryCookie/nosniff/CORP/sandbox/no-referrer headers.
+- Existing generic private media remains owner-only; historical revision retention/cleanup and private Vercel Blob adapter unchanged. Storage mocks only in tests.
+- Conservative multipart attribution: any explicit reveal assists every later NEW attempt on that immutable revision, across all parts/outcomes. Revocation/expiry does not erase assistance; other users/new revisions independent.
+- SQL derives future assisted boolean from ledger under existing user advisory6 → parent SHARE ordering. Reveal adds permission SHARE; owner writes parent UPDATE before permission/bindings, no student lock. Media holds parent/permission through buffering; no extra pool checkout. Existing idempotency lookup precedes publication/assistance, preserving original committed flag/result/selection after help/unpublish/new version.
+- Server/client attempt contracts accept derived boolean; original false receipts/history remain compatible. Grading math/keys/tolerances/engine/outcomes/quotas unchanged. no-reveal-v1/reveal="disabled" still mean automatic grade disclosure disabled; explicit-solution-v1 is separate. No automatic public/student preload.
+- Detailed API/locking/PDF approval/assistance/migration/rollback boundaries: [AUTHORED_SOLUTION_ACCESS.md](AUTHORED_SOLUTION_ACCESS.md).
 
-## Verification
+## Verification and independent review
 
-- Final targeted model/backend/math/contract + disposable PostgreSQL:64/64 PASS (including8 new model tests).
-- Rendered browser+actual API factories/grader+disposable PG17+memory storage PASS: public/verified gates, all modes/four outcomes, math/media, multipart focus, navigation/reload recovery, lost committed response/same-key replay, duplicates,408/429/503/read503, own history/50+ cursor gap regression, IDOR/account race,401 restoration, publication409/reload-focus race/unpublish, private isolation.
-- Desktop1440/mobile375 axe: zero violations; keyboard formula scrolling and no page overflow PASS. Screenshots visually reviewed independently. Test artifacts remain in /tmp, not committed.
-- Full suite:192/193 PASS; sole inherited corpus punctuation assertion `lib/corpus-translation.test.ts:66` matches baseline. No Phase6B regression.
-- Next typegen + TypeScript PASS. Lint attempted: inherited missing ESLint. Build attempted: inherited Inter/Google Fonts network EPERM; worker-disabled diagnostic confirms font failure without tracked config edits.
-- Independent read-only UX/accessibility/security/data-integrity review completed. Fixed all five confirmed findings: read deadlines, numeric underflow, history cursor gap, stale reload/focus race and misleading read errors. Reviewer reran8/8 model tests and inspected passing browser log/screenshots; no remaining confirmed blockers.
+- Targeted solution-access + legacy attempt + student state:34/34 PASS, no skips. New SQL up/down/up retains exact old unassisted attempt; populated new-state rollback refused.
+- Full suite206 tests:205 PASS, sole inherited corpus punctuation assertion `lib/corpus-translation.test.ts:66`, matching merged baseline. No Phase6C-A regression.
+- Existing real student browser/API/grader/disposable PostgreSQL regression PASS through0005, including multipart/math/media, all outcomes, retries/reload/pagination, IDOR/account changes, revision/unpublish and desktop/mobile accessibility/overflow. No new UI implemented.
+- Next typegen/TypeScript PASS. Available lint/build attempted: inherited ESLint missing; inherited Inter/Google Fonts network EPERM confirmed by worker-disabled diagnostic, with no tracked configuration workaround.
+- Independent read-only security/data-integrity review:21/21 solution/student cases rerun in its own disposable PG; no remaining confirmed blockers. Fixed authorization-generation index, duplicate image metadata and internal storage TypeError400 classification (now503 after input validation).
+- Added deterministic attempt-first and reveal-first races, media/revoke and unpublish ordering; commit-failure rollback; every outcome/own history/original idempotent flags; SQL FKs/current-generation/immutability/derived flags; explicit PDF-only and per-part binding checks; storage truncation/size/TypeError/deadline failures; poolmax1 and shared persistent rates.
+- Local evidence /tmp/6ca-{targeted,full,browser,typegen,typecheck,lint,build,build-diagnostic}.log; independent /tmp/6ca-independent-review.log. Not production/staging verification.
 
-## Commands / practical limits
+## Commands / release boundaries
 
-- Targeted: `scripts/test-problem-authoring.sh node_modules/.bin/tsx --conditions=react-server --test lib/authored-student.test.ts lib/authored-attempt-api.test.ts lib/authored-grading-db.test.ts lib/authored-grading.test.ts lib/authored-numeric-grading.test.ts lib/authored-symbolic-grading.test.ts lib/problem-authoring.test.ts`.
-- Browser: `AUTHORING_BROWSER_TOOLS=/path/to/tooling scripts/test-problem-authoring.sh node_modules/.bin/tsx --conditions=react-server tests/authored-student.browser.mjs` (Playwright/axe + Chromium; existing editor harness uses the same external-tool pattern).
-- Full: `scripts/test-problem-authoring.sh node /tmp/physcratic-npm/_npx/fed63785a0df9524/node_modules/pnpm/bin/pnpm.cjs test`. TypeScript: `node_modules/.bin/next typegen` then `node_modules/.bin/tsc --noEmit`, sequential with build.
-- Only isolated localhost physcratic_authoring_test databases/memory storage; no ambient DATABASE_URL, production migrations/files/data. Browser auth sessions injected into production factories; real Better Auth shell/Next route typechecked/read-reviewed, live staging/Vercel not exercised.
-- sessionStorage recovery is tab-local, not cross-device or durable after tab/data removal. Storage unavailable blocks new POSTs safely. Malformed copies preserved for download; no silent reset. Persistent own server history is separate.
-- no-reveal-v1 still prevents automatic answer disclosure on submission/grading, while permitting a future separately authorized explicit solution-view feature. None added.
+- Targeted: `scripts/test-problem-authoring.sh node_modules/.bin/tsx --conditions=react-server --test lib/authored-solution-api.test.ts lib/authored-attempt-api.test.ts lib/authored-student.test.ts`.
+- Full: `scripts/test-problem-authoring.sh node /tmp/physcratic-npm/_npx/fed63785a0df9524/node_modules/pnpm/bin/pnpm.cjs test`.
+- Existing browser: `AUTHORING_BROWSER_TOOLS=/path/to/tooling scripts/test-problem-authoring.sh node_modules/.bin/tsx --conditions=react-server tests/authored-student.browser.mjs` (Playwright/axe/Chromium); typegen then tsc sequential with build.
+- Only explicit local disposable PostgreSQL containers/unique schemas and isolated memory storage. Production Better Auth adapters typechecked/read-reviewed; live Better Auth/Vercel/private Blob/staging/deployment not tested.
+- No merged migrations edited.0005 must be separately authorized/applied after0004 using the existing migration lock/checksum/source-commit ledger. No runtime/build migration/schema push. Down refuses permissions/reveals/assisted history rather than deleting them.
+- Permissions assert the author's approval of the entire selected PDF for that part; no PDF page classification/sanitization or recall guarantee. Ledger measures explicit app student reveal, not offline knowledge/author editing.
+- No contests/Elo/ranking/leaderboards/comments/stars/social/subscriptions or unrelated work. No README deployment commit/account impersonation. User alone triggers authorized deployment after explicit readiness handoff, using isolated staging separately from production.
 
-## Delivery / next task
+## Next checkpoint
 
-- Implementation commit `a111a5f` pushed. Draft PR creation attempted via both gh GraphQL and GitHub REST pulls endpoint; both POSTs returned Forbidden. No PR number was created; branch is ready for manual draft creation.
-- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-6b
-- Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-6b?expand=1
-- Stop after Phase6B review handoff. No merge/deployment/production data; no next phase or explicit solution reveal without a separate request.
+- Stop after Phase6C-A commit/push. Await separately supplied6C-B prompt; build no UI now.
+- Next phase must read handoffs and reuse exact explicit permission/reveal/media contracts and server-derived assistance on this SAME integration branch. No repeat audit or automatic solution preloading.
+- Branch: https://github.com/Physcratic/physcratic/tree/codex/physcratic-authoring-completion

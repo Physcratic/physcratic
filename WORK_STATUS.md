@@ -1,21 +1,18 @@
 # Work status
 
-- Scope: Phase6B student solving interface ONLY,2026-10-31 (Asia/Makassar).
-- Fresh main `268a4e61f08e960140bf691d77090deb17af88e1` (Phase6A PR#21); reviewed Phase6A tree verified. Branch `codex/problem-authoring-phase-6b`.
-- Required handoffs/student/symbolic policies read first; affected dependencies only, no repeated audit.
-- Public `/dashboard/authored/[id]`: ordered native statements/math/images/public PDFs, metadata and multipart navigation; existing safe public serializer/proxy, no private or historical statement fetch. Author editor links published student view.
-- Verified Better Auth gates own submissions/history; guests read. Account/problem remounts, abort/generation guards and API401/403 invalidate private panels.
-- Numeric/shared dimensionless, bounded expression guidance and explicit manual ungraded inputs; four conservative feedback outcomes, no client grader/keys/witnesses/internal diagnostics.
-- Per-account/problem/revision/part tab-local recovery; persist exact payload/key before send, explicit same-key retries after uncertainty/reload, atomic receipt acknowledgement and separate new-intent action prevent duplicate attempts. Storage failures pause new sends; work downloadable.
-- Stale/unavailable revisions hidden and explicitly reloaded; no silent answer retargeting. Own history paginated50, selection IDs preserved; successful submit resets page+cursor to avoid gaps. Temporary limits/counts shown, no lifetime cap/reveal.
-- Targeted64/64 PASS incl8 new model tests; rendered actual UI/API/grader/disposable PG+memory storage browser PASS, including retry/reload, multipart, all modes/outcomes, rate/errors/read failure, IDOR/account race,50+ pagination, revision/reload-focus/unpublish, media/private isolation.
-- Desktop/mobile axe zero; keyboard formula scrolling,375px overflow and independent screenshot review PASS.
-- Full192/193 PASS; sole inherited corpus punctuation assertion lib/corpus-translation.test.ts:66 unchanged from baseline. Next typegen/TypeScript/diff PASS.
-- Inherited lint missing ESLint; build Inter/Google Fonts network EPERM confirmed by in-process diagnostic. No tracked config workarounds.
-- Independent read-only UX/accessibility/security/data-integrity review complete; fixed five confirmed findings, no remaining confirmed blockers. Reviewer independently reran8/8 model tests.
-- Handoffs/map/status + AUTHORED_STUDENT_UI.md updated; Phase6A/symbolic policies preserved. No backend/auth/media-policy/grading/limit/migration/dependency/social/Elo changes, merge/deploy or production services/data.
-- Browser uses injected sessions with real production API/grader factories; live Better Auth/Vercel staging not exercised. Recovery is tab-local; own persistent history remains server-owned.
-- Implementation `a111a5f` pushed; final SHA via git log -1. Draft PR creation blocked: both GitHub GraphQL and REST POST returned Forbidden; no PR number created.
-- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-6b
-- Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-6b?expand=1
-- Next: user review Phase6B; stop. No next phase or explicit worked-solution reveal without separate request.
+- Phase6C-A ONLY,2026-10-31. Fresh main `a8fac8f83722bfa9faed9a867cbb1582aa0b599f` verified Phase6B PR#22 and exact reviewed tree.
+- Integration branch `codex/physcratic-authoring-completion`; preserve it for6C-B/7/8A/8B. Separate descriptive phase commits/pushes, no resets/individual PRs. One consolidated PR at release readiness only.
+- Required handoffs/student policy read first; affected revision/private-part/owner/media/attempt/grader/auth contracts inspected, no repeated audit.
+- Additive0005: default-empty revision/part permissions + explicit solution image/PDF bindings + immutable per-user/revision/part/generation reveal ledger. No sealed content/old attempt edits or grandfather grants.
+- Verified owner permission GET/PUT uses optimistic version, explicit media/expiry/generation and existing author bucket/origin/deadlines. Every native image explicitly approved; optional revision PDFs explicitly bound per part. Revocation/historical disable, expiry/current-publication gating; delivered bytes cannot be recalled.
+- Verified same-origin student POST view needs no previous attempt, commits/reuses own generation receipt before returning only approved solution blocks/local media refs; no keys/tolerances/hints/other private parts or automatic preload.
+- Dedicated media GET checks current publication, live permission/generation, own reveal and approved exact binding every time; bounded4s/3MiB buffer + final expiry, private/no-store/sandbox/nosniff/CORP, no raw URLs. Legacy author/statement proxy/retention unchanged.
+- Any own explicit reveal assists all subsequent NEW attempts on that revision across parts/outcomes. SQL derives boolean under same user advisory6 → parent SHARE order; owner permission writes parent UPDATE first, never user lock. Original attempts/idempotent replays unchanged, including after later reveal/unpublish/new publication. No grading math/limit changes.
+- Shared client/server boolean compatibility only; no new UI. no-reveal-v1 still disables automatic grade disclosure; explicit-solution-v1 separately authorized. Detailed contracts/locking/rollback in AUTHORED_SOLUTION_ACCESS.md.
+- Targeted34/34 PASS; independent security/data-integrity review21/21 PASS; no remaining confirmed blockers. Fixed generation index, duplicate image metadata and storage error classification. Deterministic reveal/submission order, revocation/unpublish/media, SQL integrity, original replay, all outcomes and failure paths covered.
+- Full205/206 PASS; sole inherited corpus punctuation assertion lib/corpus-translation.test.ts:66. Existing rendered student browser/PG regression PASS through0005; typegen/TypeScript/diff PASS.
+- Inherited lint missing ESLint; build Inter/Google Fonts network failure confirmed by diagnostic. No configuration workaround or hidden failures.
+- Only disposable PostgreSQL/isolated memory storage; no shared/production data/migrations/files. Real Better Auth/Vercel/staging/deployment not tested. No merge/deploy, root README deployment commit, account impersonation, social/contests/Elo or unrelated features.
+- Handoffs/map/status + AUTHORED_SOLUTION_ACCESS.md updated; final phase SHA via git log -1 after checkpoint commit/push. Commit uses Codex author/committer via command-scoped environment; existing Git configuration unchanged.
+- Branch: https://github.com/Physcratic/physcratic/tree/codex/physcratic-authoring-completion
+- Next: STOP; await Phase6C-B prompt. Continue same branch, preserve prior work, reuse explicit access/media/assistance contracts. No individual PR; user-triggered deployment only after later explicit readiness handoff.

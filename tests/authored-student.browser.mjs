@@ -144,6 +144,7 @@ try {
     "0002_authored_write_limit",
     "0003_author_media",
     "0004_authored_attempts",
+    "0005_authored_solution_access",
   ])
     await pool.query(
       "BEGIN;\n" +

@@ -344,6 +344,109 @@ export const authoredAttempts = pgTable(
       "authored_attempt_spoiler_policy_check",
       sql`${t.spoilerPolicy}='no-reveal-v1'`,
     ),
-    check("authored_attempt_assisted_check", sql`${t.assisted}=false`),
+  ],
+);
+
+// Phase 6C-A revocable authorization metadata; sealed revision solutions remain untouched.
+// SQL0005 is authoritative for lock ordering, generations, expiry and ledger/attempt guards.
+export const authoredSolutionPermissions = pgTable(
+  "authored_solution_permission",
+  {
+    problemId: uuid("problem_id").notNull(),
+    revisionId: uuid("revision_id").notNull(),
+    partId: uuid("part_id").notNull(),
+    approvedBy: text("approved_by")
+      .notNull()
+      .references(() => user.id, { onDelete: "restrict" }),
+    authorizationId: uuid("authorization_id").notNull().unique(),
+    version: integer("version").notNull(),
+    enabled: boolean("enabled").notNull().default(false),
+    expiresAt: timestamp("expires_at", { withTimezone: true, precision: 3 }),
+    updatedAt: timestamp("updated_at", { withTimezone: true, precision: 3 })
+      .notNull()
+      .default(sql`clock_timestamp()`),
+  },
+  (t) => [
+    primaryKey({ columns: [t.revisionId, t.partId] }),
+    unique().on(t.revisionId, t.partId, t.authorizationId),
+    foreignKey({
+      columns: [t.problemId, t.revisionId],
+      foreignColumns: [authoredRevisions.problemId, authoredRevisions.id],
+    }).onDelete("restrict"),
+    foreignKey({
+      columns: [t.revisionId, t.partId],
+      foreignColumns: [
+        authoredRevisionParts.revisionId,
+        authoredRevisionParts.partId,
+      ],
+    }).onDelete("restrict"),
+    check("authored_solution_permission_version_check", sql`${t.version}>0`),
+    check(
+      "authored_solution_permission_check",
+      sql`${t.enabled} OR ${t.expiresAt} IS NULL`,
+    ),
+  ],
+);
+export const authoredSolutionPermissionMedia = pgTable(
+  "authored_solution_permission_media",
+  {
+    revisionId: uuid("revision_id").notNull(),
+    partId: uuid("part_id").notNull(),
+    authorizationId: uuid("authorization_id").notNull(),
+    mediaId: uuid("media_id").notNull(),
+  },
+  (t) => [
+    primaryKey({ columns: [t.revisionId, t.partId, t.mediaId] }),
+    foreignKey({
+      columns: [t.revisionId, t.partId, t.authorizationId],
+      foreignColumns: [
+        authoredSolutionPermissions.revisionId,
+        authoredSolutionPermissions.partId,
+        authoredSolutionPermissions.authorizationId,
+      ],
+    }),
+    foreignKey({
+      columns: [t.revisionId, t.mediaId],
+      foreignColumns: [
+        authorRevisionMedia.revisionId,
+        authorRevisionMedia.mediaId,
+      ],
+    }).onDelete("restrict"),
+  ],
+);
+export const authoredSolutionReveals = pgTable(
+  "authored_solution_reveal",
+  {
+    id: uuid("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "restrict" }),
+    problemId: uuid("problem_id").notNull(),
+    revisionId: uuid("revision_id").notNull(),
+    partId: uuid("part_id").notNull(),
+    authorizationId: uuid("authorization_id").notNull(),
+    policy: text("policy").notNull().default("explicit-solution-v1"),
+    createdAt: timestamp("created_at", { withTimezone: true, precision: 3 })
+      .notNull()
+      .default(sql`clock_timestamp()`),
+  },
+  (t) => [
+    unique().on(t.userId, t.revisionId, t.partId, t.authorizationId),
+    index("authored_solution_reveal_authorization_idx").on(t.authorizationId),
+    foreignKey({
+      columns: [t.problemId, t.revisionId],
+      foreignColumns: [authoredRevisions.problemId, authoredRevisions.id],
+    }).onDelete("restrict"),
+    foreignKey({
+      columns: [t.revisionId, t.partId],
+      foreignColumns: [
+        authoredRevisionParts.revisionId,
+        authoredRevisionParts.partId,
+      ],
+    }).onDelete("restrict"),
+    check(
+      "authored_solution_reveal_policy_check",
+      sql`${t.policy}='explicit-solution-v1'`,
+    ),
   ],
 );
