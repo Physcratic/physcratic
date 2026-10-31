@@ -35,7 +35,7 @@ test("authored HTTP handlers against disposable PostgreSQL", { skip: !testUrl &&
   async function counts(id: string) { return (await pool.query("SELECT (SELECT count(*) FROM authored_revision WHERE problem_id=$1)::integer AS revisions,(SELECT version FROM authored_draft WHERE problem_id=$1) AS version", [id])).rows[0]; }
   try {
     await pool.query('CREATE TABLE "user" (id text PRIMARY KEY)');
-    for (const migration of ["0001_problem_authoring", "0002_authored_write_limit"]) {
+    for (const migration of ["0001_problem_authoring", "0002_authored_write_limit", "0003_author_media"]) {
       await pool.query("BEGIN;\n" + await readFile(`migrations/${migration}.up.sql`, "utf8") + "\nCOMMIT;");
     }
     // Execute original sealing/rollback regression assertions as well as route-level tests.
@@ -88,7 +88,7 @@ test("authored HTTP handlers against disposable PostgreSQL", { skip: !testUrl &&
       const missingMode = input(); missingMode.content.sections[0].parts[0].answerMode = "expression";
       assert.equal((await api("create", request("POST", missingMode, owner))).status, 400);
     });
-    await t.test("media refs in statement, attachments and private solutions are rejected until ownership registry exists", async () => {
+    await t.test("unregistered media refs in statement, attachments and private solutions are rejected", async () => {
       const owner = await user();
       const attachment = input(); attachment.content.attachments.push({ id: randomUUID(), purpose: "solution-pdf" });
       assert.equal((await api("create", request("POST", attachment, owner))).status, 400);

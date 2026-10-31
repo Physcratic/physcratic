@@ -1,17 +1,18 @@
 # Work status
 
-- Scope: Phase 3 native author editor only, 2026-10-31 (Asia/Makassar).
-- Fresh base 6837ae319d2e8a856e2188e5a269d96050deef84 (Phase 2 PR #13 merged); branch codex/problem-authoring-phase-3.
-- Added verified-author /dashboard/author, sidebar entry, draft manager and native responsive editor using existing APIs/contracts.
-- Sections/parts/text/inline+display LaTeX, private answer/hint/solution panels, rights validation and publish/unpublish; no new product dependencies.
-- Serialized debounced autosave, error/409 pause, explicit version decisions, tab-private recovery/export and unload protection; no silent loss/overwrite.
-- Independent reviewer identified data-loss/numeric/focus edges; fixed with regression tests and re-reviewed, no blockers remaining.
-- Tests: editor 15/15; contracts 13/13; real Chromium+API/disposable PostgreSQL browser scenario PASS; axe desktop/mobile zero violations; 375px no overflow.
-- Full with PostgreSQL: 131/132; only inherited corpus translation punctuation mismatch. API integration 10/10; no regressions.
-- TypeScript PASS; inherited ESLint missing and Google Fonts build blockers persist. Run typecheck/build sequentially to avoid generated-file races.
-- Handoffs: [map](docs/engineering/PROBLEM_AUTHORING_MAP.md), [status](docs/engineering/PROBLEM_AUTHORING_STATUS.md) include commands, design decisions and validation limits.
-- Live Better Auth/browser staging flow not exercised; browser harness injects verified sessions into real APIs. No production DB/migrations or deployment.
-- Phase 1/2 code, API contracts, auth, schema/migrations, packages and CAPTCHA removal preserved.
-- Delivery: implementation 1ae01a1 pushed; draft PR blocked by GitHub API Forbidden. Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-3?expand=1
-- No image/PDF upload, CAS, student submissions, comments or stars. Phase 4 unstarted.
-- Next: user review/merge, then separately request Phase 4 from fresh main; read handoffs and inspect affected code only.
+- Scope: Phase 4 secure author images/PDFs only, 2026-10-31 (Asia/Makassar).
+- Base: fresh main 0845052fff6cf36760fa8c69e5b9a1d89a22447d, Phase 3 PR #14 merged; branch codex/problem-authoring-phase-4.
+- Added server-owned private-media registry, controlled verified-owner upload/list/proxy/delete/cleanup and explicit additive 0003 migration.
+- 3MiB MIME+signature/structure validation; size/time/dimension caps; persistent quotas/rates/origin; atomic owner/purpose/ready references and immutable historical bindings.
+- Public statement files require publication + revision binding; unpublish revokes public reads. Solution images/PDFs always owner-only. No direct Blob URLs.
+- Editor images/PDF upload, preview/download, replacement/removal, retention state/cleanup; existing autosave/recovery/409 and immutable revisions preserved.
+- Independent security review complete; fixed Buffer serialization, final-orphan quota recovery and pending-upload/conflict-copy callback race; no remaining confirmed blockers.
+- Targeted 49/49 PASS; disposable PostgreSQL migration/constraints/concurrency + isolated mock storage. Browser uploads/recovery/gated-conflict regression PASS; desktop/mobile axe zero violations, 375px no overflow.
+- Full suite 142/143 PASS; sole inherited corpus translation punctuation mismatch at lib/corpus-translation.test.ts:66. No new regressions.
+- TypeScript PASS; lint inherited missing ESLint; build inherited Inter font network failure confirmed by diagnostic (no config edits).
+- Handoffs: docs/engineering/PROBLEM_AUTHORING_MAP.md and PROBLEM_AUTHORING_STATUS.md; migrations/README.md documents policy/order/cleanup/rollback.
+- Production Better Auth/Blob/staging flow not exercised; only disposable local PostgreSQL + mocks. No production files, DB/migrations, merge or deployment.
+- No package/dependency/auth/CAPTCHA changes, OCR/conversion, grading, submissions or social features.
+- Implementation d6b6abb pushed; final delivery SHA via git log -1. Draft PR creation blocked by GitHub API Forbidden.
+- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-4
+- Next: user review Phase 4; stop. Future phase requires separate request, merged main and handoffs first.

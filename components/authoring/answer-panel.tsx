@@ -270,11 +270,13 @@ export function AnswerPanel({
         </div>
       )}
       <BlocksEditor
+        scope="solution"
         label="Hints"
         blocks={entry.hints}
         onChange={(hints) => onChange({ ...entry, hints })}
       />
       <BlocksEditor
+        scope="solution"
         label="Worked solution"
         blocks={entry.solution}
         onChange={(solution) => onChange({ ...entry, solution })}

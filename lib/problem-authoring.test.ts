@@ -123,3 +123,15 @@ test("Drizzle-shaped Date rows serialize ISO timestamps without leaking private 
   for (const publishedAt of [new Date(NaN), 0, null, "not-a-date"]) assert.throws(() => publicAuthoredRevision({ ...row, publishedAt }));
   assert.equal(row.publishedAt, date);
 });
+
+test("publication requires alt text for both statement and private images", () => {
+  const d = fixture(), mediaId = randomUUID();
+  d.content.context.push({id:randomUUID(),kind:"image",mediaId,alt:" ",caption:""});
+  d.content.attachments.push({id:mediaId,purpose:"statement-image"});
+  assert.equal(authoredDraftSchema.safeParse(d).success,true);
+  assert.equal(publishableDraftSchema.safeParse(d).success,false);
+  (d.content.context[1] as {alt:string}).alt="Diagram";
+  assert.equal(publishableDraftSchema.safeParse(d).success,true);
+  d.privateParts[0].hints=[{id:randomUUID(),kind:"image",mediaId:randomUUID(),alt:"",caption:""}] as never;
+  assert.equal(publishableDraftSchema.safeParse(d).success,false);
+});

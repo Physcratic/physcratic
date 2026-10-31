@@ -217,14 +217,18 @@ export function OrderControls({
     </div>
   );
 }
+import { MediaImage, UploadControl } from "./media-controls";
+
 export function BlocksEditor({
   blocks,
   onChange,
   label,
+  scope = "statement",
 }: {
   blocks: EditorBlock[];
   onChange: (blocks: EditorBlock[]) => void;
   label: string;
+  scope?: "statement" | "solution";
 }) {
   const [notice, setNotice] = useState("");
   return (
@@ -250,7 +254,12 @@ export function BlocksEditor({
         >
           <div className="mb-3 flex items-center justify-between gap-2">
             <span className="text-xs font-medium text-muted-foreground">
-              {block.kind === "math" ? "Equation" : "Text"} {index + 1}
+              {block.kind === "math"
+                ? "Equation"
+                : block.kind === "image"
+                  ? "Image"
+                  : "Text"}{" "}
+              {index + 1}
             </span>
             <OrderControls
               index={index}
@@ -412,10 +421,86 @@ export function BlocksEditor({
               </div>
             </div>
           ) : (
-            <p>Image editing is available in a later release.</p>
+            <div className="space-y-3">
+              <MediaImage
+                mediaId={block.mediaId}
+                alt={block.alt}
+                caption={block.caption}
+              />
+              <Field
+                label={`${label} image ${index + 1} alt text`}
+                help="Describe the image for readers who cannot see it; required to publish."
+              >
+                {(id) => (
+                  <input
+                    id={id}
+                    className={inputClass}
+                    value={block.alt}
+                    maxLength={1000}
+                    onChange={(e) =>
+                      onChange(
+                        blocks.map((b) =>
+                          b.id === block.id
+                            ? { ...block, alt: e.target.value }
+                            : b,
+                        ),
+                      )
+                    }
+                  />
+                )}
+              </Field>
+              <Field label={`${label} image ${index + 1} caption`}>
+                {(id) => (
+                  <input
+                    id={id}
+                    className={inputClass}
+                    value={block.caption}
+                    maxLength={2000}
+                    onChange={(e) =>
+                      onChange(
+                        blocks.map((b) =>
+                          b.id === block.id
+                            ? { ...block, caption: e.target.value }
+                            : b,
+                        ),
+                      )
+                    }
+                  />
+                )}
+              </Field>
+              <UploadControl
+                purpose={`${scope}-image`}
+                label={`Replace ${label.toLowerCase()} image ${index + 1}`}
+                onUploaded={(file) =>
+                  onChange(
+                    blocks.map((b) =>
+                      b.id === block.id ? { ...block, mediaId: file.id } : b,
+                    ),
+                  )
+                }
+              />
+            </div>
           )}
         </div>
       ))}
+      {blocks.length < 100 && (
+        <UploadControl
+          purpose={`${scope}-image`}
+          label={`Upload image to ${label.toLowerCase()}`}
+          onUploaded={(file) =>
+            onChange([
+              ...blocks,
+              {
+                id: crypto.randomUUID(),
+                kind: "image",
+                mediaId: file.id,
+                alt: "",
+                caption: "",
+              },
+            ])
+          }
+        />
+      )}
       <div className="flex flex-wrap gap-2">
         <Button
           type="button"
@@ -459,7 +544,14 @@ export function ReaderBlocks({ blocks }: { blocks: EditorBlock[] }) {
               ),
             )}
           </p>
-        ) : null,
+        ) : (
+          <MediaImage
+            key={block.id}
+            mediaId={block.mediaId}
+            alt={block.alt}
+            caption={block.caption}
+          />
+        ),
       )}
     </div>
   );

@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
 import type { AuthoredDocument, PrivatePart } from "@/lib/problem-authoring";
-import { check, foreignKey, index, type AnyPgColumn, boolean, doublePrecision, integer, jsonb, pgTable, primaryKey, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
+import { check, foreignKey, index, type AnyPgColumn, boolean, date, doublePrecision, integer, jsonb, pgTable, primaryKey, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
 import type { SolutionSubmission } from "@/lib/solution-grading";
 
 export const user = pgTable("user", {
@@ -119,3 +119,124 @@ export const authoredWriteLimits = pgTable("authored_write_limit", {
   windowStart: timestamp("window_start", { withTimezone: true }).notNull(),
   requests: integer("requests").notNull(),
 }, (t) => [check("authored_write_limit_requests_check", sql`${t.requests}>0`)]);
+
+// Server-owned author media. SQL defines deferred sealing/lifecycle triggers.
+export const authorMedia = pgTable(
+  "author_media",
+  {
+    id: uuid("id").primaryKey(),
+    problemId: uuid("problem_id")
+      .notNull()
+      .references(() => authoredProblems.id, { onDelete: "restrict" }),
+    purpose: text("purpose")
+      .$type<
+        "statement-image" | "solution-image" | "statement-pdf" | "solution-pdf"
+      >()
+      .notNull(),
+    pathname: text("pathname").notNull().unique(),
+    filename: text("filename").notNull(),
+    mediaType: text("media_type").notNull(),
+    bytes: integer("bytes").notNull(),
+    sha256: text("sha256").notNull(),
+    state: text("state")
+      .$type<"pending" | "ready" | "deleting">()
+      .notNull()
+      .default("pending"),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (t) => [
+    unique("author_media_id_problem_id_purpose_key").on(
+      t.id,
+      t.problemId,
+      t.purpose,
+    ),
+    index("author_media_problem_idx").on(t.problemId),
+    index("author_media_cleanup_idx").on(t.state, t.createdAt),
+    check(
+      "author_media_purpose_check",
+      sql`${t.purpose} in ('statement-image','solution-image','statement-pdf','solution-pdf')`,
+    ),
+    check(
+      "author_media_media_type_check",
+      sql`${t.mediaType} in ('image/png','image/jpeg','image/webp','application/pdf')`,
+    ),
+    check(
+      "author_media_bytes_check",
+      sql`${t.bytes}>0 and ${t.bytes}<=3145728`,
+    ),
+    check("author_media_sha256_check", sql`${t.sha256} ~ '^[a-f0-9]{64}$'`),
+    check(
+      "author_media_state_check",
+      sql`${t.state} in ('pending','ready','deleting')`,
+    ),
+    check(
+      "author_media_purpose_type_check",
+      sql`(${t.purpose} in ('statement-pdf','solution-pdf'))=(${t.mediaType}='application/pdf')`,
+    ),
+  ],
+);
+export const authorMediaUsage = pgTable(
+  "author_media_usage",
+  {
+    userId: text("user_id")
+      .primaryKey()
+      .references(() => user.id, { onDelete: "cascade" }),
+    day: date("day", { mode: "string" }).notNull(),
+    attempts: integer("attempts").notNull(),
+  },
+  (t) => [
+    check(
+      "author_media_usage_attempts_check",
+      sql`${t.attempts}>0 and ${t.attempts}<=31`,
+    ),
+  ],
+);
+export const authorDraftMedia = pgTable(
+  "author_draft_media",
+  {
+    problemId: uuid("problem_id")
+      .notNull()
+      .references(() => authoredDrafts.problemId, { onDelete: "cascade" }),
+    mediaId: uuid("media_id").notNull(),
+    purpose: text("purpose").notNull(),
+  },
+  (t) => [
+    primaryKey({ columns: [t.problemId, t.mediaId] }),
+    index("author_draft_media_media_idx").on(t.mediaId),
+    foreignKey({
+      columns: [t.mediaId, t.problemId, t.purpose],
+      foreignColumns: [
+        authorMedia.id,
+        authorMedia.problemId,
+        authorMedia.purpose,
+      ],
+    }),
+  ],
+);
+export const authorRevisionMedia = pgTable(
+  "author_revision_media",
+  {
+    revisionId: uuid("revision_id").notNull(),
+    problemId: uuid("problem_id").notNull(),
+    mediaId: uuid("media_id").notNull(),
+    purpose: text("purpose").notNull(),
+  },
+  (t) => [
+    primaryKey({ columns: [t.revisionId, t.mediaId] }),
+    index("author_revision_media_media_idx").on(t.mediaId),
+    foreignKey({
+      columns: [t.problemId, t.revisionId],
+      foreignColumns: [authoredRevisions.problemId, authoredRevisions.id],
+    }),
+    foreignKey({
+      columns: [t.mediaId, t.problemId, t.purpose],
+      foreignColumns: [
+        authorMedia.id,
+        authorMedia.problemId,
+        authorMedia.purpose,
+      ],
+    }),
+  ],
+);

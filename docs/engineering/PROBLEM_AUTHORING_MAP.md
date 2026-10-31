@@ -1,120 +1,80 @@
 # Problem authoring architecture map
 
-Phase 3 based on merged main `6837ae319d2e8a856e2188e5a269d96050deef84` (2026-10-31, Asia/Makassar).
-Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md; Phase 3 adds the native editor; media uploads and grading remain deferred.
-Read this and [status](PROBLEM_AUTHORING_STATUS.md) before each phase; inspect only affected code/dependencies.
+Phase 4 from merged main `0845052fff6cf36760fa8c69e5b9a1d89a22447d` (Phase 3 PR #14; 2026-10-31 Asia/Makassar).
+Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md. Phases 0–3 merged; Phase 4 adds secure images/PDFs only.
+Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspect affected code/dependencies only.
 
-## Verified current architecture
-- [package.json](../../package.json): Next 15.5.28, React 19, TypeScript, pnpm lockfile; Zod, KaTeX, mathjs, Drizzle, Better Auth, Blob installed in manifest.
-- [schema](../../lib/db/schema.ts): user/session/account/verification; solution_attempt, solution_evidence, practice_attempt; contest/contest_registration/contest_rating; archive_progress.
-- Authored additions: problem/draft/revision, separate private parts, revision_part identities, authored_write_limit buckets; stars/comments remain Phase 7.
-- [DB](../../lib/db/index.ts): PostgreSQL Pool + Drizzle; DATABASE_URL, max 5 connections, statement/transaction timeouts.
-- [SQL up/down and tests](../../migrations/0001_problem_authoring.up.sql), [migration operations](../../migrations/README.md): explicit reviewed migrations; no automatic build/start DB writes. ESLint remains absent.
-- [auth](../../lib/auth.ts): Better Auth email/password, email verification required for login, terms hooks, trusted origins and auth rate limits.
-- [submission helpers](../../lib/submission-server.ts): session lookup and configured-origin checks; no explicit emailVerified guard.
-- [security](../../lib/submission-security.ts), [request limits](../../lib/submission-request.ts): origin allowlist, media signatures, bounded request parsing.
-- [static model](../../lib/physics.ts): Problem with numeric answer, hint, solution and example Elo; not authored content.
-- [practice route](../../app/dashboard/problems/[id]/page.tsx) loads static problems into ProblemReader.
-- [practice grading](../../lib/practice.ts), [progress API](../../app/api/progress/route.ts): server computes static numeric correctness; user-scoped attempts, idempotency and daily limits.
-- [submissions API](../../app/api/submissions/route.ts): official source/version validation, ownership of evidence, user-scoped history, idempotency, awaiting-reference only.
-- [source resolver](../../lib/submission-source.ts) is the archive boundary; preserve its callers/contracts.
-- [symbolic math](../../lib/symbolic-math.ts): restricted AST, sqrt only, symbolicEqual/rationalize; no general trig/domain-safe server grading.
-- [worker](../../lib/symbolic-worker.ts) and [answer UI](../../components/physics/symbolic-answer.tsx) receive expected key in browser: preview only, never authored grading.
-- [working editor](../../components/physics/math-working-editor.tsx), [LaTeX](../../lib/latex-working.ts): existing plaintext/equation preview; no block authoring composer.
-- [upload](../../app/api/solution-evidence/route.ts): session/origin checks, bounded multipart, MIME/signature, UUID paths, SHA256, DB quota reservation, private Blob, failure cleanup.
-- [download](../../app/api/solution-evidence/[id]/route.ts): user-owned DB lookup before private Blob read, attachment, no-store/nosniff.
-- Existing upload endpoints do not explicitly check emailVerified; private solver evidence must not become public author media.
+## Established architecture (reuse; do not repeat audits)
+- Next 15.5.28 / React 19 / TypeScript / pnpm; existing Zod, KaTeX, mathjs, Drizzle, Better Auth and Vercel Blob. No new product dependencies.
+- [Database](../../lib/db/index.ts): PostgreSQL Pool + Drizzle; trusted application role, not standalone RLS. Never expose raw authored/private tables.
+- [Schema](../../lib/db/schema.ts): authored tables isolated from user/session, practice_attempt, solution_attempt/evidence, archive and contest contracts.
+- Better Auth and [submission adapters](../../lib/submission-server.ts) provide session/configured origin; every author operation explicitly requires emailVerified === true.
+- Existing practice/archive/source resolver/grading/auth behavior and intentional signup CAPTCHA removal remain unchanged.
+- Existing symbolic worker exposes expected answers for legacy preview only; never reuse it for authored server grading.
+- [Migrations](../../migrations/README.md): explicit, additive 0001/0002/0003; SQL authoritative for deferred FKs/triggers. No schema push/startup/build migration.
 
-## Typed contract (Phase 1)
-- [Contracts](../../lib/problem-authoring.ts) and [tests](../../lib/problem-authoring.test.ts): strict bounded Zod unions, inferred types, unique nested IDs and explicit public revision mapper.
-- Problem: {id: UUID, slug: string, ownerId: UserId, state: 'draft'|'published'|'archived', publishedRevisionId: UUID|null, createdAt, updatedAt}.
-- Draft: {problemId: UUID, version: integer, content: Document, privateParts: PrivatePart[], updatedAt}; compare-and-swap version on save.
-- Revision: {id: UUID, problemId: UUID, number: integer, schemaVersion: 1, content: Document, publishedAt}; immutable after publication.
-- Document: {title: string, topicTags: string[], methodTags: string[], estimatedDifficulty: string|null, context: Block[], sections: Section[], provenance: Provenance, attachments: MediaRef[]}.
-- Section: {id: UUID, title: string, blocks: Block[], parts: Part[]}; ordered arrays, globally unique nested IDs per document.
-- Part: {id: UUID, label: string, blocks: Block[], answerMode: 'numeric'|'expression'|'manual'}; no expected answers/tolerances/domains here.
-- Inline: {kind:'text', text:string}|{kind:'math', latex:string}; no raw HTML.
-- Block: {id:UUID} & ({kind:'text', spans:Inline[]}|{kind:'math', latex:string}|{kind:'image', mediaId:UUID, alt:string, caption:string}).
-- MediaRef: {id:UUID, purpose:'statement-image'|'statement-pdf'|'solution-pdf'}; URLs/access are server-derived, never trusted client ownership claims.
-- Provenance: {kind:'original'|'authorized', source:string, rightsDeclaration:string}; incomplete drafts allowed, publication requires rights.
-- PrivatePart: {partId:UUID, key:Key|null, hints:Block[], solution:Block[]}; nullable key permits incomplete drafts; publication requires every key. Physically separate storage.
-- Key = {kind:'numeric', value:number, units:string, absTol:number, relTol:number} | {kind:'expression', expected:string, variables:Variable[], angleUnit:'radians'|'degrees', exclusions:string[]} | {kind:'manual'}.
-- Variable: {name:string, domain:'real', min?:number, max?:number, assumptions:('positive'|'nonnegative'|'nonzero')[]}; explicit supported-domain validation.
-- Numeric values/tolerances finite; tolerances nonnegative; units separate; expression size/AST/power/domain/resource limits mandatory.
-- Published solutions are a separate immutable revision-bound projection served only through intentional solution access; drafts remain private.
-- Implemented normalized problem/draft/revision/revision-part and separate private draft/revision tables. Media tables/uploads deferred to Phase 4; references are typed only.
-- FK owner -> user; draft unique problem; revision unique(problemId, number) and unique(problemId, id); composite FK ensures published pointer belongs to problem.
-- Separate private draft/revision key storage; composite PKs/FKs prevent orphan/cross-mode keys; publication seals revision/key/part rows. No public SELECT * mapping.
-- Persist revision-bound part identity for submission FKs; Zod validates cross-document IDs, block order and key/mode alignment transactionally.
-- Authored attempts/reveals are separate from old attempts; bind user + immutable revision + part + idempotency; record assisted/revealed-before-submit.
-- Star: separate table unique(problemId,userId), no self-star; server derives count. Comment: separate table with parentId, authorId, tombstone/hidden state.
-- Parent comment must belong to same problem; bound depth, stable pagination; reports private. No staff powers without existing authorization model.
+## Approved document and privacy contracts
+- [Contracts](../../lib/problem-authoring.ts): authored problem -> mutable draft -> immutable numbered revision. Stable UUIDs normalized lowercase before validation/persistence.
+- Ordered document context/sections/parts; ordered text spans, display/inline math and image blocks. Image = {id,kind:'image',mediaId,alt,caption}; descriptive alt required at publication.
+- Attachments = UUID + purpose statement-image/statement-pdf/solution-pdf. Private hint/solution image IDs live only in private parts, never public attachment indexes.
+- Provenance = original/authorized + source + rightsDeclaration; incomplete drafts allowed, publication requires meaningful native content, part/key completeness and rights.
+- Physically separate PrivatePart {partId,key|null,hints,solution}. Key modes numeric/expression/manual; modes must match relational revision parts.
+- Numeric keys finite with nonnegative tolerances; expressions have bounded variables/domains/angles/exclusions. No mathematical grading in Phases 1–4.
+- Public mapper explicitly allowlists revision fields, normalizes Drizzle Date to ISO and strips solution-pdf. Serialization does not authorize access.
+- Public content never includes keys, hints, worked solutions, private image IDs, solution PDFs or Blob paths/URLs.
 
-## Trust boundary and permissions
-- Public: allowlisted statement serializer for published revisions only; no private key, draft solution, private media, attempt history or sampling seeds.
-- Owner: verified server-session user may create/save/publish/archive own content and access own keys; reject client owner/user/count fields.
-- Other verified users: grade published revision, reveal allowed published solution, comment and toggle star; prevent self-star.
-- Anonymous/unverified: allowed public reading only; all new writes require explicit user.emailVerified === true (not medal flair).
-- New writes: configured origin, payload limits, ownership, rate limits, idempotency where applicable; transactional optimistic concurrency/publish.
-- Server-only grader loads keys; parser preview receives submitted expression only. Results: accepted/incorrect/needs-review/ungraded.
-- Numerical sampling finds counterexamples, never proves equivalence; sqrt(x^2) != x over unrestricted reals; define units, singularities and angle convention.
-- Practice reveal before submission is allowed; persist assisted state. Never update existing ratings/Elo from authored attempts.
-- Phase 3 evaluated Tiptap/dnd-kit and uses existing controls/KaTeX plus keyboard move buttons: no new product dependency or editor schema needed.
+## SQL integrity and publication order
+- 0001: owner FK; unique draft/problem and revision number; composite same-problem published pointer; exact document/relational part IDs/modes; duplicate IDs rejected.
+- Separate private rows and reverse FKs enforce one matching key per revision part. Immutable/sealed child and revision rows cannot be amended later.
+- Publication locks problem+draft, checks optimistic version and validates stored document/keys/rights/media.
+- Insert revision parts, private keys AND revision media bindings BEFORE final revision sealing insert, then pointer/version updates; commit once before responding.
+- No released savepoints: custom deferred PostgreSQL xmin equality checks require all children and revision to share the inserting transaction.
+- 0003 sealing verifies exact bidirectional set of document attachments/statement images/private hint+solution images versus relational media bindings.
+- Revision media bindings are immutable, sealed, same-problem/purpose FK constrained, ready-only, and subject to the same deferred xmin transaction rule.
+- Draft saves replace media bindings atomically with document/private rows. Ready media rows locked after parent; same parent lock serializes save/publish/delete/cleanup.
 
-## Migration and release strategy
-- Additive migrations/contracts only; preserve auth, archive, practice and existing IDs/data contracts; no mass rewrite or production DB access.
-- Phase 1 adds explicit SQL up/down, disposable PostgreSQL tests and a checksum ledger procedure; no drizzle-kit/new dependencies.
-- Verify up/down/reapply on disposable PostgreSQL and contract/serializer tests; runtime JSON validation remains mandatory. No production migration here.
-- Publication transaction freezes revision + private content + media bindings atomically; updates fork drafts, never mutate old revision/attempt references.
-- Rollback application exposure first; retain historical revisions/attempts; destructive down migration only on disposable DB before user data exists.
-- No merge/deploy. README says merging main automatically deploys; prepare manual Vercel release/rollback gates in Phase 8.
+## Phase 2 APIs (extended by Phase 4, existing contracts preserved)
+- [API factory](../../lib/problem-authoring-api.ts), [production adapter](../../lib/problem-authoring-server.ts); injected session/origin/pool for disposable tests.
+- Base /api/authored-problems. GET/POST /drafts; GET/PUT/DELETE /drafts/[id]; GET /drafts/[id]/preview; POST publish/unpublish; GET /[id] public current revision.
+- Strict owner/version JSON; cross-owner/guessed IDs 404. Owner list bounded 50/cursor; 100 retained problems per author; 60 writes/minute across instances (0002).
+- All responses private/no-store. Actual-byte JSON limit 2MB/15s. No client owner/count authority. Concurrent same-version mutations produce one success + 409.
+- Preview is owner-only allowlisted statement; public GET requires published-state + same-problem pointer join and never queries private tables.
+- Delete requires unpublish first; removes working draft, retains immutable history/media registry. Last orphan cleanup prunes empty never-published parent to recover quota.
+- Old blanket media denial replaced only with [ownership/reference validation](../../lib/author-media-references.ts) on create/update/publication.
 
-## Phase 2 API surface (implemented; no editor)
-- [Handlers](../../lib/problem-authoring-api.ts), [production adapter](../../lib/problem-authoring-server.ts), [integration tests](../../lib/problem-authoring-api.test.ts).
-- Production injects Better Auth session lookup/configured-origin helper and the existing pg Pool; direct parameterized SQL preserves custom row locks and deferred sealing order.
-- Base `/api/authored-problems`; all responses private/no-store. No keys/solutions in any public/solver-shaped response.
-- `POST /drafts`: strict `{content, privateParts}`; server generates problemId/slug, returns owner draft/version 1 (201).
-- `GET /drafts?after=<uuid>`: own metadata only, stable UUID cursor, max 50, nextCursor; no grading keys in list.
-- `GET /drafts/[id]`: verified owner-only document/private key read; locks statement and key snapshot consistently.
-- `PUT /drafts/[id]`: strict `{version, content, privateParts}`; owner/version conflict checks; replace private rows atomically; returns incremented version.
-- `DELETE /drafts/[id]`: JSON `{version}`; active published problems require unpublish first (409); removes working draft, retains historical revisions/stable problem; never-published problem may be removed.
-- `GET /drafts/[id]/preview`: verified owner only, `{problemId, version, content}`; same allowlisted content as public reader, no private fields.
-- `POST /drafts/[id]/publish`: JSON `{version}`; validates stored draft, rights/native statement/all part keys; returns `{version, revision}` with safe revision only.
-- `POST /drafts/[id]/unpublish`: JSON `{version}`; archives/clears pointer, increments draft version; history/keys retained.
-- `GET /[id]`: anonymous public current revision only, same-problem pointer JOIN + published-state predicate; no private table read.
-- All private actions require server session emailVerified === true, strict owner predicates, generic errors; cross-owner draft IDs return 404.
-- Writes require configured same-origin JSON, actual-byte limit 2 MB/15 s, persistent 60 writes/minute/user, 100 retained problems/author quota.
-- [0002 limiter SQL](../../migrations/0002_authored_write_limit.up.sql): one atomic bounded bucket/user across instances; no runtime migrations; down drops only limiter state.
-- All statement/private media references rejected until Phase 4 ownership registry exists. Preview never makes a draft publicly accessible.
-- Mutations lock problem+draft, consume expected version; publish/unpublish consume a version too. Concurrent same-version mutations yield one success and 409 loser.
-- Publish writes parts and private rows first, final immutable revision last, pointer/version updates in one transaction, no savepoints; COMMIT before response.
-- Public content helper is serialization only; publication visibility/owner preview authorization enforced in handler, not serializer.
-- `bash scripts/test-problem-authoring.sh`: isolated local PostgreSQL17, migrations + original SQL regressions + handler integration; test sessions injected, production auth unchanged.
-- `bash scripts/test-problem-authoring.sh node /tmp/.../pnpm.cjs test`: full suite with DB integration enabled; direct pnpm test skips DB integration without explicit test URL.
+## Phase 4 registry, upload and access policy
+- [Media API](../../lib/author-media-api.ts), [validation](../../lib/author-media-validation.ts), [references](../../lib/author-media-references.ts), [private storage adapter](../../lib/author-media-storage.ts).
+- 0003 author_media stores server UUID/problem/purpose, private nonce pathname, canonical filename, detected MIME/bytes/hash, pending/ready/deleting state; metadata/content identity immutable.
+- author_draft_media and author_revision_media pin references. author_media_usage persists daily attempts. No client paths, owner IDs, storage URLs or public Blob access.
+- POST /drafts/[id]/media multipart {file,purpose}; GET same path lists own safe metadata + draft/history retention flags.
+- GET /[id]/media/[mediaId] proxies bytes; DELETE same path strictly owner-only JSON {}; POST /media/cleanup strictly owner-only JSON {}.
+- Four immutable registry purposes: statement-image, solution-image, statement-pdf, solution-pdf. Same-problem owner/ready/purpose matching on every reference.
+- Max 3MiB/file; multipart actual bytes bounded +15s parse; MIME must match binary structure/signature. PNG/JPEG/static WebP dimensions capped 12k/40M pixels; PDF header+EOF checked.
+- SVG/HTML/animated WebP rejected. Signature/structure validation is not a complete decoder, PDF sanitizer or antivirus service.
+- Writes require configured origin; shared 60/minute bucket + 30 upload attempts/day (including failure), max 100 tracked objects /100MiB per owner. Advisory lock reserves aggregate quota atomically.
+- Storage uses existing private Vercel Blob with nonce paths, no overwrite, SDK10s timeouts. Upload reserves pending row, PUTs privately, marks ready; failed/ambiguous writes keep cleanup tombstones.
+- Verified owner can read own ready assets. Everyone else gets statement media ONLY if problem currently published AND media bound to current revision or explicitly requested same-problem historical revision.
+- Unpublish revokes all anonymous media reads, including historical URLs; historical files remain stored. Private solution assets are always author-only in Phase 4.
+- No Blob URLs/redirects/cacheable responses. Exact MIME, nosniff, same-origin CORP, no-referrer, sandbox/default-none CSP; PDFs forced download, never embedded/executed in editor.
+- Cleanup only owner-triggered, <=5 candidates/request: ready unlinked >24h, pending/deleting >1h. Saved drafts and ALL historical bindings permanently protect assets.
+- Mark deleting under parent/media locks -> delete private object outside DB transaction -> delete registry last; errors retain path for retry. Ambiguous recent PUTs retain tombstones >=1h and repeat physical deletion.
+- Populated-registry down migration refuses; rollback exposure first and retain storage/history. Deployment requires a private Blob store and separately reviewed explicit migration; no production access performed.
 
-## Phase 3 native editor
-- [Verified-author route](../../app/dashboard/author/page.tsx) at `/dashboard/author`; sidebar Problem studio link; manager uses existing paginated CRUD APIs.
-- [Workspace](../../components/authoring/workspace.tsx), [editor](../../components/authoring/problem-editor.tsx), [fields](../../components/authoring/editor-fields.tsx), [private panels](../../components/authoring/answer-panel.tsx).
-- Native sections/parts, ordered text/math blocks and inline LaTeX spans; immutable IDs preserved; KaTeX trust:false with expansion/size caps and equation shortcuts.
-- Numeric/expression/manual answer configuration, variable domains/angles, private hints/worked solutions; no CAS grading, uploads or student submissions.
-- [Editor state machine](../../lib/problem-authoring-editor.ts): 1800ms debounce, serialized saves, explicit saved/saving/error/conflict states, versions from API acknowledgements only.
-- In-flight edits/undo and uncertain request outcomes keep tab recovery protected; owner+problem-scoped sessionStorage backups, explicit restore/discard/download; raw invalid copies retained.
-- 409 pauses autosave; fetch/inspect latest, explicitly replace local or keep local over loaded version; no automatic merge or silent overwrite. Publish flushes saves and consumes returned version.
-- Local editor buffers retain incomplete numeric/expression input; Phase 1 contracts still gate API save/publication. Browser unload warns on unsaved/uncertain work.
-- Student preview uses publicAuthoredContent only, unmounts private panels; malformed/oversized content fails preview safely. Server gate requires verified email before editor renders.
-- Keyboard reorder/delete restores focus and announces position changes; labeled/help-associated fields, mobile stacking, outline navigation and private-download warnings.
-- [State tests](../../lib/problem-authoring-editor.test.ts), [Chromium+API/PG harness](../../tests/problem-authoring.browser.mjs); test commands/tooling and actual evidence in status. No production migration.
+## Native editor and state preservation
+- [Verified route](../../app/dashboard/author/page.tsx), [workspace](../../components/authoring/workspace.tsx), [editor](../../components/authoring/problem-editor.tsx), [media controls](../../components/authoring/media-controls.tsx).
+- Native sections/parts/text/math/images, existing KaTeX trust:false/expansion caps, keyboard move/delete focus, numeric/expression/manual private panels; no editor/drag-drop dependency.
+- [Session machine](../../lib/problem-authoring-editor.ts): 1800ms serialized autosave, acknowledged versions, explicit 409 comparison/decisions, owner/problem tab recovery, uncertain/raw invalid backups retained.
+- Images upload at statement/hint/solution block position; local proxy preview, alt/caption, replacement/removal; optional statement/private solution PDFs upload/replace/download/remove.
+- Removing/replacing changes references only after autosave; history stays immutable. Manager shows retention status, protects local refs and exposes explicit unused-file deletion/age-based cleanup; workspace cleanup also available without drafts.
+- Pending upload freezes edits/back/publish/conflict copy replacement and protects beforeunload; successful callback invalidates stale comparison. Failures retain original reference and show error.
+- Student preview uses only public mapper; private panels/comparison JSON unmounted. It renders statement images/PDF links only, never private assets or unsafe PDF iframe.
 
-## Acceptance/test plan (future implementation, not passing tests)
-- Phase 1: malformed/bounded contracts, unique block/part IDs, FK/revision consistency, no private keys in public projection.
-- Phase 2: anonymous/unverified/cross-owner denial, guessed draft/key IDs, stale/concurrent save conflict, rights/meaningful statement/part/key/media publication checks.
-- Phase 3: exact multi-section/block/math round-trip; keyboard/mobile reorder, autosave conflict/error/recovery and XSS-safe preview.
-- Phase 4: cross-owner media refs, MIME mismatch/magic bytes/size/quota, stale/orphan assets, private solution/draft leak denial.
-- Phase 5: equivalent fractions/signs/trig, canonical g*sin(3*theta)^(1/2), explicit * and suggestion for sin(3 theta); domain/zero/units/tolerance edges, malicious AST/DoS; indeterminate -> needs-review.
-- Phase 6: second verified solver, all four grade statuses, retry/version integrity, solution reveal/assisted history and no keys in HTML/RSC/JSON/worker bundles.
-- Phase 7: concurrent one-star toggle/count, no self-star, reply ownership/same-problem parent/depth, deletion tombstone, pagination and hidden reports.
-- Phase 8: full author->publish->solver->reveal->social->new revision flow; old revisions preserved; regression checks for corpus/practice/auth; staging browser/security/math/accessibility review.
-- Existing targeted baseline: pnpm exec tsx --test lib/{practice,symbolic-math,submission-security,submission-request,solution-grading,latex-working}.test.ts.
-- Required checks: pnpm test; pnpm exec tsc --noEmit; pnpm lint; pnpm build. Actual outcomes are in status, never infer passes.
-- Each phase: fresh merged main, read these files + WORK_STATUS.md, verify HEAD/concurrent branches, targeted tests then project checks, critical second pass, update handoffs, commit/push/draft PR, stop.
-- Playbook model/effort: P0 Sol Medium; P1/2/4/6/8 Sol High; P3/7 Sol Medium; P5 Astra Medium or Sol High. No runtime model switch control was exposed in this session.
+## Verification and later-phase boundaries
+- [Security integration](../../lib/author-media-api.test.ts): isolated PostgreSQL schema + memory storage; owner/origin/type/size/scope/quota, failure tombstones, exact sealing, historical retention and publication/link/delete races.
+- [Browser](../../tests/problem-authoring.browser.mjs): real editor/API/disposable PG, injected sessions; upload/failed replacement/private preview, gated conflict upload, autosave/recovery, accessibility/mobile.
+- Commands/results/limitations in status. Full tests, typecheck, lint/build attempts required; report inherited blockers separately. No production data/migrations/storage calls in tests.
+- Phase 5 grading remains separate: restricted AST/resource limits, domain/unit/singularity/angle checks; numerical sampling cannot prove equivalence, indeterminate -> needs-review.
+- Phase 6 solver/reveal binds immutable revision+part+user+idempotency; assisted/revealed state; no private keys in HTML/RSC/JSON/worker. Never affect existing Elo.
+- Phase 7 social: unique non-self stars, same-problem/depth-bound comments, ownership/tombstones/pagination/private reports. Phase 8 staged end-to-end/release review; main merge auto-deploys.
+- Playbook model/effort: P0 Sol Medium; P1/2/4/6/8 Sol High; P3/7 Sol Medium; P5 Astra Medium or Sol High. No runtime model switch control exposed.
+- Stop after exactly one phase: fresh merged main, persistent handoffs first, targeted then full checks, independent critic, handoffs/commit/push/PR. No automatic merge/deploy.

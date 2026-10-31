@@ -1,62 +1,63 @@
 # Problem authoring implementation status
 
-- Updated: 2026-10-31 (Asia/Makassar). Phase 3 ONLY; phases 0/1/2 merged.
-- Fresh fetched base: `6837ae319d2e8a856e2188e5a269d96050deef84` (Phase 2 PR #13).
-- Branch: `codex/problem-authoring-phase-3`; implementation `1ae01a1`; delivery update HEAD via git log -1.
-- Delivery: pushed and remote verified; draft PR creation blocked by GitHub API Forbidden.
-- Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-3?expand=1
-- Read WORK_STATUS/map/status first; no AGENTS.md. Inspected only affected auth/layout/math/editor/API dependencies; no repeated audit.
+- Updated: 2026-10-31 (Asia/Makassar). Phase 4 ONLY; phases 0–3 merged.
+- Fresh fetched main/base: `0845052fff6cf36760fa8c69e5b9a1d89a22447d` (Phase 3 PR #14).
+- Branch: `codex/problem-authoring-phase-4`; final commit via git log -1.
+- Implementation commit: `d6b6abb`; branch pushed and remote verified. Final handoff commit via git log -1.
+- Draft PR creation blocked: GitHub API returned Forbidden (Post https://api.github.com/graphql).
+- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-4
+- Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-4?expand=1
+- Read WORK_STATUS/map/status first; no repository-wide audit or unrelated auth changes. Intentional CAPTCHA removal preserved.
 
-## Completed Phase 3
-- `/dashboard/author`: dynamic server gate using existing Better Auth session; unauthenticated redirect, unverified notice, verified author workspace only. No auth changes.
-- Sidebar Problem studio entry; responsive draft manager uses Phase 2 paginated list/create/read/delete, explicit deletion confirmation and visible failures.
-- Native Tally-style document editor: title/tags/difficulty/provenance; sections, subparts, text/math blocks, inline math spans; add/edit/delete/reorder while preserving IDs/order.
-- Existing KaTeX with trust:false, maxExpand/maxSize, MathML and invalid-equation feedback. Cursor-aware equation templates; no browser CAS/answer evaluation.
-- Author-only panels for numeric values/units/tolerances, expression variables/domains/angles/exclusions, manual keys, hints and worked solutions.
-- Local numeric prefixes/blank fields and expression drafts remain recoverable; Phase 1 contracts gate saving/publishing. Server schemas/APIs unchanged.
-- Debounced 1800ms autosave, one request at a time; saves serialize newer edits against acknowledged versions; explicit saving/saved/error indicators and manual retry.
-- 409 freezes automatic writes and preserves local content; author loads/inspects latest, explicitly chooses server content or local replacement against that version.
-- Owner+problem-scoped sessionStorage backups, beforeunload protection, explicit local restore/discard/private JSON download; no automatic overwrite of either copy.
-- Uncertain in-flight saves remain protected even after undo-to-old-baseline and repeated reloads; malformed/raw backups are preserved for explicit export/discard.
-- Safe local student preview uses shared allowlisted content serializer, unmounts private panels and conflict-inspection JSON, handles invalid aggregate documents safely.
-- Publication checks from publishableDraftSchema; publish/unpublish use Phase 2 versioned APIs after save, display clear confirmation/state and never mutate old revisions.
-- Keyboard move controls and focus restoration after reorder/delete; position announcements, associated labels/help, inline error indicators and 375px responsive layout.
-- Tiptap/dnd-kit evaluated: explicit native schema plus move buttons cover current math/order/accessibility needs; no extra product dependencies or licensing risk.
-- No image/PDF uploads, CAS grading, solver submissions, comments/stars, migrations, package/lockfile edits or Phase 4 implementation.
+## Completed Phase 4
+- Server-owned registry with pending/ready/deleting lifecycle, immutable metadata/content identity, safe owner metadata projection, daily budget and draft/revision bindings.
+- Explicit additive 0003 up/down SQL, Drizzle declarations, ready-state/FK/sealing/immutability/deferred xmin checks. Existing 0001/0002 unchanged.
+- Verified-author, strict-owner upload/list/delete/cleanup; existing Better Auth and configured-origin helpers reused. No client owner/blob pathname authority.
+- Four immutable purposes: statement-image, solution-image, statement-pdf, solution-pdf. Same-problem/owner/ready/purpose validation replaces old media denial on saves/publication.
+- Multipart actual-byte limit, 15s parse deadline, 3MiB/file; exact declared MIME versus binary signature/structure; SVG/HTML/animated WebP rejected; image dimension/pixel caps.
+- 60 shared writes/minute, 30 uploads/day including failures, 100 tracked files/100MiB per owner; atomic persistent quota reservations and server-generated nonce paths/hash.
+- Existing Vercel Blob SDK with private access only, no overwrite, 10s operation timeouts; no storage URLs/redirects/tokens in responses or document fields.
+- Owner reads all own ready files. Public reads only statement assets bound to current or explicitly selected same-problem historical revision while problem is published.
+- Unpublish revokes anonymous current/history media access. Private solution images/PDFs remain author-only, including during publication; public JSON and preview exclude solution asset IDs.
+- Local proxy responses no-store/nosniff/same-origin/no-referrer/sandbox; PDFs forced attachment download; images rendered with descriptive alt/caption.
+- Publication atomically pins exact statement+private reference set; parts/private keys/media bindings inserted before final immutable revision, no released savepoints.
+- Parent/media locks serialize save/link/publication/retirement; saved drafts and all historical references protect files permanently.
+- Owner-triggered cleanup <=5 objects/request: unlinked ready >24h, pending/deleting >1h. Mark row -> delete private blob -> remove registry; failures retain retryable tombstones.
+- Recent ambiguous PUT failures retain >=1h tombstones and repeat storage deletion; last deleted-draft orphan prunes empty never-published parent to recover problem quota.
+- Editor statement/hint/worked-solution images, private proxy previews, alt/caption, replacement/removal; optional statement/private solution PDFs upload/replace/download/remove.
+- Removing/replacing alters references through existing versioned autosave; immutable published history retained. File manager exposes retention state, safe unused deletion and cleanup; workspace cleanup works without active drafts.
+- Pending uploads freeze editing/navigation/publication and conflict-copy replacement, protect unload, show progress/error; failures retain original references. Successful edits invalidate stale server comparison.
+- Existing autosave, explicit 409 choices, tab recovery, native text/math, practice/archive/auth behavior preserved. No new product dependencies/package/lockfile changes.
+- No OCR/conversion, grading, submissions, social features, Phase 5, production migrations/storage operations, deployment or merge.
 
-## Test evidence and inherited blockers
-- Editor state tests: 15/15 PASS; contracts targeted: 13/13 PASS.
-- Tests cover debounce, edits during save, 503 retry, 409 pause/explicit resolution, private/partial-field recovery, repeated reload, uncertain undo, malformed backup, publication version/lock and HTTP adapter.
-- Chromium + actual editor + Phase 2 HTTP handler factory + disposable PostgreSQL17: PASS end-to-end create/list/open/delete, inline math rendering, sections/parts, keyboard reorder/delete, negative fractional numeric/domain values.
-- Browser additionally verifies 503 autosave failure/reload recovery, 409 keep-local resolution, immutable publish/unpublish, public/preview key isolation and original statement round-trip.
-- axe desktop and 375px mobile scans: zero violations in tested states; no mobile horizontal overflow. Independent desktop/mobile visual inspection found no clipping/blocker.
-- Full suite with PostgreSQL integration enabled: 131/132 PASS; only inherited lib/corpus-translation.test.ts:66 punctuation mismatch fails (Phase 2 baseline 116/117).
-- Disposable PostgreSQL integration from full suite: 10/10 PASS, including original Phase 1 sealing regressions and 0002 limiter rollback/up. Containers removed by trap.
-- TypeScript PASS after next typegen. Run typecheck sequentially with build/typegen to avoid .next generated-file races.
-- Lint: inherited failure, eslint executable/dependency/config absent.
-- Build: inherited next/font blocker fetching Inter from fonts.googleapis.com; no claim of complete production build.
-- git diff --check PASS; only editor/entry/tests/handoffs changed. Phase 1/2 contracts, APIs, migrations and auth behavior preserved.
-- Session-local logs: /tmp/physcratic-p3-full.log, /tmp/physcratic-p3-check-{0,1,2}.log; final typegen/tsc terminal exit 0.
-- Screenshots: /tmp/physcratic-editor-desktop.png and /tmp/physcratic-editor-mobile.png (session-local; not committed).
+## Verification evidence
+- Targeted author-media/API/contracts/editor: 49/49 PASS, disposable PostgreSQL17 and isolated memory storage.
+- Security tests: missing/unverified sessions, origin/cross-account/guessed IDs, spoofed MIME/SVG/truncation/actual oversize, private/public purpose reuse, cross-problem/pending references.
+- Lifecycle tests: failed/ambiguous PUT and DELETE retry, aggregate/daily quotas, old orphan grace, empty-parent quota recovery, immutable/history retention, concurrent publication/link/delete.
+- SQL: empty-registry 0003 up/down/up, populated down refusal, exact missing/extra binding rejection, original Phase 1 sealing tests and 0002 rollback/reapply.
+- Browser: real editor + actual API factories + disposable PG + mock private storage, injected verified session; upload/proxy preview/replacement/failure/PDFs/private preview, reload recovery and 409 decisions.
+- Delayed positive upload during conflict comparison verifies both copy-replacement actions disabled until callback and old comparison invalidated afterward.
+- Desktop/mobile axe scans zero violations; 375px no horizontal overflow. Existing math/keyboard CRUD/publication/privacy/round-trip assertions retained.
+- Full suite with PostgreSQL enabled: 142/143 PASS; only inherited lib/corpus-translation.test.ts:66 punctuation mismatch fails. No Phase 4 regression.
+- TypeScript PASS; run sequentially after build/typegen to avoid .next generated-file races.
+- Lint inherited blocker: eslint executable/dependency/config absent.
+- Build inherited blocker confirmed: next/font cannot fetch Inter from Google Fonts (network EPERM). Normal worker hides details; diagnostic with in-process webpack worker disabled reports only app/layout.tsx font failure. No tracked configuration changed.
+- git diff --check PASS. Logs /tmp/physcratic-p4-{target,full,browser,typecheck,lint,build}.log; session-local, not committed.
 
-## Reproducible checks / test limitations
-- pnpm10.20.0 reused via node /tmp/physcratic-npm/_npx/fed63785a0df9524/node_modules/pnpm/bin/pnpm.cjs; no dependency changes.
-- Targeted: node_modules/.bin/tsx --test lib/problem-authoring-editor.test.ts lib/problem-authoring.test.ts.
-- Full with DB: bash scripts/test-problem-authoring.sh node /tmp/physcratic-npm/_npx/fed63785a0df9524/node_modules/pnpm/bin/pnpm.cjs test.
-- Browser test tools installed outside repository: npm install --prefix /tmp/physcratic-editor-test --no-save playwright @axe-core/playwright.
-- Browser: AUTHORING_BROWSER_TOOLS=/tmp/physcratic-editor-test bash scripts/test-problem-authoring.sh node_modules/.bin/tsx tests/problem-authoring.browser.mjs.
-- Chromium defaults /usr/bin/chromium; override CHROMIUM_PATH. Harness bundles real editor via existing esbuild/tsx and app CSS; server injects verified session into real handlers.
-- Live Better Auth login/email delivery/Next SSR/browser staging path is not exercised; server gate typechecked/read-reviewed, auth unchanged. No ambient DATABASE_URL or production data used.
+## Independent adversarial review
+- Read-only independent reviewer checked ownership/verified session/origin, private storage/proxy visibility, exact revision binding, race locks, quota and lifecycle.
+- Confirmed/fixed storage Buffer serialization signature, empty-problem quota leak after final orphan, and upload callback versus conflict-copy replacement race.
+- Added quota/tombstone and gated positive-upload browser regressions; reviewer reread final fixes and reported no remaining confirmed actionable blockers.
 
-## Independent accessibility / UX / correctness review
-- Independent read-only reviewer found and verified fixes for in-flight undo loss, invalid backup deletion, negative/partial numeric typing, delete/reorder focus and help associations.
-- Regression tests reproduce these state-loss paths. Recovery uncertainty survives repeated reloads; invalid buffers remain private/recoverable; server validation stays strict.
-- No remaining blocking findings after fixes; preview/key separation, verified author gate, safe math rendering and version decisions reviewed.
-- Screenshot visual inspection and browser axe checks supplement source review; mathematical validity remains Phase 5, media ownership Phase 4.
+## Commands and limits
+- Targeted: bash scripts/test-problem-authoring.sh node_modules/.bin/tsx --test lib/author-media.test.ts lib/author-media-api.test.ts lib/problem-authoring-api.test.ts lib/problem-authoring.test.ts lib/problem-authoring-editor.test.ts
+- Full: bash scripts/test-problem-authoring.sh node /tmp/physcratic-npm/_npx/fed63785a0df9524/node_modules/pnpm/bin/pnpm.cjs test
+- Browser: AUTHORING_BROWSER_TOOLS=/tmp/physcratic-editor-test bash scripts/test-problem-authoring.sh node_modules/.bin/tsx tests/problem-authoring.browser.mjs
+- Browser tools outside repository: playwright, @axe-core/playwright; Chromium /usr/bin/chromium. Tests never use ambient DATABASE_URL or real Blob credentials/files.
+- Live Better Auth login/email and deployed Vercel private Blob/staging flow not exercised; production adapter typechecked/reviewed, storage behavior tested through isolated mocks.
+- Signature/structure checks are not complete decoding, PDF sanitization or antivirus. PDF handling deliberately forces download and never embeds active content.
+- Explicit private Blob configuration + reviewed 0003 migration/ledger needed for separately authorized release; no startup/build migration. Populated-registry rollback refuses; preserve history/storage.
 
 ## Exact next task
-- User reviews/merges Phase 3 only. No automated merge/deployment or production migrations.
-- After merge and separate request: Phase 4 ONLY from fresh main, read handoffs and inspect author media/API/editor dependencies only.
-- Add verified-owner author media registry/uploads, MIME/signature/size/quota checks, scoped public statement versus private solution/draft access; remove Phase 2 media denial only with ownership checks/tests.
-- Preserve native text, stable block IDs, ordered round-trip, autosave/409/recovery and immutable revisions. No PDF OCR/import or mathematical grading.
-- Run targeted/full checks, independent security critic, update handoffs, commit/push/draft PR and stop.
+- Review Phase 4 branch/PR; stop here. No automatic merge/deploy or production migration.
+- Later phases require a separate request after merge, fresh main and handoffs first; inspect only affected code. Grading remains Phase 5 with approved domain/resource/privacy contracts.

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 import { Eye, FilePenLine, Save, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,6 +17,12 @@ import {
   moveItem,
   type EditorDraft,
 } from "@/lib/problem-authoring-editor";
+import { normalizeStatementImages } from "@/lib/author-media";
+import {
+  AuthorMediaProvider,
+  MediaAttachments,
+  StatementPdfLinks,
+} from "./media-controls";
 import { AnswerPanel } from "./answer-panel";
 import {
   BlocksEditor,
@@ -139,6 +145,11 @@ export function ProblemEditor({
   const { draft, phase, dirty, busy, message, recovery } = snapshot;
   const [tab, setTab] = useState<"edit" | "preview">("edit");
   const [latest, setLatest] = useState<EditorDraft | null>(null);
+  const [uploads, setUploads] = useState(0);
+  const uploadPending = useCallback(
+    (delta: number) => setUploads((n) => Math.max(0, n + delta)),
+    [],
+  );
   const [notice, setNotice] = useState("");
   const [fetchingLatest, setFetchingLatest] = useState(false);
   const parsed = authoredDraftSchema.safeParse({
@@ -162,7 +173,8 @@ export function ProblemEditor({
         session.snapshot().dirty ||
         session.snapshot().recovery ||
         session.snapshot().recoveryRaw ||
-        session.snapshot().busy
+        session.snapshot().busy ||
+        uploads > 0
       ) {
         e.preventDefault();
         e.returnValue = "";
@@ -170,9 +182,12 @@ export function ProblemEditor({
     }
     window.addEventListener("beforeunload", beforeUnload);
     return () => window.removeEventListener("beforeunload", beforeUnload);
-  }, [session]);
+  }, [session, uploads]);
   const edit = (fn: (value: EditorDraft) => void) => {
-    session.edit(fn);
+    session.edit((d) => {
+      fn(d);
+      normalizeStatementImages(d.content);
+    });
     setLatest(null);
   };
   async function compare() {
@@ -193,7 +208,7 @@ export function ProblemEditor({
     }
   }
   function back() {
-    if (busy) return;
+    if (busy || uploads > 0) return;
     if (
       (dirty || recovery || snapshot.recoveryRaw) &&
       !window.confirm(
@@ -240,6 +255,11 @@ export function ProblemEditor({
     ? publicAuthoredContent(previewCheck.data)
     : null;
   return (
+    <AuthorMediaProvider
+      problemId={draft.problemId}
+      disabled={busy || uploads > 0 || !!recovery || !!snapshot.recoveryRaw}
+      pending={uploadPending}
+    >
     <div className="min-h-dvh bg-background text-foreground">
       <header className="sticky top-0 z-20 border-b bg-background/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-8">
@@ -248,7 +268,7 @@ export function ProblemEditor({
               type="button"
               variant="ghost"
               onClick={back}
-              disabled={busy}
+              disabled={busy || uploads > 0}
             >
               ← Drafts
             </Button>
@@ -262,7 +282,7 @@ export function ProblemEditor({
               aria-live="polite"
               className={`max-w-60 text-xs ${phase === "error" || phase === "conflict" ? "text-destructive" : "text-muted-foreground"}`}
             >
-              {message}
+              {uploads > 0 ? "Uploading privately…" : message}
             </span>
             <Button
               type="button"
@@ -270,6 +290,7 @@ export function ProblemEditor({
               size="sm"
               disabled={
                 busy ||
+                uploads > 0 ||
                 phase === "saving" ||
                 phase === "conflict" ||
                 !!recovery ||
@@ -285,6 +306,7 @@ export function ProblemEditor({
               size="sm"
               disabled={
                 busy ||
+                uploads > 0 ||
                 phase === "saving" ||
                 phase === "conflict" ||
                 !!recovery ||
@@ -340,8 +362,8 @@ export function ProblemEditor({
         </p>
         {snapshot.storageWarning && (
           <p role="alert" className="mb-4 rounded-lg border p-4 text-sm">
-            Tab recovery storage is unavailable. Download a private copy before
-            leaving if saving fails.
+            Tab recovery storage is unavailable. Download a private copy
+            before leaving if saving fails.
           </p>
         )}
         {snapshot.recoveryRaw && (
@@ -349,7 +371,9 @@ export function ProblemEditor({
             role="alert"
             className="mb-6 space-y-3 rounded-lg border p-5"
           >
-            <h2 className="font-semibold">A recovery copy needs inspection</h2>
+            <h2 className="font-semibold">
+              A recovery copy needs inspection
+            </h2>
             <p className="text-sm">
               This tab contains an unrecognized local copy. It has been
               preserved. Download it before choosing to discard it.
@@ -375,7 +399,9 @@ export function ProblemEditor({
               type="button"
               variant="outline"
               onClick={() => {
-                if (window.confirm("Discard the preserved unrecognized copy?"))
+                if (
+                  window.confirm("Discard the preserved unrecognized copy?")
+                )
                   session.discardRecovery();
               }}
             >
@@ -395,7 +421,7 @@ export function ProblemEditor({
               nothing is replaced automatically.
             </p>
             <div className="flex flex-wrap gap-2">
-              <Button type="button" onClick={() => session.restoreRecovery()}>
+              <Button type="button" disabled={uploads > 0} onClick={() => session.restoreRecovery()}>
                 Restore local work
               </Button>
               <Button
@@ -408,6 +434,7 @@ export function ProblemEditor({
               <Button
                 type="button"
                 variant="ghost"
+                disabled={uploads > 0}
                 onClick={() => {
                   if (
                     window.confirm("Discard the tab's unsaved recovery copy?")
@@ -445,7 +472,7 @@ export function ProblemEditor({
               <Button
                 type="button"
                 variant="outline"
-                disabled={fetchingLatest}
+                disabled={fetchingLatest || uploads > 0}
                 onClick={() => void compare()}
               >
                 {fetchingLatest
@@ -455,7 +482,7 @@ export function ProblemEditor({
               {phase === "error" && (
                 <Button
                   type="button"
-                  disabled={!parsed.success}
+                  disabled={!parsed.success || uploads > 0}
                   onClick={() => void session.flush()}
                 >
                   Retry saving
@@ -485,6 +512,7 @@ export function ProblemEditor({
                   <Button
                     type="button"
                     variant="outline"
+                    disabled={uploads > 0}
                     onClick={() => {
                       if (
                         window.confirm(
@@ -500,6 +528,7 @@ export function ProblemEditor({
                   </Button>
                   <Button
                     type="button"
+                    disabled={uploads > 0}
                     onClick={() => {
                       if (
                         window.confirm(
@@ -548,8 +577,8 @@ export function ProblemEditor({
         {tab === "preview" ? (
           !safePreview ? (
             <p role="alert">
-              Complete the document validation checks to render a safe preview.
-              Your local work is retained in the editor.
+              Complete the document validation checks to render a safe
+              preview. Your local work is retained in the editor.
             </p>
           ) : (
             <article
@@ -574,6 +603,11 @@ export function ProblemEditor({
                   ),
                 )}
               </div>
+              <StatementPdfLinks
+                ids={safePreview.attachments
+                  .filter((a) => a.purpose === "statement-pdf")
+                  .map((a) => a.id)}
+              />
               <ReaderBlocks blocks={safePreview.context} />
               {safePreview.sections.map((section, index) => (
                 <section key={section.id} className="space-y-5">
@@ -604,7 +638,9 @@ export function ProblemEditor({
         ) : (
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_220px]">
             <fieldset
-              disabled={busy || !!recovery || !!snapshot.recoveryRaw}
+              disabled={
+                busy || uploads > 0 || !!recovery || !!snapshot.recoveryRaw
+              }
               className="min-w-0 space-y-10 disabled:opacity-70"
             >
               <legend className="sr-only">Problem authoring document</legend>
@@ -692,7 +728,9 @@ export function ProblemEditor({
                   className="scroll-mt-24 space-y-6 rounded-xl border p-4 sm:p-6"
                 >
                   <div className="flex items-center justify-between gap-3">
-                    <h2 className="text-xl font-semibold">Section {si + 1}</h2>
+                    <h2 className="text-xl font-semibold">
+                      Section {si + 1}
+                    </h2>
                     <OrderControls
                       label={`section ${si + 1}`}
                       index={si}
@@ -806,7 +844,9 @@ export function ProblemEditor({
                             }}
                           />
                         </div>
-                        <Field label={`Section ${si + 1} part ${pi + 1} label`}>
+                        <Field
+                          label={`Section ${si + 1} part ${pi + 1} label`}
+                        >
                           {(id) => (
                             <input
                               id={id}
@@ -827,7 +867,8 @@ export function ProblemEditor({
                           blocks={part.blocks}
                           onChange={(blocks) =>
                             edit((d) => {
-                              d.content.sections[si].parts[pi].blocks = blocks;
+                              d.content.sections[si].parts[pi].blocks =
+                                blocks;
                             })
                           }
                         />
@@ -935,6 +976,7 @@ export function ProblemEditor({
               >
                 + Add section
               </Button>
+              <MediaAttachments draft={draft} edit={edit} />
               <section
                 id="publication"
                 className="scroll-mt-24 space-y-5 border-t pt-8"
@@ -1028,6 +1070,7 @@ export function ProblemEditor({
                   <Button
                     type="button"
                     variant="outline"
+                    disabled={uploads > 0}
                     onClick={() => {
                       if (
                         window.confirm(
@@ -1081,5 +1124,6 @@ export function ProblemEditor({
         )}
       </main>
     </div>
+    </AuthorMediaProvider>
   );
 }

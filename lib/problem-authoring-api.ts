@@ -1,5 +1,6 @@
 // Server-side HTTP/application boundary. No auth globals: production injects Better Auth;
 // integration tests inject sessions and a disposable PostgreSQL pool into these same handlers.
+import { replaceDraftMedia, MediaReferenceError } from "./author-media-references";
 import { randomUUID } from "node:crypto";
 import type { Pool, PoolClient } from "pg";
 import { z } from "zod";
@@ -16,11 +17,6 @@ const versionSchema = z.strictObject({ version });
 const writes = new Set<Action>(["create", "update", "delete", "publish", "unpublish"]);
 class HttpError extends Error { constructor(public status: number, message: string) { super(message); } }
 const reply = (body: unknown, status = 200) => new Response(status === 204 ? null : JSON.stringify(body), { status, headers: { "Content-Type": "application/json", "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" } });
-function requireMediaFree(content: AuthoredDocument, privateParts: PrivatePart[]) {
-  const publicBlocks = [...content.context, ...content.sections.flatMap(s => [...s.blocks, ...s.parts.flatMap(p => p.blocks)])];
-  if (content.attachments.length || [...publicBlocks, ...privateParts.flatMap(p => [...p.hints, ...p.solution])].some(b => b.kind === "image"))
-    throw new HttpError(400, "Author media is not supported yet. Remove attachments and image references.");
-}
 interface LockedDraft { id: string; slug: string; state: string; publishedRevisionId: string | null; version: number; content: AuthoredDocument }
 async function lockedDraft(client: PoolClient, id: string, owner: string) {
   const { rows } = await client.query<LockedDraft>(`SELECT p.id,p.slug,p.state,p.published_revision_id AS "publishedRevisionId",d.version,d.content
@@ -86,7 +82,6 @@ export function createProblemAuthoringApi(deps: Dependencies) {
         const input = saveSchema.parse(body);
         const problemId = randomUUID();
         const draft = authoredDraftSchema.parse({ ...input, problemId, version: 1 });
-        requireMediaFree(draft.content, draft.privateParts);
         await client.query("SELECT pg_advisory_xact_lock(hashtextextended($1,1))", [`author-create:${owner}`]);
         const { rows } = await client.query<{ total: number }>("SELECT count(*)::integer AS total FROM authored_problem WHERE owner_id=$1", [owner]);
         if (rows[0].total >= 100) throw new HttpError(429, "Author problem quota reached.");
@@ -94,6 +89,7 @@ export function createProblemAuthoringApi(deps: Dependencies) {
         await client.query("INSERT INTO authored_problem(id,slug,owner_id) VALUES($1,$2,$3)", [problemId, slug, owner]);
         await client.query("INSERT INTO authored_draft(problem_id,content) VALUES($1,$2)", [problemId, JSON.stringify(draft.content)]);
         await storeKeys(client, problemId, draft.privateParts);
+        await replaceDraftMedia(client, problemId, owner!, draft.content, draft.privateParts);
         result = { ...draft, slug, state: "draft" }; status = 201;
       } else {
         const { problem, draft } = await lockedDraft(client, id!, owner!);
@@ -103,18 +99,18 @@ export function createProblemAuthoringApi(deps: Dependencies) {
           if (action === "update") {
             const save = updateSchema.parse(input);
             const next = authoredDraftSchema.parse({ problemId: id, version: draft.version + 1, content: save.content, privateParts: save.privateParts });
-            requireMediaFree(next.content, next.privateParts);
+            await replaceDraftMedia(client, id!, owner!, next.content, next.privateParts);
             await client.query("UPDATE authored_draft SET content=$2,version=version+1,updated_at=now() WHERE problem_id=$1", [id, JSON.stringify(next.content)]);
             await storeKeys(client, id!, next.privateParts);
             result = { ...next, slug: problem.slug, state: problem.state };
           } else if (action === "delete") {
             if (problem.state === "published") throw new HttpError(409, "Unpublish before deleting the working draft.");
             await client.query("DELETE FROM authored_draft WHERE problem_id=$1", [id]);
-            await client.query("DELETE FROM authored_problem p WHERE id=$1 AND NOT EXISTS(SELECT 1 FROM authored_revision r WHERE r.problem_id=p.id)", [id]);
+            await client.query("DELETE FROM authored_problem p WHERE id=$1 AND NOT EXISTS(SELECT 1 FROM authored_revision r WHERE r.problem_id=p.id) AND NOT EXISTS(SELECT 1 FROM author_media m WHERE m.problem_id=p.id)", [id]);
             status = 204;
           } else if (action === "publish") {
             const published = publishableDraftSchema.parse(draft);
-            requireMediaFree(published.content, published.privateParts);
+            const mediaRefs = await replaceDraftMedia(client, id!, owner!, published.content, published.privateParts);
             const revisionId = randomUUID();
             const { rows } = await client.query<{ number: number }>("SELECT coalesce(max(number),0)+1 AS number FROM authored_revision WHERE problem_id=$1", [id]);
             // Phase 1 sealing: parts + keys FIRST, revision LAST; one transaction, no savepoints.
@@ -123,6 +119,7 @@ export function createProblemAuthoringApi(deps: Dependencies) {
               const key = published.privateParts.find(k => k.partId === part.id)!;
               await client.query("INSERT INTO authored_revision_private_part(revision_id,part_id,answer_mode,data) VALUES($1,$2,$3,$4)", [revisionId, part.id, part.answerMode, JSON.stringify(key)]);
             }
+            for (const ref of mediaRefs) await client.query("INSERT INTO author_revision_media(revision_id,problem_id,media_id,purpose) VALUES($1,$2,$3,$4)", [revisionId, id, ref.id, ref.purpose]);
             const revision = await client.query(`INSERT INTO authored_revision(id,problem_id,number,content) VALUES($1,$2,$3,$4)
               RETURNING id,problem_id AS "problemId",number,schema_version AS "schemaVersion",content,published_at AS "publishedAt"`, [revisionId, id, rows[0].number, JSON.stringify(published.content)]);
             await client.query("UPDATE authored_problem SET state='published',published_revision_id=$2,updated_at=now() WHERE id=$1", [id, revisionId]);
@@ -141,6 +138,7 @@ export function createProblemAuthoringApi(deps: Dependencies) {
       return reply(result, status);
     } catch (error) {
       if (client && inTransaction) await client.query("ROLLBACK").catch(() => {});
+      if (error instanceof MediaReferenceError) return reply({ error: error.message }, 400);
       if (error instanceof HttpError) return reply({ error: error.message }, error.status);
       if (error instanceof z.ZodError || error instanceof SyntaxError || error instanceof TypeError) return reply({ error: "Invalid authoring request." }, 400);
       if (error instanceof RangeError) return reply({ error: "Authoring request too large." }, 413);

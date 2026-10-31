@@ -25,6 +25,7 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
   const [selected, setSelected] = useState<EditorDraft | null>(null);
   const [busy, setBusy] = useState(true),
     [error, setError] = useState("");
+  const [cleanupNotice, setCleanupNotice] = useState("");
   async function list(after?: string) {
     setBusy(true);
     setError("");
@@ -130,6 +131,43 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
             <FilePlus2 className="mr-2 size-4" />
             New problem
           </Button>
+        </div>
+        <div className="my-4 space-y-2">
+          <Button
+            type="button"
+            variant="outline"
+            disabled={busy}
+            onClick={async () => {
+              if (
+                !window.confirm(
+                  "Delete up to five old unlinked uploads? Saved drafts and published history stay protected. Unsaved recovery references older than 24 hours may need replacement.",
+                )
+              )
+                return;
+              setBusy(true);
+              setError("");
+              try {
+                const result = await draftRequest(
+                  "/api/authored-problems/media/cleanup",
+                  "POST",
+                  {},
+                );
+                setCleanupNotice(
+                  `Cleaned ${result.deleted} files; ${result.retry} need retry. Repeat for additional files.`,
+                );
+              } catch (e) {
+                setError(e instanceof Error ? e.message : "Cleanup failed.");
+              } finally {
+                setBusy(false);
+              }
+            }}
+          >
+            Clean old unused uploads
+          </Button>
+          <p role="status" className="text-xs text-muted-foreground">
+            {cleanupNotice ||
+              "Private uploads removed from drafts can be cleaned after 24 hours; historical files are retained."}
+          </p>
         </div>
         {error && (
           <div
