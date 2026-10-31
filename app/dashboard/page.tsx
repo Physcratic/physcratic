@@ -1,29 +1,34 @@
+import type { Metadata } from "next";
 import Dashboard from "@/components/kokonutui/dashboard";
-import { topics, type View } from "@/lib/physics";
+import {
+  dashboardMetadata,
+  parseDashboardParams,
+  type DashboardParams,
+} from "@/lib/dashboard-route";
+import { jsonLdScript, organization, website } from "@/lib/seo/json-ld";
 
-export default async function DashboardPage({
+type Props = { searchParams: Promise<DashboardParams> };
+
+export async function generateMetadata({
   searchParams,
-}: {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-}) {
+}: Props): Promise<Metadata> {
   const params = await searchParams;
-  const requestedView =
-    typeof params.view === "string" ? params.view : "overview";
-  const view: View = [
-    "overview",
-    "problems",
-    "contests",
-    "rankings",
-    "guide",
-  ].includes(requestedView)
-    ? (requestedView as View)
-    : "overview";
-  const requestedTopic =
-    params.topic === "Electricity" ? "Electromagnetism" : params.topic;
-  const topic = topics.some((item) => item.name === requestedTopic)
-    ? (requestedTopic as string)
-    : undefined;
-  const query =
-    typeof params.q === "string" ? params.q.slice(0, 200) : undefined;
-  return <Dashboard view={view} topic={topic} query={query} />;
+  return dashboardMetadata(parseDashboardParams(params), params);
+}
+
+export default async function DashboardPage({ searchParams }: Props) {
+  const { view, topic, query } = parseDashboardParams(await searchParams);
+  return (
+    <>
+      {view === "overview" ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: jsonLdScript([organization(), website()]),
+          }}
+        />
+      ) : null}
+      <Dashboard view={view} topic={topic} query={query} />
+    </>
+  );
 }
