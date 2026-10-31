@@ -196,6 +196,7 @@ export function CorpusCollection({
                     source={problem.competition}
                     competition={problem.competition}
                     reference={`${problem.year} · ${problem.code}`}
+                    statementLanguage="en"
                     description={problem.summary}
                     details={[
                       `${problem.parts.length} scored subparts`,

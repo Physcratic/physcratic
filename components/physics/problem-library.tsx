@@ -100,6 +100,29 @@ export function ProblemLibrary({
         onValueChange={setCollection}
         className="flex min-w-0 flex-col gap-6"
       >
+        <div className="flex min-w-0 flex-col gap-3">
+          <TabsList
+            aria-label="Problem collections"
+            className="h-auto w-fit max-w-full flex-wrap"
+          >
+            <TabsTrigger value="arena">
+              Physcratic Arena ·{" "}
+              {filterProblemsByTag(arena.problems, selectedTopic).length}
+            </TabsTrigger>
+            <TabsTrigger value="catalog">
+              Olympiad archive ·{" "}
+              {filterProblemsByTag(catalogProblems, selectedTopic).length}
+            </TabsTrigger>
+            <TabsTrigger value="pilot">
+              Guided exercises ·{" "}
+              {filterProblemsByTag(corpusProblems, selectedTopic).length}
+            </TabsTrigger>
+            <TabsTrigger value="practice">
+              Quick practice ·{" "}
+              {filterProblemsByTag(problems, selectedTopic).length}
+            </TabsTrigger>
+          </TabsList>
+        </div>
         <Card className="shadow-none">
           <CardHeader className="pb-4">
             <CardTitle>
@@ -182,32 +205,10 @@ export function ProblemLibrary({
             </FieldGroup>
           </CardContent>
         </Card>
-        <div className="flex min-w-0 flex-col gap-3">
-          <TabsList
-            aria-label="Problem collections"
-            className="h-auto w-fit max-w-full flex-wrap"
-          >
-            <TabsTrigger value="arena">
-              Physcratic Arena ·{" "}
-              {filterProblemsByTag(arena.problems, selectedTopic).length}
-            </TabsTrigger>
-            <TabsTrigger value="catalog">
-              Olympiad archive ·{" "}
-              {filterProblemsByTag(catalogProblems, selectedTopic).length}
-            </TabsTrigger>
-            <TabsTrigger value="pilot">
-              Guided exercises ·{" "}
-              {filterProblemsByTag(corpusProblems, selectedTopic).length}
-            </TabsTrigger>
-            <TabsTrigger value="practice">
-              Quick practice ·{" "}
-              {filterProblemsByTag(problems, selectedTopic).length}
-            </TabsTrigger>
-          </TabsList>
-          <p
-            className="text-sm leading-relaxed text-muted-foreground"
-            aria-live="polite"
-          >
+        <p
+          className="text-sm leading-relaxed text-muted-foreground"
+          aria-live="polite"
+        >
             {collection === "arena"
               ? "Your uploaded Arena problems, transcribed as native text and LaTeX with complete worked solutions."
               : collection === "catalog"
@@ -215,8 +216,7 @@ export function ProblemLibrary({
                 : collection === "pilot"
                   ? "Exercises from the olympiad archive, with step-by-step subpart guides. These are not additional problems."
                   : "Short practice exercises with hints, worked solutions and estimated difficulty ratings."}
-          </p>
-        </div>
+        </p>
         <TabsContent value="arena" className="min-w-0">
           <ArenaCollection
             query={search}

@@ -62,6 +62,7 @@ export function ArenaCollection({
                 id={problem.id}
                 title={problem.title}
                 source="Physcratic Arena"
+                statementLanguage="en"
                 description={problem.summary}
                 details={["Statement + worked solution", "Self-review"]}
                 tags={getProblemTags(problem)}

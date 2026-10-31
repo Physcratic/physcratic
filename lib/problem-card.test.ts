@@ -20,7 +20,7 @@ function render(props: ProblemCardProps) {
   return renderToStaticMarkup(createElement(ProblemCard, props));
 }
 
-test("problem cards share a labelled article, header, details and action footer", () => {
+test("problem cards share a labelled article, header, details and exercise action", () => {
   const html = render({ ...base, onOpen() {} });
   assert.match(html, /role="article"/);
   assert.match(html, /data-problem-card="test-problem"/);
@@ -28,7 +28,9 @@ test("problem cards share a labelled article, header, details and action footer"
   assert.match(html, /problem-entry-details/);
   assert.match(html, /<h3[^>]*>.*A block on an incline/);
   assert.match(html, /5 min · Hint \+ worked solution/);
-  assert.match(html, /Open problem: Quick practice — A block on an incline/);
+  assert.match(html, /English.*Unrated/);
+  assert.match(html, /Exercise/);
+  assert.match(html, /Exercise: Quick practice — A block on an incline/);
   assert.match(html, /Newton’s laws/);
 });
 
@@ -65,6 +67,7 @@ test("all olympiad competitions retain their identity, source references and tit
       source: competition,
       competition,
       reference: "2025 · T1",
+      statementLanguage: "ru",
       description: "Russian statement · English draft available",
       onOpen() {},
     });
@@ -72,7 +75,8 @@ test("all olympiad competitions retain their identity, source references and tit
     assert.match(html, /2025 · T1/);
     assert.match(html, /<h4[^>]*lang="ru"/);
     assert.match(html, /Russian statement · English draft available/);
-    assert.match(html, /Open problem:/);
+    assert.match(html, /русский.*Unrated/);
+    assert.match(html, /Exercise:/);
   }
 });
 

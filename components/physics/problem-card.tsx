@@ -29,8 +29,9 @@ export type ProblemCardProps = {
   source: string;
   competition?: keyof typeof competitionVariants;
   reference?: string;
+  statementLanguage?: "en" | "ru";
   description?: string;
-  details: readonly string[];
+  details?: readonly string[];
   tags: readonly string[];
   elo?: number;
 } & (
@@ -46,6 +47,7 @@ export function ProblemCard({
   source,
   competition,
   reference,
+  statementLanguage = "en",
   description,
   details,
   tags,
@@ -56,12 +58,12 @@ export function ProblemCard({
   const titleId = React.useId();
   const Heading = headingLevel === 4 ? "h4" : "h3";
   const band = elo === undefined ? undefined : getEloBand(elo);
-  const actionLabel = `Open problem: ${[source, reference, title].filter(Boolean).join(" — ")}`;
+  const actionLabel = `Exercise: ${[source, reference, title].filter(Boolean).join(" — ")}`;
   const titleClassName =
     "rounded-sm text-left transition-colors hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-card";
   const actionContent = (
     <>
-      Open problem
+      Exercise
       <ArrowUpRight data-icon="inline-end" aria-hidden="true" />
     </>
   );
@@ -98,65 +100,69 @@ export function ProblemCard({
             </span>
           </Badge>
         ) : (
-          <Badge variant="concept" className="shrink-0">
+          <span className="shrink-0 text-sm text-muted-foreground">
+            {statementLanguage === "ru" ? "русский" : "English"}
+            <span aria-hidden="true"> • </span>
             Unrated
-          </Badge>
+          </span>
         )}
       </div>
       <CardHeader className="gap-2 p-5">
-        <CardTitle>
-          <Heading
-            id={titleId}
-            lang={titleLanguage}
-            className="text-pretty text-lg font-semibold leading-relaxed"
-          >
-            {href ? (
-              <Link href={href} className={titleClassName}>
-                {title}
+        <div className="flex items-start justify-between gap-4">
+          <CardTitle className="min-w-0 flex-1">
+            <Heading
+              id={titleId}
+              lang={titleLanguage}
+              className="text-pretty text-lg font-semibold leading-relaxed"
+            >
+              {href ? (
+                <Link href={href} className={titleClassName}>
+                  {title}
+                </Link>
+              ) : (
+                <button type="button" onClick={onOpen} className={titleClassName}>
+                  {title}
+                </button>
+              )}
+            </Heading>
+          </CardTitle>
+          {href ? (
+            <Button variant="outline-transparent" className="min-h-11 shrink-0" asChild>
+              <Link href={href} aria-label={actionLabel}>
+                {actionContent}
               </Link>
-            ) : (
-              <button type="button" onClick={onOpen} className={titleClassName}>
-                {title}
-              </button>
-            )}
-          </Heading>
-        </CardTitle>
+            </Button>
+          ) : (
+            <Button
+              type="button"
+              variant="outline-transparent"
+              className="min-h-11 shrink-0"
+              onClick={onOpen}
+              aria-label={actionLabel}
+            >
+              {actionContent}
+            </Button>
+          )}
+        </div>
         {description && (
           <CardDescription className="line-clamp-2">
             <p className="text-pretty leading-relaxed">{description}</p>
           </CardDescription>
         )}
       </CardHeader>
-      <CardContent className="flex flex-1 flex-wrap items-center gap-2 px-5 pb-5">
-        <p className="text-sm leading-relaxed text-muted-foreground">
-          {details.join(" · ")}
-        </p>
-      </CardContent>
-      <CardFooter className="problem-entry-details flex flex-col items-stretch gap-3 px-5 py-3 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2">
-          {tags.map((tag) => (
-            <Badge key={tag} variant="concept">
-              {tag}
-            </Badge>
-          ))}
-        </div>
-        {href ? (
-          <Button variant="outline-transparent" className="min-h-11 shrink-0" asChild>
-            <Link href={href} aria-label={actionLabel}>
-              {actionContent}
-            </Link>
-          </Button>
-        ) : (
-          <Button
-            type="button"
-            variant="outline-transparent"
-            className="min-h-11 shrink-0"
-            onClick={onOpen}
-            aria-label={actionLabel}
-          >
-            {actionContent}
-          </Button>
-        )}
+      {details?.length ? (
+        <CardContent className="flex flex-1 flex-wrap items-center gap-2 px-5 pb-5">
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            {details.join(" · ")}
+          </p>
+        </CardContent>
+      ) : null}
+      <CardFooter className="problem-entry-details flex min-h-14 flex-wrap items-center gap-2 px-5 py-3">
+        {tags.map((tag) => (
+          <Badge key={tag} variant="concept">
+            {tag}
+          </Badge>
+        ))}
       </CardFooter>
     </Card>
   );

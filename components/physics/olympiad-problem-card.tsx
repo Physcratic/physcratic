@@ -37,8 +37,8 @@ export function OlympiadProblemCard({
       source={problem.competition}
       competition={problem.competition}
       reference={`${problem.year} · ${problem.code}`}
+      statementLanguage={problem.importLanguage}
       description={description}
-      details={["Full theory problem", "Self-review · No ELO awarded"]}
       tags={getProblemTags(problem)}
       onOpen={() => onOpen(problem.id)}
     />
