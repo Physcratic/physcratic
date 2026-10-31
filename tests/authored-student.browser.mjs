@@ -10,6 +10,7 @@ import { execFileSync } from "node:child_process";
 import { join, basename } from "node:path";
 import { tmpdir } from "node:os";
 import { Pool } from "pg";
+import { createAuthoredSolutionApi } from "../lib/authored-solution-api.ts";
 import { createAuthoredAttemptApi } from "../lib/authored-attempt-api.ts";
 import { createProblemAuthoringApi } from "../lib/problem-authoring-api.ts";
 import { createAuthorMediaApi } from "../lib/author-media-api.ts";
@@ -69,6 +70,10 @@ const author = createProblemAuthoringApi(deps),
   attempts = createAuthoredAttemptApi(deps),
   storage = memoryAuthorStorage(),
   media = createAuthorMediaApi({ ...deps, storage: storage.storage });
+const solutions = createAuthoredSolutionApi({
+  ...deps,
+  storage: storage.storage,
+});
 function req(
   who,
   body,
@@ -327,6 +332,21 @@ try {
             paths[3] ? "read" : "list",
             request,
             paths[3],
+          );
+        else if (paths[2] === "drafts" && paths[4] === "solutions")
+          response = await solutions(
+            req.method === "GET" ? "permission-read" : "permission-write",
+            request,
+            paths[3],
+            paths[5],
+          );
+        else if (paths[3] === "solutions")
+          response = await solutions(
+            paths[5] === "view" ? "view" : "media",
+            request,
+            paths[2],
+            paths[4],
+            paths[6],
           );
         else if (paths[3] === "submission-info")
           response = await attempts("info", request, paths[2]);
@@ -901,6 +921,263 @@ try {
     false,
   );
   assert.deepEqual(errors, []);
+  users.set("C", { id: "C", emailVerified: true });
+  await pool.query("INSERT INTO \"user\" VALUES('C')");
+  // Phase6C-B uses the actual author controls and explicit student reveal UI.
+  const solutionImage = await upload("solution-image");
+  doc.privateParts[0].solution.push({
+    id: randomUUID(),
+    kind: "image",
+    mediaId: solutionImage.id,
+    alt: "Approved solution diagram",
+    caption: "Solution image",
+  });
+  doc.privateParts[2].solution = [];
+  doc.privateParts[0].solution.push({
+    id: randomUUID(),
+    kind: "math",
+    latex: Array(25).fill("x^2+1").join("+"),
+  });
+  await json(
+    await author(
+      "update",
+      req("author", { ...doc, version }, "PUT"),
+      problemId,
+    ),
+  );
+  version++;
+  await publish();
+  await resetRates();
+  await context.clearCookies();
+  await context.addCookies([{ name: "viewer", value: "author", url: origin }]);
+  await page.goto(route + "?permissions");
+  await page
+    .getByRole("button", { name: "Load current published solution controls" })
+    .click();
+  await page
+    .getByRole("button", { name: "Reload permission metadata" })
+    .click();
+  await page
+    .getByText("Private · Permission version 0", { exact: false })
+    .waitFor();
+  await page.getByLabel(/I explicitly approve all/).check();
+  await page.route("**/permission", (r) =>
+    r.fulfill({ status: 503, contentType: "application/json", body: "{}" }),
+  );
+  await page
+    .getByRole("button", { name: "Confirm student access", exact: true })
+    .click();
+  await page
+    .getByText("Change uncertain or conflicted", { exact: false })
+    .waitFor();
+  assert.equal(
+    await page
+      .getByRole("button", { name: "Confirm student access", exact: true })
+      .count(),
+    0,
+  );
+  await page.unroute("**/permission");
+  await page
+    .getByRole("button", { name: "Reload permission metadata" })
+    .click();
+  await page.getByLabel(/I explicitly approve all/).check();
+
+  await page
+    .getByRole("button", { name: "Confirm student access", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "Reload permission metadata" })
+    .click();
+  await page
+    .getByText("Configured for student access while published", {
+      exact: false,
+    })
+    .waitFor();
+  await page
+    .getByLabel("Solution permission part", { exact: true })
+    .selectOption(parts[2].id);
+  await page
+    .getByRole("button", { name: "Reload permission metadata" })
+    .click();
+  await page.getByLabel(/I explicitly approve all/).check();
+  await page.getByLabel(/Approve entire solution PDF/).check();
+  await page
+    .getByRole("button", { name: "Confirm student access", exact: true })
+    .click();
+  const revealCount = () =>
+    requests.filter((r) => r.path.endsWith("/view") && r.method === "POST")
+      .length;
+  await account("C");
+  const n = revealCount();
+  await page.getByLabel("Numerical answer", { exact: true }).waitFor();
+  assert.equal(revealCount(), n, "initial rendering never reveals");
+  await page
+    .getByRole("button", { name: "View worked solution", exact: true })
+    .click();
+  await page.getByLabel("Approved worked solution", { exact: true }).waitFor();
+  assert.match(
+    await page
+      .getByRole("img", { name: "Approved solution diagram", exact: true })
+      .getAttribute("src"),
+    /\/solutions\//,
+  );
+  await page.screenshot({
+    path: "/tmp/6cb-solution-desktop.png",
+    fullPage: true,
+  });
+
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  assert.deepEqual(
+    (await new AxeBuilder({ page }).analyze()).violations.map((v) => v.id),
+    [],
+  );
+  await page.setViewportSize({ width: 375, height: 812 });
+  assert.equal(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+    true,
+  );
+
+  assert.equal(revealCount(), n + 1);
+  assert.equal(
+    await page.getByText("PRIVATE_HINT_SENTINEL", { exact: true }).count(),
+    0,
+  );
+  assert.equal(await page.getByText("x^2+137", { exact: true }).count(), 0);
+  await page.getByLabel("Numerical answer", { exact: true }).fill("2");
+  await submit();
+  await saved("Correct");
+  await page.getByText("Assisted (server record)", { exact: false }).waitFor();
+  users.set("D", { id: "D", emailVerified: true });
+  await pool.query("INSERT INTO \"user\" VALUES('D')");
+  await account("D");
+  await page.getByLabel("Numerical answer", { exact: true }).fill("2");
+  loseNext = true;
+  await submit();
+  await page
+    .getByRole("button", { name: "Retry original submission", exact: true })
+    .waitFor();
+  await page
+    .getByRole("button", { name: "View worked solution", exact: true })
+    .click();
+  await page.getByLabel("Approved worked solution", { exact: true }).waitFor();
+  await page
+    .getByRole("button", { name: "Retry original submission", exact: true })
+    .click();
+  await saved("Correct");
+  await page
+    .getByText("Unassisted (server record)", { exact: false })
+    .waitFor();
+  await page
+    .getByRole("button", { name: "Start another attempt", exact: true })
+    .click();
+  await submit();
+  await saved("Correct");
+  await page.getByText("Assisted (server record)", { exact: false }).waitFor();
+  await account("C");
+  await choose(2);
+  await page
+    .getByRole("button", { name: "View worked solution", exact: true })
+    .click();
+  await page
+    .getByRole("link", {
+      name: "Download approved solution PDF 1",
+      exact: true,
+    })
+    .waitFor();
+  assert.deepEqual(
+    (await new AxeBuilder({ page }).analyze()).violations.map((v) => v.id),
+    [],
+  );
+  const downloadEvent = page.waitForEvent("download");
+  await page
+    .getByRole("link", {
+      name: "Download approved solution PDF 1",
+      exact: true,
+    })
+    .click();
+  const downloaded = await downloadEvent;
+  assert.equal(downloaded.suggestedFilename(), "worked-solution.pdf");
+  assert.deepEqual(await readFile(await downloaded.path()), pdf);
+  await page
+    .getByRole("button", { name: "View worked solution", exact: true })
+    .click();
+  await page
+    .getByRole("link", {
+      name: "Download approved solution PDF 1",
+      exact: true,
+    })
+    .waitFor();
+  await page.route("**/solutions/**/media/**", (r) =>
+    r.fulfill({ status: 503, body: "unavailable" }),
+  );
+  await page
+    .getByRole("link", {
+      name: "Download approved solution PDF 1",
+      exact: true,
+    })
+    .click();
+  await page
+    .getByText("PDF access unavailable or uncertain.", { exact: false })
+    .waitFor();
+  assert.equal(
+    await page.getByLabel("Approved worked solution", { exact: true }).count(),
+    0,
+  );
+  await page.unroute("**/solutions/**/media/**");
+  await page
+    .getByRole("button", { name: "View worked solution", exact: true })
+    .click();
+  await page.getByLabel("Approved worked solution", { exact: true }).waitFor();
+  await page.evaluate(() => window.__setViewer({ state: "verified", id: "A" }));
+  assert.equal(
+    await page.getByLabel("Approved worked solution", { exact: true }).count(),
+    0,
+  );
+  // Revoke through the same UI; future explicit view gracefully denies access.
+  await context.clearCookies();
+  await context.addCookies([{ name: "viewer", value: "author", url: origin }]);
+  await page.goto(route + "?permissions");
+  await page
+    .getByRole("button", { name: "Load current published solution controls" })
+    .click();
+  await page
+    .getByRole("button", { name: "Reload permission metadata" })
+    .click();
+  await page
+    .getByRole("button", { name: "Revoke student access", exact: true })
+    .click();
+  await account("C");
+  await page
+    .getByRole("button", { name: "View worked solution", exact: true })
+    .click();
+  await page
+    .getByText("Worked solution unavailable:", { exact: false })
+    .waitFor();
+  assert.equal(
+    await page.getByLabel("Approved worked solution", { exact: true }).count(),
+    0,
+  );
+  await choose(2);
+  await page
+    .getByRole("button", { name: "View worked solution", exact: true })
+    .click();
+  await page.getByLabel("Approved worked solution", { exact: true }).waitFor();
+  const beforeStale = revealCount();
+  await publish();
+  await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+  await page
+    .getByRole("button", { name: "Reload current problem", exact: true })
+    .waitFor();
+  assert.equal(
+    await page.getByLabel("Approved worked solution", { exact: true }).count(),
+    0,
+  );
+  assert.equal(revealCount(), beforeStale);
+  console.log(
+    "PASS Phase6C-B author opt-in/revoke, PDF-only explicit reveal, no preload, assisted submission, account clearing and axe",
+  );
   console.log(
     "PASS authored student browser/PostgreSQL: public math/media, all outcomes, dimensionless/underflow, multipart/input restoration, durable replay/duplicates, HTTP faults, >50 history/pagination, IDOR/account races, revision/unpublish, desktop/mobile axe and overflow, private isolation.",
   );

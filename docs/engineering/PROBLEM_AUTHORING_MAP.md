@@ -1,7 +1,7 @@
 # Problem authoring architecture map
 
-Phase 6C-A from merged main `a8fac8f83722bfa9faed9a867cbb1582aa0b599f` (Phase6B PR#22); integration branch `codex/physcratic-authoring-completion`.
-Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md. Phases0–6B merged; Phase6C-A adds explicit solution authorization/reveal/assistance backend only.
+Phase6C-B continues c259602 on the same completion branch; original Phase6C-A base `a8fac8f83722bfa9faed9a867cbb1582aa0b599f` (Phase6B PR#22); integration branch `codex/physcratic-authoring-completion`.
+Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md. Phases0–6B merged; Phase6C-A backend reused unchanged by6C-B UI.
 Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspect affected code/dependencies only.
 
 ## Established architecture (reuse; do not repeat audits)
@@ -53,7 +53,6 @@ Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspe
 - Cleanup only owner-triggered, <=5 candidates/request: ready unlinked >24h, pending/deleting >1h. Saved drafts and ALL historical bindings permanently protect assets.
 - Mark deleting under parent/media locks -> delete private object outside DB transaction -> delete registry last; errors retain path for retry. Ambiguous recent PUTs retain tombstones >=1h and repeat physical deletion.
 - Populated-registry down migration refuses; rollback exposure first and retain storage/history. Deployment requires a private Blob store and separately reviewed explicit migration; no production access performed.
-
 ## Native editor and state preservation
 - [Verified route](../../app/dashboard/author/page.tsx), [workspace](../../components/authoring/workspace.tsx), [editor](../../components/authoring/problem-editor.tsx), [media controls](../../components/authoring/media-controls.tsx).
 - Native sections/parts/text/math/images, existing KaTeX trust:false/expansion caps, keyboard move/delete focus, numeric/expression/manual private panels; no editor/drag-drop dependency.
@@ -62,7 +61,6 @@ Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspe
 - Removing/replacing changes references only after autosave; history stays immutable. Manager shows retention status, protects local refs and exposes explicit unused-file deletion/age-based cleanup; workspace cleanup also available without drafts.
 - Pending upload freezes edits/back/publish/conflict copy replacement and protects beforeunload; successful callback invalidates stale comparison. Failures retain original reference and show error.
 - Student preview uses only public mapper; private panels/comparison JSON unmounted. It renders statement images/PDF links only, never private assets or unsafe PDF iframe.
-
 ## Phase 5A secure grading foundation
 - [Client-safe types](../../lib/authored-grading-contracts.ts), [server service](../../lib/authored-grading.ts), [numeric evaluator](../../lib/authored-numeric-grading.ts), [session adapter](../../lib/authored-grading-server.ts). No new routes/student UI or grading persistence; existing author Units help shares the client-safe units policy.
 - Strict {problemId,revisionId,partId,answer}; UUID lowercase; numeric answer {kind,value,units} requires finite number and explicit units string <=80; expression <=180/manual text <=4000 are bounded transport cases only.
@@ -112,6 +110,8 @@ Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspe
 - Dedicated GET /[id]/solutions/[partId]/media/[mediaId]?revision checks own current-generation reveal+live permission/publication/binding on every read; bounded4s/3MiB private Blob buffer, final expiry check, private/no-store/sandbox/nosniff/CORP; no raw URLs. Existing private author proxy unchanged.
 - Any own reveal assists all later new attempts on the same revision, including other parts. Same user advisory6 -> parent SHARE -> permission SHARE; author writes parent UPDATE first, no user lock. SQL derives boolean; original attempts/replays unchanged, all grading outcomes preserved. Client accepts server boolean; no UI added.
 
+## Phase6C-B UI
+- [Solution UI policy](AUTHORED_SOLUTION_UI.md), components/authoring/solution-permissions.tsx and components/authored/worked-solution.tsx: explicit confirmations, metadata reload after writes, schema/exact URL checks, in-memory private snapshots, controlled downloads, original server-assisted records. Existing backend/idempotency unchanged.
 ## Verification and later-phase boundaries
 - [Security integration](../../lib/author-media-api.test.ts): isolated PostgreSQL schema + memory storage; owner/origin/type/size/scope/quota, failure tombstones, exact sealing, historical retention and publication/link/delete races.
 - Commands/results/limitations in status; full tests/typecheck/available checks, inherited blockers separate. Disposable DB+mock storage only; live staging/deployment not claimed.

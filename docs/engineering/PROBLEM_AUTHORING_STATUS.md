@@ -1,9 +1,18 @@
 # Problem authoring implementation status
 
-- Phase6C-A ONLY,2026-10-31. Phases0–6B merged; PR#22 baseline `a8fac8f83722bfa9faed9a867cbb1582aa0b599f` freshly fetched and exactly matches reviewed Phase6B tree.
+- Phase6C-B ONLY,2026-10-31; follows Phase6C-A c259602 on the same integration branch. Original baseline: Phases0–6B merged; PR#22 baseline `a8fac8f83722bfa9faed9a867cbb1582aa0b599f` freshly fetched and exactly matches reviewed Phase6B tree.
 - Integration branch `codex/physcratic-authoring-completion` created from that main. Preserve this branch for6C-B/7/8A/8B; separate phase commits/pushes, never reset/overwrite prior work. No individual PR; one consolidated PR at release-readiness gate.
 - Required WORK_STATUS/map/status/student policy read first. Inspected affected revision/private-part/owner/media/attempt/grader/auth contracts only; no repeated repository audit.
 - Phase commit: `git log -1` after checkpoint delivery. No UI, merge/deploy/shared or production data/migrations/storage changes.
+
+## Completed Phase6C-B
+
+- Author immutable-revision/part permission controls, explicit complete image/native approval and selected PDFs, optional expiry, configured status/version, deliberate confirmation and revoke. Ambiguous/409 PUT clears metadata and requires GET, preserving draft autosave.
+- Student explicit confirmed reveal independent of submission/outcome; solutionViewSchema + exact selection/dedicated media URL checks, safe text/KaTeX/images and controlled PDF downloads/failures. No preload, worker, key/hint rendering or client assisted derivation.
+- Private snapshot only in memory, cleared on account/part/revision/focus/visibility/access uncertainty or five-minute timeout. Server record assisted labels preserve original attempts/retries. Phase6C-A APIs/migrations unchanged.
+- Full205/206 PASS; inherited corpus punctuation only. TypeScript PASS. Extended real browser/PG + mocked storage PASS: grants/revoke, PDF-only, no preload, before-submit assistance, image/math, actual PDF/failure, multipart/account/stale, permission failure, desktop/mobile axe and existing recovery/IDOR cases.
+- Independent focused review findings corrected and browser verified; final reviewer followup hit tool usage limit, no additional completed independent pass claimed. Details: [AUTHORED_SOLUTION_UI.md](AUTHORED_SOLUTION_UI.md).
+- No individual PR/merge/deploy/shared DB. Stop after separate6C-B commit/push; await next phase prompt on same branch.
 
 ## Completed Phase6C-A
 
@@ -42,6 +51,6 @@
 
 ## Next checkpoint
 
-- Stop after Phase6C-A commit/push. Await separately supplied6C-B prompt; build no UI now.
+- Phase6C-B complete: stop after its commit/push, await next separately supplied phase.
 - Next phase must read handoffs and reuse exact explicit permission/reveal/media contracts and server-derived assistance on this SAME integration branch. No repeat audit or automatic solution preloading.
 - Branch: https://github.com/Physcratic/physcratic/tree/codex/physcratic-authoring-completion

@@ -1,4 +1,6 @@
-# Authored student interface (Phase 6B)
+# Authored student interface
+
+Phase6C-B adds separately confirmed worked-solution viewing using Phase6C-A; see [current solution UI policy](AUTHORED_SOLUTION_UI.md). The original Phase6B statement/submission behavior below remains unchanged; its historical no-solution-UI notes describe that phase.
 
 The public route `/dashboard/authored/[problemId]` reads the currently published authored revision. The dashboard prefix permits the existing sign-in return-path policy; it does not impose an authentication layout on this route. Guests can read. Verified Better Auth accounts can submit and read their own history. Published authors can open this route from the author editor. Legacy practice/archive readers and their static answers remain separate.
 

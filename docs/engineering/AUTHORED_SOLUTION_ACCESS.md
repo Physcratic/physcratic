@@ -1,6 +1,6 @@
 # Explicit authored solution access — Phase 6C-A
 
-Backend only. Solutions remain private by default. Migration0005 creates no grants for existing publications and changes no sealed worked-solution content or historical attempts. There is no solution-view UI/preload/public-reader/grading-response disclosure. The existing no-reveal-v1 contract continues to mean that submitting or receiving a grade does not automatically unlock private material.
+This is the Phase6C-A backend specification; Phase6C-B now supplies the [explicit author/student UI](AUTHORED_SOLUTION_UI.md). Solutions remain private by default. Migration0005 creates no grants for existing publications and changes no sealed worked-solution content or historical attempts. There is no solution-view UI/preload/public-reader/grading-response disclosure. The existing no-reveal-v1 contract continues to mean that submitting or receiving a grade does not automatically unlock private material.
 
 ## Author authorization
 
@@ -55,4 +55,4 @@ Rollback exposure first. The down file refuses any permission/reveal or assisted
 
 Disposable PostgreSQL tests cover default denial/no grandfathering, verified ownership/origin/strict input, stale/concurrent opt-in, repeated image metadata, explicit PDF-only approval, key/hint/other-part isolation, guessed/cross-account/problem/revision media, regrant/expiry (including expiry during Blob read), durable/repeated reveal, all outcomes/assistance, both reveal/submit lock orders, idempotent original flags, commit rollback, publication/revocation races, immutable SQL/FKs, poolmax1, persistent rate and bounded storage failures. Storage is memory/mock only; sessions inject into the real production factories. Real Better Auth/Vercel staging/Blob/deployment has not been tested.
 
-Phase6C-B UI is deliberately absent. Next phase must consume these separate APIs with explicit author approval/student intent and display assistance honestly; it must not preload solutions or change grading semantics. Continue on `codex/physcratic-authoring-completion`, preserving this phase commit. No individual PR; consolidated PR only at the separately requested release-readiness gate. No contests, ranking/Elo, comments, stars, subscriptions or social work.
+Phase6C-B UI now consumes these separate APIs with explicit author approval/student intent and display assistance honestly; it must not preload solutions or change grading semantics. Continue on `codex/physcratic-authoring-completion`, preserving this phase commit. No individual PR; consolidated PR only at the separately requested release-readiness gate. No contests, ranking/Elo, comments, stars, subscriptions or social work.

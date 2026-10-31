@@ -1,4 +1,5 @@
 "use client";
+import { WorkedSolution } from "./worked-solution";
 import {
   useCallback,
   useEffect,
@@ -826,7 +827,7 @@ function PrivateWorkspace({
                 <li key={a.id} className="space-y-3 py-5">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <p className="font-medium">
-                      Attempt {a.attemptNumber} · {feedback[a.status].label}
+                      Attempt {a.attemptNumber} · {feedback[a.status].label} · {a.assisted ? "Assisted" : "Unassisted"}
                     </p>
                     <time
                       className="text-xs text-muted-foreground"
@@ -946,7 +947,7 @@ function PrivateWorkspace({
                         {feedback[receipt.attempt.status].text}
                       </p>
                       <p className="break-words text-xs">
-                        Submitted answer: {answerText(receipt.attempt.answer)}
+                        {receipt.attempt.assisted ? "Assisted (server record)" : "Unassisted (server record)"} · Submitted answer: {answerText(receipt.attempt.answer)}
                       </p>
                     </div>
                   )}
@@ -1065,6 +1066,7 @@ function PrivateWorkspace({
                 {state.message}
               </p>
             </section>
+            {availability === "ready" && revision && part && <WorkedSolution key={`${revision.id}:${part.id}`} problemId={problemId} revisionId={revision.id} partId={part.id} onStale={invalidate} onAuth={denyAuth} />}
             <section className="space-y-2 rounded-xl border bg-muted/20 p-5">
               <h2 className="flex items-center gap-2 text-sm font-semibold">
                 <Clock3 aria-hidden="true" className="size-4" /> Practice, then
