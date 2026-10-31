@@ -33,6 +33,7 @@ export type ProblemCardProps = {
   description?: string;
   details?: readonly string[];
   tags: readonly string[];
+  highlightTitleRow?: boolean;
   elo?: number;
 } & (
   | { href: string; onOpen?: never }
@@ -51,6 +52,7 @@ export function ProblemCard({
   description,
   details,
   tags,
+  highlightTitleRow = false,
   elo,
   href,
   onOpen,
@@ -108,7 +110,13 @@ export function ProblemCard({
         )}
       </div>
       <CardHeader className="gap-2 p-5">
-        <div className="flex items-start justify-between gap-4">
+        <div
+          className={
+            highlightTitleRow
+              ? "flex items-start justify-between gap-4 rounded-lg border border-destructive p-3"
+              : "flex items-start justify-between gap-4"
+          }
+        >
           <CardTitle className="min-w-0 flex-1">
             <Heading
               id={titleId}

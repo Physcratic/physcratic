@@ -10,7 +10,7 @@ import {
   type Competition,
 } from "./corpus/catalog-selection";
 import { corpusProblems } from "./corpus-pilot";
-import { tagLabel } from "./problem-tags";
+import { getProblemTags, tagLabel } from "./problem-tags";
 
 const httpsUrl = z.string().url().startsWith("https://");
 const catalogSourceSchema = z.object({
@@ -219,8 +219,7 @@ export function filterCatalog({
           .includes(word),
       ) &&
       (difficulty === "all" || difficulty === "unrated") &&
-      (topic === "all" ||
-        [...problem.topics, ...problem.tags].includes(tagLabel(topic))) &&
+      (topic === "all" || getProblemTags(problem).includes(tagLabel(topic))) &&
       words.every((word) => searchable.includes(word))
     );
   });

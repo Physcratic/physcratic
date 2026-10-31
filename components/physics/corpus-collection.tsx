@@ -139,7 +139,7 @@ export function CorpusCollection({
 
   return (
     <div className="flex min-w-0 flex-col gap-5">
-      <div className="flex flex-wrap items-start justify-between gap-4">
+      <div className="flex flex-wrap items-start justify-between gap-4 rounded-lg border border-destructive p-4">
         <div className="flex max-w-2xl flex-col gap-2">
           <div className="flex flex-wrap items-center gap-2">
             <h2 className="text-lg font-medium tracking-tight">
@@ -162,7 +162,7 @@ export function CorpusCollection({
           </a>
         </Button>
       </div>
-      <Alert>
+      <Alert className="border-destructive">
         <Info />
         <AlertTitle>Source-fidelity pilot · review pending</AlertTitle>
         <AlertDescription>
@@ -193,6 +193,7 @@ export function CorpusCollection({
                     id={problem.id}
                     title={problem.title}
                     headingLevel={4}
+                    highlightTitleRow={problem.id === "ipho-2025-t3"}
                     source={problem.competition}
                     competition={problem.competition}
                     reference={`${problem.year} · ${problem.code}`}
@@ -230,7 +231,7 @@ export function CorpusCollection({
           )}
         </CardContent>
         <CardFooter className="border-t pt-4">
-          <p className="text-sm leading-relaxed text-muted-foreground">
+          <p className="rounded-lg border border-destructive p-3 text-sm leading-relaxed text-muted-foreground">
             {corpusProblems.reduce(
               (sum, problem) => sum + problem.parts.length,
               0,
@@ -241,7 +242,7 @@ export function CorpusCollection({
           </p>
         </CardFooter>
       </Card>
-      <p className="text-sm leading-relaxed text-muted-foreground">
+      <p className="rounded-lg border border-destructive p-3 text-sm leading-relaxed text-muted-foreground">
         Portable JSON includes provenance, attribution, native reading notes,
         subpart mappings, local PDF/image paths, review status, and SHA-256
         checksums. Files stay in the project, no database or background importer

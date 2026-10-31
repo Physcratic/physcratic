@@ -60,6 +60,12 @@ test("practice problems expose subject and concept as reusable tags", () => {
   }
 });
 
+test("catalog statement language is available as a tag and filter", () => {
+  assert.ok(getTagOptions(catalogProblems).includes("English"));
+  assert.equal(filterCatalog({ topic: "English" }).length, 100);
+  assert.equal(filterCatalog({ topic: "Russian" }).length, 0);
+});
+
 test("tag options contain all six subjects and deduplicated concepts", () => {
   const options = getTagOptions([...corpusProblems, ...problems]);
   assert.deepEqual(options.slice(0, 6), [

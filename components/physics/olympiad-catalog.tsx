@@ -1,16 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  ArrowLeft,
-  ArrowRight,
-  BookOpen,
-  Download,
-  Info,
-  RotateCcw,
-} from "lucide-react";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Badge } from "@/components/ui/badge";
+import { ArrowLeft, ArrowRight, BookOpen, Download, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -30,8 +21,58 @@ import {
 import { catalogProblems, filterCatalog } from "@/lib/corpus-catalog";
 import { OlympiadProblemCard } from "./olympiad-problem-card";
 import { ImportedProblemReader } from "./imported-problem-reader";
-import translationIndex from "@/lib/corpus/translation-index.json";
 import { filterProblemsByTag } from "@/lib/problem-tags";
+
+function CatalogPagination({
+  page,
+  pageCount,
+  onPageChange,
+  placement,
+}: {
+  page: number;
+  pageCount: number;
+  onPageChange: (page: number) => void;
+  placement: "top" | "bottom";
+}) {
+  const controls = (
+    <>
+      <span className="text-sm text-muted-foreground" aria-live="polite">
+        Page {page} of {pageCount}
+      </span>
+      <nav
+        className="flex items-center gap-2"
+        aria-label={`Catalog pages (${placement})`}
+      >
+        <Button
+          variant="outline"
+          size="sm"
+          disabled={page === 1}
+          onClick={() => onPageChange(page - 1)}
+        >
+          <ArrowLeft data-icon="inline-start" /> Previous
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+          disabled={page === pageCount}
+          onClick={() => onPageChange(page + 1)}
+        >
+          Next <ArrowRight data-icon="inline-end" />
+        </Button>
+      </nav>
+    </>
+  );
+
+  return placement === "top" ? (
+    <div className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-border px-4 py-3">
+      {controls}
+    </div>
+  ) : (
+    <CardFooter className="flex flex-wrap items-center justify-between gap-3 border-t pt-4">
+      {controls}
+    </CardFooter>
+  );
+}
 
 export function OlympiadCatalog({
   query,
@@ -95,38 +136,9 @@ export function OlympiadCatalog({
   return (
     <section
       className="flex min-w-0 flex-col gap-5"
-      aria-labelledby="catalog-heading"
+      aria-labelledby="catalog-results-heading"
     >
-      <header className="flex flex-wrap items-start justify-between gap-4">
-        <div className="flex max-w-2xl flex-col gap-2">
-          <div className="flex flex-wrap items-center gap-2">
-            <h2
-              id="catalog-heading"
-              className="text-lg font-medium tracking-tight"
-            >
-              The olympiad library
-            </h2>
-            <Badge variant="secondary">
-              {topicProblems.length} full problems
-            </Badge>
-          </div>
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            Original-source statements and diagrams across six topics, from 2004
-            to 2025. Choose an exercise to open the statement and available
-            solution.
-          </p>
-          <div
-            className="flex flex-wrap gap-2"
-            aria-label="Competition colour key"
-          >
-            <Badge variant="ipho">IPhO · {topicProblems.filter((problem) => problem.competition === "IPhO").length}</Badge>
-            <Badge variant="apho">APhO · {topicProblems.filter((problem) => problem.competition === "APhO").length}</Badge>
-            <Badge variant="eupho">EuPhO · {topicProblems.filter((problem) => problem.competition === "EuPhO").length}</Badge>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            All exercises are unrated and intended for self-review.
-          </p>
-        </div>
+      <header className="flex justify-end">
         <Button size="sm" variant="outline" asChild>
           <a
             href="/api/corpus?collection=catalog"
@@ -136,32 +148,14 @@ export function OlympiadCatalog({
           </a>
         </Button>
       </header>
-      <details className="rounded-lg border border-border bg-card p-4 text-card-foreground">
-        <summary className="cursor-pointer text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-          About sources, translations & solutions
-        </summary>
-        <div className="pt-4">
-          <Alert>
-            <Info />
-            <AlertTitle>
-              100 statements imported · solution review required
-            </AlertTitle>
-            <AlertDescription>
-              {translationIndex.translated} of{" "}
-              {translationIndex.russianSourceCount} Russian-source problems have
-              English drafts.{" "}
-              {
-                translationIndex.audit.filter(
-                  (record) => record.solutionStatus === "missing-derivation",
-                ).length
-              }{" "}
-              imported mirror solution pages repeat questions without a
-              derivation and cannot be grading references. All problems remain
-              unrated. Physics, rubric and republication reviews are pending.
-            </AlertDescription>
-          </Alert>
-        </div>
-      </details>
+      {filtered.length > 0 && (
+        <CatalogPagination
+          page={page}
+          pageCount={pageCount}
+          onPageChange={changePage}
+          placement="top"
+        />
+      )}
       <Card
         id="catalog-results"
         className="min-w-0 scroll-mt-6 overflow-hidden shadow-none"
@@ -215,29 +209,12 @@ export function OlympiadCatalog({
           )}
         </CardContent>
         {filtered.length > 0 && (
-          <CardFooter className="flex flex-wrap items-center justify-between gap-3 border-t pt-4">
-            <span className="text-sm text-muted-foreground" aria-live="polite">
-              Page {page} of {pageCount}
-            </span>
-            <nav className="flex items-center gap-2" aria-label="Catalog pages">
-              <Button
-                variant="outline"
-                size="sm"
-                disabled={page === 1}
-                onClick={() => changePage(page - 1)}
-              >
-                <ArrowLeft data-icon="inline-start" /> Previous
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                disabled={page === pageCount}
-                onClick={() => changePage(page + 1)}
-              >
-                Next <ArrowRight data-icon="inline-end" />
-              </Button>
-            </nav>
-          </CardFooter>
+          <CatalogPagination
+            page={page}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            placement="bottom"
+          />
         )}
       </Card>
     </section>

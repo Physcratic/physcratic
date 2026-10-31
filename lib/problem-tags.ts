@@ -9,12 +9,21 @@ export function getProblemTags(problem: {
   topics?: readonly string[];
   tags?: readonly string[];
   concept?: string;
+  importLanguage?: "en" | "ru";
 }) {
+  const languageTag =
+    problem.importLanguage === "en"
+      ? "English"
+      : problem.importLanguage === "ru"
+        ? "Russian"
+        : undefined;
+
   return [
     ...new Set(
       [
         ...(problem.topics ?? (problem.topic ? [problem.topic] : [])),
         ...(problem.tags ?? (problem.concept ? [problem.concept] : [])),
+        ...(languageTag ? [languageTag] : []),
       ].map(tagLabel),
     ),
   ];

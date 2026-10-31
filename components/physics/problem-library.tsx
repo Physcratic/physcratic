@@ -205,18 +205,22 @@ export function ProblemLibrary({
             </FieldGroup>
           </CardContent>
         </Card>
-        <p
-          className="text-sm leading-relaxed text-muted-foreground"
-          aria-live="polite"
-        >
+        {collection !== "catalog" && (
+          <p
+            className={
+              collection === "pilot"
+                ? "rounded-lg border border-destructive p-3 text-sm leading-relaxed text-muted-foreground"
+                : "text-sm leading-relaxed text-muted-foreground"
+            }
+            aria-live="polite"
+          >
             {collection === "arena"
               ? "Your uploaded Arena problems, transcribed as native text and LaTeX with complete worked solutions."
-              : collection === "catalog"
-                ? "Full IPhO, APhO and EuPhO exercises. Colours identify the competition; topic tags describe the physics."
-                : collection === "pilot"
-                  ? "Exercises from the olympiad archive, with step-by-step subpart guides. These are not additional problems."
-                  : "Short practice exercises with hints, worked solutions and estimated difficulty ratings."}
-        </p>
+              : collection === "pilot"
+                ? "Exercises from the olympiad archive, with step-by-step subpart guides. These are not additional problems."
+                : "Short practice exercises with hints, worked solutions and estimated difficulty ratings."}
+          </p>
+        )}
         <TabsContent value="arena" className="min-w-0">
           <ArenaCollection
             query={search}
