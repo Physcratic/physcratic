@@ -115,3 +115,27 @@ See [Phase8A evidence](AUTHORING_PHASE8A.md) and
 - **Batch 3b:** after PR #2 merges, add catalog and Arena problems and `/coaching` to the registry.
 - Optionally add `og:title` coverage for the problem page in `page.tsx` once PR #2 releases it (the layout already sets it).
 - Rendered-HTML finding: problem pages and the topic page server-render the problem text and catalog card titles into the body (no client-side bailout), so non-JS crawlers see them.
+
+## 2026-10-31 — Phase 8B — Final authored integration audit
+
+Main SEOa55bb1a integrated bya3269e7; both readiness-log entries retained, local
+Inter and new metadata preserved. Three incoming untyped test casts fixed in
+32761ee; no product behavior change. Full merged PG252/252,0skip/TODO; independent
+security83/83 and migration51/51, exact PG17 order/down/up preserve old records.
+No confirmed application-security/migration blocker. Current browser, lint/type/
+build and infrastructure-failure evidence is in AUTHORING_RELEASE_READINESS.md.
+
+Controlled staging is BLOCKED pending financial-dashboard project mapping,
+Preview/Production isolation, exact Neon/Blob/auth/mail configuration and remote
+ledger/schema/backup inspection, plus fresh final-SHA CI. GitHub confirms old8A CI
+and Vercel status link; provider READY/Preview attestation is not independently
+verified runtime readiness. No secret values inspected/printed, shared DB/storage/
+user/env mutation, deployment or merge. Gated operator runbook prepared; draft
+consolidated PR attempted only after verification. Stop at Phase8B handoff.
+
+Final8B checks: Node22 frozen install/typegen/TypeScript/lint0/build PASS; targeted
+SEO15/15, full252/2520skip/TODO. Fresh authoring and student browsers PASS. Fresh
+library initialization remains ENOSPC-blocked even with tmpfsPG;8A pass is prior
+evidence only. Require recovered-workspace rerun and fresh final-SHA CI. No target/
+isolation evidence received; verdict remains BLOCKED. Draft PR fallback body and
+manual compare URL are in AUTHORING_CONSOLIDATED_PR.md/readiness.

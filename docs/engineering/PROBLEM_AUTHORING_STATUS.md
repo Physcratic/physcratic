@@ -1,5 +1,23 @@
 # Problem authoring implementation status
 
+## Phase 8B audit handoff — 2026-10-31 (Asia/Makassar)
+
+Current verdict: BLOCKED for controlled live staging validation. Latest main
+SEOa55bb1a merged bya3269e7, preserving both readiness-log sides and local Inter.
+Audited code/test32761ee fixes only three incoming SEO fixture lint errors.
+All6C/7/8A commits preserved; no new feature expansion or shared migration.
+Full merged PG252/252; independent security83/83 and migration51/51,0skip/TODO;
+exact PG17.11 migration order/down/up proof preserves legacy data. No confirmed
+application-security/migration blocker. Runtime target mapping/isolation and
+remote ledger remain UNKNOWN; final-SHA CI must be obtained separately from
+Phase8A success. Current evidence, browser reruns and precise operator approval
+gates: [readiness](AUTHORING_RELEASE_READINESS.md),
+[runbook](AUTHORING_RELEASE_RUNBOOK.md),
+[blockers](AUTHORING_RELEASE_BLOCKERS.md).
+Draft consolidated PR only; no merge/auto-merge/deploy/shared writes. Stop after
+Phase8B handoff. Earlier phase notes below are historical.
+
+
 ## Current checkpoint: Phase 8A — 2026-10-31 (Asia/Makassar)
 
 - Same integration branch;6C-A c259602,6C-B0418b9a and Phase7 8293f26 preserved. Mainc2139de integrated by5d1e20b, no conflicts/file changes.
@@ -89,3 +107,5 @@ commit was rewritten. Final regression/full counts below supersede earlier
 pre-refresh counts where applicable.
 
 Final post-refresh verification:45/45 focused integration checks; full224 tests,223 pass,0 fail,0 skip,1 inherited corpus punctuation TODO. Typegen/TypeScript and diff checks pass. Both library and student/solution browser suites passed; latest main does not change their exercised components or APIs.
+
+Final8B local gates: frozen install/types/lint0/build PASS; full252/252,0skip/TODO; fresh authoring/student browser PASS; library rerun ENOSPC-blocked (prior8A evidence only). Final CI/target-isolation/remote-ledger evidence required. See release readiness/runbook; STOP after handoff/draft PR attempt.

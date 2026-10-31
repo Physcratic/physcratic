@@ -1,5 +1,23 @@
 # Problem authoring architecture map
 
+## Phase 8B audit handoff — 2026-10-31 (Asia/Makassar)
+
+Current verdict: BLOCKED for controlled live staging validation. Latest main
+SEOa55bb1a merged bya3269e7, preserving both readiness-log sides and local Inter.
+Audited code/test32761ee fixes only three incoming SEO fixture lint errors.
+All6C/7/8A commits preserved; no new feature expansion or shared migration.
+Full merged PG252/252; independent security83/83 and migration51/51,0skip/TODO;
+exact PG17.11 migration order/down/up proof preserves legacy data. No confirmed
+application-security/migration blocker. Runtime target mapping/isolation and
+remote ledger remain UNKNOWN; final-SHA CI must be obtained separately from
+Phase8A success. Current evidence, browser reruns and precise operator approval
+gates: [readiness](AUTHORING_RELEASE_READINESS.md),
+[runbook](AUTHORING_RELEASE_RUNBOOK.md),
+[blockers](AUTHORING_RELEASE_BLOCKERS.md).
+Draft consolidated PR only; no merge/auto-merge/deploy/shared writes. Stop after
+Phase8B handoff. Earlier phase notes below are historical.
+
+
 Phase8A hardening complete: [build/lint/corpus/workflow evidence](AUTHORING_PHASE8A.md)
 and [remaining release gates](AUTHORING_RELEASE_BLOCKERS.md). Mainc2139de safely
 integrated by5d1e20b;6C-A/6C-B/7 preserved. Pinned ESLint/Next rules and pnpm,
@@ -147,3 +165,5 @@ Temporary restoration of Phase7 changes conflicted only in
 entry and the Phase7 entry. Incoming product code preserved unchanged. No phase
 commit was rewritten. Final regression/full counts below supersede earlier
 pre-refresh counts where applicable.
+
+Final8B local gates: frozen install/types/lint0/build PASS; full252/252,0skip/TODO; fresh authoring/student browser PASS; library rerun ENOSPC-blocked (prior8A evidence only). Final CI/target-isolation/remote-ledger evidence required. See release readiness/runbook; STOP after handoff/draft PR attempt.
