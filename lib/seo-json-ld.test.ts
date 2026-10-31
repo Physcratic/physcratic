@@ -21,10 +21,12 @@ describe("json-ld", () => {
   });
   it("problemGraph has breadcrumbs and a LearningResource", () => {
     const p = problems[0];
-    const [crumbs, res] = problemGraph(p) as any[];
+    const [crumbs, res] = problemGraph(p);
+    assert.ok(crumbs.itemListElement);
+    assert.ok(res.description && res.about);
     assert.equal(crumbs["@type"], "BreadcrumbList");
     assert.deepEqual(
-      crumbs.itemListElement.map((i: any) => i.name),
+      crumbs.itemListElement.map((i) => i.name),
       ["Dashboard", "Problems", p.topic, p.title],
     );
     for (const i of crumbs.itemListElement) assert.match(i.item, /^https?:\/\//);
