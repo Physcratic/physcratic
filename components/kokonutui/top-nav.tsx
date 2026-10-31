@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { FeedbackLink } from "@/components/feedback-link";
 import { AccountNav } from "@/components/account-nav";
 import { viewTitles, type View } from "@/lib/physics";
 
@@ -60,6 +61,7 @@ export default function TopNav({
             ⌘ K
           </kbd>
         </Button>
+        <FeedbackLink variant="nav" />
         <ThemeToggle />
         <span className="hidden h-5 border-l sm:block" />
         <AccountNav />
