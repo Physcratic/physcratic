@@ -54,9 +54,11 @@ export const inputClass =
 export function MathPreview({
   latex,
   inline = false,
+  keyboardScrollable = false,
 }: {
   latex: string;
   inline?: boolean;
+  keyboardScrollable?: boolean;
 }) {
   try {
     const html = katex.renderToString(latex, {
@@ -69,10 +71,13 @@ export function MathPreview({
     });
     return (
       <span
+        tabIndex={keyboardScrollable ? 0 : undefined}
+        role={keyboardScrollable ? "group" : undefined}
+        aria-label={keyboardScrollable ? "Mathematical expression" : undefined}
         className={
           inline
-            ? "inline-block max-w-full overflow-x-auto align-middle"
-            : "block max-w-full overflow-x-auto py-3"
+            ? "inline-block max-w-full overflow-x-auto align-middle focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
+            : "block max-w-full overflow-x-auto py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
         }
         dangerouslySetInnerHTML={{ __html: html }}
       />
