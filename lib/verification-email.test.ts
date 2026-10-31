@@ -4,12 +4,15 @@ import { deliverVerificationEmail, type VerificationTransport } from "./verifica
 const mail = { email: "tester@example.com", url: "https://staging.physcratic.com/api/auth/verify-email?token=test-only", token: "test-only" };
 const env = { VERCEL_ENV: "preview", BETTER_AUTH_URL: "https://staging.physcratic.com", RESEND_API_KEY: "mock-only", RESEND_EMAIL_DOMAIN: "example.com", STAGING_VERIFICATION_EMAIL_ALLOWLIST: "tester@example.com" };
 test("branded verification email is concise and includes a safe fallback link", async () => {
-  const payloads: { html: string; text: string; subject: string }[] = [];
+  const payloads: { html: string; text: string; subject: string; attachments: { contentId: string; contentType: string; content: Buffer }[] }[] = [];
   await deliverVerificationEmail(mail, env, async (_key, payload) => { payloads.push(payload); return { error: null }; });
   assert.equal(payloads.length, 1);
   const message = payloads[0];
   assert.match(message.subject, /Verify your email/);
-  assert.match(message.html, /physcratic-email-logo\.png/);
+  assert.match(message.html, /cid:physcratic-logo/);
+  assert.equal(message.attachments[0]?.contentId, "physcratic-logo");
+  assert.equal(message.attachments[0]?.contentType, "image/png");
+  assert.ok(message.attachments[0].content.length > 1000);
   assert.match(message.html, /Verify email<\/a>/);
   assert.ok(message.html.includes(mail.url));
   assert.ok(message.text.includes(mail.url));
