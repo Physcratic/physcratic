@@ -13,16 +13,37 @@ Phase8A reference: `71ff793c83c3ab58e4890c4623815052a061eeb8`.
 The final Phase8B handoff commit follows this audited code and changes documents
 only; record its full SHA from the branch and require fresh successful CI for it.
 
-Candidate Vercel scope/project: `neuterions-projects/financial-dashboard`.
-Candidate deployment: `AMNA9Vhxs7na5RN5ZZAr7MnHYcfv`, associated by GitHub status
-with Phase8A. READY/Preview are user-provided evidence, not independently fetched
-provider metadata. **Intended project ID, reason for name, current deployment
-commit/environment, and final staging deployment ID are UNKNOWN.** Do not reuse
-this candidate or promote it based on its name or build status alone.
+Externally verified Vercel project: `neuterions-projects/financial-dashboard`,
+ID `prj_phm4794zl2QBICu5MMbLFxcHAfFq`, connected to `Physcratic/physcratic`.
+Verified READY Phase8A Preview: `dpl_AMNA9Vhxs7na5RN5ZZAr7MnHYcfv`, authoring-
+completion branch, SHA71ff793. Production: `dpl_FKdnftiM54PyU6dsccG7gwCMnpeK`,
+main/c2139de. These are external read-only inspection results supplied by user,
+not new provider API calls by this agent. Final authoring staging deployment
+identity after Phase8A remains unverified; pin its actual SHA before execution.
 
-**Exact staging Neon project/database/branch, owner, endpoint role, backup and
-ledger identities: UNKNOWN. Exact private staging Blob store ID: UNKNOWN.**
-These must be supplied and verified against Production before proceeding.
+`physcratic.com` has no branch-specific mapping; `staging.physcratic.com` points
+to `codex/auth-hardening`, NOT this integration branch. The branch lacks the
+DB/auth/mail overrides found for auth-hardening; broad P/P/D entries exist for
+DATABASE_URL, BLOB_READ_WRITE_TOKEN and BETTER_AUTH_SECRET. Do not treat the
+current Preview as isolated. No live writes are permitted pending verification.
+
+[Canonical environment evidence](AUTHORING_ENVIRONMENT_EVIDENCE.md) lists every
+variable scope and these Neon resources (all database `neondb`):
+
+- `divine-mode-82940461` / main `br-quiet-dawn-b7m2zrt3`;
+- same project / physcratic-staging `br-lingering-heart-b7gda0w4`;
+- same project / physcratic-integration `br-solitary-thunder-b7h5q79t`;
+- `wild-water-97019860` / main `br-hidden-surf-b7rb5nw6`.
+
+**Actual Preview-connected Neon branch/endpoint/role, approved staging target,
+private Blob store ID, backup and ledger remain UNKNOWN.** No listed branch is
+selected by name. Resolve the effective connection/resource mapping read-only
+before approving any configuration changes or migration plan. Historical project
+name rationale and the additional physcratic project's role also remain unknown.
+
+CI for the audited f876792 handoff is confirmed successful in PR41210409141 and
+push41210403475. This update changes evidence documents only; track its own CI
+without reopening the already satisfied f876792 runtime-code CI evidence.
 
 Operator approval record must contain: verified Vercel team/project IDs and repo
 binding, deployment ID/SHA/Preview scope, exact isolated Neon project/branch/DB

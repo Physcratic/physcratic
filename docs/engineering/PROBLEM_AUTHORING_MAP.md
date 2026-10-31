@@ -8,9 +8,11 @@ Audited code/test32761ee fixes only three incoming SEO fixture lint errors.
 All6C/7/8A commits preserved; no new feature expansion or shared migration.
 Full merged PG252/252; independent security83/83 and migration51/51,0skip/TODO;
 exact PG17.11 migration order/down/up proof preserves legacy data. No confirmed
-application-security/migration blocker. Runtime target mapping/isolation and
-remote ledger remain UNKNOWN; final-SHA CI must be obtained separately from
-Phase8A success. Current evidence, browser reruns and precise operator approval
+application-security/migration blocker. External read-only evidence now confirms
+financial-dashboard→Physcratic mapping and successful f876792 CI (PR41210409141,
+push41210403475). Preview/Production DB/Blob/auth isolation remains NOT
+ESTABLISHED; actual connected Neon branch/role and remote ledger/backup UNKNOWN.
+The staging subdomain maps to auth-hardening, not authoring-completion. Current evidence, browser reruns and precise operator approval
 gates: [readiness](AUTHORING_RELEASE_READINESS.md),
 [runbook](AUTHORING_RELEASE_RUNBOOK.md),
 [blockers](AUTHORING_RELEASE_BLOCKERS.md).
@@ -167,3 +169,17 @@ commit was rewritten. Final regression/full counts below supersede earlier
 pre-refresh counts where applicable.
 
 Final8B local gates: frozen install/types/lint0/build PASS; full252/252,0skip/TODO; fresh authoring/student browser PASS; library rerun ENOSPC-blocked (prior8A evidence only). Final CI/target-isolation/remote-ledger evidence required. See release readiness/runbook; STOP after handoff/draft PR attempt.
+
+
+## Phase8B external evidence follow-up
+
+f876792 CI gate satisfied: both remote jobs and exact checkout SHA independently
+verified. User-supplied external read-only Vercel/Neon metadata confirms repository
+mapping and8A Preview/Production identities. No secrets decrypted or resource
+changes. Broad P/P/D entries and no authoring-specific overrides mean isolation
+is not established; Neon names do not prove connectivity. Actual authoring target,
+private Blob store, effective origin and ledger/backup still unverified. No live
+write tests or migrations. Library rerun remains ENOSPC-blocked.
+Canonical identifiers/scopes: [environment evidence](AUTHORING_ENVIRONMENT_EVIDENCE.md).
+Evidence-only follow-up changes no runtime code; record its CI separately from
+the satisfied f876792 gate. Verdict remains BLOCKED; stop after documentation.

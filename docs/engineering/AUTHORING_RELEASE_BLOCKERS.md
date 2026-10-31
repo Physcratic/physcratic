@@ -44,37 +44,35 @@ independent review. Delivered solutions/PDFs cannot be recalled; assistance mean
 recorded app reveal, and approved whole PDFs remain the author's responsibility.
 These existing policy limits are preserved, not new release fixes.
 
-## Phase 8B current verdict — supersedes the earlier checkpoint
+## Phase 8B current verdict — updated external evidence
 
 BLOCKED for controlled live staging validation:
 
-1. **Target and isolation evidence missing.** GitHub's successful Phase8A Vercel
-   status points to `neuterions-projects/financial-dashboard`, but its intended
-   Physcratic project ID/purpose, provider-reported Preview SHA/environment and
-   exact isolated Neon/private Blob/auth/mail resources are unverified. Obtain
-   authorized read-only evidence; do not assume correct mapping or isolation.
-2. **Remote schema/ledger/backup UNKNOWN.** Verify the actual target and ledger,
-   schema compatibility, checksums and recovery point. Existing docs specify a
-   ledger contract but no deployed schema/runner/lock key; approve/reconcile the
-   concrete mechanism before any migration. No shared DB was accessed here.
-3. **Final-SHA CI required.** Phase8A run41208646313 is verified successful, but
-   cannot cover the SEO merge and Phase8B handoff. Obtain a fresh successful run
-   for the delivered final SHA. Vercel success is not this CI or runtime proof.
+1. **Preview/Production isolation NOT ESTABLISHED.** Vercel→GitHub mapping is now
+   confirmed: financial-dashboard/prj_phm4794zl2QBICu5MMbLFxcHAfFq. Broad P/P/D
+   DATABASE_URL, BLOB_READ_WRITE_TOKEN and BETTER_AUTH_SECRET entries exist, with
+   no authoring-completion-specific overrides. Auth-hardening overrides do not
+   cover authoring; staging.physcratic.com points to auth-hardening. Actual
+   authoring DB/role/Blob store and effective auth/callback origins need read-only
+   verification before any separately approved configuration change or live test.
+2. **Remote schema/ledger/backup UNKNOWN.** Named Neon branches are inventoried,
+   not proven deployment connections or approved targets. Inspect/reconcile the
+   verified target's actual schema/ledger and recovery point; do not assume empty.
+3. **Recovered-workspace library browser rerun.** Fresh authoring/student suites
+   passed; library initialization failed with ENOSPC.8A pass remains prior
+   evidence only. No fresh library pass is claimed by this documentation update.
 
-Live Better Auth/email/origin and real private Blob tests remain next controlled
-staging tasks, only after the above gates and separate write authorization.
-No confirmed application-security or migration blocker in independent reviews:
-83/83 security checks,51/51 migration checks, exact PG17 order/empty down/up proof.
-Full merged suite252/252,0skip/TODO; see [readiness](AUTHORING_RELEASE_READINESS.md)
-for current browser/build evidence and [runbook](AUTHORING_RELEASE_RUNBOOK.md)
-for approval gates. A draft PR is review preparation, not deployment approval.
+**Closed gates:** financial-dashboard→Physcratic repository mapping and exact8A
+Preview identity are externally verified. Remote CI for f876792 is independently
+confirmed SUCCESS: PR41210409141 and push41210403475, including exact checkout
+SHA and all install/types/lint/unit+PG/build steps. Do not retain its CI as an
+open blocker. This later evidence-only commit's CI is tracked separately.
 
-4. **Recovered-workspace library browser rerun.** Fresh authoring and student
-   browsers passed; library initialization repeatedly failed with local ENOSPC,
-   including a tmpfs-database attempt. Prior8A evidence is reviewed only. Require
-   a successful current-tree rerun; do not count infrastructure failure as pass.
+No remaining confirmed application-security/migration defect from independent
+83/83 and51/51 reviews;252/252 merged tests,0skip/TODO. Live Better Auth/mail/
+origin and private Blob tests remain later tasks only after isolation, ledger
+and explicit write authorization. No writes/decryptions/config changes made.
 
-Latest GitHub observation: both `physcratic` AND `financial-dashboard` projects
-report pending statuses on handoff55b5f68. Verify which project is intended and
-why both are linked; do not infer isolation from either name. Draft PR27 exists
-and remains unmerged: https://github.com/Physcratic/physcratic/pull/27
+[Environment evidence](AUTHORING_ENVIRONMENT_EVIDENCE.md),
+[readiness](AUTHORING_RELEASE_READINESS.md), [runbook](AUTHORING_RELEASE_RUNBOOK.md).
+Draft PR27 remains review preparation, not authorization to merge/deploy/migrate.

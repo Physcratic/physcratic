@@ -4,6 +4,33 @@
 and ledger evidence is established.** Code validation is separate from runtime
 readiness. No shared writes/deployment were authorized or performed.
 
+## Current evidence update — supersedes initial unknown mapping/CI notes below
+
+External read-only account inspection supplied by user confirms the Vercel→GitHub
+mapping, exact project/deployment IDs, domains and Neon inventory. No secret
+values were decrypted/disclosed; no configuration, database or storage write.
+See [canonical environment evidence](AUTHORING_ENVIRONMENT_EVIDENCE.md).
+
+`financial-dashboard` is project `prj_phm4794zl2QBICu5MMbLFxcHAfFq` connected to
+Physcratic/physcratic. Its8A Preview and Production IDs/SHAs are verified in that
+evidence. `staging.physcratic.com` serves auth-hardening, not authoring-completion.
+Broad P/P/D DB/Blob/auth entries and absent authoring-specific overrides leave
+isolation NOT ESTABLISHED. Available Neon branch IDs do not prove connectivity.
+The effective authoring DB/role/Blob store/origin, approved isolated target,
+backups and remote schema/ledger remain UNKNOWN. Live auth/mail/Blob tests,
+cleanup, uploads and migrations against the current Preview remain prohibited.
+
+The agent independently verified successful jobs AND exact checkout SHA for
+f876792 in PR run41210409141 and push run41210403475. Its remote-CI gate is now
+SATISFIED (install/types/lint/full unit+PG/build). This documentation-only evidence
+follow-up changes no application or migration code; its separate CI must not be
+confused with those confirmed runs. Current library rerun remains ENOSPC-blocked;
+no new browser execution is claimed. Final verdict remains BLOCKED for isolation,
+remote schema/ledger/recovery verification and recovered library rerun. Real
+Better Auth/email/origin and private Blob validation remain later gated tasks.
+
+## Initial audit record (historical; retained for provenance)
+
 ## Audited revision and integration
 
 Audited code/test SHA: `32761ee914e5030260497ec6bf02e3844dc0a2d7`.

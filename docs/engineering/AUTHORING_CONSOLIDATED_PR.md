@@ -38,15 +38,12 @@ Independent security83/83 and migration51/51; exact0001→0006/empty reverse/dow
 preserves legacy sentinels. Browser final outcomes are recorded in
 AUTHORING_RELEASE_READINESS.md. Initial local disk-exhaustion attempts are not
 counted as passes. Harnesses inject sessions and memory storage, not live login
-or private Blob. Phase8A CI41208646313 verified; require fresh final-SHA CI.
+or private Blob. Phase8B f876792 CI confirmed SUCCESS in PR41210409141 and push41210403475; evidence-only follow-up CI tracked separately.
 
 ## Release gates — do not merge or deploy automatically
 
 Draft review can proceed, but controlled live staging is BLOCKED until the
-financial-dashboard→Physcratic mapping, exact isolated Neon/Blob/auth/mail scope,
-remote ledger/schema/backup and final CI are verified. Provider deployment READY/
-Preview is user-reported; GitHub confirms its old-SHA Vercel status association,
-not runtime readiness. Live auth/mail/origin and real Blob checks follow only
+exact isolated Neon/Blob/auth/mail scope and remote ledger/schema/backup are verified. financial-dashboard→Physcratic mapping is now externally confirmed, but broad environment scopes and missing authoring overrides do not establish isolation. External read-only inspection confirms the8A READY Preview identity; it does not prove runtime readiness or identify the actual connected Neon branch. Live auth/mail/origin and real Blob checks follow only
 under separate staging-write authorization. No shared DB/user/storage/env write,
 manual deployment or merge performed. No auto-merge.
 

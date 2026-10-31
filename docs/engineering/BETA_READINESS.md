@@ -144,3 +144,21 @@ Draft PR27 created successfully, no merge/auto-merge. GitHub reports pending
 Vercel contexts for BOTH physcratic and financial-dashboard on55b5f68; project/
 resource mapping remains a blocker. Final documentation-only observation commit
 requires its own exact-SHA CI result; request it if not accessible via the tools.
+
+## 2026-10-31 — Phase8B read-only evidence follow-up
+
+External connected-account inspection supplied by user confirms financial-
+dashboard/prj_phm4794zl2QBICu5MMbLFxcHAfFq→Physcratic/physcratic and exact8A
+READY Preview identity. Production deployment and Neon inventory recorded in
+AUTHORING_ENVIRONMENT_EVIDENCE.md. staging.physcratic.com is mapped to
+codex/auth-hardening. General P/P/D DB/Blob/auth entries have no authoring-
+completion overrides; isolation is not established, and actual connected Neon
+branch/role, private Blob store and ledger remain unknown. No secret values,
+decryptions, configuration changes, provisioning or shared writes.
+
+CI gate for f876792 is CLOSED: PR41210409141 and push41210403475 SUCCESS;
+this agent fetched both jobs and confirmed exact SHA in checkout logs. All
+install/type/lint/unit+PG/build steps pass. Evidence-only follow-up changes no
+application/migration code; its own CI remains a separate observation.
+Readiness/runbook/blockers updated; live auth/Blob tests remain gated and library
+ENOSPC rerun remains open. No merge/deploy/migrations; final verdict BLOCKED.
