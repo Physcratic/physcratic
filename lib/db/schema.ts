@@ -85,5 +85,11 @@ export const solutionChecks = pgTable("solution_check", {
 
 export const archiveProgress = pgTable("archive_progress", {
   userId: text("userId").notNull(), taskId: text("taskId").notNull(), reviewed: boolean("reviewed").notNull().default(false),
-  notes: text("notes").notNull().default(""), answer: text("answer").notNull().default(""), updatedAt: timestamp("updatedAt", { withTimezone: true }).notNull().defaultNow(),
+  notes: text("notes").notNull().default(""), answer: text("answer").notNull().default(""), updatedAt: timestamp("updatedAt").notNull().defaultNow(),
 }, (table) => [primaryKey({ columns: [table.userId, table.taskId] })]);
+
+export const coachingInquiries = pgTable("coaching_inquiry", {
+  id: uuid("id").primaryKey().defaultRandom(), pathway: text("pathway").notNull(), audience: text("audience").notNull(),
+  currentLevel: text("current_level").notNull(), goals: text("goals").notNull(), contact: text("contact").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});

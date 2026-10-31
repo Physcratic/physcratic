@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRef, useState, type CSSProperties } from "react";
 import { ArrowLeft, ArrowRight, Pause, Play } from "lucide-react";
 import { medallists, medallistStats, medalLabel, type Medallist } from "@/lib/coaching/medallists";
+import { CoachingWorldMap } from "./coaching-world-map";
 
 export function CoachingTutorCard({ tutor, priority = false, eager = false }: { tutor: Medallist; priority?: boolean; eager?: boolean }) {
   const extension = ["angel", "kanishk", "ermuun-battulga", "reuben-felix"].includes(tutor.slug) ? "png" : "webp";
@@ -23,7 +24,7 @@ export function CoachingTutorSlideshow() {
   const [paused, setPaused] = useState(false);
   return <div className="coaching-hero-slideshow relative min-w-0">
     <div className="coaching-marquee" role="group" aria-label="Featured Physcratic tutors" data-paused={paused}>
-      {[0, 1].map((column) => <ul key={column} className="coaching-marquee-column" style={{ "--marquee-duration": column ? "95s" : "80s", "--marquee-direction": column ? "reverse" : "normal" } as CSSProperties}>
+      {[0, 1].map((column) => <ul key={column} className="coaching-marquee-column" style={{ "--marquee-duration": column ? "300s" : "260s", "--marquee-direction": column ? "reverse" : "normal" } as CSSProperties}>
         {[0, 1].map((copy) => medallists.filter((_, index) => index % 2 === column).map((tutor, index) => <li key={`${copy}-${tutor.slug}`} aria-hidden={copy === 1 ? true : undefined} className="pb-3 lg:pb-4"><CoachingTutorCard tutor={tutor} priority={!copy && !index} eager /></li>))}
       </ul>)}
     </div>
@@ -40,14 +41,17 @@ export function CoachingTutors() {
   }
   return <section id="tutors" className="py-20">
     <div className="coaching-container flex min-w-0 flex-col gap-8">
-      <div className="flex max-w-2xl flex-col gap-4">
-        <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">Our tutors</p>
-        <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">Taught by people who have stood on the Olympiad stage.</h2>
-        <p className="max-w-xl leading-relaxed text-muted-foreground">Every tutor has medalled at national, Asian, or international level. We match each student to the tutor whose strengths fit their syllabus and goals.</p>
-        <dl className="flex flex-wrap gap-10">
-          <div><dt className="text-sm text-muted-foreground">Tutors</dt><dd className="text-2xl font-semibold">{medallistStats.count}</dd></div>
-          <div><dt className="text-sm text-muted-foreground">Countries represented</dt><dd className="text-2xl font-semibold">{medallistStats.countries}</dd></div>
-        </dl>
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,.85fr)_minmax(0,1.15fr)] lg:items-center">
+        <div className="flex max-w-2xl flex-col gap-4">
+          <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">Our tutors</p>
+          <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">Taught by people who have stood on the Olympiad stage.</h2>
+          <p className="max-w-xl leading-relaxed text-muted-foreground">Every tutor has medalled at national, Asian, or international level. We match each student to the tutor whose strengths fit their syllabus and goals.</p>
+          <dl className="flex flex-wrap gap-10">
+            <div><dt className="text-sm text-muted-foreground">Tutors</dt><dd className="text-2xl font-semibold">{medallistStats.count}</dd></div>
+            <div><dt className="text-sm text-muted-foreground">Countries represented</dt><dd className="text-2xl font-semibold">{medallistStats.countries}</dd></div>
+          </dl>
+        </div>
+        <CoachingWorldMap />
       </div>
       <div className="flex justify-end gap-2">
         <button type="button" aria-label="Previous tutors" onClick={() => scroll(-1)} className="flex size-10 items-center justify-center rounded-full border border-border"><ArrowLeft className="size-4" aria-hidden="true" /></button>

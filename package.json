@@ -66,6 +66,7 @@
     "react-hook-form": "^7.60.0",
     "react-pdf": "11.0.0",
     "react-resizable-panels": "^2.1.7",
+    "react-simple-maps": "^5.0.5",
     "recharts": "2.15.4",
     "resend": "^6.35.0",
     "sonner": "^1.7.4",
