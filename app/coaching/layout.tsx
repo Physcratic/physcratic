@@ -13,5 +13,18 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: "#0c101a" };
 
 export default function CoachingLayout({ children }: { children: React.ReactNode }) {
-  return <div className={`${styles.page} ${display.variable} font-sans`}>{children}</div>;
+  return (
+    <div
+      className={`${styles.page} ${display.variable} font-sans`}
+      style={{
+        "--background": "240 5% 8%",
+        "--foreground": "220 50% 97%",
+        backgroundColor: "hsl(var(--background))",
+        color: "hsl(var(--foreground))",
+        colorScheme: "dark",
+      } as React.CSSProperties}
+    >
+      {children}
+    </div>
+  );
 }
