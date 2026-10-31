@@ -76,6 +76,8 @@ export const publishableDraftSchema = authoredDraftSchema.superRefine((draft, ct
   const parts = doc.sections.flatMap(s => s.parts);
   if (!doc.title.trim() || !doc.provenance.rightsDeclaration.trim() || (doc.provenance.kind === "authorized" && !doc.provenance.source.trim())) ctx.addIssue({ code: "custom", message: "Title and rights provenance required" });
   if (!parts.length || ![doc.context, ...doc.sections.map(s => s.blocks), ...parts.map(p => p.blocks)].some(meaningful)) ctx.addIssue({ code: "custom", message: "Native statement and at least one part required" });
+  const images = [...doc.context, ...doc.sections.flatMap(s => [...s.blocks, ...s.parts.flatMap(p => p.blocks)]), ...draft.privateParts.flatMap(p => [...p.hints, ...p.solution])].filter(b => b.kind === "image");
+  if (images.some(b => !b.alt.trim())) ctx.addIssue({ code: "custom", message: "Every image requires descriptive alternative text before publication" });
   for (const part of parts) if (!draft.privateParts.find(p => p.partId === part.id)?.key) ctx.addIssue({ code: "custom", message: "Every published part requires a key or explicit manual mode" });
 });
 export const authoredProblemSchema = z.strictObject({

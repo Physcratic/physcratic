@@ -9,6 +9,8 @@ import { execFileSync } from "node:child_process";
 import { join, basename } from "node:path";
 import { tmpdir } from "node:os";
 import { Pool } from "pg";
+import { createAuthorMediaApi } from "../lib/author-media-api.ts";
+import { memoryAuthorStorage, png, pdf } from "./author-media-fixtures.ts";
 import { createProblemAuthoringApi } from "../lib/problem-authoring-api.ts";
 import { isAllowedSubmissionOrigin } from "../lib/submission-security.ts";
 const require = createRequire(import.meta.url);
@@ -28,9 +30,17 @@ const temp = await mkdtemp(join(tmpdir(), "physcratic-editor-browser-"));
 let browser,
   server,
   origin,
-  failNext = 0;
+  failNext = 0,
+  uploadGate;
 const api = createProblemAuthoringApi({
   pool,
+  user: async () => ({ id: "browser-author", emailVerified: true }),
+  origin: (request) => isAllowedSubmissionOrigin(request, [origin]),
+});
+const mediaStorage = memoryAuthorStorage();
+const mediaApi = createAuthorMediaApi({
+  pool,
+  storage: mediaStorage.storage,
   user: async () => ({ id: "browser-author", emailVerified: true }),
   origin: (request) => isAllowedSubmissionOrigin(request, [origin]),
 });
@@ -46,7 +56,11 @@ try {
   await pool.query(
     'CREATE TABLE "user" (id text PRIMARY KEY); INSERT INTO "user" VALUES (\'browser-author\')',
   );
-  for (const name of ["0001_problem_authoring", "0002_authored_write_limit"])
+  for (const name of [
+    "0001_problem_authoring",
+    "0002_authored_write_limit",
+    "0003_author_media",
+  ])
     await pool.query(
       "BEGIN;\n" +
         (await readFile(`migrations/${name}.up.sql`, "utf8")) +
@@ -91,24 +105,43 @@ try {
         const request = new Request(url, {
           method: req.method,
           headers,
-          body:
-            req.method === "GET" ? undefined : Buffer.concat(chunks).toString(),
+          body: req.method === "GET" ? undefined : Buffer.concat(chunks),
         });
         const paths = url.pathname.split("/").filter(Boolean);
-        let action;
-        if (paths[2] !== "drafts") action = "public";
-        else if (!paths[3]) action = req.method === "POST" ? "create" : "list";
-        else
-          action =
-            paths[4] ||
-            { GET: "read", PUT: "update", DELETE: "delete" }[req.method];
-        const response = await api(
-          action,
-          request,
-          paths[2] === "drafts" ? paths[3] : paths[2],
-        );
+        if (req.method === "POST" && paths[4] === "media" && uploadGate)
+          await uploadGate;
+        let response;
+        if (paths[2] === "media") response = await mediaApi("cleanup", request);
+        else if (paths[4] === "media")
+          response = await mediaApi(
+            req.method === "GET" ? "list" : "upload",
+            request,
+            paths[3],
+          );
+        else if (paths[3] === "media")
+          response = await mediaApi(
+            req.method === "GET" ? "read" : "delete",
+            request,
+            paths[2],
+            paths[4],
+          );
+        else {
+          let action;
+          if (paths[2] !== "drafts") action = "public";
+          else if (!paths[3])
+            action = req.method === "POST" ? "create" : "list";
+          else
+            action =
+              paths[4] ||
+              { GET: "read", PUT: "update", DELETE: "delete" }[req.method];
+          response = await api(
+            action,
+            request,
+            paths[2] === "drafts" ? paths[3] : paths[2],
+          );
+        }
         res.writeHead(response.status, Object.fromEntries(response.headers));
-        res.end(await response.text());
+        res.end(Buffer.from(await response.arrayBuffer()));
         return;
       }
       if (url.pathname === "/bundle.js" || url.pathname === "/style.css") {
@@ -221,6 +254,16 @@ try {
     .getByLabel("Worked solution text 1", { exact: true })
     .fill("PRIVATE_KEY_SENTINEL");
   await page
+    .getByLabel("Upload image to worked solution", { exact: true })
+    .setInputFiles({
+      name: "private.png",
+      mimeType: "image/png",
+      buffer: Buffer.from(png),
+    });
+  await page
+    .getByLabel("Worked solution image 2 alt text", { exact: true })
+    .fill("Private solution diagram");
+  await page
     .getByRole("button", { name: "+ Add part to section 2", exact: true })
     .click();
   const secondSection = page
@@ -258,6 +301,75 @@ try {
       ),
     "autosave",
   );
+  // Secure upload, failed replacement, private preview isolation and autosaved restoration.
+  const uploadFile = (name, bytes = png, mimeType = "image/png") => ({
+    name,
+    mimeType,
+    buffer: Buffer.from(bytes),
+  });
+  await page
+    .getByLabel("Upload image to common context", { exact: true })
+    .setInputFiles(uploadFile("diagram.png"));
+  await page
+    .getByLabel("Common context image 2 alt text", { exact: true })
+    .fill("Pendulum diagram");
+  await until(
+    async () =>
+      await page
+        .getByAltText("Pendulum diagram", { exact: true })
+        .evaluate((img) => img.complete && img.naturalWidth > 0),
+    "private image proxy",
+  );
+  const firstMedia = await page
+    .getByAltText("Pendulum diagram", { exact: true })
+    .getAttribute("src");
+  mediaStorage.failPut = true;
+  await page
+    .getByLabel("Replace common context image 2", { exact: true })
+    .setInputFiles(uploadFile("failed.png"));
+  await until(
+    async () =>
+      (await page.getByRole("alert").allTextContents()).some((t) =>
+        t.includes("temporarily unavailable"),
+      ),
+    "failed upload feedback",
+  );
+  assert.equal(
+    await page
+      .getByAltText("Pendulum diagram", { exact: true })
+      .getAttribute("src"),
+    firstMedia,
+  );
+  mediaStorage.failPut = false;
+  await page
+    .getByLabel("Replace common context image 2", { exact: true })
+    .setInputFiles(uploadFile("replacement.png"));
+  await until(
+    async () =>
+      (await page
+        .getByAltText("Pendulum diagram", { exact: true })
+        .getAttribute("src")) !== firstMedia,
+    "replacement",
+  );
+  await page
+    .getByLabel("Upload statement PDF", { exact: true })
+    .setInputFiles(uploadFile("statement.pdf", pdf, "application/pdf"));
+  await page
+    .getByRole("link", { name: "Download statement PDF", exact: true })
+    .waitFor();
+  await page
+    .getByLabel("Upload private solution PDF", { exact: true })
+    .setInputFiles(uploadFile("solution.pdf", pdf, "application/pdf"));
+  await page
+    .getByRole("link", { name: "Download private solution PDF", exact: true })
+    .waitFor();
+  await until(
+    async () =>
+      (await page.getByRole("status").allTextContents()).some((t) =>
+        t.includes("All changes saved"),
+      ),
+    "media autosave",
+  );
   await page
     .getByRole("button", { name: "Student preview", exact: true })
     .click();
@@ -267,6 +379,28 @@ try {
   );
   assert.equal(
     (await page.locator("body").innerText()).includes("PRIVATE_KEY_SENTINEL"),
+    false,
+  );
+  assert.equal(
+    await page
+      .getByAltText("Private solution diagram", { exact: true })
+      .count(),
+    0,
+  );
+  assert.equal(
+    await page.getByAltText("Pendulum diagram", { exact: true }).count(),
+    1,
+  );
+  assert.equal(
+    await page
+      .getByRole("link", { name: "Download statement PDF 1", exact: true })
+      .count(),
+    1,
+  );
+  assert.equal(
+    (await page.locator("body").innerText()).includes(
+      "Download private solution PDF",
+    ),
     false,
   );
   assert.ok(
@@ -288,6 +422,12 @@ try {
   assert.equal(
     await page.getByLabel("Problem title", { exact: true }).inputValue(),
     "Unsaved valuable work",
+  );
+  assert.equal(
+    await page
+      .getByLabel("Common context image 2 alt text", { exact: true })
+      .inputValue(),
+    "Pendulum diagram",
   );
   await page.getByRole("button", { name: "Save now", exact: true }).click();
   await until(
@@ -344,6 +484,56 @@ try {
     (await page.locator("body").innerText()).includes("PRIVATE_KEY_SENTINEL"),
     true,
   );
+  // Conflict resolutions cannot swap the document under a pending upload callback.
+  let finishUpload;
+  uploadGate = new Promise((resolve) => {
+    finishUpload = resolve;
+  });
+  await page
+    .getByLabel("Replace common context image 2", { exact: true })
+    .setInputFiles(uploadFile("conflict-replacement.png"));
+  await until(
+    async () =>
+      await page
+        .getByRole("button", { name: "Use server copy", exact: true })
+        .isDisabled(),
+    "upload locks server-copy choice",
+  );
+  assert.equal(
+    await page
+      .getByRole("button", {
+        name: "Keep local work over this version",
+        exact: true,
+      })
+      .isDisabled(),
+    true,
+  );
+  finishUpload();
+  uploadGate = undefined;
+  await until(
+    async () =>
+      (await page
+        .getByRole("button", { name: "Use server copy", exact: true })
+        .count()) === 0,
+    "upload edit invalidates old comparison",
+  );
+  current.content.context[1].mediaId = (
+    await page
+      .getByAltText("Pendulum diagram", { exact: true })
+      .getAttribute("src")
+  )
+    .split("/")
+    .pop();
+  current.content.attachments.find(a=>a.purpose==="statement-image").id=current.content.context[1].mediaId;
+  await page
+    .getByRole("button", {
+      name: "Compare with latest server copy",
+      exact: true,
+    })
+    .click();
+  await page
+    .getByRole("button", { name: "Use server copy", exact: true })
+    .waitFor();
   await page
     .getByRole("button", { name: "Student preview", exact: true })
     .click();
@@ -371,7 +561,7 @@ try {
     .getByRole("button", { name: "Add text to common context", exact: true })
     .click();
   await page
-    .getByRole("button", { name: "Delete Common context block 2", exact: true })
+    .getByRole("button", { name: "Delete Common context block 3", exact: true })
     .focus();
   await page.keyboard.press("Enter");
   assert.notEqual(
