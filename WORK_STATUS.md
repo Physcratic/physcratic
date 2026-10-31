@@ -13,5 +13,6 @@
 - Independent security/data-integrity review complete; fixed read-rate blocking, internal-validation classification and misleading Retry-After; no remaining confirmed blockers.
 - Inherited lint missing ESLint / build Inter font network failure confirmed; no tracked config changes. Handoffs + AUTHORED_STUDENT_SUBMISSIONS.md + migration README updated.
 - No dependencies, legacy practice/archive/auth/media changes, social/rating/solving UI, merge/deploy or production data/storage/migrations.
-- Delivery pending commit/push/draft PR attempt; final SHA via git log -1.
+- Implementation e4a89fb pushed; final handoff SHA via git log -1. Draft PR creation blocked by GitHub API Forbidden.
+- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-6a
 - Next: user review Phase 6A, stop. UI/reveal requires separate phase/request after merge/fresh main/handoffs.

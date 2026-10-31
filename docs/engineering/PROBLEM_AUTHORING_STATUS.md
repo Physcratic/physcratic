@@ -3,7 +3,10 @@
 - Updated: 2026-10-31 (Asia/Makassar). Phase 6A ONLY; phases 0–5B merged.
 - Fresh fetched main/base `058fa3cf125920296227d0c8473cf70abe6ff593` (Phase 5B PR #19); merged tree exactly matches reviewed Phase 5B aafbf3b.
 - Branch `codex/problem-authoring-phase-6a` created from fresh main. Read WORK_STATUS/map/status first; relevant auth/grading/public reader/database dependencies only, no repeated audit.
-- Delivery: verification complete, commit/push/draft PR attempt pending; final SHA via git log -1.
+- Implementation `e4a89fb` committed/pushed; final handoff SHA via git log -1.
+- Draft PR creation blocked by GitHub API Forbidden (Post https://api.github.com/graphql).
+- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-6a
+- Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-6a?expand=1
 
 ## Completed Phase 6A
 - Explicit additive0004 creates authored_attempt and authored_student_rate; Drizzle declarations added without rewriting prior schema. No earlier migration changed.
