@@ -10,7 +10,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 
-export function VerificationNotice({ email: initialEmail, returnTo, onBack }: { email: string; returnTo: string; onBack: () => void }) {
+export function VerificationNotice({ email: initialEmail, returnTo, onBack, verificationRequired = false }: { email: string; verificationRequired?: boolean; returnTo: string; onBack: () => void }) {
   const heading = useRef<HTMLHeadingElement>(null);
   useEffect(() => { heading.current?.focus(); }, []);
   const [email, setEmail] = useState(initialEmail);
@@ -40,7 +40,7 @@ export function VerificationNotice({ email: initialEmail, returnTo, onBack }: { 
         return;
       }
       setRetryAt(Date.now() + 60_000);
-      setMessage("If this address belongs to an account awaiting verification, a new link will arrive shortly. Check your spam folder too.");
+      setMessage("Request received. If this address belongs to an account awaiting verification, an email may arrive. This response does not confirm delivery. You can also try signing in.");
     } catch {
       setError("The email service is temporarily unavailable. Please try again.");
     } finally {
@@ -52,8 +52,8 @@ export function VerificationNotice({ email: initialEmail, returnTo, onBack }: { 
     <Card>
       <CardHeader>
         <Mail className="mb-2 size-6 text-muted-foreground" aria-hidden="true" />
-        <h1 ref={heading} tabIndex={-1} className="text-2xl font-semibold leading-tight tracking-tight">Check your email</h1>
-        <CardDescription>If your account needs verification, we will send a link to your inbox. Open it to verify your address, then sign in.</CardDescription>
+        <h1 ref={heading} tabIndex={-1} className="text-2xl font-semibold leading-tight tracking-tight">{verificationRequired ? "Verify your email" : "Account next steps"}</h1>
+        <CardDescription>{verificationRequired ? "Your credentials were accepted, but email verification is required before you can sign in. Open an existing verification link or request another below." : "Try signing in if you already have an account. If you need a verification link, you can request one below. This page does not confirm whether an account exists or needs verification."}</CardDescription>
       </CardHeader>
       <CardContent>
         <form id="resend-verification" aria-busy={busy} onSubmit={resend} onKeyDown={(event) => {

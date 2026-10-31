@@ -28,14 +28,15 @@ This is a source audit; production settings, live DDL, and external edge control
 8. Its user-create DB hook checks again and merges server-generated Terms version/time into the user.
 9. Better Auth creates the account/verification data; email delivery is scheduled with Next `after()`.
 10. `lib/verification-email.ts` sends via Resend; domain/key must exist; token hash is the idempotency key.
-11. UI displays a generic verification notice. Signup autoSignIn is false; verification expires after 1 hour.
+11. UI displays generic account next steps after signup (including synthetic duplicate success). Signup autoSignIn is false; verification expires after 1 hour.
 12. Verification does not sign in automatically. Password sign-in requires verified email, length 8–128.
 13. Unverified sign-in can send mail again; explicit resend uses `/send-verification-email`.
 14. Successful sign-in navigates to sanitized `/dashboard` destination; session lasts 7 days, updates daily.
 
 ## Key files and contracts
 - `app/sign-in/page.tsx`: session redirect, safe returnTo, verification status UI flags only.
-- `components/verification-notice.tsx`: resend and 60s browser cooldown; not a security boundary.
+- `components/verification-notice.tsx`: only EMAIL_NOT_VERIFIED login enables account-specific verification copy.
+  Signup/recovery stay generic; resend acknowledgment does not confirm delivery. Cooldown is not a security boundary.
 - `lib/submission-security.ts`: return path restricted to `/dashboard` and rejects backslashes/control chars.
 - `lib/submission-server.ts`: downstream session lookup and configured submission-origin checks.
 - `lib/verification-email-delivery.ts`: Preview/unknown targets require server mailbox allow-list; production target unchanged.
