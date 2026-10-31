@@ -56,3 +56,10 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **Batch 3b:** after PR #2 merges, add catalog and Arena problems and `/coaching` to the registry.
 - Optionally add `og:title` coverage for the problem page in `page.tsx` once PR #2 releases it (the layout already sets it).
 - Rendered-HTML finding: problem pages and the topic page server-render the problem text and catalog card titles into the body (no client-side bailout), so non-JS crawlers see them.
+
+## 2026-10-31 — SEO fixes
+
+- **Sitemap XML:** Next 15.5 writes `<loc>` verbatim, so `&` in `?view=problems&topic=…` made `/sitemap.xml` invalid XML. `app/sitemap.ts` now passes every URL through `xmlEscape()` (`lib/seo/xml.ts`, tested). Verified with an XML parser; topic URLs read `&amp;topic=`.
+- **Metadata in `<head>`:** `htmlLimitedBots: /.*/` in `next.config.mjs` makes Next render `<title>`, canonical and `og:` tags in `<head>` for every user agent. Without it, bots not on Next's list (TelegramBot, GPTBot, ClaudeBot, Claude-SearchBot, OAI-SearchBot, PerplexityBot) get metadata streamed into `<body>`. Checked with the default UA and `TelegramBot (like TwitterBot)`.
+- **Brand icons:** generated from the Physcratic logo and placed in `public/`: `icon-32.png`, `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, `apple-icon.png` (180), `logo-mark-transparent.png`. Wired into layout `icons`, the manifest (192/512 "any", 512 "maskable") and the Organization JSON-LD logo (`/icon-512.png`). The old `icon.svg` and `icon-{dark,light}-32x32.png` were removed (no other references). The 192/512 to-do from Batch 3 is done.
+- **Preview images:** both `opengraph-image` files embed `logo-mark-transparent.png` as a data URL read with `process.cwd()` (Next's local-asset pattern for `ImageResponse`).

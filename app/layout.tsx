@@ -16,7 +16,13 @@ export const metadata: Metadata = {
   // No alternates.canonical or openGraph.url here: pages would inherit them.
   openGraph: baseOpenGraph,
   twitter: { card: "summary_large_image" },
-  icons: { icon: "/icon.svg" },
+  icons: {
+    icon: [
+      { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 export const viewport: Viewport = {
