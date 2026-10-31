@@ -36,7 +36,7 @@ export async function deliverVerificationEmail(mail: Mail, env: Env, transport: 
   let result: { error: unknown };
   try { result = await transport(env.RESEND_API_KEY, {
     from: `Physcratic <accounts@${domain}>`, to: [email], subject: "Verify your email | Physcratic",
-    text: ["Verify your email address", "", "Use this link to verify your Physcratic account:", mail.url, "", "This link expires in 1 hour.", "Didn't sign up? You can ignore this email."].join("\\n"),
+    text: ["Verify your email address", "", "Use this link to verify your Physcratic account:", mail.url, "", "This link expires in 1 hour.", "Didn't sign up? You can ignore this email."].join("\n"),
     html: (() => {
       const verificationUrl = escapeHtml(mail.url);
       const logoUrl = escapeHtml(new URL("/physcratic-email-logo.png", new URL(mail.url).origin).toString());
