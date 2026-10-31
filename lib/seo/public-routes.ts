@@ -5,7 +5,7 @@
 import { filterCatalog } from "../corpus-catalog";
 import { problems, topics, type Problem } from "../physics";
 
-export type PublicRouteKind = "overview" | "view" | "topic" | "problem" | "legal";
+export type PublicRouteKind = "home" | "overview" | "view" | "topic" | "problem" | "legal";
 
 export interface PublicRoute {
   path: string;
@@ -34,6 +34,7 @@ export function findPublicProblem(id: string): Problem | null {
 }
 
 export const publicRoutes: PublicRoute[] = [
+  { path: "/", kind: "home", title: "Physcratic", indexable: true },
   { path: "/dashboard", kind: "overview", title: "Physcratic", indexable: true },
   ...(
     [

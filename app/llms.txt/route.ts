@@ -25,6 +25,7 @@ export function GET() {
     "",
     "## Sections",
     "",
+    `- [Home](${abs("/")}): what Physcratic offers and where to start`,
     `- [Problems](${abs(view("problems").path)}): browse by topic`,
     ...topics.map((r) => `- [${r.title}](${abs(r.path)}): topic page`),
     `- [Contests](${abs(view("contests").path)}): full papers and published contests`,

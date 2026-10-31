@@ -63,3 +63,21 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **Metadata in `<head>`:** `htmlLimitedBots: /.*/` in `next.config.mjs` makes Next render `<title>`, canonical and `og:` tags in `<head>` for every user agent. Without it, bots not on Next's list (TelegramBot, GPTBot, ClaudeBot, Claude-SearchBot, OAI-SearchBot, PerplexityBot) get metadata streamed into `<body>`. Checked with the default UA and `TelegramBot (like TwitterBot)`.
 - **Brand icons:** generated from the Physcratic logo and placed in `public/`: `icon-32.png`, `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, `apple-icon.png` (180), `logo-mark-transparent.png`. Wired into layout `icons`, the manifest (192/512 "any", 512 "maskable") and the Organization JSON-LD logo (`/icon-512.png`). The old `icon.svg` and `icon-{dark,light}-32x32.png` were removed (no other references). The 192/512 to-do from Batch 3 is done.
 - **Preview images:** both `opengraph-image` files embed `logo-mark-transparent.png` as a data URL read with `process.cwd()` (Next's local-asset pattern for `ImageResponse`).
+
+## 2026-10-31 - Batch 4 - Landing page at /
+
+**What shipped:** `app/page.tsx` is now a static server component (it replaces the redirect to `/dashboard`). Sections live in `components/landing/**`: header, hero, proof strip, browse by topic, "Start with a warm-up", how it works, IPhO 2025 teaser, FAQ (plain `<details>`, no FAQPage markup), footer. Only `ThemeToggle` and `FeedbackLink` are client components. No new fonts or images.
+
+**Counts (all computed in `components/landing/data.ts`, none typed in):** 100 olympiad problems from `catalogProblems` (40 IPhO, 35 APhO, 25 EuPhO), IPhO 2025 as 5 papers and 64 subproblems from `lib/ipho-archive`, 6 topics, 12 warm-up problems from `lib/physics`. Topic counts are practice problems plus `filterCatalog({ topic })`, so they can sum to more than 112 when a catalog problem has several topic tags. The URL value stays `Modern`, the label reads "Modern physics".
+
+**SEO:** `/` is the first registry entry (kind `home`), so it appears in the sitemap and in `llms.txt`. `app/llms.txt/route.ts` needed a one-line "Home" entry because it only lists problem, topic and view kinds. Organization and WebSite JSON-LD moved from the `/dashboard` overview to `/`, so they live in one place. Title is `SITE.defaultTitle`, canonical and `og:url` are `/` (Next renders the root without a trailing slash, the sitemap writes `/`, both mean the same URL).
+
+**Copy rule (from now on):** no em dashes, no en dashes used as dashes, no semicolons in user-visible text. Applied to `lib/site.ts` (new `SITE.tagline`, `defaultTitle` is now "Physics Olympiad practice for IPhO, APhO and EuPhO | Physcratic"), the root `opengraph-image` (wordmark plus tagline), the landing page and everything under `app/`, `lib/seo/` and `lib/dashboard-route.ts`. `lib/landing.test.ts` guards the landing sources and site strings. Files owned by other branches still have violations (see the PR description).
+
+**Favicons:** `icon-32/192/512.png` are now background-free, recolored to #4F86FF from `logo-mark-transparent.png` (alpha thickened with MaxFilter 9 for 32px and 3 for 192px). `apple-icon.png` and `icon-maskable-512.png` keep their solid backgrounds on purpose.
+
+**Brand mark:** hero and header use `logo-mark-transparent.png` on dark and `icon-512.png` on light, because the pale mark looked washed out on the light background. Both images are lazy, low priority, explicitly sized and `aria-hidden`.
+
+**Checked locally:** `/` returns 200 with the right title, canonical, og tags and parseable JSON-LD, exactly one H1, and every internal link on the page returns 200 except `/sign-in`, which returns 500 locally only because there is no Postgres in the sandbox. `/dashboard` no longer has JSON-LD. LCP is the H1 at 375, 768 and 1440 in both themes. No horizontal overflow at 375px, tap targets are at least 44px, and CSS motion is disabled under `prefers-reduced-motion`.
+
+**To do:** run Lighthouse against the Vercel preview. Reconsider the "Counts include warm-up and olympiad problems" note once catalog problems get their own topic pages.

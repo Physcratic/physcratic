@@ -15,6 +15,15 @@ describe("public route registry", () => {
     assert.equal(new Set(paths).size, paths.length);
     for (const p of paths) assert.ok(p.startsWith("/"), p);
   });
+  it("lists the landing page first and indexable", () => {
+    assert.deepEqual(publicRoutes[0], {
+      path: "/",
+      kind: "home",
+      title: "Physcratic",
+      indexable: true,
+    });
+    assert.ok(indexableRoutes.some((r) => r.path === "/"));
+  });
   it("resolves every problem id", () => {
     for (const r of publicRoutes.filter((r) => r.kind === "problem")) {
       const id = r.path.split("/").pop()!;
