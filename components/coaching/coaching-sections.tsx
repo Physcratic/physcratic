@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Plus } from "lucide-react";
 import { CoachingTutors } from "./coaching-tutors";
 
-const footerLinks = [{ href: "/coaching#tutors", label: "Our tutors" }, { href: "/coaching#how-it-works", label: "How it works" }, { href: "/coaching#faq", label: "FAQ" }];
 const headerLinks = [{ href: "/coaching#faq", label: "FAQ" }];
 
 export function CoachingHeader() {
@@ -59,5 +58,5 @@ export function CoachingSections() {
 }
 
 export function CoachingFooter() {
-  return <footer className="border-t border-border pb-24 md:pb-0"><div className="coaching-container flex flex-col justify-between gap-8 py-10 text-sm text-muted-foreground md:flex-row"><div className="flex max-w-sm flex-col gap-2"><p className="text-2xl font-semibold text-foreground">Physcratic</p><p className="leading-relaxed">Physics tutoring from International Physics Olympiad medalists.</p></div><nav aria-label="Coaching footer"><ul className="grid grid-cols-2 gap-x-10 gap-y-3">{footerLinks.map((link) => <li key={link.href}><Link href={link.href} className="hover:text-foreground">{link.label}</Link></li>)}<li><Link href="/dashboard" className="hover:text-foreground">Practice workspace</Link></li><li><Link href="/terms" className="hover:text-foreground">Terms & privacy</Link></li><li><a href="https://www.instagram.com/physcratic" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">Instagram</a></li></ul></nav></div></footer>;
+  return <footer className="border-t border-border pb-24 md:pb-0"><div className="coaching-container flex flex-col justify-between gap-8 py-10 text-sm text-muted-foreground md:flex-row"><div className="flex max-w-sm flex-col gap-2"><p className="text-2xl font-semibold text-foreground">Physcratic</p><p className="leading-relaxed">Physics tutoring from International Physics Olympiad medalists.</p></div><nav aria-label="Coaching footer"><ul className="flex flex-wrap items-center gap-x-10 gap-y-3"><li><Link href="/terms" className="hover:text-foreground">Terms & privacy</Link></li><li><a href="https://www.instagram.com/physcratic" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-foreground"><span className="coaching-instagram-icon" aria-hidden="true" />Instagram</a></li></ul></nav></div></footer>;
 }

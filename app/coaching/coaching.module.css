@@ -31,12 +31,27 @@
 .page :global(.coaching-marquee) { display: grid; height: 26rem; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; overflow: hidden; mask-image: linear-gradient(to bottom, transparent, black 14%, black 86%, transparent); }
 .page :global(.coaching-marquee-column) { align-self: start; will-change: transform; backface-visibility: hidden; animation: coaching-marquee var(--marquee-duration, 220s) linear infinite var(--marquee-direction, normal); }
 .page :global([data-paused="true"] .coaching-marquee-column) { animation-play-state: paused; }
-.page :global(.coaching-portrait) { position: relative; overflow: hidden; border-radius: 1rem; background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
-.page :global(.coaching-portrait-image) { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+.page :global(.coaching-portrait) { position: relative; overflow: hidden; border-radius: 0; background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
+.page :global(.coaching-portrait-image) { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; border-radius: 0; object-fit: cover; }
+.page :global(.coaching-portrait[data-reveal-background]) { background: hsl(var(--background)); }
+.page :global(.coaching-portrait-scene) { opacity: 0; transition: opacity .3s ease; }
+.page :global(.coaching-portrait-cutout) { position: absolute; inset: 0; height: 100%; transition: opacity .3s ease; }
+.page :global(.coaching-portrait[data-reveal-background]:hover .coaching-portrait-scene), .page :global(.coaching-portrait[data-reveal-background]:focus .coaching-portrait-scene) { opacity: 1; }
+.page :global(.coaching-portrait[data-reveal-background]:hover .coaching-portrait-cutout), .page :global(.coaching-portrait[data-reveal-background]:focus .coaching-portrait-cutout) { opacity: 0; }
 .page :global(.coaching-portrait-copy) { position: absolute; inset: auto 0 0; display: flex; flex-direction: column; align-items: center; gap: .375rem; padding: 5rem 1rem 1rem; background: linear-gradient(transparent, hsl(var(--background) / .88)); color: hsl(var(--foreground)); text-align: center; }
 .page :global(.coaching-portrait-copy p) { overflow-wrap: anywhere; }
-.page :global(.coaching-gallery) { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; padding-block: .5rem 1rem; }
-.page :global(.coaching-gallery > li) { width: 16rem; flex-shrink: 0; scroll-snap-align: start; }
+.page :global(.coaching-tutor-heading) { position: relative; display: flex; width: 100%; max-width: 32rem; aspect-ratio: 2 / 1; align-items: center; justify-content: center; padding-bottom: 1.5rem; }
+.page :global(.coaching-laurel) { object-fit: contain; pointer-events: none; }
+.page :global(.coaching-gallery-viewport) { min-width: 0; overflow: hidden; }
+.page :global(.coaching-gallery-track) { display: flex; width: max-content; animation: coaching-gallery 160s linear infinite; }
+.page :global(.coaching-gallery) { display: flex; flex-shrink: 0; gap: 1rem; padding-inline-end: 1rem; }
+.page :global(.coaching-gallery > li) { width: 16rem; flex-shrink: 0; }
+.page :global(.coaching-gallery-viewport:hover .coaching-gallery-track), .page :global(.coaching-gallery-viewport[data-paused="true"] .coaching-gallery-track) { animation-play-state: paused; }
+.page :global(.coaching-gallery-viewport:focus-within) { overflow-x: auto; }
+.page :global(.coaching-gallery-viewport:focus-within .coaching-gallery-track) { animation: none; }
+.page :global(.coaching-gallery-viewport:focus-within .coaching-gallery[aria-hidden="true"]) { display: none; }
+.page :global(.coaching-gallery-viewport:focus-visible), .page :global(.coaching-portrait:focus-visible) { outline: 2px solid hsl(var(--accent)); outline-offset: 4px; }
+.page :global(.coaching-instagram-icon) { display: inline-block; width: 1.25rem; height: 1.25rem; flex-shrink: 0; background: currentColor; mask: url("/coaching/instagram.svg") center / contain no-repeat; }
 .page :global(.coaching-rise) { animation: coaching-rise .6s ease-out both; }
 .page :global(.coaching-mobile-cta) { position: fixed; inset: auto 1rem 1rem; z-index: 30; display: flex; min-height: 3rem; align-items: center; justify-content: center; border-radius: .5rem; background: hsl(var(--accent)); color: hsl(var(--accent-foreground)); font-weight: 700; box-shadow: 0 4px 24px hsl(var(--background) / .7); }
 .page :global(.coaching-input) { width: 100%; min-height: 3rem; border: 1px solid hsl(var(--border)); border-radius: .5rem; padding: .75rem; background: hsl(var(--muted)); color: hsl(var(--foreground)); }
@@ -45,7 +60,8 @@
 
 @keyframes coaching-marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(0, -50%, 0); } }
 @keyframes coaching-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes coaching-gallery { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
 @media (min-width: 640px) { .page :global(.coaching-container) { padding-inline: 2rem; } .page :global(.coaching-marquee) { height: 34rem; } .page :global(.coaching-gallery > li) { width: 18rem; } }
 @media (min-width: 768px) { .page :global(.coaching-mobile-cta) { display: none; } }
 @media (min-width: 1024px) { .page :global(.coaching-hero) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3.5rem; padding-block: 4rem; } .page :global(.coaching-marquee) { height: 44rem; gap: 1rem; } .page :global(.coaching-hero-slideshow) { margin-top: -2rem; } }
-@media (prefers-reduced-motion: reduce) { .page :global(.coaching-rise) { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .page :global(.coaching-rise), .page :global(.coaching-gallery-track) { animation: none; } .page :global(.coaching-gallery-viewport) { overflow-x: auto; } .page :global(.coaching-gallery[aria-hidden="true"]), .page :global(.coaching-gallery-toggle) { display: none; } .page :global(.coaching-portrait-scene), .page :global(.coaching-portrait-cutout) { transition: none; } }
