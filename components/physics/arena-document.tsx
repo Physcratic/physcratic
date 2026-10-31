@@ -2,6 +2,8 @@ import { Fragment, useId } from "react";
 import { parseArenaDocument, type ArenaBlock } from "@/lib/arena-document";
 import katex from "katex";
 import { MathFormula } from "./math-formula";
+import { ProblemImage } from "./problem-image";
+import { cn } from "@/lib/utils";
 
 function MathText({ text }: { text: string }) {
   return text.split(/(\$\$[\s\S]*?\$\$)/g).map((part, index) => {
@@ -22,11 +24,9 @@ function ArenaParagraph({ text }: { text: string }) {
   if (figure)
     return (
       <figure className="flex justify-center">
-        <img
+        <ProblemImage
           src={figure[2]}
           alt={figure[1]}
-          loading="lazy"
-          decoding="async"
           className="h-auto max-h-96 max-w-full rounded-md"
         />
       </figure>
@@ -47,10 +47,11 @@ function ArenaBlocks({ blocks }: { blocks: ArenaBlock[] }) {
       <ol
         key={index}
         role="list"
-        className="flex min-w-0 list-none flex-col gap-5 pl-5 sm:pl-8"
+        data-numbering={block.kind}
+        className={cn("flex min-w-0 list-none flex-col gap-4", block.kind !== "letter" && "pl-4 sm:pl-6")}
       >
         {block.items.map((paragraphs, itemIndex) => (
-          <li key={itemIndex} className="flex min-w-0 flex-col gap-4">
+          <li key={itemIndex} className="flex min-w-0 flex-col gap-4 rounded-lg border border-border bg-card p-4 text-card-foreground">
             {paragraphs.map((text, paragraphIndex) => (
               <ArenaParagraph key={paragraphIndex} text={text} />
             ))}
@@ -81,7 +82,9 @@ export function ArenaDocument({ content }: { content: string }) {
             >
               <MathText text={section.heading} />
             </h3>
-            <ArenaBlocks blocks={section.blocks} />
+            <div className={cn("flex min-w-0 flex-col gap-5", /^\d+[.)]\s/.test(section.heading) && "pl-4 sm:pl-6")}>
+              <ArenaBlocks blocks={section.blocks} />
+            </div>
           </section>
         ) : (
           <Fragment key={index}>

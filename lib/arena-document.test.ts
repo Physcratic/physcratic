@@ -17,6 +17,7 @@ test("Arena subproblems become separate sections with indented semantic subpart 
         { type: "paragraph", text: "Context." },
         {
           type: "list",
+          kind: "roman",
           items: [
             ["(i) First question.", "$$E=mc^2$$"],
             ["(ii) Second question."],
@@ -29,6 +30,22 @@ test("Arena subproblems become separate sections with indented semantic subpart 
       blocks: [{ type: "paragraph", text: "Another question." }],
     },
   ]);
+});
+
+test("lettered subparts stay one level even when letters are also Roman numerals", () => {
+  const [section] = parseArenaDocument("(a) First.\n\n(b) Second.\n\n(c) Third.\n\n(d) Fourth.\n\n$$E=mc^2$$");
+  assert.deepEqual(section.blocks, [{ type: "list", kind: "letter", items: [["(a) First."], ["(b) Second."], ["(c) Third."], ["(d) Fourth.", "$$E=mc^2$$"]] }]);
+});
+
+test("alphabetical question sequences do not suddenly indent at letter i", () => {
+  const [section] = parseArenaDocument(Array.from("abcdefghi", (letter) => `(${letter}) Question.`).join("\n\n"));
+  assert.equal(section.blocks.length, 1);
+  assert.equal(section.blocks[0].type === "list" && section.blocks[0].kind, "letter");
+});
+
+test("numbered subparts and genuine Roman numerals have distinct list kinds", () => {
+  const [section] = parseArenaDocument("(1) First.\n\n(2) Second.\n\n(i) Detail.\n\n(ii) Another detail.\n\n(c) Letter, not a Roman numeral.");
+  assert.deepEqual(section.blocks.map((block) => block.type === "list" ? block.kind : block.type), ["number", "roman", "letter"]);
 });
 
 test("sectioning every Arena statement and solution preserves all text, equations and figures in order", () => {
