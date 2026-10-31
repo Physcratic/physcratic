@@ -46,3 +46,7 @@ Staging needs this UI update only if these revised prompts are desired; verified
 works and needs no server/Resend/data repair. Staging has not been changed by this task.
 Review the focused PR before any separately authorized staging deployment.
 No merge, deployment, live modification or integration work performed.
+
+Branch pushed successfully. Draft PR creation blocked by GitHub API:
+`Post "https://api.github.com/graphql": Forbidden`. No retry or PR creation success claimed.
+Create a draft from codex/verification-state-ux targeting codex/auth-hardening when API access is available.
