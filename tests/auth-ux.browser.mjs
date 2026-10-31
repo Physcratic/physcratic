@@ -129,8 +129,9 @@ try {
     assert.ok(await page.getByRole('button', { name: 'Create account', exact: true }).isDisabled());
     assert.equal(await page.locator('#account-form').getAttribute('aria-busy'), 'true'); await shot('signup-loading');
     release(); gate = undefined;
-    const noticeHeading = page.getByRole('heading', { name: 'Check your email', exact: true }); await noticeHeading.waitFor();
-    await page.waitForFunction(() => document.activeElement?.textContent === 'Check your email');
+    const noticeHeading = page.getByRole('heading', { name: /Account next steps|Verify your email/, exact: true }); await noticeHeading.waitFor();
+    await page.waitForFunction(() => document.activeElement?.textContent === 'Account next steps');
+    assert.equal(await noticeHeading.textContent(), 'Account next steps');
     await audit(page, `${id}-verification`); await shot('verification');
     const signup = requests.filter(r => r.path.endsWith('/sign-up/email'));
     assert.ok(signup.every(r => r.body.termsAccepted === true && r.body.termsVersion === TERMS_VERSION && !r.body.termsAcceptedAt && r.captcha));
@@ -153,7 +154,7 @@ try {
     await page.getByRole('button', { name: 'Sign in', exact: true }).click();
     await page.getByText('Signing in…', { exact: true }).waitFor(); await shot('signin-loading'); release(); gate = undefined;
     await page.getByText('Sign-in failed. Check your details and try again.').waitFor(); await audit(page, `${id}-signin-error`); await shot('signin-error');
-    signInCode = 'EMAIL_NOT_VERIFIED'; await page.getByRole('button', { name: 'Sign in', exact: true }).click(); await noticeHeading.waitFor();
+    signInCode = 'EMAIL_NOT_VERIFIED'; await page.getByRole('button', { name: 'Sign in', exact: true }).click(); await noticeHeading.waitFor(); assert.equal(await noticeHeading.textContent(), 'Verify your email');
     assert.ok(requests.filter(r => /sign-in|send-verification/.test(r.path)).every(r => !r.captcha));
     for (const error of ['TOKEN_EXPIRED', 'INVALID_TOKEN']) {
       await goto(`/sign-in?error=${error}`); await page.getByText('Link unavailable', { exact: true }).waitFor();

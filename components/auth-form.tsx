@@ -24,6 +24,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
   const [termsInvalid, setTermsInvalid] = useState(false);
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [verificationEmail, setVerificationEmail] = useState<string | null>(null);
+  const [verificationRequired, setVerificationRequired] = useState(false);
   const creating = mode === "sign-up";
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -55,6 +56,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
           return;
         }
         if (!creating && result.error.code === "EMAIL_NOT_VERIFIED") {
+          setVerificationRequired(true);
           setVerificationEmail(credentials.email);
           return;
         }
@@ -62,6 +64,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
         return;
       }
       if (creating) {
+        setVerificationRequired(false);
         setVerificationEmail(credentials.email);
         return;
       }
@@ -77,7 +80,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
     <main className="flex min-h-dvh flex-col items-center justify-center px-5 py-10 font-sans [--ring:var(--foreground)]">
       <div className="flex w-full max-w-md flex-col gap-6">
         <Button variant="ghost" className="w-fit" asChild><Link href="/dashboard"><ArrowLeft data-icon="inline-start" /> Back to Physcratic</Link></Button>
-        {verificationEmail !== null ? <VerificationNotice email={verificationEmail} returnTo={returnTo} onBack={() => { setVerificationEmail(null); requestAnimationFrame(() => heading.current?.focus()); }} /> : <Card>
+        {verificationEmail !== null ? <VerificationNotice verificationRequired={verificationRequired} email={verificationEmail} returnTo={returnTo} onBack={() => { setVerificationEmail(null); requestAnimationFrame(() => heading.current?.focus()); }} /> : <Card>
           <CardHeader><h1 ref={heading} tabIndex={-1} className="text-2xl font-semibold leading-tight tracking-tight">{creating ? "Keep your working. Track your progress." : "Welcome back."}</h1><CardDescription>{creating ? "Create an account to privately save your olympiad solutions." : "Sign in to return to your saved attempts."}</CardDescription></CardHeader>
           <CardContent>
             <form id="account-form" aria-busy={busy} onInvalidCapture={() => { if (creating && !termsAccepted) setTermsInvalid(true); }} onSubmit={submit} onKeyDown={(event) => {
@@ -99,7 +102,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
             {creating && <p className="mx-auto max-w-sm text-center text-xs leading-5 text-muted-foreground">Protected by reCAPTCHA. Google <a href="https://policies.google.com/privacy" className="underline">Privacy Policy</a> and <a href="https://policies.google.com/terms" className="underline">Terms of Service</a> apply.</p>}
             <Button form="account-form" type="submit" disabled={busy}>{busy && <Loader2 data-icon="inline-start" className="animate-spin" />}{creating ? "Create account" : "Sign in"}</Button>
             <p className="text-center text-sm leading-relaxed text-muted-foreground">{creating ? "Already have an account? " : "New to Physcratic? "}<Link className="text-foreground underline underline-offset-4" href={`/${creating ? "sign-in" : "sign-up"}?returnTo=${encodeURIComponent(returnTo)}`}>{creating ? "Sign in" : "Create an account"}</Link></p>
-            {!creating && <Button type="button" variant="ghost" disabled={busy} onClick={() => setVerificationEmail("")}>Need a verification email?</Button>}
+            {!creating && <Button type="button" variant="ghost" disabled={busy} onClick={() => { setVerificationRequired(false); setVerificationEmail(""); }}>Need a verification email?</Button>}
             <Link href="/terms" className="text-center text-sm text-muted-foreground underline underline-offset-4">Terms of Service</Link>
           </CardFooter>
         </Card>}
