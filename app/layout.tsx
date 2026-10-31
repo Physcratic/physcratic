@@ -4,6 +4,7 @@ import "katex/dist/katex.min.css";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
+import { SITE, baseOpenGraph, siteUrl } from "@/lib/site";
 
 // Pinned OFL-1.1 Inter asset; build never contacts Google Fonts.
 const inter = localFont({
@@ -15,12 +16,13 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "Physcratic | Physics practice and contests",
-    template: "%s | Physcratic",
-  },
-  description:
-    "Explore 100 imported IPhO, APhO and EuPhO theory problems with original diagrams and clearly labeled English translation drafts. Save private typed or handwritten solution attempts. Automated grading awaits approved marking rubrics.",
+  metadataBase: new URL(siteUrl()),
+  title: { default: SITE.defaultTitle, template: "%s | Physcratic" },
+  description: SITE.description,
+  applicationName: SITE.name,
+  // No alternates.canonical or openGraph.url here: pages would inherit them.
+  openGraph: baseOpenGraph,
+  twitter: { card: "summary_large_image" },
   icons: { icon: "/icon.svg" },
 };
 

@@ -1,0 +1,82 @@
+import type { Problem } from "../physics";
+import { SITE, siteUrl } from "../site";
+
+/** Largest raster icon in public/ (apple-icon.png, 180×180). */
+const LOGO_PATH = "/apple-icon.png";
+
+const orgId = () => `${siteUrl()}/#organization`;
+
+export function organization() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": orgId(),
+    name: SITE.name,
+    url: siteUrl(),
+    logo: `${siteUrl()}${LOGO_PATH}`,
+  };
+}
+
+export function website() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteUrl()}/#website`,
+    name: SITE.name,
+    url: siteUrl(),
+    publisher: { "@id": orgId() },
+  };
+}
+
+/** Plain-text summary, at most 300 chars. */
+export function problemSummary(problem: Pick<Problem, "prompt">): string {
+  const text = problem.prompt
+    .replace(/\$\$?[^$]*\$\$?/g, " ")
+    .replace(/[`*_#>]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  return text.length <= 300 ? text : `${text.slice(0, 299).trimEnd()}…`;
+}
+
+export function problemGraph(problem: Problem) {
+  const base = siteUrl();
+  const url = `${base}/dashboard/problems/${problem.id}`;
+  const topicUrl = `${base}/dashboard?view=problems&topic=${encodeURIComponent(problem.topic)}`;
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { name: "Dashboard", item: `${base}/dashboard` },
+        { name: "Problems", item: `${base}/dashboard?view=problems` },
+        { name: problem.topic, item: topicUrl },
+        { name: problem.title, item: url },
+      ].map((entry, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        ...entry,
+      })),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LearningResource",
+      name: problem.title,
+      description: problemSummary(problem),
+      url,
+      inLanguage: "en",
+      isAccessibleForFree: true,
+      learningResourceType: "Problem",
+      educationalLevel: "Physics Olympiad",
+      about: { "@type": "Thing", name: problem.topic },
+      publisher: { "@id": orgId() },
+    },
+  ];
+}
+
+/** JSON for an inline <script>: < > & are escaped so no value can close the tag. */
+export function jsonLdScript(data: unknown): string {
+  return JSON.stringify(data)
+    .replace(/</g, "\\u003c")
+    .replace(/>/g, "\\u003e")
+    .replace(/&/g, "\\u0026");
+}
