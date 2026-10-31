@@ -11,7 +11,7 @@ import { evaluateExpressionAnswer } from "./authored-symbolic-grading";
 import { evaluateNumericAnswer } from "./authored-numeric-grading";
 
 type Dependencies = {
-  pool: Pool;
+  pool: Pick<Pool, "query">;
   // Trusted server-session adapter, never a field in the submitted answer.
   user: () => Promise<
     { id: string; emailVerified?: boolean } | null | undefined

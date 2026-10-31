@@ -1,7 +1,7 @@
 # Problem authoring architecture map
 
-Phase 5B from merged main `b0b7cc2755305f4e286f68a7e5b229f1e52608ed` (Phase 5A PR #17; 2026-10-31 Asia/Makassar).
-Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md. Phases 0–5A merged; Phase 5B adds restricted server-only symbolic grading only.
+Phase 6A from merged main `058fa3cf125920296227d0c8473cf70abe6ff593` (Phase 5B PR #19; 2026-10-31 Asia/Makassar).
+Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md. Phases 0–5B merged; Phase 6A adds persistent student attempts/API only.
 Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspect affected code/dependencies only.
 
 ## Established architecture (reuse; do not repeat audits)
@@ -11,7 +11,7 @@ Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspe
 - Better Auth and [submission adapters](../../lib/submission-server.ts) provide session/configured origin; every author operation explicitly requires emailVerified === true.
 - Existing practice/archive/source resolver/grading/auth behavior and intentional signup CAPTCHA removal remain unchanged.
 - Existing symbolic worker exposes expected answers for legacy preview only; never reuse it for authored server grading.
-- [Migrations](../../migrations/README.md): explicit, additive 0001/0002/0003; SQL authoritative for deferred FKs/triggers. No schema push/startup/build migration.
+- [Migrations](../../migrations/README.md): explicit, additive 0001/0002/0003/0004; SQL authoritative for deferred FKs/triggers. No schema push/startup/build migration.
 
 ## Approved document and privacy contracts
 - [Contracts](../../lib/problem-authoring.ts): authored problem -> mutable draft -> immutable numbered revision. Stable UUIDs normalized lowercase before validation/persistence.
@@ -93,6 +93,17 @@ Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspe
 - Caps:180chars/128tokens/96nodes/depth16;8variables/128terms/degree16/exponent8/2048-bit rationals/128guards/64witnesses/40k ticks/cooperative100ms. Native work and allocated structures bounded; no hard OS heap/preemption claim.
 - Expression results use symbolic-v1 and fixed symbolic reason codes; no expected expression/AST/witness/private domain/diagnostics forwarded. Numeric/manual/units and exact SQL authorization/revision selection preserved.
 - Disposable PG tests cover historical expression keys/domains, publication races, ownership/verification/unpublish and public result/key isolation. No student APIs/UI/schema/migrations/media changes.
+
+## Phase 6A student attempt persistence/API
+- [Contracts](../../lib/authored-attempt-contracts.ts), [API](../../lib/authored-attempt-api.ts), [production adapter](../../lib/authored-attempt-server.ts), [tests](../../lib/authored-attempt-api.test.ts); full contracts/limits/locking/retention in [student policy](AUTHORED_STUDENT_SUBMISSIONS.md).
+- Explicit0004 adds immutable authored_attempt + persistent authored_student_rate, same-problem/revision/part/user FKs, unique user/idempotency + per-part ordinal1..10; down refuses populated history. No private key duplication.
+- Verified student POST /[id]/attempts requires strict revisionId/partId/answer/idempotencyKey JSON, configured origin, actual20KB/5s body; user/results/policy/timestamps server-owned. Numeric/symbolic/manual outcomes preserved.
+- Per-user advisory lock -> canonical idempotency lookup -> current published parent FOR SHARE -> limits -> existing grader on same PoolClient -> allowlisted result/selection -> immutable insert/commit. Publish/unpublish FOR UPDATE serializes; no second grading connection/deadlock.
+- Limits:60requests/minute incl reads,20POST/minute,100new attempts/rolling24h,10/user/revision/part lifetime. Replay does not regrade/use attempt slots; different payload same key409. Minute-specific Retry-After only for rate bucket.
+- GET /attempts (+ optional problemId/keyset after) and /attempts/[attemptId] return own submitted answer/result/IDs only, even after unpublish; never other students/author. Timestamp(3)+UUID stable newest-first cursor.
+- Existing public revision GET body unchanged; Link to verified /[id]/submission-info companion supplies current revision/public parts/own remaining/policy/URLs from one published snapshot. No drafts/private content or solving UI.
+- no-reveal-v1 never unlocks hints/solutions/assets after correctness/exhaustion; app-assisted=false. Healthy grader exceptions persist generic review; malformed outputs/DB-aborted transactions rollback503 and retry same key.
+- Numeric/dimensionless/symbolic limits, legacy practice/archive/auth/media contracts preserved; no production migrations/storage or social features. Next UI/reveal work requires separate request.
 
 ## Verification and later-phase boundaries
 - [Security integration](../../lib/author-media-api.test.ts): isolated PostgreSQL schema + memory storage; owner/origin/type/size/scope/quota, failure tombstones, exact sealing, historical retention and publication/link/delete races.
