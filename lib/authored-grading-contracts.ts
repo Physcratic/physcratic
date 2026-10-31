@@ -35,8 +35,11 @@ export type GradeSelection = z.infer<typeof gradeSelectionSchema>;
 export type AuthoredGradeInput = z.infer<typeof authoredGradeInputSchema>;
 export type NumericAnswer = z.infer<typeof numericAnswerSchema>;
 export type GradeEvaluation =
-  | { status: "correct"; reason: "within-tolerance" }
-  | { status: "incorrect"; reason: "outside-tolerance" }
+  | { status: "correct"; reason: "within-tolerance" | "symbolic-equivalent" }
+  | {
+      status: "incorrect";
+      reason: "outside-tolerance" | "symbolic-counterexample";
+    }
   | {
       status: "needs-review";
       reason:
@@ -44,7 +47,11 @@ export type GradeEvaluation =
         | "units-mismatch"
         | "answer-mode-unsupported"
         | "key-unavailable"
-        | "service-unavailable";
+        | "service-unavailable"
+        | "symbolic-unsupported"
+        | "symbolic-domain"
+        | "symbolic-resource-limit"
+        | "symbolic-inconclusive";
     }
   | {
       status: "ungraded";
@@ -55,6 +62,6 @@ export type GradeEvaluation =
         | "manual";
     };
 export type AuthoredGradeResult = GradeEvaluation & {
-  engineVersion: "numeric-v1";
+  engineVersion: "numeric-v1" | "symbolic-v1";
   selection: GradeSelection | null;
 };

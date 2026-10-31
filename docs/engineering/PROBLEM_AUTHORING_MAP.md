@@ -1,7 +1,7 @@
 # Problem authoring architecture map
 
-Phase 5A from merged main `7335d264b32b9deb2ef2d227764ded3257b94c89` (Phase 4 PR #15; 2026-10-31 Asia/Makassar).
-Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md. Phases 0–4 merged; Phase 5A adds server-only numeric grading only.
+Phase 5B from merged main `b0b7cc2755305f4e286f68a7e5b229f1e52608ed` (Phase 5A PR #17; 2026-10-31 Asia/Makassar).
+Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md. Phases 0–5A merged; Phase 5B adds restricted server-only symbolic grading only.
 Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspect affected code/dependencies only.
 
 ## Established architecture (reuse; do not repeat audits)
@@ -72,22 +72,33 @@ Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspe
 ## Phase 5A secure grading foundation
 - [Client-safe types](../../lib/authored-grading-contracts.ts), [server service](../../lib/authored-grading.ts), [numeric evaluator](../../lib/authored-numeric-grading.ts), [session adapter](../../lib/authored-grading-server.ts). No new routes/student UI or grading persistence; existing author Units help shares the client-safe units policy.
 - Strict {problemId,revisionId,partId,answer}; UUID lowercase; numeric answer {kind,value,units} requires finite number and explicit units string <=80; expression <=180/manual text <=4000 are bounded transport cases only.
-- Output has status correct/incorrect/needs-review/ungraded, fixed reason, engineVersion numeric-v1 and canonical selection (null for invalid input). Never returns key/value/expected units/tolerances/private hints/diagnostics.
+- Output has status correct/incorrect/needs-review/ungraded, fixed reason, engineVersion numeric-v1/symbolic-v1 and canonical selection (null for invalid input). Never returns key/value/expected units/tolerances/private hints/diagnostics.
 - Trusted verified session is injected separately. One indexed SQL snapshot authorizes owner OR currently published problem and joins exact requested problem/revision/part/private key; no draft/public JSON/worker/current-key fallback.
 - Verified nonowners may grade explicit historical revisions while problem is published; unpublish blocks them. Owner may grade retained unpublished history; all grading still requires verified email.
 - Private schema/part/mode/key mismatches -> needs-review; missing/hidden revision -> ungraded; DB/session failures -> generic needs-review. Client query deadline5s, production pool connection/statement limits retained.
 - Numeric policy: |submitted-expected| <= max(absTol,relTol*|expected|), inclusive. absTol/relTol finite/nonnegative from existing private key; no defaults, added epsilon, rounding or sum-of-tolerances.
 - Exact dyadic BigInt comparison over stored binary64 values prevents overflow/underflow/rounded-boundary errors; four finite inputs bound integer width <4300 bits. Decimal-looking JSON numbers are binary64, not arbitrary-precision decimal input.
 - Units: blank and ASCII "1" are equivalent dimensionless labels after edge trimming (the sole alias). Shared normalizeNumericUnits/numericUnitsHelp in client-safe grading contracts govern student-answer parsing, evaluator key comparison and author guidance; saved author labels remain unchanged. Other labels stay case-sensitive/allowlisted, no conversions/Unicode folding/dimensional algebra; unsupported expressions or physical mismatches need review.
-- Manual keys -> ungraded; expression keys or mismatched answer modes -> needs-review. No parsing/eval/symbolic equivalence. Phase 5B can extend the typed dispatch without changing private key selection.
+- Manual keys remain ungraded; mismatched answer modes need review. Expression-key dispatch now uses the Phase 5B prover below without changing private selection or numeric behavior.
 - server-only guards evaluator/service/production adapter; only transport contracts are client-safe. Test command uses --conditions=react-server; default-condition import rejection is independently tested.
 - [Numeric properties](../../lib/authored-numeric-grading.test.ts), [service security](../../lib/authored-grading.test.ts), [disposable PostgreSQL](../../lib/authored-grading-db.test.ts): exact oracle, boundaries/extremes, units, isolation, immutable selection, concurrent publication and timeout.
+
+## Phase 5B restricted symbolic prover
+- [Language/rational arithmetic](../../lib/authored-expression-language.ts), [prover](../../lib/authored-symbolic-grading.ts), [mathematical tests](../../lib/authored-symbolic-grading.test.ts); exact grammar/proof/domain/limit specification in [SYMBOLIC_GRADING_POLICY](SYMBOLIC_GRADING_POLICY.md).
+- Custom bounded real AST avoids legacy preview floating literals/domain-unsafe simplification; no eval/Function, mathjs execution, generic CAS or new dependencies. Plain explicit operators/declared real variables, exact rational decimal constants only.
+- Exact polynomial/rational cross-product equality proves acceptance only with a nonempty domain and all original definedness obligations proven everywhere. Cancellation, zero products and zero powers preserve singularities.
+- Bounds use exact stored binary64; expression/exclusion literals exact decimal rationals. Bounds/positive/nonnegative/nonzero and restricted variable != rational exclusions apply to every variable, including unused ones; unsupported/empty domains need review.
+- Safe principal sqrt/abs rules and exact sin/tan0, cos0, log1 constants only; general trig/log/radicals/transcendental constants require review. No sqrt(x^2)->x without sign proof.
+- Non-equivalence requires an exact rational, both-defined unequal witness satisfying all domain constraints. Agreeing samples never prove equality; no floating sampling. Unproved/resource-limited cases need review.
+- Caps:180chars/128tokens/96nodes/depth16;8variables/128terms/degree16/exponent8/2048-bit rationals/128guards/64witnesses/40k ticks/cooperative100ms. Native work and allocated structures bounded; no hard OS heap/preemption claim.
+- Expression results use symbolic-v1 and fixed symbolic reason codes; no expected expression/AST/witness/private domain/diagnostics forwarded. Numeric/manual/units and exact SQL authorization/revision selection preserved.
+- Disposable PG tests cover historical expression keys/domains, publication races, ownership/verification/unpublish and public result/key isolation. No student APIs/UI/schema/migrations/media changes.
 
 ## Verification and later-phase boundaries
 - [Security integration](../../lib/author-media-api.test.ts): isolated PostgreSQL schema + memory storage; owner/origin/type/size/scope/quota, failure tombstones, exact sealing, historical retention and publication/link/delete races.
 - [Browser](../../tests/problem-authoring.browser.mjs): real editor/API/disposable PG, injected sessions; upload/failed replacement/private preview, gated conflict upload, autosave/recovery, accessibility/mobile.
 - Commands/results/limitations in status. Full tests, typecheck, lint/build attempts required; report inherited blockers separately. No production data/migrations/storage calls in tests.
-- Phase 5B symbolic equivalence remains separate: restricted AST/resource limits, domain/unit/singularity/angle checks; numerical sampling cannot prove equivalence, indeterminate -> needs-review.
+- Broader symbolic identities remain unsupported unless separately justified with proofs/domain/resource tests; symbolic-v1 is not a general equivalence engine.
 - Phase 6 solver/reveal binds immutable revision+part+user+idempotency; assisted/revealed state; no private keys in HTML/RSC/JSON/worker. Never affect existing Elo.
 - Phase 7 social: unique non-self stars, same-problem/depth-bound comments, ownership/tombstones/pagination/private reports. Phase 8 staged end-to-end/release review; main merge auto-deploys.
 - Playbook model/effort: P0 Sol Medium; P1/2/4/6/8 Sol High; P3/7 Sol Medium; P5 Astra Medium or Sol High. No runtime model switch control exposed.
