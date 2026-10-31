@@ -193,7 +193,7 @@ export function StudentWorkspace({
       <header className="border-b bg-background">
         <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-3 px-5 py-4 sm:px-8">
           <a
-            href="/dashboard?view=problems"
+            href="/dashboard?view=problems&collection=authored"
             className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold"
           >
             <ArrowLeft aria-hidden="true" className="size-4" /> Physcratic

@@ -1,0 +1,5 @@
+DROP INDEX authored_revision_discovery_difficulty_idx;
+DROP INDEX authored_revision_discovery_metadata_idx;
+DROP INDEX authored_revision_discovery_search_idx;
+DROP INDEX authored_problem_discovery_idx;
+DROP FUNCTION authored_discovery_terms(jsonb);

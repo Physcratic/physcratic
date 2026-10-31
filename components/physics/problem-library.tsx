@@ -37,6 +37,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CorpusCollection } from "./corpus-collection";
 import { OlympiadCatalog } from "./olympiad-catalog";
 import { catalogProblems, competitions } from "@/lib/corpus-catalog";
+import { AuthoredLibraryCollection } from "@/components/authored/library-collection";
 
 export function ProblemLibrary({
   topic,
@@ -50,7 +51,9 @@ export function ProblemLibrary({
   const params = useSearchParams();
   const requestedCollection = params.get("collection");
   const [collection, setCollection] = useState(
-    requestedCollection === "practice" || requestedCollection === "pilot"
+    requestedCollection === "practice" ||
+      requestedCollection === "pilot" ||
+      requestedCollection === "authored"
       ? requestedCollection
       : "catalog",
   );
@@ -89,7 +92,7 @@ export function ProblemLibrary({
       onValueChange={setCollection}
       className="flex min-w-0 flex-col gap-6"
     >
-      <TabsList className="h-auto w-fit max-w-full flex-wrap">
+      <TabsList className="h-auto w-fit max-w-full flex-wrap text-foreground">
         <TabsTrigger value="catalog">
           Imported problems · {catalogProblems.length}
         </TabsTrigger>
@@ -99,12 +102,14 @@ export function ProblemLibrary({
         <TabsTrigger value="practice">
           Quick practice · {problems.length}
         </TabsTrigger>
+        <TabsTrigger value="authored">Authored problems</TabsTrigger>
       </TabsList>
       <FieldGroup className="sm:flex-row sm:flex-wrap sm:items-end">
         <Field className="flex-1">
           <FieldLabel htmlFor="problem-search">Find a problem</FieldLabel>
           <Input
             id="problem-search"
+            maxLength={200}
             autoFocus
             placeholder="Search by problem or tag…"
             value={search}
@@ -133,51 +138,58 @@ export function ProblemLibrary({
             </Select>
           </Field>
         )}
-        <Field className="sm:w-48">
-          <FieldLabel htmlFor="topic-filter">Tag</FieldLabel>
-          <Select value={selectedTopic} onValueChange={setSelectedTopic}>
-            <SelectTrigger id="topic-filter">
-              <SelectValue>
-                {selectedTopic === "all" ? "All tags" : selectedTopic}
-              </SelectValue>
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectItem value="all">All tags</SelectItem>
-                {tagOptions.map((tag) => (
-                  <SelectItem key={tag} value={tag}>
-                    {tag}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </Field>
-        <Field className="sm:w-44">
-          <FieldLabel htmlFor="difficulty-filter">Elo difficulty</FieldLabel>
-          <Select value={difficulty} onValueChange={setDifficulty}>
-            <SelectTrigger id="difficulty-filter">
-              <SelectValue>
-                {difficulty === "unrated"
-                  ? "Unrated"
-                  : (eloBands.find((band) => band.id === difficulty)?.range ??
-                    "All ratings")}
-              </SelectValue>
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectItem value="all">All ratings</SelectItem>
-                <SelectItem value="unrated">Unrated</SelectItem>
-                {eloBands.map((band) => (
-                  <SelectItem key={band.id} value={band.id}>
-                    {band.range}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </Field>
+        {collection !== "authored" && (
+          <Field className="sm:w-48">
+            <FieldLabel htmlFor="topic-filter">Tag</FieldLabel>
+            <Select value={selectedTopic} onValueChange={setSelectedTopic}>
+              <SelectTrigger id="topic-filter">
+                <SelectValue>
+                  {selectedTopic === "all" ? "All tags" : selectedTopic}
+                </SelectValue>
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectItem value="all">All tags</SelectItem>
+                  {tagOptions.map((tag) => (
+                    <SelectItem key={tag} value={tag}>
+                      {tag}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          </Field>
+        )}
+        {collection !== "authored" && (
+          <Field className="sm:w-44">
+            <FieldLabel htmlFor="difficulty-filter">Elo difficulty</FieldLabel>
+            <Select value={difficulty} onValueChange={setDifficulty}>
+              <SelectTrigger id="difficulty-filter">
+                <SelectValue>
+                  {difficulty === "unrated"
+                    ? "Unrated"
+                    : (eloBands.find((band) => band.id === difficulty)?.range ??
+                      "All ratings")}
+                </SelectValue>
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectItem value="all">All ratings</SelectItem>
+                  <SelectItem value="unrated">Unrated</SelectItem>
+                  {eloBands.map((band) => (
+                    <SelectItem key={band.id} value={band.id}>
+                      {band.range}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          </Field>
+        )}
       </FieldGroup>
+      <TabsContent value="authored" className="min-w-0">
+        <AuthoredLibraryCollection query={search} />
+      </TabsContent>
       <TabsContent value="catalog" className="min-w-0">
         <OlympiadCatalog
           query={search}

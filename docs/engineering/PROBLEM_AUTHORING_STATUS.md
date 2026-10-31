@@ -1,5 +1,17 @@
 # Problem authoring implementation status
 
+## Current checkpoint: Phase 7 — 2026-10-31 (Asia/Makassar)
+
+- Existing integration branch `codex/physcratic-authoring-completion`; Phases6C-A `c259602` and6C-B `0418b9a` verified as ancestors. Main `54f373e8f93dd2dc2b94d85aae9a11c67b19cf48` integrated by non-destructive merge `2e0b90ca0571ac15607ad198545e5e29b3f82e63`, no conflicts. CI, CLAUDE.md, Analytics and corpus TODO preserved.
+- Existing library collection tab, bounded public metadata search/exact filters, stable UUID keyset pagination and direct authored-reader links; current published revision only. Rights/provenance retained; no draft/private/permission/reveal/attempt data in discovery. Existing archive/practice/submission/explicit solution behavior preserved.
+- New additive explicit0006 discovery indexes/function only; no shared/production migration. Reader/API remain noindex, no cached or sitemap metadata. Full contracts, rollout prerequisite and commands: [AUTHORED_LIBRARY.md](AUTHORED_LIBRARY.md).
+- Integration regression34/34; discovery + legacy targeted19/19; full224 tests:223 pass, zero failures/skips, one inherited corpus punctuation TODO (unresolved; Phase8A). New library browser and existing complete student/solution browser pass on disposable PG, including1440/375px light/dark accessibility/overflow for library. Typegen/TypeScript/diff pass.
+- Focused separate manual review corrected stale-effect completion guard and scoped tab contrast; no remaining confirmed query/privacy/navigation findings. Review was performed by the implementing agent; a second independent review remains outstanding.
+- Remaining: separate independent reviewer, inherited missing ESLint/Google Fonts build blockers, separately authorized migration0006 and live staging/auth/Blob verification. No new dependencies, external imports, PR, main merge, deploy, production/shared data/storage/migrations, or unrelated product changes.
+- Phase7 implementation SHA: latest separate `feat: integrate published authored problems into the library (Phase 7)` commit; merged-main commit above remains separate. Push same branch, then STOP. Next phase is8A only after a new request.
+
+## Historical Phase6C checkpoints
+
 - Phase6C-B ONLY,2026-10-31; follows Phase6C-A c259602 on the same integration branch. Original baseline: Phases0–6B merged; PR#22 baseline `a8fac8f83722bfa9faed9a867cbb1582aa0b599f` freshly fetched and exactly matches reviewed Phase6B tree.
 - Integration branch `codex/physcratic-authoring-completion` created from that main. Preserve this branch for6C-B/7/8A/8B; separate phase commits/pushes, never reset/overwrite prior work. No individual PR; one consolidated PR at release-readiness gate.
 - Required WORK_STATUS/map/status/student policy read first. Inspected affected revision/private-part/owner/media/attempt/grader/auth contracts only; no repeated repository audit.
@@ -51,6 +63,17 @@
 
 ## Next checkpoint
 
-- Phase6C-B complete: stop after its commit/push, await next separately supplied phase.
+- Phase7 complete: stop after its separate commit/push; await the separately supplied Phase8A prompt.
 - Next phase must read handoffs and reuse exact explicit permission/reveal/media contracts and server-derived assistance on this SAME integration branch. No repeat audit or automatic solution preloading.
 - Branch: https://github.com/Physcratic/physcratic/tree/codex/physcratic-authoring-completion
+
+Final main refresh: `6af2b2cae95408ceea2081dffb7d1458d5f4f6ff` (error pages and
+feedback link) integrated by a second safe merge
+`2b42138b3eb3153b71a0f9f7ac0739c6fc1c59ad`. Both Git merges were conflict-free.
+Temporary restoration of Phase7 changes conflicted only in
+`docs/engineering/BETA_READINESS.md`; resolved by retaining both main's Batch2
+entry and the Phase7 entry. Incoming product code preserved unchanged. No phase
+commit was rewritten. Final regression/full counts below supersede earlier
+pre-refresh counts where applicable.
+
+Final post-refresh verification:45/45 focused integration checks; full224 tests,223 pass,0 fail,0 skip,1 inherited corpus punctuation TODO. Typegen/TypeScript and diff checks pass. Both library and student/solution browser suites passed; latest main does not change their exercised components or APIs.

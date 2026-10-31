@@ -1,5 +1,10 @@
 # Phase6C-B solution controls and explicit viewing
 
+Phase7 library discovery links into this existing reader; no permission,
+confirmation, reveal, media or assistance policy changes. Discovery never
+fetches solution permissions or preloads a solution. See
+[AUTHORED_LIBRARY.md](AUTHORED_LIBRARY.md).
+
 Continues integration branch from c259602. Reuses0005 and Phase6C-A APIs unchanged; no new backend authorization, ledger, media, grading, quota or migration logic.
 
 Author editor embeds SolutionPermissions, independently of draft autosave. Explicitly load the current public immutable snapshot, choose its part, and GET permission with revision query. Display configured enabled/private/expired state, current permission version, approved IDs and expiry. Labels describe configuration, not a promise of live access. Every enabling operation requires fresh checkbox approval of the complete native solution/image set, individually selected full PDFs and native confirmation. Optional expiry is UTC ISO. PUT uses JSON-only revision and no query string. Both successful acknowledgement and any uncertain/conflicting failure clear metadata; a GET reload is required before another write. No blind retries. Retained loaded snapshots permit historical revocation after unpublication; current-publication enforcement remains server-owned.

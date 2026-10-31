@@ -1,5 +1,11 @@
 # Problem authoring architecture map
 
+Phase 7 integrates published authored problems into the existing library; see
+[discovery contract and verification](AUTHORED_LIBRARY.md). Main integration
+`2e0b90ca0571ac15607ad198545e5e29b3f82e63` merges main
+`54f373e8f93dd2dc2b94d85aae9a11c67b19cf48`, without conflicts, preserving
+`c259602` and `0418b9a`. No released phase history was rewritten.
+
 Phase6C-B continues c259602 on the same completion branch; original Phase6C-A base `a8fac8f83722bfa9faed9a867cbb1582aa0b599f` (Phase6B PR#22); integration branch `codex/physcratic-authoring-completion`.
 Source: user-supplied PHYSCRATIC_PROBLEM_AUTHORING_CODEX_PLAYBOOK.md. Phases0–6B merged; Phase6C-A backend reused unchanged by6C-B UI.
 Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspect affected code/dependencies only.
@@ -113,8 +119,21 @@ Read this, WORK_STATUS.md and [status](PROBLEM_AUTHORING_STATUS.md) first; inspe
 ## Phase6C-B UI
 - [Solution UI policy](AUTHORED_SOLUTION_UI.md), components/authoring/solution-permissions.tsx and components/authored/worked-solution.tsx: explicit confirmations, metadata reload after writes, schema/exact URL checks, in-memory private snapshots, controlled downloads, original server-assisted records. Existing backend/idempotency unchanged.
 ## Verification and later-phase boundaries
+- Phase 7: existing library tab → bounded public metadata API → exact current
+  published revision; immutable UUID keysets, full-text metadata search and exact
+  existing-label filters. New explicit0006 indexes only; no production migration.
+  Generic noindex reader and explicit solution policies preserved. Stop at Phase7.
 - [Security integration](../../lib/author-media-api.test.ts): isolated PostgreSQL schema + memory storage; owner/origin/type/size/scope/quota, failure tombstones, exact sealing, historical retention and publication/link/delete races.
 - Commands/results/limitations in status; full tests/typecheck/available checks, inherited blockers separate. Disposable DB+mock storage only; live staging/deployment not claimed.
 - Completion phases6C-A/6C-B/7/8A/8B share the same integration branch; separate phase commits/pushes, no resets/overwrites or individual PRs. Consolidated PR at release readiness only. No contests/Elo/rankings/comments/stars/social/subscriptions.
 - Playbook model/effort: P0 Sol Medium; P1/2/4/6/8 Sol High; P3/7 Sol Medium; P5 Astra Medium or Sol High. No runtime model switch control exposed.
 - Stop after each separately requested phase checkpoint. Preserve prior phase work; handoffs first, affected code only, targeted/broader tests, independent review, handoffs/commit/push. User alone triggers authorized deployment after readiness; no merge/deploy/shared DB changes.
+
+Final main refresh: `6af2b2cae95408ceea2081dffb7d1458d5f4f6ff` (error pages and
+feedback link) integrated by a second safe merge
+`2b42138b3eb3153b71a0f9f7ac0739c6fc1c59ad`. Both Git merges were conflict-free.
+Temporary restoration of Phase7 changes conflicted only in
+`docs/engineering/BETA_READINESS.md`; resolved by retaining both main's Batch2
+entry and the Phase7 entry. Incoming product code preserved unchanged. No phase
+commit was rewritten. Final regression/full counts below supersede earlier
+pre-refresh counts where applicable.

@@ -33,3 +33,27 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 **Analytics:** `<Analytics />` was added to `app/layout.tsx` by PR #23, not here.
 
 **Intentionally not done:** no `loading.tsx` files (no skeletons or streaming boundaries added); no error-reporting service (match digests against Vercel runtime logs); `global-error.tsx` was typechecked but not exercised in a browser, because it only renders when the root layout itself throws.
+
+## 2026-10-31 — Phase 7 — Authored library discovery
+
+Published authored problems now appear in the existing library collection tabs,
+with bounded metadata search, exact author tag/difficulty/provenance filters,
+stable UUID pagination and direct reader navigation. Archive/legacy behavior and
+explicit solution authorization remain unchanged. Reader/API remain noindex;
+no private or withdrawn metadata is published to caches or sitemaps.
+
+Main54f373e integrated by merge2e0b90c with no conflicts, preserving both6C
+commits and CI/Analytics/CLAUDE.md/corpus TODO. Final fetch found main6af2b2c
+(error/feedback); integrated by separate merge2b42138. Restoring Phase7 work
+conflicted only in this append-only readiness log; preserved both entries. Targeted19/19, final full223 pass/0
+fail/1 inherited TODO, integration34/34, new library and existing student/solution
+browser suites pass on disposable PG; TypeScript passes. Corpus punctuation
+remains unresolved for8A. Lint/build remain blocked by missing ESLint and Google
+Fonts access. Focused same-agent review fixed stale completion guarding and tab
+contrast; a second independent review remains outstanding.
+
+Explicit additive0006 index migration is a later authorized rollout prerequisite;
+no shared/production migration, deployment or PR. Full contract and evidence:
+[AUTHORED_LIBRARY.md](AUTHORED_LIBRARY.md). Stop after Phase7 commit/push.
+
+Final post-refresh focused regression45/45; full224 tests/223 pass/0 fail/0 skip/1 inherited TODO. Typegen/TypeScript/diff pass.
