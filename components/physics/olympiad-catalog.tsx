@@ -27,21 +27,7 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from "@/components/ui/empty";
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import {
-  catalogCoverage,
-  catalogProblems,
-  competitions,
-  filterCatalog,
-} from "@/lib/corpus-catalog";
+import { catalogProblems, filterCatalog } from "@/lib/corpus-catalog";
 import { OlympiadProblemCard } from "./olympiad-problem-card";
 import { ImportedProblemReader } from "./imported-problem-reader";
 import translationIndex from "@/lib/corpus/translation-index.json";
@@ -174,60 +160,6 @@ export function OlympiadCatalog({
               unrated. Physics, rubric and republication reviews are pending.
             </AlertDescription>
           </Alert>
-        </div>
-      </details>
-      <details className="rounded-lg border border-border bg-card px-4 py-3 text-card-foreground">
-        <summary className="cursor-pointer text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-          Topic coverage & source audit
-        </summary>
-        <div className="flex flex-col gap-3 pt-4">
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            Each problem counts under one editorial primary topic. Concept tags
-            remain searchable. Actual coverage is shown against the proposed
-            targets, not disguised as a completed quota.
-          </p>
-          <Table>
-            <TableCaption>
-              Source and solution URLs checked 28 October 2026. Accessibility
-              checks do not establish authorship, full content fidelity or reuse
-              permission.
-            </TableCaption>
-            <TableHeader>
-              <TableRow>
-                <TableHead scope="col">Primary topic</TableHead>
-                {competitions.map((name) => (
-                  <TableHead key={name} scope="col" className="text-right">
-                    {name}
-                  </TableHead>
-                ))}
-                <TableHead scope="col" className="text-right">
-                  Actual / target
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {catalogCoverage.map((row) => (
-                <TableRow key={row.topic}>
-                  <TableCell className="font-medium">{row.topic}</TableCell>
-                  {competitions.map((name) => (
-                    <TableCell key={name} className="text-right tabular-nums">
-                      {row.byCompetition[name]}
-                    </TableCell>
-                  ))}
-                  <TableCell className="text-right tabular-nums">
-                    {row.count} / {row.target}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            Original PDF layouts are preserved, including shared year papers
-            where needed. Every imported problem includes selectable source text
-            and locally stored figures. Russian mirror imports are labeled;
-            pho.rs is a source host, not a fourth competition. The original five
-            pilot problems also retain their structured subpart guides.
-          </p>
         </div>
       </details>
       <Card

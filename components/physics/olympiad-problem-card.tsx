@@ -4,6 +4,7 @@ import { ArrowUpRight, BookOpen } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { CatalogProblem } from "@/lib/corpus-catalog";
+import { getProblemTags } from "@/lib/problem-tags";
 import translationIndex from "@/lib/corpus/translation-index.json";
 
 const competitionVariants = {
@@ -38,7 +39,11 @@ export function OlympiadProblemCard({
           </span>
         </div>
         <span className="text-sm text-muted-foreground">
-          {problem.primaryTopic}
+          {problem.importLanguage === "ru"
+            ? hasEnglishDraft
+              ? "Russian statement · English draft available"
+              : "Russian statement · English translation pending"
+            : "English statement"}
         </span>
       </header>
       <div className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between">
@@ -50,16 +55,18 @@ export function OlympiadProblemCard({
           >
             {problem.title}
           </h4>
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            {problem.importLanguage === "ru"
-              ? hasEnglishDraft
-                ? "Russian statement · English draft available"
-                : "Russian statement · English translation pending"
-              : "English statement"}
-            {problem.titleLanguage === "ru" && " · Source title in Russian"}
-            {problem.titleOrigin === "problem-identifier" &&
-              " · Original paper has no descriptive title"}
-          </p>
+          {(problem.titleLanguage === "ru" ||
+            problem.titleOrigin === "problem-identifier") && (
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              {[
+                problem.titleLanguage === "ru" && "Source title in Russian",
+                problem.titleOrigin === "problem-identifier" &&
+                  "Original paper has no descriptive title",
+              ]
+                .filter(Boolean)
+                .join(" · ")}
+            </p>
+          )}
         </div>
         <Button
           variant="outline-transparent"
@@ -73,8 +80,7 @@ export function OlympiadProblemCard({
       </div>
       <footer className="problem-entry-details flex flex-wrap items-center justify-between gap-3 px-5 py-3">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="text-sm">Concepts</span>
-          {problem.tags.map((tag) => (
+          {getProblemTags(problem).map((tag) => (
             <Badge key={tag} variant="concept">
               {tag}
             </Badge>

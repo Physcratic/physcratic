@@ -9,7 +9,6 @@ import {
   getTagOptions,
   tagLabel,
 } from "@/lib/problem-tags";
-import { ArchiveStats } from "./archive-stats";
 import { BookOpen, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -42,7 +41,7 @@ import { eloBands, getEloBand } from "@/lib/problem-archive";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CorpusCollection } from "./corpus-collection";
 import { OlympiadCatalog } from "./olympiad-catalog";
-import { catalogProblems, competitions } from "@/lib/corpus-catalog";
+import { catalogProblems } from "@/lib/corpus-catalog";
 import arena from "@/lib/arena/index.json";
 import { ArenaCollection } from "./arena-collection";
 
@@ -64,7 +63,7 @@ export function ProblemLibrary({
       ? requestedCollection
       : "catalog",
   );
-  const [competition, setCompetition] = useState("all");
+  const [competition, setCompetition] = useState("");
   const [pilotProblemId, setPilotProblemId] = useState<string | undefined>();
   const [search, setSearch] = useState(query || "");
   const [selectedTopic, setSelectedTopic] = useState(
@@ -91,52 +90,16 @@ export function ProblemLibrary({
     setSearch("");
     setSelectedTopic("all");
     setDifficulty("all");
-    setCompetition("all");
+    setCompetition("");
   }
 
   return (
     <div className="flex min-w-0 flex-col gap-7">
-      <ArchiveStats topic={selectedTopic} />
       <Tabs
         value={collection}
         onValueChange={setCollection}
         className="flex min-w-0 flex-col gap-6"
       >
-        <div className="flex min-w-0 flex-col gap-3">
-          <TabsList
-            aria-label="Problem collections"
-            className="h-auto w-fit max-w-full flex-wrap"
-          >
-            <TabsTrigger value="arena">
-              Physcratic Arena ·{" "}
-              {filterProblemsByTag(arena.problems, selectedTopic).length}
-            </TabsTrigger>
-            <TabsTrigger value="catalog">
-              Olympiad archive ·{" "}
-              {filterProblemsByTag(catalogProblems, selectedTopic).length}
-            </TabsTrigger>
-            <TabsTrigger value="pilot">
-              Guided exercises ·{" "}
-              {filterProblemsByTag(corpusProblems, selectedTopic).length}
-            </TabsTrigger>
-            <TabsTrigger value="practice">
-              Quick practice ·{" "}
-              {filterProblemsByTag(problems, selectedTopic).length}
-            </TabsTrigger>
-          </TabsList>
-          <p
-            className="text-sm leading-relaxed text-muted-foreground"
-            aria-live="polite"
-          >
-            {collection === "arena"
-              ? "Your uploaded Arena problems, transcribed as native text and LaTeX with complete worked solutions."
-              : collection === "catalog"
-                ? "Full IPhO, APhO and EuPhO exercises. Colours identify the competition; topic tags describe the physics."
-                : collection === "pilot"
-                  ? "Exercises from the olympiad archive, with step-by-step subpart guides. These are not additional problems."
-                  : "Short practice exercises with hints, worked solutions and estimated difficulty ratings."}
-          </p>
-        </div>
         <Card className="shadow-none">
           <CardHeader className="pb-4">
             <CardTitle>
@@ -156,29 +119,18 @@ export function ProblemLibrary({
                 />
               </Field>
               {collection === "catalog" && (
-                <Field className="sm:w-40">
+                <Field className="sm:w-48">
                   <FieldLabel htmlFor="competition-filter">
                     Competition
                   </FieldLabel>
-                  <Select value={competition} onValueChange={setCompetition}>
-                    <SelectTrigger id="competition-filter">
-                      <SelectValue>
-                        {competition === "all"
-                          ? "All competitions"
-                          : competition}
-                      </SelectValue>
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectGroup>
-                        <SelectItem value="all">All competitions</SelectItem>
-                        {competitions.map((name) => (
-                          <SelectItem key={name} value={name}>
-                            {name}
-                          </SelectItem>
-                        ))}
-                      </SelectGroup>
-                    </SelectContent>
-                  </Select>
+                  <Input
+                    id="competition-filter"
+                    type="search"
+                    placeholder="e.g. IPhO 2025"
+                    aria-controls="catalog-results"
+                    value={competition}
+                    onChange={(event) => setCompetition(event.target.value)}
+                  />
                 </Field>
               )}
               <Field className="sm:w-48">
@@ -230,6 +182,41 @@ export function ProblemLibrary({
             </FieldGroup>
           </CardContent>
         </Card>
+        <div className="flex min-w-0 flex-col gap-3">
+          <TabsList
+            aria-label="Problem collections"
+            className="h-auto w-fit max-w-full flex-wrap"
+          >
+            <TabsTrigger value="arena">
+              Physcratic Arena ·{" "}
+              {filterProblemsByTag(arena.problems, selectedTopic).length}
+            </TabsTrigger>
+            <TabsTrigger value="catalog">
+              Olympiad archive ·{" "}
+              {filterProblemsByTag(catalogProblems, selectedTopic).length}
+            </TabsTrigger>
+            <TabsTrigger value="pilot">
+              Guided exercises ·{" "}
+              {filterProblemsByTag(corpusProblems, selectedTopic).length}
+            </TabsTrigger>
+            <TabsTrigger value="practice">
+              Quick practice ·{" "}
+              {filterProblemsByTag(problems, selectedTopic).length}
+            </TabsTrigger>
+          </TabsList>
+          <p
+            className="text-sm leading-relaxed text-muted-foreground"
+            aria-live="polite"
+          >
+            {collection === "arena"
+              ? "Your uploaded Arena problems, transcribed as native text and LaTeX with complete worked solutions."
+              : collection === "catalog"
+                ? "Full IPhO, APhO and EuPhO exercises. Colours identify the competition; topic tags describe the physics."
+                : collection === "pilot"
+                  ? "Exercises from the olympiad archive, with step-by-step subpart guides. These are not additional problems."
+                  : "Short practice exercises with hints, worked solutions and estimated difficulty ratings."}
+          </p>
+        </div>
         <TabsContent value="arena" className="min-w-0">
           <ArenaCollection
             query={search}

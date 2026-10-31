@@ -193,6 +193,11 @@ export function filterCatalog({
   difficulty?: string;
 }) {
   const words = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+  const competitionQuery = competition.trim().toLocaleLowerCase();
+  const competitionWords =
+    competitionQuery === "all"
+      ? []
+      : competitionQuery.split(/[\s-]+/).filter(Boolean);
   return catalogProblems.filter((problem) => {
     const searchable = [
       problem.title,
@@ -208,7 +213,11 @@ export function filterCatalog({
       .join(" ")
       .toLocaleLowerCase();
     return (
-      (competition === "all" || problem.competition === competition) &&
+      competitionWords.every((word) =>
+        `${problem.competition} ${problem.year}`
+          .toLocaleLowerCase()
+          .includes(word),
+      ) &&
       (difficulty === "all" || difficulty === "unrated") &&
       (topic === "all" ||
         [...problem.topics, ...problem.tags].includes(tagLabel(topic))) &&

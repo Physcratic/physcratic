@@ -224,6 +224,43 @@ test("catalog search composes competition, year, concept and unrated filters", (
   assert.equal(filterCatalog({ difficulty: "unrated" }).length, 100);
 });
 
+test("competition search supports partial names, contest years and combined filters", () => {
+  assert.equal(filterCatalog({ competition: "" }).length, 100);
+  assert.equal(filterCatalog({ competition: "   " }).length, 100);
+  assert.equal(filterCatalog({ competition: " ALL " }).length, 100);
+  assert.equal(filterCatalog({ competition: " ipho " }).length, 40);
+  assert.equal(filterCatalog({ competition: "apho" }).length, 35);
+  assert.equal(filterCatalog({ competition: "euph" }).length, 25);
+
+  for (const competition of [" IPhO 2025 ", "ipho-2025", "2025 IPHO"]) {
+    const matches = filterCatalog({ competition });
+    assert.equal(matches.length, 3);
+    assert.ok(
+      matches.every(
+        (problem) => problem.competition === "IPhO" && problem.year === 2025,
+      ),
+    );
+  }
+
+  const byYear = filterCatalog({ competition: "2025" });
+  assert.ok(byYear.length > 0);
+  assert.ok(byYear.every((problem) => problem.year === 2025));
+  assert.equal(
+    filterCatalog({ competition: "IPhO 2025", query: "Champagne" })[0]?.id,
+    "ipho-2025-t3",
+  );
+  assert.ok(
+    filterCatalog({ competition: "IPhO 2025", topic: "Thermodynamics" }).some(
+      (problem) => problem.id === "ipho-2025-t3",
+    ),
+  );
+  assert.equal(
+    filterCatalog({ competition: "IPhO 2025", difficulty: "1600-plus" }).length,
+    0,
+  );
+  assert.equal(filterCatalog({ competition: "unknown contest" }).length, 0);
+});
+
 test("catalog rejects unsafe URLs, inconsistent identity and invented ELO", () => {
   const source = catalogProblems[0];
   for (const change of [
