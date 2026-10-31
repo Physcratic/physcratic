@@ -73,3 +73,8 @@ for approval gates. A draft PR is review preparation, not deployment approval.
    browsers passed; library initialization repeatedly failed with local ENOSPC,
    including a tmpfs-database attempt. Prior8A evidence is reviewed only. Require
    a successful current-tree rerun; do not count infrastructure failure as pass.
+
+Latest GitHub observation: both `physcratic` AND `financial-dashboard` projects
+report pending statuses on handoff55b5f68. Verify which project is intended and
+why both are linked; do not infer isolation from either name. Draft PR27 exists
+and remains unmerged: https://github.com/Physcratic/physcratic/pull/27

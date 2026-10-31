@@ -139,3 +139,8 @@ library initialization remains ENOSPC-blocked even with tmpfsPG;8A pass is prior
 evidence only. Require recovered-workspace rerun and fresh final-SHA CI. No target/
 isolation evidence received; verdict remains BLOCKED. Draft PR fallback body and
 manual compare URL are in AUTHORING_CONSOLIDATED_PR.md/readiness.
+
+Draft PR27 created successfully, no merge/auto-merge. GitHub reports pending
+Vercel contexts for BOTH physcratic and financial-dashboard on55b5f68; project/
+resource mapping remains a blocker. Final documentation-only observation commit
+requires its own exact-SHA CI result; request it if not accessible via the tools.

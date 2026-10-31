@@ -147,3 +147,17 @@ email, upload, shared migration, environment change, deployment or merge execute
 - Proposed consolidated draft body is in AUTHORING_CONSOLIDATED_PR.md. Draft PR
   creation is attempted after this handoff verification; if denied, manual URL:
   https://github.com/Physcratic/physcratic/compare/main...codex/physcratic-authoring-completion?expand=1
+
+### Draft PR and final remote observation
+
+Consolidated draft PR created successfully: https://github.com/Physcratic/physcratic/pull/27
+(base main, head existing integration branch). No merge/auto-merge enabled.
+GitHub status for the first handoff55b5f68 reports **two** pending Vercel project
+contexts: `physcratic` (GHmSvhzBTsrnBPMfBDkTpkhkYmKY) and
+`financial-dashboard` (EK2MxGgEfVcZYySx2D9irTxymmfi), both in
+`neuterions-projects`. This strengthens the need to verify intended mapping and
+isolation; it is not proof either is safe or Production/Preview scoped. These
+statuses arose from existing repository automation; no deployment API invoked.
+Final delivery includes this documentation-only observation after55b5f68; require
+CI for the exact final delivery SHA, not55b5f68 or71ff793. PR workflow lookup was
+empty at observation time (API filters PR-triggered runs); absence is not success.

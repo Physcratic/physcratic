@@ -60,3 +60,8 @@ pre-refresh counts where applicable.
 Final post-refresh verification:45/45 focused integration checks; full224 tests,223 pass,0 fail,0 skip,1 inherited corpus punctuation TODO. Typegen/TypeScript and diff checks pass. Both library and student/solution browser suites passed; latest main does not change their exercised components or APIs.
 
 Final8B local gates: frozen install/types/lint0/build PASS; full252/252,0skip/TODO; fresh authoring/student browser PASS; library rerun ENOSPC-blocked (prior8A evidence only). Final CI/target-isolation/remote-ledger evidence required. See release readiness/runbook; STOP after handoff/draft PR attempt.
+
+Draft consolidated PR27 created: https://github.com/Physcratic/physcratic/pull/27
+No merge/auto-merge. GitHub pending contexts show both physcratic and financial-
+dashboard; mapping/isolation still unverified. Final documentation-only observation
+commit follows55b5f68; require fresh CI for final SHA. No deployment API used.
