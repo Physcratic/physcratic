@@ -1,6 +1,6 @@
 # Explicit SQL migrations
 
-`0001_problem_authoring` is the first additive feature migration. It changes no old table and has no runtime/build hook. SQL is authoritative for deferred foreign keys, reverse part/key completeness constraints and immutability/sealing triggers, which Drizzle's table declarations cannot fully represent. Do not run Drizzle schema push against this schema: it can discard these invariants.
+`0001_problem_authoring` is the first additive feature migration. It changes no old table and has no runtime/build hook. SQL is authoritative for deferred foreign keys, reverse part/key completeness constraints and immutability/sealing triggers, which Drizzle's table declarations cannot fully represent. Do not run Drizzle schema push against this schema: it can discard these invariants. 
 
 Use PostgreSQL 17 and an explicitly selected disposable/staging database. Do not use ambient `DATABASE_URL` for local verification. Back up and inspect the target before any separately approved deployment. No production migration is authorized by Phase 1.
 
