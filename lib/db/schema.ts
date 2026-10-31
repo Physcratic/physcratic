@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
 import type { AuthoredDocument, PrivatePart } from "@/lib/problem-authoring";
-import { check, foreignKey, index, type AnyPgColumn, boolean, date, doublePrecision, integer, jsonb, pgTable, primaryKey, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
+import { check, foreignKey, index, type AnyPgColumn, boolean, bigint, date, doublePrecision, integer, jsonb, pgTable, primaryKey, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
 import type { SolutionSubmission } from "@/lib/solution-grading";
 
 export const user = pgTable("user", {
@@ -238,5 +238,112 @@ export const authorRevisionMedia = pgTable(
         authorMedia.purpose,
       ],
     }),
+  ],
+);
+
+// Student-authored attempts: SQL is authoritative for JSON/outcome/current-publication/immutability guards.
+export const authoredStudentRate = pgTable(
+  "authored_student_rate",
+  {
+    userId: text("user_id")
+      .primaryKey()
+      .references(() => user.id, { onDelete: "cascade" }),
+    windowStart: timestamp("window_start", { withTimezone: true }).notNull(),
+    requests: integer("requests").notNull(),
+    submissions: integer("submissions").notNull(),
+  },
+  (t) => [
+    check(
+      "authored_student_rate_requests_check",
+      sql`${t.requests} between 1 and 61`,
+    ),
+    check(
+      "authored_student_rate_submissions_check",
+      sql`${t.submissions} between 0 and 21`,
+    ),
+  ],
+);
+export const authoredAttempts = pgTable(
+  "authored_attempt",
+  {
+    id: uuid("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "restrict" }),
+    problemId: uuid("problem_id").notNull(),
+    revisionId: uuid("revision_id").notNull(),
+    partId: uuid("part_id").notNull(),
+    idempotencyKey: uuid("idempotency_key").notNull(),
+    answer: jsonb("answer")
+      .$type<
+        import("@/lib/authored-grading-contracts").AuthoredGradeInput["answer"]
+      >()
+      .notNull(),
+    status: text("status")
+      .$type<
+        import("@/lib/authored-attempt-contracts").StudentGrade["status"]
+      >()
+      .notNull(),
+    reason: text("reason")
+      .$type<
+        import("@/lib/authored-attempt-contracts").StudentGrade["reason"]
+      >()
+      .notNull(),
+    engineVersion: text("engine_version")
+      .$type<
+        import("@/lib/authored-attempt-contracts").StudentGrade["engineVersion"]
+      >()
+      .notNull(),
+    attemptNumber: bigint("attempt_number", { mode: "bigint" }).notNull(),
+    spoilerPolicy: text("spoiler_policy").notNull().default("no-reveal-v1"),
+    assisted: boolean("assisted").notNull().default(false),
+    createdAt: timestamp("created_at", { withTimezone: true, precision: 3 })
+      .notNull()
+      .default(sql`clock_timestamp()`),
+  },
+  (t) => [
+    unique("authored_attempt_user_id_idempotency_key_key").on(
+      t.userId,
+      t.idempotencyKey,
+    ),
+    unique(
+      "authored_attempt_user_id_revision_id_part_id_attempt_number_key",
+    ).on(t.userId, t.revisionId, t.partId, t.attemptNumber),
+    index("authored_attempt_history_idx").on(
+      t.userId,
+      t.createdAt.desc(),
+      t.id.desc(),
+    ),
+    index("authored_attempt_problem_idx").on(
+      t.userId,
+      t.problemId,
+      t.createdAt.desc(),
+      t.id.desc(),
+    ),
+    index("authored_attempt_revision_idx").on(t.revisionId, t.partId),
+    foreignKey({
+      columns: [t.problemId, t.revisionId],
+      foreignColumns: [authoredRevisions.problemId, authoredRevisions.id],
+    }).onDelete("restrict"),
+    foreignKey({
+      columns: [t.revisionId, t.partId],
+      foreignColumns: [
+        authoredRevisionParts.revisionId,
+        authoredRevisionParts.partId,
+      ],
+    }).onDelete("restrict"),
+    check(
+      "authored_attempt_attempt_number_check",
+      sql`${t.attemptNumber} > 0`,
+    ),
+    check(
+      "authored_attempt_engine_version_check",
+      sql`${t.engineVersion} in ('numeric-v1','symbolic-v1')`,
+    ),
+    check(
+      "authored_attempt_spoiler_policy_check",
+      sql`${t.spoilerPolicy}='no-reveal-v1'`,
+    ),
+    check("authored_attempt_assisted_check", sql`${t.assisted}=false`),
   ],
 );
