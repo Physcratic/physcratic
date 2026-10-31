@@ -39,19 +39,19 @@ export function CoachingSections() {
     <section id="how-it-works" className="border-y border-border py-20">
       <div className="coaching-container flex flex-col items-center gap-10">
         <h2 className="mx-auto max-w-2xl text-center text-balance text-3xl font-bold tracking-tight sm:text-4xl">Start your journey today.</h2>
-        <ol className="grid w-full gap-6 md:grid-cols-3">{steps.map((step, index) => <li key={step.title} className="flex flex-col gap-3 rounded-2xl border border-border bg-background p-6 text-foreground"><p className="text-sm font-medium text-accent">Step {index + 1}</p><h3 className="text-xl font-semibold tracking-tight">{step.title}</h3><p className="leading-relaxed text-muted-foreground">{step.body}</p></li>)}</ol>
+        <ol className="grid w-full gap-6 md:grid-cols-3">{steps.map((step, index) => <li key={step.title} className="flex flex-col items-center gap-3 rounded-2xl border border-border bg-background p-6 text-center text-foreground"><p className="text-sm font-medium text-accent">Step {index + 1}</p><h3 className="text-xl font-semibold tracking-tight">{step.title}</h3><p className="leading-relaxed text-muted-foreground">{step.body}</p></li>)}</ol>
         <div className="flex flex-wrap justify-center gap-3"><Link href="/coaching#hero-cta" className="coaching-button">Start step 1</Link><Link href="/coaching#tutors" className="coaching-button coaching-button-secondary">Explore our tutors</Link></div>
       </div>
     </section>
     <section aria-labelledby="reviews-title" className="border-b border-border py-20">
       <div className="coaching-container flex flex-col gap-8">
-        <div className="flex max-w-2xl flex-col gap-3"><p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">Student reviews</p><h2 id="reviews-title" className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">See what our students are saying.</h2></div>
+        <div className="flex max-w-2xl flex-col items-center gap-3 self-center text-center"><p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">Student reviews</p><h2 id="reviews-title" className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">See what our students are saying.</h2></div>
         <div className="rounded-2xl border border-border bg-foreground/5 p-8 md:p-10"><p className="max-w-3xl text-xl leading-relaxed text-foreground sm:text-2xl">We are collecting reflections from our first coaching sessions now. Student and family feedback will appear here as those sessions are completed.</p><p className="mt-6 text-sm font-medium uppercase tracking-wide text-muted-foreground">Reviews coming soon</p></div>
       </div>
     </section>
     <section id="faq" className="border-b border-border py-20">
       <div className="mx-auto flex max-w-3xl flex-col gap-10 px-5">
-        <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">Frequently asked questions</h2>
+        <h2 className="text-center text-balance text-3xl font-bold tracking-tight sm:text-4xl">Frequently asked questions</h2>
         <div className="divide-y divide-border border-y border-border">{faqs.map((item) => <details key={item.question} className="group py-5"><summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold [&::-webkit-details-marker]:hidden">{item.question}<Plus className="size-5 shrink-0 text-accent transition-transform group-open:rotate-45" aria-hidden="true" /></summary><p className="pt-3 leading-relaxed text-muted-foreground">{item.answer}</p></details>)}</div>
       </div>
     </section>

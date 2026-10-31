@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useRef, useState, type CSSProperties } from "react";
 import { ArrowLeft, ArrowRight, Pause, Play } from "lucide-react";
 import { medallists, medallistStats, medalLabel, type Medallist } from "@/lib/coaching/medallists";
-import { CoachingWorldMap } from "./coaching-world-map";
 
 export function CoachingTutorCard({ tutor, priority = false, eager = false }: { tutor: Medallist; priority?: boolean; eager?: boolean }) {
   const extension = ["angel", "kanishk", "ermuun-battulga", "reuben-felix"].includes(tutor.slug) ? "png" : "webp";
@@ -41,17 +40,13 @@ export function CoachingTutors() {
   }
   return <section id="tutors" className="py-20">
     <div className="coaching-container flex min-w-0 flex-col gap-8">
-      <div className="grid gap-10 lg:grid-cols-[minmax(0,.85fr)_minmax(0,1.15fr)] lg:items-center">
-        <div className="flex max-w-2xl flex-col gap-4">
-          <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">Our tutors</p>
-          <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">Taught by people who have stood on the Olympiad stage.</h2>
-          <p className="max-w-xl leading-relaxed text-muted-foreground">Every tutor has medalled at national, Asian, or international level. We match each student to the tutor whose strengths fit their syllabus and goals.</p>
-          <dl className="flex flex-wrap gap-10">
-            <div><dt className="text-sm text-muted-foreground">Tutors</dt><dd className="text-2xl font-semibold">{medallistStats.count}</dd></div>
-            <div><dt className="text-sm text-muted-foreground">Countries represented</dt><dd className="text-2xl font-semibold">{medallistStats.countries}</dd></div>
-          </dl>
-        </div>
-        <CoachingWorldMap />
+      <div className="flex max-w-2xl flex-col items-center gap-4 self-center text-center">
+        <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">Meet Our Tutors</h2>
+        <p className="max-w-xl leading-relaxed text-muted-foreground">Every tutor has medalled at national, Asian, or international level. We match each student to the tutor whose strengths fit their syllabus and goals.</p>
+        <dl className="flex flex-wrap justify-center gap-10">
+          <div><dt className="text-sm text-muted-foreground">Tutors</dt><dd className="text-2xl font-semibold">{medallistStats.count}</dd></div>
+          <div><dt className="text-sm text-muted-foreground">Countries represented</dt><dd className="text-2xl font-semibold">{medallistStats.countries}</dd></div>
+        </dl>
       </div>
       <div className="flex justify-end gap-2">
         <button type="button" aria-label="Previous tutors" onClick={() => scroll(-1)} className="flex size-10 items-center justify-center rounded-full border border-border"><ArrowLeft className="size-4" aria-hidden="true" /></button>
