@@ -15,6 +15,7 @@
 - Independent read-only UX/accessibility/security/data-integrity review complete; fixed five confirmed findings, no remaining confirmed blockers. Reviewer independently reran8/8 model tests.
 - Handoffs/map/status + AUTHORED_STUDENT_UI.md updated; Phase6A/symbolic policies preserved. No backend/auth/media-policy/grading/limit/migration/dependency/social/Elo changes, merge/deploy or production services/data.
 - Browser uses injected sessions with real production API/grader factories; live Better Auth/Vercel staging not exercised. Recovery is tab-local; own persistent history remains server-owned.
-- Final SHA via git log -1; draft PR creation pending delivery attempt (prior API Forbidden blocker).
+- Implementation `a111a5f` pushed; final SHA via git log -1. Draft PR creation blocked: both GitHub GraphQL and REST POST returned Forbidden; no PR number created.
+- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-6b
 - Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-6b?expand=1
 - Next: user review Phase6B; stop. No next phase or explicit worked-solution reveal without separate request.

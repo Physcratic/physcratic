@@ -40,6 +40,7 @@
 
 ## Delivery / next task
 
-- Draft PR creation: pending final delivery attempt; prior phases encountered GitHub GraphQL Forbidden.
+- Implementation commit `a111a5f` pushed. Draft PR creation attempted via both gh GraphQL and GitHub REST pulls endpoint; both POSTs returned Forbidden. No PR number was created; branch is ready for manual draft creation.
+- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-6b
 - Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-6b?expand=1
 - Stop after Phase6B review handoff. No merge/deployment/production data; no next phase or explicit solution reveal without a separate request.
