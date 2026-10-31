@@ -42,7 +42,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
       if (creating) {
         setCheckingCaptcha(true);
         try { captchaToken = await getSignupCaptchaToken(); }
-        catch { setError("Security check unavailable. Please check your connection and submit again to retry."); return; }
+        catch { setError("Security check unavailable. Please try again."); return; }
         finally { setCheckingCaptcha(false); }
       }
       const result = creating
@@ -57,7 +57,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
           setVerificationEmail(credentials.email);
           return;
         }
-        setError(creating ? "We could not create your account or complete the security check. Submit again for a fresh check, or try signing in." : "Sign-in failed. Check your details and try again.");
+        setError(creating ? "We could not create your account. Please try again or sign in." : "Sign-in failed. Check your details and try again.");
         return;
       }
       if (creating) {
@@ -87,15 +87,15 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
                 {!creating && verificationError && <Alert variant="destructive" role="alert"><AlertTitle>Link unavailable</AlertTitle><AlertDescription>This verification link is invalid or has expired. Request a new email below.</AlertDescription></Alert>}
                 {creating && <Field><FieldLabel htmlFor="account-name">Name</FieldLabel><Input id="account-name" name="name" autoComplete="name" required minLength={1} maxLength={80} /></Field>}
                 <Field><FieldLabel htmlFor="account-email">Email</FieldLabel><Input id="account-email" name="email" type="email" autoComplete="email" required maxLength={254} /></Field>
-                <Field><FieldLabel htmlFor="account-password">Password</FieldLabel><Input id="account-password" name="password" type="password" autoComplete={creating ? "new-password" : "current-password"} required minLength={8} maxLength={128} />{creating && <p className="text-sm leading-relaxed text-muted-foreground">Use at least 8 characters. Choose a password you do not use elsewhere.</p>}</Field>
+                <Field><FieldLabel htmlFor="account-password">Password</FieldLabel><Input id="account-password" name="password" type="password" autoComplete={creating ? "new-password" : "current-password"} required minLength={8} maxLength={128} />{creating && <p className="text-sm leading-relaxed text-muted-foreground">Use at least 8 characters.</p>}</Field>
                 {creating && <TermsConsent checked={termsAccepted} invalid={termsInvalid} onChange={(checked) => { setTermsAccepted(checked); if (checked) setTermsInvalid(false); }} />}
                 {error && <Alert variant="destructive" role="alert"><AlertTitle>Could not continue</AlertTitle><AlertDescription>{error}</AlertDescription></Alert>}
               </FieldGroup></fieldset>
             </form>
           </CardContent>
           <CardFooter className="flex flex-col items-stretch gap-4">
-            {creating && <p role="status" aria-live="polite" className="text-sm text-muted-foreground">{checkingCaptcha ? "Running security check…" : busy ? "Creating account…" : "Submit to run a security check. If it fails, submit again to retry."}</p>}
-            {creating && <p className="text-xs text-muted-foreground">Protected by reCAPTCHA. Google <a href="https://policies.google.com/privacy" className="underline">Privacy Policy</a> and <a href="https://policies.google.com/terms" className="underline">Terms of Service</a> apply.</p>}
+            {creating && <p role="status" aria-live="polite" className="text-sm text-muted-foreground">{checkingCaptcha ? "Running security check…" : busy ? "Creating account…" : "Submit to run a security check."}</p>}
+            {creating && <p className="mx-auto max-w-sm text-center text-xs leading-5 text-muted-foreground">Protected by reCAPTCHA. Google <a href="https://policies.google.com/privacy" className="underline">Privacy Policy</a> and <a href="https://policies.google.com/terms" className="underline">Terms of Service</a> apply.</p>}
             <Button form="account-form" type="submit" disabled={busy}>{busy && <Loader2 data-icon="inline-start" className="animate-spin" />}{creating ? "Create account" : "Sign in"}</Button>
             <p className="text-center text-sm leading-relaxed text-muted-foreground">{creating ? "Already have an account? " : "New to Physcratic? "}<Link className="text-foreground underline underline-offset-4" href={`/${creating ? "sign-in" : "sign-up"}?returnTo=${encodeURIComponent(returnTo)}`}>{creating ? "Sign in" : "Create an account"}</Link></p>
             {!creating && <Button type="button" variant="ghost" disabled={busy} onClick={() => setVerificationEmail("")}>Need a verification email?</Button>}
