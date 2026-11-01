@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Highlighted } from "./coaching-highlight";
 import { content } from "@/lib/coaching/content";
 
 const { packages } = content;
@@ -14,8 +14,8 @@ export function CoachingPackages() {
         <p className="mt-auto leading-relaxed"><span className="font-semibold">{packages.bestForLabel}:</span> <span className="text-muted-foreground">{item.bestFor}</span></p>
       </li>)}</ul>
       <div className="flex max-w-2xl flex-col items-center gap-5 text-center">
-        <p className="leading-relaxed text-muted-foreground"><span className="font-semibold text-foreground">{packages.pricingTitle}</span> {packages.pricingText}</p>
-        <Link href="/coaching#hero-cta" className="coaching-button">{packages.cta}</Link>
+        <p className="leading-relaxed text-muted-foreground"><span className="font-semibold text-foreground">{packages.pricingTitle}</span> <Highlighted text={packages.pricingText} phrase={packages.highlight} /></p>
+        <a href="#hero-cta" className="coaching-button">{packages.cta}</a>
       </div>
     </div>
   </section>;
