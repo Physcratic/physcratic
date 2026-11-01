@@ -45,6 +45,11 @@ test("old copy and wrong spellings are banned", () => {
   assert.deepEqual(hits, []);
 });
 
+test("marketing filler words are banned", () => {
+  const hits = all.filter(([, s]) => /journey|unlock|elevate|seamless|empower|world-class/i.test(s)).map(([p]) => p);
+  assert.deepEqual(hits, []);
+});
+
 test("coaches are never called tutors, except the verbatim student quote and the #tutors anchor", () => {
   const hits = all.filter(([p, s]) => p !== "content.reviews.quote" && !p.endsWith(".href") && /\btutors?\b/i.test(s)).map(([p]) => p);
   assert.deepEqual(hits, []);

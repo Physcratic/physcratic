@@ -84,3 +84,14 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **Scheduling visual:** CSS-only `<figure>`, bar positions computed from hours in the content module. Labels and time ranges sit above each bar so nothing is squeezed inside a bar at 375px. The bars are `aria-hidden` and a screen-reader sentence repeats the example.
 - **Checked:** typecheck, unit tests, one H1, headings in order, no duplicate ids, every in-page anchor resolves, no horizontal scroll at 375, 768 and 1440, banned phrases absent from the rendered page.
 - **Still open:** `/coaching` stays `noindex` until Phase 3. The mobile menu `<details>` does not close after choosing a link (no client JS added).
+
+## 2026-11-01 — Coaching Phase 2b
+
+- **Roster:** 19 coaches from 12 countries (added Mohammed, Saudi Arabia, and Ignat, Portugal, after Ali Hamdaan). Counts are still computed, and the test now also pins 19 and 12. `Medallist.photo?: 'webp' | 'png' | false` replaces the hard-coded slug lists. `photo: false` (Nima, Yota, Ignat) renders an inline SVG silhouette in theme colours, `aria-hidden`, same 720x900 frame, and no image file is referenced. The Abhika cutout import is kept.
+- **Flags:** `public/coaching/flags/sa.png` and `pt.png` (640x427) were converted from the `flag-icons` npm package, fetched with `npm pack` into a temp folder (flagcdn.com is blocked from the build environment). No dependency added. A test checks that every country has a flag file and that photo-less coaches have no image on disk.
+- **Cards:** a 20x14 colour flag chip before the country name, and a 10px medal marker before each achievement (gold, silver, bronze, hollow ring for honourable mention). Colours are CSS variables in `coaching.module.css`, with a plain bordered circle in forced-colors mode. Achievements now each get their own line in one format ("Silver · APhO 2025").
+- **Logo and fonts:** header uses `/logo-mark-transparent.png` (alt empty) and `public/coaching/physcratic-logo.png` is deleted. Bowlby One is replaced by Fraunces 500 and 600 (`--font-coaching-display`) for the H1 first line, H2s and coach names, in sentence case. The brand text is sans 600, `text-lg`.
+- **Voice pass:** the listed strings were replaced exactly. Extra change: the IB and A-Level picker helper now reads "School physics with more problem-solving" (it used "real" as filler). The last FAQ answer says "Our live classes are the paid part." so "Physcratic Coaching" only appears in the first two answers.
+- **Design tells:** removed the decorative check icons in the class format list. The FAQ plus icon and the pause and play icons stay because they act as controls. No gradient text, and the only emoji is the heart in the review quote.
+- **Tests:** banned filler words (journey, unlock, elevate, seamless, empower, world-class) are checked in every string.
+- **Checked:** typecheck, unit tests, and screenshots at 375, 768 and 1440 px with no horizontal overflow and no broken images.
