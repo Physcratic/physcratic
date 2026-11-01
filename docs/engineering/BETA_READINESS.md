@@ -95,3 +95,10 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **Design tells:** removed the decorative check icons in the class format list. The FAQ plus icon and the pause and play icons stay because they act as controls. No gradient text, and the only emoji is the heart in the review quote.
 - **Tests:** banned filler words (journey, unlock, elevate, seamless, empower, world-class) are checked in every string.
 - **Checked:** typecheck, unit tests, and screenshots at 375, 768 and 1440 px with no horizontal overflow and no broken images.
+
+## 2026-11-01 - Batch 5.1 - Team rules
+
+- **Added:** `CONTRIBUTING.md` (golden rules, ownership table with Owner set to TBD, shared-file and migration rules, quality gates, copy rules, production deploy note), `.github/pull_request_template.md`, and `.github/CODEOWNERS` with comments only.
+- **CLAUDE.md:** added the Coaching paths to the parallel-work list and a "Read CONTRIBUTING.md before starting." line. Nothing else changed.
+- **Not added:** `AGENTS.md`, because the accounts branch adds one.
+- **Still open:** fill in the Owner column and enable CODEOWNERS lines once owners are named.
