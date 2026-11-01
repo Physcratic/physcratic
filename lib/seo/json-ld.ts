@@ -1,3 +1,4 @@
+import type { Article } from "../learn/types";
 import type { Problem } from "../physics";
 import { SITE, siteUrl } from "../site";
 
@@ -69,6 +70,45 @@ export function problemGraph(problem: Problem) {
       educationalLevel: "Physics Olympiad",
       about: { "@type": "Thing", name: problem.topic },
       publisher: { "@id": orgId() },
+    },
+  ];
+}
+
+/** BreadcrumbList (Learn, then the guide) plus an Article that cites its sources. */
+export function articleGraph(article: Article) {
+  const base = siteUrl();
+  const url = `${base}/learn/${article.slug}`;
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { name: "Learn", item: `${base}/learn` },
+        { name: article.title, item: url },
+      ].map((entry, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        ...entry,
+      })),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: article.title,
+      description: article.description,
+      url,
+      mainEntityOfPage: url,
+      inLanguage: "en-GB",
+      isAccessibleForFree: true,
+      datePublished: article.updated,
+      dateModified: article.updated,
+      author: { "@id": orgId() },
+      publisher: { "@id": orgId() },
+      citation: article.sources.map((source) => ({
+        "@type": "CreativeWork",
+        name: source.title,
+        url: source.url,
+      })),
     },
   ];
 }

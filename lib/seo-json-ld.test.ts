@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
+import { articles } from "./learn/articles";
 import { problems } from "./physics";
 import {
+  articleGraph,
   jsonLdScript,
   organization,
   problemGraph,
@@ -45,5 +47,20 @@ describe("json-ld", () => {
     assert.ok(!out.includes(">"));
     assert.ok(!out.includes("&"));
     assert.deepEqual(JSON.parse(out), data);
+  });
+  it("articleGraph has breadcrumbs, an Article and its citations", () => {
+    const a = articles[0];
+    const [crumbs, article] = articleGraph(a) as any[];
+    assert.equal(crumbs["@type"], "BreadcrumbList");
+    assert.deepEqual(
+      crumbs.itemListElement.map((i: any) => i.name),
+      ["Learn", a.title],
+    );
+    for (const i of crumbs.itemListElement) assert.match(i.item, /^https?:\/\//);
+    assert.equal(article["@type"], "Article");
+    assert.equal(article.headline, a.title);
+    assert.equal(article.dateModified, a.updated);
+    assert.equal(article.citation.length, a.sources.length);
+    assert.doesNotThrow(() => JSON.parse(jsonLdScript(articleGraph(a))));
   });
 });
