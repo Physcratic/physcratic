@@ -197,9 +197,7 @@ export function OlympiadCatalog({
                 </EmptyMedia>
                 <EmptyTitle>No catalog problems match</EmptyTitle>
                 <EmptyDescription>
-                  {difficulty !== "all" && difficulty !== "unrated"
-                    ? "Catalog problems have no calibrated ELO. Select Unrated or All ratings."
-                    : "Try another competition, year, concept or topic."}
+                  Try another competition, year, concept, topic or difficulty range.
                 </EmptyDescription>
               </EmptyHeader>
               <Button variant="outline" onClick={onReset}>

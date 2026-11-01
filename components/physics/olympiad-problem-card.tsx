@@ -1,7 +1,9 @@
 "use client";
 
+import * as React from "react";
 import type { CatalogProblem } from "@/lib/corpus-catalog";
 import { getProblemTags } from "@/lib/problem-tags";
+import { getEstimatedProblemElo } from "@/lib/problem-archive";
 import { ProblemCard } from "./problem-card";
 
 export function OlympiadProblemCard({
@@ -29,6 +31,7 @@ export function OlympiadProblemCard({
       competition={problem.competition}
       reference={`${problem.year} · ${problem.code}`}
       statementLanguage={problem.importLanguage}
+      elo={getEstimatedProblemElo(problem.id)}
       description={description}
       tags={getProblemTags(problem)}
       onOpen={() => onOpen(problem.id)}

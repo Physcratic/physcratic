@@ -183,16 +183,13 @@ export function ProblemLibrary({
                 <Select value={difficulty} onValueChange={setDifficulty}>
                   <SelectTrigger id="difficulty-filter">
                     <SelectValue>
-                      {difficulty === "unrated"
-                        ? "Unrated"
-                        : (eloBands.find((band) => band.id === difficulty)
-                            ?.range ?? "All ratings")}
+                      {eloBands.find((band) => band.id === difficulty)?.range ??
+                        "All ratings"}
                     </SelectValue>
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
                       <SelectItem value="all">All ratings</SelectItem>
-                      <SelectItem value="unrated">Unrated</SelectItem>
                       {eloBands.map((band) => (
                         <SelectItem key={band.id} value={band.id}>
                           {band.range}
@@ -205,7 +202,7 @@ export function ProblemLibrary({
             </FieldGroup>
           </CardContent>
         </Card>
-        {collection !== "catalog" && (
+        {(collection === "pilot" || collection === "practice") && (
           <p
             className={
               collection === "pilot"
@@ -214,9 +211,7 @@ export function ProblemLibrary({
             }
             aria-live="polite"
           >
-            {collection === "arena"
-              ? "Your uploaded Arena problems, transcribed as native text and LaTeX with complete worked solutions."
-              : collection === "pilot"
+            {collection === "pilot"
                 ? "Exercises from the olympiad archive, with step-by-step subpart guides. These are not additional problems."
                 : "Short practice exercises with hints, worked solutions and estimated difficulty ratings."}
           </p>

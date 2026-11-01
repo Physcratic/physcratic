@@ -7,6 +7,12 @@ import {
   type ProblemCardProps,
 } from "../components/physics/problem-card";
 
+import { ArenaCollection } from "../components/physics/arena-collection";
+import { OlympiadProblemCard } from "../components/physics/olympiad-problem-card";
+import { catalogProblems } from "./corpus-catalog";
+import arena from "./arena/index.json";
+import { getEstimatedProblemElo } from "./problem-archive";
+
 const base = {
   id: "test-problem",
   title: "A block on an incline",
@@ -35,7 +41,7 @@ test("problem cards share a labelled article, header, details and exercise actio
   assert.match(html, /Newton’s laws/);
 });
 
-test("unrated source problems never get a fabricated ELO estimate", () => {
+test("cards without a supplied difficulty never invent an estimate", () => {
   const html = render({ ...base, source: "Physcratic Arena", href: "/dashboard/problems/test-problem" });
   assert.match(html, /Unrated/);
   assert.doesNotMatch(html, /Estimated difficulty|~[\d,]+ ELO/);
@@ -81,6 +87,29 @@ test("all olympiad competitions retain their identity, source references and tit
     assert.doesNotMatch(html, /Russian statement|English statement/);
     assert.match(html, /русский.*Unrated/);
     assert.match(html, /Exercise:/);
+  }
+});
+
+test("Arena cards use the usual estimated difficulty badge without the removed metadata", () => {
+  const html = renderToStaticMarkup(createElement(ArenaCollection, {
+    query: "", topic: "all", difficulty: "all", onReset() {},
+  }));
+  assert.equal([...html.matchAll(/data-problem-card=/g)].length, 18);
+  assert.equal([...html.matchAll(/aria-label="Estimated difficulty /g)].length, 18);
+  for (const problem of arena.problems) {
+    assert.ok(html.includes(`Estimated difficulty ${getEstimatedProblemElo(problem.id).toLocaleString("en-US")},`));
+  }
+  assert.doesNotMatch(html, /Unrated|Self-review|Statement \+ worked solution/);
+  assert.match(html, /18 full problems/);
+});
+
+test("all imported archive cards display their individual estimate using the shared rating badge", () => {
+  for (const problem of catalogProblems) {
+    const html = renderToStaticMarkup(createElement(OlympiadProblemCard, { problem, onOpen() {} }));
+    const elo = getEstimatedProblemElo(problem.id).toLocaleString("en-US");
+    assert.ok(html.includes(`Estimated difficulty ${elo},`), problem.id);
+    assert.ok(html.includes(`>${elo}</span>`), problem.id);
+    assert.doesNotMatch(html, /Unrated/);
   }
 });
 

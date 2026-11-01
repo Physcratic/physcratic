@@ -11,6 +11,7 @@ import {
 } from "./corpus/catalog-selection";
 import { corpusProblems } from "./corpus-pilot";
 import { getProblemTags, tagLabel } from "./problem-tags";
+import { matchesEstimatedDifficulty } from "./problem-archive";
 
 const httpsUrl = z.string().url().startsWith("https://");
 const catalogSourceSchema = z.object({
@@ -218,7 +219,7 @@ export function filterCatalog({
           .toLocaleLowerCase()
           .includes(word),
       ) &&
-      (difficulty === "all" || difficulty === "unrated") &&
+      matchesEstimatedDifficulty(problem.id, difficulty) &&
       (topic === "all" || getProblemTags(problem).includes(tagLabel(topic))) &&
       words.every((word) => searchable.includes(word))
     );

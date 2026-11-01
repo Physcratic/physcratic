@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { matchesEstimatedDifficulty } from "./problem-archive";
 
 export const arenaProvenance = {
   sourceArchive: "Physcratic Arena Problems",
@@ -30,6 +31,6 @@ export function filterArena(problems: ArenaCatalogEntry[], { query = "", topic =
   return problems.filter((problem) => {
     const tags = [problem.topic, ...problem.tags];
     const searchable = [problem.title, problem.summary, ...tags].join(" ").toLocaleLowerCase();
-    return (difficulty === "all" || difficulty === "unrated") && (topic === "all" || tags.includes(topic)) && words.every((word) => searchable.includes(word));
+    return matchesEstimatedDifficulty(problem.id, difficulty) && (topic === "all" || tags.includes(topic)) && words.every((word) => searchable.includes(word));
   });
 }

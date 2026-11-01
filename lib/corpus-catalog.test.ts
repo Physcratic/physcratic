@@ -205,7 +205,7 @@ test("every external statement and solution has recorded successful URL verifica
   }
 });
 
-test("catalog search composes competition, year, concept and unrated filters", () => {
+test("catalog search composes competition, year, concept and estimated difficulty filters", () => {
   assert.equal(filterCatalog({ query: " APhO 2025 " }).length, 3);
   assert.equal(filterCatalog({ competition: "EuPhO" }).length, 25);
   assert.equal(filterCatalog({ topic: "Mechanics" }).length >= 20, true);
@@ -220,8 +220,10 @@ test("catalog search composes competition, year, concept and unrated filters", (
     filterCatalog({ competition: "APhO", query: "EuPhO" }).length,
     0,
   );
-  assert.equal(filterCatalog({ difficulty: "1600-plus" }).length, 0);
-  assert.equal(filterCatalog({ difficulty: "unrated" }).length, 100);
+  assert.equal(filterCatalog({ difficulty: "1600-plus" }).length, 100);
+  assert.equal(filterCatalog({ difficulty: "1200-1599" }).length, 0);
+  assert.equal(filterCatalog({ difficulty: "under-1200" }).length, 0);
+  assert.equal(filterCatalog({ difficulty: "unrated" }).length, 0);
 });
 
 test("competition search supports partial names, contest years and combined filters", () => {
@@ -256,7 +258,7 @@ test("competition search supports partial names, contest years and combined filt
   );
   assert.equal(
     filterCatalog({ competition: "IPhO 2025", difficulty: "1600-plus" }).length,
-    0,
+    3,
   );
   assert.equal(filterCatalog({ competition: "unknown contest" }).length, 0);
 });

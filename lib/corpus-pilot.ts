@@ -5,6 +5,7 @@ import assets from "../public/corpus-assets.json";
 import { iphoPapers, iphoSubproblems } from "./ipho-archive";
 import { corpusProblemSchema, type CorpusProblem } from "./corpus-schema";
 import { getProblemTags, tagLabel } from "./problem-tags";
+import { matchesEstimatedDifficulty } from "./problem-archive";
 
 const topicMap: Record<string, CorpusProblem["topics"]> = {
   t1: ["Modern", "Mechanics"],
@@ -116,7 +117,7 @@ export function filterCorpus({
   return corpusProblems.filter(
     (problem) =>
       (topic === "all" || getProblemTags(problem).includes(tagLabel(topic))) &&
-      (difficulty === "all" || difficulty === "unrated") &&
+      matchesEstimatedDifficulty(problem.id, difficulty) &&
       [
         problem.title,
         problem.year,

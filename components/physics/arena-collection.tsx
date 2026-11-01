@@ -1,4 +1,6 @@
+import * as React from "react";
 import { filterProblemsByTag, getProblemTags } from "@/lib/problem-tags";
+import { getEstimatedProblemElo } from "@/lib/problem-archive";
 import { BookOpen, RotateCcw } from "lucide-react";
 import arena from "@/lib/arena/index.json";
 import { filterArena, type ArenaCatalogEntry } from "@/lib/arena-schema";
@@ -49,10 +51,6 @@ export function ArenaCollection({
           original diagrams and worked solutions—with selectable text and LaTeX
           equations, not PDF previews.
         </p>
-        <p className="text-sm text-muted-foreground" aria-live="polite">
-          {filtered.length} {filtered.length === 1 ? "problem" : "problems"} ·
-          Unrated · Self-review
-        </p>
       </header>
       {filtered.length ? (
         <ul className="flex min-w-0 flex-col gap-4">
@@ -64,7 +62,7 @@ export function ArenaCollection({
                 source="Physcratic Arena"
                 statementLanguage="en"
                 description={problem.summary}
-                details={["Statement + worked solution", "Self-review"]}
+                elo={getEstimatedProblemElo(problem.id)}
                 tags={getProblemTags(problem)}
                 href={`/dashboard/problems/${problem.id}`}
               />
@@ -79,8 +77,7 @@ export function ArenaCollection({
             </EmptyMedia>
             <EmptyTitle>No Arena problems found</EmptyTitle>
             <EmptyDescription>
-              Try a different search or tag. These imported problems are
-              unrated.
+              Try a different search, tag or difficulty range.
             </EmptyDescription>
           </EmptyHeader>
           <EmptyContent>

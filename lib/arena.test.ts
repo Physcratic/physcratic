@@ -67,11 +67,19 @@ test("long documents retain every source subpart and important qualifications", 
   assert.match(get("the-capacitors-missing-energy").solution, /Including the entire closed system/);
 });
 
-test("Arena search, tags and unrated filter operate independently of olympiad competitions", () => {
+test("Arena search, tags and estimated difficulty filters compose independently of competitions", () => {
   assert.equal(filterArena(entries, { query: "dodecahedron" }).length, 1);
   assert.equal(filterArena(entries, { query: "quantum tunnelling" })[0]?.id, "arena-the-quantum-escape-room");
   assert.equal(filterArena(entries, { topic: "Optics" }).length, 3);
-  assert.equal(filterArena(entries, { difficulty: "unrated" }).length, 18);
+  assert.deepEqual(filterArena(entries, { difficulty: "1200-1599" }).map((problem) => problem.id), [
+    "arena-mind-the-gap",
+    "arena-the-dodecahedron-conspiracy",
+  ]);
+  assert.equal(filterArena(entries, { difficulty: "1600-plus" }).length, 16);
+  assert.equal(filterArena(entries, { topic: "Optics", difficulty: "1200-1599" })[0]?.id, "arena-mind-the-gap");
+  assert.equal(filterArena(entries, { query: "quantum", difficulty: "1200-1599" }).length, 0);
+  assert.equal(filterArena(entries, { difficulty: "under-1200" }).length, 0);
+  assert.equal(filterArena(entries, { difficulty: "unrated" }).length, 0);
   assert.equal(filterArena(entries, { difficulty: "expert" }).length, 0);
   assert.equal(filterArena(entries, { query: "does-not-exist" }).length, 0);
 });

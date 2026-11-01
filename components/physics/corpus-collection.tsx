@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/empty";
 import { corpusProblems, filterCorpus } from "@/lib/corpus-pilot";
 import { getProblemTags } from "@/lib/problem-tags";
+import { getEstimatedProblemElo } from "@/lib/problem-archive";
 import { CorpusProblemReader } from "./corpus-problem-reader";
 import { ProblemCard } from "./problem-card";
 
@@ -167,8 +168,8 @@ export function CorpusCollection({
         <AlertTitle>Source-fidelity pilot · review pending</AlertTitle>
         <AlertDescription>
           Native text is an editorial guide, original pages are authoritative.
-          All five are unrated. Independent physics review and reuse clearance
-          are still pending.
+          Difficulty badges are editorial estimates, not calibrated ratings.
+          Independent physics review and reuse clearance are still pending.
         </AlertDescription>
       </Alert>
       <Card className="min-w-0 overflow-hidden shadow-none">
@@ -198,6 +199,7 @@ export function CorpusCollection({
                     competition={problem.competition}
                     reference={`${problem.year} · ${problem.code}`}
                     statementLanguage="en"
+                    elo={getEstimatedProblemElo(problem.id)}
                     description={problem.summary}
                     details={[
                       `${problem.parts.length} scored subparts`,
@@ -218,9 +220,7 @@ export function CorpusCollection({
                 </EmptyMedia>
                 <EmptyTitle>No pilot problems match</EmptyTitle>
                 <EmptyDescription>
-                  {difficulty !== "all" && difficulty !== "unrated"
-                    ? "These source problems have no calibrated ELO yet. Select Unrated or All ratings."
-                    : "Try another year, topic, title, or concept."}
+                  Try another year, topic, title, concept or difficulty range.
                 </EmptyDescription>
               </EmptyHeader>
               <Button variant="outline" onClick={onReset}>

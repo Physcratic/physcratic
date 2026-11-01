@@ -148,12 +148,14 @@ test("schema rejects duplicate tasks, invalid page mappings, and incomplete mark
   );
 });
 
-test("corpus search includes source, year, title, concepts, and subpart text without fabricated ELO", () => {
+test("corpus search composes source, year, concepts, subpart text and estimated difficulty", () => {
   assert.equal(filterCorpus({ query: "  2015  " }).length, 1);
   assert.equal(filterCorpus({ query: "Cherenkov" })[0]?.year, 2015);
   assert.equal(filterCorpus({ topic: "Optics" }).length, 1);
-  assert.equal(filterCorpus({ difficulty: "unrated" }).length, 5);
-  assert.equal(filterCorpus({ difficulty: "1600-plus" }).length, 0);
+  assert.equal(filterCorpus({ difficulty: "unrated" }).length, 0);
+  assert.equal(filterCorpus({ difficulty: "1600-plus" }).length, 5);
+  assert.equal(filterCorpus({ query: "2015", difficulty: "1600-plus" }).length, 1);
+  assert.equal(filterCorpus({ difficulty: "1200-1599" }).length, 0);
   assert.equal(filterCorpus({ query: "not a real concept" }).length, 0);
   assert.equal(filterCorpus({ topic: "Electromagnetism" }).length, 0);
 });
