@@ -137,7 +137,7 @@ test("every pathway has a helper line", () => {
 });
 
 test("package hours are sessions times class hours", () => {
-  assert.deepEqual(content.packages.items.map((i) => i.size), ["16 sessions, 32 hours", "32 sessions, 64 hours"]);
+  assert.deepEqual(content.packages.items.map((i) => `${i.sessions}, ${i.hours}`), ["16 sessions, 32 hours", "32 sessions, 64 hours"]);
 });
 
 test("every country has a flag file and every photo-less coach has no image on disk", () => {
@@ -169,6 +169,7 @@ test("each highlight is one short phrase found in its own section text", () => {
     ["programs", content.programs.intro, content.programs.highlight],
     ["classFormat", content.classFormat.stretchText, content.classFormat.highlight],
     ["scheduling", content.scheduling.text, content.scheduling.highlight],
+    ["path", content.path.steps[1].body, content.path.highlight],
     ["packages", content.packages.pricingText, content.packages.highlight],
   ];
   for (const [section, text, phrase] of targets) {

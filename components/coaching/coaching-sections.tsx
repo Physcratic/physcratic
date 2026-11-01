@@ -11,6 +11,7 @@ import { CoachingGlance } from "./coaching-glance";
 import { CoachingFaq } from "./coaching-faq";
 import { CoachingFinalCta } from "./coaching-final-cta";
 import { CoachingMobileMenu } from "./coaching-mobile-menu";
+import { Highlighted } from "./coaching-highlight";
 
 const { ui, nav, path, footer } = content;
 
@@ -31,10 +32,18 @@ export function CoachingHeader({ base = "" }: { base?: string }) {
 
 function CoachingPath() {
   return <section id="your-path" className="border-y border-border py-20">
-    <div className="coaching-container flex flex-col items-center gap-10">
+    <div className="coaching-container flex flex-col gap-12">
       <h2 className="mx-auto max-w-2xl text-center text-balance font-serif text-3xl leading-tight sm:text-4xl">{path.title}</h2>
-      <ol className="grid w-full gap-6 md:grid-cols-2 lg:grid-cols-4">{path.steps.map((step, index) => <li key={step.title} className="flex flex-col items-center gap-3 rounded-2xl border border-border bg-background p-6 text-center text-foreground"><p className="text-sm font-medium text-accent">{path.stepLabel} {index + 1}</p><h3 className="text-xl font-semibold tracking-tight">{step.title}</h3><p className="leading-relaxed text-muted-foreground">{step.body}</p></li>)}</ol>
-      <div className="flex flex-wrap justify-center gap-3"><a href="#hero-cta" className="coaching-button">{path.startLabel}</a><a href="#tutors" className="coaching-button coaching-button-secondary">{path.coachesLabel}</a></div>
+      <ol className="coaching-steps">
+        {path.steps.map((step, index) => <li key={step.title} className="coaching-step">
+          <span className="coaching-step-number" aria-hidden="true">{index + 1}</span>
+          <p className="sr-only">{path.stepLabel} {index + 1}</p>
+          <h3 className="text-xl font-semibold tracking-tight">{step.title}</h3>
+          <p className="leading-relaxed text-muted-foreground"><Highlighted text={step.body} phrase={index === 1 ? path.highlight : undefined} /></p>
+        </li>)}
+        <li className="coaching-step-end"><a href="#hero-cta" className="coaching-button">{path.startLabel}</a></li>
+      </ol>
+      <p className="text-center"><a href="#tutors" className="coaching-link text-sm font-semibold text-muted-foreground hover:text-foreground">{path.coachesLabel}</a></p>
     </div>
   </section>;
 }

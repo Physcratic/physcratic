@@ -192,13 +192,15 @@ export function buildCoachingContent(list: readonly Medallist[]) {
       items: [
         {
           title: "Intensive",
-          size: `${sessions.intensive} sessions, ${sessions.intensive * classHours} hours`,
+          sessions: `${sessions.intensive} sessions`,
+          hours: `${sessions.intensive * classHours} hours`,
           text: "The main olympiad areas from intermediate to harder problems, at a fast pace: mechanics, orbital mechanics, electromagnetism, thermodynamics, waves, optics, modern physics and relativity.",
           bestFor: "You want to cover a lot quickly and can keep up with weekly homework.",
         },
         {
           title: "Mastery",
-          size: `${sessions.mastery} sessions, ${sessions.mastery * classHours} hours`,
+          sessions: `${sessions.mastery} sessions`,
+          hours: `${sessions.mastery * classHours} hours`,
           text: "The same areas in far more depth: careful derivations, mathematical technique, many problem styles, revisiting weak spots and moving into much harder questions.",
           bestFor: "You want to go deep and have time before your target competition.",
         },
@@ -211,6 +213,7 @@ export function buildCoachingContent(list: readonly Medallist[]) {
     path: {
       title: "How to get started",
       stepLabel: "Step",
+      highlight: "within 2 business days",
       steps: [
         { title: "Tell us about you", body: "Fill in the short consultation form: who you are, your country, your level and the languages you are comfortable with." },
         { title: "Find your level", body: "An admin contacts you on WhatsApp, or another channel you prefer, to talk about the competitions you have done, what you are aiming for and when you are free. This happens within 2 business days." },
