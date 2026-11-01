@@ -10,6 +10,7 @@ export type Medallist = {
   name: string
   slug: string
   country: string
+  hidden?: boolean
   achievements: Achievement[]
 }
 
@@ -35,16 +36,16 @@ export const countryFlagCodes: Record<string, string> = {
 
 // Tutor achievement records. Photos live in public/medallists/<slug>.webp.
 // Placeholder portraits are used until the remaining tutor photos are added.
-export const medallists: Medallist[] = [
+const medallistRoster: Medallist[] = [
   { name: 'Rishit Garg', slug: 'rishit-garg', country: 'India', achievements: [{ contest: 'IPhO', year: '2026', medal: 'gold' }, { contest: 'APhO', year: '2025', medal: 'bronze' }] },
   { name: 'Kanishk', slug: 'kanishk', country: 'India', achievements: [{ contest: 'IPhO', year: '2025/2026', medal: 'gold' }, { contest: 'APhO', year: '2025', medal: 'silver' }] },
   { name: 'Abhika', slug: 'abhika-atmaja', country: 'Indonesia', achievements: [{ contest: 'IPhO', year: '2026', medal: 'silver' }, { contest: 'APhO', year: '2026', medal: 'bronze' }] },
   { name: 'Ackhava', slug: 'ackhava-malonda', country: 'Indonesia', achievements: [{ contest: 'IPhO', year: '2026', medal: 'silver' }, { contest: 'APhO', year: '2026', medal: 'gold' }] },
   { name: 'Ermuun', slug: 'ermuun-battulga', country: 'Mongolia', achievements: [{ contest: 'IPhO', year: '2026', medal: 'silver' }, { contest: 'APhO', year: '2026', medal: 'bronze' }] },
   { name: 'Reuben', slug: 'reuben-felix', country: 'Philippines', achievements: [{ contest: 'IPhO', year: '2026', medal: 'silver' }] },
-  { name: 'Nima', slug: 'nima', country: 'Iran', achievements: [{ contest: 'IPhO', year: '2026', medal: 'silver' }] },
+  { name: 'Nima', slug: 'nima', country: 'Iran', hidden: true, achievements: [{ contest: 'IPhO', year: '2026', medal: 'silver' }] },
   { name: 'Angel', slug: 'angel', country: 'Peru', achievements: [{ contest: 'IPhO', year: '2026', medal: 'silver' }] },
-  { name: 'Yota', slug: 'yota', country: 'Japan', achievements: [{ contest: 'IPhO', year: '2026', medal: 'silver' }] },
+  { name: 'Yota', slug: 'yota', country: 'Japan', hidden: true, achievements: [{ contest: 'IPhO', year: '2026', medal: 'silver' }] },
   { name: 'Arrow', slug: 'arrow-kristian', country: 'Indonesia', achievements: [{ contest: 'IPhO', year: '2026', medal: 'bronze' }] },
   { name: 'Juan', slug: 'juan-richie', country: 'Indonesia', achievements: [{ contest: 'IPhO', year: '2026', medal: 'bronze' }, { contest: 'APhO', year: '2026', medal: 'bronze' }] },
   { name: 'Askar', slug: 'askar-abdiev', country: 'Kyrgyzstan', achievements: [{ contest: 'IPhO', year: '2025/2026', medal: 'bronze' }, { contest: 'APhO', year: '2025', medal: 'bronze' }, { contest: 'EuPhO', year: '2026', medal: 'bronze' }] },
@@ -54,6 +55,8 @@ export const medallists: Medallist[] = [
   { name: 'Bagas', slug: 'bagas-sibarani', country: 'Indonesia', achievements: [{ contest: 'APhO', year: '2026', medal: 'bronze' }] },
   { name: 'Santiago', slug: 'santiago-calvo', country: 'Costa Rica', achievements: [{ contest: 'IPhO', year: '2026', medal: 'hm' }] },
 ]
+
+export const medallists = medallistRoster.filter((tutor) => !tutor.hidden)
 
 export const medallistStats = {
   count: medallists.length,
