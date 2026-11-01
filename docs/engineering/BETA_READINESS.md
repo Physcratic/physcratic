@@ -134,7 +134,7 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 
 ## 2026-11-02 - Batch 6.2 - Reviewer, study tips and resources guide
 
-- **Reviewer:** every guide shows "Reviewed by Arrow Dunatos, IPhO 2026 bronze medallist" under the Updated date, with the name linked to `/coaching`. Each Article JSON-LD has `reviewedBy` as a Person. Schema.org defines `reviewedBy` on WebPage, not Article, so some validators may warn about it.
+- **Reviewer:** every guide shows "Reviewed by Arrow Dunatos, IPhO 2026 bronze medallist" under the Updated date, with the name linked to `/coaching`. Each guide's JSON-LD has a WebPage node with `reviewedBy` (a Person) and `mainEntity` pointing to the Article, because schema.org defines `reviewedBy` on WebPage.
 - **Guide A:** new section "How to study and solve problems", paraphrased from Kevin Zhou's Learning Introductory Physics (K1), credited by name. His USA-specific exam advice is left out. A links to guide D.
 - **Guide D:** `physics-olympiad-books-and-resources`, the reviewer's picks grouped by stage and topic, with a few of ours marked "Also useful". No prices, no buy links, no edition claims beyond Halliday, Resnick and Krane (5th edition). Cites K1 to K3 and Zhou's writing index. It is in the hub, registry, sitemap, llms.txt and has its own OG image through the shared `[slug]` route.
 - **New block type:** `guideLink`, checked by test against real slugs and heading ids.

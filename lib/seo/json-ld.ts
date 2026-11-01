@@ -74,7 +74,10 @@ export function problemGraph(problem: Problem) {
   ];
 }
 
-/** BreadcrumbList (Learn, then the guide) plus an Article that cites its sources. */
+/**
+ * BreadcrumbList (Learn, then the guide), a WebPage that carries the reviewer
+ * (schema.org defines reviewedBy on WebPage), and the Article it points to.
+ */
 export function articleGraph(article: Article) {
   const base = siteUrl();
   const url = `${base}/learn/${article.slug}`;
@@ -93,7 +96,17 @@ export function articleGraph(article: Article) {
     },
     {
       "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+      url,
+      name: article.title,
+      reviewedBy: { "@type": "Person", name: article.reviewedBy.name },
+      mainEntity: { "@id": `${url}#article` },
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "Article",
+      "@id": `${url}#article`,
       headline: article.title,
       description: article.description,
       url,
@@ -103,7 +116,6 @@ export function articleGraph(article: Article) {
       datePublished: article.updated,
       dateModified: article.updated,
       author: { "@id": orgId() },
-      reviewedBy: { "@type": "Person", name: article.reviewedBy.name },
       publisher: { "@id": orgId() },
       citation: article.sources.map((source) => ({
         "@type": "CreativeWork",

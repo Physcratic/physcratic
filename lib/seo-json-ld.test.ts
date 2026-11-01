@@ -48,20 +48,28 @@ describe("json-ld", () => {
     assert.ok(!out.includes("&"));
     assert.deepEqual(JSON.parse(out), data);
   });
-  it("articleGraph has breadcrumbs, an Article and its citations", () => {
+  it("articleGraph has breadcrumbs, a reviewed WebPage and the Article it points to", () => {
     const a = articles[0];
-    const [crumbs, article] = articleGraph(a) as any[];
+    const [crumbs, page, article] = articleGraph(a) as any[];
+    const url = `${siteUrl()}/learn/${a.slug}`;
     assert.equal(crumbs["@type"], "BreadcrumbList");
     assert.deepEqual(
       crumbs.itemListElement.map((i: any) => i.name),
       ["Learn", a.title],
     );
     for (const i of crumbs.itemListElement) assert.match(i.item, /^https?:\/\//);
+    assert.equal(page["@type"], "WebPage");
+    assert.equal(page["@id"], `${url}#webpage`);
+    assert.equal(page.url, url);
+    assert.equal(page.name, a.title);
+    assert.deepEqual(page.reviewedBy, { "@type": "Person", name: "Arrow Dunatos" });
+    assert.deepEqual(page.mainEntity, { "@id": article["@id"] });
     assert.equal(article["@type"], "Article");
+    assert.equal(article["@id"], `${url}#article`);
     assert.equal(article.headline, a.title);
     assert.equal(article.dateModified, a.updated);
     assert.equal(article.citation.length, a.sources.length);
-    assert.deepEqual(article.reviewedBy, { "@type": "Person", name: "Arrow Dunatos" });
+    assert.ok(!("reviewedBy" in article));
     assert.doesNotThrow(() => JSON.parse(jsonLdScript(articleGraph(a))));
   });
 });
