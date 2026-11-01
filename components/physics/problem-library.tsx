@@ -5,9 +5,12 @@ import { useSearchParams } from "next/navigation";
 import { corpusProblems } from "@/lib/corpus-pilot";
 import {
   filterProblemsByTag,
+  getProblemTags,
   getTagOptions,
   tagLabel,
 } from "@/lib/problem-tags";
+import { BookOpen, RotateCcw } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import {
@@ -24,7 +27,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { eloBands } from "@/lib/problem-archive";
+import {
+  Empty,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from "@/components/ui/empty";
+import { problems, type Problem } from "@/lib/physics";
+import { ProblemList } from "./problem-list";
+import { eloBands, getEloBand } from "@/lib/problem-archive";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CorpusCollection } from "./corpus-collection";
 import { OlympiadCatalog } from "./olympiad-catalog";
@@ -35,14 +47,18 @@ import { ArenaCollection } from "./arena-collection";
 export function ProblemLibrary({
   topic,
   query,
+  onOpen,
 }: {
   topic?: string;
   query?: string;
+  onOpen: (problem: Problem) => void;
 }) {
   const params = useSearchParams();
   const requestedCollection = params.get("collection");
   const [collection, setCollection] = useState(
-    requestedCollection === "pilot" || requestedCollection === "arena"
+    requestedCollection === "practice" ||
+      requestedCollection === "pilot" ||
+      requestedCollection === "arena"
       ? requestedCollection
       : "catalog",
   );
@@ -57,7 +73,17 @@ export function ProblemLibrary({
     ...catalogProblems,
     ...arena.problems,
     ...corpusProblems,
+    ...problems,
   ]);
+  const filtered = problems.filter(
+    (problem) =>
+      (selectedTopic === "all" ||
+        getProblemTags(problem).includes(selectedTopic)) &&
+      (difficulty === "all" || getEloBand(problem.elo).id === difficulty) &&
+      `${problem.title} ${getProblemTags(problem).join(" ")} ${problem.prompt}`
+        .toLowerCase()
+        .includes(search.toLowerCase().trim()),
+  );
 
   function reset() {
     setSearch("");
@@ -89,6 +115,10 @@ export function ProblemLibrary({
             <TabsTrigger value="pilot">
               Guided exercises ·{" "}
               {filterProblemsByTag(corpusProblems, selectedTopic).length}
+            </TabsTrigger>
+            <TabsTrigger value="practice">
+              Quick practice ·{" "}
+              {filterProblemsByTag(problems, selectedTopic).length}
             </TabsTrigger>
           </TabsList>
         </div>
@@ -206,6 +236,32 @@ export function ProblemLibrary({
             difficulty={difficulty}
             onReset={reset}
           />
+        </TabsContent>
+        <TabsContent value="practice" className="min-w-0">
+          <Card className="overflow-hidden shadow-none">
+            <CardContent className="px-0 pb-0 pt-5">
+              {filtered.length ? (
+                <ProblemList items={filtered} onOpen={onOpen} />
+              ) : (
+                <Empty className="py-16">
+                  <EmptyHeader>
+                    <EmptyMedia variant="icon">
+                      <BookOpen />
+                    </EmptyMedia>
+                    <EmptyTitle>No problems found</EmptyTitle>
+                    <EmptyDescription>
+                      Try a different concept or clear your filters to see the
+                      whole collection.
+                    </EmptyDescription>
+                  </EmptyHeader>
+                  <Button variant="outline" onClick={reset}>
+                    <RotateCcw data-icon="inline-start" />
+                    Clear filters
+                  </Button>
+                </Empty>
+              )}
+            </CardContent>
+          </Card>
         </TabsContent>
       </Tabs>
     </div>
