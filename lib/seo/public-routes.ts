@@ -3,9 +3,16 @@
 // Single registry of URLs that resolve with 200 on main today. The sitemap,
 // llms.txt and the dashboard metadata all derive from it.
 import { filterCatalog } from "../corpus-catalog";
+import { learnPath, publishedArticles } from "../learn/articles";
 import { problems, topics, type Problem } from "../physics";
 
-export type PublicRouteKind = "overview" | "view" | "topic" | "problem" | "legal";
+export type PublicRouteKind =
+  | "overview"
+  | "view"
+  | "topic"
+  | "problem"
+  | "learn"
+  | "legal";
 
 export interface PublicRoute {
   path: string;
@@ -62,6 +69,23 @@ export const publicRoutes: PublicRoute[] = [
     kind: "problem" as const,
     title: problem.title,
     topic: problem.topic,
+    indexable: true,
+  })),
+  // Published guides only. An unpublished guide has no route, so it stays out of the sitemap.
+  ...(publishedArticles.length > 0
+    ? [
+        {
+          path: learnPath(),
+          kind: "learn" as const,
+          title: "Physics Olympiad guides",
+          indexable: true,
+        },
+      ]
+    : []),
+  ...publishedArticles.map((article) => ({
+    path: learnPath(article.slug),
+    kind: "learn" as const,
+    title: article.title,
     indexable: true,
   })),
   { path: "/terms", kind: "legal", title: "Terms of Service", indexable: false },

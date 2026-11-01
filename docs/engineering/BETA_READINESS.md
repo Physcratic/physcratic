@@ -119,3 +119,15 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **SEO:** nothing to exclude. The sitemap is a fixed list of public pages, and `/api/*` already sends `X-Robots-Tag: noindex, nofollow`.
 - **Smoke test:** the `/api/health` check in `scripts/smoke.mjs` now passes instead of skipping once this is deployed.
 - **Still open:** point an uptime monitor at `https://physcratic.com/api/health` and alert on a non-200 or a missing `"ok":true`.
+
+## 2026-11-01 - Batch 6.1 - Learn hub
+
+- **Pages:** `/learn` (intro and one card per guide) and `/learn/[slug]` (breadcrumb, updated date, body, numbered Sources, closing link to the practice problems). Unknown or unpublished slugs return 404 (`dynamicParams = false` plus `notFound()`). The `/learn` header has a link back to `/dashboard` and the theme toggle, with no horizontal scroll at 375px.
+- **Content as data:** `lib/learn/articles.ts` plus one file per guide in `lib/learn/guides/`. Blocks are heading, paragraph, list, callout, problem link, math and table (the table is for the IPhO, APhO and EuPhO comparison). Reading minutes are computed from the word count at 220 words a minute. `published: false` keeps a guide out of the hub, registry, sitemap and llms.txt.
+- **Math:** reuses the site's KaTeX setup through `previewWorking` in `lib/latex-working.ts`, rendered on the server.
+- **SEO:** the hub and published guides are in `lib/seo/public-routes.ts` (kind `learn`), so metadata, canonical, sitemap and llms.txt follow. Article and BreadcrumbList JSON-LD come from `articleGraph`. There is an opengraph image for the hub and for each guide.
+- **Copy rules:** `lib/copy-rules.ts` (`findCopyProblems`) and a test that runs it over every string in the articles. Guides A, B and C are 900 to 1,400 words each, checked by test.
+- **Facts:** every number, rule and date in the guides comes from the sourced fact sheet supplied with the task (S1 to S8, plus two unofficial archives). Where a fact was unconfirmed, the text says "Check the current host site". The fact-sheet sources could not be fetched from the build environment (network policy), so they were not independently re-checked.
+- **Learn link:** added to `components/kokonutui/top-nav.tsx` (icon on small screens, text from `md`). `sidebar.tsx` is not touched.
+- **Closing link:** points to `/dashboard?view=problems`, because `/dashboard/problems` has no index page and would 404.
+- **Still open:** the unofficial archive sources (S9, S10) and S3 and S5 are not official sites. Re-check all sources when the network allows.
