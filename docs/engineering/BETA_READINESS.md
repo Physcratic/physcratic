@@ -111,3 +111,4 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **Docs:** `docs/engineering/SMOKE_TESTS.md`.
 - **Batch 5.2:** PR #35 added the "Database tests" CI job (postgres:17-alpine). 39 of 39 tests pass on PostgreSQL 17.
 - **Still open:** add the secret before the first preview run. The workflows only take effect after merge. Production was not smoke-tested from the build environment because its network policy blocks physcratic.com.
+- **Site title:** `defaultTitle` is now "Physcratic | Physics Olympiad practice for IPhO, APhO and EuPhO" (no em dash). The social image strips the "Physcratic | " prefix and its subtitle is 38px so it stays on one line. Tests read the title from `SITE.defaultTitle`, so none needed changes. Not touched: the "Starter terms — pending legal review" heading in `app/terms/page.tsx` still has an em dash (accounts area, for its owner to fix).
