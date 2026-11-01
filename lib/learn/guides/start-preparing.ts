@@ -1,3 +1,4 @@
+import { REVIEWER } from "../reviewer";
 import type { ArticleDraft } from "../types";
 
 // Facts come from the fact sheet for Batch 6.1. Source ids match its S-numbers.
@@ -8,6 +9,7 @@ export const startPreparing: ArticleDraft = {
     "A plain guide for students and parents. What to study first, how to use past papers, a 12-month outline and the mistakes to avoid.",
   updated: "2026-11-01",
   published: true,
+  reviewedBy: REVIEWER,
   sources: [
     {
       id: "s1",
@@ -31,6 +33,13 @@ export const startPreparing: ArticleDraft = {
       publisher: "apho.olimpicos.net",
       accessed: "2026-11-01",
       unofficial: true,
+    },
+    {
+      id: "k1",
+      title: "Learning Introductory Physics",
+      url: "https://knzhou.github.io/writing/Advice.pdf",
+      publisher: "Kevin Zhou",
+      accessed: "2026-11-02",
     },
   ],
   body: [
@@ -146,6 +155,24 @@ export const startPreparing: ArticleDraft = {
         "Months 7 to 9. Thermodynamics, relativity and quantum physics. Start simple experiments at home and practise estimating uncertainty.",
         "Months 10 to 12. Full papers under exam conditions. Review your mistake log. Check the selection dates again and make time to rest.",
       ],
+    },
+    { type: "heading", level: 2, text: "How to study and solve problems" },
+    {
+      type: "paragraph",
+      text: "Kevin Zhou's free guide Learning Introductory Physics has study advice that suits olympiad preparation. We summarise the main points in our own words. Read his guide for the full argument.",
+      cite: ["k1"],
+    },
+    {
+      type: "list",
+      items: [
+        "Learn from one good textbook, in order, instead of scattered videos and web pages. Zhou suggests spending about as much time on problems as on reading.",
+        "Read actively. Ask where an idea shows up in real life, check limiting cases, and try to rederive the results yourself.",
+        "Study in short, regular, focused sessions. Cramming and over-planning do not work, he says. Sleep and exercise help.",
+        "Try each problem properly before you read the solution. Practise at a level that is hard but mostly solvable on your own. After a mistake, look for the principle you were missing, not only the line where it went wrong.",
+        "Check every answer. Look at the units, the limiting cases, and the numbers as a separate step.",
+        "A strong base in calculus-based physics matters more than exam tricks.",
+      ],
+      cite: ["k1"],
     },
     { type: "heading", level: 2, text: "Common mistakes" },
     {

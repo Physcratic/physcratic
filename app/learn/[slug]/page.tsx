@@ -84,6 +84,16 @@ export default async function LearnArticlePage({ params }: Props) {
             {" · "}
             {article.readingMinutes} min read
           </p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Reviewed by{" "}
+            <Link
+              href="/coaching"
+              className="font-medium text-foreground underline underline-offset-4 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              {article.reviewedBy.name}
+            </Link>
+            , {article.reviewedBy.credential}
+          </p>
         </header>
         <div className="mt-8">
           <ArticleBody blocks={article.body} sources={article.sources} />

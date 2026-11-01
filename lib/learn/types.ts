@@ -39,6 +39,12 @@ export type Block =
       rows: { header: string; cells: TableCell[] }[];
     };
 
+export interface Reviewer {
+  name: string;
+  /** Shown after the name, for example "IPhO 2026 bronze medallist". */
+  credential: string;
+}
+
 export interface ArticleDraft {
   slug: string;
   /** Under 60 characters. */
@@ -47,6 +53,7 @@ export interface ArticleDraft {
   description: string;
   /** ISO date (YYYY-MM-DD). */
   updated: string;
+  reviewedBy: Reviewer;
   sources: Source[];
   body: Block[];
   /** false keeps the guide out of the hub, registry, sitemap and llms.txt, and makes its URL 404. */

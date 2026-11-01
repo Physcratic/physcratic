@@ -32,9 +32,14 @@ describe("learn articles", () => {
         assert.ok(!Number.isNaN(Date.parse(a.updated)));
         assert.match(a.slug, /^[a-z0-9]+(-[a-z0-9]+)*$/);
       });
-      it("is 900 to 1,400 words", () => {
+      it("has the reviewer", () => {
+        assert.equal(a.reviewedBy.name, "Arrow Dunatos");
+        assert.equal(a.reviewedBy.credential, "IPhO 2026 bronze medallist");
+      });
+      it("is 900 to 1,400 words (700 to 1,200 for the resources guide)", () => {
         const words = wordCount(a.body);
-        assert.ok(words >= 900 && words <= 1400, `${words} words`);
+        const [min, max] = a.slug === "physics-olympiad-books-and-resources" ? [700, 1200] : [900, 1400];
+        assert.ok(words >= min && words <= max, `${words} words`);
       });
       it("computes reading minutes at 220 words a minute", () => {
         assert.equal(a.readingMinutes, readingMinutes(a.body));

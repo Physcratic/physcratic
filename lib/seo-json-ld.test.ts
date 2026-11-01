@@ -61,6 +61,7 @@ describe("json-ld", () => {
     assert.equal(article.headline, a.title);
     assert.equal(article.dateModified, a.updated);
     assert.equal(article.citation.length, a.sources.length);
+    assert.deepEqual(article.reviewedBy, { "@type": "Person", name: "Arrow Dunatos" });
     assert.doesNotThrow(() => JSON.parse(jsonLdScript(articleGraph(a))));
   });
 });

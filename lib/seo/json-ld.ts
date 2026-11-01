@@ -103,6 +103,7 @@ export function articleGraph(article: Article) {
       datePublished: article.updated,
       dateModified: article.updated,
       author: { "@id": orgId() },
+      reviewedBy: { "@type": "Person", name: article.reviewedBy.name },
       publisher: { "@id": orgId() },
       citation: article.sources.map((source) => ({
         "@type": "CreativeWork",

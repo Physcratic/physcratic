@@ -1,3 +1,4 @@
+import { REVIEWER } from "../reviewer";
 import { CHECK_HOST_SITE, type ArticleDraft } from "../types";
 
 // Facts come from the fact sheet for Batch 6.1. Source ids match its S-numbers.
@@ -9,6 +10,7 @@ export const compareOlympiads: ArticleDraft = {
     "Age limits, team size, exams, medals and 2026 hosts for the three physics olympiads, with a dated and sourced comparison table.",
   updated: "2026-11-01",
   published: true,
+  reviewedBy: REVIEWER,
   sources: [
     {
       id: "s1",
