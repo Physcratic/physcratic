@@ -11,49 +11,91 @@
   --border: 223 20% 22%;
   --input: var(--border);
   --ring: var(--accent);
+  --medal-gold: radial-gradient(circle at 35% 35%, #FFF1B8, #E3B341 55%, #B8862A);
+  --medal-gold-glow: 0 0 8px rgba(227, 179, 65, .35);
+  --medal-silver: radial-gradient(circle at 35% 35%, #FFFFFF, #C7CDD6 55%, #8F98A3);
+  --medal-silver-glow: 0 0 6px rgba(199, 205, 214, .25);
+  --medal-bronze: radial-gradient(circle at 35% 35%, #F6CDA6, #C8834B 55%, #8E5126);
+  --medal-bronze-glow: 0 0 7px rgba(200, 131, 75, .3);
+  --coaching-header-h: calc(4rem + 1px);
+  --coaching-ease: cubic-bezier(.2, .7, .3, 1);
   color-scheme: dark;
   min-height: 100vh;
   background: hsl(var(--background));
   color: hsl(var(--foreground));
 }
 
-.training {
-  --primary: var(--accent);
-  --primary-foreground: var(--accent-foreground);
-  --destructive: var(--accent);
-  --destructive-foreground: var(--accent-foreground);
-}
-
-.page :global(.font-serif) { font-family: var(--font-coaching-display), Impact, sans-serif; }
-.page :global(section[id]), .page :global(#hero-cta) { scroll-margin-top: 5rem; }
+.page :global(.font-serif) { font-family: var(--font-coaching-display), Georgia, serif; font-weight: 600; letter-spacing: -0.015em; }
+.page :global(h2.font-serif) { font-weight: 500; }
+/* Smooth in-page scrolling, only while the coaching layout is mounted, and never under reduced motion. */
+@media (prefers-reduced-motion: no-preference) { :global(html):has(.page) { scroll-behavior: smooth; } }
+.page :global(section[id]), .page :global(#hero-cta), .page :global([id^="coach-"]) { scroll-margin-top: calc(var(--coaching-header-h) + 16px); }
+.page :global(.coaching-highlight) { color: hsl(var(--accent)); font-weight: 600; }
 .page :global(.coaching-container) { width: 100%; max-width: 72rem; margin-inline: auto; padding-inline: 1.5rem; }
 .page :global(.coaching-header) { position: sticky; top: 0; z-index: 40; border-bottom: 1px solid hsl(var(--border)); background: hsl(var(--background) / .94); backdrop-filter: blur(12px); }
-.page :global(.coaching-button) { display: inline-flex; min-height: 3rem; align-items: center; justify-content: center; gap: .5rem; border-radius: .5rem; padding: .75rem 1.5rem; background: hsl(var(--accent)); color: hsl(var(--accent-foreground)); font-size: 1rem; font-weight: 700; text-align: center; transition: opacity .15s; }
+.page :global(.coaching-button) { display: inline-flex; min-height: 3rem; align-items: center; justify-content: center; gap: .5rem; border-radius: .5rem; padding: .75rem 1.5rem; background: hsl(var(--accent)); color: hsl(var(--accent-foreground)); font-size: 1rem; font-weight: 700; text-align: center; transition: opacity 180ms ease-out, transform 180ms ease-out; }
 .page :global(.coaching-header .coaching-button) { min-height: 2.5rem; padding: .5rem 1rem; font-size: .875rem; }
-.page :global(.coaching-button:hover) { opacity: .9; }
+.page :global(.coaching-icon-button) { display: flex; width: 2.5rem; height: 2.5rem; align-items: center; justify-content: center; border: 1px solid hsl(var(--border)); border-radius: 999px; background: hsl(var(--background) / .85); color: hsl(var(--foreground)); transition: opacity 180ms ease-out, transform 180ms ease-out; }
+.page :global(.coaching-link) { position: relative; display: inline-block; }
+.page :global(.coaching-link::after) { content: ""; position: absolute; inset: auto 0 -2px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 200ms ease-out; }
+.page :global(.coaching-hero-slideshow .coaching-link::after) { transform: scaleX(1); opacity: .5; }
 .page :global(.coaching-button-secondary) { border: 1px solid hsl(var(--accent)); background: transparent; color: hsl(var(--foreground)); }
-.page :global(.coaching-button-metallic) { border: 1px solid hsl(var(--muted-foreground) / .3); background: color-mix(in srgb, hsl(var(--muted-foreground)) 35%, hsl(var(--background))); color: hsl(var(--foreground)); }
-.page :global(.coaching-button:disabled) { opacity: .35; cursor: not-allowed; }
+.page :global(.coaching-button:disabled), .page :global(.coaching-button[aria-disabled="true"]) { opacity: .35; cursor: not-allowed; pointer-events: none; }
 .page :global(a:focus-visible), .page :global(button:focus-visible), .page :global(summary:focus-visible), .page :global(input:focus-visible), .page :global(select:focus-visible) { outline: 2px solid hsl(var(--accent)); outline-offset: 4px; }
 .page :global(.coaching-hero) { display: grid; gap: 2.5rem; padding-top: 3rem; }
 .page :global(.coaching-marquee) { display: grid; height: 26rem; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; overflow: hidden; mask-image: linear-gradient(to bottom, transparent, black 14%, black 86%, transparent); }
 .page :global(.coaching-marquee-column) { align-self: start; will-change: transform; backface-visibility: hidden; animation: coaching-marquee var(--marquee-duration, 220s) linear infinite var(--marquee-direction, normal); }
 .page :global([data-paused="true"] .coaching-marquee-column) { animation-play-state: paused; }
-.page :global(.coaching-portrait) { position: relative; overflow: hidden; border-radius: 0; background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
+.page :global(.coaching-portrait) { position: relative; background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); transition: transform 220ms var(--coaching-ease); }
+.page :global(.coaching-portrait-frame) { position: relative; box-shadow: 0 1px 3px rgb(0 0 0 / .35); }
+.page :global(.coaching-portrait-frame::after) { content: ""; position: absolute; inset: 0; pointer-events: none; box-shadow: 0 12px 28px rgb(0 0 0 / .45); opacity: 0; transition: opacity 220ms ease-out; }
+.page :global(.coaching-portrait-clip) { position: relative; overflow: hidden; }
+.page :global(.coaching-portrait-clip .coaching-portrait-image) { transition: transform 220ms var(--coaching-ease); }
 .page :global(.coaching-portrait-image) { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; border-radius: 0; object-fit: cover; }
 .page :global(.coaching-portrait[data-country-backdrop]) { background: transparent; }
-.page :global(.coaching-portrait-artwork) { position: relative; isolation: isolate; background: transparent; }
+.page :global(.coaching-portrait-artwork) { position: relative; isolation: isolate; background: transparent; filter: grayscale(1); transition: filter 240ms ease-out; }
 .page :global(.coaching-country-flag) { object-fit: contain; object-position: center; }
-.page :global(.coaching-portrait-artwork .coaching-portrait-image) { position: relative; z-index: 1; filter: grayscale(1); transition: filter 200ms cubic-bezier(.37, 0, .63, 1); }
-.page :global(.coaching-portrait[data-country-backdrop]:hover .coaching-portrait-image), .page :global(.coaching-portrait[data-country-backdrop]:focus-visible .coaching-portrait-image) { filter: grayscale(0); }
-.page :global(.coaching-portrait-copy) { position: absolute; inset: auto 0 0; display: flex; flex-direction: column; align-items: center; gap: .375rem; padding: 5rem 1rem 1rem; background: linear-gradient(transparent, hsl(var(--background) / .88)); color: hsl(var(--foreground)); text-align: center; }
-.page :global(.coaching-portrait[data-country-backdrop] .coaching-portrait-copy) { position: static; padding: .75rem 0 0; background: none; }
-.page :global(.coaching-portrait-copy p) { overflow-wrap: anywhere; }
-.page :global(.coaching-gallery-viewport) { min-width: 0; overflow: hidden; padding-block-end: 1rem; touch-action: pan-y pinch-zoom; cursor: grab; user-select: none; }
-.page :global(.coaching-gallery-viewport:active) { cursor: grabbing; }
-.page :global(.coaching-gallery-track) { display: flex; }
-.page :global(.coaching-gallery > li) { min-width: 0; flex: 0 0 16rem; margin-inline-end: 1rem; }
-.page :global(.coaching-gallery-viewport:focus-visible), .page :global(.coaching-portrait:focus-visible) { outline: 2px solid hsl(var(--accent)); outline-offset: 4px; }
+.page :global(.coaching-portrait-artwork .coaching-portrait-image) { position: relative; z-index: 1; }
+.page :global(.coaching-portrait[data-country-backdrop]:hover .coaching-portrait-artwork), .page :global(.coaching-portrait[data-country-backdrop]:focus-visible .coaching-portrait-artwork) { filter: grayscale(0); }
+.page :global(.coaching-portrait-copy) { position: absolute; inset: auto 0 0; display: flex; flex-direction: column; gap: 12px; padding: 5rem .75rem .75rem; background: linear-gradient(transparent, hsl(var(--background) / .9) 55%, hsl(var(--background) / .96)); color: hsl(var(--foreground)); text-align: left; }
+.page :global(.coaching-portrait[data-country-backdrop] .coaching-portrait-copy) { position: static; padding: 12px 0 0; background: none; }
+.page :global(.coaching-card-head) { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; }
+.page :global(.coaching-card-head > :first-child) { min-width: 0; overflow-wrap: anywhere; }
+.page :global(.coaching-card-country) { display: inline-flex; align-items: center; gap: 6px; color: hsl(var(--muted-foreground)); font-size: .8125rem; line-height: 1.2; white-space: nowrap; }
+.page :global(.coaching-chips) { display: flex; flex-wrap: wrap; gap: 6px; }
+.page :global(.coaching-chips > li) { max-width: 100%; }
+.page :global(.coaching-chip) { position: relative; display: inline-flex; max-width: 100%; align-items: center; gap: 6px; border: 1px solid; border-radius: 12px; padding: 2px 10px; font-size: 13px; font-weight: 600; line-height: 1.35; }
+.page :global(.coaching-chip::after) { content: ""; position: absolute; inset: -1px; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity 220ms ease-out; }
+.page :global(.coaching-chip-best) { padding: 3px 10px; font-size: 14px; }
+.page :global(.coaching-chip-gold) { border-color: rgba(227, 179, 65, .35); background: rgba(227, 179, 65, .12); color: #F2CE6B; box-shadow: 0 0 12px rgba(227, 179, 65, .15); }
+.page :global(.coaching-chip-gold::after) { box-shadow: 0 0 12px rgba(227, 179, 65, .06); }
+.page :global(.coaching-chip-silver) { border-color: rgba(199, 205, 214, .30); background: rgba(199, 205, 214, .10); color: #E1E6EC; box-shadow: 0 0 10px rgba(199, 205, 214, .10); }
+.page :global(.coaching-chip-silver::after) { box-shadow: 0 0 10px rgba(199, 205, 214, .04); }
+.page :global(.coaching-chip-bronze) { border-color: rgba(200, 131, 75, .35); background: rgba(200, 131, 75, .12); color: #E8AE7E; box-shadow: 0 0 10px rgba(200, 131, 75, .12); }
+.page :global(.coaching-chip-bronze::after) { box-shadow: 0 0 10px rgba(200, 131, 75, .05); }
+.page :global(.coaching-chip-hm) { border-color: hsl(var(--border)); background: transparent; color: hsl(var(--muted-foreground)); box-shadow: none; }
+.page :global(.coaching-chip-hm::after) { display: none; }
+.page :global(.coaching-flag-chip) { width: 20px; height: 14px; flex-shrink: 0; border: 1px solid hsl(var(--border) / .4); border-radius: 2px; object-fit: cover; }
+.page :global(.coaching-medal) { display: inline-block; width: 10px; height: 10px; flex-shrink: 0; border-radius: 50%; }
+.page :global(.coaching-medal-gold) { background: var(--medal-gold); box-shadow: var(--medal-gold-glow); }
+.page :global(.coaching-medal-silver) { background: var(--medal-silver); box-shadow: var(--medal-silver-glow); }
+.page :global(.coaching-medal-bronze) { background: var(--medal-bronze); box-shadow: var(--medal-bronze-glow); }
+.page :global(.coaching-medal-hm) { border: 1.5px solid hsl(var(--muted-foreground)); background: none; }
+/* Coach gallery: a real horizontal scroller. JS drifts scrollLeft, and swipes, drags and arrows take over.
+   Snap is only switched on (data-snap) while the visitor drives it, so it never fights the drift. */
+.page :global(.coaching-gallery-shell) { position: relative; }
+.page :global(.coaching-gallery-viewport) { min-width: 0; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; scrollbar-width: none; padding-block: 8px 12px; }
+.page :global(.coaching-gallery-viewport::-webkit-scrollbar) { display: none; }
+.page :global(.coaching-gallery-viewport[data-snap="true"]) { scroll-snap-type: x proximity; }
+.page :global(.coaching-gallery-track) { display: flex; width: max-content; }
+.page :global(.coaching-gallery) { display: flex; flex-shrink: 0; gap: 1rem; padding-inline-end: 1rem; }
+.page :global(.coaching-gallery > li) { width: 16rem; flex-shrink: 0; scroll-snap-align: start; }
+.page :global(.coaching-gallery-arrow) { position: absolute; top: calc(8px + 16rem * 1.25 / 2); z-index: 2; translate: 0 -50%; }
+.page :global(.coaching-gallery-arrow[data-side="start"]) { left: .5rem; }
+.page :global(.coaching-gallery-arrow[data-side="end"]) { right: .5rem; }
+.page :global(.coaching-tutor-grid) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 1rem; }
+.page :global(.coaching-gallery-viewport:focus-visible) { outline: 2px solid hsl(var(--accent)); outline-offset: 0; }
+.page :global(.coaching-portrait:focus-visible) { outline: 2px solid hsl(var(--accent)); outline-offset: 4px; }
 .page :global(.coaching-instagram-icon) { display: inline-block; width: 1.25rem; height: 1.25rem; flex-shrink: 0; background: currentColor; mask: url("/coaching/instagram.svg") center / contain no-repeat; }
 .page :global(.coaching-rise) { animation: coaching-rise .6s ease-out both; }
 .page :global(.coaching-mobile-cta) { position: fixed; inset: auto 1rem 1rem; z-index: 30; display: flex; min-height: 3rem; align-items: center; justify-content: center; border-radius: .5rem; background: hsl(var(--accent)); color: hsl(var(--accent-foreground)); font-weight: 700; box-shadow: 0 4px 24px hsl(var(--background) / .7); }
@@ -63,7 +105,25 @@
 
 @keyframes coaching-marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(0, -50%, 0); } }
 @keyframes coaching-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-@media (min-width: 640px) { .page :global(.coaching-container) { padding-inline: 2rem; } .page :global(.coaching-marquee) { height: 34rem; } .page :global(.coaching-gallery > li) { flex-basis: 18rem; } }
+@media (min-width: 640px) { .page :global(.coaching-container) { padding-inline: 2rem; } .page :global(.coaching-marquee) { height: 34rem; } .page :global(.coaching-gallery > li) { width: 18rem; } .page :global(.coaching-gallery-arrow) { top: calc(8px + 18rem * 1.25 / 2); } }
+@media (min-width: 768px) { .page :global(.coaching-tutor-grid) { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1280px) { .page :global(.coaching-tutor-grid) { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @media (min-width: 768px) { .page :global(.coaching-mobile-cta) { display: none; } }
 @media (min-width: 1024px) { .page :global(.coaching-hero) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3.5rem; padding-block: 4rem; } .page :global(.coaching-marquee) { height: 44rem; gap: 1rem; } .page :global(.coaching-hero-slideshow) { margin-top: -2rem; } }
-@media (prefers-reduced-motion: reduce) { .page :global(.coaching-rise) { animation: none; } }
+@media (forced-colors: active) { .page :global(.coaching-medal) { border: 2px solid CanvasText; background: none; box-shadow: none; forced-color-adjust: none; } }
+@media (forced-colors: active) { .page :global(.coaching-chip) { border-color: CanvasText; box-shadow: none; } }
+
+/* Hover and scroll-in motion: under 250ms, ease-out, transform and opacity only, all off under reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .page :global(.coaching-portrait:hover), .page :global(.coaching-portrait:focus-visible) { transform: translateY(-4px); }
+  .page :global(.coaching-portrait:hover .coaching-portrait-frame::after), .page :global(.coaching-portrait:focus-visible .coaching-portrait-frame::after) { opacity: 1; }
+  .page :global(.coaching-portrait:hover .coaching-portrait-clip .coaching-portrait-image), .page :global(.coaching-portrait:focus-visible .coaching-portrait-clip .coaching-portrait-image) { transform: scale(1.03); }
+  .page :global(.coaching-portrait:hover .coaching-chip::after), .page :global(.coaching-portrait:focus-visible .coaching-chip::after) { opacity: 1; }
+  .page :global(.coaching-button:hover), .page :global(.coaching-icon-button:hover) { opacity: .9; transform: translateY(-1px); }
+  .page :global(.coaching-link:hover::after), .page :global(.coaching-link:focus-visible::after) { transform: scaleX(1); }
+  .page :global(.coaching-hero-slideshow .coaching-link:hover::after) { opacity: 1; }
+  /* The rise sits on the section's children, so the section box (the scroll target) never moves. */
+  .page :global(#coaching-main[data-reveal="ready"] > section > *) { transition: opacity 240ms ease-out, transform 240ms ease-out; }
+  .page :global(#coaching-main[data-reveal="ready"] > section:not([data-revealed]) > *) { opacity: 0; transform: translateY(8px); }
+}
+@media (prefers-reduced-motion: reduce) { .page :global(.coaching-rise) { animation: none; } .page :global(.coaching-gallery[aria-hidden="true"]), .page :global(.coaching-gallery-toggle) { display: none; } .page :global(.coaching-button:hover) { opacity: .9; } }

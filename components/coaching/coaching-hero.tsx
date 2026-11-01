@@ -1,29 +1,57 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CoachingTutorSlideshow } from "./coaching-tutors";
-import { coachingGoals, coachingGoalLabel, coachingGoalPaths, coachingGoalLinkLabels } from "@/lib/coaching-pathways";
+import { coachingPathways, consultationHref, consultationSource } from "@/lib/coaching/consultation";
+import { content } from "@/lib/coaching/content";
+import { Highlighted } from "./coaching-highlight";
+
+const { hero } = content;
 
 export function CoachingHero({ initialGoal }: { initialGoal?: string }) {
-  const startingGoal = coachingGoals.find((option) => option === initialGoal) ?? "";
-  const [goal, setGoal] = useState<(typeof coachingGoals)[number] | "">(startingGoal);
+  const startingPathway = coachingPathways.find((option) => option === initialGoal) ?? "";
+  const [pathway, setPathway] = useState<string>(startingPathway);
+  const [source, setSource] = useState("");
+
+  useEffect(() => {
+    setSource(consultationSource(window.location.search, document.referrer));
+    // "Ask about this program" links change ?goal= and remount the hero without a router scroll,
+    // so glide to the picker here. On a first load the browser has already jumped, so this is a no-op.
+    if (window.location.hash === "#hero-cta") {
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      document.getElementById("hero-cta")?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    }
+  }, []);
+
+  const href = pathway ? consultationHref({ pathway, source }) : undefined;
 
   return <section className="overflow-hidden">
     <div className="coaching-container coaching-hero">
       <div className="coaching-rise flex flex-col gap-6 pb-6">
-        <p className="font-serif text-balance text-4xl uppercase leading-[1.05] sm:text-5xl lg:text-[3.6rem]">Learn from the world itself.</p>
-        <h1 className="max-w-md text-balance text-lg font-semibold leading-relaxed text-foreground/85 sm:text-xl">One-to-one physics tutoring for IB, <span className="whitespace-nowrap">A-Level</span>, IGCSE and Olympiad preparation.</h1>
+        <h1 className="flex flex-col gap-3">
+          <span className="font-serif text-balance text-4xl leading-[1.1] sm:text-5xl lg:text-[3.6rem]">{hero.titleMain}</span>
+          <span className="max-w-md text-balance text-lg font-normal leading-snug text-foreground/85 sm:text-xl"><Highlighted text={hero.titleSub} phrase={hero.highlight} /></span>
+        </h1>
+        <p className="max-w-md text-base font-semibold leading-relaxed text-foreground/85">{hero.intro}</p>
+        <ul aria-label={hero.factsLabel} className="flex max-w-md flex-wrap gap-2 text-sm font-semibold">{hero.facts.map((fact) => <li key={fact.label} className="rounded-full border border-border px-3 py-1"><span className="font-bold text-accent">{fact.value}</span> <span className="font-medium text-muted-foreground">{fact.label}</span></li>)}</ul>
         <fieldset id="hero-cta" className="flex max-w-md flex-col gap-4">
-          <legend className="mb-4 text-lg font-bold">What brings you to Physcratic today?</legend>
+          <legend className="mb-4 text-lg font-bold">{hero.legend}</legend>
           <div className="flex flex-col gap-2.5">
-            {coachingGoals.map((option) => <label key={option} className="flex cursor-pointer items-center gap-4 rounded-lg border border-transparent bg-foreground/5 px-4 py-3.5 text-base font-medium transition-colors hover:bg-foreground/10 has-[:checked]:border-accent has-[:checked]:bg-foreground/10">
-              <input type="radio" name="coaching-goal" value={option} checked={goal === option} onChange={() => setGoal(option)} className="size-4 shrink-0 accent-[hsl(var(--accent))]" />
-              {coachingGoalLabel(option)}
+            {coachingPathways.map((option) => <label key={option} className="flex cursor-pointer items-start gap-4 rounded-lg border border-transparent bg-foreground/5 px-4 py-3.5 text-base font-medium transition-colors hover:bg-foreground/10 has-[:checked]:border-accent has-[:checked]:bg-foreground/10">
+              <input type="radio" name="coaching-goal" value={option} checked={pathway === option} onChange={() => setPathway(option)} className="mt-1 size-4 shrink-0 accent-[hsl(var(--accent))]" />
+              <span className="flex flex-col"><span>{option}</span><span className="text-sm font-normal text-muted-foreground">{hero.pathwayHelp[option]}</span></span>
             </label>)}
           </div>
-          <div>{goal ? <Link href={coachingGoalPaths[goal]} className="coaching-button">{coachingGoalLinkLabels[goal]}</Link> : <button type="button" className="coaching-button" disabled>Choose a pathway</button>}</div>
-          <Link href="/coaching#pathways" className="w-fit text-sm font-medium leading-relaxed underline decoration-border underline-offset-4 transition-colors hover:text-accent">Compare physics tutoring pathways</Link>
+          <div className="flex flex-col gap-2">
+            <a
+              className="coaching-button"
+              {...(href
+                ? { href, target: "_blank", rel: "noopener noreferrer" }
+                : { role: "link", "aria-disabled": true, tabIndex: -1, onClick: (event: React.MouseEvent) => event.preventDefault() })}
+              aria-describedby="consultation-note"
+            >{hero.continueLabel}</a>
+            <p id="consultation-note" className="text-sm leading-relaxed text-muted-foreground">{hero.note}</p>
+          </div>
         </fieldset>
       </div>
       <CoachingTutorSlideshow />
