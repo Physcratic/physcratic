@@ -91,7 +91,7 @@ export default function Content({
         <Overview dailyProblem={dailyProblem} onOpen={openProblem} />
       )}
       {view === "problems" && (
-        <ProblemLibrary topic={topic} query={query} onOpen={openProblem} />
+        <ProblemLibrary topic={topic} query={query} />
       )}
       {view === "contests" && <Contests />}
       {view === "rankings" && (

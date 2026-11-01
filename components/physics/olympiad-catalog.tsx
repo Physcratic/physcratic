@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowLeft, ArrowRight, BookOpen, Download, RotateCcw } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -138,16 +138,6 @@ export function OlympiadCatalog({
       className="flex min-w-0 flex-col gap-5"
       aria-labelledby="catalog-results-heading"
     >
-      <header className="flex justify-end">
-        <Button size="sm" variant="outline" asChild>
-          <a
-            href="/api/corpus?collection=catalog"
-            download="physcratic-100-imported-problems.json"
-          >
-            <Download data-icon="inline-start" /> Download full corpus JSON
-          </a>
-        </Button>
-      </header>
       <Card
         id="catalog-results"
         className="min-w-0 scroll-mt-6 overflow-hidden shadow-none"

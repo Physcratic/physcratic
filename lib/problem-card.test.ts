@@ -41,6 +41,21 @@ test("problem cards share a labelled article, header, details and exercise actio
   assert.match(html, /Newton’s laws/);
 });
 
+test("cards without extra metadata retain their title, difficulty, tags and exercise action", () => {
+  const html = render({
+    ...base,
+    title: "Champagne!",
+    details: undefined,
+    elo: 2500,
+    onOpen() {},
+  });
+  assert.match(html, /Champagne!/);
+  assert.match(html, /Estimated difficulty 2,500/);
+  assert.match(html, /Newton’s laws/);
+  assert.match(html, /Exercise: Quick practice — Champagne!/);
+  assert.doesNotMatch(html, /border-destructive|5 min|Hint \+ worked solution|scored subparts|Official solution/);
+});
+
 test("cards without a supplied difficulty never invent an estimate", () => {
   const html = render({ ...base, source: "Physcratic Arena", href: "/dashboard/problems/test-problem" });
   assert.match(html, /Unrated/);
