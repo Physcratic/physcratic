@@ -9,22 +9,33 @@ import abhikaPortrait from "@/public/coaching/medallists/abhika-atmaja-cutout.we
 
 const { hero, coaches } = content;
 
+function CoachingSilhouette({ backdrop }: { backdrop: boolean }) {
+  return <svg viewBox="0 0 720 900" aria-hidden="true" focusable="false" className="coaching-portrait-image">
+    {!backdrop && <rect width="720" height="900" style={{ fill: "hsl(var(--card))" }} />}
+    <g style={{ fill: "hsl(var(--muted))" }}>
+      <circle cx="360" cy="400" r="105" />
+      <rect x="318" y="480" width="84" height="130" />
+      <path d="M100 900C100 720 200 600 360 600S620 720 620 900Z" />
+    </g>
+  </svg>;
+}
+
 export function CoachingTutorCard({ tutor, priority = false, eager = false, countryBackdrop = false, focusable = true, anchor = false, asHeading = true }: { tutor: Medallist; priority?: boolean; eager?: boolean; countryBackdrop?: boolean; focusable?: boolean; anchor?: boolean; asHeading?: boolean }) {
   const Name = asHeading ? "h3" : "p";
-  const extension = ["angel", "kanishk", "ermuun-battulga", "reuben-felix"].includes(tutor.slug) ? "png" : "webp";
-  const hasPortrait = !["nima", "yota"].includes(tutor.slug);
   const flagCode = countryFlagCodes[tutor.country];
+  const photo = tutor.photo ?? "webp";
   const cutout = tutor.slug === "abhika-atmaja" ? abhikaPortrait : `/coaching/medallists/${tutor.slug}-cutout.webp`;
   return <article id={anchor ? coachAnchorId(tutor.slug) : undefined} className="coaching-portrait" data-country-backdrop={countryBackdrop || undefined} tabIndex={countryBackdrop && focusable ? 0 : undefined}>
     <div className={countryBackdrop ? "coaching-portrait-artwork" : undefined}>
       {countryBackdrop && flagCode && <Image src={`/coaching/flags/${flagCode}.png`} alt="" aria-hidden="true" fill sizes="(min-width: 640px) 288px, 256px" className="coaching-country-flag" />}
-      {hasPortrait ? <Image src={countryBackdrop ? cutout : `/coaching/medallists/${tutor.slug}.${extension}`} alt={coachImageAlt(tutor.name, tutor.country)} width={720} height={900} sizes="(min-width: 640px) 288px, 256px" priority={priority} loading={priority ? undefined : eager ? "eager" : "lazy"} className="coaching-portrait-image" /> : <div className="coaching-portrait-image flex items-center justify-center font-serif text-7xl" aria-hidden="true">{tutor.name.charAt(0)}</div>}
+      {photo === false ? <CoachingSilhouette backdrop={countryBackdrop} /> : <Image src={countryBackdrop ? cutout : `/coaching/medallists/${tutor.slug}.${photo}`} alt={coachImageAlt(tutor.name, tutor.country)} width={720} height={900} sizes="(min-width: 640px) 288px, 256px" priority={priority} loading={priority ? undefined : eager ? "eager" : "lazy"} className="coaching-portrait-image" />}
     </div>
     <div className="coaching-portrait-copy">
-      <p className="text-sm uppercase tracking-widest opacity-80">{tutor.country}</p>
-      <Name className="font-serif text-lg uppercase leading-tight text-balance sm:text-xl">{tutor.name}</Name>
-      <p className="text-sm font-bold">{medalLabel[tutor.achievements[0].medal]} · {tutor.achievements[0].contest} {tutor.achievements[0].year}</p>
-      {tutor.achievements.length > 1 && <p className="text-sm leading-snug opacity-80">{tutor.achievements.slice(1).map((achievement) => `${medalLabel[achievement.medal]} ${achievement.contest} ${achievement.year}`).join(" · ")}</p>}
+      <p className="flex items-center justify-center gap-2 text-sm uppercase tracking-widest opacity-80">{flagCode && <Image src={`/coaching/flags/${flagCode}.png`} alt="" aria-hidden="true" width={20} height={14} className="coaching-flag-chip" />}{tutor.country}</p>
+      <Name className="font-serif text-lg leading-tight text-balance sm:text-xl">{tutor.name}</Name>
+      <ul className="flex flex-col items-center gap-0.5">
+        {tutor.achievements.map((achievement, index) => <li key={`${achievement.contest}-${achievement.year}`} className={`coaching-achievement text-sm ${index === 0 ? "font-bold" : "leading-snug opacity-80"}`}><span className={`coaching-medal coaching-medal-${achievement.medal}`} aria-hidden="true" />{medalLabel[achievement.medal]} · {achievement.contest} {achievement.year}</li>)}
+      </ul>
     </div>
   </article>;
 }
@@ -84,7 +95,7 @@ export function CoachingTutors() {
   return <section id="tutors" className="py-20">
     <div className="coaching-container flex min-w-0 flex-col gap-8">
       <div className="flex w-full max-w-2xl flex-col items-center gap-4 self-center text-center">
-        <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">{coaches.title}</h2>
+        <h2 className="font-serif text-balance text-3xl leading-tight sm:text-4xl">{coaches.title}</h2>
         <p className="max-w-xl leading-relaxed text-muted-foreground">{coaches.text}</p>
         <dl className="flex flex-wrap justify-center gap-10">
           <div><dt className="text-sm text-muted-foreground">{coaches.coachesLabel}</dt><dd className="text-2xl font-semibold">{coaches.coachCount}</dd></div>

@@ -17,7 +17,7 @@ const { ui, nav, path, footer } = content;
 export function CoachingHeader() {
   return <header className="coaching-header">
     <div className="coaching-container flex h-16 items-center justify-between gap-3">
-      <Link href="/coaching" className="flex shrink-0 items-center gap-2.5" aria-label={ui.homeLabel}><Image src="/coaching/physcratic-logo.png" alt="" width={44} height={44} priority className="size-10 object-contain" /><span className="text-xl font-semibold tracking-tight sm:text-2xl">{ui.brand}</span></Link>
+      <Link href="/coaching" className="flex shrink-0 items-center gap-2.5" aria-label={ui.homeLabel}><Image src="/logo-mark-transparent.png" alt="" width={44} height={44} priority className="size-10 object-contain" /><span className="text-lg font-semibold">{ui.brand}</span></Link>
       <div className="flex items-center gap-3 lg:gap-7">
         <nav aria-label={ui.desktopNavLabel} className="hidden items-center gap-7 text-sm font-medium text-muted-foreground lg:flex">{nav.map((link) => <Link key={link.href} href={link.href} className="hover:text-foreground">{link.label}</Link>)}</nav>
         <CoachingMobileMenu menuLabel={ui.menu} navLabel={ui.mobileNavLabel} links={nav} />
@@ -30,7 +30,7 @@ export function CoachingHeader() {
 function CoachingPath() {
   return <section id="your-path" className="border-y border-border py-20">
     <div className="coaching-container flex flex-col items-center gap-10">
-      <h2 className="mx-auto max-w-2xl text-center text-balance text-3xl font-bold tracking-tight sm:text-4xl">{path.title}</h2>
+      <h2 className="mx-auto max-w-2xl text-center text-balance font-serif text-3xl leading-tight sm:text-4xl">{path.title}</h2>
       <ol className="grid w-full gap-6 md:grid-cols-2 lg:grid-cols-4">{path.steps.map((step, index) => <li key={step.title} className="flex flex-col items-center gap-3 rounded-2xl border border-border bg-background p-6 text-center text-foreground"><p className="text-sm font-medium text-accent">{path.stepLabel} {index + 1}</p><h3 className="text-xl font-semibold tracking-tight">{step.title}</h3><p className="leading-relaxed text-muted-foreground">{step.body}</p></li>)}</ol>
       <div className="flex flex-wrap justify-center gap-3"><Link href="/coaching#hero-cta" className="coaching-button">{path.startLabel}</Link><Link href="/coaching#tutors" className="coaching-button coaching-button-secondary">{path.coachesLabel}</Link></div>
     </div>
