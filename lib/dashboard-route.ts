@@ -37,10 +37,10 @@ const VIEW_COPY: Record<Exclude<View, "overview">, [string, string]> = {
     "Physics contests",
     "Practise the complete IPhO 2025 papers at your own pace and join published Physcratic contests.",
   ],
-  rankings: ["Rankings", "Contest ratings of Physcratic contestants."],
+  rankings: ["Rankings", "Contest ratings of Physcratic contestants, from the published contests on the Physcratic olympiad practice site."],
   guide: [
     "Learning guide",
-    "How to start practising physics olympiad problems on Physcratic.",
+    "How to start practising physics olympiad problems on Physcratic, and how to use the problems and contests.",
   ],
 };
 
