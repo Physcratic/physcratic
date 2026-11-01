@@ -20,7 +20,7 @@ type TrainingTextFieldProps = {
 } & Pick<ComponentProps<typeof Input>, "autoComplete" | "maxLength" | "placeholder" | "required" | "type">;
 
 function RequiredMark() {
-  return <span aria-hidden="true" className="text-muted-foreground">*</span>;
+  return <span aria-hidden="true" className="text-accent">*</span>;
 }
 
 function TrainingTextField({ name, label, error, required = true, ...props }: TrainingTextFieldProps) {
@@ -28,7 +28,7 @@ function TrainingTextField({ name, label, error, required = true, ...props }: Tr
   return (
     <Field data-invalid={Boolean(error)}>
       <FieldLabel htmlFor={id}>{label}{required && <RequiredMark />}</FieldLabel>
-      <Input id={id} name={name} required={required} aria-invalid={Boolean(error)} aria-describedby={error ? `${id}-error` : undefined} {...props} />
+      <Input id={id} name={name} className="h-12" required={required} aria-invalid={Boolean(error)} aria-describedby={error ? `${id}-error` : undefined} {...props} />
       {error && <FieldError id={`${id}-error`}>{error}</FieldError>}
     </Field>
   );
@@ -84,44 +84,46 @@ export function CoachingTrainingForm() {
 
   if (status === "success") {
     return (
-      <section className="flex max-w-sm flex-col items-start gap-5" role="status" tabIndex={-1} ref={(element) => { element?.focus(); }}>
-        <CheckCircle2 className="size-8" aria-hidden="true" />
+      <section className="flex flex-col items-start gap-5 rounded-2xl border border-accent/50 bg-foreground/5 p-6 sm:p-8" role="status" tabIndex={-1} ref={(element) => { element?.focus(); }}>
+        <CheckCircle2 className="size-8 text-accent" aria-hidden="true" />
         <h2 className="text-pretty text-2xl font-semibold">Thank you for signing up.</h2>
-        <p className="text-pretty text-base leading-relaxed text-muted-foreground">Your training inquiry has been received. Our team will follow up on WhatsApp within two days.</p>
-        <Button asChild variant="outline"><Link href="/coaching">Back to coaching<ArrowRight data-icon="inline-end" aria-hidden="true" /></Link></Button>
+        <p className="max-w-lg text-pretty text-base leading-relaxed text-muted-foreground">Your training inquiry has been received. Our team will follow up on WhatsApp within two days.</p>
+        <Button asChild variant="outline" size="lg" className="h-12"><Link href="/coaching">Back to coaching<ArrowRight data-icon="inline-end" aria-hidden="true" /></Link></Button>
       </section>
     );
   }
 
   return (
-    <form className="flex w-full max-w-xs flex-col items-start gap-6" onSubmit={handleSubmit} noValidate aria-labelledby="training-title" aria-busy={status === "submitting"} onChange={(event) => {
+    <form className="flex w-full flex-col gap-6 rounded-2xl border border-border bg-foreground/5 p-6 sm:p-8" onSubmit={handleSubmit} noValidate aria-labelledby="training-title" aria-busy={status === "submitting"} onChange={(event) => {
       if (!(event.target instanceof HTMLInputElement)) return;
       const name = event.target.name as FieldName;
       setErrors((current) => current[name] ? { ...current, [name]: undefined } : current);
     }}>
-      <FieldGroup>
-        <TrainingTextField name="name" label="Name" autoComplete="name" maxLength={100} error={errors.name} />
-        <TrainingTextField name="grade" label="Grade" autoComplete="off" maxLength={100} error={errors.grade} />
-        <FieldSet className="gap-3" data-invalid={Boolean(errors.program)}>
-          <FieldLegend id="training-program-label" variant="label">Program of Interest <RequiredMark /></FieldLegend>
-          <RadioGroup name="program" aria-labelledby="training-program-label" aria-invalid={Boolean(errors.program)} aria-describedby={errors.program ? "training-program-error" : undefined} orientation="vertical" required className="flex flex-col items-start gap-2">
-            {trainingPrograms.map((program, index) => (
-              <label key={program} htmlFor={`training-program-${program}`} className="flex w-fit cursor-pointer items-center gap-2 rounded-md border border-border bg-background px-2.5 py-2 text-sm shadow-sm transition-colors hover:bg-muted has-[[data-state=checked]]:border-primary has-[[data-state=checked]]:bg-muted has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-4 has-[:focus-visible]:outline-ring">
-                <RadioGroupItem id={`training-program-${program}`} value={program} className="sr-only" aria-invalid={Boolean(errors.program)} />
-                <span className="flex size-5 items-center justify-center rounded-sm bg-foreground text-sm font-semibold text-background" aria-hidden="true">{String.fromCharCode(65 + index)}</span>
+      <FieldGroup className="grid gap-6 sm:grid-cols-2">
+        <TrainingTextField name="name" label="Name" placeholder="Your full name" autoComplete="name" maxLength={100} error={errors.name} />
+        <TrainingTextField name="grade" label="Grade" placeholder="For example, Year 11" autoComplete="off" maxLength={100} error={errors.grade} />
+        <FieldSet className="gap-3 sm:col-span-2" data-invalid={Boolean(errors.program)}>
+          <FieldLegend id="training-program-label" variant="label">Program of interest <RequiredMark /></FieldLegend>
+          <RadioGroup name="program" aria-labelledby="training-program-label" aria-invalid={Boolean(errors.program)} aria-describedby={errors.program ? "training-program-error" : undefined} required className="grid gap-2.5 sm:grid-cols-3">
+            {trainingPrograms.map((program) => (
+              <label key={program} htmlFor={`training-program-${program}`} className="flex min-h-12 cursor-pointer items-center gap-3 rounded-lg border border-transparent bg-foreground/5 px-4 py-3.5 text-base font-medium transition-colors hover:bg-foreground/10 has-[[data-state=checked]]:border-accent has-[[data-state=checked]]:bg-foreground/10 has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-4 has-[:focus-visible]:outline-ring">
+                <RadioGroupItem id={`training-program-${program}`} value={program} aria-invalid={Boolean(errors.program)} />
                 {program}
               </label>
             ))}
           </RadioGroup>
           {errors.program && <FieldError id="training-program-error">{errors.program}</FieldError>}
         </FieldSet>
-        <TrainingTextField name="whatsapp" label="WhatsApp Number" type="tel" autoComplete="tel" maxLength={32} error={errors.whatsapp} />
-        <TrainingTextField name="preferredLanguage" label="Preferred Language for class" placeholder="English, Hindi, etc" maxLength={100} error={errors.preferredLanguage} />
+        <TrainingTextField name="whatsapp" label="WhatsApp number" placeholder="Include your country code" type="tel" autoComplete="tel" maxLength={32} error={errors.whatsapp} />
+        <TrainingTextField name="preferredLanguage" label="Preferred language for class" placeholder="English, Hindi, etc" maxLength={100} error={errors.preferredLanguage} />
         <TrainingTextField name="heardFrom" label="Where did you learn about us?" placeholder="Instagram, Friend, etc" maxLength={200} error={errors.heardFrom} />
-        <TrainingTextField name="referralCode" label="Referral Code" placeholder="Optional" autoComplete="off" maxLength={100} required={false} error={errors.referralCode} />
+        <TrainingTextField name="referralCode" label="Referral code" placeholder="Optional" autoComplete="off" maxLength={100} required={false} error={errors.referralCode} />
       </FieldGroup>
-      {status === "error" && <p className="text-sm leading-relaxed" role="alert">We could not save your inquiry. Your details are still here; please try again.</p>}
-      <Button type="submit" disabled={status === "submitting"}>{status === "submitting" ? "Submitting…" : "Submit"}<ArrowRight data-icon="inline-end" aria-hidden="true" /></Button>
+      {status === "error" && <p className="text-sm leading-relaxed text-accent" role="alert">We could not save your inquiry. Your details are still here; please try again.</p>}
+      <div className="flex flex-col gap-4 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">Our team will follow up on WhatsApp within two days.</p>
+        <Button type="submit" size="lg" className="h-12 w-full sm:w-auto" disabled={status === "submitting"}>{status === "submitting" ? "Sending…" : "Send inquiry"}<ArrowRight data-icon="inline-end" aria-hidden="true" /></Button>
+      </div>
     </form>
   );
 }

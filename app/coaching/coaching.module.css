@@ -18,27 +18,10 @@
 }
 
 .training {
-  --background: 0 0% 100%;
-  --foreground: 0 0% 19%;
-  --card: var(--background);
-  --card-foreground: var(--foreground);
-  --primary: var(--foreground);
-  --primary-foreground: var(--background);
-  --secondary: 0 0% 96%;
-  --secondary-foreground: var(--foreground);
-  --muted: var(--secondary);
-  --muted-foreground: 0 0% 42%;
-  --accent: var(--foreground);
-  --accent-foreground: var(--background);
-  --border: 0 0% 85%;
-  --input: var(--border);
-  --ring: var(--foreground);
-  --destructive: var(--foreground);
-  --destructive-foreground: var(--background);
-  color-scheme: light;
-  min-height: 100svh;
-  background: hsl(var(--background));
-  color: hsl(var(--foreground));
+  --primary: var(--accent);
+  --primary-foreground: var(--accent-foreground);
+  --destructive: var(--accent);
+  --destructive-foreground: var(--accent-foreground);
 }
 
 .page :global(.font-serif) { font-family: var(--font-coaching-display), Impact, sans-serif; }

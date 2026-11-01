@@ -1,6 +1,7 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { CoachingHeader } from "@/components/coaching/coaching-sections";
 import { CoachingTrainingForm } from "@/components/coaching/coaching-training-form";
 import styles from "../coaching.module.css";
 
@@ -10,19 +11,23 @@ export const metadata: Metadata = {
   alternates: { canonical: "/coaching/training" },
 };
 
-export const viewport: Viewport = { themeColor: "#ffffff" };
-
 export default function CoachingTrainingPage() {
   return (
-    <main className={`${styles.training} px-6 py-12 font-sans sm:py-20`} aria-labelledby="training-title">
-      <div className="mx-auto flex w-full max-w-2xl flex-col gap-10">
-        <Link href="/coaching#hero-cta" className="flex w-fit items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
-          <ArrowLeft className="size-4" aria-hidden="true" />
-          Back to coaching
-        </Link>
-        <h1 id="training-title" className="text-balance text-3xl font-bold leading-tight tracking-tight sm:text-4xl">IB/A-Level/IGCSE Training</h1>
-        <CoachingTrainingForm />
-      </div>
-    </main>
+    <>
+      <CoachingHeader />
+      <main className={`${styles.training} coaching-container py-10 sm:py-12`} aria-labelledby="training-title">
+        <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">
+          <Link href="/coaching#hero-cta" className="flex w-fit items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
+            <ArrowLeft className="size-4" aria-hidden="true" />
+            Back to coaching
+          </Link>
+          <header className="flex flex-col gap-4">
+            <h1 id="training-title" className="font-serif text-balance text-3xl uppercase leading-tight sm:text-4xl">IB / A-Level / IGCSE training</h1>
+            <p className="max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground">Share a few details so we can find the right physics support for you.</p>
+          </header>
+          <CoachingTrainingForm />
+        </div>
+      </main>
+    </>
   );
 }
