@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { trainingInquirySchema, trainingInquiryToRecord } from "@/lib/coaching-training";
 import { db } from "@/lib/db";
 import { coachingInquiries } from "@/lib/db/schema";
 import { readSubmissionJson } from "@/lib/submission-request";
@@ -12,13 +13,18 @@ const inquirySchema = z.object({
   contact: z.string().trim().min(3).max(200),
 });
 
+const submissionSchema = z.union([
+  inquirySchema,
+  trainingInquirySchema.transform(trainingInquiryToRecord),
+]);
+
 export const runtime = "nodejs";
 
 export async function POST(request: Request) {
   try {
     if (!isSubmissionOrigin(request)) return submissionError("Request origin rejected.", 403);
 
-    const input = inquirySchema.safeParse(await readSubmissionJson(request, 12000));
+    const input = submissionSchema.safeParse(await readSubmissionJson(request, 12000));
     if (!input.success) return submissionError("Please complete every inquiry field.", 400);
 
     await db.insert(coachingInquiries).values(input.data);

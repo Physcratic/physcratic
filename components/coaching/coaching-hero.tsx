@@ -23,7 +23,7 @@ export function CoachingHero({ initialGoal }: { initialGoal?: string }) {
               {coachingGoalLabel(option)}
             </label>)}
           </div>
-          <div><button type="button" className="coaching-button" disabled={!goal} aria-expanded={showInquiry} aria-controls="inquiry-form" onClick={() => setShowInquiry(true)}>Continue</button></div>
+          <div>{goal === "IB / A-Level / IGCSE training" ? <Link href="/coaching/training" className="coaching-button">Continue</Link> : <button type="button" className="coaching-button" disabled={!goal} aria-expanded={showInquiry} aria-controls="inquiry-form" onClick={() => setShowInquiry(true)}>Continue</button>}</div>
           {showInquiry && <CoachingInquiryForm selectedGoal={goal} />}
         </fieldset>
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { useRouter } from "next/navigation";
 
 export const coachingGoals = ["General physics consultation", "IB / A-Level / IGCSE training", "Tutor inquiry"] as const;
 
@@ -11,6 +12,7 @@ export function coachingGoalLabel(goal: string) {
 type InquiryStatus = "idle" | "submitting" | "success" | "error";
 
 export function CoachingInquiryForm({ selectedGoal }: { selectedGoal: string }) {
+  const router = useRouter();
   const [pathway, setPathway] = useState(selectedGoal);
   const [audience, setAudience] = useState("Student");
   const [currentLevel, setCurrentLevel] = useState("");
@@ -44,7 +46,7 @@ export function CoachingInquiryForm({ selectedGoal }: { selectedGoal: string }) 
 
   return <form id="inquiry-form" className="flex flex-col gap-5 rounded-2xl border border-border p-6" onSubmit={handleSubmit}>
     <div className="flex flex-col gap-2"><p className="text-lg font-semibold">Tell us about your goals</p><p className="text-sm leading-relaxed text-muted-foreground">Share a few details and our team will follow up within two days.</p></div>
-    <label className="flex flex-col gap-2 text-sm font-medium">Your pathway<select className="coaching-input" value={pathway} onChange={(event) => setPathway(event.target.value)}>{coachingGoals.map((option) => <option key={option} value={option}>{coachingGoalLabel(option)}</option>)}</select></label>
+    <label className="flex flex-col gap-2 text-sm font-medium">Your pathway<select className="coaching-input" value={pathway} onChange={(event) => { if (event.target.value === "IB / A-Level / IGCSE training") { router.push("/coaching/training"); return; } setPathway(event.target.value); }}>{coachingGoals.map((option) => <option key={option} value={option}>{coachingGoalLabel(option)}</option>)}</select></label>
     <label className="flex flex-col gap-2 text-sm font-medium">I am a<select className="coaching-input" value={audience} onChange={(event) => setAudience(event.target.value)}><option>Student</option><option>Parent</option><option>Tutor applicant</option></select></label>
     <label className="flex flex-col gap-2 text-sm font-medium">Current level<input className="coaching-input" type="text" value={currentLevel} onChange={(event) => setCurrentLevel(event.target.value)} placeholder="For example, IB Year 1" maxLength={100} required /></label>
     <label className="flex flex-col gap-2 text-sm font-medium">WhatsApp or email<input className="coaching-input" type="text" value={contact} onChange={(event) => setContact(event.target.value)} placeholder="How should we reach you?" maxLength={200} required /></label>
