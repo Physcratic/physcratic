@@ -15,6 +15,8 @@ export const definition = `Physcratic Coaching is an online Physics Olympiad coa
 const hour = (h: number) => `${String(h).padStart(2, "0")}:00`;
 const timeRange = (from: number, to: number) => `${hour(from)} to ${hour(to)}`;
 
+type FaqItem = { question: string; answer: string; link?: { label: string; href: string } };
+
 export const coachAnchorId = (slug: string) => `coach-${slug}`;
 export const coachImageAlt = (name: string, country: string) => `${name}, physics coach from ${country}`;
 export const programHref = (pathway: CoachingPathway) => `/coaching?goal=${encodeURIComponent(pathway)}#hero-cta`;
@@ -233,7 +235,7 @@ export function buildCoachingContent(list: readonly Medallist[]) {
     },
     faq: {
       title: "Frequently asked questions",
-      items: [
+      items: <FaqItem[]>[
         { question: "What is Physcratic Coaching?", answer: `${definition} It is run by Physcratic, the free physics olympiad practice platform at physcratic.com.` },
         { question: "Who are the coaches?", answer: `Every Physcratic Coaching coach won a medal or an honourable mention at the International Physics Olympiad (IPhO), the Asian Physics Olympiad (APhO) or the European Physics Olympiad (EuPhO). There are ${counts}.` },
         { question: "How many students are in a class?", answer: `Up to ${maxStudents} students with a similar level and goals. Small enough that the coach knows how each of you thinks.` },
@@ -247,7 +249,7 @@ export function buildCoachingContent(list: readonly Medallist[]) {
         { question: "Can I get one-to-one classes?", answer: "The standard format is a small group. If you need a private arrangement, mention it when our admin contacts you and we will see what is possible." },
         { question: "Can parents send the inquiry?", answer: "Yes. Choose Parent in the form and we will keep you in the loop." },
         { question: "Is Physcratic free?", answer: "The practice platform is free: olympiad problems, contests and ratings at physcratic.com/dashboard. Our live classes are the paid part." },
-        { question: "I am a medallist. Can I coach with Physcratic?", answer: "If you won a medal or an honourable mention at IPhO, APhO or EuPhO, send us a message on Instagram (@physcratic)." },
+        { question: "I am a medallist. Can I coach with Physcratic?", answer: "If you won a medal or an honourable mention at IPhO, APhO or EuPhO, you can apply through our application page. You can also send us a message on Instagram (@physcratic).", link: { label: "Tutor with Physcratic", href: "/coaching/become-a-tutor" } },
       ],
     },
     finalCta: {
@@ -256,10 +258,34 @@ export function buildCoachingContent(list: readonly Medallist[]) {
       primary: "Get a consultation",
       secondary: "Try free practice problems",
     },
+    consultationPage: {
+      meta: {
+        title: "Get a coaching consultation",
+        description: "Tell Physcratic Coaching your level and goals in a short form. An admin replies on WhatsApp within 2 business days, then we recommend a program and find your class.",
+      },
+      title: "Get a consultation",
+      intro: "Tell us where you are now, what you are aiming for and when you are free. We will recommend a program and find your class.",
+      note: "Opens our consultation form. An admin replies on WhatsApp within 2 business days.",
+      button: "Continue to the consultation form",
+      back: "Back to coaching",
+    },
+    tutorPage: {
+      meta: {
+        title: "Tutor with Physcratic",
+        description: "Apply to tutor with Physcratic if you won a medal or an honourable mention at IPhO, APhO or EuPhO. Our team will review applications and reply.",
+      },
+      title: "Tutor with Physcratic",
+      intro: "This page is for IPhO, APhO and EuPhO medallists who want to tutor with Physcratic. Apply with the short form.",
+      note: "Our team will review applications and reply.",
+      button: "Open the application form",
+      back: "Back to coaching",
+    },
     footer: {
       tagline: definition,
       navLabel: "Coaching footer",
       links: [
+        { href: "/coaching/consultation", label: "Get a consultation" },
+        { href: "/coaching/become-a-tutor", label: "Tutor with Physcratic" },
         { href: "/dashboard", label: "Free practice" },
         { href: "/terms", label: "Terms and privacy" },
       ],

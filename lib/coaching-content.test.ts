@@ -51,10 +51,31 @@ test("marketing filler words are banned", () => {
   assert.deepEqual(hits, []);
 });
 
-test("coaches are never called tutors, except the verbatim student quote and the #tutors anchor", () => {
-  const hits = all.filter(([p, s]) => p !== "content.reviews.quote" && !p.endsWith(".href") && /\btutors?\b/i.test(s)).map(([p]) => p);
+test("coaches are never called tutors, except the verbatim student quote, the #tutors anchor and the tutor application page", () => {
+  const name = content.tutorPage.title;
+  const hits = all
+    .filter(([p, s]) => p !== "content.reviews.quote" && !p.startsWith("content.tutorPage.") && !p.endsWith(".href") && /\btutors?\b/i.test(s.replaceAll(name, "")))
+    .map(([p]) => p);
   assert.deepEqual(hits, []);
 });
+
+test("the consultation and tutor pages have the agreed copy and make no promises about pay, hours or timing", () => {
+  assert.equal(content.tutorPage.title, "Tutor with Physcratic");
+  assert.equal(content.tutorPage.meta.title, "Tutor with Physcratic");
+  assert.ok(content.tutorPage.intro.includes("IPhO, APhO and EuPhO medallists who want to tutor with Physcratic"));
+  assert.ok(/review applications and reply/.test(content.tutorPage.note));
+  const promises = strings(content.tutorPage).filter(([, s]) => /\b(paid|pay|salary|income|earn|hours?|days?|weeks?|within|guarantee)\b/i.test(s));
+  assert.deepEqual(promises, []);
+  assert.equal(content.consultationPage.title, "Get a consultation");
+  assert.ok(content.consultationPage.note.includes("within 2 business days"));
+  assert.ok(content.footer.links.some((l) => l.href === "/coaching/become-a-tutor" && l.label === name()));
+  assert.ok(content.footer.links.some((l) => l.href === "/coaching/consultation"));
+  assert.ok(!content.footer.links.some((l) => l.href.includes("training")));
+});
+
+function name() {
+  return content.tutorPage.title;
+}
 
 test("British spelling", () => {
   const hits = all.filter(([, s]) => /\bpractice (a|the|your|more)\b|\bhonorable\b|\bmedalist/i.test(s)).map(([p]) => p);

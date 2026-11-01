@@ -14,14 +14,16 @@ import { CoachingMobileMenu } from "./coaching-mobile-menu";
 
 const { ui, nav, path, footer } = content;
 
-export function CoachingHeader() {
+/** `base` is "/coaching" on pages other than the main one, so the in-page links still reach it. */
+export function CoachingHeader({ base = "" }: { base?: string }) {
+  const links = nav.map((link) => link.href.startsWith("#") ? { ...link, href: `${base}${link.href}` } : link);
   return <header className="coaching-header">
     <div className="coaching-container flex h-16 items-center justify-between gap-3">
       <Link href="/coaching" className="flex shrink-0 items-center gap-2.5" aria-label={ui.homeLabel}><Image src="/logo-mark-transparent.png" alt="" width={44} height={44} priority className="size-10 object-contain" /><span className="text-lg font-semibold">{ui.brand}</span></Link>
       <div className="flex items-center gap-3 lg:gap-7">
-        <nav aria-label={ui.desktopNavLabel} className="hidden items-center gap-7 text-sm font-medium text-muted-foreground lg:flex">{nav.map((link) => link.href.startsWith("#") ? <a key={link.href} href={link.href} className="coaching-link hover:text-foreground">{link.label}</a> : <Link key={link.href} href={link.href} className="coaching-link hover:text-foreground">{link.label}</Link>)}</nav>
-        <CoachingMobileMenu menuLabel={ui.menu} navLabel={ui.mobileNavLabel} links={nav} />
-        <span className="hidden sm:block"><a href="#hero-cta" className="coaching-button">{ui.consultationCta}</a></span>
+        <nav aria-label={ui.desktopNavLabel} className="hidden items-center gap-7 text-sm font-medium text-muted-foreground lg:flex">{links.map((link) => link.href.startsWith("#") ? <a key={link.href} href={link.href} className="coaching-link hover:text-foreground">{link.label}</a> : <Link key={link.href} href={link.href} className="coaching-link hover:text-foreground">{link.label}</Link>)}</nav>
+        <CoachingMobileMenu menuLabel={ui.menu} navLabel={ui.mobileNavLabel} links={links} />
+        <span className="hidden sm:block">{base ? <Link href={`${base}#hero-cta`} className="coaching-button">{ui.consultationCta}</Link> : <a href="#hero-cta" className="coaching-button">{ui.consultationCta}</a>}</span>
       </div>
     </div>
   </header>;
