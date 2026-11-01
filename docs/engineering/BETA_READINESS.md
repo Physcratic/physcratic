@@ -134,3 +134,24 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **Coaching:** retained the branch's coaching design, 15 visible tutors across 8 countries and current portrait assets. Reconciled the merged roster tests and retained British medal spelling.
 - **Validation:** frozen-lockfile install, route type generation, full TypeScript check, production build, 271 passing unit tests and all 11 smoke checks against the local production build. Five database-dependent tests were skipped locally and one inherited test remains todo. Browser checks covered desktop at 1164 by 851, mobile at 390 by 844 with no horizontal overflow, the Problem studio sign-in redirect and a 401 response from the unauthenticated drafts API.
 - **Environment:** production build and smoke checks used temporary `NEXT_PUBLIC_SITE_URL=https://physcratic.com` and `VERCEL_ENV=production` overrides because the sandbox's canonical URL was localhost. Project environment settings and production data were not changed. Local Postgres integration checks were unavailable because Docker and PostgreSQL are not installed. The existing PostgreSQL 17 CI job remains enabled.
+
+## 2026-11-01 - Batch 6.1 - Learn hub
+
+- **Pages:** `/learn` (intro and one card per guide) and `/learn/[slug]` (breadcrumb, updated date, body, numbered Sources, closing link to the practice problems). Unknown or unpublished slugs return 404 (`dynamicParams = false` plus `notFound()`). The `/learn` header has a link back to `/dashboard` and the theme toggle, with no horizontal scroll at 375px.
+- **Content as data:** `lib/learn/articles.ts` plus one file per guide in `lib/learn/guides/`. Blocks are heading, paragraph, list, callout, problem link, math and table (the table is for the IPhO, APhO and EuPhO comparison). Reading minutes are computed from the word count at 220 words a minute. `published: false` keeps a guide out of the hub, registry, sitemap and llms.txt.
+- **Math:** reuses the site's KaTeX setup through `previewWorking` in `lib/latex-working.ts`, rendered on the server.
+- **SEO:** the hub and published guides are in `lib/seo/public-routes.ts` (kind `learn`), so metadata, canonical, sitemap and llms.txt follow. Article and BreadcrumbList JSON-LD come from `articleGraph`. There is an opengraph image for the hub and for each guide.
+- **Copy rules:** `lib/copy-rules.ts` (`findCopyProblems`) and a test that runs it over every string in the articles. Guides A, B and C are 900 to 1,400 words each, checked by test.
+- **Facts:** every number, rule and date in the guides comes from the sourced fact sheet supplied with the task (S1 to S8, plus two unofficial archives). Where a fact was unconfirmed, the text says "Check the current host site". The fact-sheet sources could not be fetched from the build environment (network policy), so they were not independently re-checked.
+- **Learn link:** added to `components/kokonutui/top-nav.tsx` (icon on small screens, text from `md`). `sidebar.tsx` is not touched.
+- **Closing link:** points to `/dashboard?view=problems`, because `/dashboard/problems` has no index page and would 404.
+- **Still open:** the unofficial archive sources (S9, S10) and S3 and S5 are not official sites. Re-check all sources when the network allows.
+
+## 2026-11-02 - Batch 6.2 - Reviewer, study tips and resources guide
+
+- **Reviewer:** every guide shows "Reviewed by Arrow Dunatos, IPhO 2026 bronze medallist" under the Updated date, with the name linked to `/coaching`. Each guide's JSON-LD has a WebPage node with `reviewedBy` (a Person) and `mainEntity` pointing to the Article, because schema.org defines `reviewedBy` on WebPage.
+- **Guide A:** new section "How to study and solve problems", paraphrased from Kevin Zhou's Learning Introductory Physics (K1), credited by name. His USA-specific exam advice is left out. A links to guide D.
+- **Guide D:** `physics-olympiad-books-and-resources`, the reviewer's picks grouped by stage and topic, with a few of ours marked "Also useful". No prices, no buy links, no edition claims beyond Halliday, Resnick and Krane (5th edition). Cites K1 to K3 and Zhou's writing index. It is in the hub, registry, sitemap, llms.txt and has its own OG image through the shared `[slug]` route.
+- **New block type:** `guideLink`, checked by test against real slugs and heading ids.
+- **Sources:** K1 to K4 are dated 2026-11-02. They came with the task and could not be fetched from the build environment, so they were not independently re-checked.
+- **Checked:** word counts (D is 721 words, within 700 to 1,200), copy-rules test, typecheck, 276 of 281 unit tests pass with 0 fail, `pnpm build`, and 20 page views (five pages at 375px and 1280px in both themes) with no horizontal scroll.

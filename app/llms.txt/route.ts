@@ -9,6 +9,10 @@ export function GET() {
   const problems = indexableRoutes.filter((r) => r.kind === "problem");
   const topics = indexableRoutes.filter((r) => r.kind === "topic");
   const view = (v: string) => indexableRoutes.find((r) => r.path === `/dashboard?view=${v}`)!;
+  const guides = indexableRoutes.filter(
+    (r) => r.kind === "learn" && r.path !== "/learn",
+  );
+  const learnHub = indexableRoutes.find((r) => r.path === "/learn");
   const terms = publicRoutes.find((r) => r.path === "/terms");
   const lines = [
     `# ${SITE.name}`,
@@ -31,6 +35,15 @@ export function GET() {
     `- [Rankings](${abs(view("rankings").path)}): contest ratings`,
     `- [Guide](${abs(view("guide").path)}): how to get started`,
     "",
+    ...(guides.length > 0
+      ? [
+          "## Guides",
+          "",
+          ...(learnHub ? [`- [All guides](${abs(learnHub.path)}): plain guides with cited sources`] : []),
+          ...guides.map((r) => `- [${r.title}](${abs(r.path)})`),
+          "",
+        ]
+      : []),
     "## Optional",
     "",
     ...(terms ? [`- [${terms.title}](${abs(terms.path)})`] : []),

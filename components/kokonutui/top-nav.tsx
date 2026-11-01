@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronRight, Search } from "lucide-react";
+import { BookOpen, ChevronRight, Search } from "lucide-react";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -60,6 +60,12 @@ export default function TopNav({
           <kbd className="hidden rounded border px-1.5 py-0.5 font-sans text-sm text-muted-foreground xl:inline">
             ⌘ K
           </kbd>
+        </Button>
+        <Button asChild variant="ghost" size="sm">
+          <Link href="/learn" aria-label="Learn">
+            <BookOpen aria-hidden="true" />
+            <span className="hidden font-normal md:inline">Learn</span>
+          </Link>
         </Button>
         <FeedbackLink variant="nav" />
         <ThemeToggle />
