@@ -2,6 +2,7 @@
 //
 // Single registry of URLs that resolve with 200 on main today. The sitemap,
 // llms.txt and the dashboard metadata all derive from it.
+import { content as coachingContent } from "../coaching/content";
 import { filterCatalog } from "../corpus-catalog";
 import { learnPath, publishedArticles } from "../learn/articles";
 import { problems, topics, type Problem } from "../physics";
@@ -12,6 +13,7 @@ export type PublicRouteKind =
   | "topic"
   | "problem"
   | "learn"
+  | "coaching"
   | "legal";
 
 export interface PublicRoute {
@@ -88,6 +90,10 @@ export const publicRoutes: PublicRoute[] = [
     title: article.title,
     indexable: true,
   })),
+  // Coaching pages: the main page and the two Tally form pages.
+  { path: "/coaching", kind: "coaching", title: coachingContent.meta.title, indexable: true },
+  { path: "/coaching/consultation", kind: "coaching", title: coachingContent.consultationPage.meta.title, indexable: true },
+  { path: "/coaching/become-a-tutor", kind: "coaching", title: coachingContent.tutorPage.meta.title, indexable: true },
   { path: "/terms", kind: "legal", title: "Terms of Service", indexable: false },
 ];
 

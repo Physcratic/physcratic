@@ -1,3 +1,4 @@
+import { Highlighted } from "./coaching-highlight";
 import { content } from "@/lib/coaching/content";
 
 const { scheduling } = content;
@@ -18,7 +19,7 @@ export function CoachingScheduling() {
     <div className="coaching-container mx-auto flex max-w-3xl flex-col gap-8">
       <div className="flex flex-col items-center gap-4 text-center">
         <h2 className="text-balance font-serif text-3xl leading-tight sm:text-4xl">{scheduling.title}</h2>
-        <p className="leading-relaxed text-muted-foreground">{scheduling.text}</p>
+        <p className="leading-relaxed text-muted-foreground"><Highlighted text={scheduling.text} phrase={scheduling.highlight} /></p>
       </div>
       <figure className="flex flex-col gap-4 rounded-2xl border border-border bg-foreground/5 p-3 sm:p-6">
         <div aria-hidden="true" className="px-4 sm:px-6">

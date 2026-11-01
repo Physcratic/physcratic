@@ -1,4 +1,5 @@
 export const CONSULTATION_FORM_URL = "https://tally.so/r/XxZBr4";
+export const TUTOR_FORM_URL = "https://tally.so/r/MeodDX";
 
 export const coachingPathways = [
   "Olympiad Beginner",
@@ -24,6 +25,11 @@ export function consultationHref({ pathway, source }: { pathway?: string; source
   if (pathway) params.push(`pathway=${encodeURIComponent(pathway)}`);
   if (source) params.push(`source=${encodeURIComponent(source.slice(0, MAX_SOURCE_LENGTH))}`);
   return params.length ? `${CONSULTATION_FORM_URL}?${params.join("&")}` : CONSULTATION_FORM_URL;
+}
+
+/** Builds the tutor application link. Only the source is passed, in the same way as the consultation form. */
+export function tutorFormHref({ source }: { source?: string }): string {
+  return source ? `${TUTOR_FORM_URL}?source=${encodeURIComponent(source.slice(0, MAX_SOURCE_LENGTH))}` : TUTOR_FORM_URL;
 }
 
 /** utm_source if present, else the referrer hostname unless it is our own site, else "direct". */

@@ -12,6 +12,7 @@ import {
   programHref,
 } from "./coaching/content";
 import { coachingPathways, isCoachingPathway } from "./coaching/consultation";
+import { isShortPhrase, splitHighlight } from "./coaching/highlight";
 import { countryFlagCodes, medallists, medalLabel, type Medallist } from "./coaching/medallists";
 
 function strings(value: unknown, path = "content"): [string, string][] {
@@ -50,10 +51,31 @@ test("marketing filler words are banned", () => {
   assert.deepEqual(hits, []);
 });
 
-test("coaches are never called tutors, except the verbatim student quote and the #tutors anchor", () => {
-  const hits = all.filter(([p, s]) => p !== "content.reviews.quote" && !p.endsWith(".href") && /\btutors?\b/i.test(s)).map(([p]) => p);
+test("coaches are never called tutors, except the verbatim student quote, the #tutors anchor and the tutor application page", () => {
+  const name = content.tutorPage.title;
+  const hits = all
+    .filter(([p, s]) => p !== "content.reviews.quote" && !p.startsWith("content.tutorPage.") && !p.endsWith(".href") && /\btutors?\b/i.test(s.replaceAll(name, "")))
+    .map(([p]) => p);
   assert.deepEqual(hits, []);
 });
+
+test("the consultation and tutor pages have the agreed copy and make no promises about pay, hours or timing", () => {
+  assert.equal(content.tutorPage.title, "Tutor with Physcratic");
+  assert.equal(content.tutorPage.meta.title, "Tutor with Physcratic");
+  assert.ok(content.tutorPage.intro.includes("IPhO, APhO and EuPhO medallists who want to tutor with Physcratic"));
+  assert.ok(/review applications and reply/.test(content.tutorPage.note));
+  const promises = strings(content.tutorPage).filter(([, s]) => /\b(paid|pay|salary|income|earn|hours?|days?|weeks?|within|guarantee)\b/i.test(s));
+  assert.deepEqual(promises, []);
+  assert.equal(content.consultationPage.title, "Get a consultation");
+  assert.ok(content.consultationPage.note.includes("within 2 business days"));
+  assert.ok(content.footer.links.some((l) => l.href === "/coaching/become-a-tutor" && l.label === name()));
+  assert.ok(content.footer.links.some((l) => l.href === "/coaching/consultation"));
+  assert.ok(!content.footer.links.some((l) => l.href.includes("training")));
+});
+
+function name() {
+  return content.tutorPage.title;
+}
 
 test("British spelling", () => {
   const hits = all.filter(([, s]) => /\bpractice (a|the|your|more)\b|\bhonorable\b|\bmedalist/i.test(s)).map(([p]) => p);
@@ -75,18 +97,20 @@ test("the definition sentence is exact and reused", () => {
 test("counts are computed from the medallists", () => {
   assert.equal(coachCount, medallists.length);
   assert.equal(countryCount, new Set(medallists.map((m) => m.country)).size);
-  assert.equal(coachCount, 15);
-  assert.equal(countryCount, 8);
-  assert.ok(medallists.every((coach) => !coach.hidden));
-  assert.equal(content.hero.facts[0], `${medallists.length} coaches`);
-  assert.equal(content.hero.facts[1], `${new Set(medallists.map((m) => m.country)).size} countries`);
+  assert.equal(coachCount, 19);
+  assert.equal(countryCount, 12);
+  assert.deepEqual(content.hero.facts[0], { value: `${medallists.length}`, label: "coaches" });
+  assert.deepEqual(content.hero.facts[1], { value: `${new Set(medallists.map((m) => m.country)).size}`, label: "countries" });
+  assert.equal(content.hero.seeAll, "See all 19 coaches");
+  assert.equal(content.coaches.seeAll, content.hero.seeAll);
   const fake: Medallist[] = [
     { name: "A", slug: "a", country: "X", achievements: [] },
     { name: "B", slug: "b", country: "X", achievements: [] },
     { name: "C", slug: "c", country: "Y", achievements: [] },
   ];
   const built = buildCoachingContent(fake);
-  assert.deepEqual(built.hero.facts.slice(0, 2), ["3 coaches", "2 countries"]);
+  assert.deepEqual(built.hero.facts.slice(0, 2).map((f) => `${f.value} ${f.label}`), ["3 coaches", "2 countries"]);
+  assert.equal(built.coaches.seeAll, "See all 3 coaches");
   assert.ok(built.coaches.text.includes("3 coaches from 2 countries"));
   assert.ok(built.glance.items.find((i) => i.term === "Coaches")?.detail.includes("3 IPhO, APhO and EuPhO medallists and honourable mentions from 2 countries"));
   assert.ok(built.faq.items[1].answer.includes("There are 3 coaches from 2 countries."));
@@ -116,16 +140,55 @@ test("package hours are sessions times class hours", () => {
   assert.deepEqual(content.packages.items.map((i) => i.size), ["16 sessions, 32 hours", "32 sessions, 64 hours"]);
 });
 
-test("every visible coach has a country flag, original portrait and cutout", () => {
+test("every country has a flag file and every photo-less coach has no image on disk", () => {
   const root = new URL("../public/coaching/", import.meta.url);
   for (const m of medallists) {
     const code = countryFlagCodes[m.country];
     assert.ok(code && existsSync(new URL(`flags/${code}.png`, root)), `${m.country} flag`);
     const portrait = (ext: string, suffix = "") => existsSync(new URL(`medallists/${m.slug}${suffix}.${ext}`, root));
-    assert.ok(portrait("webp") || portrait("png"), `${m.slug} portrait`);
-    assert.ok(portrait("webp", "-cutout"), `${m.slug} cutout`);
+    if (m.photo === false) assert.ok(!portrait("webp") && !portrait("png") && !portrait("webp", "-cutout"), `${m.slug} should have no image`);
+    else assert.ok(portrait(m.photo ?? "webp"), `${m.slug} portrait`);
   }
-  for (const slug of ["nima", "yota", "ignat-riazanov", "mohammed-alramil"]) {
-    assert.ok(!medallists.some((coach) => coach.slug === slug), `${slug} should not be published`);
+  assert.deepEqual(medallists.filter((m) => m.photo === false).map((m) => m.slug), ["nima", "yota", "ignat-riazanov"]);
+});
+
+test("hero headline and controls copy", () => {
+  assert.equal(content.hero.titleMain, "Train with Physics Olympiad winners.");
+  assert.equal(content.hero.titleSub, "Live online classes taught by IPhO, APhO and EuPhO medallists");
+  assert.equal(content.hero.highlight, "IPhO, APhO and EuPhO medallists");
+  assert.deepEqual(content.hero.facts.map((f) => `${f.value} ${f.label}`), ["19 coaches", "12 countries", "6 students max per class", "2 hours per live class"]);
+  assert.equal(content.coaches.previous, "Previous coaches");
+  assert.equal(content.coaches.next, "Next coaches");
+  assert.equal(content.coaches.backToSlider, "Back to the slider");
+});
+
+test("each highlight is one short phrase found in its own section text", () => {
+  const targets: [string, string, string | undefined][] = [
+    ["hero", content.hero.titleSub, content.hero.highlight],
+    ["coaches", content.coaches.text, content.coaches.highlight],
+    ["programs", content.programs.intro, content.programs.highlight],
+    ["classFormat", content.classFormat.stretchText, content.classFormat.highlight],
+    ["scheduling", content.scheduling.text, content.scheduling.highlight],
+    ["packages", content.packages.pricingText, content.packages.highlight],
+  ];
+  for (const [section, text, phrase] of targets) {
+    assert.ok(phrase && isShortPhrase(phrase), `${section} highlight is short`);
+    assert.ok(splitHighlight(text, phrase), `${section} highlight is in its text`);
   }
+  const sections = Object.entries(content).filter(([, v]) => v && typeof v === "object" && "highlight" in v).map(([k]) => k);
+  assert.deepEqual(sections.sort(), targets.map(([k]) => k).sort());
+});
+
+test("the review drops Kak and links the first Arrow", () => {
+  const { quote, linkText } = content.reviews;
+  assert.ok(!quote.includes("Kak"));
+  assert.ok(quote.includes("if I hadn't met Arrow."));
+  assert.ok(quote.includes("Thank you so much, Arrow, for being my tutor!"));
+  assert.equal(linkText, "Arrow");
+  assert.equal(quote.indexOf(linkText), quote.indexOf("Arrow."));
+  assert.equal(content.reviews.medal, "Best Theory and Gold medal");
+});
+
+test("in-page nav links are plain fragments so the browser scrolls smoothly", () => {
+  for (const link of content.nav) assert.ok(link.href.startsWith("#") || link.href === "/dashboard", link.href);
 });
