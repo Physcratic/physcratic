@@ -58,7 +58,7 @@
 /* v0: only the cutout goes grey, so the country flag behind it stays in colour. */
 .page :global(.coaching-portrait-artwork .coaching-portrait-image) { position: relative; z-index: 1; filter: grayscale(1); }
 .page :global(.coaching-portrait[data-country-backdrop]:hover .coaching-portrait-image), .page :global(.coaching-portrait[data-country-backdrop]:focus-visible .coaching-portrait-image) { filter: grayscale(0); }
-.page :global(.coaching-portrait-copy) { position: absolute; inset: auto 0 0; display: flex; flex-direction: column; gap: 12px; padding: 5rem .75rem .75rem; background: linear-gradient(transparent, hsl(var(--background) / .9) 55%, hsl(var(--background) / .96)); color: hsl(var(--foreground)); text-align: left; }
+.page :global(.coaching-portrait-copy) { position: absolute; inset: auto 0 0; display: flex; flex-direction: column; gap: 12px; padding: 5rem .75rem .75rem; background: linear-gradient(transparent, hsl(var(--background) / .94) 40%, hsl(var(--background) / .98)); color: hsl(var(--foreground)); text-align: left; }
 .page :global(.coaching-portrait[data-country-backdrop] .coaching-portrait-copy) { position: static; padding: 12px 0 0; background: none; }
 .page :global(.coaching-card-head) { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; }
 .page :global(.coaching-card-head > :first-child) { min-width: 0; overflow-wrap: anywhere; }

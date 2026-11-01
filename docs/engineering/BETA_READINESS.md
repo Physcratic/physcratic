@@ -199,3 +199,17 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **Not fixed, listed in the test as known offenders:** the description of five practice problem pages is the whole problem prompt: `first-law` (172 characters), `heat` (198), `incline` (184), `projectile` (262) and `spring` (164). It comes from `generateMetadata` in `app/dashboard/problems/[id]/page.tsx` (Practice UI), which should use a short summary such as `problemSummary()`. The test fails when one of the five is fixed, so the list shrinks.
 - **Not a problem:** `/terms` has no canonical and is noindex (`robots: { index: false }`), so it is exempt. `app/terms` belongs to Accounts anyway.
 
+## 2026-11-02 - Accessibility pass
+
+- **Method:** Playwright on `pnpm build` and `next start`, at 375 and 1440, on `/dashboard`, `/learn`, the four guides, `/coaching`, `/coaching/consultation` and `/coaching/become-a-tutor`. Dark and light themes for the dashboard and learn pages (light is set through the `theme` value in localStorage, because `next-themes` defaults to dark), and dark only for coaching, which forces a dark palette. 30 page, theme and width combinations. Reduced motion was on, so the scroll-in fade could not hide text from the contrast check.
+- **Keyboard:** every tab stop on every page shows a focus ring (outline or ring read from the computed style after a real Tab). No positive `tabindex`. The only out-of-order stop is the fixed mobile "Get a consultation" button, which is last in the DOM and sits at the bottom of the screen. The skip link is the first stop on every page, shows on focus, moves to `main` and the next Tab lands inside it.
+- **Structure:** one `h1` and no skipped heading levels on every page except `/dashboard`. Every `img` has an `alt`, every link, button, summary and form control has an accessible name and every form control has a label.
+- **Contrast:** computed from the real CSS for every visible text element (text colour and opacity composited over the stacked background colours, 4.5:1, or 3:1 for large text). For text on a gradient over a photo, computed styles cannot tell, so the rendered pixels behind 176 slideshow text samples were measured.
+- **Fixed:** in the `/coaching` hero slideshow, the muted country name on the photo cards was 3.7 to 4.1:1 on bright photos (for example the Indonesia cards). The card gradient is now `.94` at 40% and `.98` at the bottom, and the same text measures 6.9:1 or more.
+- **Not fixed, outside the coaching and learn areas:**
+  - `/dashboard` has no `h1`. The first heading is the "Workspace" `h2` in `components/kokonutui/sidebar.tsx:70` (on the page it appears after "Featured contest").
+  - "Recommended For You" (`components/physics/dashboard-highlights.tsx:110-114`, `text-primary` at 14px) is 2.0:1 on white in the light theme.
+  - The problem count in the sidebar (`components/kokonutui/sidebar.tsx:92`, `opacity-70`) is 2.9:1 in the light theme and 3.5:1 in the dark theme.
+- **Left as is:** the "Continue to the consultation form" button looks low contrast (2.1:1) only because it is disabled until a pathway is chosen, and inactive controls are exempt.
+- **Not covered:** pages behind sign-in, screen reader testing and zoom or text-size reflow.
+
