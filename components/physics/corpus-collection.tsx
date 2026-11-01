@@ -2,24 +2,10 @@
 
 import { useState } from "react";
 import { useArchiveProgress } from "@/hooks/use-archive-progress";
-import { BookOpen, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Empty,
-  EmptyDescription,
-  EmptyHeader,
-  EmptyMedia,
-  EmptyTitle,
-} from "@/components/ui/empty";
+import { ProblemCollection } from "./problem-collection";
 import { corpusProblems, filterCorpus } from "@/lib/corpus-pilot";
-import { getProblemTags } from "@/lib/problem-tags";
+import { filterProblemsByTag, getProblemTags } from "@/lib/problem-tags";
 import { getEstimatedProblemElo } from "@/lib/problem-archive";
 import { CorpusProblemReader } from "./corpus-problem-reader";
 import { ProblemCard } from "./problem-card";
@@ -71,6 +57,8 @@ export function CorpusCollection({
     !!saved.session.error ||
     !!saved.progress.error;
   const filtered = filterCorpus({ query, topic, difficulty });
+  const filterKey = JSON.stringify([query, topic, difficulty]);
+  const [pagination, setPagination] = useState({ key: filterKey, page: 1 });
 
   if (active)
     return (
@@ -136,60 +124,33 @@ export function CorpusCollection({
     );
 
   return (
-    <div className="flex min-w-0 flex-col gap-5">
-      <Card className="min-w-0 overflow-hidden shadow-none">
-        <CardHeader>
-          <CardTitle>
-            <h3 className="text-base font-medium">
-              Official-source theory problems
-            </h3>
-          </CardTitle>
-          <CardDescription aria-live="polite">
-            {filtered.length} of {corpusProblems.length} problems ·{" "}
-            {filtered.reduce((sum, problem) => sum + problem.parts.length, 0)}{" "}
-            scored subparts · Self-review only
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="px-0 pb-0">
-          {filtered.length ? (
-            <ul className="flex flex-col gap-4 px-4 pb-5 sm:px-6">
-              {filtered.map((problem) => (
-                <li key={problem.id} className="min-w-0">
-                  <ProblemCard
-                    id={problem.id}
-                    title={problem.title}
-                    headingLevel={4}
-                    source={problem.competition}
-                    competition={problem.competition}
-                    reference={`${problem.year} · ${problem.code}`}
-                    statementLanguage="en"
-                    elo={getEstimatedProblemElo(problem.id)}
-                    description={problem.summary}
-                    tags={getProblemTags(problem)}
-                    onOpen={() => onActiveProblemChange(problem.id)}
-                  />
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <Empty className="py-12">
-              <EmptyHeader>
-                <EmptyMedia variant="icon">
-                  <BookOpen />
-                </EmptyMedia>
-                <EmptyTitle>No pilot problems match</EmptyTitle>
-                <EmptyDescription>
-                  Try another year, topic, title, concept or difficulty range.
-                </EmptyDescription>
-              </EmptyHeader>
-              <Button variant="outline" onClick={onReset}>
-                <RotateCcw data-icon="inline-start" />
-                Clear filters
-              </Button>
-            </Empty>
-          )}
-        </CardContent>
-      </Card>
-    </div>
+    <ProblemCollection
+      id="guided-results"
+      title="Official-source theory problems"
+      paginationLabel="Guided exercise"
+      items={filtered}
+      totalCount={filterProblemsByTag(corpusProblems, topic).length}
+      filterKey={filterKey}
+      pagination={{ ...pagination, onChange: setPagination }}
+      status="Self-review only"
+      renderProblem={(problem) => (
+        <ProblemCard
+          id={problem.id}
+          title={problem.title}
+          headingLevel={4}
+          source={problem.competition}
+          competition={problem.competition}
+          reference={`${problem.year} · ${problem.code}`}
+          statementLanguage="en"
+          elo={getEstimatedProblemElo(problem.id)}
+          description={problem.summary}
+          tags={getProblemTags(problem)}
+          onOpen={() => onActiveProblemChange(problem.id)}
+        />
+      )}
+      emptyTitle="No pilot problems match"
+      emptyDescription="Try another year, topic, title, concept or difficulty range."
+      onReset={onReset}
+    />
   );
 }

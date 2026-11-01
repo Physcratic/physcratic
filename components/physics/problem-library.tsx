@@ -9,8 +9,6 @@ import {
   getTagOptions,
   tagLabel,
 } from "@/lib/problem-tags";
-import { BookOpen, RotateCcw } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import {
@@ -27,15 +25,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Empty,
-  EmptyDescription,
-  EmptyHeader,
-  EmptyMedia,
-  EmptyTitle,
-} from "@/components/ui/empty";
 import { problems, type Problem } from "@/lib/physics";
-import { ProblemList } from "./problem-list";
+import { PracticeProblemCard } from "./problem-list";
+import { ProblemCollection } from "./problem-collection";
 import { eloBands, getEloBand } from "@/lib/problem-archive";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CorpusCollection } from "./corpus-collection";
@@ -238,30 +230,24 @@ export function ProblemLibrary({
           />
         </TabsContent>
         <TabsContent value="practice" className="min-w-0">
-          <Card className="overflow-hidden shadow-none">
-            <CardContent className="px-0 pb-0 pt-5">
-              {filtered.length ? (
-                <ProblemList items={filtered} onOpen={onOpen} />
-              ) : (
-                <Empty className="py-16">
-                  <EmptyHeader>
-                    <EmptyMedia variant="icon">
-                      <BookOpen />
-                    </EmptyMedia>
-                    <EmptyTitle>No problems found</EmptyTitle>
-                    <EmptyDescription>
-                      Try a different concept or clear your filters to see the
-                      whole collection.
-                    </EmptyDescription>
-                  </EmptyHeader>
-                  <Button variant="outline" onClick={reset}>
-                    <RotateCcw data-icon="inline-start" />
-                    Clear filters
-                  </Button>
-                </Empty>
-              )}
-            </CardContent>
-          </Card>
+          <ProblemCollection
+            id="practice-results"
+            title="Quick practice"
+            paginationLabel="Quick practice"
+            items={filtered}
+            totalCount={filterProblemsByTag(problems, selectedTopic).length}
+            filterKey={JSON.stringify([search, selectedTopic, difficulty])}
+            renderProblem={(problem) => (
+              <PracticeProblemCard
+                problem={problem}
+                headingLevel={4}
+                onOpen={onOpen}
+              />
+            )}
+            emptyTitle="No problems found"
+            emptyDescription="Try a different concept or clear your filters to see the whole collection."
+            onReset={reset}
+          />
         </TabsContent>
       </Tabs>
     </div>
