@@ -12,6 +12,7 @@ export function GET() {
   const guides = indexableRoutes.filter(
     (r) => r.kind === "learn" && r.path !== "/learn",
   );
+  const coaching = indexableRoutes.filter((r) => r.kind === "coaching");
   const learnHub = indexableRoutes.find((r) => r.path === "/learn");
   const terms = publicRoutes.find((r) => r.path === "/terms");
   const lines = [
@@ -41,6 +42,14 @@ export function GET() {
           "",
           ...(learnHub ? [`- [All guides](${abs(learnHub.path)}): plain guides with cited sources`] : []),
           ...guides.map((r) => `- [${r.title}](${abs(r.path)})`),
+          "",
+        ]
+      : []),
+    ...(coaching.length > 0
+      ? [
+          "## Coaching",
+          "",
+          ...coaching.map((r) => `- [${r.title}](${abs(r.path)})`),
           "",
         ]
       : []),

@@ -52,6 +52,11 @@ describe("public route registry", () => {
     assert.ok(publicRoutes.some((r) => r.path === "/terms"));
     assert.ok(!indexableRoutes.some((r) => r.path === "/terms"));
   });
+  it("lists the coaching page and its two form pages, and not the removed training page", () => {
+    const coaching = indexableRoutes.filter((r) => r.kind === "coaching").map((r) => r.path);
+    assert.deepEqual(coaching, ["/coaching", "/coaching/consultation", "/coaching/become-a-tutor"]);
+    assert.ok(!publicRoutes.some((r) => r.path === "/coaching/training"));
+  });
   it("lists the hub and every published guide, and no unpublished one", () => {
     const learn = indexableRoutes.filter((r) => r.kind === "learn").map((r) => r.path);
     assert.ok(learn.includes("/learn"));
