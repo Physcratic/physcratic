@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
-import { findArticle, formatDate, learnPath, publishedArticles } from "@/lib/learn/articles";
+import { COACHING_LINE, findArticle, formatDate, learnPath, publishedArticles } from "@/lib/learn/articles";
 import { articleGraph, jsonLdScript } from "@/lib/seo/json-ld";
 import { baseOpenGraph } from "@/lib/site";
 
@@ -147,6 +147,13 @@ export default async function LearnArticlePage({ params }: Props) {
             </CardContent>
           </Card>
         </section>
+
+        <p className="mt-6 text-sm text-muted-foreground">
+          {COACHING_LINE.lead}{" "}
+          <Link href={COACHING_LINE.href} className="underline underline-offset-4 hover:text-foreground">
+            {COACHING_LINE.linkLabel}
+          </Link>
+        </p>
       </article>
     </>
   );

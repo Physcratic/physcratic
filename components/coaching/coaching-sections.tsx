@@ -11,6 +11,7 @@ import { CoachingGlance } from "./coaching-glance";
 import { CoachingFaq } from "./coaching-faq";
 import { CoachingFinalCta } from "./coaching-final-cta";
 import { CoachingMobileMenu } from "./coaching-mobile-menu";
+import { CoachingGuides } from "./coaching-guides";
 import { Highlighted } from "./coaching-highlight";
 
 const { ui, nav, path, footer } = content;
@@ -21,10 +22,10 @@ export function CoachingHeader({ base = "" }: { base?: string }) {
   return <header className="coaching-header">
     <div className="coaching-container flex h-16 items-center justify-between gap-3">
       <Link href="/coaching" className="flex shrink-0 items-center gap-2.5" aria-label={ui.homeLabel}><Image src="/logo-mark-transparent.png" alt="" width={44} height={44} priority className="size-10 object-contain" /><span className="text-lg font-semibold">{ui.brand}</span></Link>
-      <div className="flex items-center gap-3 lg:gap-7">
-        <nav aria-label={ui.desktopNavLabel} className="hidden items-center gap-7 text-sm font-medium text-muted-foreground lg:flex">{links.map((link) => link.href.startsWith("#") ? <a key={link.href} href={link.href} className="coaching-link hover:text-foreground">{link.label}</a> : <Link key={link.href} href={link.href} className="coaching-link hover:text-foreground">{link.label}</Link>)}</nav>
+      <div className="flex items-center gap-3 lg:gap-5 xl:gap-7">
+        <nav aria-label={ui.desktopNavLabel} className="hidden items-center gap-5 whitespace-nowrap text-sm font-medium text-muted-foreground lg:flex xl:gap-7">{links.map((link) => link.href.startsWith("#") ? <a key={link.href} href={link.href} className="coaching-link hover:text-foreground">{link.label}</a> : <Link key={link.href} href={link.href} className="coaching-link hover:text-foreground">{link.label}</Link>)}</nav>
         <CoachingMobileMenu menuLabel={ui.menu} navLabel={ui.mobileNavLabel} links={links} />
-        <span className="hidden sm:block">{base ? <Link href={`${base}#hero-cta`} className="coaching-button">{ui.consultationCta}</Link> : <a href="#hero-cta" className="coaching-button">{ui.consultationCta}</a>}</span>
+        <span className="hidden sm:block">{base ? <Link href={`${base}#hero-cta`} className="coaching-button whitespace-nowrap">{ui.consultationCta}</Link> : <a href="#hero-cta" className="coaching-button whitespace-nowrap">{ui.consultationCta}</a>}</span>
       </div>
     </div>
   </header>;
@@ -58,6 +59,7 @@ export function CoachingSections() {
     <CoachingPath />
     <CoachingReviews />
     <CoachingGlance />
+    <CoachingGuides />
     <CoachingFaq />
     <CoachingFinalCta />
   </>;

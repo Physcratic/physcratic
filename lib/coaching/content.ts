@@ -60,6 +60,7 @@ export function buildCoachingContent(list: readonly Medallist[]) {
       { href: "#how-it-works", label: "How it works" },
       { href: "#faq", label: "FAQ" },
       { href: "/dashboard", label: "Free practice" },
+      { href: "/learn", label: "Guides" },
     ],
     hero: {
       titleMain: "Train with Physics Olympiad winners.",
@@ -234,6 +235,13 @@ export function buildCoachingContent(list: readonly Medallist[]) {
       programs: "Took Beginner and Intermediate, now in Advanced",
       note: "We add reviews as each cohort finishes, always with the student's permission.",
     },
+    guides: {
+      title: "Free guides",
+      intro: "Plain guides to physics olympiads, with cited sources.",
+      minutes: "min read",
+      seeAll: "See all guides",
+      listLabel: "Free guides",
+    },
     glance: {
       title: "Physcratic Coaching at a glance",
       items: [
@@ -301,6 +309,7 @@ export function buildCoachingContent(list: readonly Medallist[]) {
         { href: "/coaching/consultation", label: "Get a consultation" },
         { href: "/coaching/become-a-tutor", label: "Tutor with Physcratic" },
         { href: "/dashboard", label: "Free practice" },
+        { href: "/learn", label: "Free guides" },
         { href: "/terms", label: "Terms and privacy" },
       ],
       instagram: "Instagram",

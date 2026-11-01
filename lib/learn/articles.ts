@@ -22,6 +22,13 @@ export function findArticle(slug: string): Article | null {
   return publishedArticles.find((a) => a.slug === slug) ?? null;
 }
 
+/** The muted line at the end of every guide that points readers to the coaching page. */
+export const COACHING_LINE = {
+  lead: "Want a coach who has sat these exams?",
+  linkLabel: "Meet our medallist coaches.",
+  href: "/coaching",
+} as const;
+
 export const learnPath = (slug?: string) => (slug ? `/learn/${slug}` : "/learn");
 
 /** "1 November 2026" for an ISO date. Fixed to UTC so server and tests agree. */
