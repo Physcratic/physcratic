@@ -1,5 +1,4 @@
 import { Highlighted } from "./coaching-highlight";
-import { CoachingMidCta } from "./coaching-mid-cta";
 import { content } from "@/lib/coaching/content";
 
 const { packages } = content;
@@ -18,7 +17,6 @@ export function CoachingPackages() {
         <a href="#hero-cta" className="coaching-button w-full">{packages.cta}</a>
         <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground"><span className="font-semibold">{packages.pricingTitle}</span> <Highlighted text={packages.pricingText} phrase={packages.highlight} /></p>
       </div>
-      <CoachingMidCta />
     </div>
   </section>;
 }

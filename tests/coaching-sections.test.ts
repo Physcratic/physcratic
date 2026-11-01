@@ -36,11 +36,12 @@ test("programs: three olympiad steps on a rail, IB and A-Level as a separate tra
   assert.match(out, /<strong class="coaching-highlight">from your first olympiad to IPhO<\/strong>/);
 });
 
-test("packages: sessions and hours, no price, no popular label, a full-width price button and one mid-page button", () => {
+test("packages: sessions and hours, no price, no popular label, and the full-width price button as the only call to action", () => {
   const out = html(CoachingPackages);
   for (const item of content.packages.items) assert.ok(out.includes(item.sessions) && out.includes(item.hours));
   assert.ok(!/[$€£]|popular|recommended/i.test(out));
-  assert.equal((out.match(/href="#hero-cta"/g) ?? []).length, 2);
+  assert.equal((out.match(/href="#hero-cta"/g) ?? []).length, 1);
+  assert.ok(out.includes(content.packages.cta));
 });
 
 test("faq: only the first question starts open", () => {
