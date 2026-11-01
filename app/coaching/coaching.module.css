@@ -50,9 +50,9 @@
 .page :global(.coaching-gallery) { display: flex; flex-shrink: 0; gap: 1rem; padding-inline-end: 1rem; }
 .page :global(.coaching-gallery > li) { width: 16rem; flex-shrink: 0; }
 .page :global(.coaching-gallery-viewport:hover .coaching-gallery-track), .page :global(.coaching-gallery-viewport[data-paused="true"] .coaching-gallery-track) { animation-play-state: paused; }
-.page :global(.coaching-gallery-viewport:focus-within) { overflow-x: auto; }
-.page :global(.coaching-gallery-viewport:focus-within .coaching-gallery-track) { animation: none; }
-.page :global(.coaching-gallery-viewport:focus-within .coaching-gallery[aria-hidden="true"]) { display: none; }
+.page :global(.coaching-gallery-viewport:focus-visible), .page :global(.coaching-gallery-viewport:has(.coaching-portrait:focus-visible)) { overflow-x: auto; }
+.page :global(.coaching-gallery-viewport:focus-visible .coaching-gallery-track), .page :global(.coaching-gallery-viewport:has(.coaching-portrait:focus-visible) .coaching-gallery-track) { animation: none; }
+.page :global(.coaching-gallery-viewport:focus-visible .coaching-gallery[aria-hidden="true"]), .page :global(.coaching-gallery-viewport:has(.coaching-portrait:focus-visible) .coaching-gallery[aria-hidden="true"]) { display: none; }
 .page :global(.coaching-gallery-viewport:focus-visible), .page :global(.coaching-portrait:focus-visible) { outline: 2px solid hsl(var(--accent)); outline-offset: 4px; }
 .page :global(.coaching-instagram-icon) { display: inline-block; width: 1.25rem; height: 1.25rem; flex-shrink: 0; background: currentColor; mask: url("/coaching/instagram.svg") center / contain no-repeat; }
 .page :global(.coaching-rise) { animation: coaching-rise .6s ease-out both; }
@@ -67,4 +67,4 @@
 @media (min-width: 640px) { .page :global(.coaching-container) { padding-inline: 2rem; } .page :global(.coaching-marquee) { height: 34rem; } .page :global(.coaching-gallery > li) { width: 18rem; } }
 @media (min-width: 768px) { .page :global(.coaching-mobile-cta) { display: none; } }
 @media (min-width: 1024px) { .page :global(.coaching-hero) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3.5rem; padding-block: 4rem; } .page :global(.coaching-marquee) { height: 44rem; gap: 1rem; } .page :global(.coaching-hero-slideshow) { margin-top: -2rem; } }
-@media (prefers-reduced-motion: reduce) { .page :global(.coaching-rise), .page :global(.coaching-gallery-track) { animation: none; } .page :global(.coaching-gallery-viewport) { overflow-x: auto; } .page :global(.coaching-gallery[aria-hidden="true"]), .page :global(.coaching-gallery-toggle) { display: none; } }
+@media (prefers-reduced-motion: reduce) { .page :global(.coaching-rise) { animation: none; } .page :global(.coaching-gallery-viewport:not([data-motion-enabled="true"])) { overflow-x: auto; } .page :global(.coaching-gallery-viewport:not([data-motion-enabled="true"]) .coaching-gallery-track) { animation: none; } .page :global(.coaching-gallery-viewport:not([data-motion-enabled="true"]) .coaching-gallery[aria-hidden="true"]) { display: none; } }
