@@ -111,4 +111,17 @@
 @media (forced-colors: active) { .page :global(.coaching-medal) { border: 2px solid CanvasText; background: none; box-shadow: none; forced-color-adjust: none; } }
 @media (forced-colors: active) { .page :global(.coaching-chip) { border-color: CanvasText; box-shadow: none; } }
 
+/* Hover and scroll-in motion: under 250ms, ease-out, transform and opacity only, all off under reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .page :global(.coaching-portrait:hover), .page :global(.coaching-portrait:focus-visible) { transform: translateY(-4px); }
+  .page :global(.coaching-portrait:hover .coaching-portrait-frame::after), .page :global(.coaching-portrait:focus-visible .coaching-portrait-frame::after) { opacity: 1; }
+  .page :global(.coaching-portrait:hover .coaching-portrait-clip .coaching-portrait-image), .page :global(.coaching-portrait:focus-visible .coaching-portrait-clip .coaching-portrait-image) { transform: scale(1.03); }
+  .page :global(.coaching-portrait:hover .coaching-chip::after), .page :global(.coaching-portrait:focus-visible .coaching-chip::after) { opacity: 1; }
+  .page :global(.coaching-button:hover), .page :global(.coaching-icon-button:hover) { opacity: .9; transform: translateY(-1px); }
+  .page :global(.coaching-link:hover::after), .page :global(.coaching-link:focus-visible::after) { transform: scaleX(1); }
+  .page :global(.coaching-hero-slideshow .coaching-link:hover::after) { opacity: 1; }
+  /* The rise sits on the section's children, so the section box (the scroll target) never moves. */
+  .page :global(#coaching-main[data-reveal="ready"] > section > *) { transition: opacity 240ms ease-out, transform 240ms ease-out; }
+  .page :global(#coaching-main[data-reveal="ready"] > section:not([data-revealed]) > *) { opacity: 0; transform: translateY(8px); }
+}
 @media (prefers-reduced-motion: reduce) { .page :global(.coaching-rise) { animation: none; } .page :global(.coaching-gallery[aria-hidden="true"]), .page :global(.coaching-gallery-toggle) { display: none; } .page :global(.coaching-button:hover) { opacity: .9; } }
