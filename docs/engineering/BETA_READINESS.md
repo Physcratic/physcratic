@@ -167,3 +167,20 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **SEO:** `/coaching`, `/coaching/consultation` and `/coaching/become-a-tutor` are in `lib/seo/public-routes.ts` (kind `coaching`), so they reach the sitemap, and a "Coaching" section in `llms.txt`.
 - **Still open, after the staging migration:** `coachingInquiries` in `lib/db/schema.ts` is unused and can be dropped, and so can `react-simple-maps` in `package.json`.
 
+## 2026-11-02 - Coaching Phase 2d
+
+- **Scope:** a layout and hierarchy pass on the sections from Programs to FAQ, plus a "Free guides" link between coaching and the learn hub. Copy stays in `lib/coaching/content.ts`. New labels and chip lists are there and covered by the copy tests.
+- **Programs:** Beginner, Intermediate and Advanced are three steps on a thin rail with a dot per step (horizontal from 1024px, vertical below). IB and A-Level is a separate dashed card tagged "Different track". Each card runs level name, "For" as the largest line, "Covers" as chips, "Goal" in bold, then the button. The intro is "Three levels take you from your first olympiad to IPhO." and that phrase is the highlight (six words, so the highlight limit is now six). The old "roughly the same level" sentence stays as a muted note.
+- **How a class works:** four stat tiles (6, 2 h, Every class, Notes). The three remaining points are one muted row. "Train slightly above your level" has an accent left border and a chip row of the countries and competitions. Topics are muted chips.
+- **Scheduling:** text on the left and a larger overlap visual on the right from 1024px. The class-time caption is bold accent.
+- **Packages:** "16 sessions" and "32 sessions" in the display font with the hours under them. No prices, and no "popular" or "recommended" label (a test checks this). One full-width "Ask for your local price" button with the pricing note under it.
+- **How to get started:** four numbered steps on one connected line, with the button at the end. "within 2 business days" is the highlight.
+- **Review, at a glance, FAQ:** larger quote in the display font on a lifted card, with avatar, name and gold chip on one row. At a glance is a tight two-column list. The FAQ opens its first question, with larger questions and an accent plus icon.
+- **Mid-page buttons:** one "Get a consultation" after Programs and one after Packages. They scroll to `#hero-cta`, where the picker opens Tally through `consultationHref` with the chosen pathway and the source. No new button opens Tally directly.
+- **Free guides:** a quieter `#guides` section after "At a glance" and before the FAQ. It has a plain heading, small cards read from `publishedArticles` (title, description, reading minutes), a "See all guides" link, a scroll row on mobile and a two-column grid from 768px. The header nav ("Guides", shortened because "Free guides" made the 1024px nav wrap) and the mobile menu link to `/learn`, and so does the footer ("Free guides"). Every guide ends with a muted line, "Want a coach who has sat these exams? Meet our medallist coaches.", linking to `/coaching`. The copy is `COACHING_LINE` in `lib/learn/articles.ts`, checked in `lib/copy-rules.test.ts`.
+- **Header:** the nav links and the button no longer wrap, and the gap is tighter below 1280px. The header is 65px high at 375, 1024 and 1440.
+- **Motion:** every new card uses the shared `coaching-lift` (4px lift, shadow faded in on a pseudo element, 220ms). It is off under reduced motion.
+- **Display font:** Bowlby One has one weight, so no display text is bold. Highlights are body text only.
+- **Checked:** typecheck, unit tests, `pnpm test:ui` (new render tests for the guides, programs, packages and FAQ), `pnpm build`, and Playwright at 375, 768 and 1440 (no horizontal scroll on `/coaching`, `/coaching/consultation`, `/coaching/become-a-tutor` or the guides).
+- **Open:** the review quote in Bowlby One is heavy at paragraph length. If it reads badly, set the quote in the body font and keep the display font for the name. The mid-page button after Packages sits close to "Ask for your local price".
+
