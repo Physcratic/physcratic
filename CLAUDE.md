@@ -1,4 +1,4 @@
-# Physcratic — notes for Claude Code
+# Physcratic — notes for Claude Code 
 
 Next.js 15.5 App Router, TypeScript, Tailwind, shadcn/ui (components/ui), Better Auth, Drizzle + Postgres, deployed on Vercel. Package manager: pnpm. Node 22.
 
