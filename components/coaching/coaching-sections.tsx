@@ -10,6 +10,7 @@ import { CoachingReviews } from "./coaching-reviews";
 import { CoachingGlance } from "./coaching-glance";
 import { CoachingFaq } from "./coaching-faq";
 import { CoachingFinalCta } from "./coaching-final-cta";
+import { CoachingMobileMenu } from "./coaching-mobile-menu";
 
 const { ui, nav, path, footer } = content;
 
@@ -19,7 +20,7 @@ export function CoachingHeader() {
       <Link href="/coaching" className="flex shrink-0 items-center gap-2.5" aria-label={ui.homeLabel}><Image src="/coaching/physcratic-logo.png" alt="" width={44} height={44} priority className="size-10 object-contain" /><span className="text-xl font-semibold tracking-tight sm:text-2xl">{ui.brand}</span></Link>
       <div className="flex items-center gap-3 lg:gap-7">
         <nav aria-label={ui.desktopNavLabel} className="hidden items-center gap-7 text-sm font-medium text-muted-foreground lg:flex">{nav.map((link) => <Link key={link.href} href={link.href} className="hover:text-foreground">{link.label}</Link>)}</nav>
-        <details className="relative lg:hidden"><summary className="rounded-md border border-border px-3 py-2 text-sm">{ui.menu}</summary><nav aria-label={ui.mobileNavLabel} className="absolute right-0 top-12 flex w-48 flex-col gap-2 rounded-lg border border-border bg-background p-4 text-foreground">{nav.map((link) => <Link key={link.href} href={link.href} className="py-2">{link.label}</Link>)}</nav></details>
+        <CoachingMobileMenu menuLabel={ui.menu} navLabel={ui.mobileNavLabel} links={nav} />
         <span className="hidden sm:block"><Link href="/coaching#hero-cta" className="coaching-button">{ui.consultationCta}</Link></span>
       </div>
     </div>
