@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { articles, formatDate, publishedArticles } from "./learn/articles";
 import { renderMath } from "./learn/math";
-import { readingMinutes, wordCount } from "./learn/reading";
+import { headingId, readingMinutes, wordCount } from "./learn/reading";
 import { CHECK_HOST_SITE, type Article } from "./learn/types";
 import { problems } from "./physics";
 
@@ -21,7 +21,7 @@ describe("learn articles", () => {
   it("has unique slugs and the three guides", () => {
     const slugs = articles.map((a) => a.slug);
     assert.equal(new Set(slugs).size, slugs.length);
-    assert.equal(articles.length, 3);
+    assert.equal(articles.length, 4);
   });
   for (const a of articles) {
     describe(a.slug, () => {
@@ -76,6 +76,19 @@ describe("learn articles", () => {
         for (const b of a.body) {
           if (b.type === "problemLink") {
             assert.ok(problems.some((p) => p.id === b.problemId), b.problemId);
+          }
+        }
+      });
+      it("links only to guides and headings that exist", () => {
+        for (const b of a.body) {
+          if (b.type !== "guideLink") continue;
+          const target = articles.find((x) => x.slug === b.slug);
+          assert.ok(target, b.slug);
+          if (b.hash) {
+            const ids = target.body
+              .filter((x) => x.type === "heading")
+              .map((h) => headingId(h.text));
+            assert.ok(ids.includes(b.hash), b.hash);
           }
         }
       });

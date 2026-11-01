@@ -7,7 +7,7 @@ export const startPreparing: ArticleDraft = {
   title: "How to start preparing for the Physics Olympiad",
   description:
     "A plain guide for students and parents. What to study first, how to use past papers, a 12-month outline and the mistakes to avoid.",
-  updated: "2026-11-01",
+  updated: "2026-11-02",
   published: true,
   reviewedBy: REVIEWER,
   sources: [
@@ -173,6 +173,12 @@ export const startPreparing: ArticleDraft = {
         "A strong base in calculus-based physics matters more than exam tricks.",
       ],
       cite: ["k1"],
+    },
+    {
+      type: "guideLink",
+      slug: "physics-olympiad-books-and-resources",
+      label: "Books and handouts for each topic",
+      note: "Our reviewer's picks, grouped by stage and topic.",
     },
     { type: "heading", level: 2, text: "Common mistakes" },
     {

@@ -131,3 +131,12 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **Learn link:** added to `components/kokonutui/top-nav.tsx` (icon on small screens, text from `md`). `sidebar.tsx` is not touched.
 - **Closing link:** points to `/dashboard?view=problems`, because `/dashboard/problems` has no index page and would 404.
 - **Still open:** the unofficial archive sources (S9, S10) and S3 and S5 are not official sites. Re-check all sources when the network allows.
+
+## 2026-11-02 - Batch 6.2 - Reviewer, study tips and resources guide
+
+- **Reviewer:** every guide shows "Reviewed by Arrow Dunatos, IPhO 2026 bronze medallist" under the Updated date, with the name linked to `/coaching`. Each Article JSON-LD has `reviewedBy` as a Person. Schema.org defines `reviewedBy` on WebPage, not Article, so some validators may warn about it.
+- **Guide A:** new section "How to study and solve problems", paraphrased from Kevin Zhou's Learning Introductory Physics (K1), credited by name. His USA-specific exam advice is left out. A links to guide D.
+- **Guide D:** `physics-olympiad-books-and-resources`, the reviewer's picks grouped by stage and topic, with a few of ours marked "Also useful". No prices, no buy links, no edition claims beyond Halliday, Resnick and Krane (5th edition). Cites K1 to K3 and Zhou's writing index. It is in the hub, registry, sitemap, llms.txt and has its own OG image through the shared `[slug]` route.
+- **New block type:** `guideLink`, checked by test against real slugs and heading ids.
+- **Sources:** K1 to K4 are dated 2026-11-02. They came with the task and could not be fetched from the build environment, so they were not independently re-checked.
+- **Checked:** word counts (D is 721 words, within 700 to 1,200), copy-rules test, typecheck, 276 of 281 unit tests pass with 0 fail, `pnpm build`, and 20 page views (five pages at 375px and 1280px in both themes) with no horizontal scroll.

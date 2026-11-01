@@ -30,6 +30,8 @@ export type Block =
     }
   /** Links to /dashboard/problems/<problemId>. The id must exist in lib/physics. */
   | { type: "problemLink"; problemId: string; label: string; note?: string }
+  /** Links to another guide, optionally to a heading id inside it. */
+  | { type: "guideLink"; slug: string; hash?: string; label: string; note?: string }
   /** Display maths. TeX is rendered on the server with KaTeX. */
   | { type: "math"; tex: string; caption?: string }
   | {

@@ -10,15 +10,9 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { renderMath } from "@/lib/learn/math";
+import { headingId } from "@/lib/learn/reading";
 import type { Block, Source } from "@/lib/learn/types";
 import { cn } from "@/lib/utils";
-
-export function headingId(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
-}
 
 /** Superscript [n] links to the numbered Sources list. */
 function Cite({ ids, sources }: { ids?: string[]; sources: Source[] }) {
@@ -131,6 +125,27 @@ export function ArticleBody({
               <Link
                 key={index}
                 href={`/dashboard/problems/${block.problemId}`}
+                className="group flex max-w-prose items-start gap-3 rounded-lg border bg-card p-4 transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <ArrowRight
+                  aria-hidden="true"
+                  className="mt-1 size-4 shrink-0 text-primary transition-transform group-hover:translate-x-0.5"
+                />
+                <span>
+                  <span className="font-medium">{block.label}</span>
+                  {block.note ? (
+                    <span className="mt-1 block text-sm text-muted-foreground">
+                      {block.note}
+                    </span>
+                  ) : null}
+                </span>
+              </Link>
+            );
+          case "guideLink":
+            return (
+              <Link
+                key={index}
+                href={`/learn/${block.slug}${block.hash ? `#${block.hash}` : ""}`}
                 className="group flex max-w-prose items-start gap-3 rounded-lg border bg-card p-4 transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <ArrowRight

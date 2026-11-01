@@ -1,3 +1,4 @@
+import { booksAndResources } from "./guides/books-and-resources";
 import { compareOlympiads } from "./guides/compare-olympiads";
 import { howMarkingWorks } from "./guides/how-marking-works";
 import { startPreparing } from "./guides/start-preparing";
@@ -12,6 +13,7 @@ export const articles: Article[] = [
   startPreparing,
   compareOlympiads,
   howMarkingWorks,
+  booksAndResources,
 ].map(withReadingMinutes);
 
 export const publishedArticles: Article[] = articles.filter((a) => a.published);
