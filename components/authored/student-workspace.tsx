@@ -462,18 +462,26 @@ function PrivateWorkspace({
         s.parts.map((p) => ({ ...p, sectionTitle: s.title })),
       ) ?? [],
     part = parts.find((p) => p.id === selected) ?? parts[0];
+  const revisionId = revision?.id;
+  const firstPartId = parts[0]?.id ?? "";
+  const cancelInfo = useCallback(() => {
+    infoSerial.current++;
+    infoAbort.current?.abort();
+  }, []);
+  const cancelHistory = useCallback(() => {
+    historySerial.current++;
+    historyAbort.current?.abort();
+  }, []);
   useEffect(() => {
     session.activate();
     mounted.current = true;
     return () => {
       mounted.current = false;
       session.dispose();
-      historyAbort.current?.abort();
-      infoAbort.current?.abort();
-      infoSerial.current++;
-      historySerial.current++;
+      cancelHistory();
+      cancelInfo();
     };
-  }, [session]);
+  }, [session, cancelHistory, cancelInfo]);
   useEffect(() => {
     const unload = (e: BeforeUnloadEvent) => {
       if (
@@ -489,10 +497,10 @@ function PrivateWorkspace({
     return () => window.removeEventListener("beforeunload", unload);
   }, [state.book, state.rawRecovery]);
   useEffect(() => {
-    setSelected(parts[0]?.id ?? "");
-  }, [revision?.id]);
+    setSelected(firstPartId);
+  }, [revisionId, firstPartId]);
   const refreshInfo = useCallback(async () => {
-    if (!revision || availability !== "ready") return;
+    if (!revisionId || availability !== "ready") return;
     const serial = ++infoSerial.current;
     infoAbort.current?.abort();
     const controller = new AbortController();
@@ -506,7 +514,7 @@ function PrivateWorkspace({
         }),
       );
       if (!mounted.current || serial !== infoSerial.current) return;
-      if (data.problemId !== problemId || data.revisionId !== revision.id) {
+      if (data.problemId !== problemId || data.revisionId !== revisionId) {
         invalidate();
         return;
       }
@@ -519,14 +527,11 @@ function PrivateWorkspace({
       if (e instanceof StudentRequestError && [404, 409].includes(e.status))
         invalidate();
     }
-  }, [revision?.id, availability, problemId, invalidate, denyAuth]);
+  }, [revisionId, availability, problemId, invalidate, denyAuth]);
   useEffect(() => {
     void refreshInfo();
-    return () => {
-      infoSerial.current++;
-      infoAbort.current?.abort();
-    };
-  }, [refreshInfo]);
+    return cancelInfo;
+  }, [refreshInfo, cancelInfo]);
   const loadHistory = useCallback(
     async (cursor: string | null = null, focus = false) => {
       const serial = ++historySerial.current;
@@ -575,16 +580,19 @@ function PrivateWorkspace({
     const a = state.lastResult;
     if (!a || seenResult.current === a.id) return;
     seenResult.current = a.id;
-    if (info && a.revisionId === info.revisionId)
-      setInfo({
-        ...info,
-        parts: info.parts.map((p) =>
-          p.partId === a.partId &&
-          BigInt(p.attemptsUsed) < BigInt(a.attemptNumber)
-            ? { ...p, attemptsUsed: a.attemptNumber }
-            : p,
-        ),
-      });
+    setInfo((current) =>
+      current && a.revisionId === current.revisionId
+        ? {
+            ...current,
+            parts: current.parts.map((p) =>
+              p.partId === a.partId &&
+              BigInt(p.attemptsUsed) < BigInt(a.attemptNumber)
+                ? { ...p, attemptsUsed: a.attemptNumber }
+                : p,
+            ),
+          }
+        : current,
+    );
     historyAbort.current?.abort();
     historySerial.current++;
     setHistory([]);
@@ -595,7 +603,7 @@ function PrivateWorkspace({
     setHistoryEpoch((x) => x + 1);
     if (part?.id === a.partId && revision?.id === a.revisionId)
       requestAnimationFrame(() => resultRef.current?.focus());
-  }, [state.lastResult]);
+  }, [state.lastResult, part?.id, revision?.id]);
   useEffect(() => {
     if ([401, 403].includes(state.lastStatus)) denyAuth();
   }, [state.lastStatus, denyAuth]);
@@ -606,7 +614,7 @@ function PrivateWorkspace({
       pending?.body.revisionId === revision?.id
     )
       invalidate();
-  }, [state.lastStatus, revision?.id, invalidate]);
+  }, [state.lastStatus, state.book.pending, revision?.id, invalidate]);
   const jump = (partId: string) => {
     setSelected(partId);
     setTab("problem");

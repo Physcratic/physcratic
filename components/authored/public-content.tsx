@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import { MathPreview } from "@/components/authoring/editor-fields";
 import { authorMediaPath } from "@/lib/author-media";
 import type { AuthoredDocument } from "@/lib/problem-authoring";
@@ -23,7 +24,11 @@ function StatementImage({
           This statement image is unavailable. Recheck the current publication.
         </p>
       ) : (
-        <img
+        <Image
+          unoptimized
+          width={0}
+          height={0}
+          style={{ width: "auto", height: "auto" }}
           src={authorMediaPath(problemId, block.mediaId, revisionId)}
           alt={block.alt}
           loading="lazy"

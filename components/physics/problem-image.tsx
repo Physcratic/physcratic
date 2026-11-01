@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useState } from "react";
+import Image from "next/image";
 import { ImageIcon } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
@@ -17,17 +18,16 @@ export function ProblemImage({ src, alt, className, width, height, enlargeHref, 
   const [result, setResult] = useState<{ src: string; status: "loaded" | "error" }>();
   const [retry, setRetry] = useState(0);
   const status = result?.src === src ? result.status : "loading";
-  const imageRef = useCallback((image: HTMLImageElement | null) => {
-    if (image?.complete && image.naturalWidth > 0) setResult({ src, status: "loaded" });
-  }, [src]);
 
-  const image = <img
+  const image = <Image
     key={`${src}-${retry}`}
-    ref={imageRef}
     src={retry ? `${src}${src.includes("?") ? "&" : "?"}retry=${retry}` : src}
     alt={alt}
-    width={width}
-    height={height}
+    width={width ?? 0}
+    height={height ?? 0}
+    unoptimized={!width || !height}
+    sizes="(max-width: 768px) 100vw, 900px"
+    style={!width || !height ? { width: "auto", height: "auto" } : undefined}
     loading="lazy"
     decoding="async"
     onLoad={() => setResult({ src, status: "loaded" })}
