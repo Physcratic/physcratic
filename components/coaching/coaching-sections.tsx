@@ -45,7 +45,29 @@ export function CoachingSections() {
     <section aria-labelledby="reviews-title" className="border-b border-border py-20">
       <div className="coaching-container flex flex-col gap-8">
         <div className="flex max-w-2xl flex-col items-center gap-3 self-center text-center"><p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">Student reviews</p><h2 id="reviews-title" className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">See what our students are saying.</h2></div>
-        <div className="rounded-2xl border border-border bg-foreground/5 p-8 md:p-10"><p className="max-w-3xl text-xl leading-relaxed text-foreground sm:text-2xl">We are collecting reflections from our first coaching sessions now. Student and family feedback will appear here as those sessions are completed.</p><p className="mt-6 text-sm font-medium uppercase tracking-wide text-muted-foreground">Reviews coming soon</p></div>
+        <div className="rounded-2xl border border-border bg-foreground/5 p-8 text-foreground md:p-10">
+    <figure className="flex flex-col gap-8">
+      <blockquote className="max-w-4xl text-pretty text-lg leading-relaxed text-foreground sm:text-xl">
+        <p>{"Honestly, the best tutor ever! I genuinely don’t think I would’ve made it this far if I hadn’t met Kak Arrow. Your explanations are always so clear and easy to understand, and you always give me feedback that helps me improve. I’ve grown so much throughout my training with you. Thank you so much, Kak Arrow, for being my tutor! I’m really grateful I got the chance to learn from you. ❤️"}</p>
+      </blockquote>
+      <figcaption className="border-t border-border pt-6">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex max-w-md flex-col gap-1">
+            <p className="text-lg font-semibold text-foreground">Raffa</p>
+            <p className="text-sm leading-relaxed text-muted-foreground">Best Theory, Gold medal in Indonesian Physics Olympiad (OSN)</p>
+          </div>
+          <div className="flex flex-col gap-2 lg:items-end">
+            <p className="text-sm font-medium text-muted-foreground">Sessions taken</p>
+            <ul className="flex flex-wrap gap-2 text-sm text-foreground lg:justify-end">
+              <li className="rounded-full border border-border px-3 py-1">Beginner</li>
+              <li className="rounded-full border border-border px-3 py-1">Intermediate</li>
+              <li className="rounded-full border border-accent/40 bg-accent/10 px-3 py-1">Advanced <span className="text-accent">(currently enrolled)</span></li>
+            </ul>
+          </div>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
       </div>
     </section>
     <section id="faq" className="border-b border-border py-20">

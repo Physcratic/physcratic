@@ -62,17 +62,19 @@ export function CoachingTutors() {
           <div><dt className="text-sm text-muted-foreground">Tutors</dt><dd className="text-2xl font-semibold">{medallistStats.count}</dd></div>
           <div><dt className="text-sm text-muted-foreground">Countries represented</dt><dd className="text-2xl font-semibold">{medallistStats.countries}</dd></div>
         </dl>
-        <button type="button" aria-controls="coaching-tutor-gallery" aria-pressed={paused} onClick={() => setPausedOverride(!paused)} className="coaching-gallery-toggle inline-flex min-h-10 items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+      </div>
+      <div className="flex min-w-0 flex-col gap-3">
+        <div id="coaching-tutor-gallery" className="coaching-gallery-viewport" data-paused={paused} data-motion-enabled={pausedOverride !== null} role="region" aria-label="Tutor slideshow; hover to pause, or use Tab to browse" tabIndex={0} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) event.currentTarget.scrollLeft = 0; }}>
+          <div className="coaching-gallery-track">
+            {[0, 1].map((copy) => <ul key={copy} className="coaching-gallery" aria-label={copy === 0 ? "Physcratic tutors" : undefined} aria-hidden={copy === 1 ? true : undefined}>
+              {medallists.map((tutor) => <li key={tutor.slug}><CoachingTutorCard tutor={tutor} countryBackdrop focusable={copy === 0} /></li>)}
+            </ul>)}
+          </div>
+        </div>
+        <button type="button" aria-controls="coaching-tutor-gallery" aria-pressed={paused} onClick={() => setPausedOverride(!paused)} className="coaching-gallery-toggle inline-flex min-h-10 items-center gap-2 self-end text-sm text-muted-foreground hover:text-foreground">
           {paused ? <Play className="size-4" aria-hidden="true" /> : <Pause className="size-4" aria-hidden="true" />}
           {paused ? "Play tutor slider" : "Pause tutor slider"}
         </button>
-      </div>
-      <div id="coaching-tutor-gallery" className="coaching-gallery-viewport" data-paused={paused} data-motion-enabled={pausedOverride !== null} role="region" aria-label="Tutor slideshow; hover to pause, or use Tab to browse" tabIndex={0} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) event.currentTarget.scrollLeft = 0; }}>
-        <div className="coaching-gallery-track">
-          {[0, 1].map((copy) => <ul key={copy} className="coaching-gallery" aria-label={copy === 0 ? "Physcratic tutors" : undefined} aria-hidden={copy === 1 ? true : undefined}>
-            {medallists.map((tutor) => <li key={tutor.slug}><CoachingTutorCard tutor={tutor} countryBackdrop focusable={copy === 0} /></li>)}
-          </ul>)}
-        </div>
       </div>
     </div>
   </section>;
