@@ -37,8 +37,8 @@ export default async function Image() {
             Physcratic
           </div>
         </div>
-        <div style={{ fontSize: 44, marginTop: 24, lineHeight: 1.3 }}>
-          {SITE.defaultTitle.replace("Physcratic — ", "")}
+        <div style={{ fontSize: 38, marginTop: 24, lineHeight: 1.3 }}>
+          {SITE.defaultTitle.replace("Physcratic | ", "")}
         </div>
       </div>
     ),
