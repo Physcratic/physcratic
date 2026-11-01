@@ -12,21 +12,21 @@ export function CoachingHeader() {
       <div className="flex items-center gap-3 md:gap-7">
         <nav aria-label="Coaching navigation" className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">{headerLinks.map((link) => <Link key={link.href} href={link.href} className="hover:text-foreground">{link.label}</Link>)}<Link href="/dashboard" className="hover:text-foreground">Practice</Link></nav>
         <details className="relative md:hidden"><summary className="rounded-md border border-border px-3 py-2 text-sm">Menu</summary><nav aria-label="Mobile coaching navigation" className="absolute right-0 top-12 flex w-48 flex-col gap-2 rounded-lg border border-border bg-background p-4 text-foreground">{headerLinks.map((link) => <Link key={link.href} href={link.href} className="py-2">{link.label}</Link>)}<Link href="/dashboard" className="py-2">Practice workspace</Link></nav></details>
-        <span className="hidden sm:block"><Link href="/coaching#hero-cta" className="coaching-button">Start inquiry</Link></span>
+        <span className="hidden sm:block"><Link href="/coaching#hero-cta" className="coaching-button">Sign up</Link></span>
       </div>
     </div>
   </header>;
 }
 
 const steps = [
-  { title: "Choose your pathway", body: "Select general physics consultation, IB/A-Level/IGCSE training, or Tutor inquiry for Olympiad winners applying to teach." },
+  { title: "Choose your pathway", body: "Select general physics consultation, IB/A-Level/IGCSE training, or apply to become a tutor if you are an Olympiad winner." },
   { title: "Tell us about your goals", body: "Share your level, goals and preferred language so the team can understand the support you are looking for." },
   { title: "Hear from our team", body: "Once your inquiry is connected, our team will follow up on WhatsApp within two days to discuss tutoring options." },
 ];
 
 const faqs = [
   { question: "What happens after I send an inquiry?", answer: "Your inquiry is saved securely so our team can review it. We will follow up on WhatsApp within two days." },
-  { question: "Which pathways can I choose?", answer: "General physics consultation, IB/A-Level/IGCSE training, or Tutor inquiry for IPhO winners interested in teaching with Physcratic." },
+  { question: "Which pathways can I choose?", answer: "General physics consultation, IB/A-Level/IGCSE training, or “I want to become a tutor” for IPhO winners interested in teaching with Physcratic." },
   { question: "Can I inquire on behalf of my child?", answer: "Yes. The inquiry form supports students, parents and tutor applicants. Choose the pathway that matches the support you are looking for." },
   { question: "Which language should I enter?", answer: "Tell us the student’s preferred language for lessons. This is a preference, not confirmation of tutor availability." },
   { question: "How is my information used?", answer: "We use your inquiry details to understand your goals and contact you about coaching options. We do not use them for unrelated marketing." },
@@ -39,12 +39,12 @@ export function CoachingSections() {
       <div className="coaching-container flex flex-col items-center gap-10">
         <h2 className="mx-auto max-w-2xl text-center text-balance text-3xl font-bold tracking-tight sm:text-4xl">Start your journey today.</h2>
         <ol className="grid w-full gap-6 md:grid-cols-3">{steps.map((step, index) => <li key={step.title} className="flex flex-col items-center gap-3 rounded-2xl border border-border bg-background p-6 text-center text-foreground"><p className="text-sm font-medium text-accent">Step {index + 1}</p><h3 className="text-xl font-semibold tracking-tight">{step.title}</h3><p className="leading-relaxed text-muted-foreground">{step.body}</p></li>)}</ol>
-        <div className="flex flex-wrap justify-center gap-3"><Link href="/coaching#hero-cta" className="coaching-button">Start step 1</Link><Link href="/coaching#tutors" className="coaching-button coaching-button-secondary">Explore our tutors</Link></div>
+        <div className="flex flex-wrap justify-center gap-3"><Link href="/coaching#hero-cta" className="coaching-button">Sign up</Link><Link href="/coaching#tutors" className="coaching-button coaching-button-secondary">Explore our tutors</Link></div>
       </div>
     </section>
     <section aria-labelledby="reviews-title" className="border-b border-border py-20">
       <div className="coaching-container flex flex-col gap-8">
-        <div className="flex max-w-2xl flex-col items-center gap-3 self-center text-center"><p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">Student reviews</p><h2 id="reviews-title" className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">See what our students are saying.</h2></div>
+        <div className="flex max-w-2xl flex-col items-center gap-3 self-center text-center"><h2 id="reviews-title" className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">See what our students are saying.</h2></div>
         <div className="rounded-2xl border border-border bg-foreground/5 p-8 text-foreground md:p-10">
     <figure className="flex flex-col gap-8">
       <blockquote className="max-w-4xl text-pretty text-lg leading-relaxed text-foreground sm:text-xl">
@@ -54,14 +54,14 @@ export function CoachingSections() {
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="flex max-w-md flex-col gap-1">
             <p className="text-lg font-semibold text-foreground">Raffa</p>
-            <p className="text-sm leading-relaxed text-muted-foreground">Best Theory, Gold medal in Indonesian Physics Olympiad (OSN)</p>
+            <p className="text-sm leading-relaxed text-muted-foreground">Best Theory &amp; Gold Medal in Indonesian Physics Olympiad</p>
           </div>
           <div className="flex flex-col gap-2 lg:items-end">
             <p className="text-sm font-medium text-muted-foreground">Sessions taken</p>
             <ul className="flex flex-wrap gap-2 text-sm text-foreground lg:justify-end">
               <li className="rounded-full border border-border px-3 py-1">Beginner</li>
               <li className="rounded-full border border-border px-3 py-1">Intermediate</li>
-              <li className="rounded-full border border-accent/40 bg-accent/10 px-3 py-1">Advanced <span className="text-accent">(currently enrolled)</span></li>
+              <li className="rounded-full border border-accent/40 bg-accent/10 px-3 py-1">Advanced <span className="text-accent">(currently)</span></li>
             </ul>
           </div>
         </div>

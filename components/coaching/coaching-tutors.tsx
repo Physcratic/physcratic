@@ -1,20 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useSyncExternalStore, type CSSProperties } from "react";
+import { useEffect, useState, type CSSProperties, type KeyboardEvent } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import AutoScroll from "embla-carousel-auto-scroll";
 import { Pause, Play } from "lucide-react";
 import { countryFlagCodes, medallists, medallistStats, medalLabel, type Medallist } from "@/lib/coaching/medallists";
 import abhikaPortrait from "@/public/coaching/medallists/abhika-atmaja-cutout.webp";
-
-function subscribeToMotionPreference(onChange: () => void) {
-  const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-  preference.addEventListener("change", onChange);
-  return () => preference.removeEventListener("change", onChange);
-}
-
-function getPrefersReducedMotion() {
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
 
 export function CoachingTutorCard({ tutor, priority = false, eager = false, countryBackdrop = false, focusable = true }: { tutor: Medallist; priority?: boolean; eager?: boolean; countryBackdrop?: boolean; focusable?: boolean }) {
   const extension = ["angel", "kanishk", "ermuun-battulga", "reuben-felix"].includes(tutor.slug) ? "png" : "webp";
@@ -49,10 +41,50 @@ export function CoachingTutorSlideshow() {
   </div>;
 }
 
+function CoachingTutorGallery() {
+  const [autoScroll] = useState(() => AutoScroll({ speed: 0.6, startDelay: 0, playOnInit: true, stopOnInteraction: true, stopOnMouseEnter: false, stopOnFocusIn: true }));
+  const [viewportRef, carousel] = useEmblaCarousel({ loop: true, align: "start" }, [autoScroll]);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (!carousel) return;
+    const onPlay = () => setPaused(false);
+    const onStop = () => setPaused(true);
+    carousel.on("autoScroll:play", onPlay).on("autoScroll:stop", onStop);
+    setPaused(!autoScroll.isPlaying());
+    return () => {
+      carousel.off("autoScroll:play", onPlay).off("autoScroll:stop", onStop);
+    };
+  }, [carousel, autoScroll]);
+
+  function togglePlayback() {
+    if (!carousel) return;
+    if (autoScroll.isPlaying()) autoScroll.stop();
+    else autoScroll.play(0);
+  }
+
+  function handleKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    event.preventDefault();
+    autoScroll.stop();
+    if (event.key === "ArrowLeft") carousel?.scrollPrev();
+    else carousel?.scrollNext();
+  }
+
+  return <div className="flex min-w-0 flex-col gap-6">
+    <p id="coaching-tutor-slider-instructions" className="sr-only">Tutors scroll automatically. Drag left or right to pause on a tutor. Use the play button to resume, or the arrow keys to browse.</p>
+    <div ref={viewportRef} id="coaching-tutor-gallery" className="coaching-gallery-viewport" data-paused={paused} role="region" aria-roledescription="carousel" aria-label="Physcratic tutors" aria-describedby="coaching-tutor-slider-instructions" tabIndex={0} onFocus={() => autoScroll.stop()} onKeyDown={handleKeyDown}>
+      <ul className="coaching-gallery-track coaching-gallery" aria-label="Physcratic tutors">
+        {medallists.map((tutor) => <li key={tutor.slug}><CoachingTutorCard tutor={tutor} countryBackdrop /></li>)}
+      </ul>
+    </div>
+    <button type="button" aria-label={paused ? "Play tutor slider" : "Pause tutor slider"} aria-controls="coaching-tutor-gallery" aria-pressed={paused} disabled={!carousel} onClick={togglePlayback} className="coaching-gallery-toggle inline-flex size-11 shrink-0 items-center justify-center self-end rounded-full border border-border text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-40">
+      {paused ? <Play className="size-5" aria-hidden="true" /> : <Pause className="size-5" aria-hidden="true" />}
+    </button>
+  </div>;
+}
+
 export function CoachingTutors() {
-  const prefersReducedMotion = useSyncExternalStore(subscribeToMotionPreference, getPrefersReducedMotion, () => false);
-  const [pausedOverride, setPausedOverride] = useState<boolean | null>(null);
-  const paused = pausedOverride ?? prefersReducedMotion;
   return <section id="tutors" className="py-20">
     <div className="coaching-container flex min-w-0 flex-col gap-8">
       <div className="flex w-full max-w-2xl flex-col items-center gap-4 self-center text-center">
@@ -63,18 +95,7 @@ export function CoachingTutors() {
           <div><dt className="text-sm text-muted-foreground">Countries represented</dt><dd className="text-2xl font-semibold">{medallistStats.countries}</dd></div>
         </dl>
       </div>
-      <div className="flex min-w-0 flex-col gap-6">
-        <div id="coaching-tutor-gallery" className="coaching-gallery-viewport" data-paused={paused} data-motion-enabled={pausedOverride !== null} role="region" aria-label="Tutor slideshow; hover to pause, or use Tab to browse" tabIndex={0} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) event.currentTarget.scrollLeft = 0; }}>
-          <div className="coaching-gallery-track">
-            {[0, 1].map((copy) => <ul key={copy} className="coaching-gallery" aria-label={copy === 0 ? "Physcratic tutors" : undefined} aria-hidden={copy === 1 ? true : undefined}>
-              {medallists.map((tutor) => <li key={tutor.slug}><CoachingTutorCard tutor={tutor} countryBackdrop focusable={copy === 0} /></li>)}
-            </ul>)}
-          </div>
-        </div>
-        <button type="button" aria-label={paused ? "Play tutor slider" : "Pause tutor slider"} aria-controls="coaching-tutor-gallery" aria-pressed={paused} onClick={() => setPausedOverride(!paused)} className="coaching-gallery-toggle inline-flex size-11 shrink-0 items-center justify-center self-end rounded-full border border-border text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background">
-          {paused ? <Play className="size-5" aria-hidden="true" /> : <Pause className="size-5" aria-hidden="true" />}
-        </button>
-      </div>
+      <CoachingTutorGallery />
     </div>
   </section>;
 }
