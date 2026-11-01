@@ -22,7 +22,7 @@ export function CoachingHero({ initialGoal }: { initialGoal?: string }) {
     <div className="coaching-container coaching-hero">
       <div className="coaching-rise flex flex-col gap-6 pb-6">
         <h1 className="flex flex-col gap-3">
-          <span className="font-serif text-balance text-4xl uppercase leading-[1.05] sm:text-5xl lg:text-[3.6rem]">{hero.titleMain}</span>
+          <span className="font-serif text-balance text-4xl leading-[1.1] sm:text-5xl lg:text-[3.6rem]">{hero.titleMain}</span>
           <span className="max-w-md text-balance text-lg font-normal leading-snug text-foreground/85 sm:text-xl">{hero.titleSub}</span>
         </h1>
         <p className="max-w-md text-base font-semibold leading-relaxed text-foreground/85">{hero.intro}</p>

@@ -7,7 +7,7 @@ export function CoachingPrograms() {
   return <section id="programs" className="border-t border-border py-20">
     <div className="coaching-container flex flex-col gap-10">
       <div className="mx-auto flex max-w-2xl flex-col items-center gap-4 text-center">
-        <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">{programs.title}</h2>
+        <h2 className="text-balance font-serif text-3xl leading-tight sm:text-4xl">{programs.title}</h2>
         <p className="leading-relaxed text-muted-foreground">{programs.intro}</p>
       </div>
       <ul className="grid gap-6 md:grid-cols-2">{programs.items.map((item) => <li key={item.title} className="flex flex-col gap-4 rounded-2xl border border-border bg-background p-6 text-foreground">

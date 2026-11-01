@@ -6,7 +6,7 @@ const { packages } = content;
 export function CoachingPackages() {
   return <section id="packages" className="border-t border-border py-20">
     <div className="coaching-container flex flex-col items-center gap-10">
-      <h2 className="text-center text-balance text-3xl font-bold tracking-tight sm:text-4xl">{packages.title}</h2>
+      <h2 className="text-center text-balance font-serif text-3xl leading-tight sm:text-4xl">{packages.title}</h2>
       <ul className="grid w-full gap-6 md:grid-cols-2">{packages.items.map((item) => <li key={item.title} className="flex flex-col gap-3 rounded-2xl border border-border bg-background p-6 text-foreground">
         <h3 className="text-xl font-semibold tracking-tight">{item.title}</h3>
         <p className="text-sm font-medium text-accent">{item.size}</p>

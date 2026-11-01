@@ -32,7 +32,7 @@ export function CoachingTutorCard({ tutor, priority = false, eager = false, coun
     </div>
     <div className="coaching-portrait-copy">
       <p className="flex items-center justify-center gap-2 text-sm uppercase tracking-widest opacity-80">{flagCode && <Image src={`/coaching/flags/${flagCode}.png`} alt="" aria-hidden="true" width={20} height={14} className="coaching-flag-chip" />}{tutor.country}</p>
-      <Name className="font-serif text-lg uppercase leading-tight text-balance sm:text-xl">{tutor.name}</Name>
+      <Name className="font-serif text-lg leading-tight text-balance sm:text-xl">{tutor.name}</Name>
       <ul className="flex flex-col items-center gap-0.5">
         {tutor.achievements.map((achievement, index) => <li key={`${achievement.contest}-${achievement.year}`} className={`coaching-achievement text-sm ${index === 0 ? "font-bold" : "leading-snug opacity-80"}`}><span className={`coaching-medal coaching-medal-${achievement.medal}`} aria-hidden="true" />{medalLabel[achievement.medal]} · {achievement.contest} {achievement.year}</li>)}
       </ul>
@@ -95,7 +95,7 @@ export function CoachingTutors() {
   return <section id="tutors" className="py-20">
     <div className="coaching-container flex min-w-0 flex-col gap-8">
       <div className="flex w-full max-w-2xl flex-col items-center gap-4 self-center text-center">
-        <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">{coaches.title}</h2>
+        <h2 className="font-serif text-balance text-3xl leading-tight sm:text-4xl">{coaches.title}</h2>
         <p className="max-w-xl leading-relaxed text-muted-foreground">{coaches.text}</p>
         <dl className="flex flex-wrap justify-center gap-10">
           <div><dt className="text-sm text-muted-foreground">{coaches.coachesLabel}</dt><dd className="text-2xl font-semibold">{coaches.coachCount}</dd></div>

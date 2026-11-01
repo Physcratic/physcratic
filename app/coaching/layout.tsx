@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Bowlby_One } from "next/font/google";
+import { Fraunces } from "next/font/google";
 import styles from "./coaching.module.css";
 import { content } from "@/lib/coaching/content";
 
-const display = Bowlby_One({ subsets: ["latin"], weight: "400", variable: "--font-coaching-display" });
+const display = Fraunces({ subsets: ["latin"], weight: ["500", "600"], variable: "--font-coaching-display" });
 
 export const metadata: Metadata = {
   title: content.meta.title,

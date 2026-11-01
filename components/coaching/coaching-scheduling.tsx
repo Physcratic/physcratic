@@ -17,7 +17,7 @@ export function CoachingScheduling() {
   return <section id="scheduling" className="border-t border-border py-20">
     <div className="coaching-container mx-auto flex max-w-3xl flex-col gap-8">
       <div className="flex flex-col items-center gap-4 text-center">
-        <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">{scheduling.title}</h2>
+        <h2 className="text-balance font-serif text-3xl leading-tight sm:text-4xl">{scheduling.title}</h2>
         <p className="leading-relaxed text-muted-foreground">{scheduling.text}</p>
       </div>
       <figure className="flex flex-col gap-4 rounded-2xl border border-border bg-foreground/5 p-3 sm:p-6">
