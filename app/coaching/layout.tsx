@@ -3,7 +3,7 @@ import { Fraunces } from "next/font/google";
 import styles from "./coaching.module.css";
 import { content } from "@/lib/coaching/content";
 
-const display = Fraunces({ subsets: ["latin"], weight: ["500", "600"], variable: "--font-coaching-display" });
+const display = Fraunces({ subsets: ["latin"], variable: "--font-coaching-display", display: "swap" });
 
 export const metadata: Metadata = {
   title: content.meta.title,
