@@ -23,7 +23,8 @@ export default function CoachingTutorApplicationPage() {
           </Link>
           <header className="flex flex-col gap-4">
             <h1 id="tutor-title" className="font-serif text-balance text-3xl uppercase leading-tight sm:text-4xl">IPhO / APhO / EuPhO paid tutor inquiry</h1>
-            <p className="max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground">Share your Olympiad experience and help the next generation of physics students.</p>
+            <p className="max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground">For Olympiad medalists interested in becoming a paid physics tutor at Physcratic. Share your IPhO, APhO or EuPhO achievements and the languages you are comfortable speaking.</p>
+            <p className="max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground">This is a tutor application, rather than a request for lessons. Complete the form with your background and contact details; our team will review your experience before discussing next steps.</p>
           </header>
           <CoachingInquiryForm formType="tutor" />
         </div>

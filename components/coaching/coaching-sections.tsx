@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Plus } from "lucide-react";
+import { ArrowRight, Plus } from "lucide-react";
 import { CoachingTutors } from "./coaching-tutors";
-import { coachingGoalPaths } from "@/lib/coaching-pathways";
+import { coachingGoalPaths, coachingGoalLinkLabels } from "@/lib/coaching-pathways";
 
 const headerLinks = [{ href: "/coaching#faq", label: "FAQ" }];
 
@@ -17,6 +17,61 @@ export function CoachingHeader() {
       </div>
     </div>
   </header>;
+}
+
+const pathways = [
+  {
+    id: "training",
+    goal: "IB / A-Level / IGCSE training",
+    title: "IB, A-Level & IGCSE physics tutoring",
+    audience: "For students following an IB, A-Level or IGCSE physics course.",
+    support: "Discuss one-to-one help with course concepts, physics problem-solving and exam preparation.",
+    gettingStarted: "Select your program, then share your grade, preferred language and WhatsApp details in the training form.",
+  },
+  {
+    id: "consultation",
+    goal: "General physics consultation",
+    title: "General physics consultation",
+    audience: "For students and parents exploring physics support, from beginners to Olympiad competitors.",
+    support: "Discuss your current level and the support you need, including national Olympiad preparation or IPhO, APhO and EuPhO team selection.",
+    gettingStarted: "Choose Student or Parent, then share the student’s grade, physics stage and preferred languages. Provide WhatsApp details or another way to reach you.",
+  },
+  {
+    id: "tutor-application",
+    goal: "Tutor inquiry",
+    title: "Become a paid physics tutor",
+    audience: "For Olympiad medalists interested in teaching physics with Physcratic.",
+    support: "Apply to share your IPhO, APhO or EuPhO experience with students. This pathway is for teaching, not requesting lessons.",
+    gettingStarted: "Share your achievements, languages and WhatsApp contact. Our team will review your application before discussing next steps.",
+  },
+] as const;
+
+function CoachingPathways() {
+  return (
+    <section id="pathways" aria-labelledby="pathways-title" className="border-b border-border py-16 sm:py-20">
+      <div className="coaching-container flex flex-col gap-10">
+        <header className="flex max-w-2xl flex-col gap-4">
+          <h2 id="pathways-title" className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">Choose your physics tutoring pathway</h2>
+          <p className="text-pretty text-base leading-relaxed text-muted-foreground">Find school-exam support, discuss your physics or Olympiad goals, or apply to teach. Each pathway starts with a short inquiry form.</p>
+        </header>
+        <div className="flex flex-col gap-10 lg:flex-row lg:gap-8">
+          {pathways.map((pathway) => (
+            <article key={pathway.id} aria-labelledby={`pathway-${pathway.id}-title`} className="flex min-w-0 flex-1 flex-col justify-between gap-6 border-t border-border pt-6">
+              <div className="flex flex-col gap-5">
+                <h3 id={`pathway-${pathway.id}-title`} className="text-balance text-2xl font-semibold tracking-tight lg:min-h-16">{pathway.title}</h3>
+                <dl className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-1"><dt className="font-semibold">Who it&apos;s for</dt><dd className="text-pretty leading-relaxed text-muted-foreground">{pathway.audience}</dd></div>
+                  <div className="flex flex-col gap-1"><dt className="font-semibold">{pathway.id === "tutor-application" ? "What this pathway covers" : "What you can discuss"}</dt><dd className="text-pretty leading-relaxed text-muted-foreground">{pathway.support}</dd></div>
+                  <div className="flex flex-col gap-1"><dt className="font-semibold">How to get started</dt><dd className="text-pretty leading-relaxed text-muted-foreground">{pathway.gettingStarted}</dd></div>
+                </dl>
+              </div>
+              <Link href={coachingGoalPaths[pathway.goal]} className="inline-flex items-center gap-2 font-medium leading-relaxed underline decoration-border underline-offset-4 transition-colors hover:text-accent"><span>{coachingGoalLinkLabels[pathway.goal]}</span><ArrowRight className="size-4 shrink-0" aria-hidden="true" /></Link>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 const steps = [
@@ -35,6 +90,7 @@ const faqs = [
 
 export function CoachingSections() {
   return <>
+    <CoachingPathways />
     <CoachingTutors />
     <section id="how-it-works" className="border-y border-border py-20">
       <div className="coaching-container flex flex-col items-center gap-10">

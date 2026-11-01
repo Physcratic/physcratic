@@ -23,7 +23,8 @@ export default function CoachingTrainingPage() {
           </Link>
           <header className="flex flex-col gap-4">
             <h1 id="training-title" className="font-serif text-balance text-3xl uppercase leading-tight sm:text-4xl">IB / A-Level / IGCSE training</h1>
-            <p className="max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground">Share a few details so we can find the right physics support for you.</p>
+            <p className="max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground">For students studying IB, A-Level or IGCSE physics who want one-to-one help with course concepts, problem-solving and exam preparation.</p>
+            <p className="max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground">Choose your program and tell us your grade, preferred language and WhatsApp number. Our team will use these details to discuss suitable physics tutoring options with you.</p>
           </header>
           <CoachingTrainingForm />
         </div>
