@@ -183,3 +183,11 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **Display font:** Bowlby One has one weight, so no display text is bold. Highlights are body text only.
 - **Checked:** typecheck, unit tests, `pnpm test:ui` (new render tests for the guides, programs, packages and FAQ), `pnpm build`, and Playwright at 375, 768 and 1440 (no horizontal scroll on `/coaching`, `/coaching/consultation`, `/coaching/become-a-tutor` or the guides).
 
+## 2026-11-02 - Broken-link crawl
+
+- **Method:** `pnpm build`, `next start`, then a Playwright crawl (rendered DOM, so client-rendered links count) from `/`, `/dashboard`, `/learn` and `/coaching`, following every same-origin link and anchor. 39 pages were reached, well under the 500 cap. Every URL in `sitemap.xml` and `llms.txt` was also fetched.
+- **Result:** no 404s, no missing `#anchor` ids and no redirect chains. The only redirect is `/` to `/dashboard` (one hop). All 38 sitemap and `llms.txt` URLs return 200. `/coaching/training` correctly returns 404 (removed in the coaching restore) and nothing links to it.
+- **Not checkable offline:** `/sign-in`, `/sign-up` and `/dashboard/author` return 500 on a local server because there is no PostgreSQL (`ECONNREFUSED 127.0.0.1:5432`), and the local build has no `BETTER_AUTH_SECRET`. They are linked from many pages ("Problem studio", "Create an account"), so a signed-in or staging crawl should confirm them. They belong to Accounts and Authoring, so they were not touched.
+- **Not covered:** pages behind sign-in, and any link a script adds after interaction (for example the dashboard filters beyond the first view).
+- **Code change:** none needed.
+
