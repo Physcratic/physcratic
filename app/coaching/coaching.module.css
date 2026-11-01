@@ -41,7 +41,7 @@
 .page :global(.coaching-portrait-copy) { position: absolute; inset: auto 0 0; display: flex; flex-direction: column; align-items: center; gap: .375rem; padding: 5rem 1rem 1rem; background: linear-gradient(transparent, hsl(var(--background) / .88)); color: hsl(var(--foreground)); text-align: center; }
 .page :global(.coaching-portrait[data-country-backdrop] .coaching-portrait-copy) { position: static; padding: .75rem 0 0; background: none; }
 .page :global(.coaching-portrait-copy p) { overflow-wrap: anywhere; }
-.page :global(.coaching-gallery-viewport) { min-width: 0; overflow: hidden; scrollbar-width: thin; scrollbar-color: hsl(var(--muted-foreground) / .5) transparent; }
+.page :global(.coaching-gallery-viewport) { min-width: 0; overflow: hidden; padding-block-end: 1rem; scrollbar-width: thin; scrollbar-color: hsl(var(--muted-foreground) / .5) transparent; }
 .page :global(.coaching-gallery-viewport::-webkit-scrollbar) { height: 4px; }
 .page :global(.coaching-gallery-viewport::-webkit-scrollbar-track) { background: transparent; }
 .page :global(.coaching-gallery-viewport::-webkit-scrollbar-thumb) { border-radius: 999px; background: hsl(var(--muted-foreground) / .5); }

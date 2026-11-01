@@ -63,7 +63,7 @@ export function CoachingTutors() {
           <div><dt className="text-sm text-muted-foreground">Countries represented</dt><dd className="text-2xl font-semibold">{medallistStats.countries}</dd></div>
         </dl>
       </div>
-      <div className="flex min-w-0 flex-col gap-3">
+      <div className="flex min-w-0 flex-col gap-6">
         <div id="coaching-tutor-gallery" className="coaching-gallery-viewport" data-paused={paused} data-motion-enabled={pausedOverride !== null} role="region" aria-label="Tutor slideshow; hover to pause, or use Tab to browse" tabIndex={0} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) event.currentTarget.scrollLeft = 0; }}>
           <div className="coaching-gallery-track">
             {[0, 1].map((copy) => <ul key={copy} className="coaching-gallery" aria-label={copy === 0 ? "Physcratic tutors" : undefined} aria-hidden={copy === 1 ? true : undefined}>
@@ -71,9 +71,8 @@ export function CoachingTutors() {
             </ul>)}
           </div>
         </div>
-        <button type="button" aria-controls="coaching-tutor-gallery" aria-pressed={paused} onClick={() => setPausedOverride(!paused)} className="coaching-gallery-toggle inline-flex min-h-10 items-center gap-2 self-end text-sm text-muted-foreground hover:text-foreground">
-          {paused ? <Play className="size-4" aria-hidden="true" /> : <Pause className="size-4" aria-hidden="true" />}
-          {paused ? "Play tutor slider" : "Pause tutor slider"}
+        <button type="button" aria-label={paused ? "Play tutor slider" : "Pause tutor slider"} aria-controls="coaching-tutor-gallery" aria-pressed={paused} onClick={() => setPausedOverride(!paused)} className="coaching-gallery-toggle inline-flex size-11 shrink-0 items-center justify-center self-end rounded-full border border-border text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+          {paused ? <Play className="size-5" aria-hidden="true" /> : <Pause className="size-5" aria-hidden="true" />}
         </button>
       </div>
     </div>
