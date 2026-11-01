@@ -42,7 +42,7 @@ export function buildCoachingContent(list: readonly Medallist[]) {
 
   return {
     meta: {
-      title: "Physics Olympiad coaching from IPhO, APhO and EuPhO medallists",
+      title: "Physics Olympiad coaching from medallists",
       description: definition,
     },
     ui: {
@@ -283,7 +283,7 @@ export function buildCoachingContent(list: readonly Medallist[]) {
     consultationPage: {
       meta: {
         title: "Get a coaching consultation",
-        description: "Tell Physcratic Coaching your level and goals in a short form. An admin replies on WhatsApp within 2 business days, then we recommend a program and find your class.",
+        description: "Tell Physcratic Coaching your level and goals in a short form. An admin replies on WhatsApp within 2 business days, then we find your class.",
       },
       title: "Get a consultation",
       intro: "Tell us where you are now, what you are aiming for and when you are free. We will recommend a program and find your class.",

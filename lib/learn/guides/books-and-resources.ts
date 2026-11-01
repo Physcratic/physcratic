@@ -5,7 +5,7 @@ import type { ArticleDraft } from "../types";
 // (sources K1 to K3). Books carry no prices, links or edition claims beyond those given.
 export const booksAndResources: ArticleDraft = {
   slug: "physics-olympiad-books-and-resources",
-  title: "The best books and resources for Physics Olympiad",
+  title: "Best books and resources for Physics Olympiad",
   description:
     "Free handouts and books for physics olympiad preparation, picked by our reviewer Arrow Dunatos and grouped by stage and topic.",
   updated: "2026-11-02",

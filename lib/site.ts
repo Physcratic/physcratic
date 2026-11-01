@@ -1,6 +1,6 @@
 export const SITE = {
   name: "Physcratic",
-  defaultTitle: "Physcratic | Physics Olympiad practice for IPhO, APhO and EuPhO",
+  defaultTitle: "Physcratic | Physics Olympiad practice for IPhO, APhO, EuPhO",
   description:
     "Practice IPhO, APhO and EuPhO theory problems with original diagrams and English translations, save your attempts, and check answers on authored problems.",
   locale: "en_US",
