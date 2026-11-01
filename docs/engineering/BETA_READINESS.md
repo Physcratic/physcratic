@@ -102,3 +102,12 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **CLAUDE.md:** added the Coaching paths to the parallel-work list and a "Read CONTRIBUTING.md before starting." line. Nothing else changed.
 - **Not added:** `AGENTS.md`, because the accounts branch adds one.
 - **Still open:** fill in the Owner column and enable CODEOWNERS lines once owners are named.
+
+## 2026-11-01 - Batch 5.3 - Smoke tests and deploy alerts
+
+- **Smoke script:** `scripts/smoke.mjs` (Node 22, no dependencies) runs 11 checks against a base URL and prints PASS, FAIL or SKIP per check, plus a markdown table that also goes to `$GITHUB_STEP_SUMMARY`. `/api/health` is a SKIP until Batch 7.
+- **Smoke workflow:** `.github/workflows/smoke.yml` runs on successful `financial-dashboard` deployments only, posts the commit status "Smoke tests" on the deployed SHA, and has a manual `workflow_dispatch` with `base_url` and `env`. Previews need the secret `VERCEL_AUTOMATION_BYPASS_SECRET`.
+- **Deploy alert:** `.github/workflows/deploy-watch.yml` waits up to 20 minutes for "Vercel – financial-dashboard" on each push to main and opens a `deploy-blocked` issue (one per SHA) on failure, error or no status.
+- **Docs:** `docs/engineering/SMOKE_TESTS.md`.
+- **Batch 5.2:** PR #35 added the "Database tests" CI job (postgres:17-alpine). 39 of 39 tests pass on PostgreSQL 17.
+- **Still open:** add the secret before the first preview run. The workflows only take effect after merge. Production was not smoke-tested from the build environment because its network policy blocks physcratic.com.
