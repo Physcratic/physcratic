@@ -112,3 +112,10 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **Batch 5.2:** PR #35 added the "Database tests" CI job (postgres:17-alpine). 39 of 39 tests pass on PostgreSQL 17.
 - **Still open:** add the secret before the first preview run. The workflows only take effect after merge. Production was not smoke-tested from the build environment because its network policy blocks physcratic.com.
 - **Site title:** `defaultTitle` is now "Physcratic | Physics Olympiad practice for IPhO, APhO and EuPhO" (no em dash). The social image strips the "Physcratic | " prefix and its subtitle is 38px so it stays on one line. Tests read the title from `SITE.defaultTitle`, so none needed changes. Not touched: the "Starter terms — pending legal review" heading in `app/terms/page.tsx` still has an em dash (accounts area, for its owner to fix).
+
+## 2026-11-01 - Batch 7.1 - Health endpoint
+
+- **Endpoint:** `GET /api/health` returns `{ ok: true, version, time }` with status 200 and `Cache-Control: no-store`, force dynamic. `version` is the first 7 characters of `VERCEL_GIT_COMMIT_SHA`, or "local". No database call, no auth, no secrets, no environment names. The pure logic is `healthPayload(env, now)` in `lib/health.ts`, tested in `lib/health.test.ts`.
+- **SEO:** nothing to exclude. The sitemap is a fixed list of public pages, and `/api/*` already sends `X-Robots-Tag: noindex, nofollow`.
+- **Smoke test:** the `/api/health` check in `scripts/smoke.mjs` now passes instead of skipping once this is deployed.
+- **Still open:** point an uptime monitor at `https://physcratic.com/api/health` and alert on a non-200 or a missing `"ok":true`.
