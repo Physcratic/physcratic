@@ -17,7 +17,7 @@ export const medalLabel: Record<Medal, string> = {
   gold: 'Gold',
   silver: 'Silver',
   bronze: 'Bronze',
-  hm: 'Honorable Mention',
+  hm: 'Honourable Mention',
 }
 
 export const countryFlagCodes: Record<string, string> = {
