@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   title: "Physics coaching from Olympiad medalists",
   description: "One-to-one physics tutoring for IB, A-Level, IGCSE and Olympiad preparation. Meet the Physcratic tutors and explore your coaching pathway.",
   alternates: { canonical: "/coaching" },
+  // Temporary until Coaching Phase 2 and 3 land. Phase 3 removes this.
+  robots: { index: false, follow: true },
 };
 
 export const viewport: Viewport = { themeColor: "#0c101a" };
