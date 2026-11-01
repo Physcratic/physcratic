@@ -1,0 +1,16 @@
+{
+  "id": "arena-mind-the-gap",
+  "title": "Mind the Gap",
+  "topic": "Optics",
+  "tags": [
+    "Interference",
+    "Newton’s rings",
+    "Curvature"
+  ],
+  "summary": "Determine a lens surface’s radius of curvature using Newton’s rings and consecutive ring measurements.",
+  "statement": "The arrangement shown below can be used to determine the radius of curvature of a lens surface. The lens to be measured rests on a curved surface whose radius of curvature, $$R_0$$, is known. Both surfaces of the lens have the same radius of curvature, $$R_1$$, which is to be determined. Newton’s rings are observed in the gap between the two facing surfaces.\n\n![Lens of curvature R₁ resting on the reference surface of curvature R₀, with ring radius rₘ and the air gap labelled.](/corpus/arena/figures/mind-the-gap-statement.png)\n\n## (a)\n\nDetermine $$r_m$$, the radius of the $$m$$th dark ring observed.\n\n## (b)\n\nAt small radii, many Newton’s rings are difficult to observe. Measurements of the radii of several consecutive rings give\n\n$$11.6,\\quad 11.8,\\quad 12.0,\\quad 12.2,\\quad 12.4,\\quad 12.5,\\quad 12.7\\ \\mathrm{mm}.$$\n\nThe wavelength of the light is $$\\lambda=5.00\\times10^{-7}\\ \\mathrm m$$, and $$R_0=1.00\\ \\mathrm m$$. Determine $$R_1$$.",
+  "solution": "## (a)\n\nUse reflected light at near-normal incidence, with contact on the axis. For the geometry shown, $$R_1<R_0$$. The spherical sag is\n\n$$s_R(r)=R-\\sqrt{R^2-r^2}\\simeq\\frac{r^2}{2R}.$$\n\nSubtract the two sags to find the air-gap thickness:\n\n$$h(r)\\simeq\\frac{r^2}{2}\\left(\\frac1{R_1}-\\frac1{R_0}\\right).$$\n\n![Lens, reference surface and air gap used in the Newton’s-ring derivation.](/corpus/arena/figures/mind-the-gap-solution.png)\n\nOne reflected ray undergoes a phase change of $$\\pi$$. A dark reflected ring satisfies $$2h(r_m)=m\\lambda$$, so\n\n$$\\boxed{r_m=\\sqrt{\\frac{m\\lambda}{1/R_1-1/R_0}}=\\sqrt{\\frac{m\\lambda R_0R_1}{R_0-R_1}}.}$$\n\nHere $$m=0,1,2,\\ldots$$, with $$m=0$$ denoting the central dark spot.\n\n## (b)\n\nLabel the measured rings by $$j=0,1,\\ldots,6$$, so their orders are $$m_0+j$$. Define\n\n$$x_j=\\frac{r_j^2}{\\lambda},\\qquad y_j=\\frac{x_j}{R_0}+j.$$\n\nThe ring equation becomes $$y_j=x_j/R_1-m_0$$. The slope of $$y_j$$ against $$x_j$$ is $$1/R_1$$.\n\n$$\\begin{array}{c|r|r|r}j&r_j\\ (\\mathrm{mm})&x_j\\ (\\mathrm m)&y_j\\\\\\hline 0&11.6&269.12&269.12\\\\1&11.8&278.48&279.48\\\\2&12.0&288.00&290.00\\\\3&12.2&297.68&300.68\\\\4&12.4&307.52&311.52\\\\5&12.5&312.50&317.50\\\\6&12.7&322.58&328.58\\end{array}$$\n\nA least-squares fit gives\n\n$$y\\simeq(1.112413\\ \\mathrm{m}^{-1})x-30.33661,\\qquad R_1=0.89895\\ \\mathrm m\\simeq0.90\\ \\mathrm m.$$\n\nThe spacing in $$r_m^2$$ determines the curvature without knowing the first ring’s absolute order. The precision of the radii supports the rounded answer $$0.90\\ \\mathrm m$$.",
+  "statementFile": "01_Mind_the_Gap_Problem.pdf",
+  "solutionFile": "01_Mind_the_Gap_Solution.pdf",
+  "importedOn": "2026-10-31"
+}

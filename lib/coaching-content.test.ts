@@ -75,8 +75,9 @@ test("the definition sentence is exact and reused", () => {
 test("counts are computed from the medallists", () => {
   assert.equal(coachCount, medallists.length);
   assert.equal(countryCount, new Set(medallists.map((m) => m.country)).size);
-  assert.equal(coachCount, 19);
-  assert.equal(countryCount, 12);
+  assert.equal(coachCount, 15);
+  assert.equal(countryCount, 8);
+  assert.ok(medallists.every((coach) => !coach.hidden));
   assert.equal(content.hero.facts[0], `${medallists.length} coaches`);
   assert.equal(content.hero.facts[1], `${new Set(medallists.map((m) => m.country)).size} countries`);
   const fake: Medallist[] = [
@@ -115,14 +116,16 @@ test("package hours are sessions times class hours", () => {
   assert.deepEqual(content.packages.items.map((i) => i.size), ["16 sessions, 32 hours", "32 sessions, 64 hours"]);
 });
 
-test("every country has a flag file and every photo-less coach has no image on disk", () => {
+test("every visible coach has a country flag, original portrait and cutout", () => {
   const root = new URL("../public/coaching/", import.meta.url);
   for (const m of medallists) {
     const code = countryFlagCodes[m.country];
     assert.ok(code && existsSync(new URL(`flags/${code}.png`, root)), `${m.country} flag`);
     const portrait = (ext: string, suffix = "") => existsSync(new URL(`medallists/${m.slug}${suffix}.${ext}`, root));
-    if (m.photo === false) assert.ok(!portrait("webp") && !portrait("png") && !portrait("webp", "-cutout"), `${m.slug} should have no image`);
-    else assert.ok(portrait(m.photo ?? "webp"), `${m.slug} portrait`);
+    assert.ok(portrait("webp") || portrait("png"), `${m.slug} portrait`);
+    assert.ok(portrait("webp", "-cutout"), `${m.slug} cutout`);
   }
-  assert.deepEqual(medallists.filter((m) => m.photo === false).map((m) => m.slug), ["nima", "yota", "ignat-riazanov"]);
+  for (const slug of ["nima", "yota", "ignat-riazanov", "mohammed-alramil"]) {
+    assert.ok(!medallists.some((coach) => coach.slug === slug), `${slug} should not be published`);
+  }
 });

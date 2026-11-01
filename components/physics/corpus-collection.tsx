@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useArchiveProgress } from "@/hooks/use-archive-progress";
-import { ArrowRight, BookOpen, Download, Info, RotateCcw } from "lucide-react";
+import { BookOpen, Download, Info, RotateCcw } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -24,6 +24,7 @@ import {
 import { corpusProblems, filterCorpus } from "@/lib/corpus-pilot";
 import { getProblemTags } from "@/lib/problem-tags";
 import { CorpusProblemReader } from "./corpus-problem-reader";
+import { ProblemCard } from "./problem-card";
 
 export function CorpusCollection({
   query,
@@ -142,7 +143,7 @@ export function CorpusCollection({
         <div className="flex max-w-2xl flex-col gap-2">
           <div className="flex flex-wrap items-center gap-2">
             <h2 className="text-lg font-medium tracking-tight">
-              The import pilot
+              Guided olympiad exercises
             </h2>
             <Badge variant="secondary">
               {corpusProblems.length} complete papers
@@ -185,42 +186,25 @@ export function CorpusCollection({
         </CardHeader>
         <CardContent className="px-0 pb-0">
           {filtered.length ? (
-            <ul className="divide-y divide-border">
+            <ul className="flex flex-col gap-4 px-4 pb-5 sm:px-6">
               {filtered.map((problem) => (
-                <li key={problem.id}>
-                  <button
-                    type="button"
-                    className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring"
-                    onClick={() => onActiveProblemChange(problem.id)}
-                    aria-label={`Open ${problem.title}, ${problem.competition} ${problem.year} ${problem.code}`}
-                  >
-                    <div className="flex min-w-0 flex-1 flex-col gap-2">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-sm text-muted-foreground">
-                          {problem.competition} {problem.year} · {problem.code}
-                        </span>
-                        <Badge variant="outline">Unrated</Badge>
-                      </div>
-                      <span className="text-pretty text-base font-medium">
-                        {problem.title}
-                      </span>
-                      <span className="flex flex-wrap gap-2">
-                        {getProblemTags(problem).map((tag) => (
-                          <Badge key={tag} variant="secondary">
-                            {tag}
-                          </Badge>
-                        ))}
-                      </span>
-                      <span className="text-sm text-muted-foreground">
-                        {problem.parts.length} scored subparts · {problem.pages}{" "}
-                        original pages · Official solution
-                      </span>
-                    </div>
-                    <ArrowRight
-                      className="size-5 shrink-0 text-muted-foreground"
-                      aria-hidden="true"
-                    />
-                  </button>
+                <li key={problem.id} className="min-w-0">
+                  <ProblemCard
+                    id={problem.id}
+                    title={problem.title}
+                    headingLevel={4}
+                    source={problem.competition}
+                    competition={problem.competition}
+                    reference={`${problem.year} · ${problem.code}`}
+                    description={problem.summary}
+                    details={[
+                      `${problem.parts.length} scored subparts`,
+                      `${problem.pages} original pages`,
+                      "Official solution · Self-review",
+                    ]}
+                    tags={getProblemTags(problem)}
+                    onOpen={() => onActiveProblemChange(problem.id)}
+                  />
                 </li>
               ))}
             </ul>
@@ -233,7 +217,7 @@ export function CorpusCollection({
                 <EmptyTitle>No pilot problems match</EmptyTitle>
                 <EmptyDescription>
                   {difficulty !== "all" && difficulty !== "unrated"
-                    ? "These source problems have no calibrated Elo yet. Select Unrated or All ratings."
+                    ? "These source problems have no calibrated ELO yet. Select Unrated or All ratings."
                     : "Try another year, topic, title, or concept."}
                 </EmptyDescription>
               </EmptyHeader>

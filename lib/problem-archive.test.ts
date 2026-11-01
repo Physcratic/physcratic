@@ -32,7 +32,7 @@ test("a missing or invalid addition date makes the daily count unavailable", () 
   assert.deepEqual(getArchiveStats([], now), { total: 0, addedLast24Hours: 0 });
 });
 
-test("Elo bands match the filter boundaries", () => {
+test("ELO bands match the filter boundaries", () => {
   for (const elo of [0, 900, 1199]) assert.equal(getEloBand(elo).variant, "elo-foundation");
   for (const elo of [1200, 1300, 1599]) assert.equal(getEloBand(elo).variant, "elo-intermediate");
   for (const elo of [1600, 1700, 3000]) assert.equal(getEloBand(elo).variant, "elo-advanced");

@@ -2,6 +2,7 @@ import { sql } from "drizzle-orm";
 import type { AuthoredDocument, PrivatePart } from "@/lib/problem-authoring";
 import { check, foreignKey, index, type AnyPgColumn, boolean, bigint, date, doublePrecision, integer, jsonb, pgTable, primaryKey, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
 import type { SolutionSubmission } from "@/lib/solution-grading";
+import type { ProblemAnswerCheck } from "@/lib/individual-elo";
 
 export const user = pgTable("user", {
   id: text("id").primaryKey(), name: text("name").notNull(), email: text("email").notNull().unique(),
@@ -57,6 +58,38 @@ export const contestRatings = pgTable("contest_rating", {
   id: uuid("id").primaryKey(), userId: text("userId").notNull(), contestId: text("contestId").notNull(), publicHandle: text("publicHandle"),
   rating: integer("rating").notNull(), change: integer("change").notNull(), createdAt: timestamp("createdAt", { withTimezone: true }).notNull().defaultNow(),
 }, (table) => [unique("contest_rating_userId_contestId_key").on(table.userId, table.contestId)]);
+
+export const problemRatings = pgTable("problem_rating", {
+  problemId: text("problemId").primaryKey(), sourceVersion: text("sourceVersion").notNull(),
+  rating: integer("rating"), ratingVersion: integer("ratingVersion").notNull().default(1),
+  ratedEnabled: boolean("ratedEnabled").notNull().default(false), checks: jsonb("checks").$type<ProblemAnswerCheck[]>().notNull().default([]),
+  reviewedBy: text("reviewedBy"), updatedAt: timestamp("updatedAt", { withTimezone: true }).notNull().defaultNow(),
+});
+
+export const individualRatings = pgTable("individual_rating", {
+  userId: text("userId").primaryKey(), rating: integer("rating").notNull().default(1200),
+  ratedAttempts: integer("ratedAttempts").notNull().default(0), updatedAt: timestamp("updatedAt", { withTimezone: true }).notNull().defaultNow(),
+});
+
+export const individualRatingEvents = pgTable("individual_rating_event", {
+  id: uuid("id").primaryKey(), userId: text("userId").notNull(), attemptId: uuid("attemptId").notNull().unique(),
+  problemId: text("problemId").notNull(), sourceVersion: text("sourceVersion").notNull(), ratingVersion: integer("ratingVersion").notNull(),
+  problemRating: integer("problemRating").notNull(), beforeRating: integer("beforeRating").notNull(), afterRating: integer("afterRating").notNull(),
+  change: integer("change").notNull(), score: doublePrecision("score").notNull(), expectedScore: doublePrecision("expectedScore").notNull(),
+  kFactor: integer("kFactor").notNull().default(32), createdAt: timestamp("createdAt", { withTimezone: true }).notNull().defaultNow(),
+}, (table) => [unique("individual_rating_event_once").on(table.userId, table.problemId)]);
+
+export const solutionChecks = pgTable("solution_check", {
+  attemptId: uuid("attemptId").primaryKey(), userId: text("userId").notNull(), problemId: text("problemId").notNull(), partId: text("partId").notNull(),
+  sourceVersion: text("sourceVersion").notNull(), ratingVersion: integer("ratingVersion").notNull(), matched: boolean("matched").notNull(),
+  maxPoints: doublePrecision("maxPoints").notNull(), awardedPoints: doublePrecision("awardedPoints").notNull(), createdAt: timestamp("createdAt", { withTimezone: true }).notNull().defaultNow(),
+});
+
+export const coachingInquiries = pgTable("coaching_inquiry", {
+  id: uuid("id").primaryKey().defaultRandom(), pathway: text("pathway").notNull(), audience: text("audience").notNull(),
+  currentLevel: text("current_level").notNull(), goals: text("goals").notNull(), contact: text("contact").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
 
 export const archiveProgress = pgTable("archive_progress", {
   userId: text("userId").notNull(), taskId: text("taskId").notNull(), reviewed: boolean("reviewed").notNull().default(false),

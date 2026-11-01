@@ -1,5 +1,7 @@
 import { z } from "zod";
 import sources from "./corpus/catalog-sources.json";
+import originalTitles from "./corpus/original-titles.json";
+import englishTitleReferences from "./corpus/english-title-references.json";
 import imports from "./corpus/import-index.json";
 import translationIndex from "./corpus/translation-index.json";
 import {
@@ -20,13 +22,14 @@ const catalogSourceSchema = z.object({
     httpsUrl,
     z.string().regex(/^\/ipho\/\d{4}-t[123]-solutions\.pdf$/),
   ]),
-  sourceHost: z.enum(["eupho.ee", "ipho-new.org", "ipho2025.fr", "pho.rs"]),
+  sourceHost: z.enum(["eupho.ee", "ipho-new.org", "ipho2025.fr", "pho.rs", "olimpicos.net"]),
   language: z.enum(["en", "ru"]),
   sourceKind: z.enum([
     "official-pdf",
     "official-bundle",
     "imported-official",
     "mirror",
+    "english-archive",
   ]),
   discoveryUrl: httpsUrl,
 });
@@ -37,6 +40,14 @@ export const catalogProblemSchema = catalogSourceSchema
     year: z.number().int().min(1967).max(2026),
     code: z.string().regex(/^T[1-9]\d*$/),
     title: z.string().min(1),
+    titleLanguage: z.enum(["en", "ru"]),
+    titleOrigin: z.enum([
+      "original-document",
+      "source-title",
+      "problem-identifier",
+    ]),
+    titleSourceUrl: httpsUrl,
+    searchAliases: z.array(z.string()),
     primaryTopic: z.enum(catalogTopics),
     topics: z.array(z.enum(catalogTopics)).min(1),
     tags: z.array(z.string().min(1)).min(2).max(5),
@@ -44,7 +55,7 @@ export const catalogProblemSchema = catalogSourceSchema
     hasPilotGuide: z.boolean(),
     importPath: z
       .string()
-      .regex(/^\/corpus\/problems\/(ipho|apho|eupho)-\d{4}-t\d+\.json$/),
+      .regex(/^\/corpus\/(?:problems|english-problems)\/(ipho|apho|eupho)-\d{4}-t\d+\.json$/),
     importLanguage: z.enum(["en", "ru"]),
     attribution: z.string().min(20),
     reviewStatus: z.literal("independent-review-pending"),
@@ -99,12 +110,35 @@ export const catalogProblems: CatalogProblem[] = (
     const document = documentById.get(id);
     if (!document)
       throw new Error(`Missing imported statement and solution: ${id}`);
+    const englishReference = (
+      englishTitleReferences as Record<
+        string,
+        { title: string; url: string; untitled?: boolean }
+      >
+    )[id];
+    const originalTitle =
+      englishReference?.title ?? (originalTitles as Record<string, string>)[id];
+    const sourceTitle = source.sourceTitle?.includes("�")
+      ? null
+      : source.sourceTitle;
+    const displayTitle =
+      originalTitle ?? sourceTitle ?? `${competition} ${year} ${code}`;
     return catalogProblemSchema.parse({
       ...source,
       competition,
       year,
       code,
-      title,
+      title: displayTitle,
+      titleLanguage: /[А-Яа-яЁё]/.test(displayTitle) ? "ru" : "en",
+      titleOrigin: englishReference?.untitled
+        ? "problem-identifier"
+        : originalTitle
+          ? "original-document"
+          : sourceTitle
+            ? "source-title"
+            : "problem-identifier",
+      titleSourceUrl: englishReference?.url ?? source.statementUrl,
+      searchAliases: [title],
       primaryTopic,
       tags,
       topics: [
@@ -114,7 +148,7 @@ export const catalogProblems: CatalogProblem[] = (
       hasPilotGuide: Boolean(imported),
       importPath: document.path,
       importLanguage: document.language,
-      attribution: `${competition} ${year}, theoretical problem ${code}. Original problem credited to the competition organisers. ${source.sourceKind === "mirror" ? "Russian statement and solution hosted by pho.rs. Translation and solution authorship require review." : "Linked from the competition’s source archive. See the original documents for contributor credits."}`,
+      attribution: `${competition} ${year}, theoretical problem ${code}. Original problem credited to the competition organisers. ${source.sourceKind === "english-archive" ? "Original English Problem and Solution PDFs collected by Olimpicos from competition sources. See the PDFs for contributor credits. No public-domain license is inferred." : source.sourceKind === "mirror" ? "Russian statement and solution hosted by pho.rs. Translation and solution authorship require review." : "Linked from the competition’s source archive. See the original documents for contributor credits."}`,
       reviewStatus: "independent-review-pending",
       rightsStatus: "permission-review-required",
       rating: { status: "unrated", elo: null },
@@ -159,10 +193,16 @@ export function filterCatalog({
   difficulty?: string;
 }) {
   const words = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+  const competitionQuery = competition.trim().toLocaleLowerCase();
+  const competitionWords =
+    competitionQuery === "all"
+      ? []
+      : competitionQuery.split(/[\s-]+/).filter(Boolean);
   return catalogProblems.filter((problem) => {
     const searchable = [
       problem.title,
       problem.sourceTitle,
+      ...problem.searchAliases,
       problem.id,
       problem.competition,
       problem.year,
@@ -173,7 +213,11 @@ export function filterCatalog({
       .join(" ")
       .toLocaleLowerCase();
     return (
-      (competition === "all" || problem.competition === competition) &&
+      competitionWords.every((word) =>
+        `${problem.competition} ${problem.year}`
+          .toLocaleLowerCase()
+          .includes(word),
+      ) &&
       (difficulty === "all" || difficulty === "unrated") &&
       (topic === "all" ||
         [...problem.topics, ...problem.tags].includes(tagLabel(topic))) &&
@@ -188,7 +232,7 @@ export const catalogExport = {
   checkedOn: sources.checkedOn,
   verification: sources.verification,
   notes:
-    "100 distinct imported theory statements: 40 IPhO, 35 APhO, 25 EuPhO. Local source JSON, diagrams, PDF layouts and shared material are retained. Some imported mirror solution pages contain only repeated questions, not worked derivations. See the solution-readiness audit. English drafts are stored separately and retain original source hashes. Includes the original five structured pilot guides. No imported source is an approved grading rubric. Independent physics, translation and rights reviews remain pending.",
+    "100 distinct imported theory statements: 40 IPhO, 35 APhO, 25 EuPhO. IPhO and APhO use the original English Problem and Solution PDFs linked by Olimpicos, not LaTeX transcriptions or Russian mirrors. Legacy mirror sources and translation drafts are retained only for historical provenance. Includes the original five structured pilot guides. No imported PDF is automatically an approved grading rubric. Independent physics and rights reviews remain pending.",
   publication: {
     mode: "imported-local-corpus",
     rightsStatus: "permission-review-required",

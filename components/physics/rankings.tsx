@@ -75,7 +75,7 @@ export function Rankings({
                   </TableHead>
                   <TableHead scope="col">Contestant</TableHead>
                   <TableHead scope="col" className="text-right">
-                    Elo
+                    ELO
                   </TableHead>
                   <TableHead scope="col" className="text-right">
                     Last round
@@ -122,7 +122,7 @@ export function Rankings({
                 <EmptyDescription>
                   {search.trim()
                     ? "Try another handle or clear your search."
-                    : "Public rankings will appear after rated contest results are published. Practice and private submissions do not affect Elo."}
+                    : "Public rankings will appear after rated contest results are published. Practice and private submissions do not affect ELO."}
                 </EmptyDescription>
               </EmptyHeader>
               {search.trim() && (

@@ -63,12 +63,78 @@ test("catalog contains exactly 100 unique full problems across the agreed compet
   const mechanics = catalogProblems.find(
     (problem) => problem.id === "ipho-2016-t1",
   )!;
-  assert.equal(mechanics.title, "Two problems in mechanics");
+  assert.equal(mechanics.title, "Two Problems in Mechanics");
   assert.equal(
     catalogProblems.filter((problem) => problem.id.startsWith(mechanics.id))
       .length,
     1,
   );
+});
+
+test("catalog displays original document titles, retains provenance and preserves English search aliases", () => {
+  const expected = {
+    "ipho-2025-t2": "Cox's Timepiece",
+    "ipho-2025-t3": "Champagne!",
+    "ipho-2018-t2": "Where is the neutrino?",
+    "ipho-2017-t3": "Cosmic Inflation",
+    "ipho-2023-t1": "Characterization of Soil Colloids",
+    "apho-2025-t3": "Atmospheric Physics",
+    "apho-2019-t3": "Tippe top",
+    "eupho-2018-t2": "Solenoid",
+  };
+  for (const [id, title] of Object.entries(expected)) {
+    const problem = catalogProblems.find((problem) => problem.id === id)!;
+    assert.equal(problem.title, title);
+    assert.equal(problem.titleOrigin, "original-document");
+    assert.equal(problem.titleLanguage, "en");
+    assert.match(problem.titleSourceUrl, /^https:\/\//);
+  }
+  for (const problem of corpusProblems) {
+    assert.equal(
+      problem.title,
+      catalogProblems.find((entry) => entry.id === problem.id)?.title,
+    );
+  }
+  for (const problem of catalogProblems) {
+    assert.equal(problem.titleLanguage, "en", problem.id);
+    assert.notEqual(problem.titleOrigin, "source-title", problem.id);
+    assert.ok(problem.titleSourceUrl.startsWith("https://"), problem.id);
+  }
+  assert.equal(filterCatalog({ query: "James Cox" })[0]?.id, "ipho-2025-t2");
+  assert.equal(
+    filterCatalog({ query: "Cox's Timepiece" })[0]?.id,
+    "ipho-2025-t2",
+  );
+});
+
+test("untitled papers retain question labels instead of invented descriptive titles", () => {
+  const untitled = catalogProblems.filter(
+    (problem) => problem.titleOrigin === "problem-identifier",
+  );
+  assert.equal(untitled.length, 5);
+  for (const problem of untitled) {
+    assert.match(problem.title, /^(?:Theoretical Problem|Question) [123]$/);
+    assert.equal(problem.titleLanguage, "en");
+  }
+});
+
+test("verified local English titles match original PDF text, not editorial paraphrases", () => {
+  const titles = JSON.parse(
+    readFileSync("lib/corpus/original-titles.json", "utf8"),
+  ) as Record<string, string>;
+  const imageChecked = new Set(["ipho-2017-t2", "ipho-2017-t3"]);
+  const normalize = (text: string) =>
+    text.normalize("NFKC").replace(/\s+/g, " ");
+  for (const [id, title] of Object.entries(titles)) {
+    if (imageChecked.has(id)) continue;
+    const document = JSON.parse(
+      readFileSync(`public/corpus/problems/${id}.json`, "utf8"),
+    );
+    assert.ok(
+      normalize(document.statement.text).includes(normalize(title)),
+      `${id}: ${title}`,
+    );
+  }
 });
 
 test("primary-topic accounting meets every target without counting mixed problems twice", () => {
@@ -128,7 +194,7 @@ test("every external statement and solution has recorded successful URL verifica
         );
       else assert.ok(verified.has(url), `${problem.id}: ${url}`);
     }
-    assert.equal(problem.checkedOn, "2026-10-28");
+    assert.equal(problem.checkedOn, problem.sourceKind === "english-archive" ? "2026-10-31" : "2026-10-28");
     if (problem.sourceKind === "official-bundle") {
       assert.equal(problem.statementUrl, problem.solutionUrl);
       assert.match(
@@ -158,7 +224,44 @@ test("catalog search composes competition, year, concept and unrated filters", (
   assert.equal(filterCatalog({ difficulty: "unrated" }).length, 100);
 });
 
-test("catalog rejects unsafe URLs, inconsistent identity and invented Elo", () => {
+test("competition search supports partial names, contest years and combined filters", () => {
+  assert.equal(filterCatalog({ competition: "" }).length, 100);
+  assert.equal(filterCatalog({ competition: "   " }).length, 100);
+  assert.equal(filterCatalog({ competition: " ALL " }).length, 100);
+  assert.equal(filterCatalog({ competition: " ipho " }).length, 40);
+  assert.equal(filterCatalog({ competition: "apho" }).length, 35);
+  assert.equal(filterCatalog({ competition: "euph" }).length, 25);
+
+  for (const competition of [" IPhO 2025 ", "ipho-2025", "2025 IPHO"]) {
+    const matches = filterCatalog({ competition });
+    assert.equal(matches.length, 3);
+    assert.ok(
+      matches.every(
+        (problem) => problem.competition === "IPhO" && problem.year === 2025,
+      ),
+    );
+  }
+
+  const byYear = filterCatalog({ competition: "2025" });
+  assert.ok(byYear.length > 0);
+  assert.ok(byYear.every((problem) => problem.year === 2025));
+  assert.equal(
+    filterCatalog({ competition: "IPhO 2025", query: "Champagne" })[0]?.id,
+    "ipho-2025-t3",
+  );
+  assert.ok(
+    filterCatalog({ competition: "IPhO 2025", topic: "Thermodynamics" }).some(
+      (problem) => problem.id === "ipho-2025-t3",
+    ),
+  );
+  assert.equal(
+    filterCatalog({ competition: "IPhO 2025", difficulty: "1600-plus" }).length,
+    0,
+  );
+  assert.equal(filterCatalog({ competition: "unknown contest" }).length, 0);
+});
+
+test("catalog rejects unsafe URLs, inconsistent identity and invented ELO", () => {
   const source = catalogProblems[0];
   for (const change of [
     { statementUrl: "javascript:alert(1)" },

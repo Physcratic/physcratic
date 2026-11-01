@@ -35,6 +35,8 @@ jobs:
         # *.pg.test.ts need Postgres; a DB job can come later.
         # lib/corpus-translation.test.ts test 64 is marked todo in the file (inherited corpus punctuation drift; remove todo after PR #2 merges).
         run: pnpm exec tsx --conditions=react-server --test $(ls lib/*.test.ts | grep -v '\.pg\.test\.ts$')
+      - name: Component rendering tests
+        run: pnpm test:ui
 
   database:
     name: Database tests

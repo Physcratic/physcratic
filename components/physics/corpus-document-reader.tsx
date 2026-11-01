@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import { ProblemImage } from "./problem-image";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -79,21 +79,15 @@ export function CorpusDocumentReader({
         </Button>
       </div>
       <figure className="min-w-0 overflow-hidden rounded-lg border">
-        <a
-          href={document.image}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Enlarge ${problem.year} ${problem.code} ${label.toLowerCase()}, page ${page}`}
-        >
-          <Image
-            src={document.image}
-            alt={`IPhO ${problem.year}, ${problem.title}, ${label.toLowerCase()}, page ${page}. Original text, equations, figures, and tables; the PDF provides selectable text.`}
-            width={1191}
-            height={1684}
-            unoptimized
-            className="h-auto w-full"
-          />
-        </a>
+        <ProblemImage
+          src={document.image}
+          enlargeHref={document.image}
+          enlargeLabel={`Enlarge ${problem.year} ${problem.code} ${label.toLowerCase()}, page ${page}`}
+          alt={`IPhO ${problem.year}, ${problem.title}, ${label.toLowerCase()}, page ${page}. Original text, equations, figures, and tables; the PDF provides selectable text.`}
+          width={1191}
+          height={1684}
+          className="h-auto w-full"
+        />
         <figcaption className="px-4 py-3 text-sm leading-relaxed text-muted-foreground">
           IPhO {problem.year} · {problem.code} · Page {page} of {document.pages}
           . Original layout preserved. Select another page for shared setup;

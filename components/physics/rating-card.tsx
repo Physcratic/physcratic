@@ -32,10 +32,10 @@ import { RankTitle } from "./rank-title";
 import { cn } from "@/lib/utils";
 
 const chartConfig = {
-  rating: { label: "Elo", color: "var(--chart-1)" },
+  rating: { label: "ELO", color: "var(--chart-1)" },
 } satisfies ChartConfig;
 const horizontalChartConfig = {
-  rating: { label: "Elo", color: "var(--chart-2)" },
+  rating: { label: "ELO", color: "var(--chart-2)" },
 } satisfies ChartConfig;
 const dateLabel = (date: string) =>
   new Date(date).toLocaleDateString("en-US", {
@@ -110,7 +110,7 @@ export function RatingCard({
                 </EmptyTitle>
                 <EmptyDescription>
                   {dashboard.data?.user
-                    ? "Your first published rated result will start your rating history. Practice and self-review do not change Elo."
+                    ? "Your first published rated result will start your rating history. Practice and self-review do not change ELO."
                     : "Sign in to track your rating and save your progress across devices."}
                 </EmptyDescription>
               </EmptyHeader>
@@ -172,7 +172,7 @@ export function RatingCard({
               >
                 {latestRating!.toLocaleString("en-US")}
               </span>
-              <span className="text-sm text-muted-foreground">Elo</span>
+              <span className="text-sm text-muted-foreground">ELO</span>
             </div>
             <RankTitle rating={latestRating!} className="self-start" />
           </div>
@@ -238,7 +238,7 @@ export function RatingCard({
                   ? "h-32 aspect-auto"
                   : "h-28 aspect-auto",
             )}
-            aria-label={`Elo history, ${baseline.rating} to ${latestRating!}`}
+            aria-label={`ELO history, ${baseline.rating} to ${latestRating!}`}
           >
             <AreaChart
               accessibilityLayer
@@ -322,7 +322,7 @@ export function RatingCard({
         </div>
         <span className="sr-only">
           {data
-            .map((point) => `${dateLabel(point.date)}: ${point.rating} Elo`)
+            .map((point) => `${dateLabel(point.date)}: ${point.rating} ELO`)
             .join(". ")}
         </span>
       </CardContent>

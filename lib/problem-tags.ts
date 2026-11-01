@@ -20,6 +20,15 @@ export function getProblemTags(problem: {
   ];
 }
 
+export function filterProblemsByTag<
+  T extends Parameters<typeof getProblemTags>[0],
+>(problems: readonly T[], tag?: string): T[] {
+  return problems.filter(
+    (problem) =>
+      !tag || tag === "all" || getProblemTags(problem).includes(tagLabel(tag)),
+  );
+}
+
 export function getTagOptions(
   problems: Parameters<typeof getProblemTags>[0][],
 ) {

@@ -148,7 +148,7 @@ test("schema rejects duplicate tasks, invalid page mappings, and incomplete mark
   );
 });
 
-test("corpus search includes source, year, title, concepts, and subpart text without fabricated Elo", () => {
+test("corpus search includes source, year, title, concepts, and subpart text without fabricated ELO", () => {
   assert.equal(filterCorpus({ query: "  2015  " }).length, 1);
   assert.equal(filterCorpus({ query: "Cherenkov" })[0]?.year, 2015);
   assert.equal(filterCorpus({ topic: "Optics" }).length, 1);

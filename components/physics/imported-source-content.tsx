@@ -1,6 +1,7 @@
 import { createElement, Fragment, type ReactNode } from "react";
 import katex from "katex";
 import type { ImportedNode } from "@/lib/imported-corpus-schema";
+import { ProblemImage } from "./problem-image";
 
 const mathPattern =
   /(\$\$[\s\S]*?\$\$|\\\[[\s\S]*?\\\]|\\\([\s\S]*?\\\)|(?<!\\)\$(?!\$)[^$]+?(?<!\\)\$)/g;
@@ -43,7 +44,7 @@ function SourceNode({ node }: { node: ImportedNode }) {
   if (node.tag === "img") {
     // Source figures are copied to a validated, local-only asset path during import.
     return (
-      <img src={node.src} alt={node.alt} loading="lazy" decoding="async" />
+      <ProblemImage src={node.src!} alt={node.alt ?? "Problem diagram"} />
     );
   }
   if (node.tag === "br" || node.tag === "hr") return createElement(node.tag);

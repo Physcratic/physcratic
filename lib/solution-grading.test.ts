@@ -38,7 +38,7 @@ test("rubric criteria must total the official marks and require an approval revi
   assert.equal(markingRubricSchema.safeParse({ ...rubric, criteria: [rubric.criteria[0], rubric.criteria[0]] }).success, false);
 });
 
-test("AI assessments are provisional, not awarded marks or Elo", () => {
+test("AI assessments are provisional, not awarded marks or ELO", () => {
   const result = assessPracticeGrade(rubric, assessments, submission);
   assert.equal(result.proposedPoints, 0.2);
   assert.equal(result.awardedPoints, null);

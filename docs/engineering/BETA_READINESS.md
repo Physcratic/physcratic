@@ -120,6 +120,14 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **Smoke test:** the `/api/health` check in `scripts/smoke.mjs` now passes instead of skipping once this is deployed.
 - **Still open:** point an uptime monitor at `https://physcratic.com/api/health` and alert on a non-200 or a missing `"ok":true`.
 
+## 2026-11-01 - Merge coaching work while preserving authoring
+
+- **Preserved:** main's authoring, grading, media, publishing, student-attempt, authentication and migration files are unchanged. Restored the Problem studio navigation link alongside Coaching.
+- **Shared files:** added the branch's practice-rating and coaching-inquiry tables to `lib/db/schema.ts` without changing main's authoring definitions. Restored `server-only` in the manifest and lockfile. Server tests retain `--conditions=react-server`, while rendered problem-card tests run separately through `test:ui` and an additional CI step.
+- **Coaching:** retained the branch's coaching design, 15 visible tutors across 8 countries and current portrait assets. Reconciled the merged roster tests and retained British medal spelling.
+- **Validation:** frozen-lockfile install, route type generation, full TypeScript check, production build, 271 passing unit tests and all 11 smoke checks against the local production build. Five database-dependent tests were skipped locally and one inherited test remains todo. Browser checks covered desktop at 1164 by 851, mobile at 390 by 844 with no horizontal overflow, the Problem studio sign-in redirect and a 401 response from the unauthenticated drafts API.
+- **Environment:** production build and smoke checks used temporary `NEXT_PUBLIC_SITE_URL=https://physcratic.com` and `VERCEL_ENV=production` overrides because the sandbox's canonical URL was localhost. Project environment settings and production data were not changed. Local Postgres integration checks were unavailable because Docker and PostgreSQL are not installed. The existing PostgreSQL 17 CI job remains enabled.
+
 ## 2026-11-01 - Batch 6.1 - Learn hub
 
 - **Pages:** `/learn` (intro and one card per guide) and `/learn/[slug]` (breadcrumb, updated date, body, numbered Sources, closing link to the practice problems). Unknown or unpublished slugs return 404 (`dynamicParams = false` plus `notFound()`). The `/learn` header has a link back to `/dashboard` and the theme toggle, with no horizontal scroll at 375px.

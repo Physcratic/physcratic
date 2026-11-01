@@ -9,6 +9,7 @@ import {
   Menu,
   Trophy,
   ChartNoAxesCombined,
+  GraduationCap,
 } from "lucide-react";
 import { BrandMark } from "@/components/brand-mark";
 import { Button } from "@/components/ui/button";
@@ -21,6 +22,7 @@ import {
 } from "@/components/ui/sheet";
 import { problems, topics, type View } from "@/lib/physics";
 import { catalogProblems } from "@/lib/corpus-catalog";
+import arena from "@/lib/arena/index.json";
 import { cn } from "@/lib/utils";
 
 export default function Sidebar({
@@ -89,13 +91,21 @@ export default function Sidebar({
                   {itemView === "problems" && (
                     <span className="ml-auto text-sm opacity-70">
                       {(
-                        problems.length + catalogProblems.length
+                        problems.length + catalogProblems.length + arena.count
                       ).toLocaleString("en-US")}
                     </span>
                   )}
                 </Link>
               );
             })}
+            <Link
+              href="/coaching"
+              onClick={() => setMobileOpen(false)}
+              className="flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            >
+              <GraduationCap className="size-[18px]" strokeWidth={1.7} />
+              Coaching
+            </Link>
           </div>
         </div>
         <div className="flex flex-col gap-3">

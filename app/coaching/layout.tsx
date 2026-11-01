@@ -1,16 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces } from "next/font/google";
+import { Bowlby_One } from "next/font/google";
 import styles from "./coaching.module.css";
-import { content } from "@/lib/coaching/content";
 
-const display = Fraunces({ subsets: ["latin"], variable: "--font-coaching-display", display: "swap" });
+const display = Bowlby_One({ subsets: ["latin"], weight: "400", variable: "--font-coaching-display" });
 
 export const metadata: Metadata = {
-  title: content.meta.title,
-  description: content.meta.description,
+  title: "Physics coaching from Olympiad medalists",
+  description: "One-to-one physics tutoring for IB, A-Level, IGCSE and Olympiad preparation. Meet the Physcratic tutors and explore your coaching pathway.",
   alternates: { canonical: "/coaching" },
-  // Temporary until Coaching Phase 2 and 3 land. Phase 3 removes this.
-  robots: { index: false, follow: true },
 };
 
 export const viewport: Viewport = { themeColor: "#0c101a" };
