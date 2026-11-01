@@ -104,12 +104,37 @@
 .page :global(.coaching-map-shell) { display: flex; min-height: 18rem; flex-direction: column; justify-content: center; gap: .75rem; border: 1px solid hsl(var(--border)); border-radius: 1rem; padding: .75rem; background: hsl(var(--foreground) / .03); }
 .page :global(.coaching-map-shell svg) { width: 100%; height: auto; }
 
+/* Programs ladder: three steps on a thin rail, with a dot per step. Vertical on mobile, horizontal on desktop. */
+.page :global(.coaching-ladder) { position: relative; display: grid; gap: 1.5rem; padding-left: 2rem; list-style: none; }
+.page :global(.coaching-ladder::before) { content: ""; position: absolute; left: 5px; top: 0; bottom: 0; width: 1px; background: hsl(var(--border)); }
+.page :global(.coaching-ladder-step) { position: relative; }
+.page :global(.coaching-ladder-dot) { position: absolute; left: -2rem; top: 1.75rem; z-index: 1; width: 11px; height: 11px; border-radius: 50%; background: hsl(var(--accent)); box-shadow: 0 0 0 4px hsl(var(--background)); }
+
+/* How to get started: numbered steps on one connected line, with the button at its end. */
+.page :global(.coaching-steps) { position: relative; display: grid; gap: 2rem; padding-left: 3rem; list-style: none; }
+.page :global(.coaching-steps::before) { content: ""; position: absolute; left: 13px; top: 14px; bottom: 24px; width: 1px; background: hsl(var(--border)); }
+.page :global(.coaching-step) { position: relative; display: flex; flex-direction: column; gap: .5rem; }
+.page :global(.coaching-step-number) { position: absolute; left: -3rem; top: -2px; z-index: 1; display: grid; width: 28px; height: 28px; place-items: center; border-radius: 50%; background: hsl(var(--accent)); color: hsl(var(--accent-foreground)); font-size: .875rem; font-weight: 700; box-shadow: 0 0 0 4px hsl(var(--background)); }
+.page :global(.coaching-step > h3) { padding-top: 1px; }
+.page :global(.coaching-step-end) { position: relative; z-index: 1; }
+.page :global(.coaching-guide-row) { scrollbar-width: thin; scrollbar-color: hsl(var(--muted-foreground) / .4) transparent; }
+
 @keyframes coaching-marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(0, -50%, 0); } }
 @keyframes coaching-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 @media (min-width: 640px) { .page :global(.coaching-container) { padding-inline: 2rem; } .page :global(.coaching-marquee) { height: 34rem; } .page :global(.coaching-gallery > li) { width: 18rem; } .page :global(.coaching-gallery-arrow) { top: calc(8px + 18rem * 1.25 / 2); } }
 @media (min-width: 768px) { .page :global(.coaching-tutor-grid) { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 1280px) { .page :global(.coaching-tutor-grid) { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @media (min-width: 768px) { .page :global(.coaching-mobile-cta) { display: none; } }
+@media (min-width: 1024px) {
+  .page :global(.coaching-ladder) { grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 2rem 0 0; }
+  .page :global(.coaching-ladder::before) { left: 0; right: 0; top: 5px; bottom: auto; width: auto; height: 1px; }
+  .page :global(.coaching-ladder-dot) { left: 1.75rem; top: -2rem; }
+  .page :global(.coaching-steps) { grid-template-columns: repeat(4, minmax(0, 1fr)) auto; gap: 2rem; padding-left: 0; }
+  .page :global(.coaching-steps::before) { left: 0; right: 0; top: 13px; bottom: auto; width: auto; height: 1px; }
+  .page :global(.coaching-step) { padding-top: 2.75rem; }
+  .page :global(.coaching-step-number) { left: 0; top: 0; }
+  .page :global(.coaching-step-end) { align-self: start; margin-top: -10px; }
+}
 @media (min-width: 1024px) { .page :global(.coaching-hero) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3.5rem; padding-block: 4rem; } .page :global(.coaching-marquee) { height: 44rem; gap: 1rem; } .page :global(.coaching-hero-slideshow) { margin-top: -2rem; } }
 @media (forced-colors: active) { .page :global(.coaching-medal) { border: 2px solid CanvasText; background: none; box-shadow: none; forced-color-adjust: none; } }
 @media (forced-colors: active) { .page :global(.coaching-chip) { border-color: CanvasText; box-shadow: none; } }
@@ -120,6 +145,11 @@
   .page :global(.coaching-portrait:hover .coaching-portrait-frame::after), .page :global(.coaching-portrait:focus-visible .coaching-portrait-frame::after) { opacity: 1; }
   .page :global(.coaching-portrait:hover .coaching-portrait-clip .coaching-portrait-image), .page :global(.coaching-portrait:focus-visible .coaching-portrait-clip .coaching-portrait-image) { transform: scale(1.03); }
   .page :global(.coaching-portrait:hover .coaching-chip::after), .page :global(.coaching-portrait:focus-visible .coaching-chip::after) { opacity: 1; }
+  /* New cards (programs, packages, scheduling, guides): the same 4px lift, with the shadow faded in on a pseudo element. */
+  .page :global(.coaching-lift) { position: relative; transition: transform 220ms var(--coaching-ease); }
+  .page :global(.coaching-lift::after) { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; box-shadow: 0 12px 28px rgb(0 0 0 / .4); opacity: 0; transition: opacity 220ms ease-out; }
+  .page :global(.coaching-lift:hover), .page :global(.coaching-lift:focus-visible) { transform: translateY(-4px); }
+  .page :global(.coaching-lift:hover::after), .page :global(.coaching-lift:focus-visible::after) { opacity: 1; }
   .page :global(.coaching-button:hover), .page :global(.coaching-icon-button:hover) { opacity: .9; transform: translateY(-1px); }
   .page :global(.coaching-link:hover::after), .page :global(.coaching-link:focus-visible::after) { transform: scaleX(1); }
   .page :global(.coaching-hero-slideshow .coaching-link:hover::after) { opacity: 1; }

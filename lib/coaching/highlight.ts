@@ -6,7 +6,7 @@ export function splitHighlight(text: string, phrase?: string): { before: string;
   return { before: text.slice(0, at), match: phrase, after: text.slice(at + phrase.length) };
 }
 
-/** A highlight must be a short phrase, never a sentence: at most 5 words and no sentence punctuation. */
+/** A highlight must be a short phrase, never a sentence: at most 6 words and no sentence punctuation. */
 export function isShortPhrase(phrase: string) {
-  return phrase.trim() === phrase && phrase.split(/\s+/).length <= 5 && !/[.!?]/.test(phrase);
+  return phrase.trim() === phrase && phrase.split(/\s+/).length <= 6 && !/[.!?]/.test(phrase);
 }

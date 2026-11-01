@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { findCopyProblems } from "./copy-rules";
-import { articles } from "./learn/articles";
+import { articles, COACHING_LINE } from "./learn/articles";
 import { visibleStrings } from "./learn/reading";
 
 describe("findCopyProblems", () => {
@@ -45,5 +45,13 @@ describe("learn articles obey the copy rules", () => {
       }
     }
     assert.deepEqual(failures, []);
+  });
+});
+
+describe("the coaching line at the end of every guide", () => {
+  it("has the agreed words, links to /coaching and obeys the copy rules", () => {
+    assert.equal(`${COACHING_LINE.lead} ${COACHING_LINE.linkLabel}`, "Want a coach who has sat these exams? Meet our medallist coaches.");
+    assert.equal(COACHING_LINE.href, "/coaching");
+    for (const text of [COACHING_LINE.lead, COACHING_LINE.linkLabel]) assert.deepEqual(findCopyProblems(text), []);
   });
 });

@@ -137,7 +137,7 @@ test("every pathway has a helper line", () => {
 });
 
 test("package hours are sessions times class hours", () => {
-  assert.deepEqual(content.packages.items.map((i) => i.size), ["16 sessions, 32 hours", "32 sessions, 64 hours"]);
+  assert.deepEqual(content.packages.items.map((i) => `${i.sessions}, ${i.hours}`), ["16 sessions, 32 hours", "32 sessions, 64 hours"]);
 });
 
 test("every country has a flag file and every photo-less coach has no image on disk", () => {
@@ -169,6 +169,7 @@ test("each highlight is one short phrase found in its own section text", () => {
     ["programs", content.programs.intro, content.programs.highlight],
     ["classFormat", content.classFormat.stretchText, content.classFormat.highlight],
     ["scheduling", content.scheduling.text, content.scheduling.highlight],
+    ["path", content.path.steps[1].body, content.path.highlight],
     ["packages", content.packages.pricingText, content.packages.highlight],
   ];
   for (const [section, text, phrase] of targets) {
@@ -190,5 +191,28 @@ test("the review drops Kak and links the first Arrow", () => {
 });
 
 test("in-page nav links are plain fragments so the browser scrolls smoothly", () => {
-  for (const link of content.nav) assert.ok(link.href.startsWith("#") || link.href === "/dashboard", link.href);
+  for (const link of content.nav) assert.ok(link.href.startsWith("#") || link.href === "/dashboard" || link.href === "/learn", link.href);
+});
+
+test("the Phase 2d copy: programs intro, class tiles, guides labels and the new links", () => {
+  assert.equal(content.programs.intro, "Three levels take you from your first olympiad to IPhO.");
+  assert.equal(content.programs.highlight, "from your first olympiad to IPhO");
+  assert.ok(splitHighlight(content.programs.intro, content.programs.highlight));
+  assert.deepEqual(content.classFormat.tiles.map((t) => `${t.value} ${t.label}`), ["6 students at most", "2 h live, usually weekly", "Every class recorded", "Notes homework and worked solutions"]);
+  assert.deepEqual(content.classFormat.points, ["A coach matched to your level and preferred language", "Mostly solving olympiad problems together", "Classmates from different countries"]);
+  assert.ok(content.classFormat.sources.includes("China") && content.classFormat.sources.includes("IPhO") && content.classFormat.sources.length === 9);
+  assert.equal(content.classFormat.topics.length, 10);
+  assert.deepEqual([content.guides.title, content.guides.seeAll, content.guides.minutes], ["Free guides", "See all guides", "min read"]);
+  assert.ok(content.nav.some((l) => l.href === "/learn" && l.label === "Guides"));
+  assert.ok(content.footer.links.some((l) => l.href === "/learn" && l.label === "Free guides"));
+});
+
+test("every program has topic chips, and the IB track is the only non-olympiad one", () => {
+  for (const item of content.programs.items) assert.ok(Array.isArray(item.covers) && item.covers.length >= 3, item.title);
+  assert.deepEqual(content.programs.items.filter((i) => !i.pathway.startsWith("Olympiad")).map((i) => i.pathway), ["IB or A-Level"]);
+});
+
+test("packages show sessions and hours, with no price and no popular or recommended label", () => {
+  const text = JSON.stringify(content.packages);
+  assert.ok(!/[$€£]|\bpopular\b|\brecommended\b|\bbest value\b/i.test(text));
 });
