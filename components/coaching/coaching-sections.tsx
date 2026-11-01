@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Plus } from "lucide-react";
 import { CoachingTutors } from "./coaching-tutors";
+import { coachingGoalPaths } from "@/lib/coaching-pathways";
 
 const headerLinks = [{ href: "/coaching#faq", label: "FAQ" }];
 
@@ -10,9 +11,9 @@ export function CoachingHeader() {
     <div className="coaching-container flex h-16 items-center justify-between gap-3">
       <Link href="/coaching" className="flex shrink-0 items-center gap-2.5" aria-label="Physcratic Coaching home"><Image src="/coaching/physcratic-logo.png" alt="" width={44} height={44} priority className="size-10 object-contain" /><span className="text-xl font-semibold tracking-tight sm:text-2xl">Physcratic Coaching</span></Link>
       <div className="flex items-center gap-3 md:gap-7">
-        <nav aria-label="Coaching navigation" className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">{headerLinks.map((link) => <Link key={link.href} href={link.href} className="hover:text-foreground">{link.label}</Link>)}<Link href="/dashboard" className="hover:text-foreground">Practice</Link></nav>
-        <details className="relative md:hidden"><summary className="rounded-md border border-border px-3 py-2 text-sm">Menu</summary><nav aria-label="Mobile coaching navigation" className="absolute right-0 top-12 flex w-48 flex-col gap-2 rounded-lg border border-border bg-background p-4 text-foreground">{headerLinks.map((link) => <Link key={link.href} href={link.href} className="py-2">{link.label}</Link>)}<Link href="/dashboard" className="py-2">Practice workspace</Link></nav></details>
-        <span className="hidden sm:block"><Link href="/coaching#hero-cta" className="coaching-button">Sign up</Link></span>
+        <nav aria-label="Coaching navigation" className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">{headerLinks.map((link) => <Link key={link.href} href={link.href} className="hover:text-foreground">{link.label}</Link>)}<Link href="/dashboard" className="hover:text-foreground">Physics practice</Link></nav>
+        <details className="relative md:hidden"><summary className="rounded-md border border-border px-3 py-2 text-sm">Menu</summary><nav aria-label="Mobile coaching navigation" className="absolute right-0 top-12 flex w-48 flex-col gap-2 rounded-lg border border-border bg-background p-4 text-foreground">{headerLinks.map((link) => <Link key={link.href} href={link.href} className="py-2">{link.label}</Link>)}<Link href="/dashboard" className="py-2">Physics practice</Link></nav></details>
+        <span className="hidden sm:block"><Link href="/coaching#hero-cta" className="coaching-button">Find a physics tutor</Link></span>
       </div>
     </div>
   </header>;
@@ -37,9 +38,9 @@ export function CoachingSections() {
     <CoachingTutors />
     <section id="how-it-works" className="border-y border-border py-20">
       <div className="coaching-container flex flex-col items-center gap-10">
-        <h2 className="mx-auto max-w-2xl text-center text-balance text-3xl font-bold tracking-tight sm:text-4xl">Start your journey today.</h2>
+        <h2 className="mx-auto max-w-2xl text-center text-balance text-3xl font-bold tracking-tight sm:text-4xl">How to start physics tutoring</h2>
         <ol className="grid w-full gap-6 md:grid-cols-3">{steps.map((step, index) => <li key={step.title} className="flex flex-col items-center gap-3 rounded-2xl border border-border bg-background p-6 text-center text-foreground"><p className="text-sm font-medium text-accent">Step {index + 1}</p><h3 className="text-xl font-semibold tracking-tight">{step.title}</h3><p className="leading-relaxed text-muted-foreground">{step.body}</p></li>)}</ol>
-        <div className="flex flex-wrap justify-center gap-3"><Link href="/coaching#hero-cta" className="coaching-button">Sign up</Link><Link href="/coaching#tutors" className="coaching-button coaching-button-secondary">Explore our tutors</Link></div>
+        <div className="flex flex-wrap justify-center gap-3"><Link href="/coaching#hero-cta" className="coaching-button">Find a physics tutor</Link><Link href="/coaching#tutors" className="coaching-button coaching-button-secondary">Meet our physics tutors</Link></div>
       </div>
     </section>
     <section aria-labelledby="reviews-title" className="border-b border-border py-20">
@@ -80,5 +81,5 @@ export function CoachingSections() {
 }
 
 export function CoachingFooter() {
-  return <footer className="border-t border-border pb-24 md:pb-0"><div className="coaching-container flex flex-col justify-between gap-8 py-10 text-sm text-muted-foreground md:flex-row"><div className="flex max-w-sm flex-col gap-2"><p className="text-2xl font-semibold text-foreground">Physcratic</p><p className="leading-relaxed">Physics tutoring from International Physics Olympiad medalists.</p></div><nav aria-label="Coaching footer"><ul className="flex flex-wrap items-center gap-x-10 gap-y-3"><li><Link href="/terms" className="hover:text-foreground">Terms & privacy</Link></li><li><a href="https://www.instagram.com/physcratic" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-foreground"><span className="coaching-instagram-icon" aria-hidden="true" />Instagram</a></li></ul></nav></div></footer>;
+  return <footer className="border-t border-border pb-24 md:pb-0"><div className="coaching-container flex flex-col justify-between gap-8 py-10 text-sm text-muted-foreground md:flex-row"><div className="flex max-w-sm flex-col gap-2"><p className="text-2xl font-semibold text-foreground">Physcratic</p><p className="leading-relaxed">Physics tutoring from International Physics Olympiad medalists.</p></div><nav aria-label="Coaching footer" className="md:max-w-xl"><ul className="flex flex-wrap items-center gap-x-10 gap-y-3"><li><Link href={coachingGoalPaths["IB / A-Level / IGCSE training"]} className="hover:text-foreground">IB, A-Level &amp; IGCSE physics tutoring</Link></li><li><Link href={coachingGoalPaths["General physics consultation"]} className="hover:text-foreground">Physics consultation</Link></li><li><Link href={coachingGoalPaths["Tutor inquiry"]} className="hover:text-foreground">Become a physics tutor</Link></li><li><Link href="/terms" className="hover:text-foreground">Terms & privacy</Link></li><li><a href="https://www.instagram.com/physcratic" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-foreground"><span className="coaching-instagram-icon" aria-hidden="true" />Instagram</a></li></ul></nav></div></footer>;
 }

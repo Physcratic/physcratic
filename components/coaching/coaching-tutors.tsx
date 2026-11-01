@@ -88,7 +88,7 @@ export function CoachingTutors() {
   return <section id="tutors" className="py-20">
     <div className="coaching-container flex min-w-0 flex-col gap-8">
       <div className="flex w-full max-w-2xl flex-col items-center gap-4 self-center text-center">
-        <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">Meet Our Tutors</h2>
+        <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">Meet our physics tutors</h2>
         <p className="max-w-xl leading-relaxed text-muted-foreground">Every tutor has medalled at national, Asian, or international level. We match each student to the tutor whose strengths fit their syllabus and goals.</p>
         <dl className="flex flex-wrap justify-center gap-10">
           <div><dt className="text-sm text-muted-foreground">Tutors</dt><dd className="text-2xl font-semibold">{medallistStats.count}</dd></div>

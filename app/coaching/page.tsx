@@ -10,6 +10,6 @@ export default async function CoachingPage({ searchParams }: { searchParams: Pro
       <CoachingSections />
     </main>
     <CoachingFooter />
-    <a href="/coaching#hero-cta" className="coaching-mobile-cta">Start your inquiry</a>
+    <a href="/coaching#hero-cta" className="coaching-mobile-cta">Find a physics tutor</a>
   </>;
 }
