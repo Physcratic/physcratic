@@ -1,4 +1,6 @@
-import { boolean, doublePrecision, integer, jsonb, pgTable, primaryKey, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
+import { sql } from "drizzle-orm";
+import type { AuthoredDocument, PrivatePart } from "@/lib/problem-authoring";
+import { check, foreignKey, index, type AnyPgColumn, boolean, bigint, date, doublePrecision, integer, jsonb, pgTable, primaryKey, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
 import type { SolutionSubmission } from "@/lib/solution-grading";
 import type { ProblemAnswerCheck } from "@/lib/individual-elo";
 
@@ -83,13 +85,298 @@ export const solutionChecks = pgTable("solution_check", {
   maxPoints: doublePrecision("maxPoints").notNull(), awardedPoints: doublePrecision("awardedPoints").notNull(), createdAt: timestamp("createdAt", { withTimezone: true }).notNull().defaultNow(),
 });
 
-export const archiveProgress = pgTable("archive_progress", {
-  userId: text("userId").notNull(), taskId: text("taskId").notNull(), reviewed: boolean("reviewed").notNull().default(false),
-  notes: text("notes").notNull().default(""), answer: text("answer").notNull().default(""), updatedAt: timestamp("updatedAt").notNull().defaultNow(),
-}, (table) => [primaryKey({ columns: [table.userId, table.taskId] })]);
-
 export const coachingInquiries = pgTable("coaching_inquiry", {
   id: uuid("id").primaryKey().defaultRandom(), pathway: text("pathway").notNull(), audience: text("audience").notNull(),
   currentLevel: text("current_level").notNull(), goals: text("goals").notNull(), contact: text("contact").notNull(),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
+
+export const archiveProgress = pgTable("archive_progress", {
+  userId: text("userId").notNull(), taskId: text("taskId").notNull(), reviewed: boolean("reviewed").notNull().default(false),
+  notes: text("notes").notNull().default(""), answer: text("answer").notNull().default(""), updatedAt: timestamp("updatedAt", { withTimezone: true }).notNull().defaultNow(),
+}, (table) => [primaryKey({ columns: [table.userId, table.taskId] })]);
+
+// Authored content is isolated from the static/archive contracts above.
+export const authoredProblems = pgTable("authored_problem", {
+  id: uuid("id").primaryKey(), slug: text("slug").notNull().unique(),
+  ownerId: text("owner_id").notNull().references(() => user.id, { onDelete: "restrict" }),
+  state: text("state").$type<"draft" | "published" | "archived">().notNull().default("draft"),
+  publishedRevisionId: uuid("published_revision_id"),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [
+  index("authored_problem_owner_idx").on(t.ownerId),
+  check("authored_problem_state_check", sql`${t.state} in ('draft','published','archived')`),
+  check("authored_problem_slug_check", sql`${t.slug} ~ '^[a-z0-9]+(-[a-z0-9]+)*$' and length(${t.slug}) <= 120`),
+  check("authored_problem_publication_check", sql`${t.state} <> 'published' or ${t.publishedRevisionId} is not null`),
+  foreignKey({ name: "authored_problem_revision_fk", columns: [t.id, t.publishedRevisionId], foreignColumns: [authoredRevisions.problemId, authoredRevisions.id] }),
+]);
+
+export const authoredDrafts = pgTable("authored_draft", {
+  problemId: uuid("problem_id").primaryKey().references((): AnyPgColumn => authoredProblems.id, { onDelete: "cascade" }),
+  version: integer("version").notNull().default(1),
+  content: jsonb("content").$type<AuthoredDocument>().notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [check("authored_draft_version_check", sql`${t.version} > 0`)]);
+
+export const authoredRevisions = pgTable("authored_revision", {
+  id: uuid("id").primaryKey(),
+  problemId: uuid("problem_id").notNull().references((): AnyPgColumn => authoredProblems.id, { onDelete: "restrict" }),
+  number: integer("number").notNull(), schemaVersion: integer("schema_version").notNull().default(1),
+  content: jsonb("content").$type<AuthoredDocument>().notNull(),
+  publishedAt: timestamp("published_at", { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [unique("authored_revision_number_key").on(t.problemId, t.number), unique("authored_revision_problem_id_key").on(t.problemId, t.id),
+  check("authored_revision_version_check", sql`${t.number} > 0 and ${t.schemaVersion} = 1`)]);
+
+export const authoredDraftPrivateParts = pgTable("authored_draft_private_part", {
+  problemId: uuid("problem_id").notNull().references(() => authoredDrafts.problemId, { onDelete: "cascade" }),
+  partId: uuid("part_id").notNull(), data: jsonb("data").$type<PrivatePart>().notNull(),
+}, (t) => [primaryKey({ columns: [t.problemId, t.partId] }), check("authored_draft_private_identity_check", sql`(jsonb_typeof(${t.data}) = 'object' and jsonb_typeof(${t.data}->'partId') = 'string' and ${t.data}->>'partId' = ${t.partId}::text) is true`)]);
+
+// Stable revision/part identities support future attempt foreign keys without JSON joins.
+export const authoredRevisionParts = pgTable("authored_revision_part", {
+  revisionId: uuid("revision_id").notNull().references(() => authoredRevisions.id, { onDelete: "restrict" }),
+  partId: uuid("part_id").notNull(), answerMode: text("answer_mode").$type<"numeric" | "expression" | "manual">().notNull(),
+}, (t) => [primaryKey({ columns: [t.revisionId, t.partId] }), unique("authored_revision_part_mode_key").on(t.revisionId,t.partId,t.answerMode),
+  check("authored_revision_part_mode_check", sql`${t.answerMode} in ('numeric','expression','manual')`)]);
+
+export const authoredRevisionPrivateParts = pgTable("authored_revision_private_part", {
+  revisionId: uuid("revision_id").notNull(), partId: uuid("part_id").notNull(),
+  answerMode: text("answer_mode").$type<"numeric" | "expression" | "manual">().notNull(), data: jsonb("data").$type<PrivatePart>().notNull(),
+}, (t) => [primaryKey({ columns: [t.revisionId,t.partId] }),
+  foreignKey({ name:"authored_revision_private_part_fk", columns:[t.revisionId,t.partId,t.answerMode], foreignColumns:[authoredRevisionParts.revisionId,authoredRevisionParts.partId,authoredRevisionParts.answerMode] }),
+  check("authored_revision_private_identity_check", sql`(jsonb_typeof(${t.data}) = 'object' and jsonb_typeof(${t.data}->'partId') = 'string' and ${t.data}->>'partId' = ${t.partId}::text and ${t.data} ? 'key' and jsonb_typeof(${t.data}->'key') = 'object' and ${t.data}->'key' ? 'kind' and ${t.data}->'key'->>'kind' = ${t.answerMode}) is true`)]);
+
+export const authoredWriteLimits = pgTable("authored_write_limit", {
+  userId: text("user_id").primaryKey().references(() => user.id, { onDelete: "cascade" }),
+  windowStart: timestamp("window_start", { withTimezone: true }).notNull(),
+  requests: integer("requests").notNull(),
+}, (t) => [check("authored_write_limit_requests_check", sql`${t.requests}>0`)]);
+
+// Server-owned author media. SQL defines deferred sealing/lifecycle triggers.
+export const authorMedia = pgTable(
+  "author_media",
+  {
+    id: uuid("id").primaryKey(),
+    problemId: uuid("problem_id")
+      .notNull()
+      .references(() => authoredProblems.id, { onDelete: "restrict" }),
+    purpose: text("purpose")
+      .$type<
+        "statement-image" | "solution-image" | "statement-pdf" | "solution-pdf"
+      >()
+      .notNull(),
+    pathname: text("pathname").notNull().unique(),
+    filename: text("filename").notNull(),
+    mediaType: text("media_type").notNull(),
+    bytes: integer("bytes").notNull(),
+    sha256: text("sha256").notNull(),
+    state: text("state")
+      .$type<"pending" | "ready" | "deleting">()
+      .notNull()
+      .default("pending"),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (t) => [
+    unique("author_media_id_problem_id_purpose_key").on(
+      t.id,
+      t.problemId,
+      t.purpose,
+    ),
+    index("author_media_problem_idx").on(t.problemId),
+    index("author_media_cleanup_idx").on(t.state, t.createdAt),
+    check(
+      "author_media_purpose_check",
+      sql`${t.purpose} in ('statement-image','solution-image','statement-pdf','solution-pdf')`,
+    ),
+    check(
+      "author_media_media_type_check",
+      sql`${t.mediaType} in ('image/png','image/jpeg','image/webp','application/pdf')`,
+    ),
+    check(
+      "author_media_bytes_check",
+      sql`${t.bytes}>0 and ${t.bytes}<=3145728`,
+    ),
+    check("author_media_sha256_check", sql`${t.sha256} ~ '^[a-f0-9]{64}$'`),
+    check(
+      "author_media_state_check",
+      sql`${t.state} in ('pending','ready','deleting')`,
+    ),
+    check(
+      "author_media_purpose_type_check",
+      sql`(${t.purpose} in ('statement-pdf','solution-pdf'))=(${t.mediaType}='application/pdf')`,
+    ),
+  ],
+);
+export const authorMediaUsage = pgTable(
+  "author_media_usage",
+  {
+    userId: text("user_id")
+      .primaryKey()
+      .references(() => user.id, { onDelete: "cascade" }),
+    day: date("day", { mode: "string" }).notNull(),
+    attempts: integer("attempts").notNull(),
+  },
+  (t) => [
+    check(
+      "author_media_usage_attempts_check",
+      sql`${t.attempts}>0 and ${t.attempts}<=31`,
+    ),
+  ],
+);
+export const authorDraftMedia = pgTable(
+  "author_draft_media",
+  {
+    problemId: uuid("problem_id")
+      .notNull()
+      .references(() => authoredDrafts.problemId, { onDelete: "cascade" }),
+    mediaId: uuid("media_id").notNull(),
+    purpose: text("purpose").notNull(),
+  },
+  (t) => [
+    primaryKey({ columns: [t.problemId, t.mediaId] }),
+    index("author_draft_media_media_idx").on(t.mediaId),
+    foreignKey({
+      columns: [t.mediaId, t.problemId, t.purpose],
+      foreignColumns: [
+        authorMedia.id,
+        authorMedia.problemId,
+        authorMedia.purpose,
+      ],
+    }),
+  ],
+);
+export const authorRevisionMedia = pgTable(
+  "author_revision_media",
+  {
+    revisionId: uuid("revision_id").notNull(),
+    problemId: uuid("problem_id").notNull(),
+    mediaId: uuid("media_id").notNull(),
+    purpose: text("purpose").notNull(),
+  },
+  (t) => [
+    primaryKey({ columns: [t.revisionId, t.mediaId] }),
+    index("author_revision_media_media_idx").on(t.mediaId),
+    foreignKey({
+      columns: [t.problemId, t.revisionId],
+      foreignColumns: [authoredRevisions.problemId, authoredRevisions.id],
+    }),
+    foreignKey({
+      columns: [t.mediaId, t.problemId, t.purpose],
+      foreignColumns: [
+        authorMedia.id,
+        authorMedia.problemId,
+        authorMedia.purpose,
+      ],
+    }),
+  ],
+);
+
+// Student-authored attempts: SQL is authoritative for JSON/outcome/current-publication/immutability guards.
+export const authoredStudentRate = pgTable(
+  "authored_student_rate",
+  {
+    userId: text("user_id")
+      .primaryKey()
+      .references(() => user.id, { onDelete: "cascade" }),
+    windowStart: timestamp("window_start", { withTimezone: true }).notNull(),
+    requests: integer("requests").notNull(),
+    submissions: integer("submissions").notNull(),
+  },
+  (t) => [
+    check(
+      "authored_student_rate_requests_check",
+      sql`${t.requests} between 1 and 61`,
+    ),
+    check(
+      "authored_student_rate_submissions_check",
+      sql`${t.submissions} between 0 and 21`,
+    ),
+  ],
+);
+export const authoredAttempts = pgTable(
+  "authored_attempt",
+  {
+    id: uuid("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "restrict" }),
+    problemId: uuid("problem_id").notNull(),
+    revisionId: uuid("revision_id").notNull(),
+    partId: uuid("part_id").notNull(),
+    idempotencyKey: uuid("idempotency_key").notNull(),
+    answer: jsonb("answer")
+      .$type<
+        import("@/lib/authored-grading-contracts").AuthoredGradeInput["answer"]
+      >()
+      .notNull(),
+    status: text("status")
+      .$type<
+        import("@/lib/authored-attempt-contracts").StudentGrade["status"]
+      >()
+      .notNull(),
+    reason: text("reason")
+      .$type<
+        import("@/lib/authored-attempt-contracts").StudentGrade["reason"]
+      >()
+      .notNull(),
+    engineVersion: text("engine_version")
+      .$type<
+        import("@/lib/authored-attempt-contracts").StudentGrade["engineVersion"]
+      >()
+      .notNull(),
+    attemptNumber: bigint("attempt_number", { mode: "bigint" }).notNull(),
+    spoilerPolicy: text("spoiler_policy").notNull().default("no-reveal-v1"),
+    assisted: boolean("assisted").notNull().default(false),
+    createdAt: timestamp("created_at", { withTimezone: true, precision: 3 })
+      .notNull()
+      .default(sql`clock_timestamp()`),
+  },
+  (t) => [
+    unique("authored_attempt_user_id_idempotency_key_key").on(
+      t.userId,
+      t.idempotencyKey,
+    ),
+    unique(
+      "authored_attempt_user_id_revision_id_part_id_attempt_number_key",
+    ).on(t.userId, t.revisionId, t.partId, t.attemptNumber),
+    index("authored_attempt_history_idx").on(
+      t.userId,
+      t.createdAt.desc(),
+      t.id.desc(),
+    ),
+    index("authored_attempt_problem_idx").on(
+      t.userId,
+      t.problemId,
+      t.createdAt.desc(),
+      t.id.desc(),
+    ),
+    index("authored_attempt_revision_idx").on(t.revisionId, t.partId),
+    foreignKey({
+      columns: [t.problemId, t.revisionId],
+      foreignColumns: [authoredRevisions.problemId, authoredRevisions.id],
+    }).onDelete("restrict"),
+    foreignKey({
+      columns: [t.revisionId, t.partId],
+      foreignColumns: [
+        authoredRevisionParts.revisionId,
+        authoredRevisionParts.partId,
+      ],
+    }).onDelete("restrict"),
+    check(
+      "authored_attempt_attempt_number_check",
+      sql`${t.attemptNumber} > 0`,
+    ),
+    check(
+      "authored_attempt_engine_version_check",
+      sql`${t.engineVersion} in ('numeric-v1','symbolic-v1')`,
+    ),
+    check(
+      "authored_attempt_spoiler_policy_check",
+      sql`${t.spoilerPolicy}='no-reveal-v1'`,
+    ),
+    check("authored_attempt_assisted_check", sql`${t.assisted}=false`),
+  ],
+);

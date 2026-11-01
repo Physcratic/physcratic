@@ -1,0 +1,24 @@
+# CODEOWNERS auto-requests reviewers for a PR based on the paths it changes.
+# Replace each example below with real GitHub usernames or teams, then
+# remove the leading "# " to turn it on. The last matching line wins.
+
+# Accounts
+# /lib/auth* @owner-username
+# /app/sign-in/ @owner-username
+
+# Problem authoring
+# /lib/authored-* @owner-username
+# /components/authoring/ @owner-username
+
+# Practice UI
+# /components/physics/ @owner-username
+# /components/ui/ @owner-username
+
+# Coaching
+# /app/coaching/ @owner-username
+# /components/coaching/ @owner-username
+
+# Shared files
+# /lib/db/schema.ts @owner-username
+# /migrations/ @owner-username
+# /package.json @owner-username
