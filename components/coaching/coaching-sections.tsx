@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import { CoachingTutors } from "./coaching-tutors";
 import { coachingGoalPaths, coachingGoalLinkLabels } from "@/lib/coaching-pathways";
 
@@ -49,14 +49,14 @@ const pathways = [
 function CoachingPathways() {
   return (
     <section id="pathways" aria-labelledby="pathways-title" className="border-b border-border py-16 sm:py-20">
-      <div className="coaching-container flex flex-col gap-10">
-        <header className="flex max-w-2xl flex-col gap-4">
+      <div className="coaching-container flex flex-col gap-10 text-center">
+        <header className="flex max-w-2xl flex-col items-center gap-4 self-center">
           <h2 id="pathways-title" className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">Choose your physics tutoring pathway</h2>
           <p className="text-pretty text-base leading-relaxed text-muted-foreground">Find school-exam support, discuss your physics or Olympiad goals, or apply to teach. Each pathway starts with a short inquiry form.</p>
         </header>
         <div className="flex flex-col gap-10 lg:flex-row lg:gap-8">
           {pathways.map((pathway) => (
-            <article key={pathway.id} aria-labelledby={`pathway-${pathway.id}-title`} className="flex min-w-0 flex-1 flex-col justify-between gap-6 border-t border-border pt-6">
+            <article key={pathway.id} aria-labelledby={`pathway-${pathway.id}-title`} className="flex min-w-0 flex-1 flex-col items-center justify-between gap-6">
               <div className="flex flex-col gap-5">
                 <h3 id={`pathway-${pathway.id}-title`} className="text-balance text-2xl font-semibold tracking-tight lg:min-h-16">{pathway.title}</h3>
                 <dl className="flex flex-col gap-4">
@@ -65,7 +65,7 @@ function CoachingPathways() {
                   <div className="flex flex-col gap-1"><dt className="font-semibold">How to get started</dt><dd className="text-pretty leading-relaxed text-muted-foreground">{pathway.gettingStarted}</dd></div>
                 </dl>
               </div>
-              <Link href={coachingGoalPaths[pathway.goal]} className="inline-flex items-center gap-2 font-medium leading-relaxed underline decoration-border underline-offset-4 transition-colors hover:text-accent"><span>{coachingGoalLinkLabels[pathway.goal]}</span><ArrowRight className="size-4 shrink-0" aria-hidden="true" /></Link>
+              <Link href={coachingGoalPaths[pathway.goal]} className="coaching-button coaching-button-secondary w-full max-w-full sm:w-auto">{coachingGoalLinkLabels[pathway.goal]}</Link>
             </article>
           ))}
         </div>
@@ -73,12 +73,6 @@ function CoachingPathways() {
     </section>
   );
 }
-
-const steps = [
-  { title: "Choose your pathway", body: "Select general physics consultation, IB/A-Level/IGCSE training, or apply to become a tutor if you are an Olympiad winner." },
-  { title: "Tell us about your goals", body: "Share your level, goals and preferred language so the team can understand the support you are looking for." },
-  { title: "Hear from our team", body: "Once your inquiry is connected, our team will follow up on WhatsApp within two days to discuss tutoring options." },
-];
 
 const faqs = [
   { question: "What happens after I send an inquiry?", answer: "Your inquiry is saved securely so our team can review it. We will follow up on WhatsApp within two days." },
@@ -92,13 +86,6 @@ export function CoachingSections() {
   return <>
     <CoachingPathways />
     <CoachingTutors />
-    <section id="how-it-works" className="border-y border-border py-20">
-      <div className="coaching-container flex flex-col items-center gap-10">
-        <h2 className="mx-auto max-w-2xl text-center text-balance text-3xl font-bold tracking-tight sm:text-4xl">How to start physics tutoring</h2>
-        <ol className="grid w-full gap-6 md:grid-cols-3">{steps.map((step, index) => <li key={step.title} className="flex flex-col items-center gap-3 rounded-2xl border border-border bg-background p-6 text-center text-foreground"><p className="text-sm font-medium text-accent">Step {index + 1}</p><h3 className="text-xl font-semibold tracking-tight">{step.title}</h3><p className="leading-relaxed text-muted-foreground">{step.body}</p></li>)}</ol>
-        <div className="flex flex-wrap justify-center gap-3"><Link href="/coaching#hero-cta" className="coaching-button">Find a physics tutor</Link><Link href="/coaching#tutors" className="coaching-button coaching-button-secondary">Meet our physics tutors</Link></div>
-      </div>
-    </section>
     <section aria-labelledby="reviews-title" className="border-b border-border py-20">
       <div className="coaching-container flex flex-col gap-8">
         <div className="flex max-w-2xl flex-col items-center gap-3 self-center text-center"><h2 id="reviews-title" className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">See what our students are saying.</h2></div>
