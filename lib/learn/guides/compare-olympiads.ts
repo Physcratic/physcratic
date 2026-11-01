@@ -137,7 +137,7 @@ export const compareOlympiads: ArticleDraft = {
     },
     {
       type: "paragraph",
-      text: "APhO. The statutes describe gold, silver and bronze medals and honourable mentions. We could not confirm the current cut-offs, so check the current host site.",
+      text: "APhO. It awards gold, silver and bronze medals and honourable mentions. We could not confirm the current cut-offs, so check the current host site.",
       cite: ["s4"],
     },
     { type: "heading", level: 2, text: "Where and when in 2026" },
