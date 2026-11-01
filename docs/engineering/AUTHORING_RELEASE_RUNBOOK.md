@@ -5,6 +5,28 @@ This document authorizes no shared writes, account creation, mail, uploads,
 migrations or deployment. Obtain explicit approval at each gate below. Never put
 credentials, connection strings or secret values in the approval record/logs.
 
+Post-Phase-8B local preparation: see [staging Blob isolation](AUTHORING_STAGING_BLOB.md)
+for the unpushed patch, exact branch-only configuration, SDK fallback proof and
+read-only verification proposal. **Do not push runtime changes:** an automatic
+Preview deployment could still use unverified DB/auth configuration. Do not merge
+PR #27 or deploy. The supplied new staging Blob connection is Preview-wide, not
+branch-exclusive; only the proposed application guard restricts its selection.
+
+Latest [local validation](AUTHORING_STAGING_VALIDATION.md): 307/307 full tests,
+all three browser suites, populated upgrade with the exact supplied ledger on
+PostgreSQL 18.6, types, zero-warning lint and configured build pass. This closes
+the local ENOSPC/PG18 test gaps; it authorizes no remote action. Original patch
+`work/physcratic-staging-blob.patch` remains unchanged.
+
+Supplied subsequent read-only evidence identifies candidate Neon
+`divine-mode-82940461` / `br-solitary-thunder-b7h5q79t` / `neondb` as PostgreSQL
+**18.6**. Its existing `public.physcratic_integration_migrations` ledger verifies
+0001–0003 with matching checksums, with no entries for 0004–0006. The three reported
+application tables have zero rows. This does not establish target approval or
+Vercel connection isolation. Do not replay migrations, create another ledger or
+apply 0004–0006 in this task. Local PG18.6 compatibility is now verified; actual
+target isolation, schema drift, privileges and recovery still require review.
+
 ## 1. Pin the artifact and prove the target (read-only first)
 
 Audited code/test commit: `32761ee914e5030260497ec6bf02e3844dc0a2d7`.
@@ -18,8 +40,11 @@ ID `prj_phm4794zl2QBICu5MMbLFxcHAfFq`, connected to `Physcratic/physcratic`.
 Verified READY Phase8A Preview: `dpl_AMNA9Vhxs7na5RN5ZZAr7MnHYcfv`, authoring-
 completion branch, SHA71ff793. Production: `dpl_FKdnftiM54PyU6dsccG7gwCMnpeK`,
 main/c2139de. These are external read-only inspection results supplied by user,
-not new provider API calls by this agent. Final authoring staging deployment
-identity after Phase8A remains unverified; pin its actual SHA before execution.
+not new provider API calls by this agent. Subsequent supplied READY branch alias:
+`https://financial-dashboard-git-codex-physcr-54d12a-neuterions-projects.vercel.app`,
+deployment `dpl_CairGvgTKpWzVX2QPGAYqcni9qYJ`, SHA
+`4e18931e1c3e2f18271e6ff9f274a158c0c40f9a`. It does not contain the local
+patch. Pin the new actual deployment SHA after a separately authorized rollout.
 
 `physcratic.com` has no branch-specific mapping; `staging.physcratic.com` points
 to `codex/auth-hardening`, NOT this integration branch. The branch lacks the
@@ -36,14 +61,16 @@ variable scope and these Neon resources (all database `neondb`):
 - `wild-water-97019860` / main `br-hidden-surf-b7rb5nw6`.
 
 **Actual Preview-connected Neon branch/endpoint/role, approved staging target,
-private Blob store ID, backup and ledger remain UNKNOWN.** No listed branch is
+backup and effective deployment isolation remain UNKNOWN.** The supplied Blob
+staging ID is `store_3XHvtHs2UM4ZFD5d`; the candidate database ledger is described
+above. Neither proves the effective Preview configuration. No listed branch is
 selected by name. Resolve the effective connection/resource mapping read-only
 before approving any configuration changes or migration plan. Historical project
 name rationale and the additional physcratic project's role also remain unknown.
 
 CI for the audited f876792 handoff is confirmed successful in PR41210409141 and
-push41210403475. This update changes evidence documents only; track its own CI
-without reopening the already satisfied f876792 runtime-code CI evidence.
+push41210403475. This local patch includes runtime changes and needs fresh CI on
+its eventual final commit; the older runtime-code CI gate remains historical.
 
 Operator approval record must contain: verified Vercel team/project IDs and repo
 binding, deployment ID/SHA/Preview scope, exact isolated Neon project/branch/DB
@@ -56,10 +83,32 @@ BETTER_AUTH_URL and callback/verification URLs, and NEXT_PUBLIC_SITE_URL. Previe
 must not fall back to a Production auth origin. Check final CI by SHA; never
 substitute Phase8A CI or a Vercel build for final CI/runtime validation.
 
+Before requesting push approval, verify these effective Preview branch overrides
+for `codex/physcratic-authoring-completion`:
+
+| Variable | Exact value/requirement |
+| --- | --- |
+| `AUTHORING_STAGING_BLOB_ENABLED` | Config `1`, branch-only; never Production or Preview-wide. |
+| `AUTHORING_STAGING_BLOB_STORE_ID` | Existing Preview-wide value `store_3XHvtHs2UM4ZFD5d`; verify effective branch value. |
+| `DATABASE_URL` | Approved isolated runtime-role secret. Candidate endpoint `ep-green-waterfall-b7qaw260`, project `divine-mode-82940461`, branch `br-solitary-thunder-b7h5q79t`, DB `neondb`; mapping/isolation must be proven first. |
+| `BETTER_AUTH_URL` | `https://financial-dashboard-git-codex-physcr-54d12a-neuterions-projects.vercel.app` |
+| `BETTER_AUTH_SECRET` | Independent staging secret, at least 32 random characters, different from Production; supply securely. |
+| `RESEND_API_KEY` | Approved staging-only sending credential; supply securely. |
+| `RESEND_EMAIL_DOMAIN` | Approved verified staging sending domain; no scheme/path. Sender is `accounts@` that domain. Actual domain still requires operator selection/verification. |
+| `NEXT_PUBLIC_SITE_URL` | Same exact branch origin as `BETTER_AUTH_URL`, before build. |
+
+Do not manually create OIDC tokens or override `BLOB_STORE_ID`; no additional
+Blob token/webhook/reCAPTCHA variable is required. Verify Vercel system identity
+variables/OIDC as specified in the Blob report. Keep `BETTER_AUTH_TRUSTED_ORIGINS`
+unset unless separately reviewed. The code still trusts generated `VERCEL_URL`
+and `VERCEL_PROJECT_PRODUCTION_URL`; explicit auth URL anchors email links but
+does not remove these origins. Approve the complete effective origin set. A
+stable-alias-only trust requirement needs a separate scoped auth change/retest.
+
 ## 2. Inspect backup and ledger, then separately approve migration work
 
 Using an approved read-only connection to the **verified staging target**:
-record server_version (PG17), current_database/schema/user, table/constraint/index
+record actual server_version (candidate and exact local test: PG18.6), current_database/schema/user, table/constraint/index
 inventory and migration-ledger location/entries. Inspect the actual ledger;
 missing access is UNKNOWN, not an empty database. Compare schema to files and
 ledger/checksums. If tables exist without a trustworthy matching ledger, STOP for
@@ -72,11 +121,44 @@ record restore point, retention, target and an isolated recovery rehearsal.
 Quiesce dependent writes/serving instances before schema rollout. Verify free
 space/WAL headroom, connection capacity and lock timeout expectations.
 
-The repository historically specifies a lock/checksum/source-commit ledger
-contract but supplies **no deployed ledger DDL, fixed lock key or runner**.
-Reconcile the existing operational mechanism first. If none exists, require
-explicit operator review of a new ledger schema and the following proposed lock
-namespace before any write. It is not evidence of an existing production ledger.
+Preserve the existing `public.physcratic_integration_migrations` ledger. Its
+supplied columns are `id text PRIMARY KEY`, `sha256 text NOT NULL` with lowercase
+64-hex check, `source_commit text NOT NULL`, `applied_at timestamptz NOT NULL
+DEFAULT clock_timestamp()`, `applied_by text NOT NULL DEFAULT CURRENT_USER`,
+`result text NOT NULL CHECK(result='verified')`. Do not bootstrap another ledger,
+rewrite old entries or add guessed history. The existing runner/lock key was not
+supplied: verify it before adopting the proposed lock namespace below.
+
+Read-only preflight must retrieve ledger columns/defaults/constraints and every
+entry, not just row counts. Require exactly the known prefix 0001–0003 with
+source `b191dd03d62aa4b01e7a3f08272b2417643f0d53`, result `verified` and the
+checksums in [the six-file manifest](AUTHORING_MIGRATION_SHA256SUMS). Compare all
+six UP files to that manifest (`sha256sum -c docs/engineering/AUTHORING_MIGRATION_SHA256SUMS`).
+An unexpected ledger suffix or checksum/source mismatch is a reconciliation stop.
+
+Also inventory columns, checks, FKs, indexes, triggers and function definitions
+for the 0001–0003 objects against the SQL and disposable baseline. Verify the
+actual Better Auth base schema; these migrations do not initialize it. Inspect
+all tables before inferring anything from the three supplied zero row counts.
+For a ledger ending at 0003, these **new** 0004–0006 objects must be absent:
+
+- Tables: `authored_student_rate`, `authored_attempt`,
+  `authored_solution_permission`, `authored_solution_permission_media`,
+  `authored_solution_reveal`.
+- Indexes: `authored_attempt_history_idx`, `authored_attempt_problem_idx`,
+  `authored_attempt_revision_idx`, `authored_solution_reveal_authorization_idx`,
+  `authored_problem_discovery_idx`, `authored_revision_discovery_search_idx`,
+  `authored_revision_discovery_metadata_idx`, `authored_revision_discovery_difficulty_idx`.
+- Functions (any overload): `authored_attempt_guard`,
+  `authored_solution_permission_guard`, `authored_solution_media_guard`,
+  `authored_solution_reveal_guard`, `authored_discovery_terms`.
+
+Use `pg_class`/`pg_namespace`, `pg_proc`, `pg_constraint`, `pg_trigger`,
+`pg_get_indexdef`, `pg_get_functiondef` and `information_schema.columns`; ensure
+the inspecting role can see the entire target schema. Any such unledgered
+object is drift even if its definition looks correct. Stop rather than replay,
+drop/recreate, use `IF NOT EXISTS`, or invent its history. The local test injects
+this exact missing-entry/present-object condition and proves refusal before DDL.
 
 Proposed reviewed procedure, one direct non-transaction-pooled psql session:
 
@@ -84,13 +166,13 @@ Proposed reviewed procedure, one direct non-transaction-pooled psql session:
    `pg_advisory_xact_lock(hashtextextended('physcratic:authoring:migrations:v1',0))`.
    All deploy operators must use the same agreed lock; otherwise this provides
    no cross-operator exclusion. Do not change a previously established lock key.
-2. Lock the approved ledger table; compare every applied migration ID/checksum
-   and source SHA. Approved new-ledger fields must include unique migration ID,
-   SHA256, full source commit, applied timestamp and successful result. Bootstrap
-   it only if separately approved after schema/ledger reconciliation.
-3. From a clean checkout of the pinned final SHA, use `sha256sum migrations/*.sql`
-   and compare to the readiness manifest. Apply only the missing contiguous UP
-   suffix 0001→0006 using `\ir` with reviewed absolute paths in this same session.
+2. `LOCK TABLE public.physcratic_integration_migrations IN EXCLUSIVE MODE` and
+   repeat the ledger/catalog assertions within the transaction. Require the
+   verified prefix and absence of the proposed suffix's objects. All migration
+   actors must honor the same lock; a table lock alone does not stop arbitrary DDL.
+3. From a clean checkout of the pinned final SHA, verify the six-file manifest.
+   For the supplied prefix, apply only **0004→0005→0006** using `\ir` with
+   reviewed absolute paths in this same session. Never replay 0001–0003.
    Do not release savepoints within migrations. Existing objects or checksum
    mismatch are errors. Do not use schema push or modify any migration file.
 4. Insert a successful ledger entry for each applied UP in the same transaction,
@@ -100,9 +182,24 @@ Proposed reviewed procedure, one direct non-transaction-pooled psql session:
 5. Inspect committed ledger/schema in a fresh read-only session, including FKs,
    sealing/attempt/reveal guards and discovery expression indexes/function.
 
-Use the actual existing ledger's reviewed SQL, not guessed table/column names.
-An operator must author/review the concrete ledger statements before execution;
-this intentionally gated procedure is not a ready-to-run production script.
+Concrete append statements for the supplied ledger, after each corresponding UP,
+in the same transaction (psql `release_sha` must be the approved full source SHA;
+never use a disposable test/build value):
+
+```sql
+INSERT INTO public.physcratic_integration_migrations(id,sha256,source_commit,result)
+VALUES ('0004_authored_attempts','e52abd4fa47e2c8abdc609fdc79c32c2f78a284df90b859463ae217abed7e423',:'release_sha','verified');
+INSERT INTO public.physcratic_integration_migrations(id,sha256,source_commit,result)
+VALUES ('0005_authored_solution_access','65dfc1a1137cf963b7e579931fde6d8c315d0bfb8dbd6c465a8cc70d741335e4',:'release_sha','verified');
+INSERT INTO public.physcratic_integration_migrations(id,sha256,source_commit,result)
+VALUES ('0006_authored_discovery','3ed763699a4e58512604fe6b738dc7e8440c1f2291501e1c29fa2da07dd8a37f',:'release_sha','verified');
+```
+
+Do not run these inserts on their own or to bless pre-existing unledgered objects.
+Validate permissions, defaults and the approved source SHA before execution;
+then assert the exact six-entry ledger, valid FKs/triggers/indexes and preserved
+record counts/IDs before COMMIT. The tested SQL is compatible with the supplied
+ledger on PG18.6; actual target drift/role/lock/backup review is still required.
 0005 must exist before explicit grants/reveals/assisted attempts are exposed;
 0006 must exist before indexed word search is exposed. Complete the compatible
 serving-instance rollout together; old cached clients may require reload.
@@ -112,7 +209,9 @@ serving-instance rollout together; old cached clients may require reload.
 Only after gates1–2 pass and explicit approval for controlled staging writes:
 
 - Register disposable author/student accounts; verify real email delivery and
-  link expiry/single use, sign-in/out/return paths and verified-email gating.
+  one-hour link expiry, idempotent replay without automatic sign-in, fresh
+  password sign-in/out/return paths and verified-email gating. This SDK's signed
+  verification links are not single-use tokens; do not claim otherwise.
   Test configured same-origin POSTs and reject foreign/missing origins, guest,
   unverified and cross-account access without disclosing existence/private data.
 - Author creates multipart native math/text with numeric, expression and manual
@@ -159,7 +258,8 @@ manual approval for merge, production migration and deployment separately.
 A PR or merge is not staging/production authorization. No production action is
 part of Phase8B. Stop after audit/handoff and draft PR attempt.
 
-Before gate1 write authorization, also close the current local library-browser
-infrastructure gap in a recovered disposable workspace. The fresh authoring and
-student suites passed; repeat the library with adequate scratch capacity. Retain
-its desktop/mobile light/dark axe, private exclusion and keyset navigation checks.
+The local library-browser infrastructure gap is now closed. All three suites
+pass in the clean disposable workspace on PG18.6; retained evidence includes
+library desktop/mobile light/dark axe, privacy and keyset navigation. Reproduction
+commands, evidence scope, auth behavior and remaining gates are in the validation
+report. No local pass substitutes for the separately approved live checks above.

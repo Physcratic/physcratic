@@ -4,8 +4,9 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 docker_local=(env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock)
 container="physcratic-authoring-test-$$"
+image="${AUTHORING_TEST_POSTGRES_IMAGE:-postgres:17-alpine}"
 trap '"${docker_local[@]}" rm -f "$container" >/dev/null' EXIT
-"${docker_local[@]}" run --rm -d --name "$container" -e POSTGRES_PASSWORD=local-test-only -e POSTGRES_DB=physcratic_authoring_test -p 127.0.0.1::5432 postgres:17-alpine >/dev/null
+"${docker_local[@]}" run --rm -d --name "$container" -e POSTGRES_PASSWORD=local-test-only -e POSTGRES_DB=physcratic_authoring_test -p 127.0.0.1::5432 "$image" >/dev/null
 ready=false
 for attempt in {1..30}; do
   if "${docker_local[@]}" exec "$container" pg_isready -U postgres >/dev/null 2>&1; then ready=true; break; fi

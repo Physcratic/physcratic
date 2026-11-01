@@ -5,6 +5,20 @@ on2026-10-31 (Asia/Makassar). No variables were decrypted and no infrastructure
 or database modifications were made. This agent records that evidence without
 claiming direct Vercel/Neon provider access. No secret values are included.
 
+Subsequent user-supplied evidence (not re-fetched from providers here): READY
+branch alias `https://financial-dashboard-git-codex-physcr-54d12a-neuterions-projects.vercel.app`,
+deployment `dpl_CairGvgTKpWzVX2QPGAYqcni9qYJ`, SHA
+`4e18931e1c3e2f18271e6ff9f274a158c0c40f9a`. This deployed SHA does not include
+the unpushed Blob patch. Candidate Neon endpoint `ep-green-waterfall-b7qaw260`
+belongs to the integration branch/database already inventoried below and reports
+PG18.6. Its supplied six-column ledger records 0001–0003 with matching checksums
+and source `b191dd03d62aa4b01e7a3f08272b2417643f0d53`; no 0004–0006 ledger rows
+were observed. Neither effective Vercel connectivity nor current schema-object
+absence follows from that evidence. Exact ledger, local compatibility results,
+required configuration and remaining gates: [staging validation](AUTHORING_STAGING_VALIDATION.md).
+The earlier metadata below remains historical; no configuration changes or live
+checks were made during the local follow-up.
+
 ## Confirmed project and deployment mapping
 
 - Team: `neuterions-projects`; project: `financial-dashboard`.

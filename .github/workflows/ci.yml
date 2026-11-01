@@ -19,7 +19,7 @@ jobs:
     timeout-minutes: 20
     services:
       postgres:
-        image: postgres:17-alpine
+        image: postgres:18.6-alpine
         env:
           POSTGRES_PASSWORD: local-test-only
           POSTGRES_DB: physcratic_authoring_test
@@ -45,7 +45,15 @@ jobs:
         env:
           # CI service only; never a shared/production DATABASE_URL or secret.
           AUTHORING_TEST_DATABASE_URL: postgresql://postgres:local-test-only@127.0.0.1:5432/physcratic_authoring_test
+          AUTHORING_TEST_EXPECTED_VERSION: "18.6"
         run: pnpm test
+      - name: Reviewed release package and staging mail transport guard
+        env:
+          AUTHORING_TEST_DATABASE_URL: postgresql://postgres:local-test-only@127.0.0.1:5432/physcratic_authoring_test
+        run: |
+          (cd scripts/authoring-release && sha256sum -c PACKAGE_SHA256SUMS)
+          node --test scripts/authoring-release/release.test.mjs
+          pnpm exec tsx --conditions=react-server --test scripts/authoring-release/mail-audit.test.ts
       - name: Production build (local licensed Inter; no live font download)
         run: pnpm build
       # Browser harnesses additionally require Playwright, axe and Chromium.

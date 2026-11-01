@@ -1,5 +1,6 @@
 import { createHash, randomUUID } from "node:crypto";
 import { put, del } from "@vercel/blob";
+import { authoringPreviewBlobCredentials } from "@/lib/author-media-storage";
 import { and, count, eq, gte, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { solutionEvidence } from "@/lib/db/schema";
@@ -45,13 +46,14 @@ export async function POST(request: Request) {
     });
     if (reservation instanceof Response) return reservation;
     reserved = reservation;
-    await put(pathname, bytes, { access: "private", contentType: mediaType, addRandomSuffix: false, abortSignal: AbortSignal.timeout(10000) });
+    await put(pathname, bytes, { ...await authoringPreviewBlobCredentials(pathname), access: "private", contentType: mediaType, addRandomSuffix: false, abortSignal: AbortSignal.timeout(10000) });
     return Response.json({ id, filename, mediaType, bytes: bytes.length, sha256 }, { status: 201, headers: { "Cache-Control": "private, no-store" } });
   } catch (error) {
     if (reserved) {
+      const cleanupPath = reserved.pathname;
       const cleanup = await Promise.allSettled([
         db.delete(solutionEvidence).where(and(eq(solutionEvidence.id, reserved.id), eq(solutionEvidence.userId, reserved.userId))),
-        del(reserved.pathname),
+        authoringPreviewBlobCredentials(cleanupPath).then((credentials) => del(cleanupPath, credentials)),
       ]);
       if (cleanup.some((result) => result.status === "rejected")) console.error("Evidence cleanup requires retry");
     }

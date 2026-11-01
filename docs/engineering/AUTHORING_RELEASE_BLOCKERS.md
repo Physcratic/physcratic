@@ -5,6 +5,12 @@ deployment approval. [Phase8A evidence](AUTHORING_PHASE8A.md) records225/225 tes
 zero lint warnings, TypeScript/build, browser/PG gates and completed independent
 6C-B/7 review. Inherited font/lint/corpus blockers are resolved.
 
+Latest local checkpoint: [post-handoff staging validation](AUTHORING_STAGING_VALIDATION.md).
+The clean library/authoring/student browser suites pass on disposable PostgreSQL
+18.6; ENOSPC is resolved without deleting shared/user files. Exact supplied ledger
+compatibility and populated 0003→0006 preservation pass locally. These close local
+test gaps, not the live target/configuration/backup/rollout gates below.
+
 Still required before release:
 
 - **Isolated live staging:** real Better Auth registration, verification-email
@@ -55,12 +61,16 @@ BLOCKED for controlled live staging validation:
    cover authoring; staging.physcratic.com points to auth-hardening. Actual
    authoring DB/role/Blob store and effective auth/callback origins need read-only
    verification before any separately approved configuration change or live test.
-2. **Remote schema/ledger/backup UNKNOWN.** Named Neon branches are inventoried,
-   not proven deployment connections or approved targets. Inspect/reconcile the
-   verified target's actual schema/ledger and recovery point; do not assume empty.
-3. **Recovered-workspace library browser rerun.** Fresh authoring/student suites
-   passed; library initialization failed with ENOSPC.8A pass remains prior
-   evidence only. No fresh library pass is claimed by this documentation update.
+2. **Effective target schema/backup still unverified.** The candidate's exact
+   ledger structure, historical source/checksums and PG18.6 version are now
+   supplied and reproduced locally. Its endpoint is `ep-green-waterfall-b7qaw260`.
+   It is not yet a proven isolated Vercel connection or approved migration target.
+   Inspect current catalog drift and recovery point; missing ledger entries do
+   not establish absence of 0004–0006 objects or emptiness of other tables.
+3. **Recovered-workspace browser gate CLOSED locally.** All three suites pass
+   afresh on disposable PG18.6, including the full library light/dark/mobile/axe,
+   keyset navigation and privacy checks. The historical ENOSPC is not a current
+   blocker. Live auth/mail/Blob tests still require separate approval.
 
 **Closed gates:** financial-dashboard→Physcratic repository mapping and exact8A
 Preview identity are externally verified. Remote CI for f876792 is independently

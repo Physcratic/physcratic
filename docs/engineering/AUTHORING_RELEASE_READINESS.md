@@ -4,6 +4,13 @@
 and ledger evidence is established.** Code validation is separate from runtime
 readiness. No shared writes/deployment were authorized or performed.
 
+Latest local follow-up: [staging validation](AUTHORING_STAGING_VALIDATION.md).
+The ENOSPC library gap is now closed; all three browser suites pass on disposable
+PG18.6. The exact supplied ledger contract and populated upgrade pass, along with
+307/307 tests, types, zero-warning lint and build. Effective environment isolation,
+current remote drift/backups and authorized runtime validation remain gates. The
+older checkpoint statements below are retained as historical evidence.
+
 ## Current evidence update — supersedes initial unknown mapping/CI notes below
 
 External read-only account inspection supplied by user confirms the Vercel→GitHub
