@@ -59,7 +59,7 @@ function CoachingPathways() {
         </header>
         <div className="flex flex-col gap-6 lg:flex-row">
           {pathways.map(({ icon: Icon, ...pathway }) => (
-            <article key={pathway.id} aria-labelledby={`pathway-${pathway.id}-title`} className="flex min-w-0 flex-1 flex-col items-center justify-between gap-6 rounded-3xl border border-border bg-muted p-6 text-foreground xl:p-8">
+            <article key={pathway.id} aria-labelledby={`pathway-${pathway.id}-title`} className="flex min-w-0 flex-1 flex-col items-center justify-between gap-6 rounded-3xl border border-border bg-transparent p-6 text-foreground xl:p-8">
               <div className="flex flex-col gap-5">
                 <span aria-hidden="true" className="flex size-20 items-center justify-center self-center rounded-2xl border border-border bg-background text-accent"><Icon className="size-10" strokeWidth={1.5} /></span>
                 <h3 id={`pathway-${pathway.id}-title`} className="text-balance text-2xl font-semibold tracking-tight lg:min-h-16">{pathway.title}</h3>
@@ -69,7 +69,7 @@ function CoachingPathways() {
                   <div className="flex flex-col gap-1"><dt className="font-semibold">How to get started</dt><dd className="text-pretty leading-relaxed text-muted-foreground">{pathway.gettingStarted}</dd></div>
                 </dl>
               </div>
-              <Link href={coachingGoalPaths[pathway.goal]} className="coaching-button coaching-button-secondary w-full max-w-full"><span className="flex min-h-12 items-center justify-center">{coachingGoalLinkLabels[pathway.goal]}</span></Link>
+              <Link href={coachingGoalPaths[pathway.goal]} className="coaching-button coaching-button-metallic w-full max-w-full"><span className="flex min-h-12 items-center justify-center">{coachingGoalLinkLabels[pathway.goal]}</span></Link>
             </article>
           ))}
         </div>

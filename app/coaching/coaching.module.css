@@ -32,6 +32,7 @@
 .page :global(.coaching-header .coaching-button) { min-height: 2.5rem; padding: .5rem 1rem; font-size: .875rem; }
 .page :global(.coaching-button:hover) { opacity: .9; }
 .page :global(.coaching-button-secondary) { border: 1px solid hsl(var(--accent)); background: transparent; color: hsl(var(--foreground)); }
+.page :global(.coaching-button-metallic) { border: 1px solid hsl(var(--muted-foreground)); background: hsl(var(--muted-foreground)); color: hsl(var(--background)); }
 .page :global(.coaching-button:disabled) { opacity: .35; cursor: not-allowed; }
 .page :global(a:focus-visible), .page :global(button:focus-visible), .page :global(summary:focus-visible), .page :global(input:focus-visible), .page :global(select:focus-visible) { outline: 2px solid hsl(var(--accent)); outline-offset: 4px; }
 .page :global(.coaching-hero) { display: grid; gap: 2.5rem; padding-top: 3rem; }
