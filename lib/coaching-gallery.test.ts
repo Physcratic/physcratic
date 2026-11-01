@@ -34,5 +34,6 @@ test("highlights split around the first match only", () => {
   assert.equal(splitHighlight("abc"), null);
   assert.ok(isShortPhrase("IPhO, APhO and EuPhO medallists"));
   assert.ok(!isShortPhrase("This is a whole sentence."));
-  assert.ok(!isShortPhrase("one two three four five six"));
+  assert.ok(isShortPhrase("from your first olympiad to IPhO"));
+  assert.ok(!isShortPhrase("one two three four five six seven"));
 });
