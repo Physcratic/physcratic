@@ -72,3 +72,15 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **Logic and tests:** `lib/coaching/consultation.ts`, tested in `lib/coaching-consultation.test.ts`.
 - **Indexing:** `/coaching` has `robots: { index: false, follow: true }` until Coaching Phases 2 and 3 land. Phase 3 removes it. It is not in the sitemap registry yet.
 - **Hero copy:** the intro paragraph was rewritten because the v0 text described the old options.
+
+## 2026-11-01 — Coaching Phase 2
+
+- **Copy module:** every user-visible string on `/coaching` (including aria-labels, image alt text and page metadata) now lives in `lib/coaching/content.ts`. Only the pathway list and Tally URL stay in `consultation.ts`. Components render it and hold no copy.
+- **Computed numbers:** `coachCount` and `countryCount` come from `medallists`, and class size (6), class hours (2) and package hours are derived constants. `lib/coaching-content.test.ts` rebuilds the content from a fake 3-coach, 2-country list to prove counts are not typed.
+- **Copy rules, enforced by test:** no U+2014, U+2013 or semicolon in any exported string. Banned phrases: "One-to-one", "one-to-one tutoring", "Tutor inquiry", "IGCSE", "within two days", "General physics consultation", "medalists", "Honorable". "Tutor" is also banned except in the verbatim student quote and the `#tutors` anchor. The FAQ question "Can I get one-to-one classes?" is lowercase on purpose, so the capitalised ban does not hit it.
+- **Sections, in order:** hero (one H1 with two lines, facts row, picker with helper lines), coaches `#tutors`, programs `#programs` (links to `/coaching?goal=<pathway>#hero-cta`), how a class works `#how-it-works`, scheduling `#scheduling`, packages `#packages`, your path `#your-path`, reviews, at a glance, FAQ `#faq`, final call to action, footer. The new sections are server components. The hero and the coaches gallery stay client components (they hold the pause state).
+- **Anchors:** `#how-it-works` now points at the class format section and the step cards moved to `#your-path`. Coach cards have `id="coach-{slug}"` on the first gallery copy only. The hero slideshow cards use `<p>` for names so headings stay in order and ids stay unique.
+- **Review link:** a click or hash load on `#coach-*` focuses the card (focus stops the animation and unlocks scrolling), then scrolls it to the centre, using `behavior: "auto"` under `prefers-reduced-motion`. Moving focus away resets the gallery and lets it run again.
+- **Scheduling visual:** CSS-only `<figure>`, bar positions computed from hours in the content module. Labels and time ranges sit above each bar so nothing is squeezed inside a bar at 375px. The bars are `aria-hidden` and a screen-reader sentence repeats the example.
+- **Checked:** typecheck, unit tests, one H1, headings in order, no duplicate ids, every in-page anchor resolves, no horizontal scroll at 375, 768 and 1440, banned phrases absent from the rendered page.
+- **Still open:** `/coaching` stays `noindex` until Phase 3. The mobile menu `<details>` does not close after choosing a link (no client JS added).
