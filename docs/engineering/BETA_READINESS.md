@@ -213,3 +213,16 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **Left as is:** the "Continue to the consultation form" button looks low contrast (2.1:1) only because it is disabled until a pathway is chosen, and inactive controls are exempt.
 - **Not covered:** pages behind sign-in, screen reader testing and zoom or text-size reflow.
 
+## 2026-11-02 - Performance pass
+
+- **Method:** Playwright with the Chrome network log on `pnpm build` and `next start`, at 375 (2x) and 1440, on the same ten pages as the accessibility pass. Transferred bytes (encoded, no cache) for JS and images, the largest image per page, and the attributes of every `<img>`.
+- **Key fact:** `next.config.mjs` has `images: { unoptimized: true }`, so every `next/image` serves its source file as it is. There is no resizing, no `srcset` and no WebP conversion, and `sizes` has no effect. Image weight is therefore the weight of the files in `public/`. Turning optimisation on again would count against the Vercel plan's image quota, so it was left alone.
+- **Fixed:** four coach photos in `public/coaching/medallists` were PNGs of 1.4 to 2.4 MB each (6.9 MB together), and the hero slideshow loads every one of them. They are now WebP at the same 1080x1350 size and quality 85 (PSNR above 40 dB): angel 2407 to 73 KB, kanishk 2066 to 35 KB, ermuun-battulga 1459 to 52 KB, reuben-felix 1397 to 50 KB. The `photo: 'png'` overrides in `lib/coaching/medallists.ts` are gone, so those four use the default `.webp`. Side-by-side comparison images are in `docs/engineering/perf-pass/`. `/coaching` images dropped from 8.1 MB to 1.0 MB at 375 and from 8.2 MB to 1.1 MB at 1440. JS is unchanged.
+- **JS per page (compressed transfer):** `/dashboard` 666 KB, `/coaching` 149 to 153 KB, `/coaching/consultation` and `/coaching/become-a-tutor` 153 KB, the guides 134 KB and `/terms` 130 KB. Only the dashboard stands out. It is in the Practice UI area, so it was not touched.
+- **Attributes, checked and left as they are:** the hero slideshow cards are `eager` on purpose. They sit in a clipped, moving marquee, so lazy loading would show empty cards as they slide in. Only the first card in each column has `priority`. The gallery cards below the fold are `lazy`. The header logo has `priority`. All images have `width` and `height`, so nothing shifts. At 375 the hero slideshow is below the fold, so about 24 photos (roughly 0.7 MB) load early on mobile. Making that conditional needs a viewport-aware change, so it is a follow-up.
+- **Follow-ups, not done:**
+  - The four converted photos are 1080x1350 but shown at 250 to 288 px wide. The other photos are 720x900. Resizing them to 720x900 would roughly halve them again.
+  - Flags are 640x427 PNGs (2 to 11 KB each, 76 KB in all) shown at 20x14. WebP at a smaller size would save about 40 KB per `/coaching` load. This needs code and test changes to the `.png` path.
+  - `public/logo-mark-transparent.png` is 512x512 (76 KB) shown at 28 to 40 px on every page. A 128x128 file would save about 70 KB per page. It is shared with the sidebar, so it was not touched.
+  - `public/mind-the-gap-hero.png` (1.6 MB) and `public/newton-cradle.png` (1.0 MB) are not referenced anywhere in the code, so they cost nothing at runtime but can be deleted.
+

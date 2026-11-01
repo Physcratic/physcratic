@@ -41,13 +41,13 @@ export const countryFlagCodes: Record<string, string> = {
 // <slug>-cutout.webp for the slideshow. photo: false shows a silhouette until a photo is added.
 export const medallists: Medallist[] = [
   { name: 'Rishit Garg', slug: 'rishit-garg', country: 'India', achievements: [{ contest: 'IPhO', year: '2026', medal: 'gold' }, { contest: 'APhO', year: '2025', medal: 'bronze' }] },
-  { name: 'Kanishk', slug: 'kanishk', country: 'India', achievements: [{ contest: 'IPhO', year: '2025/2026', medal: 'gold' }, { contest: 'APhO', year: '2025', medal: 'silver' }], photo: 'png' },
+  { name: 'Kanishk', slug: 'kanishk', country: 'India', achievements: [{ contest: 'IPhO', year: '2025/2026', medal: 'gold' }, { contest: 'APhO', year: '2025', medal: 'silver' }] },
   { name: 'Abhika', slug: 'abhika-atmaja', country: 'Indonesia', achievements: [{ contest: 'IPhO', year: '2026', medal: 'silver' }, { contest: 'APhO', year: '2026', medal: 'bronze' }] },
   { name: 'Ackhava', slug: 'ackhava-malonda', country: 'Indonesia', achievements: [{ contest: 'IPhO', year: '2026', medal: 'silver' }, { contest: 'APhO', year: '2026', medal: 'gold' }] },
-  { name: 'Ermuun', slug: 'ermuun-battulga', country: 'Mongolia', achievements: [{ contest: 'IPhO', year: '2026', medal: 'silver' }, { contest: 'APhO', year: '2026', medal: 'bronze' }], photo: 'png' },
-  { name: 'Reuben', slug: 'reuben-felix', country: 'Philippines', achievements: [{ contest: 'IPhO', year: '2026', medal: 'silver' }], photo: 'png' },
+  { name: 'Ermuun', slug: 'ermuun-battulga', country: 'Mongolia', achievements: [{ contest: 'IPhO', year: '2026', medal: 'silver' }, { contest: 'APhO', year: '2026', medal: 'bronze' }] },
+  { name: 'Reuben', slug: 'reuben-felix', country: 'Philippines', achievements: [{ contest: 'IPhO', year: '2026', medal: 'silver' }] },
   { name: 'Nima', slug: 'nima', country: 'Iran', achievements: [{ contest: 'IPhO', year: '2026', medal: 'silver' }], photo: false },
-  { name: 'Angel', slug: 'angel', country: 'Peru', achievements: [{ contest: 'IPhO', year: '2026', medal: 'silver' }], photo: 'png' },
+  { name: 'Angel', slug: 'angel', country: 'Peru', achievements: [{ contest: 'IPhO', year: '2026', medal: 'silver' }] },
   { name: 'Yota', slug: 'yota', country: 'Japan', achievements: [{ contest: 'IPhO', year: '2026', medal: 'silver' }], photo: false },
   { name: 'Arrow', slug: 'arrow-kristian', country: 'Indonesia', achievements: [{ contest: 'IPhO', year: '2026', medal: 'bronze' }] },
   { name: 'Juan', slug: 'juan-richie', country: 'Indonesia', achievements: [{ contest: 'IPhO', year: '2026', medal: 'bronze' }, { contest: 'APhO', year: '2026', medal: 'bronze' }] },
