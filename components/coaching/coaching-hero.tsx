@@ -3,12 +3,12 @@
 import Link from "next/link";
 import { useState } from "react";
 import { CoachingTutorSlideshow } from "./coaching-tutors";
-import { CoachingInquiryForm, coachingGoals, coachingGoalLabel } from "./coaching-inquiry";
+import { coachingGoals, coachingGoalLabel, coachingGoalPaths } from "@/lib/coaching-pathways";
 
 export function CoachingHero({ initialGoal }: { initialGoal?: string }) {
   const startingGoal = coachingGoals.find((option) => option === initialGoal) ?? "";
-  const [goal, setGoal] = useState(startingGoal);
-  const [showInquiry, setShowInquiry] = useState(false);
+  const [goal, setGoal] = useState<(typeof coachingGoals)[number] | "">(startingGoal);
+
 
   return <section className="overflow-hidden">
     <div className="coaching-container coaching-hero">
@@ -19,12 +19,11 @@ export function CoachingHero({ initialGoal }: { initialGoal?: string }) {
           <legend className="mb-4 text-lg font-bold">What brings you to Physcratic today?</legend>
           <div className="flex flex-col gap-2.5">
             {coachingGoals.map((option) => <label key={option} className="flex cursor-pointer items-center gap-4 rounded-lg border border-transparent bg-foreground/5 px-4 py-3.5 text-base font-medium transition-colors hover:bg-foreground/10 has-[:checked]:border-accent has-[:checked]:bg-foreground/10">
-              <input type="radio" name="coaching-goal" value={option} checked={goal === option} onChange={() => { setGoal(option); setShowInquiry(false); }} className="size-4 shrink-0 accent-[hsl(var(--accent))]" />
+              <input type="radio" name="coaching-goal" value={option} checked={goal === option} onChange={() => setGoal(option)} className="size-4 shrink-0 accent-[hsl(var(--accent))]" />
               {coachingGoalLabel(option)}
             </label>)}
           </div>
-          <div>{goal === "IB / A-Level / IGCSE training" ? <Link href="/coaching/training" className="coaching-button">Continue</Link> : <button type="button" className="coaching-button" disabled={!goal} aria-expanded={showInquiry} aria-controls="inquiry-form" onClick={() => setShowInquiry(true)}>Continue</button>}</div>
-          {showInquiry && <CoachingInquiryForm selectedGoal={goal} />}
+          <div>{goal ? <Link href={coachingGoalPaths[goal]} className="coaching-button">Continue</Link> : <button type="button" className="coaching-button" disabled>Continue</button>}</div>
         </fieldset>
       </div>
       <CoachingTutorSlideshow />

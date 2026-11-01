@@ -31,7 +31,7 @@ export function CoachingTutorSlideshow() {
   const [paused, setPaused] = useState(false);
   return <div className="coaching-hero-slideshow relative min-w-0">
     <div className="coaching-marquee" role="group" aria-label="Featured Physcratic tutors" data-paused={paused}>
-      {[0, 1].map((column) => <ul key={column} className="coaching-marquee-column" style={{ "--marquee-duration": column ? "300s" : "260s", "--marquee-direction": column ? "reverse" : "normal" } as CSSProperties}>
+      {[0, 1].map((column) => <ul key={column} className="coaching-marquee-column" style={{ "--marquee-duration": column ? "150s" : "130s", "--marquee-direction": column ? "reverse" : "normal" } as CSSProperties}>
         {[0, 1].map((copy) => medallists.filter((_, index) => index % 2 === column).map((tutor, index) => <li key={`${copy}-${tutor.slug}`} aria-hidden={copy === 1 ? true : undefined} className="pb-3 lg:pb-4"><CoachingTutorCard tutor={tutor} priority={!copy && !index} eager /></li>))}
       </ul>)}
     </div>

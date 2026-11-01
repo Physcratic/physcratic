@@ -1,11 +1,13 @@
 import { z } from "zod";
 import { trainingInquirySchema, trainingInquiryToRecord } from "@/lib/coaching-training";
+import { coachingApplicationSchema, coachingApplicationToRecord } from "@/lib/coaching-inquiries";
 import { db } from "@/lib/db";
 import { coachingInquiries } from "@/lib/db/schema";
 import { readSubmissionJson } from "@/lib/submission-request";
 import { isSubmissionOrigin, submissionError } from "@/lib/submission-server";
 
 const inquirySchema = z.object({
+  formType: z.undefined(),
   pathway: z.enum(["General physics consultation", "IB / A-Level / IGCSE training", "Tutor inquiry"]),
   audience: z.enum(["Student", "Parent", "Tutor applicant"]),
   currentLevel: z.string().trim().min(1).max(100),
@@ -16,6 +18,7 @@ const inquirySchema = z.object({
 const submissionSchema = z.union([
   inquirySchema,
   trainingInquirySchema.transform(trainingInquiryToRecord),
+  coachingApplicationSchema.transform(coachingApplicationToRecord),
 ]);
 
 export const runtime = "nodejs";

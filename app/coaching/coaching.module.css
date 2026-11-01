@@ -25,7 +25,7 @@
 }
 
 .page :global(.font-serif) { font-family: var(--font-coaching-display), Impact, sans-serif; }
-.page :global(section[id]) { scroll-margin-top: 5rem; }
+.page :global(section[id]), .page :global(#hero-cta) { scroll-margin-top: 5rem; }
 .page :global(.coaching-container) { width: 100%; max-width: 72rem; margin-inline: auto; padding-inline: 1.5rem; }
 .page :global(.coaching-header) { position: sticky; top: 0; z-index: 40; border-bottom: 1px solid hsl(var(--border)); background: hsl(var(--background) / .94); backdrop-filter: blur(12px); }
 .page :global(.coaching-button) { display: inline-flex; min-height: 3rem; align-items: center; justify-content: center; gap: .5rem; border-radius: .5rem; padding: .75rem 1.5rem; background: hsl(var(--accent)); color: hsl(var(--accent-foreground)); font-size: 1rem; font-weight: 700; text-align: center; transition: opacity .15s; }
@@ -41,10 +41,10 @@
 .page :global(.coaching-portrait) { position: relative; overflow: hidden; border-radius: 0; background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
 .page :global(.coaching-portrait-image) { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; border-radius: 0; object-fit: cover; }
 .page :global(.coaching-portrait[data-country-backdrop]) { background: transparent; }
-.page :global(.coaching-portrait-artwork) { position: relative; isolation: isolate; background: transparent; filter: grayscale(1); transition: filter 200ms cubic-bezier(.37, 0, .63, 1); }
+.page :global(.coaching-portrait-artwork) { position: relative; isolation: isolate; background: transparent; }
 .page :global(.coaching-country-flag) { object-fit: contain; object-position: center; }
-.page :global(.coaching-portrait-artwork .coaching-portrait-image) { position: relative; z-index: 1; }
-.page :global(.coaching-portrait[data-country-backdrop]:hover .coaching-portrait-artwork), .page :global(.coaching-portrait[data-country-backdrop]:focus-visible .coaching-portrait-artwork) { filter: grayscale(0); }
+.page :global(.coaching-portrait-artwork .coaching-portrait-image) { position: relative; z-index: 1; filter: grayscale(1); transition: filter 200ms cubic-bezier(.37, 0, .63, 1); }
+.page :global(.coaching-portrait[data-country-backdrop]:hover .coaching-portrait-image), .page :global(.coaching-portrait[data-country-backdrop]:focus-visible .coaching-portrait-image) { filter: grayscale(0); }
 .page :global(.coaching-portrait-copy) { position: absolute; inset: auto 0 0; display: flex; flex-direction: column; align-items: center; gap: .375rem; padding: 5rem 1rem 1rem; background: linear-gradient(transparent, hsl(var(--background) / .88)); color: hsl(var(--foreground)); text-align: center; }
 .page :global(.coaching-portrait[data-country-backdrop] .coaching-portrait-copy) { position: static; padding: .75rem 0 0; background: none; }
 .page :global(.coaching-portrait-copy p) { overflow-wrap: anywhere; }
