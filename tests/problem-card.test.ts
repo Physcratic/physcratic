@@ -10,9 +10,9 @@ import {
 import { ArenaCollection } from "../components/physics/arena-collection";
 import { ProblemCollection } from "../components/physics/problem-collection";
 import { OlympiadProblemCard } from "../components/physics/olympiad-problem-card";
-import { catalogProblems } from "./corpus-catalog";
-import arena from "./arena/index.json";
-import { getEstimatedProblemElo } from "./problem-archive";
+import { catalogProblems } from "../lib/corpus-catalog";
+import arena from "../lib/arena/index.json";
+import { getEstimatedProblemElo } from "../lib/problem-archive";
 
 const base = {
   id: "test-problem",

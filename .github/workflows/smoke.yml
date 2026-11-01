@@ -1,0 +1,115 @@
+name: Smoke tests
+
+# GitHub runs deployment_status and workflow_dispatch workflows from the default branch,
+# so changes to this file only take effect once they are on main.
+on:
+  deployment_status:
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: Base URL to test, for example https://financial-dashboard-git-branch-team.vercel.app
+        required: true
+        type: string
+      env:
+        description: Which robots.txt rules to expect
+        required: true
+        type: choice
+        options:
+          - preview
+          - production
+        default: preview
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  smoke:
+    name: Smoke tests
+    # Only successful financial-dashboard deployments. The physcratic-integration project is ignored.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.deployment_status.state == 'success' &&
+       contains(github.event.deployment.environment, 'financial-dashboard'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      EVENT_NAME: ${{ github.event_name }}
+      DEPLOY_ENVIRONMENT: ${{ github.event.deployment.environment }}
+      DEPLOY_SHA: ${{ github.event.deployment.sha }}
+      ENVIRONMENT_URL: ${{ github.event.deployment_status.environment_url }}
+      TARGET_URL: ${{ github.event.deployment_status.target_url }}
+      INPUT_BASE_URL: ${{ inputs.base_url }}
+      INPUT_ENV: ${{ inputs.env }}
+      VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Work out what to test
+        id: target
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$EVENT_NAME" == workflow_dispatch ]]; then
+            source="the manual base_url input"
+            base_url="$INPUT_BASE_URL"
+            smoke_env="$INPUT_ENV"
+          else
+            if [[ -n "$ENVIRONMENT_URL" ]]; then
+              source="environment_url"; base_url="$ENVIRONMENT_URL"
+            else
+              source="target_url"; base_url="$TARGET_URL"
+            fi
+            if [[ "$DEPLOY_ENVIRONMENT" == Production* ]]; then smoke_env=production; else smoke_env=preview; fi
+          fi
+          # Trim spaces and trailing slashes, then add https:// when there is no scheme.
+          base_url="${base_url#"${base_url%%[![:space:]]*}"}"
+          base_url="${base_url%"${base_url##*[![:space:]]}"}"
+          while [[ "$base_url" == */ ]]; do base_url="${base_url%/}"; done
+          if [[ -z "$base_url" ]]; then
+            echo "::error::The base URL is empty. It came from $source."
+            exit 1
+          fi
+          if [[ ! "$base_url" =~ ^[A-Za-z][A-Za-z0-9+.-]*:// ]]; then base_url="https://$base_url"; fi
+          if [[ ! "$base_url" =~ ^https:// ]]; then
+            echo "::error::The base URL must use https (got '${base_url}'). It came from $source."
+            exit 1
+          fi
+          if [[ "$smoke_env" == preview && -z "$VERCEL_AUTOMATION_BYPASS_SECRET" ]]; then
+            echo "::error::The repository secret VERCEL_AUTOMATION_BYPASS_SECRET is missing. Preview deployments are behind Vercel Deployment Protection, so the smoke tests cannot reach them without it. Copy the value from Vercel, Project Settings, Deployment Protection, Protection Bypass for Automation, and add it under Settings, Secrets and variables, Actions."
+            exit 1
+          fi
+          echo "base_url=$base_url" >> "$GITHUB_OUTPUT"
+          echo "smoke_env=$smoke_env" >> "$GITHUB_OUTPUT"
+          echo "Testing $base_url as $smoke_env (URL from $source)"
+      - name: Mark commit status pending
+        if: github.event_name == 'deployment_status'
+        shell: bash
+        run: |
+          gh api "repos/${{ github.repository }}/statuses/$DEPLOY_SHA" \
+            -f state=pending -f context="Smoke tests" -f description="Running" -f target_url="$RUN_URL"
+      - name: Smoke tests
+        id: smoke
+        shell: bash
+        env:
+          SMOKE_ENV: ${{ steps.target.outputs.smoke_env }}
+          BASE_URL: ${{ steps.target.outputs.base_url }}
+        run: node scripts/smoke.mjs "$BASE_URL"
+      - name: Report commit status
+        # Manual runs have no deployment to attach a status to, they only write the step summary.
+        if: always() && github.event_name == 'deployment_status'
+        shell: bash
+        env:
+          SMOKE_OUTCOME: ${{ steps.smoke.outcome }}
+        run: |
+          if [[ "$SMOKE_OUTCOME" == success ]]; then
+            state=success; description="All smoke checks passed"
+          else
+            state=failure; description="Smoke tests failed, open the run for details"
+          fi
+          gh api "repos/${{ github.repository }}/statuses/$DEPLOY_SHA" \
+            -f state="$state" -f context="Smoke tests" -f description="$description" -f target_url="$RUN_URL"

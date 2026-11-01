@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
+  // Render metadata in <head> for every user agent (incl. AI crawlers and link unfurlers).
+  htmlLimitedBots: /.*/,
   images: {
     unoptimized: true,
   },

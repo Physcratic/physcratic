@@ -85,6 +85,12 @@ export const contestRatings = pgTable("contest_rating", {
   rating: integer("rating").notNull(), change: integer("change").notNull(), createdAt: timestamp("createdAt", { withTimezone: true }).notNull().defaultNow(),
 }, (table) => [unique("contest_rating_userId_contestId_key").on(table.userId, table.contestId)]);
 
+export const coachingInquiries = pgTable("coaching_inquiry", {
+  id: uuid("id").primaryKey().defaultRandom(), pathway: text("pathway").notNull(), audience: text("audience").notNull(),
+  currentLevel: text("current_level").notNull(), goals: text("goals").notNull(), contact: text("contact").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
 export const archiveProgress = pgTable("archive_progress", {
   userId: text("userId").notNull(), taskId: text("taskId").notNull(), reviewed: boolean("reviewed").notNull().default(false),
   notes: text("notes").notNull().default(""), answer: text("answer").notNull().default(""), updatedAt: timestamp("updatedAt", { withTimezone: true }).notNull().defaultNow(),

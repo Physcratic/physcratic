@@ -3,17 +3,26 @@ import { Inter } from "next/font/google";
 import "katex/dist/katex.min.css";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Analytics } from "@vercel/analytics/next";
+import { SITE, baseOpenGraph, siteUrl } from "@/lib/site";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: {
-    default: "Physcratic | Physics practice and contests",
-    template: "%s | Physcratic",
+  metadataBase: new URL(siteUrl()),
+  title: { default: SITE.defaultTitle, template: "%s | Physcratic" },
+  description: SITE.description,
+  applicationName: SITE.name,
+  // No alternates.canonical or openGraph.url here: pages would inherit them.
+  openGraph: baseOpenGraph,
+  twitter: { card: "summary_large_image" },
+  icons: {
+    icon: [
+      { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
   },
-  description:
-    "Explore 100 imported IPhO, APhO and EuPhO theory problems with original diagrams and clearly labeled English translation drafts. Save private typed or handwritten solution attempts. Automated grading awaits approved marking rubrics.",
-  icons: { icon: "/icon.svg" },
 };
 
 export const viewport: Viewport = {
@@ -41,6 +50,7 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

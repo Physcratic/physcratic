@@ -1,15 +1,23 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState, type CSSProperties } from "react";
-import { ArrowLeft, ArrowRight, Pause, Play } from "lucide-react";
-import { medallists, medallistStats, medalLabel, type Medallist } from "@/lib/coaching/medallists";
+import { useEffect, useState, type CSSProperties, type KeyboardEvent } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import AutoScroll from "embla-carousel-auto-scroll";
+import { Pause, Play } from "lucide-react";
+import { countryFlagCodes, medallists, medallistStats, medalLabel, type Medallist } from "@/lib/coaching/medallists";
+import abhikaPortrait from "@/public/coaching/medallists/abhika-atmaja-cutout.webp";
 
-export function CoachingTutorCard({ tutor, priority = false, eager = false }: { tutor: Medallist; priority?: boolean; eager?: boolean }) {
+export function CoachingTutorCard({ tutor, priority = false, eager = false, countryBackdrop = false, focusable = true }: { tutor: Medallist; priority?: boolean; eager?: boolean; countryBackdrop?: boolean; focusable?: boolean }) {
   const extension = ["angel", "kanishk", "ermuun-battulga", "reuben-felix"].includes(tutor.slug) ? "png" : "webp";
   const hasPortrait = !["nima", "yota"].includes(tutor.slug);
-  return <article className="coaching-portrait">
-    {hasPortrait ? <Image src={`/coaching/medallists/${tutor.slug}.${extension}`} alt={`${tutor.name}, physics tutor from ${tutor.country}`} width={720} height={900} sizes="(min-width: 1024px) 260px, (min-width: 640px) 288px, 45vw" priority={priority} loading={priority ? undefined : eager ? "eager" : "lazy"} className="coaching-portrait-image" /> : <div className="coaching-portrait-image flex items-center justify-center font-serif text-7xl" aria-hidden="true">{tutor.name.charAt(0)}</div>}
+  const flagCode = countryFlagCodes[tutor.country];
+  const cutout = tutor.slug === "abhika-atmaja" ? abhikaPortrait : `/coaching/medallists/${tutor.slug}-cutout.webp`;
+  return <article className="coaching-portrait" data-country-backdrop={countryBackdrop || undefined} tabIndex={countryBackdrop && focusable ? 0 : undefined}>
+    <div className={countryBackdrop ? "coaching-portrait-artwork" : undefined}>
+      {countryBackdrop && flagCode && <Image src={`/coaching/flags/${flagCode}.png`} alt="" aria-hidden="true" fill sizes="(min-width: 640px) 288px, 256px" className="coaching-country-flag" />}
+      {hasPortrait ? <Image src={countryBackdrop ? cutout : `/coaching/medallists/${tutor.slug}.${extension}`} alt={`${tutor.name}, physics tutor from ${tutor.country}`} width={720} height={900} sizes="(min-width: 640px) 288px, 256px" priority={priority} loading={priority ? undefined : eager ? "eager" : "lazy"} className="coaching-portrait-image" /> : <div className="coaching-portrait-image flex items-center justify-center font-serif text-7xl" aria-hidden="true">{tutor.name.charAt(0)}</div>}
+    </div>
     <div className="coaching-portrait-copy">
       <p className="text-sm uppercase tracking-widest opacity-80">{tutor.country}</p>
       <h3 className="font-serif text-lg uppercase leading-tight text-balance sm:text-xl">{tutor.name}</h3>
@@ -23,7 +31,7 @@ export function CoachingTutorSlideshow() {
   const [paused, setPaused] = useState(false);
   return <div className="coaching-hero-slideshow relative min-w-0">
     <div className="coaching-marquee" role="group" aria-label="Featured Physcratic tutors" data-paused={paused}>
-      {[0, 1].map((column) => <ul key={column} className="coaching-marquee-column" style={{ "--marquee-duration": column ? "110s" : "90s", "--marquee-delay": column ? "-40s" : "0s" } as CSSProperties}>
+      {[0, 1].map((column) => <ul key={column} className="coaching-marquee-column" style={{ "--marquee-duration": column ? "150s" : "130s", "--marquee-direction": column ? "reverse" : "normal" } as CSSProperties}>
         {[0, 1].map((copy) => medallists.filter((_, index) => index % 2 === column).map((tutor, index) => <li key={`${copy}-${tutor.slug}`} aria-hidden={copy === 1 ? true : undefined} className="pb-3 lg:pb-4"><CoachingTutorCard tutor={tutor} priority={!copy && !index} eager /></li>))}
       </ul>)}
     </div>
@@ -33,27 +41,61 @@ export function CoachingTutorSlideshow() {
   </div>;
 }
 
-export function CoachingTutors() {
-  const gallery = useRef<HTMLUListElement>(null);
-  function scroll(direction: number) {
-    gallery.current?.scrollBy({ left: direction * gallery.current.clientWidth * .8, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+function CoachingTutorGallery() {
+  const [autoScroll] = useState(() => AutoScroll({ speed: 0.6, startDelay: 0, playOnInit: true, stopOnInteraction: true, stopOnMouseEnter: false, stopOnFocusIn: true }));
+  const [viewportRef, carousel] = useEmblaCarousel({ loop: true, align: "start" }, [autoScroll]);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (!carousel) return;
+    const onPlay = () => setPaused(false);
+    const onStop = () => setPaused(true);
+    carousel.on("autoScroll:play", onPlay).on("autoScroll:stop", onStop);
+    setPaused(!autoScroll.isPlaying());
+    return () => {
+      carousel.off("autoScroll:play", onPlay).off("autoScroll:stop", onStop);
+    };
+  }, [carousel, autoScroll]);
+
+  function togglePlayback() {
+    if (!carousel) return;
+    if (autoScroll.isPlaying()) autoScroll.stop();
+    else autoScroll.play(0);
   }
+
+  function handleKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    event.preventDefault();
+    autoScroll.stop();
+    if (event.key === "ArrowLeft") carousel?.scrollPrev();
+    else carousel?.scrollNext();
+  }
+
+  return <div className="flex min-w-0 flex-col gap-6">
+    <p id="coaching-tutor-slider-instructions" className="sr-only">Tutors scroll automatically. Drag left or right to pause on a tutor. Use the play button to resume, or the arrow keys to browse.</p>
+    <div ref={viewportRef} id="coaching-tutor-gallery" className="coaching-gallery-viewport" data-paused={paused} role="region" aria-roledescription="carousel" aria-label="Physcratic tutors" aria-describedby="coaching-tutor-slider-instructions" tabIndex={0} onFocus={() => autoScroll.stop()} onKeyDown={handleKeyDown}>
+      <ul className="coaching-gallery-track coaching-gallery" aria-label="Physcratic tutors">
+        {medallists.map((tutor) => <li key={tutor.slug}><CoachingTutorCard tutor={tutor} countryBackdrop /></li>)}
+      </ul>
+    </div>
+    <button type="button" aria-label={paused ? "Play tutor slider" : "Pause tutor slider"} aria-controls="coaching-tutor-gallery" aria-pressed={paused} disabled={!carousel} onClick={togglePlayback} className="coaching-gallery-toggle inline-flex size-11 shrink-0 items-center justify-center self-end rounded-full border border-border text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-40">
+      {paused ? <Play className="size-5" aria-hidden="true" /> : <Pause className="size-5" aria-hidden="true" />}
+    </button>
+  </div>;
+}
+
+export function CoachingTutors() {
   return <section id="tutors" className="py-20">
     <div className="coaching-container flex min-w-0 flex-col gap-8">
-      <div className="flex max-w-2xl flex-col gap-4">
-        <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">Our tutors</p>
-        <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">Taught by people who have stood on the Olympiad stage.</h2>
+      <div className="flex w-full max-w-2xl flex-col items-center gap-4 self-center text-center">
+        <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">Meet our physics tutors</h2>
         <p className="max-w-xl leading-relaxed text-muted-foreground">Every tutor has medalled at national, Asian, or international level. We match each student to the tutor whose strengths fit their syllabus and goals.</p>
-        <dl className="flex flex-wrap gap-10">
+        <dl className="flex flex-wrap justify-center gap-10">
           <div><dt className="text-sm text-muted-foreground">Tutors</dt><dd className="text-2xl font-semibold">{medallistStats.count}</dd></div>
           <div><dt className="text-sm text-muted-foreground">Countries represented</dt><dd className="text-2xl font-semibold">{medallistStats.countries}</dd></div>
         </dl>
       </div>
-      <div className="flex justify-end gap-2">
-        <button type="button" aria-label="Previous tutors" onClick={() => scroll(-1)} className="flex size-10 items-center justify-center rounded-full border border-border"><ArrowLeft className="size-4" aria-hidden="true" /></button>
-        <button type="button" aria-label="Next tutors" onClick={() => scroll(1)} className="flex size-10 items-center justify-center rounded-full border border-border"><ArrowRight className="size-4" aria-hidden="true" /></button>
-      </div>
-      <ul className="coaching-gallery" ref={gallery} aria-label="Physcratic tutors">{medallists.map((tutor) => <li key={tutor.slug}><CoachingTutorCard tutor={tutor} /></li>)}</ul>
+      <CoachingTutorGallery />
     </div>
   </section>;
 }
