@@ -155,3 +155,15 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **New block type:** `guideLink`, checked by test against real slugs and heading ids.
 - **Sources:** K1 to K4 are dated 2026-11-02. They came with the task and could not be fetched from the build environment, so they were not independently re-checked.
 - **Checked:** word counts (D is 721 words, within 700 to 1,200), copy-rules test, typecheck, 276 of 281 unit tests pass with 0 fail, `pnpm build`, and 20 page views (five pages at 375px and 1280px in both themes) with no horizontal scroll.
+
+## 2026-11-02 - Coaching restore (Phase 2c on top of the v0 merge)
+
+- **Why:** v0 commits on main (up to `c590272`) replaced the coaching hero, sections, gallery and roster with a prototype. The coaching area was restored from PR #33 (`2e8e886`) on purpose. A new v0 session must start from `main`.
+- **Taken from PR #33:** hero, sections, gallery with arrows and "See all", coach cards and medal chips, placeholder avatar, review, highlights, hover and scroll-in motion, smooth scrolling, `content.ts` as the one source of copy and their tests. `public/icon-*.png` were not taken, so `icon-512.png` stays the opaque tile the sidebar uses.
+- **Kept from v0:** Bowlby One as the display font (so no faux bold, names are weight 400), no `noindex`, and greyscale on the cutout photo only (the flag behind stays in colour).
+- **Roster:** all 19 coaches again. Mohammed (photo), Ignat, Nima and Yota (`photo: false`, silhouette) are visible, and the `hidden` field is gone.
+- **Tally:** `consultation.ts` has `CONSULTATION_FORM_URL`, `TUTOR_FORM_URL`, `coachingPathways`, `consultationHref()`, `consultationSource()` and the new `tutorFormHref()`. `/coaching/consultation` and `/coaching/become-a-tutor` are short intro pages with one button each (pathway "Not sure yet" and source, or source only). `/coaching/training` is removed.
+- **Removed:** the in-house inquiry form and its API route, `lib/coaching-inquiries.ts`, `lib/coaching-training.ts`, `lib/coaching-pathways.ts`, the unused world map and their tests.
+- **SEO:** `/coaching`, `/coaching/consultation` and `/coaching/become-a-tutor` are in `lib/seo/public-routes.ts` (kind `coaching`), so they reach the sitemap, and a "Coaching" section in `llms.txt`.
+- **Still open, after the staging migration:** `coachingInquiries` in `lib/db/schema.ts` is unused and can be dropped, and so can `react-simple-maps` in `package.json`.
+
