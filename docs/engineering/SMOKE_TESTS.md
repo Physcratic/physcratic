@@ -37,7 +37,7 @@ Each prints one `PASS`, `FAIL` or `SKIP` line. Any `FAIL` makes the script exit 
 - `/opengraph-image` answers 200 as `image/png`
 - `/api/health` answers 200 with `ok: true`. A 404 is a SKIP ("arrives in Batch 7")
 
-Redirects are not followed (except the one allowed for `/`), so a redirect shows up as a failure. Requests use a crawler User-Agent, because Next.js 15 only puts metadata in `<head>` for crawlers and streams it into `<body>` for browsers. Override it with `SMOKE_USER_AGENT`.
+Redirects are not followed (except the one allowed for `/`), so a redirect shows up as a failure. Requests send the User-Agent `PhyscraticSmoke/1.0 (+https://physcratic.com)`. `next.config.mjs` sets `htmlLimitedBots` to match every User-Agent, so metadata is always rendered into `<head>`. Override the User-Agent with `SMOKE_USER_AGENT`.
 
 ## Run it locally
 

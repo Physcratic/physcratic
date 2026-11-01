@@ -16,12 +16,9 @@ import { appendFileSync } from 'node:fs'
 
 const CANONICAL_ORIGIN = 'https://physcratic.com'
 const TIMEOUT_MS = 20_000
-// Next.js 15 streams metadata into <body> for ordinary browsers, and only puts it in <head>
-// for crawlers. Search engines and link unfurlers are the audience for these checks, so the
-// default User-Agent is a crawler one.
-const USER_AGENT =
-  process.env.SMOKE_USER_AGENT ||
-  'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html) PhyscraticSmoke/1.0'
+// next.config.mjs sets htmlLimitedBots to match every User-Agent, so metadata is always
+// rendered into <head> and a plain identifying User-Agent is enough.
+const USER_AGENT = process.env.SMOKE_USER_AGENT || 'PhyscraticSmoke/1.0 (+https://physcratic.com)'
 
 const baseArg = process.argv[2]
 const smokeEnv = process.env.SMOKE_ENV
