@@ -9,16 +9,26 @@ import abhikaPortrait from "@/public/coaching/medallists/abhika-atmaja-cutout.we
 
 const { hero, coaches } = content;
 
+function CoachingSilhouette({ backdrop }: { backdrop: boolean }) {
+  return <svg viewBox="0 0 720 900" aria-hidden="true" focusable="false" className="coaching-portrait-image">
+    {!backdrop && <rect width="720" height="900" style={{ fill: "hsl(var(--card))" }} />}
+    <g style={{ fill: "hsl(var(--muted))" }}>
+      <circle cx="360" cy="400" r="105" />
+      <rect x="318" y="480" width="84" height="130" />
+      <path d="M100 900C100 720 200 600 360 600S620 720 620 900Z" />
+    </g>
+  </svg>;
+}
+
 export function CoachingTutorCard({ tutor, priority = false, eager = false, countryBackdrop = false, focusable = true, anchor = false, asHeading = true }: { tutor: Medallist; priority?: boolean; eager?: boolean; countryBackdrop?: boolean; focusable?: boolean; anchor?: boolean; asHeading?: boolean }) {
   const Name = asHeading ? "h3" : "p";
-  const extension = ["angel", "kanishk", "ermuun-battulga", "reuben-felix"].includes(tutor.slug) ? "png" : "webp";
-  const hasPortrait = !["nima", "yota"].includes(tutor.slug);
   const flagCode = countryFlagCodes[tutor.country];
+  const photo = tutor.photo ?? "webp";
   const cutout = tutor.slug === "abhika-atmaja" ? abhikaPortrait : `/coaching/medallists/${tutor.slug}-cutout.webp`;
   return <article id={anchor ? coachAnchorId(tutor.slug) : undefined} className="coaching-portrait" data-country-backdrop={countryBackdrop || undefined} tabIndex={countryBackdrop && focusable ? 0 : undefined}>
     <div className={countryBackdrop ? "coaching-portrait-artwork" : undefined}>
       {countryBackdrop && flagCode && <Image src={`/coaching/flags/${flagCode}.png`} alt="" aria-hidden="true" fill sizes="(min-width: 640px) 288px, 256px" className="coaching-country-flag" />}
-      {hasPortrait ? <Image src={countryBackdrop ? cutout : `/coaching/medallists/${tutor.slug}.${extension}`} alt={coachImageAlt(tutor.name, tutor.country)} width={720} height={900} sizes="(min-width: 640px) 288px, 256px" priority={priority} loading={priority ? undefined : eager ? "eager" : "lazy"} className="coaching-portrait-image" /> : <div className="coaching-portrait-image flex items-center justify-center font-serif text-7xl" aria-hidden="true">{tutor.name.charAt(0)}</div>}
+      {photo === false ? <CoachingSilhouette backdrop={countryBackdrop} /> : <Image src={countryBackdrop ? cutout : `/coaching/medallists/${tutor.slug}.${photo}`} alt={coachImageAlt(tutor.name, tutor.country)} width={720} height={900} sizes="(min-width: 640px) 288px, 256px" priority={priority} loading={priority ? undefined : eager ? "eager" : "lazy"} className="coaching-portrait-image" />}
     </div>
     <div className="coaching-portrait-copy">
       <p className="text-sm uppercase tracking-widest opacity-80">{tutor.country}</p>

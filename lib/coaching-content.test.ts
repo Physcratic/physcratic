@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { test } from "node:test";
 import {
   buildCoachingContent,
@@ -12,7 +12,7 @@ import {
   programHref,
 } from "./coaching/content";
 import { coachingPathways, isCoachingPathway } from "./coaching/consultation";
-import { medallists, medalLabel, type Medallist } from "./coaching/medallists";
+import { countryFlagCodes, medallists, medalLabel, type Medallist } from "./coaching/medallists";
 
 function strings(value: unknown, path = "content"): [string, string][] {
   if (typeof value === "string") return [[path, value]];
@@ -70,6 +70,10 @@ test("the definition sentence is exact and reused", () => {
 test("counts are computed from the medallists", () => {
   assert.equal(coachCount, medallists.length);
   assert.equal(countryCount, new Set(medallists.map((m) => m.country)).size);
+  assert.equal(coachCount, 19);
+  assert.equal(countryCount, 12);
+  assert.equal(content.hero.facts[0], `${medallists.length} coaches`);
+  assert.equal(content.hero.facts[1], `${new Set(medallists.map((m) => m.country)).size} countries`);
   const fake: Medallist[] = [
     { name: "A", slug: "a", country: "X", achievements: [] },
     { name: "B", slug: "b", country: "X", achievements: [] },
@@ -104,4 +108,16 @@ test("every pathway has a helper line", () => {
 
 test("package hours are sessions times class hours", () => {
   assert.deepEqual(content.packages.items.map((i) => i.size), ["16 sessions, 32 hours", "32 sessions, 64 hours"]);
+});
+
+test("every country has a flag file and every photo-less coach has no image on disk", () => {
+  const root = new URL("../public/coaching/", import.meta.url);
+  for (const m of medallists) {
+    const code = countryFlagCodes[m.country];
+    assert.ok(code && existsSync(new URL(`flags/${code}.png`, root)), `${m.country} flag`);
+    const portrait = (ext: string, suffix = "") => existsSync(new URL(`medallists/${m.slug}${suffix}.${ext}`, root));
+    if (m.photo === false) assert.ok(!portrait("webp") && !portrait("png") && !portrait("webp", "-cutout"), `${m.slug} should have no image`);
+    else assert.ok(portrait(m.photo ?? "webp"), `${m.slug} portrait`);
+  }
+  assert.deepEqual(medallists.filter((m) => m.photo === false).map((m) => m.slug), ["nima", "yota", "ignat-riazanov"]);
 });
