@@ -1,12 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import { Bowlby_One } from "next/font/google";
 import styles from "./coaching.module.css";
+import { content } from "@/lib/coaching/content";
 
-const display = Bowlby_One({ subsets: ["latin"], weight: "400", variable: "--font-coaching-display" });
+// v0 kept: Bowlby One as the display font, and no noindex.
+const display = Bowlby_One({ subsets: ["latin"], weight: "400", variable: "--font-coaching-display", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Physics coaching from Olympiad medalists",
-  description: "One-to-one physics tutoring for IB, A-Level, IGCSE and Olympiad preparation. Meet the Physcratic tutors and explore your coaching pathway.",
+  title: content.meta.title,
+  description: content.meta.description,
   alternates: { canonical: "/coaching" },
 };
 

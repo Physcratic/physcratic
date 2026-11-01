@@ -25,8 +25,8 @@
   color: hsl(var(--foreground));
 }
 
-.page :global(.font-serif) { font-family: var(--font-coaching-display), Georgia, serif; font-weight: 600; letter-spacing: -0.015em; }
-.page :global(h2.font-serif) { font-weight: 500; }
+/* Bowlby One only has a regular weight, so the display font never gets a faux bold. */
+.page :global(.font-serif) { font-family: var(--font-coaching-display), Impact, sans-serif; font-weight: 400; }
 /* Smooth in-page scrolling, only while the coaching layout is mounted, and never under reduced motion. */
 @media (prefers-reduced-motion: no-preference) { :global(html):has(.page) { scroll-behavior: smooth; } }
 .page :global(section[id]), .page :global(#hero-cta), .page :global([id^="coach-"]) { scroll-margin-top: calc(var(--coaching-header-h) + 16px); }
@@ -36,7 +36,7 @@
 .page :global(.coaching-button) { display: inline-flex; min-height: 3rem; align-items: center; justify-content: center; gap: .5rem; border-radius: .5rem; padding: .75rem 1.5rem; background: hsl(var(--accent)); color: hsl(var(--accent-foreground)); font-size: 1rem; font-weight: 700; text-align: center; transition: opacity 180ms ease-out, transform 180ms ease-out; }
 .page :global(.coaching-header .coaching-button) { min-height: 2.5rem; padding: .5rem 1rem; font-size: .875rem; }
 .page :global(.coaching-icon-button) { display: flex; width: 2.5rem; height: 2.5rem; align-items: center; justify-content: center; border: 1px solid hsl(var(--border)); border-radius: 999px; background: hsl(var(--background) / .85); color: hsl(var(--foreground)); transition: opacity 180ms ease-out, transform 180ms ease-out; }
-.page :global(.coaching-link) { position: relative; display: inline-block; }
+.page :global(.coaching-link) { position: relative; }
 .page :global(.coaching-link::after) { content: ""; position: absolute; inset: auto 0 -2px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 200ms ease-out; }
 .page :global(.coaching-hero-slideshow .coaching-link::after) { transform: scaleX(1); opacity: .5; }
 .page :global(.coaching-button-secondary) { border: 1px solid hsl(var(--accent)); background: transparent; color: hsl(var(--foreground)); }
@@ -50,13 +50,14 @@
 .page :global(.coaching-portrait-frame) { position: relative; box-shadow: 0 1px 3px rgb(0 0 0 / .35); }
 .page :global(.coaching-portrait-frame::after) { content: ""; position: absolute; inset: 0; pointer-events: none; box-shadow: 0 12px 28px rgb(0 0 0 / .45); opacity: 0; transition: opacity 220ms ease-out; }
 .page :global(.coaching-portrait-clip) { position: relative; overflow: hidden; }
-.page :global(.coaching-portrait-clip .coaching-portrait-image) { transition: transform 220ms var(--coaching-ease); }
+.page :global(.coaching-portrait-clip .coaching-portrait-image) { transition: transform 220ms var(--coaching-ease), filter 200ms ease-out; }
 .page :global(.coaching-portrait-image) { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; border-radius: 0; object-fit: cover; }
 .page :global(.coaching-portrait[data-country-backdrop]) { background: transparent; }
-.page :global(.coaching-portrait-artwork) { position: relative; isolation: isolate; background: transparent; filter: grayscale(1); transition: filter 240ms ease-out; }
+.page :global(.coaching-portrait-artwork) { position: relative; isolation: isolate; background: transparent; }
 .page :global(.coaching-country-flag) { object-fit: contain; object-position: center; }
-.page :global(.coaching-portrait-artwork .coaching-portrait-image) { position: relative; z-index: 1; }
-.page :global(.coaching-portrait[data-country-backdrop]:hover .coaching-portrait-artwork), .page :global(.coaching-portrait[data-country-backdrop]:focus-visible .coaching-portrait-artwork) { filter: grayscale(0); }
+/* v0: only the cutout goes grey, so the country flag behind it stays in colour. */
+.page :global(.coaching-portrait-artwork .coaching-portrait-image) { position: relative; z-index: 1; filter: grayscale(1); }
+.page :global(.coaching-portrait[data-country-backdrop]:hover .coaching-portrait-image), .page :global(.coaching-portrait[data-country-backdrop]:focus-visible .coaching-portrait-image) { filter: grayscale(0); }
 .page :global(.coaching-portrait-copy) { position: absolute; inset: auto 0 0; display: flex; flex-direction: column; gap: 12px; padding: 5rem .75rem .75rem; background: linear-gradient(transparent, hsl(var(--background) / .9) 55%, hsl(var(--background) / .96)); color: hsl(var(--foreground)); text-align: left; }
 .page :global(.coaching-portrait[data-country-backdrop] .coaching-portrait-copy) { position: static; padding: 12px 0 0; background: none; }
 .page :global(.coaching-card-head) { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; }
