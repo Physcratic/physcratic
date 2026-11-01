@@ -27,7 +27,9 @@
 
 .page :global(.font-serif) { font-family: var(--font-coaching-display), Georgia, serif; font-weight: 600; letter-spacing: -0.015em; }
 .page :global(h2.font-serif) { font-weight: 500; }
-.page :global(section[id]) { scroll-margin-top: 5rem; }
+/* Smooth in-page scrolling, only while the coaching layout is mounted, and never under reduced motion. */
+@media (prefers-reduced-motion: no-preference) { :global(html):has(.page) { scroll-behavior: smooth; } }
+.page :global(section[id]), .page :global(#hero-cta), .page :global([id^="coach-"]) { scroll-margin-top: calc(var(--coaching-header-h) + 16px); }
 .page :global(.coaching-highlight) { color: hsl(var(--accent)); font-weight: 600; }
 .page :global(.coaching-container) { width: 100%; max-width: 72rem; margin-inline: auto; padding-inline: 1.5rem; }
 .page :global(.coaching-header) { position: sticky; top: 0; z-index: 40; border-bottom: 1px solid hsl(var(--border)); background: hsl(var(--background) / .94); backdrop-filter: blur(12px); }
