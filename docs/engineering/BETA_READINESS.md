@@ -63,3 +63,12 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **Metadata in `<head>`:** `htmlLimitedBots: /.*/` in `next.config.mjs` makes Next render `<title>`, canonical and `og:` tags in `<head>` for every user agent. Without it, bots not on Next's list (TelegramBot, GPTBot, ClaudeBot, Claude-SearchBot, OAI-SearchBot, PerplexityBot) get metadata streamed into `<body>`. Checked with the default UA and `TelegramBot (like TwitterBot)`.
 - **Brand icons:** generated from the Physcratic logo and placed in `public/`: `icon-32.png`, `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, `apple-icon.png` (180), `logo-mark-transparent.png`. Wired into layout `icons`, the manifest (192/512 "any", 512 "maskable") and the Organization JSON-LD logo (`/icon-512.png`). The old `icon.svg` and `icon-{dark,light}-32x32.png` were removed (no other references). The 192/512 to-do from Batch 3 is done.
 - **Preview images:** both `opengraph-image` files embed `logo-mark-transparent.png` as a data URL read with `process.cwd()` (Next's local-asset pattern for `ImageResponse`).
+
+## 2026-11-01 — Coaching Phase 1
+
+- **Page:** `/coaching` brought onto main from `v0/coaching-work` by copying only the page, layout, CSS module, hero, sections, tutors, medallists data and `public/coaching/**` (no merge, so the authoring files are untouched). The in-page inquiry form, world map and `app/api/coaching/**` were not copied.
+- **Consultation link:** the hero radio picker (`coachingPathways`) now ends in a real `<a>` to the Tally form `https://tally.so/r/XxZBr4`, opened in a new tab with `rel="noopener noreferrer"`. It is disabled (`aria-disabled`, not clickable) until a pathway is picked. `?goal=` preselects a pathway. Other "Start inquiry" and "Start step 1" buttons still go to `#hero-cta`.
+- **Tally hidden fields:** `pathway` (the selected option) and `source` (`utm_source`, else the referrer hostname unless it is physcratic.com, else `direct`, max 100 characters). Both must exist as hidden fields in the form. Registration lives in Tally, with no database involved.
+- **Logic and tests:** `lib/coaching/consultation.ts`, tested in `lib/coaching-consultation.test.ts`.
+- **Indexing:** `/coaching` has `robots: { index: false, follow: true }` until Coaching Phases 2 and 3 land. Phase 3 removes it. It is not in the sitemap registry yet.
+- **Hero copy:** the intro paragraph was rewritten because the v0 text described the old options.
