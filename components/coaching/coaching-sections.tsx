@@ -6,6 +6,10 @@ import { CoachingPrograms } from "./coaching-programs";
 import { CoachingClassFormat } from "./coaching-class-format";
 import { CoachingScheduling } from "./coaching-scheduling";
 import { CoachingPackages } from "./coaching-packages";
+import { CoachingReviews } from "./coaching-reviews";
+import { CoachingGlance } from "./coaching-glance";
+import { CoachingFaq } from "./coaching-faq";
+import { CoachingFinalCta } from "./coaching-final-cta";
 
 const { ui, nav, path, footer } = content;
 
@@ -40,6 +44,10 @@ export function CoachingSections() {
     <CoachingScheduling />
     <CoachingPackages />
     <CoachingPath />
+    <CoachingReviews />
+    <CoachingGlance />
+    <CoachingFaq />
+    <CoachingFinalCta />
   </>;
 }
 
