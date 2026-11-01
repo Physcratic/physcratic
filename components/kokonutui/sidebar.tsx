@@ -7,10 +7,10 @@ import {
   FilePenLine,
   LayoutGrid,
   Menu,
-  Orbit,
   Trophy,
   ChartNoAxesCombined,
 } from "lucide-react";
+import { BrandMark } from "@/components/brand-mark";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -46,9 +46,7 @@ export default function Sidebar({
         className="flex h-[76px] shrink-0 items-center gap-2.5 px-6"
         aria-label="Physcratic home"
       >
-        <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-          <Orbit className="size-5" strokeWidth={1.7} />
-        </span>
+        <BrandMark size={36} className="rounded-lg" />
         <span className="text-2xl font-semibold tracking-[-0.065em]">
           Physcratic
         </span>
