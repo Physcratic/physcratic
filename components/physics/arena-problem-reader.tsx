@@ -11,6 +11,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ArenaDocument } from "./arena-document";
+import { ArchiveAnswerPanel } from "./archive-answer-panel";
 
 async function loadProblem(url: string) {
   const response = await fetch(url);
@@ -30,10 +31,10 @@ export function ArenaProblemReader({ problem }: { problem: ArenaCatalogEntry }) 
     </header>
     {isLoading && <div role="status" className="flex flex-col gap-3"><span className="text-sm text-muted-foreground">Loading typeset problem…</span><Skeleton className="h-96 w-full" /></div>}
     {error && <Alert variant="destructive"><AlertTitle>Could not load this problem</AlertTitle><AlertDescription><Button variant="outline" onClick={() => mutate()}><RotateCcw data-icon="inline-start" />Retry</Button></AlertDescription></Alert>}
-    {data && <Tabs defaultValue="statement" className="flex min-w-0 flex-col gap-4">
+    {data && <Tabs key={problem.id} defaultValue="statement" className="flex min-w-0 flex-col gap-4">
       <TabsList className="w-fit"><TabsTrigger value="statement">Problem statement</TabsTrigger><TabsTrigger value="solution">Worked solution</TabsTrigger></TabsList>
-      {(["statement", "solution"] as const).map((kind) => <TabsContent key={kind} value={kind} className="min-w-0">
-        <Card className="min-w-0 shadow-none"><CardHeader><CardTitle>{kind === "statement" ? "Problem statement" : "Worked solution"}</CardTitle><CardDescription>{kind === "statement" ? "Transcribed text and LaTeX, with original diagrams." : "Contains spoilers. Transcribed from the supplied worked solution, including its assumptions and qualifications."}</CardDescription></CardHeader><CardContent className="min-w-0"><ArenaDocument content={data[kind]} /></CardContent></Card>
+      {(["statement", "solution"] as const).map((kind) => <TabsContent key={kind} value={kind} forceMount={kind === "statement" ? true : undefined} className="min-w-0 data-[state=inactive]:hidden">
+        <div className="flex min-w-0 flex-col gap-6"><Card className="min-w-0 shadow-none"><CardHeader><CardTitle>{kind === "statement" ? "Problem statement" : "Worked solution"}</CardTitle><CardDescription>{kind === "statement" ? "Transcribed text and LaTeX, with original diagrams." : "Contains spoilers. Transcribed from the supplied worked solution, including its assumptions and qualifications."}</CardDescription></CardHeader><CardContent className="min-w-0"><ArenaDocument content={data[kind]} /></CardContent></Card>{kind === "statement" && <Card className="min-w-0 shadow-none"><CardContent className="pt-6"><ArchiveAnswerPanel key={problem.id} problemId={problem.id} /></CardContent></Card>}</div>
       </TabsContent>)}
     </Tabs>}
   </section>;

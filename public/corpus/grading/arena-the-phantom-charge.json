@@ -1,0 +1,104 @@
+{
+  "problemId": "arena-the-phantom-charge",
+  "version": "0fb68e8773e1cad5bd74fdbbeb381acce72322036b076679b2174b2ba1df5803",
+  "parts": [
+    {
+      "id": "a.charge",
+      "sourcePart": "a",
+      "label": "Total signed sheet charge",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "c",
+        "d"
+      ],
+      "help": "d > 0; c is the signed surface-density parameter, not the speed of light."
+    },
+    {
+      "id": "b.above",
+      "sourcePart": "b",
+      "label": "Axial field Ez above the sheet",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "c",
+        "\\varepsilon_0",
+        "d",
+        "z"
+      ],
+      "help": "z > 0, d > 0, ε₀ > 0; c may have either sign. Supply the scalar z component, without a unit vector."
+    },
+    {
+      "id": "b.below",
+      "sourcePart": "b",
+      "label": "Axial field Ez below the sheet",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "c",
+        "\\varepsilon_0",
+        "d",
+        "z"
+      ],
+      "help": "z < 0; d > 0, ε₀ > 0. The normal field has no unique continuous value at z = 0."
+    },
+    {
+      "id": "c.magnitude",
+      "sourcePart": "c",
+      "label": "Effective point-charge magnitude",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "c",
+        "d"
+      ],
+      "help": "Magnitude rather than signed charge; d > 0. One point charge cannot reproduce both halves of the axis."
+    },
+    {
+      "id": "c.above-position",
+      "sourcePart": "c",
+      "label": "Effective charge z coordinate for observations above",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "d"
+      ],
+      "help": "x = y = 0; zP > 0, d > 0."
+    },
+    {
+      "id": "c.below-position",
+      "sourcePart": "c",
+      "label": "Effective charge z coordinate for observations below",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "d"
+      ],
+      "help": "x = y = 0; zP < 0, d > 0."
+    },
+    {
+      "id": "d.repulsive",
+      "sourcePart": "d",
+      "label": "Crossing-speed infimum when qc > 0",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "c",
+        "m",
+        "\\varepsilon_0",
+        "d"
+      ],
+      "help": "qc > 0; m, ε₀, d > 0. Speeds above this threshold guarantee passage; equality at the discontinuous force does not fix continuation."
+    },
+    {
+      "id": "d.attractive",
+      "sourcePart": "d",
+      "label": "Crossing-speed infimum when qc ≤ 0",
+      "kind": "numeric",
+      "unit": "m/s",
+      "symbols": [],
+      "help": "No positive barrier. Arbitrarily small positive speeds suffice; zero is the infimum, not a guarantee of travel from infinity at rest."
+    }
+  ]
+}

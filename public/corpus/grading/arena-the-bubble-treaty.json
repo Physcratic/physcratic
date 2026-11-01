@@ -1,0 +1,62 @@
+{
+  "problemId": "arena-the-bubble-treaty",
+  "version": "b0848624bdff50685737a6a40bbb6495df922e5a956f2d6ba685134a8f249093",
+  "parts": [
+    {
+      "id": "a.i.pressure",
+      "sourcePart": "a.i",
+      "label": "Absolute pressure in either initial bubble",
+      "kind": "numeric",
+      "unit": "Pa",
+      "symbols": [],
+      "help": "Absolute pressure, not pressure excess. Use pₐ = 101000 Pa; tolerance ±0.02 Pa."
+    },
+    {
+      "id": "a.ii.radius",
+      "sourcePart": "a.ii",
+      "label": "Outer radius of either attached bubble",
+      "kind": "numeric",
+      "unit": "cm",
+      "symbols": [],
+      "help": "Ideal gas, separately conserved amounts, isothermal process; use absolute pressures. Enter the radius in cm."
+    },
+    {
+      "id": "a.iii.interface",
+      "sourcePart": "a.iii",
+      "label": "Radius of curvature of the common interface",
+      "kind": "special",
+      "unit": "",
+      "symbols": [],
+      "help": "Equal pressures give a flat film. Use \\infty for an unbounded radius, not zero radius."
+    },
+    {
+      "id": "a.iv.distance",
+      "sourcePart": "a.iv",
+      "label": "Centre separation in terms of the common final radius",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R_p"
+      ],
+      "help": "Use R_p for the common outer radius R′ after attachment; each centre is R′/2 from the shared plane."
+    },
+    {
+      "id": "b.i.radius",
+      "sourcePart": "b.i",
+      "label": "Separating-film radius",
+      "kind": "numeric",
+      "unit": "cm",
+      "symbols": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    },
+    {
+      "id": "b.ii.distance",
+      "sourcePart": "b.ii",
+      "label": "Centre separation",
+      "kind": "numeric",
+      "unit": "cm",
+      "symbols": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    }
+  ]
+}

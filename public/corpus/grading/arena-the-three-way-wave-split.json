@@ -1,0 +1,62 @@
+{
+  "problemId": "arena-the-three-way-wave-split",
+  "version": "44e2c7acce2f9cc4551da63a795463f8d7d91fa64c66adf5dc3fc0d0e37c4199",
+  "parts": [
+    {
+      "id": "a.wave-two",
+      "sourcePart": "a",
+      "label": "Transmitted wave in string 2",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "k_1",
+        "k_2",
+        "k_3",
+        "A",
+        "\\omega",
+        "t",
+        "r_2"
+      ],
+      "help": "r₂ increases away from the junction; positive wave numbers and ω; angles in radians. T₁ = 5T₀."
+    },
+    {
+      "id": "a.wave-three",
+      "sourcePart": "a",
+      "label": "Transmitted wave in string 3",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "k_1",
+        "k_2",
+        "k_3",
+        "A",
+        "\\omega",
+        "t",
+        "r_3"
+      ],
+      "help": "r₃ increases away from the junction; positive wave numbers and ω; angles in radians."
+    },
+    {
+      "id": "b.density-two",
+      "sourcePart": "b",
+      "label": "Linear mass density μ₂",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu"
+      ],
+      "help": "μ₁ = μ > 0; zero reflection and outgoing power ratio 2:3."
+    },
+    {
+      "id": "b.density-three",
+      "sourcePart": "b",
+      "label": "Linear mass density μ₃",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu"
+      ],
+      "help": "μ₁ = μ > 0; zero reflection and outgoing power ratio 2:3."
+    }
+  ]
+}

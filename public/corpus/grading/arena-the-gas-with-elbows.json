@@ -1,0 +1,241 @@
+{
+  "problemId": "arena-the-gas-with-elbows",
+  "version": "ba387f746f499fd96e21a6bb932f6da35eca8eab5f0ef2c6ae0d45dd714990b9",
+  "parts": [
+    {
+      "id": "a.i.concentration",
+      "sourcePart": "a.i",
+      "label": "Quantum concentration nQ",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "M",
+        "k_B",
+        "T",
+        "\\hbar"
+      ],
+      "help": "Large-box continuum limit, one internal state; M, T and constants positive."
+    },
+    {
+      "id": "a.ii.exponent",
+      "sourcePart": "a.ii",
+      "label": "Exponent a",
+      "kind": "numeric",
+      "unit": "1",
+      "symbols": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    },
+    {
+      "id": "a.ii.function",
+      "sourcePart": "a.ii",
+      "label": "Function f(Z₁)",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "Z_1"
+      ],
+      "help": "Canonical logarithm convention; use positive Z₁. Additive constants cannot be inferred from the derivative alone and require self-review."
+    },
+    {
+      "id": "a.ii.energy",
+      "sourcePart": "a.ii",
+      "label": "Mean single-particle energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "k_B",
+        "T"
+      ],
+      "help": "Fixed volume, classical translational degrees of freedom."
+    },
+    {
+      "id": "a.iii.energy",
+      "sourcePart": "a.iii",
+      "label": "N-particle internal energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "N",
+        "k_B",
+        "T"
+      ],
+      "help": "N indistinguishable particles; positive N, kB and T."
+    },
+    {
+      "id": "a.iv.entropy",
+      "sourcePart": "a.iv",
+      "label": "Entropy as a derivative of F",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "help": "Check the negative T derivative at fixed V and N. Partial-derivative notation is outside the checker’s expression language."
+    },
+    {
+      "id": "a.iv.pressure",
+      "sourcePart": "a.iv",
+      "label": "Pressure as a derivative of F",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "help": "Check the negative V derivative at fixed T and N. Partial derivatives and the first-law argument require self-review."
+    },
+    {
+      "id": "a.v.b",
+      "sourcePart": "a.v",
+      "label": "Exponent b",
+      "kind": "numeric",
+      "unit": "1",
+      "symbols": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    },
+    {
+      "id": "a.v.c",
+      "sourcePart": "a.v",
+      "label": "Exponent c",
+      "kind": "numeric",
+      "unit": "1",
+      "symbols": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    },
+    {
+      "id": "a.v.proof",
+      "sourcePart": "a.v",
+      "label": "Identity relating U and F",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "help": "Review the derivative identity from F = U − TS; matching the two exponents is not a proof."
+    },
+    {
+      "id": "a.vi.partition",
+      "sourcePart": "a.vi",
+      "label": "Helmholtz energy in terms of ZN",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "k_B",
+        "T",
+        "Z_N"
+      ],
+      "help": "Canonical partition function; T, kB and ZN positive."
+    },
+    {
+      "id": "a.vi.energy",
+      "sourcePart": "a.vi",
+      "label": "Stirling-approximated ideal-gas Helmholtz energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "N",
+        "k_B",
+        "T",
+        "n",
+        "n_Q"
+      ],
+      "help": "Positive densities, large N; n = N/V and n_Q is the quantum concentration."
+    },
+    {
+      "id": "a.vi.proof",
+      "sourcePart": "a.vi",
+      "label": "Stirling approximation derivation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "help": "The result can be matched, but the state-counting and Stirling derivation are not graded."
+    },
+    {
+      "id": "b.i.factor",
+      "sourcePart": "b.i",
+      "label": "Excluded-volume integer c",
+      "kind": "numeric",
+      "unit": "1",
+      "symbols": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    },
+    {
+      "id": "b.ii.energy",
+      "sourcePart": "b.ii",
+      "label": "Volume-corrected Helmholtz energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "N",
+        "k_B",
+        "T",
+        "V",
+        "b",
+        "n_Q"
+      ],
+      "help": "Accessible volume V − Nb > 0; N, kB, T, b and nQ positive. Use full corrected F, not just its difference from ideal F."
+    },
+    {
+      "id": "b.iii.attraction",
+      "sourcePart": "b.iii",
+      "label": "Attraction constant a",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\varepsilon",
+        "b"
+      ],
+      "help": "Positive well depth ε and excluded volume b; uniform-density mean field."
+    },
+    {
+      "id": "b.iv.energy",
+      "sourcePart": "b.iv",
+      "label": "Full Helmholtz free energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "N",
+        "k_B",
+        "T",
+        "V",
+        "b",
+        "n_Q",
+        "a"
+      ],
+      "help": "V > Nb > 0; positive T, kB, nQ and a. Pair attraction is counted once."
+    },
+    {
+      "id": "b.v.pressure",
+      "sourcePart": "b.v",
+      "label": "Equation of state, solved for p",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "N",
+        "k_B",
+        "T",
+        "V",
+        "b",
+        "a"
+      ],
+      "help": "Right-hand side only; V > Nb > 0, all parameters positive."
+    },
+    {
+      "id": "b.v.derivation",
+      "sourcePart": "b.v",
+      "label": "Equation-of-state derivation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "help": "Review differentiation of F at fixed T and N; only the final pressure expression is checked."
+    },
+    {
+      "id": "b.vi.energy",
+      "sourcePart": "b.vi",
+      "label": "Van der Waals internal energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "N",
+        "k_B",
+        "T",
+        "a",
+        "V"
+      ],
+      "help": "Classical gas with temperature-independent attraction parameter a; positive quantities and V > Nb."
+    }
+  ]
+}

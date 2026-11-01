@@ -1,0 +1,15 @@
+{
+  "problemId": "first-law",
+  "version": "6029692d3d800acd24894e47b8a80df2a00a76b369316c63e62831afd684d454",
+  "parts": [
+    {
+      "id": "answer",
+      "sourcePart": "Answer",
+      "label": "Final answer",
+      "kind": "numeric",
+      "unit": "J",
+      "symbols": [],
+      "help": "Use the displayed unit, without a unit suffix. Tolerance: 0.5% relative, with a 0.005 absolute floor. No unit conversion."
+    }
+  ]
+}

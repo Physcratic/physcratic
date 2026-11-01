@@ -1,0 +1,15 @@
+{
+  "problemId": "echo",
+  "version": "75d20deda2eb86531b028576f2966193bed64747abe6516562b9d7a2f0d05919",
+  "parts": [
+    {
+      "id": "answer",
+      "sourcePart": "Answer",
+      "label": "Final answer",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "help": "Use the displayed unit, without a unit suffix. Tolerance: 0.5% relative, with a 0.005 absolute floor. No unit conversion."
+    }
+  ]
+}

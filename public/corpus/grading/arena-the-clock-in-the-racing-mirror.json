@@ -1,0 +1,46 @@
+{
+  "problemId": "arena-the-clock-in-the-racing-mirror",
+  "version": "b27ae3aed048747e1b0bc9ccc02225cca78041557fcc150414ec353347108514",
+  "parts": [
+    {
+      "id": "a.arrival",
+      "sourcePart": "a",
+      "label": "Absolute mirror arrival time",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "t_0",
+        "\\delta",
+        "r"
+      ],
+      "help": "Approaching mirror: r > 1, δ > 0. Include the reference camera time t₀, rather than just remaining time."
+    },
+    {
+      "id": "b.height",
+      "sourcePart": "b",
+      "label": "Actual mirror height H",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "h",
+        "c",
+        "\\delta",
+        "f"
+      ],
+      "help": "Distant-object, small-angle focal-plane approximation; all quantities positive. No longitudinal contraction of the transverse height."
+    },
+    {
+      "id": "c.distance",
+      "sourcePart": "c",
+      "label": "Apparent virtual-image distance",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "r",
+        "c",
+        "\\delta"
+      ],
+      "help": "Small reflected angles; r > 1, c > 0, δ > 0. Use the reflected-ray back-traced image, not twice the mirror’s present distance."
+    }
+  ]
+}

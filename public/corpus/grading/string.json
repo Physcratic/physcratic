@@ -1,0 +1,15 @@
+{
+  "problemId": "string",
+  "version": "09c3b63818ac64bb7871b0415eec4df6bd95dcab9273e1eac31b5a696d9743b1",
+  "parts": [
+    {
+      "id": "answer",
+      "sourcePart": "Answer",
+      "label": "Final answer",
+      "kind": "numeric",
+      "unit": "Hz",
+      "symbols": [],
+      "help": "Use the displayed unit, without a unit suffix. Tolerance: 0.5% relative, with a 0.005 absolute floor. No unit conversion."
+    }
+  ]
+}

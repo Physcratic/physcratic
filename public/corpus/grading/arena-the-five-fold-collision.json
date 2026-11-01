@@ -1,0 +1,90 @@
+{
+  "problemId": "arena-the-five-fold-collision",
+  "version": "28f3c94a55df2ce860852fb8d5d2e1c8a58f4313c3821ccbe904f607be018b8e",
+  "parts": [
+    {
+      "id": "a.mass",
+      "sourcePart": "a",
+      "label": "Composite rest mass",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m"
+      ],
+      "help": "Positive rest mass scale m; composite internal energy is included."
+    },
+    {
+      "id": "a.speed",
+      "sourcePart": "a",
+      "label": "Composite speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "c"
+      ],
+      "help": "Positive c; speed along +x."
+    },
+    {
+      "id": "b.heavy",
+      "sourcePart": "b",
+      "label": "Outgoing velocity of the 4m particle",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "c"
+      ],
+      "help": "Nontrivial elastic collision with momentum exchange; +x is the incoming direction. The unchanged-velocity no-exchange branch is not requested in this field."
+    },
+    {
+      "id": "b.light",
+      "sourcePart": "b",
+      "label": "Outgoing velocity of the m particle",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "c"
+      ],
+      "help": "Nontrivial elastic collision with momentum exchange; signed velocity along +x."
+    },
+    {
+      "id": "c.angle",
+      "sourcePart": "c",
+      "label": "Maximum heavy-particle deflection",
+      "kind": "numeric",
+      "unit": "degrees",
+      "symbols": [],
+      "help": "Same two outgoing rest masses, elastic two-body final state; enter degrees, not radians."
+    },
+    {
+      "id": "d.lower",
+      "sourcePart": "d",
+      "label": "Smallest photon separation angle",
+      "kind": "numeric",
+      "unit": "degrees",
+      "symbols": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    },
+    {
+      "id": "d.upper",
+      "sourcePart": "d",
+      "label": "Largest photon separation angle",
+      "kind": "numeric",
+      "unit": "degrees",
+      "symbols": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    },
+    {
+      "id": "e.frequency",
+      "sourcePart": "e",
+      "label": "Maximum f₁",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "c",
+        "h"
+      ],
+      "help": "All three photon energies are strictly positive; the other two may be collinear backwards. Constants m, c and h are positive."
+    }
+  ]
+}

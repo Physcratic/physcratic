@@ -8,6 +8,14 @@ import { source04 } from "../lib/arena/source-04";
 import { source05 } from "../lib/arena/source-05";
 import { source06 } from "../lib/arena/source-06";
 
+import { archiveDefinitions, publicArchiveMetadata } from "../lib/archive-grading/catalog";
+
+const gradingFolder = join(process.cwd(), "public/corpus/grading");
+mkdirSync(gradingFolder, { recursive: true });
+for (const definition of archiveDefinitions) {
+  writeFileSync(join(gradingFolder, `${definition.problemId}.json`), JSON.stringify(publicArchiveMetadata(definition), null, 2) + "\n");
+}
+
 const seeds = [...source01, ...source02, ...source03, ...source04, ...source05, ...source06];
 const folder = join(process.cwd(), "public/corpus/arena");
 mkdirSync(folder, { recursive: true });
