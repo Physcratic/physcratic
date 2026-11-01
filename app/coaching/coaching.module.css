@@ -11,6 +11,12 @@
   --border: 223 20% 22%;
   --input: var(--border);
   --ring: var(--accent);
+  --medal-gold: radial-gradient(circle at 35% 35%, #FFF1B8, #E3B341 55%, #B8862A);
+  --medal-gold-glow: 0 0 8px rgba(227, 179, 65, .35);
+  --medal-silver: radial-gradient(circle at 35% 35%, #FFFFFF, #C7CDD6 55%, #8F98A3);
+  --medal-silver-glow: 0 0 6px rgba(199, 205, 214, .25);
+  --medal-bronze: radial-gradient(circle at 35% 35%, #F6CDA6, #C8834B 55%, #8E5126);
+  --medal-bronze-glow: 0 0 7px rgba(200, 131, 75, .3);
   color-scheme: dark;
   min-height: 100vh;
   background: hsl(var(--background));
@@ -40,6 +46,13 @@
 .page :global(.coaching-portrait[data-country-backdrop]:hover .coaching-portrait-artwork), .page :global(.coaching-portrait[data-country-backdrop]:focus-visible .coaching-portrait-artwork) { filter: grayscale(0); }
 .page :global(.coaching-portrait-copy) { position: absolute; inset: auto 0 0; display: flex; flex-direction: column; align-items: center; gap: .375rem; padding: 5rem 1rem 1rem; background: linear-gradient(transparent, hsl(var(--background) / .88)); color: hsl(var(--foreground)); text-align: center; }
 .page :global(.coaching-portrait[data-country-backdrop] .coaching-portrait-copy) { position: static; padding: .75rem 0 0; background: none; }
+.page :global(.coaching-flag-chip) { width: 20px; height: 14px; flex-shrink: 0; border: 1px solid hsl(var(--border) / .4); border-radius: 2px; object-fit: cover; }
+.page :global(.coaching-achievement) { display: flex; align-items: center; justify-content: center; gap: .5rem; }
+.page :global(.coaching-medal) { display: inline-block; width: 10px; height: 10px; flex-shrink: 0; border-radius: 50%; }
+.page :global(.coaching-medal-gold) { background: var(--medal-gold); box-shadow: var(--medal-gold-glow); }
+.page :global(.coaching-medal-silver) { background: var(--medal-silver); box-shadow: var(--medal-silver-glow); }
+.page :global(.coaching-medal-bronze) { background: var(--medal-bronze); box-shadow: var(--medal-bronze-glow); }
+.page :global(.coaching-medal-hm) { border: 1.5px solid hsl(var(--muted-foreground)); background: none; }
 .page :global(.coaching-portrait-copy p) { overflow-wrap: anywhere; }
 .page :global(.coaching-gallery-viewport) { min-width: 0; overflow: hidden; scrollbar-width: thin; scrollbar-color: hsl(var(--muted-foreground) / .5) transparent; }
 .page :global(.coaching-gallery-viewport::-webkit-scrollbar) { height: 4px; }
@@ -67,4 +80,5 @@
 @media (min-width: 640px) { .page :global(.coaching-container) { padding-inline: 2rem; } .page :global(.coaching-marquee) { height: 34rem; } .page :global(.coaching-gallery > li) { width: 18rem; } }
 @media (min-width: 768px) { .page :global(.coaching-mobile-cta) { display: none; } }
 @media (min-width: 1024px) { .page :global(.coaching-hero) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3.5rem; padding-block: 4rem; } .page :global(.coaching-marquee) { height: 44rem; gap: 1rem; } .page :global(.coaching-hero-slideshow) { margin-top: -2rem; } }
+@media (forced-colors: active) { .page :global(.coaching-medal) { border: 2px solid CanvasText; background: none; box-shadow: none; forced-color-adjust: none; } }
 @media (prefers-reduced-motion: reduce) { .page :global(.coaching-rise), .page :global(.coaching-gallery-track) { animation: none; } .page :global(.coaching-gallery-viewport) { overflow-x: auto; } .page :global(.coaching-gallery[aria-hidden="true"]), .page :global(.coaching-gallery-toggle) { display: none; } }

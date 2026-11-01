@@ -31,10 +31,11 @@ export function CoachingTutorCard({ tutor, priority = false, eager = false, coun
       {photo === false ? <CoachingSilhouette backdrop={countryBackdrop} /> : <Image src={countryBackdrop ? cutout : `/coaching/medallists/${tutor.slug}.${photo}`} alt={coachImageAlt(tutor.name, tutor.country)} width={720} height={900} sizes="(min-width: 640px) 288px, 256px" priority={priority} loading={priority ? undefined : eager ? "eager" : "lazy"} className="coaching-portrait-image" />}
     </div>
     <div className="coaching-portrait-copy">
-      <p className="text-sm uppercase tracking-widest opacity-80">{tutor.country}</p>
+      <p className="flex items-center justify-center gap-2 text-sm uppercase tracking-widest opacity-80">{flagCode && <Image src={`/coaching/flags/${flagCode}.png`} alt="" aria-hidden="true" width={20} height={14} className="coaching-flag-chip" />}{tutor.country}</p>
       <Name className="font-serif text-lg uppercase leading-tight text-balance sm:text-xl">{tutor.name}</Name>
-      <p className="text-sm font-bold">{medalLabel[tutor.achievements[0].medal]} · {tutor.achievements[0].contest} {tutor.achievements[0].year}</p>
-      {tutor.achievements.length > 1 && <p className="text-sm leading-snug opacity-80">{tutor.achievements.slice(1).map((achievement) => `${medalLabel[achievement.medal]} ${achievement.contest} ${achievement.year}`).join(" · ")}</p>}
+      <ul className="flex flex-col items-center gap-0.5">
+        {tutor.achievements.map((achievement, index) => <li key={`${achievement.contest}-${achievement.year}`} className={`coaching-achievement text-sm ${index === 0 ? "font-bold" : "leading-snug opacity-80"}`}><span className={`coaching-medal coaching-medal-${achievement.medal}`} aria-hidden="true" />{medalLabel[achievement.medal]} · {achievement.contest} {achievement.year}</li>)}
+      </ul>
     </div>
   </article>;
 }
