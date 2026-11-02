@@ -1,0 +1,105 @@
+{
+  "target": {
+    "project": "divine-mode-82940461",
+    "branch": "br-quiet-dawn-b7m2zrt3",
+    "endpoint": "ep-snowy-heart-b7c1220y",
+    "database": "neondb"
+  },
+  "sql_sha256": "31e4898140cd53b129d9e999082eaaf7ef41c0cd2880955bc2d7d293ba8bfb22",
+  "transaction": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "existing_objects": 99,
+  "altered_existing_objects": [],
+  "added_objects": [
+    {
+      "relname": "rateLimit",
+      "relkind": "r",
+      "oid": "57344",
+      "owner": "neondb_owner",
+      "relrowsecurity": false
+    },
+    {
+      "relname": "rateLimit_key_key",
+      "relkind": "i",
+      "oid": "57355",
+      "owner": "neondb_owner",
+      "relrowsecurity": false
+    },
+    {
+      "relname": "rateLimit_lastRequest_idx",
+      "relkind": "i",
+      "oid": "57357",
+      "owner": "neondb_owner",
+      "relrowsecurity": false
+    },
+    {
+      "relname": "rateLimit_pkey",
+      "relkind": "i",
+      "oid": "57353",
+      "owner": "neondb_owner",
+      "relrowsecurity": false
+    }
+  ],
+  "verification": [
+    {
+      "verification": {
+        "database": "neondb",
+        "runtime_role": "neondb_owner",
+        "schema_usage": true,
+        "select": true,
+        "insert": true,
+        "update": true,
+        "delete": true,
+        "columns": [
+          {
+            "column_name": "id",
+            "data_type": "text",
+            "is_nullable": "NO"
+          },
+          {
+            "column_name": "key",
+            "data_type": "text",
+            "is_nullable": "NO"
+          },
+          {
+            "column_name": "count",
+            "data_type": "integer",
+            "is_nullable": "NO"
+          },
+          {
+            "column_name": "lastRequest",
+            "data_type": "bigint",
+            "is_nullable": "NO"
+          }
+        ],
+        "indexes": [
+          {
+            "relname": "rateLimit_key_key",
+            "indisvalid": true,
+            "indisunique": true,
+            "definition": "CREATE UNIQUE INDEX \"rateLimit_key_key\" ON public.\"rateLimit\" USING btree (key)"
+          },
+          {
+            "relname": "rateLimit_lastRequest_idx",
+            "indisvalid": true,
+            "indisunique": false,
+            "definition": "CREATE INDEX \"rateLimit_lastRequest_idx\" ON public.\"rateLimit\" USING btree (\"lastRequest\")"
+          },
+          {
+            "relname": "rateLimit_pkey",
+            "indisvalid": true,
+            "indisunique": true,
+            "definition": "CREATE UNIQUE INDEX \"rateLimit_pkey\" ON public.\"rateLimit\" USING btree (id)"
+          }
+        ],
+        "rows": 0
+      }
+    }
+  ]
+}

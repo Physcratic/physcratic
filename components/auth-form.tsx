@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, Loader2 } from "lucide-react";
+import { getSignupCaptchaToken } from "@/lib/signup-captcha-client";
 import { authClient } from "@/lib/auth-client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -34,8 +35,9 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
     const credentials = { email: String(form.get("email")).trim(), password: String(form.get("password")) };
     const callbackURL = `/sign-in?verified=1&returnTo=${encodeURIComponent(returnTo)}`;
     try {
+      const captchaToken = creating ? await getSignupCaptchaToken() : undefined;
       const result = creating
-        ? await authClient.signUp.email({ ...credentials, name: String(form.get("name")).trim(), callbackURL }, { body: { termsAccepted, termsVersion: TERMS_VERSION } })
+        ? await authClient.signUp.email({ ...credentials, name: String(form.get("name")).trim(), callbackURL }, { body: { termsAccepted, termsVersion: TERMS_VERSION }, headers: { "x-captcha-response": captchaToken! } })
         : await authClient.signIn.email({ ...credentials, callbackURL });
       if (result.error) {
         if (creating && result.error.code === "TERMS_ACCEPTANCE_REQUIRED") {

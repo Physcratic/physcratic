@@ -3,7 +3,7 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [main, codex/physcratic-authoring-completion]
+    branches: [main, codex/physcratic-authoring-completion, codex/auth-hardening-validation-20261102]
 
 concurrency:
   group: ci-${{ github.ref }}

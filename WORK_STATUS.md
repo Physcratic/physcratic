@@ -19,3 +19,11 @@
 - Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-6b
 - Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-6b?expand=1
 - Next: user review Phase6B; stop. No next phase or explicit worked-solution reveal without separate request.
+
+
+## 2026-11-02 authentication hardening
+
+Prepared against main 19a5108a; see docs/engineering/AUTH_HARDENING_STATUS.md. Deployment remains blocked by the missing Production limiter table, unverified live CAPTCHA readiness and environment-blocked PostgreSQL/build checks.
+
+
+Production rateLimit migration applied and verified under the explicit 2026-11-02 authorization. Linux PostgreSQL 18.6 tests and build now pass. Application release remains held for live CAPTCHA readiness; see the updated AUTH_HARDENING_STATUS.md. Do not rerun that migration.

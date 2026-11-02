@@ -1,44 +1,17 @@
 import { betterAuth } from "better-auth";
-import { APIError, createAuthMiddleware } from "better-auth/api";
 import { after } from "next/server";
 import { pool } from "@/lib/db";
 import { sendVerificationEmail } from "@/lib/verification-email";
-import { getTermsAcceptance } from "@/lib/terms";
+import { signupPolicy } from "@/lib/signup-policy";
+import { signupCaptcha } from "@/lib/signup-captcha";
 import { authoringStagingAuth } from "@/lib/authoring-staging";
 
 const stagingAuth = authoringStagingAuth();
 
 export const auth = betterAuth({
   database: pool,
-  user: {
-    additionalFields: {
-      termsAcceptedVersion: { type: "string", required: false, input: false },
-      termsAcceptedAt: { type: "date", required: false, input: false },
-    },
-  },
-  hooks: {
-    before: createAuthMiddleware(async (ctx) => {
-      if (ctx.path !== "/sign-up/email") return;
-      try {
-        getTermsAcceptance(ctx.body);
-      } catch {
-        throw new APIError("BAD_REQUEST", { code: "TERMS_ACCEPTANCE_REQUIRED", message: "Accept the current Terms of Service before creating an account." });
-      }
-    }),
-  },
-  databaseHooks: {
-    user: {
-      create: {
-        before: async (user, ctx) => {
-          try {
-            return { data: { ...user, ...getTermsAcceptance(ctx?.body) } };
-          } catch {
-            throw new APIError("BAD_REQUEST", { code: "TERMS_ACCEPTANCE_REQUIRED", message: "Accept the current Terms of Service before creating an account." });
-          }
-        },
-      },
-    },
-  },
+  plugins: [signupCaptcha()],
+  ...signupPolicy,
   baseURL:
     stagingAuth?.baseURL ??
     process.env.BETTER_AUTH_URL ??
@@ -72,6 +45,8 @@ export const auth = betterAuth({
   },
   rateLimit: {
     enabled: true,
+    // Deploy only after the reviewed rateLimit table and runtime grants exist.
+    storage: "database",
     window: 60,
     max: 60,
     customRules: {

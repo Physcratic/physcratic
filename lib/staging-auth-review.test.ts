@@ -20,6 +20,7 @@ test("actual Better Auth configuration on the candidate stable Preview origin, d
   target.pathname = `/${database}`;
   const testSecret = "disposable-local-auth-review-secret-not-a-real-credential";
   const variables: Record<string, string> = {
+    RECAPTCHA_SECRET_KEY: "test-secret", RECAPTCHA_ALLOWED_HOSTNAMES: new URL(candidateOrigin).hostname,
     NODE_ENV: "production", VERCEL_ENV: "preview", DATABASE_URL: target.href,
     BETTER_AUTH_URL: candidateOrigin, BETTER_AUTH_SECRET: testSecret,
     VERCEL_URL: "immutable-preview.invalid", VERCEL_PROJECT_PRODUCTION_URL: "production.invalid",
@@ -38,12 +39,21 @@ test("actual Better Auth configuration on the candidate stable Preview origin, d
   delete process.env.RESEND_API_KEY;
   delete process.env.RESEND_EMAIL_DOMAIN;
   // No HTTP call leaves this process, even if a mail hook is accidentally used.
-  t.mock.method(globalThis, "fetch", async () => { throw new Error("HTTP forbidden in local auth review"); });
+  t.mock.method(globalThis, "fetch", async (input: RequestInfo | URL) => {
+    assert.equal(String(input), "https://www.google.com/recaptcha/api/siteverify");
+    return Response.json({ success: true, score: 0.9, action: "signup", hostname: new URL(candidateOrigin).hostname });
+  });
   const { auth } = await import("./auth");
   const { pool } = await import("./db");
   const { isSubmissionOrigin } = await import("./submission-server");
   const { sendVerificationEmail } = await import("./verification-email");
   const context = await auth.$context;
+  assert.equal(context.rateLimit.storage, "database");
+  assert.deepEqual(context.options.rateLimit?.customRules, {
+    "/sign-in/email": { window: 60, max: 5 },
+    "/sign-up/email": { window: 60, max: 3 },
+    "/send-verification-email": { window: 60, max: 3 },
+  });
   const originalSender = context.options.emailVerification!.sendVerificationEmail;
   const outgoing: string[] = [];
   // Replace only transport scheduling/delivery, keeping the real auth options,
@@ -51,7 +61,7 @@ test("actual Better Auth configuration on the candidate stable Preview origin, d
   context.options.emailVerification!.sendVerificationEmail = async ({ url }) => { outgoing.push(url); };
   function post(path: string, body: unknown, origin = candidateOrigin, ip = "192.0.2.10") {
     return auth.handler(new Request(`${candidateOrigin}/api/auth${path}`, {
-      method: "POST", headers: { origin, "content-type": "application/json", "x-forwarded-for": ip }, body: JSON.stringify(body),
+      method: "POST", headers: { origin, "content-type": "application/json", "x-forwarded-for": ip, "x-captcha-response": "local-test-token" }, body: JSON.stringify(body),
     }));
   }
   const credentials = { name: "Disposable auth fixture", email: "local-auth-review@example.invalid", password: "disposable-password-42" };
@@ -128,7 +138,7 @@ test("actual Better Auth configuration on the candidate stable Preview origin, d
       assert.equal((await pool.query('SELECT count(*)::integer AS n FROM "session"')).rows[0].n, 1);
     });
     await t.test("registration rate limit rejects the fourth request in one per-IP path bucket", async () => {
-      assert.equal(context.rateLimit.storage, "memory");
+      assert.equal(context.rateLimit.storage, "database");
       for (let i = 0; i < 4; i++) {
         // Missing Terms acceptance prevents creation even for the first three.
         const response = await post("/sign-up/email", credentials, candidateOrigin, "192.0.2.77");
