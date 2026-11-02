@@ -1,14 +1,14 @@
 # Community implementation status
 
-Updated: 3 November 2026, 03:42 WITA (UTC+8).
+Updated: 3 November 2026, 04:47 WITA (UTC+8).
 
 ## Batch 1B: Settings, public profiles, images and optional setup
 
 **Deployment: PENDING USER ACTION. NOT DEPLOYED BY CODEX.**
 
 - Starting base: latest main `cfcbfaa97cb33db44e7bd85e520dd63c45c31a1d`. During work, main advanced through PR #80 to `5689bb193fe466faa6058202a4477f46886246d9`; integrated it normally as `3bcf7627b8f2e05b5309af20ffe3fa56a9260382`, preserving all new guides/metadata changes, then reran combined checks.
-- Implementation SHA: `3b640c8c176bf32e5fde4a1be48635c4cccaded4`.
-- Branch: `codex/community-batch-1b-2026-11-03`. Delivery: [PR #83](https://github.com/Physcratic/physcratic/pull/83). Final merge SHA: pending CI and merge, finalized afterward.
+- Implementation SHA: `3b640c8c176bf32e5fde4a1be48635c4cccaded4`. Final synchronized/tested PR head: `b1f1ad4b7b896695cf977985b764233604cb9828`.
+- Branch: `codex/community-batch-1b-2026-11-03`. Delivery: [PR #83](https://github.com/Physcratic/physcratic/pull/83). Final feature merge SHA: `643a7d83c60bada14d3903cfd672580a2ecc2718`, merged to main after green CI. This final handoff update is a subsequent documentation-only commit.
 - Prior deliveries remain intact: Batch 0 PR #77 (`5209a47`), Batch 1A PR #79 (`07dcad9`). The user reports production migration 0007/runtime grants are **not installed**. No installation or production readiness is assumed here.
 
 ### Implemented screens and behaviour
@@ -59,7 +59,7 @@ Updated: 3 November 2026, 03:42 WITA (UTC+8).
 - `corepack pnpm build`: passed. The actual built Next server was additionally checked with both flags OFF and an intentionally unreachable synthetic database: Settings/theme worked at 375px with no profile/media requests, missing/private profile URLs returned consistent 404, and all new API methods returned disabled 503/private-no-store. No live DB/Blob binding was used.
 - `python3 -B scripts/phase-c-offline/run.py safety`: passed runner self-test, transport tests (5 pass, 2 expected skips) and ESLint scope guard (1 pass). `git diff --check`: passed. React lifecycle/privacy/serialization/accessibility review completed.
 - New test-runner JSX compatibility, landmark issues, a theme-harness mismatch and the remove/upload race found during checks were fixed. Final checks have no new failures. Actual production Blob authorization/transport and deployed UI smoke remain unverified until the user configures/enables/deploys.
-- GitHub CI/PR and final merge evidence are finalized after merge below.
+- [GitHub CI #147](https://github.com/Physcratic/physcratic/actions/runs/41521599289) passed on final synchronized PR head `b1f1ad4b7b896695cf977985b764233604cb9828`. Both jobs succeeded, including database tests, reviewed release/transport guards, typecheck, lint, server/component tests and production build. PR #83 merged at `643a7d83c60bada14d3903cfd672580a2ecc2718`.
 
 ### Exact later production-enablement prerequisites: user/operator only
 
@@ -84,6 +84,6 @@ Updated: 3 November 2026, 03:42 WITA (UTC+8).
 
 ### Outstanding and next phase
 
-- No implementation blockers after local verification; merge requires green GitHub CI. Database installation/grants, private-store binding/authorization, feature enablement, Vercel deployment and production smoke remain **PENDING USER ACTION**.
+- No implementation blockers. PR #83 merged after local combined verification and successful GitHub CI #147. Database installation/grants, private-store binding/authorization, feature enablement, Vercel deployment and production smoke remain **PENDING USER ACTION**.
 - Onboarding dismissal is per account **on this device**, not cross-device server state. Orphan cleanup is activity/owner-driven and bounded; there is no new scheduled job. Image crops are centred, without a crop-editor UI.
 - No achievements, medal claims/staff markers, followers, leaderboards or comments implemented. Next: **Batch 2A** in a fresh session on latest main. Migration 0008 is now reserved for profile media; check free IDs before any later migration. Stop here before Batch 2A.
