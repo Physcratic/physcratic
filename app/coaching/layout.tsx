@@ -1,11 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Bowlby_One } from "next/font/google";
+import localFont from "next/font/local";
 import styles from "./coaching.module.css";
 import { content } from "@/lib/coaching/content";
 import { coachingSocial } from "@/lib/coaching/social";
 
 // v0 kept: Bowlby One as the display font, and no noindex.
-const display = Bowlby_One({ subsets: ["latin"], weight: "400", variable: "--font-coaching-display", display: "swap" });
+const display = localFont({
+  src: "../../node_modules/@fontsource/bowlby-one/files/bowlby-one-latin-400-normal.woff2",
+  weight: "400",
+  variable: "--font-coaching-display",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: content.meta.title,

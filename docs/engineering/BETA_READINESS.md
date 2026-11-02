@@ -310,3 +310,57 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **Conversion events** (`lib/coaching/analytics.ts`): `track("coaching_consultation_click", { pathway })` from the hero button and the consultation page, `track("coaching_tutor_click")` from the tutor page. It does nothing when analytics is not loaded and swallows errors. Left click, keyboard Enter, ctrl+click and middle-click (which sends `auxclick`, handled separately) each fire one event with the right pathway, and the disabled hero button fires none. Checked in a browser against the analytics queue.
 - **Not changed, found on the way:** `/dashboard` already scrolls sideways by 12px at 375 (the right-hand group in the top bar ends at 387px). That is in `components/kokonutui/top-nav.tsx` and was not touched.
 
+## 2026-11-02 - Learn hub structured data
+
+- **What:** `/learn` now carries one JSON-LD block, `learnHubGraph()` in `lib/seo/json-ld.ts`, rendered once in `app/learn/page.tsx`: the Organization, a CollectionPage (`#collection`, with the page's own title and description, `en-GB`, free to access, publisher, main entity the list), an ItemList (`#guides`) of the published guides and a BreadcrumbList (Physcratic, Learn).
+- **No hard-coded guide titles:** the page passes `publishedArticles` from `lib/learn`, in the order the hub shows them, and the function builds each item's `position`, `name` (the guide title) and `url` from it. An unpublished guide never appears, and with no guides there is no ItemList and no `mainEntity`. A test checks that no guide title or slug is typed in `json-ld.ts`.
+- **Tests** (`lib/learn-hub-json-ld.test.ts`, a separate file): `@context` and `@type` on every node, the four types in order, the hub's title and description, item count, positions, names and urls against `lib/learn`, the empty case, all `@id`s resolve and are unique, the breadcrumbs, `JSON.parse` and an inert `</script>`, and that the page renders it once. Breaking the positions or the main entity makes three of them fail.
+- **Checked on `pnpm build` and `next start`:** one block on `/learn`, four items in the same order as the page and the right urls, `scripts/smoke.mjs` reports "1 JSON-LD block(s) parse" for `/learn`, and `scripts/check-seo.mjs` finds no new problem. Whether Google shows a rich result for it can only be seen in Search Console, and an ItemList of guides may never get one.
+- **Also:** the comment in `scripts/smoke.mjs` that said the hub has no JSON-LD is updated. The smoke check still only requires that any JSON-LD on the hub parses, so it does not fail on a preview that predates this.
+
+## 2026-11-02 - Zero lint warnings
+
+- **What:** `pnpm lint --max-warnings=0` now passes. The only two warnings were "Unused eslint-disable directive" in `app/learn/opengraph-image.tsx` and `app/learn/[slug]/opengraph-image.tsx`: the `@next/next/no-img-element` rule no longer reports there, so the two `eslint-disable-next-line` comments around the `<img>` in the OG image JSX were deleted. The ESLint config is unchanged.
+- **Checked:** `pnpm lint --max-warnings=0` exits 0 (0 errors, 0 warnings), typecheck, all tests and `pnpm build` pass. The OG images render the same, because only a comment was removed.
+
+## 2026-11-02: local Problem Authoring Preview reconciliation
+
+Prepared against main 60a4825212a67077c2d5dc5e668dad252df06653 without changing the accepted migration candidate or executing remote changes. Staging migrations are complete. Application grants and Preview push/deployment remain separately gated. Coaching, learn, arena and newer main functionality are retained.
+
+Retained main's new codex Preview smoke exclusion unchanged. Manual smoke checks still use Production sitemap origins; an authoring Preview advertises its reviewed Preview metadata origin. No check is weakened by this reconciliation.
+
+## 2026-11-02: authorized staging release candidate
+
+- Applied only the reviewed five-table grants to physcratic_integration_app on the isolated staging branch. Exact40 effective privilege checks pass, no grant options or ledger/schema/role expansion. Migrations were not rerun.
+- Reconciled the accepted authoring candidate with main60a4825, preserving coaching, Arena, learning, auth, performance/CSP and current smoke dispatch/deduplication policy.
+- Fixed Preview-only discovery files to use public canonical URLs without changing stable auth/page origins. Full local Preview-profile HTTP smoke now15 PASS,0fail,1Production-only skip.
+- Staging DB guard additionally pins the exact approved DNS names and restricted application role. Production behavior is unchanged. Shared PostgreSQL aliases remain rejected and Blob OIDC/mail allowlist enforcement retained.
+- TypeScript, lint, build, PG18.6, release/transport and all three browser suites pass. One inherited corpus punctuation TODO remains, without changing generated main content.
+- Independent READ ONLY Production inspection found no authoring tables/functions. This blocks merge/deployment to Production until a separately approved migration plan or complete tested feature-disable strategy exists. No Production write is authorized here.
+- Fresh Preview deployment and real verified-account/email/Blob acceptance remain required. The connected inbox is not the allowlisted recipient, so no unrelated inbox is searched and no allowlist is broadened to make acceptance pass.
+
+## 2026-11-02: real authoring acceptance and Production execution transport
+
+- Real staging Terms, mailbox verification, login, save/reload, publish, private
+  OIDC PNG uploads/reads, numeric outcomes/retry, explicit solution reveal,
+  assisted-attempt immutability, revocation, unpublish and logout checks passed
+  on the accepted Preview. Labelled immutable fixtures are retained.
+- Shared auth forms now explicitly submit POST before hydration, preventing
+  credentials in default GET query strings. SSR and real no-JavaScript Chromium
+  tests cover the defect. Hydrated Better Auth flow is unchanged.
+- Added a Production-only Windows runner around the unchanged reviewed SQL.
+  Disposable PG18.6 covers data preservation, atomic failure rollback, stale
+  recovery rejection, writer lock timeout, window expiry and replay rejection.
+  Existing canonical migrations and staging package are unchanged.
+- Production remains gated on fresh candidate CI/Preview and execution on the
+  operator's verified Windows host with a current writer/deployment hold.
+  No Production SQL write or merge is recorded here. Details and live legacy
+  coverage limitations are in AUTHORING_ALPHA_RELEASE.md.
+
+## 2026-11-02: Production operator timestamp correction
+
+- Derive the window end from the captured start, preventing Node startup time
+  from extending the interval beyond the existing thirty-minute validation.
+- The actual shell calculation passes millisecond and year-rollover regressions.
+  A thirty-minute-plus-204ms interval remains rejected. Canonical SQL, target,
+  TLS, locks, recovery and approval checks are unchanged. Refresh package hashes.

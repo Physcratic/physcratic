@@ -20,6 +20,10 @@ import {
   readRequestBytes,
   RequestBodyTimeoutError,
 } from "./submission-request";
+import {
+  StudentAccessError as AttemptError,
+  chargeStudentRequest as charge,
+} from "./authored-student-security";
 type User = { id: string; emailVerified?: boolean };
 type Deps = {
   pool: Pool;
@@ -48,15 +52,6 @@ type Row = {
   assisted: boolean;
 };
 const uuid = z.uuid().transform((v) => v.toLowerCase());
-class AttemptError extends Error {
-  constructor(
-    public status: number,
-    message: string,
-    public retryAfter?: string,
-  ) {
-    super(message);
-  }
-}
 const reply = (data: unknown, status = 200) =>
   Response.json(data, {
     status,
@@ -81,7 +76,10 @@ function view(row: Row): AuthoredAttempt {
   const answer = authoredAnswerSchema.safeParse(row.answer);
   if (!parsed.success || !answer.success) throw Error("Invalid stored attempt");
   const grade = parsed.data;
-  if (row.spoiler_policy !== policy.spoilerPolicy || row.assisted !== false)
+  if (
+    row.spoiler_policy !== policy.spoilerPolicy ||
+    typeof row.assisted !== "boolean"
+  )
     throw Error("Invalid attempt policy");
   return {
     id: row.id,
@@ -93,26 +91,8 @@ function view(row: Row): AuthoredAttempt {
     attemptNumber: row.attempt_number,
     createdAt: row.created_at.toISOString(),
     spoilerPolicy: policy.spoilerPolicy,
-    assisted: false,
+    assisted: row.assisted,
   };
-}
-async function charge(pool: Pool, user: string, submit: boolean) {
-  const { rows } = await pool.query(
-    `INSERT INTO authored_student_rate(user_id,window_start,requests,submissions) VALUES($1,date_trunc('minute',clock_timestamp()),1,$2)
- ON CONFLICT(user_id) DO UPDATE SET requests=CASE WHEN authored_student_rate.window_start=EXCLUDED.window_start THEN least(authored_student_rate.requests+1,61) ELSE 1 END,
- submissions=CASE WHEN authored_student_rate.window_start=EXCLUDED.window_start THEN least(authored_student_rate.submissions+$2,21) ELSE $2 END,
- window_start=EXCLUDED.window_start RETURNING requests,submissions`,
-    [user, submit ? 1 : 0],
-  );
-  if (
-    rows[0].requests > policy.requestsPerMinute ||
-    (submit && rows[0].submissions > policy.submissionsPerMinute)
-  )
-    throw new AttemptError(
-      429,
-      "Student request limit reached. Retry next minute.",
-      "60",
-    );
 }
 function storedAnswer(value: unknown) {
   const parsed = authoredAnswerSchema.safeParse(value);

@@ -1,4 +1,5 @@
 "use client";
+import { SolutionPermissions } from "./solution-permissions";
 import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 import { Eye, FilePenLine, Save, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -1066,6 +1067,7 @@ export function ProblemEditor({
                     </p>
                   )}
                 </div>
+                <SolutionPermissions key={draft.problemId} problemId={draft.problemId} />
                 {draft.state === "published" && (
                   <a
                     href={`/dashboard/authored/${draft.problemId}`}

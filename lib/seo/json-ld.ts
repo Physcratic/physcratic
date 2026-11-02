@@ -197,3 +197,50 @@ export function jsonLdScript(data: unknown): string {
     .replace(/>/g, "\\u003e")
     .replace(/&/g, "\\u0026");
 }
+
+/**
+ * Structured data for the /learn hub: the Organization, a CollectionPage whose main entity is an
+ * ItemList of the published guides, and a BreadcrumbList (Physcratic, Learn). No guide title or slug is
+ * typed here: the caller passes the published guides from lib/learn, in the order the hub shows them,
+ * so an unpublished guide never appears. With no guides there is no ItemList.
+ */
+export function learnHubGraph({ title, description, articles }: { title: string; description: string; articles: readonly Pick<Article, "slug" | "title">[] }) {
+  const base = siteUrl();
+  const url = `${base}/learn`;
+  const listId = `${url}#guides`;
+  const itemList = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": listId,
+    name: title,
+    itemListOrder: "https://schema.org/ItemListUnordered",
+    numberOfItems: articles.length,
+    itemListElement: articles.map((article, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: article.title,
+      url: `${base}/learn/${article.slug}`,
+    })),
+  };
+  const collection = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${url}#collection`,
+    url,
+    name: title,
+    description,
+    inLanguage: "en-GB",
+    isAccessibleForFree: true,
+    publisher: { "@id": orgId() },
+    ...(articles.length > 0 ? { mainEntity: { "@id": listId } } : {}),
+  };
+  const breadcrumbs = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { name: SITE.name, item: base },
+      { name: "Learn", item: url },
+    ].map((entry, index) => ({ "@type": "ListItem", position: index + 1, ...entry })),
+  };
+  return [organization(), collection, ...(articles.length > 0 ? [itemList] : []), breadcrumbs];
+}

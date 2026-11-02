@@ -32,7 +32,7 @@ const attemptFields = z.strictObject({
   attemptNumber: decimal,
   createdAt: z.iso.datetime(),
   spoilerPolicy: z.literal("no-reveal-v1"),
-  assisted: z.literal(false),
+  assisted: z.boolean(),
 });
 export const studentAttemptSchema = attemptFields.transform((a, ctx) => {
   const grade = studentGradeSchema.safeParse({
