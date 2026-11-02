@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {readFile} from 'node:fs/promises';
+import {execFileSync} from 'node:child_process';
 import {target,windowOpen,interior,hash,sqlDigest,baseline} from './core.mjs';
 const url='postgresql://neondb_owner:synthetic-test-only@ep-snowy-heart-b7c1220y.c-13.us-east-1.aws.neon.tech/neondb?sslmode=require';
 test('Production connection pins direct endpoint, owner, database, port and certificate validation',()=>{
@@ -11,6 +12,18 @@ test('execution requires a currently open window of no more than 30 minutes',()=
   const start='2026-11-02T00:00:00Z',end='2026-11-02T00:30:00Z';assert.ok(windowOpen(start,end,Date.parse(start)));
   for(const now of [Date.parse(start)-1,Date.parse(end)])assert.throws(()=>windowOpen(start,end,now));
   assert.throws(()=>windowOpen(start,'2026-11-02T00:31:00Z',Date.parse(start)));
+  assert.throws(()=>windowOpen(start,'2026-11-02T00:30:00.204Z',Date.parse(start)));
+});
+test('actual Windows shell calculation derives exactly thirty minutes from its captured start',async()=>{
+  const script=await readFile(new URL('WINDOWS_OPERATOR.sh',import.meta.url),'utf8');
+  const line=script.split('\n').find(line=>line.startsWith('window_end='));assert.ok(line);
+  // Fixed starts differ from the subprocess clock, reproducing elapsed-time
+  // drift without sleeping. Exercise the actual script line, including rollover.
+  for(const start of ['2026-11-02T03:09:09.204Z','2026-12-31T23:59:59.999Z']){
+    const end=execFileSync('bash',['-c','window_start=$1\n'+line+'\nprintf "%s" "$window_end"','window-regression',start],{encoding:'utf8'});
+    assert.equal(Date.parse(end)-Date.parse(start),1800000);
+    assert.equal(windowOpen(start,end,Date.parse(start)+204),Date.parse(end));
+  }
 });
 test('approved SQL hash and every interior byte survive transaction transport',async()=>{
   const sql=await readFile(new URL('package/PRODUCTION_MIGRATION_DRAFT.sql',import.meta.url),'utf8');

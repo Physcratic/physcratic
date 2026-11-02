@@ -28,7 +28,7 @@ printf '\n'
 export AUTHORING_PRODUCTION_DIRECT_URL
 evidence=$(mktemp -d "${TMPDIR:-/tmp}/physcratic-production.XXXXXXXX")
 window_start=$(node -e 'console.log(new Date().toISOString())')
-window_end=$(node -e 'console.log(new Date(Date.now()+30*60*1000).toISOString())')
+window_end=$(node -e 'console.log(new Date(Date.parse(process.argv[1])+30*60*1000).toISOString())' "$window_start")
 printf 'Window UTC: %s to %s\n' "$window_start" "$window_end"
 printf 'Private evidence directory: %s\n' "$evidence"
 # Node expects native Windows paths, not Git Bash /tmp aliases.

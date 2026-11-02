@@ -334,3 +334,11 @@ Retained main's new codex Preview smoke exclusion unchanged. Manual smoke checks
   operator's verified Windows host with a current writer/deployment hold.
   No Production SQL write or merge is recorded here. Details and live legacy
   coverage limitations are in AUTHORING_ALPHA_RELEASE.md.
+
+## 2026-11-02: Production operator timestamp correction
+
+- Derive the window end from the captured start, preventing Node startup time
+  from extending the interval beyond the existing thirty-minute validation.
+- The actual shell calculation passes millisecond and year-rollover regressions.
+  A thirty-minute-plus-204ms interval remains rejected. Canonical SQL, target,
+  TLS, locks, recovery and approval checks are unchanged. Refresh package hashes.
