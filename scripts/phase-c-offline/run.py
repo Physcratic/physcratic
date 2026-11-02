@@ -19,7 +19,7 @@ from urllib.parse import urlsplit
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
 OUT = ROOT / 'build' / 'phase-c-offline'
-BASELINE = 'bbcfe194b76a974b9587a8e11c3fc57668d7a530'
+BASELINE = 'c426aaf31f53328d2123e7b419920dd9a3d6fe23'
 SAFE_ENV = {'PATH','SYSTEMROOT','WINDIR','COMSPEC','PATHEXT','TEMP','TMP',
             'USERPROFILE','LOCALAPPDATA','APPDATA','PROGRAMFILES','PROGRAMFILES(X86)',
             'COMMONPROGRAMFILES','NUMBER_OF_PROCESSORS','PROCESSOR_ARCHITECTURE'}

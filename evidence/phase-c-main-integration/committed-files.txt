@@ -7,6 +7,7 @@ evidence/phase-c-main-integration/coverage.md
 evidence/phase-c-main-integration/isolation.json
 evidence/phase-c-main-integration/results.json
 evidence/phase-c-main-integration/review.md
+evidence/phase-c-main-integration/shipping.md
 evidence/phase-c-main-integration/transfer.json
 lib/authored-symbolic-grading.test.ts
 lib/staging-auth-review.test.ts
