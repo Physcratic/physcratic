@@ -276,3 +276,11 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **Not checkable locally:** `/sign-in` returns 500 on a local build because there is no database, so in production mode it fails there, as it should. The first run against production is the real test. The existing sitemap check also fails on a local build, because the sitemap advertises `localhost:3000`.
 - **Also:** the comment and docs now say `next.config.ts` (it was renamed in the CSP change).
 
+## 2026-11-02 - CI: keep smoke tests away from staging previews
+
+- **Why:** previews of `codex/` branches use the staging database, and the authoring team requires CI to stay isolated from it. The smoke tests send requests to the preview URL, so they must not run against those previews.
+- **What:** in `.github/workflows/smoke.yml` the `smoke` job no longer runs when `github.event.deployment.ref` starts with `codex/`. A new `skipped` job runs in that case and logs "Skipped: codex branch preview" with the branch, because a skipped job cannot print anything itself. It sends no request and posts no status. A manual run (`workflow_dispatch`) is still allowed. The rule is in `docs/engineering/SMOKE_TESTS.md`.
+- **Side effect:** a `codex/` commit gets no "Smoke tests" commit status. The status is not a required check, so nothing is blocked.
+- **Test:** `lib/smoke-workflow.test.ts` checks both conditions, the logged line, that the skipped job makes no request or status call, and the docs. It fails if the exclusion is removed.
+- **Not testable before merge:** `deployment_status` workflows run from the default branch, so the change only takes effect once merged. It assumes Vercel sets `deployment.ref` to the branch name, as it does for its other deployments. Check the first `codex/` preview after merge.
+

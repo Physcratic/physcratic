@@ -13,6 +13,8 @@ Both workflows run from the default branch, so edits to them only take effect on
 
 `smoke.yml` only runs when the deployment state is `success` and the environment name contains `financial-dashboard`. The `physcratic-integration` project is ignored. The environment is `production` when the name starts with "Production", otherwise `preview`.
 
+**Previews of `codex/` branches are skipped** (the deployment's `ref` starts with `codex/`). Those previews use the staging database, and the authoring team requires CI to stay isolated from it, so the smoke tests must not send requests to them. The run logs "Skipped: codex branch preview" and posts no "Smoke tests" status for that commit. A manual run ("Run it by hand on a preview") is still allowed, because someone chose that URL.
+
 ### Preview deployments and the bypass secret
 
 Previews sit behind Vercel Deployment Protection. The repository secret `VERCEL_AUTOMATION_BYPASS_SECRET` (Vercel, Project Settings, Deployment Protection, Protection Bypass for Automation) is sent as the `x-vercel-protection-bypass` header. A preview run without it fails with a message saying so. Production runs send it only if it is set.
