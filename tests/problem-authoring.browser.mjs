@@ -12,6 +12,9 @@ import { tmpdir } from "node:os";
 import { Pool } from "pg";
 import { createAuthorMediaApi } from "../lib/author-media-api.ts";
 import { memoryAuthorStorage, png, pdf } from "./author-media-fixtures.ts";
+import { createAuthoredLibraryApi } from "../lib/authored-library-api.ts";
+import { createAuthoredAttemptApi } from "../lib/authored-attempt-api.ts";
+import { createAuthoredSolutionApi } from "../lib/authored-solution-api.ts";
 import { createProblemAuthoringApi } from "../lib/problem-authoring-api.ts";
 import { isAllowedSubmissionOrigin } from "../lib/submission-security.ts";
 const require = createRequire(import.meta.url);
@@ -33,17 +36,35 @@ let browser,
   origin,
   failNext = 0,
   uploadGate;
+const sessionUser = async (request) => ({
+  id: request.headers.get("cookie")?.includes("viewer=workflow-student")
+    ? "workflow-student"
+    : "browser-author",
+  emailVerified: true,
+});
 const api = createProblemAuthoringApi({
   pool,
-  user: async () => ({ id: "browser-author", emailVerified: true }),
+  user: sessionUser,
   origin: (request) => isAllowedSubmissionOrigin(request, [origin]),
 });
 const mediaStorage = memoryAuthorStorage();
 const mediaApi = createAuthorMediaApi({
   pool,
   storage: mediaStorage.storage,
-  user: async () => ({ id: "browser-author", emailVerified: true }),
+  user: sessionUser,
   origin: (request) => isAllowedSubmissionOrigin(request, [origin]),
+});
+const libraryApi = createAuthoredLibraryApi(pool);
+const attemptApi = createAuthoredAttemptApi({
+  pool,
+  user: sessionUser,
+  origin: (request) => isAllowedSubmissionOrigin(request, [origin]),
+});
+const solutionApi = createAuthoredSolutionApi({
+  pool,
+  user: sessionUser,
+  origin: (request) => isAllowedSubmissionOrigin(request, [origin]),
+  storage: mediaStorage.storage,
 });
 async function until(check, label) {
   const start = Date.now();
@@ -55,12 +76,15 @@ async function until(check, label) {
 }
 try {
   await pool.query(
-    'CREATE TABLE "user" (id text PRIMARY KEY); INSERT INTO "user" VALUES (\'browser-author\')',
+    "CREATE TABLE \"user\" (id text PRIMARY KEY); INSERT INTO \"user\" VALUES ('browser-author'),('workflow-student')",
   );
   for (const name of [
     "0001_problem_authoring",
     "0002_authored_write_limit",
     "0003_author_media",
+    "0004_authored_attempts",
+    "0005_authored_solution_access",
+    "0006_authored_discovery",
   ])
     await pool.query(
       "BEGIN;\n" +
@@ -112,7 +136,34 @@ try {
         if (req.method === "POST" && paths[4] === "media" && uploadGate)
           await uploadGate;
         let response;
-        if (paths[2] === "media") response = await mediaApi("cleanup", request);
+        if (paths[2] === "library") response = await libraryApi(request);
+        else if (paths[2] === "attempts")
+          response = await attemptApi(
+            paths[3] ? "read" : "list",
+            request,
+            paths[3],
+          );
+        else if (paths[3] === "attempts")
+          response = await attemptApi("submit", request, paths[2]);
+        else if (paths[3] === "submission-info")
+          response = await attemptApi("info", request, paths[2]);
+        else if (paths[2] === "drafts" && paths[4] === "solutions")
+          response = await solutionApi(
+            req.method === "GET" ? "permission-read" : "permission-write",
+            request,
+            paths[3],
+            paths[5],
+          );
+        else if (paths[3] === "solutions")
+          response = await solutionApi(
+            paths[5] === "view" ? "view" : "media",
+            request,
+            paths[2],
+            paths[4],
+            paths[6],
+          );
+        else if (paths[2] === "media")
+          response = await mediaApi("cleanup", request);
         else if (paths[4] === "media")
           response = await mediaApi(
             req.method === "GET" ? "list" : "upload",
@@ -143,6 +194,11 @@ try {
         }
         res.writeHead(response.status, Object.fromEntries(response.headers));
         res.end(Buffer.from(await response.arrayBuffer()));
+        return;
+      }
+      if (url.pathname === "/api/auth/get-session") {
+        res.setHeader("content-type", "application/json");
+        res.end("null");
         return;
       }
       if (url.pathname === "/bundle.js" || url.pathname === "/style.css") {
@@ -643,8 +699,10 @@ try {
       id,
     )
   ).json();
-  const { title: previousTitle, ...previousContent } = current.content;
-  const { title: finalTitle, ...finalContent } = ownerResult.content;
+  const previousContent = { ...current.content };
+  const finalContent = { ...ownerResult.content };
+  delete previousContent.title;
+  delete finalContent.title;
   assert.deepEqual(
     finalContent,
     previousContent,
@@ -668,6 +726,179 @@ try {
     ownerResult.privateParts.find((p) => p.key?.kind === "numeric").key.units,
     "1",
     "dimensionless author label survives autosave, recovery, publication and readback",
+  );
+  // Phase8A: carry this exact editor-created multipart/media problem through the
+  // library, verified student work, explicit solution authorization and revocation.
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page
+    .getByRole("button", { name: "+ Add part to section 2", exact: true })
+    .click();
+  await secondSection
+    .getByText("Private answer, hints & solution · part 2", { exact: true })
+    .click();
+  await secondSection
+    .getByLabel("Answer type", { exact: true })
+    .last()
+    .selectOption("manual");
+  await page.getByRole("button", { name: "Save now", exact: true }).click();
+  await until(
+    async () =>
+      (await page.getByRole("status").allTextContents()).some((t) =>
+        t.includes("All changes saved"),
+      ),
+    "workflow autosave",
+  );
+  await page
+    .getByRole("button", { name: "Publish problem", exact: true })
+    .click();
+  await until(
+    async () =>
+      (await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id]))
+        .rows[0].state === "published",
+    "workflow publication",
+  );
+  await page
+    .getByRole("button", {
+      name: "Load current published solution controls",
+      exact: true,
+    })
+    .click();
+  await page
+    .getByRole("button", { name: "Reload permission metadata", exact: true })
+    .click();
+  await page
+    .getByRole("checkbox", { name: /I explicitly approve all/ })
+    .check();
+  await page
+    .getByRole("button", { name: "Confirm student access", exact: true })
+    .click();
+  await page.getByText(/Change acknowledged/).waitFor();
+  const studentContext = await browser.newContext({
+    viewport: { width: 375, height: 812 },
+  });
+  await studentContext.addCookies([
+    { name: "viewer", value: "workflow-student", url: origin },
+  ]);
+  const learner = await studentContext.newPage();
+  learner.on("dialog", (d) => d.accept());
+  learner.on("pageerror", (e) => errors.push(e.message));
+  await learner.goto(`${origin}/dashboard?view=problems&collection=authored`);
+  await learner.locator(`a[href="/dashboard/authored/${id}"]`).click();
+  await learner.getByLabel("Numerical answer", { exact: true }).fill("-0.5");
+  await learner.getByLabel("Units", { exact: true }).fill("1");
+  await learner
+    .getByRole("button", { name: "Submit answer", exact: true })
+    .click();
+  await learner
+    .getByRole("heading", { name: /^Correct · saved attempt/ })
+    .waitFor();
+  assert.equal(
+    (await learner.locator("body").innerText()).includes(
+      "PRIVATE_KEY_SENTINEL",
+    ),
+    false,
+  );
+  await learner
+    .getByRole("button", { name: "View worked solution", exact: true })
+    .click();
+  await learner
+    .getByLabel("Approved worked solution", { exact: true })
+    .waitFor();
+  await learner.getByText("PRIVATE_KEY_SENTINEL", { exact: true }).waitFor();
+  await learner
+    .getByRole("img", { name: "Private solution diagram", exact: true })
+    .waitFor();
+  const live = await (
+    await api("public", new Request(`${origin}/api`), id)
+  ).json();
+  const liveParts = live.content.sections.flatMap((s) => s.parts);
+  const symbolic = liveParts.find((p) => p.answerMode === "expression");
+  const manual = liveParts.find((p) => p.answerMode === "manual");
+  await learner
+    .getByLabel("Choose part", { exact: true })
+    .selectOption(symbolic.id);
+  await learner.getByLabel("Expression answer", { exact: true }).fill("x*x");
+  await learner
+    .getByRole("button", { name: "Submit answer", exact: true })
+    .click();
+  await learner
+    .getByRole("heading", { name: /^Correct · saved attempt/ })
+    .waitFor();
+  await learner.getByText(/Assisted \(server record\)/).waitFor();
+  await learner
+    .getByLabel("Choose part", { exact: true })
+    .selectOption(manual.id);
+  await learner
+    .getByLabel("Manual answer", { exact: true })
+    .fill("Energy is conserved in the ideal model.");
+  await learner
+    .getByRole("button", { name: "Submit answer", exact: true })
+    .click();
+  await learner
+    .getByRole("heading", { name: /^Ungraded · saved attempt/ })
+    .waitFor();
+  const records = (
+    await pool.query(
+      "SELECT status,assisted FROM authored_attempt WHERE user_id='workflow-student' ORDER BY created_at,id",
+    )
+  ).rows;
+  assert.deepEqual(records, [
+    { status: "correct", assisted: false },
+    { status: "correct", assisted: true },
+    { status: "ungraded", assisted: true },
+  ]);
+  await learner
+    .getByRole("button", { name: "My submissions", exact: true })
+    .click();
+  await learner.getByLabel("My saved submissions", { exact: true }).waitFor();
+  assert.equal(await learner.getByText(/^Attempt \d+ ·/).count(), 3);
+  assert.equal(
+    await learner.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+    true,
+  );
+  assert.deepEqual(
+    (await new AxeBuilder({ page: learner }).analyze()).violations.map(
+      (v) => v.id,
+    ),
+    [],
+  );
+  await page.bringToFront();
+  await page
+    .getByRole("button", { name: "Reload permission metadata", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "Revoke student access", exact: true })
+    .click();
+  await page.getByText(/Change acknowledged/).waitFor();
+  await learner.reload();
+  await learner
+    .getByRole("button", { name: "View worked solution", exact: true })
+    .click();
+  await learner.getByText(/Worked solution unavailable:/).waitFor();
+  assert.equal(
+    await learner
+      .getByLabel("Approved worked solution", { exact: true })
+      .count(),
+    0,
+  );
+  await page
+    .getByRole("button", { name: "Unpublish problem", exact: true })
+    .click();
+  await until(
+    async () =>
+      (await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id]))
+        .rows[0].state === "archived",
+    "workflow unpublish",
+  );
+  await learner.reload();
+  await learner
+    .getByText(/This problem is unpublished, deleted or unavailable/)
+    .waitFor();
+  await studentContext.close();
+  console.log(
+    "PASS unified editor → library → numerical/symbolic/manual submissions → immutable history → explicit solution/media → assisted attempts → revoke/unpublish workflow (injected verified sessions).",
   );
   await page.getByRole("button", { name: "← Drafts", exact: true }).click();
   await page

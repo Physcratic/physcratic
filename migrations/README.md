@@ -1,5 +1,23 @@
 # Explicit SQL migrations
 
+Phase8A verified0001–0006 unchanged, ordering/additivity/rollback and absence of
+build/startup/deploy migration hooks. Only disposable local DBs were migrated;
+shared/production ledger state was not accessed or verified. See
+[release gates and0005/0006 checksums](../docs/engineering/AUTHORING_RELEASE_BLOCKERS.md).
+
+## Phase 7 discovery indexes (0006)
+
+`0006_authored_discovery.up.sql` is additive after0005: immutable public metadata
+search function, published UUID keyset index, revision full-text/JSONB/difficulty
+indexes only. No content import, publication, extension or private table change.
+SQL is authoritative; Drizzle records the indexes. Apply separately using the
+existing advisory lock, reviewed checksum/source-commit ledger and explicit
+target selection below. No application startup/build migration exists. Word search
+returns generic503 until its search function is installed. Down drops only the
+four indexes/function and preserves publications/history; disposable up/down/up
+and index usability checks pass. No shared or production migration was run.
+See [discovery handoff](../docs/engineering/AUTHORED_LIBRARY.md).
+
 `0001_problem_authoring` is the first additive feature migration. It changes no old table and has no runtime/build hook. SQL is authoritative for deferred foreign keys, reverse part/key completeness constraints and immutability/sealing triggers, which Drizzle's table declarations cannot fully represent. Do not run Drizzle schema push against this schema: it can discard these invariants.
 
 Use PostgreSQL 17 and an explicitly selected disposable/staging database. Do not use ambient `DATABASE_URL` for local verification. Back up and inspect the target before any separately approved deployment. No production migration is authorized by Phase 1.

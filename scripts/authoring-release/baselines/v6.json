@@ -1,0 +1,3263 @@
+{
+  "server_version_num": 180006,
+  "catalog": {
+    "tables": [
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "author_draft_media",
+        "force_rls": false,
+        "persistence": "p"
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "author_media",
+        "force_rls": false,
+        "persistence": "p"
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "author_media_usage",
+        "force_rls": false,
+        "persistence": "p"
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "author_revision_media",
+        "force_rls": false,
+        "persistence": "p"
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "authored_attempt",
+        "force_rls": false,
+        "persistence": "p"
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "authored_draft",
+        "force_rls": false,
+        "persistence": "p"
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "authored_draft_private_part",
+        "force_rls": false,
+        "persistence": "p"
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "authored_problem",
+        "force_rls": false,
+        "persistence": "p"
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "authored_revision",
+        "force_rls": false,
+        "persistence": "p"
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "authored_revision_part",
+        "force_rls": false,
+        "persistence": "p"
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "authored_revision_private_part",
+        "force_rls": false,
+        "persistence": "p"
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "authored_solution_permission",
+        "force_rls": false,
+        "persistence": "p"
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "authored_solution_permission_media",
+        "force_rls": false,
+        "persistence": "p"
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "authored_solution_reveal",
+        "force_rls": false,
+        "persistence": "p"
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "authored_student_rate",
+        "force_rls": false,
+        "persistence": "p"
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "authored_write_limit",
+        "force_rls": false,
+        "persistence": "p"
+      }
+    ],
+    "columns": [
+      {
+        "name": "problem_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 1,
+        "relation": "author_draft_media",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "media_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 2,
+        "relation": "author_draft_media",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "purpose",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 3,
+        "relation": "author_draft_media",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 1,
+        "relation": "author_media",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "problem_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 2,
+        "relation": "author_media",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "purpose",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 3,
+        "relation": "author_media",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "pathname",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 4,
+        "relation": "author_media",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "filename",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 5,
+        "relation": "author_media",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "media_type",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 6,
+        "relation": "author_media",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "bytes",
+        "type": "integer",
+        "identity": "",
+        "not_null": true,
+        "position": 7,
+        "relation": "author_media",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "sha256",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 8,
+        "relation": "author_media",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "state",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 9,
+        "relation": "author_media",
+        "generated": "",
+        "default_expression": "'pending'::text"
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "identity": "",
+        "not_null": true,
+        "position": 10,
+        "relation": "author_media",
+        "generated": "",
+        "default_expression": "now()"
+      },
+      {
+        "name": "user_id",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 1,
+        "relation": "author_media_usage",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "day",
+        "type": "date",
+        "identity": "",
+        "not_null": true,
+        "position": 2,
+        "relation": "author_media_usage",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "attempts",
+        "type": "integer",
+        "identity": "",
+        "not_null": true,
+        "position": 3,
+        "relation": "author_media_usage",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "revision_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 1,
+        "relation": "author_revision_media",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "problem_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 2,
+        "relation": "author_revision_media",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "media_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 3,
+        "relation": "author_revision_media",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "purpose",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 4,
+        "relation": "author_revision_media",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 1,
+        "relation": "authored_attempt",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "user_id",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 2,
+        "relation": "authored_attempt",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "problem_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 3,
+        "relation": "authored_attempt",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "revision_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 4,
+        "relation": "authored_attempt",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "part_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 5,
+        "relation": "authored_attempt",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "idempotency_key",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 6,
+        "relation": "authored_attempt",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "answer",
+        "type": "jsonb",
+        "identity": "",
+        "not_null": true,
+        "position": 7,
+        "relation": "authored_attempt",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "status",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 8,
+        "relation": "authored_attempt",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "reason",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 9,
+        "relation": "authored_attempt",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "engine_version",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 10,
+        "relation": "authored_attempt",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "attempt_number",
+        "type": "bigint",
+        "identity": "",
+        "not_null": true,
+        "position": 11,
+        "relation": "authored_attempt",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "spoiler_policy",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 12,
+        "relation": "authored_attempt",
+        "generated": "",
+        "default_expression": "'no-reveal-v1'::text"
+      },
+      {
+        "name": "assisted",
+        "type": "boolean",
+        "identity": "",
+        "not_null": true,
+        "position": 13,
+        "relation": "authored_attempt",
+        "generated": "",
+        "default_expression": "false"
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp(3) with time zone",
+        "identity": "",
+        "not_null": true,
+        "position": 14,
+        "relation": "authored_attempt",
+        "generated": "",
+        "default_expression": "clock_timestamp()"
+      },
+      {
+        "name": "problem_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 1,
+        "relation": "authored_draft",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "version",
+        "type": "integer",
+        "identity": "",
+        "not_null": true,
+        "position": 2,
+        "relation": "authored_draft",
+        "generated": "",
+        "default_expression": "1"
+      },
+      {
+        "name": "content",
+        "type": "jsonb",
+        "identity": "",
+        "not_null": true,
+        "position": 3,
+        "relation": "authored_draft",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "updated_at",
+        "type": "timestamp with time zone",
+        "identity": "",
+        "not_null": true,
+        "position": 4,
+        "relation": "authored_draft",
+        "generated": "",
+        "default_expression": "now()"
+      },
+      {
+        "name": "problem_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 1,
+        "relation": "authored_draft_private_part",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "part_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 2,
+        "relation": "authored_draft_private_part",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "data",
+        "type": "jsonb",
+        "identity": "",
+        "not_null": true,
+        "position": 3,
+        "relation": "authored_draft_private_part",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 1,
+        "relation": "authored_problem",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "slug",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 2,
+        "relation": "authored_problem",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "owner_id",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 3,
+        "relation": "authored_problem",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "state",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 4,
+        "relation": "authored_problem",
+        "generated": "",
+        "default_expression": "'draft'::text"
+      },
+      {
+        "name": "published_revision_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": false,
+        "position": 5,
+        "relation": "authored_problem",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp with time zone",
+        "identity": "",
+        "not_null": true,
+        "position": 6,
+        "relation": "authored_problem",
+        "generated": "",
+        "default_expression": "now()"
+      },
+      {
+        "name": "updated_at",
+        "type": "timestamp with time zone",
+        "identity": "",
+        "not_null": true,
+        "position": 7,
+        "relation": "authored_problem",
+        "generated": "",
+        "default_expression": "now()"
+      },
+      {
+        "name": "id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 1,
+        "relation": "authored_revision",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "problem_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 2,
+        "relation": "authored_revision",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "number",
+        "type": "integer",
+        "identity": "",
+        "not_null": true,
+        "position": 3,
+        "relation": "authored_revision",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "schema_version",
+        "type": "integer",
+        "identity": "",
+        "not_null": true,
+        "position": 4,
+        "relation": "authored_revision",
+        "generated": "",
+        "default_expression": "1"
+      },
+      {
+        "name": "content",
+        "type": "jsonb",
+        "identity": "",
+        "not_null": true,
+        "position": 5,
+        "relation": "authored_revision",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "published_at",
+        "type": "timestamp with time zone",
+        "identity": "",
+        "not_null": true,
+        "position": 6,
+        "relation": "authored_revision",
+        "generated": "",
+        "default_expression": "now()"
+      },
+      {
+        "name": "revision_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 1,
+        "relation": "authored_revision_part",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "part_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 2,
+        "relation": "authored_revision_part",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "answer_mode",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 3,
+        "relation": "authored_revision_part",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "revision_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 1,
+        "relation": "authored_revision_private_part",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "part_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 2,
+        "relation": "authored_revision_private_part",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "answer_mode",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 3,
+        "relation": "authored_revision_private_part",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "data",
+        "type": "jsonb",
+        "identity": "",
+        "not_null": true,
+        "position": 4,
+        "relation": "authored_revision_private_part",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "problem_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 1,
+        "relation": "authored_solution_permission",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "revision_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 2,
+        "relation": "authored_solution_permission",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "part_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 3,
+        "relation": "authored_solution_permission",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "approved_by",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 4,
+        "relation": "authored_solution_permission",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "authorization_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 5,
+        "relation": "authored_solution_permission",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "version",
+        "type": "integer",
+        "identity": "",
+        "not_null": true,
+        "position": 6,
+        "relation": "authored_solution_permission",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "enabled",
+        "type": "boolean",
+        "identity": "",
+        "not_null": true,
+        "position": 7,
+        "relation": "authored_solution_permission",
+        "generated": "",
+        "default_expression": "false"
+      },
+      {
+        "name": "expires_at",
+        "type": "timestamp(3) with time zone",
+        "identity": "",
+        "not_null": false,
+        "position": 8,
+        "relation": "authored_solution_permission",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "updated_at",
+        "type": "timestamp(3) with time zone",
+        "identity": "",
+        "not_null": true,
+        "position": 9,
+        "relation": "authored_solution_permission",
+        "generated": "",
+        "default_expression": "clock_timestamp()"
+      },
+      {
+        "name": "revision_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 1,
+        "relation": "authored_solution_permission_media",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "part_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 2,
+        "relation": "authored_solution_permission_media",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "authorization_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 3,
+        "relation": "authored_solution_permission_media",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "media_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 4,
+        "relation": "authored_solution_permission_media",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 1,
+        "relation": "authored_solution_reveal",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "user_id",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 2,
+        "relation": "authored_solution_reveal",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "problem_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 3,
+        "relation": "authored_solution_reveal",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "revision_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 4,
+        "relation": "authored_solution_reveal",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "part_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 5,
+        "relation": "authored_solution_reveal",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "authorization_id",
+        "type": "uuid",
+        "identity": "",
+        "not_null": true,
+        "position": 6,
+        "relation": "authored_solution_reveal",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "policy",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 7,
+        "relation": "authored_solution_reveal",
+        "generated": "",
+        "default_expression": "'explicit-solution-v1'::text"
+      },
+      {
+        "name": "created_at",
+        "type": "timestamp(3) with time zone",
+        "identity": "",
+        "not_null": true,
+        "position": 8,
+        "relation": "authored_solution_reveal",
+        "generated": "",
+        "default_expression": "clock_timestamp()"
+      },
+      {
+        "name": "user_id",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 1,
+        "relation": "authored_student_rate",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "window_start",
+        "type": "timestamp with time zone",
+        "identity": "",
+        "not_null": true,
+        "position": 2,
+        "relation": "authored_student_rate",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "requests",
+        "type": "integer",
+        "identity": "",
+        "not_null": true,
+        "position": 3,
+        "relation": "authored_student_rate",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "submissions",
+        "type": "integer",
+        "identity": "",
+        "not_null": true,
+        "position": 4,
+        "relation": "authored_student_rate",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "user_id",
+        "type": "text",
+        "identity": "",
+        "not_null": true,
+        "position": 1,
+        "relation": "authored_write_limit",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "window_start",
+        "type": "timestamp with time zone",
+        "identity": "",
+        "not_null": true,
+        "position": 2,
+        "relation": "authored_write_limit",
+        "generated": "",
+        "default_expression": null
+      },
+      {
+        "name": "requests",
+        "type": "integer",
+        "identity": "",
+        "not_null": true,
+        "position": 3,
+        "relation": "authored_write_limit",
+        "generated": "",
+        "default_expression": null
+      }
+    ],
+    "indexes": [
+      {
+        "name": "author_draft_media_media_idx",
+        "ready": true,
+        "valid": true,
+        "relation": "author_draft_media",
+        "immediate": true,
+        "definition": "CREATE INDEX author_draft_media_media_idx ON public.author_draft_media USING btree (media_id)",
+        "unique_index": false,
+        "primary_index": false
+      },
+      {
+        "name": "author_draft_media_pkey",
+        "ready": true,
+        "valid": true,
+        "relation": "author_draft_media",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX author_draft_media_pkey ON public.author_draft_media USING btree (problem_id, media_id)",
+        "unique_index": true,
+        "primary_index": true
+      },
+      {
+        "name": "author_media_cleanup_idx",
+        "ready": true,
+        "valid": true,
+        "relation": "author_media",
+        "immediate": true,
+        "definition": "CREATE INDEX author_media_cleanup_idx ON public.author_media USING btree (state, created_at)",
+        "unique_index": false,
+        "primary_index": false
+      },
+      {
+        "name": "author_media_id_problem_id_purpose_key",
+        "ready": true,
+        "valid": true,
+        "relation": "author_media",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX author_media_id_problem_id_purpose_key ON public.author_media USING btree (id, problem_id, purpose)",
+        "unique_index": true,
+        "primary_index": false
+      },
+      {
+        "name": "author_media_pathname_key",
+        "ready": true,
+        "valid": true,
+        "relation": "author_media",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX author_media_pathname_key ON public.author_media USING btree (pathname)",
+        "unique_index": true,
+        "primary_index": false
+      },
+      {
+        "name": "author_media_pkey",
+        "ready": true,
+        "valid": true,
+        "relation": "author_media",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX author_media_pkey ON public.author_media USING btree (id)",
+        "unique_index": true,
+        "primary_index": true
+      },
+      {
+        "name": "author_media_problem_idx",
+        "ready": true,
+        "valid": true,
+        "relation": "author_media",
+        "immediate": true,
+        "definition": "CREATE INDEX author_media_problem_idx ON public.author_media USING btree (problem_id)",
+        "unique_index": false,
+        "primary_index": false
+      },
+      {
+        "name": "author_media_usage_pkey",
+        "ready": true,
+        "valid": true,
+        "relation": "author_media_usage",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX author_media_usage_pkey ON public.author_media_usage USING btree (user_id)",
+        "unique_index": true,
+        "primary_index": true
+      },
+      {
+        "name": "author_revision_media_media_idx",
+        "ready": true,
+        "valid": true,
+        "relation": "author_revision_media",
+        "immediate": true,
+        "definition": "CREATE INDEX author_revision_media_media_idx ON public.author_revision_media USING btree (media_id)",
+        "unique_index": false,
+        "primary_index": false
+      },
+      {
+        "name": "author_revision_media_pkey",
+        "ready": true,
+        "valid": true,
+        "relation": "author_revision_media",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX author_revision_media_pkey ON public.author_revision_media USING btree (revision_id, media_id)",
+        "unique_index": true,
+        "primary_index": true
+      },
+      {
+        "name": "authored_attempt_history_idx",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_attempt",
+        "immediate": true,
+        "definition": "CREATE INDEX authored_attempt_history_idx ON public.authored_attempt USING btree (user_id, created_at DESC, id DESC)",
+        "unique_index": false,
+        "primary_index": false
+      },
+      {
+        "name": "authored_attempt_pkey",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_attempt",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_attempt_pkey ON public.authored_attempt USING btree (id)",
+        "unique_index": true,
+        "primary_index": true
+      },
+      {
+        "name": "authored_attempt_problem_idx",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_attempt",
+        "immediate": true,
+        "definition": "CREATE INDEX authored_attempt_problem_idx ON public.authored_attempt USING btree (user_id, problem_id, created_at DESC, id DESC)",
+        "unique_index": false,
+        "primary_index": false
+      },
+      {
+        "name": "authored_attempt_revision_idx",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_attempt",
+        "immediate": true,
+        "definition": "CREATE INDEX authored_attempt_revision_idx ON public.authored_attempt USING btree (revision_id, part_id)",
+        "unique_index": false,
+        "primary_index": false
+      },
+      {
+        "name": "authored_attempt_user_id_idempotency_key_key",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_attempt",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_attempt_user_id_idempotency_key_key ON public.authored_attempt USING btree (user_id, idempotency_key)",
+        "unique_index": true,
+        "primary_index": false
+      },
+      {
+        "name": "authored_attempt_user_id_revision_id_part_id_attempt_number_key",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_attempt",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_attempt_user_id_revision_id_part_id_attempt_number_key ON public.authored_attempt USING btree (user_id, revision_id, part_id, attempt_number)",
+        "unique_index": true,
+        "primary_index": false
+      },
+      {
+        "name": "authored_draft_pkey",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_draft",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_draft_pkey ON public.authored_draft USING btree (problem_id)",
+        "unique_index": true,
+        "primary_index": true
+      },
+      {
+        "name": "authored_draft_private_part_pkey",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_draft_private_part",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_draft_private_part_pkey ON public.authored_draft_private_part USING btree (problem_id, part_id)",
+        "unique_index": true,
+        "primary_index": true
+      },
+      {
+        "name": "authored_problem_discovery_idx",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_problem",
+        "immediate": true,
+        "definition": "CREATE INDEX authored_problem_discovery_idx ON public.authored_problem USING btree (id) WHERE (state = 'published'::text)",
+        "unique_index": false,
+        "primary_index": false
+      },
+      {
+        "name": "authored_problem_owner_idx",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_problem",
+        "immediate": true,
+        "definition": "CREATE INDEX authored_problem_owner_idx ON public.authored_problem USING btree (owner_id)",
+        "unique_index": false,
+        "primary_index": false
+      },
+      {
+        "name": "authored_problem_pkey",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_problem",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_problem_pkey ON public.authored_problem USING btree (id)",
+        "unique_index": true,
+        "primary_index": true
+      },
+      {
+        "name": "authored_problem_slug_key",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_problem",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_problem_slug_key ON public.authored_problem USING btree (slug)",
+        "unique_index": true,
+        "primary_index": false
+      },
+      {
+        "name": "authored_revision_discovery_difficulty_idx",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_revision",
+        "immediate": true,
+        "definition": "CREATE INDEX authored_revision_discovery_difficulty_idx ON public.authored_revision USING btree (((content ->> 'estimatedDifficulty'::text)))",
+        "unique_index": false,
+        "primary_index": false
+      },
+      {
+        "name": "authored_revision_discovery_metadata_idx",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_revision",
+        "immediate": true,
+        "definition": "CREATE INDEX authored_revision_discovery_metadata_idx ON public.authored_revision USING gin (content jsonb_path_ops)",
+        "unique_index": false,
+        "primary_index": false
+      },
+      {
+        "name": "authored_revision_discovery_search_idx",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_revision",
+        "immediate": true,
+        "definition": "CREATE INDEX authored_revision_discovery_search_idx ON public.authored_revision USING gin (authored_discovery_terms(content))",
+        "unique_index": false,
+        "primary_index": false
+      },
+      {
+        "name": "authored_revision_number_key",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_revision",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_revision_number_key ON public.authored_revision USING btree (problem_id, number)",
+        "unique_index": true,
+        "primary_index": false
+      },
+      {
+        "name": "authored_revision_pkey",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_revision",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_revision_pkey ON public.authored_revision USING btree (id)",
+        "unique_index": true,
+        "primary_index": true
+      },
+      {
+        "name": "authored_revision_problem_id_key",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_revision",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_revision_problem_id_key ON public.authored_revision USING btree (problem_id, id)",
+        "unique_index": true,
+        "primary_index": false
+      },
+      {
+        "name": "authored_revision_part_mode_key",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_revision_part",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_revision_part_mode_key ON public.authored_revision_part USING btree (revision_id, part_id, answer_mode)",
+        "unique_index": true,
+        "primary_index": false
+      },
+      {
+        "name": "authored_revision_part_pkey",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_revision_part",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_revision_part_pkey ON public.authored_revision_part USING btree (revision_id, part_id)",
+        "unique_index": true,
+        "primary_index": true
+      },
+      {
+        "name": "authored_revision_private_part_pkey",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_revision_private_part",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_revision_private_part_pkey ON public.authored_revision_private_part USING btree (revision_id, part_id)",
+        "unique_index": true,
+        "primary_index": true
+      },
+      {
+        "name": "authored_solution_permission_authorization_id_key",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_solution_permission",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_solution_permission_authorization_id_key ON public.authored_solution_permission USING btree (authorization_id)",
+        "unique_index": true,
+        "primary_index": false
+      },
+      {
+        "name": "authored_solution_permission_pkey",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_solution_permission",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_solution_permission_pkey ON public.authored_solution_permission USING btree (revision_id, part_id)",
+        "unique_index": true,
+        "primary_index": true
+      },
+      {
+        "name": "authored_solution_permission_revision_id_part_id_authorizat_key",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_solution_permission",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_solution_permission_revision_id_part_id_authorizat_key ON public.authored_solution_permission USING btree (revision_id, part_id, authorization_id)",
+        "unique_index": true,
+        "primary_index": false
+      },
+      {
+        "name": "authored_solution_permission_media_pkey",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_solution_permission_media",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_solution_permission_media_pkey ON public.authored_solution_permission_media USING btree (revision_id, part_id, media_id)",
+        "unique_index": true,
+        "primary_index": true
+      },
+      {
+        "name": "authored_solution_reveal_authorization_idx",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_solution_reveal",
+        "immediate": true,
+        "definition": "CREATE INDEX authored_solution_reveal_authorization_idx ON public.authored_solution_reveal USING btree (authorization_id)",
+        "unique_index": false,
+        "primary_index": false
+      },
+      {
+        "name": "authored_solution_reveal_pkey",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_solution_reveal",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_solution_reveal_pkey ON public.authored_solution_reveal USING btree (id)",
+        "unique_index": true,
+        "primary_index": true
+      },
+      {
+        "name": "authored_solution_reveal_user_id_revision_id_part_id_author_key",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_solution_reveal",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_solution_reveal_user_id_revision_id_part_id_author_key ON public.authored_solution_reveal USING btree (user_id, revision_id, part_id, authorization_id)",
+        "unique_index": true,
+        "primary_index": false
+      },
+      {
+        "name": "authored_student_rate_pkey",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_student_rate",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_student_rate_pkey ON public.authored_student_rate USING btree (user_id)",
+        "unique_index": true,
+        "primary_index": true
+      },
+      {
+        "name": "authored_write_limit_pkey",
+        "ready": true,
+        "valid": true,
+        "relation": "authored_write_limit",
+        "immediate": true,
+        "definition": "CREATE UNIQUE INDEX authored_write_limit_pkey ON public.authored_write_limit USING btree (user_id)",
+        "unique_index": true,
+        "primary_index": true
+      }
+    ],
+    "policies": [],
+    "triggers": [
+      {
+        "name": "author_draft_media_no_update",
+        "enabled": "O",
+        "relation": "author_draft_media",
+        "definition": "CREATE TRIGGER author_draft_media_no_update BEFORE UPDATE ON public.author_draft_media FOR EACH ROW EXECUTE FUNCTION authored_immutable()"
+      },
+      {
+        "name": "author_draft_media_ready",
+        "enabled": "O",
+        "relation": "author_draft_media",
+        "definition": "CREATE TRIGGER author_draft_media_ready BEFORE INSERT ON public.author_draft_media FOR EACH ROW EXECUTE FUNCTION author_media_reference_ready()"
+      },
+      {
+        "name": "author_media_guard",
+        "enabled": "O",
+        "relation": "author_media",
+        "definition": "CREATE TRIGGER author_media_guard BEFORE DELETE OR UPDATE ON public.author_media FOR EACH ROW EXECUTE FUNCTION author_media_guard()"
+      },
+      {
+        "name": "author_revision_media_immutable",
+        "enabled": "O",
+        "relation": "author_revision_media",
+        "definition": "CREATE TRIGGER author_revision_media_immutable BEFORE DELETE OR UPDATE ON public.author_revision_media FOR EACH ROW EXECUTE FUNCTION authored_immutable()"
+      },
+      {
+        "name": "author_revision_media_ready",
+        "enabled": "O",
+        "relation": "author_revision_media",
+        "definition": "CREATE TRIGGER author_revision_media_ready BEFORE INSERT ON public.author_revision_media FOR EACH ROW EXECUTE FUNCTION author_media_reference_ready()"
+      },
+      {
+        "name": "author_revision_media_sealed",
+        "enabled": "O",
+        "relation": "author_revision_media",
+        "definition": "CREATE TRIGGER author_revision_media_sealed BEFORE INSERT ON public.author_revision_media FOR EACH ROW EXECUTE FUNCTION authored_revision_sealed()"
+      },
+      {
+        "name": "author_revision_media_transaction",
+        "enabled": "O",
+        "relation": "author_revision_media",
+        "definition": "CREATE CONSTRAINT TRIGGER author_revision_media_transaction AFTER INSERT ON public.author_revision_media DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION author_revision_media_transaction()"
+      },
+      {
+        "name": "authored_attempt_guard",
+        "enabled": "O",
+        "relation": "authored_attempt",
+        "definition": "CREATE TRIGGER authored_attempt_guard BEFORE INSERT OR DELETE OR UPDATE ON public.authored_attempt FOR EACH ROW EXECUTE FUNCTION authored_attempt_guard()"
+      },
+      {
+        "name": "author_revision_media_complete",
+        "enabled": "O",
+        "relation": "authored_revision",
+        "definition": "CREATE TRIGGER author_revision_media_complete BEFORE INSERT ON public.authored_revision FOR EACH ROW EXECUTE FUNCTION author_revision_media_complete()"
+      },
+      {
+        "name": "authored_revision_immutable",
+        "enabled": "O",
+        "relation": "authored_revision",
+        "definition": "CREATE TRIGGER authored_revision_immutable BEFORE DELETE OR UPDATE ON public.authored_revision FOR EACH ROW EXECUTE FUNCTION authored_immutable()"
+      },
+      {
+        "name": "authored_revision_parts_match",
+        "enabled": "O",
+        "relation": "authored_revision",
+        "definition": "CREATE TRIGGER authored_revision_parts_match BEFORE INSERT ON public.authored_revision FOR EACH ROW EXECUTE FUNCTION authored_revision_parts_match()"
+      },
+      {
+        "name": "authored_revision_part_immutable",
+        "enabled": "O",
+        "relation": "authored_revision_part",
+        "definition": "CREATE TRIGGER authored_revision_part_immutable BEFORE DELETE OR UPDATE ON public.authored_revision_part FOR EACH ROW EXECUTE FUNCTION authored_immutable()"
+      },
+      {
+        "name": "authored_revision_part_sealed",
+        "enabled": "O",
+        "relation": "authored_revision_part",
+        "definition": "CREATE TRIGGER authored_revision_part_sealed BEFORE INSERT ON public.authored_revision_part FOR EACH ROW EXECUTE FUNCTION authored_revision_sealed()"
+      },
+      {
+        "name": "authored_revision_part_transaction",
+        "enabled": "O",
+        "relation": "authored_revision_part",
+        "definition": "CREATE CONSTRAINT TRIGGER authored_revision_part_transaction AFTER INSERT ON public.authored_revision_part DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION authored_revision_same_transaction()"
+      },
+      {
+        "name": "authored_revision_private_immutable",
+        "enabled": "O",
+        "relation": "authored_revision_private_part",
+        "definition": "CREATE TRIGGER authored_revision_private_immutable BEFORE DELETE OR UPDATE ON public.authored_revision_private_part FOR EACH ROW EXECUTE FUNCTION authored_immutable()"
+      },
+      {
+        "name": "authored_revision_private_sealed",
+        "enabled": "O",
+        "relation": "authored_revision_private_part",
+        "definition": "CREATE TRIGGER authored_revision_private_sealed BEFORE INSERT ON public.authored_revision_private_part FOR EACH ROW EXECUTE FUNCTION authored_revision_sealed()"
+      },
+      {
+        "name": "authored_revision_private_transaction",
+        "enabled": "O",
+        "relation": "authored_revision_private_part",
+        "definition": "CREATE CONSTRAINT TRIGGER authored_revision_private_transaction AFTER INSERT ON public.authored_revision_private_part DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION authored_revision_same_transaction()"
+      },
+      {
+        "name": "authored_solution_permission_guard",
+        "enabled": "O",
+        "relation": "authored_solution_permission",
+        "definition": "CREATE TRIGGER authored_solution_permission_guard BEFORE INSERT OR DELETE OR UPDATE ON public.authored_solution_permission FOR EACH ROW EXECUTE FUNCTION authored_solution_permission_guard()"
+      },
+      {
+        "name": "authored_solution_media_guard",
+        "enabled": "O",
+        "relation": "authored_solution_permission_media",
+        "definition": "CREATE TRIGGER authored_solution_media_guard BEFORE INSERT OR DELETE OR UPDATE ON public.authored_solution_permission_media FOR EACH ROW EXECUTE FUNCTION authored_solution_media_guard()"
+      },
+      {
+        "name": "authored_solution_reveal_guard",
+        "enabled": "O",
+        "relation": "authored_solution_reveal",
+        "definition": "CREATE TRIGGER authored_solution_reveal_guard BEFORE INSERT OR DELETE OR UPDATE ON public.authored_solution_reveal FOR EACH ROW EXECUTE FUNCTION authored_solution_reveal_guard()"
+      }
+    ],
+    "functions": [
+      {
+        "name": "author_media_guard",
+        "parallel": "u",
+        "arguments": "",
+        "definition": "CREATE OR REPLACE FUNCTION public.author_media_guard()\n RETURNS trigger\n LANGUAGE plpgsql\nAS $function$\nBEGIN\n IF TG_OP='UPDATE' THEN\n  IF ROW(NEW.id,NEW.problem_id,NEW.purpose,NEW.pathname,NEW.filename,NEW.media_type,NEW.bytes,NEW.sha256) IS DISTINCT FROM ROW(OLD.id,OLD.problem_id,OLD.purpose,OLD.pathname,OLD.filename,OLD.media_type,OLD.bytes,OLD.sha256)\n  THEN RAISE EXCEPTION 'Media identity and content are immutable'; END IF;\n  IF (OLD.state='deleting' AND NEW.state<>'deleting') OR (OLD.state='ready' AND NEW.state='pending') THEN RAISE EXCEPTION 'Invalid media lifecycle transition'; END IF;\n END IF;\n IF TG_OP='DELETE' OR NEW.state='deleting' THEN\n  IF EXISTS(SELECT 1 FROM author_draft_media WHERE media_id=OLD.id) OR EXISTS(SELECT 1 FROM author_revision_media WHERE media_id=OLD.id)\n  THEN RAISE EXCEPTION 'Referenced media must be retained'; END IF;\n  IF TG_OP='DELETE' AND OLD.state<>'deleting' THEN RAISE EXCEPTION 'Media must be retired before deletion'; END IF;\n END IF;\n IF TG_OP='DELETE' THEN RETURN OLD; ELSE RETURN NEW; END IF;\nEND $function$\n",
+        "volatility": "v",
+        "configuration": null,
+        "security_definer": false
+      },
+      {
+        "name": "author_media_reference_ready",
+        "parallel": "u",
+        "arguments": "",
+        "definition": "CREATE OR REPLACE FUNCTION public.author_media_reference_ready()\n RETURNS trigger\n LANGUAGE plpgsql\nAS $function$\nDECLARE current_state text;\nBEGIN\n SELECT state INTO current_state FROM author_media WHERE id=NEW.media_id AND problem_id=NEW.problem_id AND purpose=NEW.purpose FOR UPDATE;\n IF current_state IS DISTINCT FROM 'ready' THEN RAISE EXCEPTION 'Media is unavailable for reference'; END IF;\n RETURN NEW;\nEND $function$\n",
+        "volatility": "v",
+        "configuration": null,
+        "security_definer": false
+      },
+      {
+        "name": "author_revision_media_complete",
+        "parallel": "u",
+        "arguments": "",
+        "definition": "CREATE OR REPLACE FUNCTION public.author_revision_media_complete()\n RETURNS trigger\n LANGUAGE plpgsql\nAS $function$\nDECLARE mismatch boolean;\nBEGIN\n WITH document_refs AS (\n  SELECT (a->>'id')::uuid AS id,a->>'purpose' AS purpose FROM jsonb_array_elements(coalesce(NEW.content->'attachments','[]'::jsonb)) a\n  UNION\n  SELECT (b #>> '{}')::uuid,'statement-image' FROM jsonb_path_query(NEW.content,'$.** ? (@.kind == \"image\").mediaId') b\n  UNION\n  SELECT (b->>'mediaId')::uuid,'solution-image' FROM authored_revision_private_part k\n   CROSS JOIN LATERAL jsonb_array_elements(coalesce(k.data->'hints','[]'::jsonb)||coalesce(k.data->'solution','[]'::jsonb)) b\n   WHERE k.revision_id=NEW.id AND b->>'kind'='image'\n ), bindings AS (SELECT media_id AS id,purpose FROM author_revision_media WHERE revision_id=NEW.id)\n SELECT EXISTS(SELECT * FROM document_refs EXCEPT SELECT * FROM bindings) OR EXISTS(SELECT * FROM bindings EXCEPT SELECT * FROM document_refs) INTO mismatch;\n IF mismatch THEN RAISE EXCEPTION 'Revision media bindings are incomplete'; END IF;\n RETURN NEW;\nEND $function$\n",
+        "volatility": "v",
+        "configuration": null,
+        "security_definer": false
+      },
+      {
+        "name": "author_revision_media_transaction",
+        "parallel": "u",
+        "arguments": "",
+        "definition": "CREATE OR REPLACE FUNCTION public.author_revision_media_transaction()\n RETURNS trigger\n LANGUAGE plpgsql\nAS $function$\nDECLARE matches boolean;\nBEGIN\n SELECT r.xmin=m.xmin INTO matches FROM authored_revision r JOIN author_revision_media m ON m.revision_id=r.id WHERE m.revision_id=NEW.revision_id AND m.media_id=NEW.media_id;\n IF matches IS DISTINCT FROM true THEN RAISE EXCEPTION 'Media bindings must share the revision transaction'; END IF;\n RETURN NEW;\nEND $function$\n",
+        "volatility": "v",
+        "configuration": null,
+        "security_definer": false
+      },
+      {
+        "name": "authored_attempt_guard",
+        "parallel": "u",
+        "arguments": "",
+        "definition": "CREATE OR REPLACE FUNCTION public.authored_attempt_guard()\n RETURNS trigger\n LANGUAGE plpgsql\nAS $function$\nDECLARE current_revision uuid;\nBEGIN\n IF TG_OP<>'INSERT' THEN RAISE EXCEPTION 'Authored attempts are immutable'; END IF;\n PERFORM pg_advisory_xact_lock(hashtextextended('authored-student:'||NEW.user_id,6));\n SELECT published_revision_id INTO current_revision FROM authored_problem WHERE id=NEW.problem_id AND state='published' FOR SHARE;\n IF current_revision IS NULL OR current_revision<>NEW.revision_id THEN RAISE EXCEPTION 'Attempt requires the current published revision'; END IF;\n -- Conservative multipart policy: any committed reveal on this revision assists ALL later parts.\n -- This survives revocation/expiry; no historical attempt is rewritten. Never trust client flags.\n NEW.assisted:=EXISTS(SELECT 1 FROM authored_solution_reveal WHERE user_id=NEW.user_id AND revision_id=NEW.revision_id);\n RETURN NEW;\nEND $function$\n",
+        "volatility": "v",
+        "configuration": null,
+        "security_definer": false
+      },
+      {
+        "name": "authored_discovery_terms",
+        "parallel": "s",
+        "arguments": "document jsonb",
+        "definition": "CREATE OR REPLACE FUNCTION public.authored_discovery_terms(document jsonb)\n RETURNS tsvector\n LANGUAGE sql\n IMMUTABLE PARALLEL SAFE\nAS $function$\n  SELECT to_tsvector('simple'::regconfig,\n    coalesce(document->>'title','') || ' ' ||\n    coalesce((document->'topicTags')::text,'') || ' ' ||\n    coalesce((document->'methodTags')::text,'') || ' ' ||\n    coalesce(document->>'estimatedDifficulty','') || ' ' ||\n    coalesce(document->'provenance'->>'source',''))\n$function$\n",
+        "volatility": "i",
+        "configuration": null,
+        "security_definer": false
+      },
+      {
+        "name": "authored_immutable",
+        "parallel": "u",
+        "arguments": "",
+        "definition": "CREATE OR REPLACE FUNCTION public.authored_immutable()\n RETURNS trigger\n LANGUAGE plpgsql\nAS $function$\nBEGIN RAISE EXCEPTION 'Published revision content is immutable'; END $function$\n",
+        "volatility": "v",
+        "configuration": null,
+        "security_definer": false
+      },
+      {
+        "name": "authored_revision_parts_match",
+        "parallel": "u",
+        "arguments": "",
+        "definition": "CREATE OR REPLACE FUNCTION public.authored_revision_parts_match()\n RETURNS trigger\n LANGUAGE plpgsql\nAS $function$\nDECLARE mismatched boolean;\nBEGIN\n PERFORM pg_advisory_xact_lock(hashtextextended(NEW.id::text,0));\n -- Compare canonical UUID/mode pairs in both directions; counts alone miss [A,A] vs {A,B}.\n WITH document_parts AS (\n  SELECT (p->>'id')::uuid AS id, p->>'answerMode' AS answer_mode\n  FROM jsonb_array_elements(NEW.content->'sections') s\n  CROSS JOIN LATERAL jsonb_array_elements(s->'parts') p\n ), relational_parts AS (\n  SELECT part_id AS id, answer_mode FROM authored_revision_part WHERE revision_id=NEW.id\n )\n SELECT NOT EXISTS (SELECT 1 FROM document_parts)\n  OR EXISTS (SELECT 1 FROM document_parts WHERE id IS NULL OR answer_mode IS NULL)\n  OR EXISTS (SELECT 1 FROM document_parts GROUP BY id HAVING count(*)>1)\n  OR EXISTS (SELECT * FROM document_parts EXCEPT SELECT * FROM relational_parts)\n  OR EXISTS (SELECT * FROM relational_parts EXCEPT SELECT * FROM document_parts)\n INTO mismatched;\n IF mismatched THEN RAISE EXCEPTION 'Revision document and relational parts disagree'; END IF;\n RETURN NEW;\nEND $function$\n",
+        "volatility": "v",
+        "configuration": null,
+        "security_definer": false
+      },
+      {
+        "name": "authored_revision_same_transaction",
+        "parallel": "u",
+        "arguments": "",
+        "definition": "CREATE OR REPLACE FUNCTION public.authored_revision_same_transaction()\n RETURNS trigger\n LANGUAGE plpgsql\nAS $function$\nDECLARE same_transaction boolean;\nBEGIN\n EXECUTE format('SELECT r.xmin=c.xmin FROM authored_revision r JOIN %I c ON c.revision_id=r.id WHERE c.revision_id=$1 AND c.part_id=$2',TG_TABLE_NAME)\n INTO same_transaction USING NEW.revision_id,NEW.part_id;\n IF same_transaction IS DISTINCT FROM true THEN RAISE EXCEPTION 'Revision parts and keys must be created in the revision transaction'; END IF;\n RETURN NEW;\nEND $function$\n",
+        "volatility": "v",
+        "configuration": null,
+        "security_definer": false
+      },
+      {
+        "name": "authored_revision_sealed",
+        "parallel": "u",
+        "arguments": "",
+        "definition": "CREATE OR REPLACE FUNCTION public.authored_revision_sealed()\n RETURNS trigger\n LANGUAGE plpgsql\nAS $function$\nBEGIN\n PERFORM pg_advisory_xact_lock(hashtextextended(NEW.revision_id::text,0));\n IF EXISTS(SELECT 1 FROM authored_revision WHERE id=NEW.revision_id) THEN\n  RAISE EXCEPTION 'Cannot add parts or keys to an existing revision';\n END IF;\n RETURN NEW;\nEND $function$\n",
+        "volatility": "v",
+        "configuration": null,
+        "security_definer": false
+      },
+      {
+        "name": "authored_solution_media_guard",
+        "parallel": "u",
+        "arguments": "",
+        "definition": "CREATE OR REPLACE FUNCTION public.authored_solution_media_guard()\n RETURNS trigger\n LANGUAGE plpgsql\nAS $function$\nDECLARE perm authored_solution_permission; rid uuid; pid uuid; aid uuid; mid uuid;\nBEGIN\n IF TG_OP='UPDATE' THEN RAISE EXCEPTION 'Replace permission media bindings'; END IF;\n IF TG_OP='DELETE' THEN rid:=OLD.revision_id;pid:=OLD.part_id;aid:=OLD.authorization_id;mid:=OLD.media_id;\n ELSE rid:=NEW.revision_id;pid:=NEW.part_id;aid:=NEW.authorization_id;mid:=NEW.media_id; END IF;\n -- Author operations always lock parent before permission; never acquire a student lock here.\n PERFORM 1 FROM authored_problem p JOIN authored_revision r ON r.problem_id=p.id WHERE r.id=rid FOR UPDATE OF p;\n SELECT * INTO perm FROM authored_solution_permission WHERE revision_id=rid AND part_id=pid FOR UPDATE;\n IF TG_OP='DELETE' THEN RETURN OLD; END IF;\n IF perm.enabled IS DISTINCT FROM true OR perm.authorization_id IS DISTINCT FROM aid THEN RAISE EXCEPTION 'Media requires active matching permission'; END IF;\n IF NOT EXISTS(SELECT 1 FROM author_revision_media rm JOIN author_media m ON m.id=rm.media_id AND m.problem_id=rm.problem_id AND m.purpose=rm.purpose\n  WHERE rm.revision_id=rid AND rm.problem_id=perm.problem_id AND rm.media_id=mid AND m.state='ready' AND\n   (rm.purpose='solution-pdf' OR (rm.purpose='solution-image' AND EXISTS(SELECT 1 FROM authored_revision_private_part k,\n    LATERAL jsonb_array_elements(k.data->'solution') b WHERE k.revision_id=rid AND k.part_id=pid AND b->>'kind'='image' AND b->>'mediaId'=mid::text))))\n THEN RAISE EXCEPTION 'Media must belong to this revision and worked solution'; END IF;\n RETURN NEW;\nEND $function$\n",
+        "volatility": "v",
+        "configuration": null,
+        "security_definer": false
+      },
+      {
+        "name": "authored_solution_permission_guard",
+        "parallel": "u",
+        "arguments": "",
+        "definition": "CREATE OR REPLACE FUNCTION public.authored_solution_permission_guard()\n RETURNS trigger\n LANGUAGE plpgsql\nAS $function$\nDECLARE p authored_problem;\nBEGIN\n IF TG_OP='DELETE' THEN RAISE EXCEPTION 'Revoke solution permissions rather than deleting them'; END IF;\n SELECT * INTO p FROM authored_problem WHERE id=NEW.problem_id FOR UPDATE;\n IF p.owner_id IS DISTINCT FROM NEW.approved_by THEN RAISE EXCEPTION 'Permission requires problem owner'; END IF;\n IF TG_OP='UPDATE' THEN\n  IF (NEW.problem_id,NEW.revision_id,NEW.part_id,NEW.approved_by) IS DISTINCT FROM (OLD.problem_id,OLD.revision_id,OLD.part_id,OLD.approved_by)\n   OR OLD.version=2147483647 OR NEW.version<>OLD.version+1 OR NEW.authorization_id=OLD.authorization_id\n  THEN RAISE EXCEPTION 'Permission requires a new authorization generation and version'; END IF;\n ELSE\n  IF NEW.version<>1 THEN RAISE EXCEPTION 'Initial permission version must be one'; END IF;\n END IF;\n IF EXISTS(SELECT 1 FROM authored_solution_reveal WHERE authorization_id=NEW.authorization_id) THEN RAISE EXCEPTION 'Do not reuse a revealed authorization generation'; END IF;\n IF NEW.enabled AND (p.state<>'published' OR p.published_revision_id IS DISTINCT FROM NEW.revision_id OR (NEW.expires_at IS NOT NULL AND NEW.expires_at<=clock_timestamp())) THEN RAISE EXCEPTION 'Permission requires current publication and future expiry'; END IF;\n NEW.updated_at:=clock_timestamp(); RETURN NEW;\nEND $function$\n",
+        "volatility": "v",
+        "configuration": null,
+        "security_definer": false
+      },
+      {
+        "name": "authored_solution_reveal_guard",
+        "parallel": "u",
+        "arguments": "",
+        "definition": "CREATE OR REPLACE FUNCTION public.authored_solution_reveal_guard()\n RETURNS trigger\n LANGUAGE plpgsql\nAS $function$\nDECLARE current_revision uuid; perm authored_solution_permission;\nBEGIN\n IF TG_OP<>'INSERT' THEN RAISE EXCEPTION 'Solution reveal records are immutable'; END IF;\n PERFORM pg_advisory_xact_lock(hashtextextended('authored-student:'||NEW.user_id,6));\n SELECT published_revision_id INTO current_revision FROM authored_problem WHERE id=NEW.problem_id AND state='published' FOR SHARE;\n IF current_revision IS DISTINCT FROM NEW.revision_id THEN RAISE EXCEPTION 'Reveal requires current published revision'; END IF;\n SELECT * INTO perm FROM authored_solution_permission WHERE revision_id=NEW.revision_id AND part_id=NEW.part_id FOR SHARE;\n IF perm.enabled IS DISTINCT FROM true OR perm.authorization_id IS DISTINCT FROM NEW.authorization_id OR (perm.expires_at IS NOT NULL AND perm.expires_at<=clock_timestamp()) THEN RAISE EXCEPTION 'Reveal requires current explicit authorization'; END IF;\n NEW.created_at:=clock_timestamp(); RETURN NEW;\nEND $function$\n",
+        "volatility": "v",
+        "configuration": null,
+        "security_definer": false
+      }
+    ],
+    "constraints": [
+      {
+        "name": "author_draft_media_media_id_not_null",
+        "type": "n",
+        "relation": "author_draft_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL media_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_draft_media_media_id_problem_id_purpose_fkey",
+        "type": "f",
+        "relation": "author_draft_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (media_id, problem_id, purpose) REFERENCES author_media(id, problem_id, purpose) ON DELETE RESTRICT",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_draft_media_pkey",
+        "type": "p",
+        "relation": "author_draft_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "PRIMARY KEY (problem_id, media_id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_draft_media_problem_id_fkey",
+        "type": "f",
+        "relation": "author_draft_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (problem_id) REFERENCES authored_draft(problem_id) ON DELETE CASCADE",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_draft_media_problem_id_not_null",
+        "type": "n",
+        "relation": "author_draft_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL problem_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_draft_media_purpose_not_null",
+        "type": "n",
+        "relation": "author_draft_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL purpose",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_bytes_check",
+        "type": "c",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK (((bytes > 0) AND (bytes <= 3145728)))",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_bytes_not_null",
+        "type": "n",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL bytes",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_check",
+        "type": "c",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK (((purpose = ANY (ARRAY['statement-pdf'::text, 'solution-pdf'::text])) = (media_type = 'application/pdf'::text)))",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_created_at_not_null",
+        "type": "n",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL created_at",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_filename_not_null",
+        "type": "n",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL filename",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_id_not_null",
+        "type": "n",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL id",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_id_problem_id_purpose_key",
+        "type": "u",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "UNIQUE (id, problem_id, purpose)",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_media_type_check",
+        "type": "c",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((media_type = ANY (ARRAY['image/png'::text, 'image/jpeg'::text, 'image/webp'::text, 'application/pdf'::text])))",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_media_type_not_null",
+        "type": "n",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL media_type",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_pathname_key",
+        "type": "u",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "UNIQUE (pathname)",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_pathname_not_null",
+        "type": "n",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL pathname",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_pkey",
+        "type": "p",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "PRIMARY KEY (id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_problem_id_fkey",
+        "type": "f",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (problem_id) REFERENCES authored_problem(id) ON DELETE RESTRICT",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_problem_id_not_null",
+        "type": "n",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL problem_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_purpose_check",
+        "type": "c",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((purpose = ANY (ARRAY['statement-image'::text, 'solution-image'::text, 'statement-pdf'::text, 'solution-pdf'::text])))",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_purpose_not_null",
+        "type": "n",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL purpose",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_sha256_check",
+        "type": "c",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((sha256 ~ '^[a-f0-9]{64}$'::text))",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_sha256_not_null",
+        "type": "n",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL sha256",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_state_check",
+        "type": "c",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((state = ANY (ARRAY['pending'::text, 'ready'::text, 'deleting'::text])))",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_state_not_null",
+        "type": "n",
+        "relation": "author_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL state",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_usage_attempts_check",
+        "type": "c",
+        "relation": "author_media_usage",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK (((attempts > 0) AND (attempts <= 31)))",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_usage_attempts_not_null",
+        "type": "n",
+        "relation": "author_media_usage",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL attempts",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_usage_day_not_null",
+        "type": "n",
+        "relation": "author_media_usage",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL day",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_usage_pkey",
+        "type": "p",
+        "relation": "author_media_usage",
+        "validated": true,
+        "deferrable": false,
+        "definition": "PRIMARY KEY (user_id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_usage_user_id_fkey",
+        "type": "f",
+        "relation": "author_media_usage",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (user_id) REFERENCES \"user\"(id) ON DELETE CASCADE",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_media_usage_user_id_not_null",
+        "type": "n",
+        "relation": "author_media_usage",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL user_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_revision_media_media_id_not_null",
+        "type": "n",
+        "relation": "author_revision_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL media_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_revision_media_media_id_problem_id_purpose_fkey",
+        "type": "f",
+        "relation": "author_revision_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (media_id, problem_id, purpose) REFERENCES author_media(id, problem_id, purpose) ON DELETE RESTRICT",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_revision_media_pkey",
+        "type": "p",
+        "relation": "author_revision_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "PRIMARY KEY (revision_id, media_id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_revision_media_problem_id_not_null",
+        "type": "n",
+        "relation": "author_revision_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL problem_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_revision_media_problem_id_revision_id_fkey",
+        "type": "f",
+        "relation": "author_revision_media",
+        "validated": true,
+        "deferrable": true,
+        "definition": "FOREIGN KEY (problem_id, revision_id) REFERENCES authored_revision(problem_id, id) ON DELETE RESTRICT DEFERRABLE INITIALLY DEFERRED",
+        "initially_deferred": true
+      },
+      {
+        "name": "author_revision_media_purpose_not_null",
+        "type": "n",
+        "relation": "author_revision_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL purpose",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_revision_media_revision_id_not_null",
+        "type": "n",
+        "relation": "author_revision_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL revision_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "author_revision_media_transaction",
+        "type": "t",
+        "relation": "author_revision_media",
+        "validated": true,
+        "deferrable": true,
+        "definition": "TRIGGER DEFERRABLE INITIALLY DEFERRED",
+        "initially_deferred": true
+      },
+      {
+        "name": "authored_attempt_answer_check",
+        "type": "c",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((((jsonb_typeof(answer) = 'object'::text) AND (octet_length((answer)::text) <= 20000) AND\nCASE (answer ->> 'kind'::text)\n    WHEN 'numeric'::text THEN (((answer - ARRAY['kind'::text, 'value'::text, 'units'::text]) = '{}'::jsonb) AND (jsonb_typeof((answer -> 'value'::text)) = 'number'::text) AND (abs(((answer ->> 'value'::text))::numeric) <= '179769313486231570000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'::numeric) AND (jsonb_typeof((answer -> 'units'::text)) = 'string'::text) AND (length((answer ->> 'units'::text)) <= 80))\n    WHEN 'expression'::text THEN (((answer - ARRAY['kind'::text, 'expression'::text]) = '{}'::jsonb) AND (jsonb_typeof((answer -> 'expression'::text)) = 'string'::text) AND ((length((answer ->> 'expression'::text)) >= 1) AND (length((answer ->> 'expression'::text)) <= 180)))\n    WHEN 'manual'::text THEN (((answer - ARRAY['kind'::text, 'text'::text]) = '{}'::jsonb) AND (jsonb_typeof((answer -> 'text'::text)) = 'string'::text) AND (length((answer ->> 'text'::text)) <= 4000))\n    ELSE false\nEND) IS TRUE))",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_answer_not_null",
+        "type": "n",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL answer",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_assisted_not_null",
+        "type": "n",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL assisted",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_attempt_number_check",
+        "type": "c",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((attempt_number > 0))",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_attempt_number_not_null",
+        "type": "n",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL attempt_number",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_check",
+        "type": "c",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((((status = 'correct'::text) AND (reason = ANY (ARRAY['within-tolerance'::text, 'symbolic-equivalent'::text]))) OR ((status = 'incorrect'::text) AND (reason = ANY (ARRAY['outside-tolerance'::text, 'symbolic-counterexample'::text]))) OR ((status = 'needs-review'::text) AND (reason = ANY (ARRAY['units-unsupported'::text, 'units-mismatch'::text, 'answer-mode-unsupported'::text, 'key-unavailable'::text, 'service-unavailable'::text, 'symbolic-unsupported'::text, 'symbolic-domain'::text, 'symbolic-resource-limit'::text, 'symbolic-inconclusive'::text]))) OR ((status = 'ungraded'::text) AND (reason = ANY (ARRAY['invalid-input'::text, 'not-authorized'::text, 'revision-unavailable'::text, 'manual'::text])))))",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_created_at_not_null",
+        "type": "n",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL created_at",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_engine_version_check",
+        "type": "c",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((engine_version = ANY (ARRAY['numeric-v1'::text, 'symbolic-v1'::text])))",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_engine_version_not_null",
+        "type": "n",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL engine_version",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_id_not_null",
+        "type": "n",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_idempotency_key_not_null",
+        "type": "n",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL idempotency_key",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_part_id_not_null",
+        "type": "n",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL part_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_pkey",
+        "type": "p",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "PRIMARY KEY (id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_problem_id_not_null",
+        "type": "n",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL problem_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_problem_id_revision_id_fkey",
+        "type": "f",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (problem_id, revision_id) REFERENCES authored_revision(problem_id, id) ON DELETE RESTRICT",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_reason_not_null",
+        "type": "n",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL reason",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_revision_id_not_null",
+        "type": "n",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL revision_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_revision_id_part_id_fkey",
+        "type": "f",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (revision_id, part_id) REFERENCES authored_revision_part(revision_id, part_id) ON DELETE RESTRICT",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_spoiler_policy_check",
+        "type": "c",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((spoiler_policy = 'no-reveal-v1'::text))",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_spoiler_policy_not_null",
+        "type": "n",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL spoiler_policy",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_status_not_null",
+        "type": "n",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL status",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_user_id_fkey",
+        "type": "f",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (user_id) REFERENCES \"user\"(id) ON DELETE RESTRICT",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_user_id_idempotency_key_key",
+        "type": "u",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "UNIQUE (user_id, idempotency_key)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_user_id_not_null",
+        "type": "n",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL user_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_attempt_user_id_revision_id_part_id_attempt_number_key",
+        "type": "u",
+        "relation": "authored_attempt",
+        "validated": true,
+        "deferrable": false,
+        "definition": "UNIQUE (user_id, revision_id, part_id, attempt_number)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_draft_content_not_null",
+        "type": "n",
+        "relation": "authored_draft",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL content",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_draft_pkey",
+        "type": "p",
+        "relation": "authored_draft",
+        "validated": true,
+        "deferrable": false,
+        "definition": "PRIMARY KEY (problem_id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_draft_problem_id_fkey",
+        "type": "f",
+        "relation": "authored_draft",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (problem_id) REFERENCES authored_problem(id) ON DELETE CASCADE",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_draft_problem_id_not_null",
+        "type": "n",
+        "relation": "authored_draft",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL problem_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_draft_updated_at_not_null",
+        "type": "n",
+        "relation": "authored_draft",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL updated_at",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_draft_version_check",
+        "type": "c",
+        "relation": "authored_draft",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((version > 0))",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_draft_version_not_null",
+        "type": "n",
+        "relation": "authored_draft",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL version",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_draft_private_identity_check",
+        "type": "c",
+        "relation": "authored_draft_private_part",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((((jsonb_typeof(data) = 'object'::text) AND (jsonb_typeof((data -> 'partId'::text)) = 'string'::text) AND ((data ->> 'partId'::text) = (part_id)::text)) IS TRUE))",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_draft_private_part_data_not_null",
+        "type": "n",
+        "relation": "authored_draft_private_part",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL data",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_draft_private_part_part_id_not_null",
+        "type": "n",
+        "relation": "authored_draft_private_part",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL part_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_draft_private_part_pkey",
+        "type": "p",
+        "relation": "authored_draft_private_part",
+        "validated": true,
+        "deferrable": false,
+        "definition": "PRIMARY KEY (problem_id, part_id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_draft_private_part_problem_id_fkey",
+        "type": "f",
+        "relation": "authored_draft_private_part",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (problem_id) REFERENCES authored_draft(problem_id) ON DELETE CASCADE",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_draft_private_part_problem_id_not_null",
+        "type": "n",
+        "relation": "authored_draft_private_part",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL problem_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_problem_created_at_not_null",
+        "type": "n",
+        "relation": "authored_problem",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL created_at",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_problem_id_not_null",
+        "type": "n",
+        "relation": "authored_problem",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_problem_owner_id_fkey",
+        "type": "f",
+        "relation": "authored_problem",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (owner_id) REFERENCES \"user\"(id) ON DELETE RESTRICT",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_problem_owner_id_not_null",
+        "type": "n",
+        "relation": "authored_problem",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL owner_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_problem_pkey",
+        "type": "p",
+        "relation": "authored_problem",
+        "validated": true,
+        "deferrable": false,
+        "definition": "PRIMARY KEY (id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_problem_publication_check",
+        "type": "c",
+        "relation": "authored_problem",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK (((state <> 'published'::text) OR (published_revision_id IS NOT NULL)))",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_problem_revision_fk",
+        "type": "f",
+        "relation": "authored_problem",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (id, published_revision_id) REFERENCES authored_revision(problem_id, id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_problem_slug_check",
+        "type": "c",
+        "relation": "authored_problem",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK (((slug ~ '^[a-z0-9]+(-[a-z0-9]+)*$'::text) AND (length(slug) <= 120)))",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_problem_slug_key",
+        "type": "u",
+        "relation": "authored_problem",
+        "validated": true,
+        "deferrable": false,
+        "definition": "UNIQUE (slug)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_problem_slug_not_null",
+        "type": "n",
+        "relation": "authored_problem",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL slug",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_problem_state_check",
+        "type": "c",
+        "relation": "authored_problem",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((state = ANY (ARRAY['draft'::text, 'published'::text, 'archived'::text])))",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_problem_state_not_null",
+        "type": "n",
+        "relation": "authored_problem",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL state",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_problem_updated_at_not_null",
+        "type": "n",
+        "relation": "authored_problem",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL updated_at",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_content_not_null",
+        "type": "n",
+        "relation": "authored_revision",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL content",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_id_not_null",
+        "type": "n",
+        "relation": "authored_revision",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_number_key",
+        "type": "u",
+        "relation": "authored_revision",
+        "validated": true,
+        "deferrable": false,
+        "definition": "UNIQUE (problem_id, number)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_number_not_null",
+        "type": "n",
+        "relation": "authored_revision",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL number",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_pkey",
+        "type": "p",
+        "relation": "authored_revision",
+        "validated": true,
+        "deferrable": false,
+        "definition": "PRIMARY KEY (id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_problem_id_fkey",
+        "type": "f",
+        "relation": "authored_revision",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (problem_id) REFERENCES authored_problem(id) ON DELETE RESTRICT",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_problem_id_key",
+        "type": "u",
+        "relation": "authored_revision",
+        "validated": true,
+        "deferrable": false,
+        "definition": "UNIQUE (problem_id, id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_problem_id_not_null",
+        "type": "n",
+        "relation": "authored_revision",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL problem_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_published_at_not_null",
+        "type": "n",
+        "relation": "authored_revision",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL published_at",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_schema_version_not_null",
+        "type": "n",
+        "relation": "authored_revision",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL schema_version",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_version_check",
+        "type": "c",
+        "relation": "authored_revision",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK (((number > 0) AND (schema_version = 1)))",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_part_answer_mode_not_null",
+        "type": "n",
+        "relation": "authored_revision_part",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL answer_mode",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_part_mode_check",
+        "type": "c",
+        "relation": "authored_revision_part",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((answer_mode = ANY (ARRAY['numeric'::text, 'expression'::text, 'manual'::text])))",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_part_mode_key",
+        "type": "u",
+        "relation": "authored_revision_part",
+        "validated": true,
+        "deferrable": false,
+        "definition": "UNIQUE (revision_id, part_id, answer_mode)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_part_part_id_not_null",
+        "type": "n",
+        "relation": "authored_revision_part",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL part_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_part_pkey",
+        "type": "p",
+        "relation": "authored_revision_part",
+        "validated": true,
+        "deferrable": false,
+        "definition": "PRIMARY KEY (revision_id, part_id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_part_private_fk",
+        "type": "f",
+        "relation": "authored_revision_part",
+        "validated": true,
+        "deferrable": true,
+        "definition": "FOREIGN KEY (revision_id, part_id) REFERENCES authored_revision_private_part(revision_id, part_id) DEFERRABLE INITIALLY DEFERRED",
+        "initially_deferred": true
+      },
+      {
+        "name": "authored_revision_part_revision_id_fkey",
+        "type": "f",
+        "relation": "authored_revision_part",
+        "validated": true,
+        "deferrable": true,
+        "definition": "FOREIGN KEY (revision_id) REFERENCES authored_revision(id) ON DELETE RESTRICT DEFERRABLE INITIALLY DEFERRED",
+        "initially_deferred": true
+      },
+      {
+        "name": "authored_revision_part_revision_id_not_null",
+        "type": "n",
+        "relation": "authored_revision_part",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL revision_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_part_transaction",
+        "type": "t",
+        "relation": "authored_revision_part",
+        "validated": true,
+        "deferrable": true,
+        "definition": "TRIGGER DEFERRABLE INITIALLY DEFERRED",
+        "initially_deferred": true
+      },
+      {
+        "name": "authored_revision_private_identity_check",
+        "type": "c",
+        "relation": "authored_revision_private_part",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((((jsonb_typeof(data) = 'object'::text) AND (jsonb_typeof((data -> 'partId'::text)) = 'string'::text) AND ((data ->> 'partId'::text) = (part_id)::text) AND (data ? 'key'::text) AND (jsonb_typeof((data -> 'key'::text)) = 'object'::text) AND ((data -> 'key'::text) ? 'kind'::text) AND (((data -> 'key'::text) ->> 'kind'::text) = answer_mode)) IS TRUE))",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_private_part_answer_mode_not_null",
+        "type": "n",
+        "relation": "authored_revision_private_part",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL answer_mode",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_private_part_data_not_null",
+        "type": "n",
+        "relation": "authored_revision_private_part",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL data",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_private_part_fk",
+        "type": "f",
+        "relation": "authored_revision_private_part",
+        "validated": true,
+        "deferrable": true,
+        "definition": "FOREIGN KEY (revision_id, part_id, answer_mode) REFERENCES authored_revision_part(revision_id, part_id, answer_mode) DEFERRABLE INITIALLY DEFERRED",
+        "initially_deferred": true
+      },
+      {
+        "name": "authored_revision_private_part_part_id_not_null",
+        "type": "n",
+        "relation": "authored_revision_private_part",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL part_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_private_part_pkey",
+        "type": "p",
+        "relation": "authored_revision_private_part",
+        "validated": true,
+        "deferrable": false,
+        "definition": "PRIMARY KEY (revision_id, part_id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_private_part_revision_id_not_null",
+        "type": "n",
+        "relation": "authored_revision_private_part",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL revision_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_revision_private_transaction",
+        "type": "t",
+        "relation": "authored_revision_private_part",
+        "validated": true,
+        "deferrable": true,
+        "definition": "TRIGGER DEFERRABLE INITIALLY DEFERRED",
+        "initially_deferred": true
+      },
+      {
+        "name": "authored_solution_permission_approved_by_fkey",
+        "type": "f",
+        "relation": "authored_solution_permission",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (approved_by) REFERENCES \"user\"(id) ON DELETE RESTRICT",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_approved_by_not_null",
+        "type": "n",
+        "relation": "authored_solution_permission",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL approved_by",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_authorization_id_key",
+        "type": "u",
+        "relation": "authored_solution_permission",
+        "validated": true,
+        "deferrable": false,
+        "definition": "UNIQUE (authorization_id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_authorization_id_not_null",
+        "type": "n",
+        "relation": "authored_solution_permission",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL authorization_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_check",
+        "type": "c",
+        "relation": "authored_solution_permission",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((enabled OR (expires_at IS NULL)))",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_enabled_not_null",
+        "type": "n",
+        "relation": "authored_solution_permission",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL enabled",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_part_id_not_null",
+        "type": "n",
+        "relation": "authored_solution_permission",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL part_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_pkey",
+        "type": "p",
+        "relation": "authored_solution_permission",
+        "validated": true,
+        "deferrable": false,
+        "definition": "PRIMARY KEY (revision_id, part_id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_problem_id_not_null",
+        "type": "n",
+        "relation": "authored_solution_permission",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL problem_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_problem_id_revision_id_fkey",
+        "type": "f",
+        "relation": "authored_solution_permission",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (problem_id, revision_id) REFERENCES authored_revision(problem_id, id) ON DELETE RESTRICT",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_revision_id_not_null",
+        "type": "n",
+        "relation": "authored_solution_permission",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL revision_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_revision_id_part_id_authorizat_key",
+        "type": "u",
+        "relation": "authored_solution_permission",
+        "validated": true,
+        "deferrable": false,
+        "definition": "UNIQUE (revision_id, part_id, authorization_id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_revision_id_part_id_fkey",
+        "type": "f",
+        "relation": "authored_solution_permission",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (revision_id, part_id) REFERENCES authored_revision_part(revision_id, part_id) ON DELETE RESTRICT",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_updated_at_not_null",
+        "type": "n",
+        "relation": "authored_solution_permission",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL updated_at",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_version_check",
+        "type": "c",
+        "relation": "authored_solution_permission",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((version > 0))",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_version_not_null",
+        "type": "n",
+        "relation": "authored_solution_permission",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL version",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission__revision_id_part_id_authoriz_fkey",
+        "type": "f",
+        "relation": "authored_solution_permission_media",
+        "validated": true,
+        "deferrable": true,
+        "definition": "FOREIGN KEY (revision_id, part_id, authorization_id) REFERENCES authored_solution_permission(revision_id, part_id, authorization_id) DEFERRABLE INITIALLY DEFERRED",
+        "initially_deferred": true
+      },
+      {
+        "name": "authored_solution_permission_media_authorization_id_not_null",
+        "type": "n",
+        "relation": "authored_solution_permission_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL authorization_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_media_media_id_not_null",
+        "type": "n",
+        "relation": "authored_solution_permission_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL media_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_media_part_id_not_null",
+        "type": "n",
+        "relation": "authored_solution_permission_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL part_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_media_pkey",
+        "type": "p",
+        "relation": "authored_solution_permission_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "PRIMARY KEY (revision_id, part_id, media_id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_media_revision_id_media_id_fkey",
+        "type": "f",
+        "relation": "authored_solution_permission_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (revision_id, media_id) REFERENCES author_revision_media(revision_id, media_id) ON DELETE RESTRICT",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_permission_media_revision_id_not_null",
+        "type": "n",
+        "relation": "authored_solution_permission_media",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL revision_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_reveal_authorization_id_not_null",
+        "type": "n",
+        "relation": "authored_solution_reveal",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL authorization_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_reveal_created_at_not_null",
+        "type": "n",
+        "relation": "authored_solution_reveal",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL created_at",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_reveal_id_not_null",
+        "type": "n",
+        "relation": "authored_solution_reveal",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_reveal_part_id_not_null",
+        "type": "n",
+        "relation": "authored_solution_reveal",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL part_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_reveal_pkey",
+        "type": "p",
+        "relation": "authored_solution_reveal",
+        "validated": true,
+        "deferrable": false,
+        "definition": "PRIMARY KEY (id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_reveal_policy_check",
+        "type": "c",
+        "relation": "authored_solution_reveal",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((policy = 'explicit-solution-v1'::text))",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_reveal_policy_not_null",
+        "type": "n",
+        "relation": "authored_solution_reveal",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL policy",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_reveal_problem_id_not_null",
+        "type": "n",
+        "relation": "authored_solution_reveal",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL problem_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_reveal_problem_id_revision_id_fkey",
+        "type": "f",
+        "relation": "authored_solution_reveal",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (problem_id, revision_id) REFERENCES authored_revision(problem_id, id) ON DELETE RESTRICT",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_reveal_revision_id_not_null",
+        "type": "n",
+        "relation": "authored_solution_reveal",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL revision_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_reveal_revision_id_part_id_fkey",
+        "type": "f",
+        "relation": "authored_solution_reveal",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (revision_id, part_id) REFERENCES authored_revision_part(revision_id, part_id) ON DELETE RESTRICT",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_reveal_user_id_fkey",
+        "type": "f",
+        "relation": "authored_solution_reveal",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (user_id) REFERENCES \"user\"(id) ON DELETE RESTRICT",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_reveal_user_id_not_null",
+        "type": "n",
+        "relation": "authored_solution_reveal",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL user_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_solution_reveal_user_id_revision_id_part_id_author_key",
+        "type": "u",
+        "relation": "authored_solution_reveal",
+        "validated": true,
+        "deferrable": false,
+        "definition": "UNIQUE (user_id, revision_id, part_id, authorization_id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_student_rate_pkey",
+        "type": "p",
+        "relation": "authored_student_rate",
+        "validated": true,
+        "deferrable": false,
+        "definition": "PRIMARY KEY (user_id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_student_rate_requests_check",
+        "type": "c",
+        "relation": "authored_student_rate",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK (((requests >= 1) AND (requests <= 61)))",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_student_rate_requests_not_null",
+        "type": "n",
+        "relation": "authored_student_rate",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL requests",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_student_rate_submissions_check",
+        "type": "c",
+        "relation": "authored_student_rate",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK (((submissions >= 0) AND (submissions <= 21)))",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_student_rate_submissions_not_null",
+        "type": "n",
+        "relation": "authored_student_rate",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL submissions",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_student_rate_user_id_fkey",
+        "type": "f",
+        "relation": "authored_student_rate",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (user_id) REFERENCES \"user\"(id) ON DELETE CASCADE",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_student_rate_user_id_not_null",
+        "type": "n",
+        "relation": "authored_student_rate",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL user_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_student_rate_window_start_not_null",
+        "type": "n",
+        "relation": "authored_student_rate",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL window_start",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_write_limit_pkey",
+        "type": "p",
+        "relation": "authored_write_limit",
+        "validated": true,
+        "deferrable": false,
+        "definition": "PRIMARY KEY (user_id)",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_write_limit_requests_check",
+        "type": "c",
+        "relation": "authored_write_limit",
+        "validated": true,
+        "deferrable": false,
+        "definition": "CHECK ((requests > 0))",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_write_limit_requests_not_null",
+        "type": "n",
+        "relation": "authored_write_limit",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL requests",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_write_limit_user_id_fkey",
+        "type": "f",
+        "relation": "authored_write_limit",
+        "validated": true,
+        "deferrable": false,
+        "definition": "FOREIGN KEY (user_id) REFERENCES \"user\"(id) ON DELETE CASCADE",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_write_limit_user_id_not_null",
+        "type": "n",
+        "relation": "authored_write_limit",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL user_id",
+        "initially_deferred": false
+      },
+      {
+        "name": "authored_write_limit_window_start_not_null",
+        "type": "n",
+        "relation": "authored_write_limit",
+        "validated": true,
+        "deferrable": false,
+        "definition": "NOT NULL window_start",
+        "initially_deferred": false
+      }
+    ]
+  },
+  "ledger_columns": [
+    {
+      "name": "id",
+      "type": "text",
+      "not_null": true,
+      "default_expression": null
+    },
+    {
+      "name": "sha256",
+      "type": "text",
+      "not_null": true,
+      "default_expression": null
+    },
+    {
+      "name": "source_commit",
+      "type": "text",
+      "not_null": true,
+      "default_expression": null
+    },
+    {
+      "name": "applied_at",
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "default_expression": "clock_timestamp()"
+    },
+    {
+      "name": "applied_by",
+      "type": "text",
+      "not_null": true,
+      "default_expression": "CURRENT_USER"
+    },
+    {
+      "name": "result",
+      "type": "text",
+      "not_null": true,
+      "default_expression": null
+    }
+  ],
+  "ledger_constraints": [
+    {
+      "type": "c",
+      "definition": "CHECK ((result = 'verified'::text))"
+    },
+    {
+      "type": "c",
+      "definition": "CHECK ((sha256 ~ '^[0-9a-f]{64}$'::text))"
+    },
+    {
+      "type": "n",
+      "definition": "NOT NULL applied_at"
+    },
+    {
+      "type": "n",
+      "definition": "NOT NULL applied_by"
+    },
+    {
+      "type": "n",
+      "definition": "NOT NULL id"
+    },
+    {
+      "type": "n",
+      "definition": "NOT NULL result"
+    },
+    {
+      "type": "n",
+      "definition": "NOT NULL sha256"
+    },
+    {
+      "type": "n",
+      "definition": "NOT NULL source_commit"
+    },
+    {
+      "type": "p",
+      "definition": "PRIMARY KEY (id)"
+    }
+  ]
+}

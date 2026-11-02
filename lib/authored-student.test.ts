@@ -267,3 +267,25 @@ test("read errors never invent a saved submission or retry key", () => {
     assert.match(message, /read|loading/);
   }
 });
+
+test("server-derived assisted attempts and restored receipts accept true without trusting answer fields", async () => {
+  const storage = memory();
+  const session = new StudentSolverSession(
+    problem,
+    "assisted",
+    storage,
+    async (body) => {
+      const r = result(body);
+      r.attempt.assisted = true;
+      return r;
+    },
+  );
+  session.edit(revision, part, numeric);
+  await session.submit(revision, part, "numeric");
+  assert.equal(session.snapshot().lastResult?.assisted, true);
+  assert.equal(
+    new StudentSolverSession(problem, "assisted", storage).snapshot().book
+      .receipts[formKey(revision, part)].attempt.assisted,
+    true,
+  );
+});

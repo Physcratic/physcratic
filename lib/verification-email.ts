@@ -1,8 +1,10 @@
 import "server-only";
 import { createHash } from "node:crypto";
 import { Resend } from "resend";
+import { verificationRecipient } from "./authoring-staging";
 
 export async function sendVerificationEmail({ email, url, token }: { email: string; url: string; token: string }) {
+  const recipient = verificationRecipient(email, url);
   const domain = process.env.RESEND_EMAIL_DOMAIN?.trim();
   if (!process.env.RESEND_API_KEY || !domain || !/^[a-z\d](?:[a-z\d.-]*[a-z\d])?\.[a-z]{2,}$/i.test(domain)) {
     throw new Error("Verification email sender is not configured.");
@@ -10,7 +12,7 @@ export async function sendVerificationEmail({ email, url, token }: { email: stri
   const resend = new Resend(process.env.RESEND_API_KEY);
   const { error } = await resend.emails.send({
     from: `Physcratic <accounts@${domain}>`,
-    to: [email],
+    to: [recipient],
     subject: "Verify your Physcratic email address",
     text: [
       "Welcome to Physcratic.",

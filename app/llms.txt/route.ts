@@ -1,10 +1,11 @@
 import { indexableRoutes, publicRoutes } from "@/lib/seo/public-routes";
-import { SITE, siteUrl } from "@/lib/site";
+import { SITE } from "@/lib/site";
+import { publicDiscoveryUrl } from "@/lib/public-discovery";
 
 export const dynamic = "force-static";
 
 export function GET() {
-  const base = siteUrl();
+  const base = publicDiscoveryUrl();
   const abs = (path: string) => `${base}${path}`;
   const problems = indexableRoutes.filter((r) => r.kind === "problem");
   const topics = indexableRoutes.filter((r) => r.kind === "topic");

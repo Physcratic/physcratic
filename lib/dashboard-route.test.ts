@@ -4,7 +4,11 @@ import { SITE } from "./site";
 import { dashboardMetadata, parseDashboardParams } from "./dashboard-route";
 
 const meta = (p: Record<string, string | undefined>) =>
-  dashboardMetadata(parseDashboardParams(p), p) as any;
+  dashboardMetadata(parseDashboardParams(p), p) as {
+    title: unknown; description: string; alternates: { canonical: string };
+    openGraph: { url: string; title: string; description: string; siteName: string };
+    robots?: { index: boolean; follow: boolean };
+  };
 
 describe("parseDashboardParams", () => {
   it("defaults to overview and rejects unknown views", () => {
