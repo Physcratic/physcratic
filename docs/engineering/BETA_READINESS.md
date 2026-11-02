@@ -299,3 +299,8 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **What:** in `smoke.yml` the `smoke` job (and the `skipped` job that logs codex/ previews) only counts `ready` when `client_payload.environment` is `preview` and `success` when it is `production`. A manual run is unaffected.
 - **Tests:** `lib/smoke-workflow.test.ts` now evaluates each job's real `if:` expression against sample events: ready with preview and success with production run, ready with production and success with preview do not, other projects and `codex/` refs are filtered, and the skipped job logs each codex deployment once.
 
+## 2026-11-02 - Zero lint warnings
+
+- **What:** `pnpm lint --max-warnings=0` now passes. The only two warnings were "Unused eslint-disable directive" in `app/learn/opengraph-image.tsx` and `app/learn/[slug]/opengraph-image.tsx`: the `@next/next/no-img-element` rule no longer reports there, so the two `eslint-disable-next-line` comments around the `<img>` in the OG image JSX were deleted. The ESLint config is unchanged.
+- **Checked:** `pnpm lint --max-warnings=0` exits 0 (0 errors, 0 warnings), typecheck, all tests and `pnpm build` pass. The OG images render the same, because only a comment was removed.
+
