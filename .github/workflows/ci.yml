@@ -26,6 +26,8 @@ jobs:
           cache: pnpm
       - name: Install
         run: pnpm install --frozen-lockfile
+      - name: Offline isolation guards
+        run: python3 -B scripts/phase-c-offline/run.py safety
       - name: Typecheck
         run: pnpm exec next typegen && pnpm exec tsc --noEmit
       - name: ESLint

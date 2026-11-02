@@ -59,6 +59,20 @@ test("actual Better Auth configuration on the candidate stable Preview origin, d
   try {
     // SDK migrations are used only to initialize this newly created local DB.
     await (await getMigrations(auth.options)).runMigrations();
+    await t.test("actual signup hooks reject missing, false and stale Terms without creating identity or sending mail", async () => {
+      const before = (await pool.query('SELECT count(*)::integer AS n FROM "user"')).rows[0].n;
+      const mailCount = outgoing.length;
+      const rejected = [{}, { termsAccepted: false, termsVersion: TERMS_VERSION },
+        { termsAccepted: "true", termsVersion: TERMS_VERSION }, { termsAccepted: true, termsVersion: "stale-version" }];
+      for (const [index, terms] of rejected.entries()) {
+        const response = await post("/sign-up/email", { ...credentials,
+          email: `terms-negative-${index}@example.invalid`, ...terms }, candidateOrigin, `192.0.2.${40 + index}`);
+        assert.equal(response.status, 400);
+        assert.equal((await response.json()).code, "TERMS_ACCEPTANCE_REQUIRED");
+      }
+      assert.equal((await pool.query('SELECT count(*)::integer AS n FROM "user"')).rows[0].n, before);
+      assert.equal(outgoing.length, mailCount);
+    });
     await t.test("explicit base URL anchors verification links and relative callbacks", async () => {
       assert.equal(context.baseURL, `${candidateOrigin}/api/auth`);
       assert.ok(context.trustedOrigins.includes(candidateOrigin));

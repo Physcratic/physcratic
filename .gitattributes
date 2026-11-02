@@ -1,0 +1,2 @@
+# Release migration checksums require canonical LF bytes on Windows too.
+migrations/*.sql text eol=lf
