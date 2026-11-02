@@ -28,7 +28,7 @@ export function BrandMark({
       <img
         {...shared}
         alt=""
-        src="/logo-mark-transparent.png"
+        src="/logo-mark-128.png"
         className={cn("hidden dark:block", className)}
       />
       <img

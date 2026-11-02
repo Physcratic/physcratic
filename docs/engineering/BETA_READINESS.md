@@ -236,3 +236,23 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **Not checked:** `/sign-up` and `/sign-in` return 500 on a local build (no database), so they should be opened on staging. The `report-to` path (application/reports+json) was not observed delivering locally, so the policy uses `report-uri`, which was.
 - **Follow-up:** replace `'unsafe-inline'` in `script-src` with per-request nonces, then change the header to `Content-Security-Policy`.
 
+## 2026-11-02 - Right-size images
+
+- **Why:** `next.config.ts` has `images.unoptimized`, so every image is sent as its source file. The weight of the files in `public/` is the weight users download.
+- **Coach photos:** the eight files that were 1080x1350 (four photos, four cutouts) are now 720x900 like the other 24, so every image in `public/coaching/medallists` is at most 720x900. The photos were resized from the original PNGs (kept in git history) and the cutouts from their WebP, keeping the alpha channel. The quality was the lowest of 70, 75, 80, 85 and 90 that reaches a PSNR of 40 dB against the resized original. Total 550 KB to 302 KB:
+
+| File | Before | After | Quality | PSNR |
+| --- | --- | --- | --- | --- |
+| `angel.webp` | 73 KB | 61 KB | 90 | 39.8 dB |
+| `angel-cutout.webp` | 109 KB | 52 KB | 85 | 40.5 dB |
+| `kanishk.webp` | 35 KB | 17 KB | 80 | 40.4 dB |
+| `kanishk-cutout.webp` | 60 KB | 23 KB | 70 | 41.4 dB |
+| `ermuun-battulga.webp` | 52 KB | 32 KB | 85 | 40.5 dB |
+| `ermuun-battulga-cutout.webp` | 76 KB | 34 KB | 80 | 40.9 dB |
+| `reuben-felix.webp` | 50 KB | 28 KB | 85 | 40.5 dB |
+| `reuben-felix-cutout.webp` | 93 KB | 51 KB | 90 | 40.2 dB |
+
+- **Logo:** `public/logo-mark-128.png` (128x128, 14 KB, alpha kept) is a copy of `logo-mark-transparent.png` (512x512, 75 KB). `BrandMark` (the sidebar and the learn header, dark theme) and the coaching header use it, at 28 to 40 px. The 512 original stays for the four OG image routes. The light-theme `BrandMark` still loads `icon-512.png` (68 KB), which is also the PWA icon, so a small copy of that tile is a follow-up.
+- **Deleted:** `public/mind-the-gap-hero.png` (1.6 MB) and `public/newton-cradle.png` (1.0 MB). Nothing in `app`, `components`, `lib`, `scripts`, `tests`, the workflows or `public/corpus-assets.json` refers to either of them.
+- **Measured on `pnpm build` and `next start` (images after scrolling):** `/coaching` 1001 to 763 KB at 375 and 1115 to 821 KB at 1440. `/` (which redirects to `/dashboard`), `/learn` and the guides, and the two coaching form pages 76 to 14 KB (78 to 16 KB) at 1440, all from the logo. Hero cards and the sidebar logo were checked at 2x and look the same.
+
