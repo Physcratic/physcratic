@@ -36,5 +36,9 @@ describe("coaching conversion events", () => {
     assert.match(form, /trackConsultationClick\(pathway \?\? "none"\)/);
     assert.match(form, /onClick=\{onClick\}/);
     assert.match(hero, /onClick: \(\) => trackConsultationClick\(pathway\)/);
+    // A middle-click sends auxclick, not click, so both links handle it too.
+    assert.match(form, /onAuxClick=\{onAuxClick\}/);
+    assert.match(form, /event\.button === 1/);
+    assert.match(hero, /onAuxClick: \(event: React\.MouseEvent\) => \{ if \(event\.button === 1\) trackConsultationClick\(pathway\)/);
   });
 });

@@ -47,7 +47,7 @@ export function CoachingHero({ initialGoal }: { initialGoal?: string }) {
             <a
               className="coaching-button"
               {...(href
-                ? { href, target: "_blank", rel: "noopener noreferrer", onClick: () => trackConsultationClick(pathway) }
+                ? { href, target: "_blank", rel: "noopener noreferrer", onClick: () => trackConsultationClick(pathway), onAuxClick: (event: React.MouseEvent) => { if (event.button === 1) trackConsultationClick(pathway); } }
                 : { role: "link", "aria-disabled": true, tabIndex: -1, onClick: (event: React.MouseEvent) => event.preventDefault() })}
               aria-describedby="consultation-note"
             >{hero.continueLabel}</a>
