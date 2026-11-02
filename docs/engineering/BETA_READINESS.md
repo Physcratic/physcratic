@@ -293,3 +293,9 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **Tests:** `lib/smoke-workflow.test.ts` checks the triggers, filters and fields, and runs the workflow's own "Work out what to test" step with sample payloads (environment mapping, URL clean-up, host and SHA validation, the secret check, the manual inputs). Removing the codex exclusion, the environment mapping, the project filter or the host check each makes it fail.
 - **Not testable before merge:** `repository_dispatch` workflows run from the default branch, so the first real run comes after the next Vercel build once this is on main. The steps to confirm it are in `docs/engineering/SMOKE_TESTS.md` ("How to confirm it works on the next deploy"). If nothing arrives, Vercel is not sending the event, which is a Vercel setting.
 
+## 2026-11-02 - Smoke tests: one run per deployment
+
+- **Why:** a production deployment can send both `vercel.deployment.ready` and `vercel.deployment.success`, which would start two smoke runs for the same commit.
+- **What:** in `smoke.yml` the `smoke` job (and the `skipped` job that logs codex/ previews) only counts `ready` when `client_payload.environment` is `preview` and `success` when it is `production`. A manual run is unaffected.
+- **Tests:** `lib/smoke-workflow.test.ts` now evaluates each job's real `if:` expression against sample events: ready with preview and success with production run, ready with production and success with preview do not, other projects and `codex/` refs are filtered, and the skipped job logs each codex deployment once.
+

@@ -15,6 +15,40 @@ const jobBlock = (name: string) => {
   return next < 0 ? workflow.slice(start) : workflow.slice(start, start + 1 + next);
 };
 
+/** The `if:` expression of a job, on one line. */
+function jobIf(name: string): string {
+  const block = jobBlock(name).split("\n");
+  const start = block.findIndex((line) => /^ {4}if: >-$/.test(line));
+  assert.ok(start >= 0, `if of ${name}`);
+  const body: string[] = [];
+  for (let i = start + 1; i < block.length && block[i].startsWith(" ".repeat(6)); i++) body.push(block[i].trim());
+  return body.join(" ");
+}
+
+interface FakeEvent {
+  event_name: string;
+  action?: string;
+  environment?: string;
+  project?: string;
+  ref?: string;
+}
+
+/** Evaluates a job's `if:` against a fake event. It understands only what these two conditions use. */
+function runs(name: string, event: FakeEvent): boolean {
+  const fields: Record<string, string | undefined> = {
+    "project.name": event.project,
+    environment: event.environment,
+    "git.ref": event.ref,
+  };
+  const js = jobIf(name)
+    .replace(/github\.event_name/g, "ctx.event_name")
+    .replace(/github\.event\.action/g, "ctx.action")
+    .replace(/github\.event\.client_payload\.([A-Za-z_.]+)/g, (_m, path: string) => `field(${JSON.stringify(path)})`)
+    .replace(/==/g, "===");
+  const evaluate = new Function("ctx", "field", "startsWith", `return Boolean(${js});`);
+  return evaluate(event, (path: string) => fields[path], (value: string | undefined, prefix: string) => (value ?? "").startsWith(prefix));
+}
+
 /** The shell script of one step, dedented, so the test can run the workflow's own logic. */
 function stepScript(stepName: string): string {
   const lines = workflow.split("\n");
@@ -58,6 +92,41 @@ describe("smoke.yml triggers", () => {
     assert.match(smoke, /github\.event\.client_payload\.project\.name == 'financial-dashboard'/);
     assert.match(smoke, /!startsWith\(github\.event\.client_payload\.git\.ref, 'codex\/'\)/);
     assert.ok(!/contains\(github\.event\.client_payload\.project\.name/.test(smoke), "the project name is matched exactly");
+  });
+
+  const dispatch = (action: string, environment: string, extra: Partial<FakeEvent> = {}): FakeEvent => ({ event_name: "repository_dispatch", action, environment, project: "financial-dashboard", ref: "feature/x", ...extra });
+  const READY = "vercel.deployment.ready";
+  const SUCCESS = "vercel.deployment.success";
+
+  it("starts one run per deployment: ready only for a preview, success only for production", () => {
+    assert.equal(runs("smoke", dispatch(READY, "preview")), true);
+    assert.equal(runs("smoke", dispatch(SUCCESS, "production", { ref: "main" })), true);
+    // A production deployment can send both events. Only the success one counts.
+    assert.equal(runs("smoke", dispatch(READY, "production", { ref: "main" })), false);
+    assert.equal(runs("smoke", dispatch(SUCCESS, "preview")), false);
+    assert.equal(runs("smoke", dispatch("vercel.deployment.error", "preview")), false);
+    assert.equal(runs("smoke", dispatch(READY, "")), false);
+  });
+
+  it("ignores other projects and always allows a manual run", () => {
+    assert.equal(runs("smoke", dispatch(READY, "preview", { project: "physcratic-integration" })), false);
+    assert.equal(runs("smoke", dispatch(READY, "preview", { project: "financial-dashboard-old" })), false);
+    assert.equal(runs("smoke", { event_name: "workflow_dispatch" }), true);
+    assert.equal(runs("skipped", { event_name: "workflow_dispatch" }), false);
+  });
+
+  it("skips codex/ refs for both pairings, and the skipped job logs each deployment once", () => {
+    for (const [action, environment] of [[READY, "preview"], [SUCCESS, "production"]]) {
+      const event = dispatch(action, environment, { ref: "codex/authoring" });
+      assert.equal(runs("smoke", event), false, `${action} smoke`);
+      assert.equal(runs("skipped", event), true, `${action} skipped`);
+    }
+    // The duplicate pairings do not log a second time, and other projects never log.
+    assert.equal(runs("skipped", dispatch(READY, "production", { ref: "codex/authoring" })), false);
+    assert.equal(runs("skipped", dispatch(SUCCESS, "preview", { ref: "codex/authoring" })), false);
+    assert.equal(runs("skipped", dispatch(READY, "preview", { ref: "codex/authoring", project: "physcratic-integration" })), false);
+    // A normal branch is never logged as skipped.
+    assert.equal(runs("skipped", dispatch(READY, "preview")), false);
   });
 
   it("reads the documented payload fields", () => {

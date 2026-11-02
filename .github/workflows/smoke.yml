@@ -6,6 +6,8 @@ name: Smoke tests
 # client_payload.project.name, .environment ("production" or "preview"), .git.ref, .git.sha and .url.
 #   vercel.deployment.success  finished building and promoted to production
 #   vercel.deployment.ready    finished building, not promoted to production (a preview)
+# A production deployment can send both, so each type only counts for its own environment:
+# ready for "preview", success for "production". That way one deployment starts one run.
 # GitHub runs repository_dispatch and workflow_dispatch workflows from the default branch, with the
 # default branch's latest commit checked out, so changes to this file only take effect once they are on main.
 on:
@@ -41,6 +43,8 @@ jobs:
     if: >-
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'repository_dispatch' &&
+       ((github.event.action == 'vercel.deployment.ready' && github.event.client_payload.environment == 'preview') ||
+        (github.event.action == 'vercel.deployment.success' && github.event.client_payload.environment == 'production')) &&
        github.event.client_payload.project.name == 'financial-dashboard' &&
        !startsWith(github.event.client_payload.git.ref, 'codex/'))
     runs-on: ubuntu-latest
@@ -142,6 +146,8 @@ jobs:
     name: Skipped codex preview
     if: >-
       github.event_name == 'repository_dispatch' &&
+      ((github.event.action == 'vercel.deployment.ready' && github.event.client_payload.environment == 'preview') ||
+       (github.event.action == 'vercel.deployment.success' && github.event.client_payload.environment == 'production')) &&
       github.event.client_payload.project.name == 'financial-dashboard' &&
       startsWith(github.event.client_payload.git.ref, 'codex/')
     runs-on: ubuntu-latest

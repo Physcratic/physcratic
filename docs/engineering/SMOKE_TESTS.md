@@ -11,7 +11,7 @@ Both workflows run from the default branch, so edits to them only take effect on
 
 ### Which deployments
 
-Vercel does not create GitHub deployments for this repository, so there are no `deployment_status` events. Vercel's GitHub integration sends `repository_dispatch` events instead (schema: `github.com/vercel/repository-dispatch`, `packages/repository-dispatch/src/data`). `smoke.yml` listens for two of them: `vercel.deployment.success` (built and promoted to production) and `vercel.deployment.ready` (built, not promoted, which is how previews arrive). It reads these `client_payload` fields:
+Vercel does not create GitHub deployments for this repository, so there are no `deployment_status` events. Vercel's GitHub integration sends `repository_dispatch` events instead (schema: `github.com/vercel/repository-dispatch`, `packages/repository-dispatch/src/data`). `smoke.yml` listens for two of them: `vercel.deployment.success` (built and promoted to production) and `vercel.deployment.ready` (built, not promoted, which is how previews arrive). A production deployment can send both, so each type only counts for its own environment: `ready` when `client_payload.environment` is `preview`, `success` when it is `production`. One deployment starts one run. It reads these `client_payload` fields:
 
 | Field | Used for |
 | --- | --- |
