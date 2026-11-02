@@ -1,9 +1,18 @@
 name: Smoke tests
 
-# GitHub runs deployment_status and workflow_dispatch workflows from the default branch,
-# so changes to this file only take effect once they are on main.
+# Vercel does not create GitHub deployments for this repository, so there are no deployment_status
+# events. Vercel's GitHub integration sends repository_dispatch events instead (payload schema:
+# github.com/vercel/repository-dispatch, packages/repository-dispatch/src/data). The fields used here are
+# client_payload.project.name, .environment ("production" or "preview"), .git.ref, .git.sha and .url.
+#   vercel.deployment.success  finished building and promoted to production
+#   vercel.deployment.ready    finished building, not promoted to production (a preview)
+# GitHub runs repository_dispatch and workflow_dispatch workflows from the default branch, with the
+# default branch's latest commit checked out, so changes to this file only take effect once they are on main.
 on:
-  deployment_status:
+  repository_dispatch:
+    types:
+      - vercel.deployment.success
+      - vercel.deployment.ready
   workflow_dispatch:
     inputs:
       base_url:
@@ -26,23 +35,23 @@ permissions:
 jobs:
   smoke:
     name: Smoke tests
-    # Only successful financial-dashboard deployments. The physcratic-integration project is ignored.
+    # Only the financial-dashboard project, so physcratic-integration is ignored.
     # Previews of codex/ branches are skipped (see the "skipped" job): they use the staging database,
     # and the authoring team requires CI to stay isolated from it. A manual run is always allowed.
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      (github.event.deployment_status.state == 'success' &&
-       contains(github.event.deployment.environment, 'financial-dashboard') &&
-       !startsWith(github.event.deployment.ref, 'codex/'))
+      (github.event_name == 'repository_dispatch' &&
+       github.event.client_payload.project.name == 'financial-dashboard' &&
+       !startsWith(github.event.client_payload.git.ref, 'codex/'))
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
       GH_TOKEN: ${{ github.token }}
       EVENT_NAME: ${{ github.event_name }}
-      DEPLOY_ENVIRONMENT: ${{ github.event.deployment.environment }}
-      DEPLOY_SHA: ${{ github.event.deployment.sha }}
-      ENVIRONMENT_URL: ${{ github.event.deployment_status.environment_url }}
-      TARGET_URL: ${{ github.event.deployment_status.target_url }}
+      DEPLOY_ENVIRONMENT: ${{ github.event.client_payload.environment }}
+      DEPLOY_REF: ${{ github.event.client_payload.git.ref }}
+      DEPLOY_SHA: ${{ github.event.client_payload.git.sha }}
+      PAYLOAD_URL: ${{ github.event.client_payload.url }}
       INPUT_BASE_URL: ${{ inputs.base_url }}
       INPUT_ENV: ${{ inputs.env }}
       VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
@@ -62,12 +71,13 @@ jobs:
             base_url="$INPUT_BASE_URL"
             smoke_env="$INPUT_ENV"
           else
-            if [[ -n "$ENVIRONMENT_URL" ]]; then
-              source="environment_url"; base_url="$ENVIRONMENT_URL"
-            else
-              source="target_url"; base_url="$TARGET_URL"
+            source="the payload url"
+            base_url="$PAYLOAD_URL"
+            if [[ "$DEPLOY_ENVIRONMENT" == production ]]; then smoke_env=production; else smoke_env=preview; fi
+            if [[ ! "$DEPLOY_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+              echo "::error::The payload git.sha is not a full commit SHA: '$DEPLOY_SHA'."
+              exit 1
             fi
-            if [[ "$DEPLOY_ENVIRONMENT" == Production* ]]; then smoke_env=production; else smoke_env=preview; fi
           fi
           # Trim spaces and trailing slashes, then add https:// when there is no scheme.
           base_url="${base_url#"${base_url%%[![:space:]]*}"}"
@@ -82,15 +92,25 @@ jobs:
             echo "::error::The base URL must use https (got '${base_url}'). It came from $source."
             exit 1
           fi
-          if [[ "$smoke_env" == preview && -z "$VERCEL_AUTOMATION_BYPASS_SECRET" ]]; then
-            echo "::error::The repository secret VERCEL_AUTOMATION_BYPASS_SECRET is missing. Preview deployments are behind Vercel Deployment Protection, so the smoke tests cannot reach them without it. Copy the value from Vercel, Project Settings, Deployment Protection, Protection Bypass for Automation, and add it under Settings, Secrets and variables, Actions."
+          host="${base_url#https://}"; host="${host%%[/:?#]*}"
+          if [[ "$EVENT_NAME" == repository_dispatch ]]; then
+            # A repository_dispatch payload can be sent by anyone with write access, and the bypass secret is sent
+            # to the host, so only Vercel and production hosts are accepted.
+            if [[ ! "$host" =~ ^[a-z0-9-]+(\.[a-z0-9-]+)*\.vercel\.app$ && "$host" != physcratic.com && "$host" != www.physcratic.com ]]; then
+              echo "::error::The payload url host '$host' is not a vercel.app or physcratic.com host, so it is not tested."
+              exit 1
+            fi
+          fi
+          # Deployment Protection covers vercel.app URLs, for previews and for the production deployment URL.
+          if [[ "$host" == *.vercel.app && -z "$VERCEL_AUTOMATION_BYPASS_SECRET" ]]; then
+            echo "::error::The repository secret VERCEL_AUTOMATION_BYPASS_SECRET is missing. Deployments on vercel.app URLs are behind Vercel Deployment Protection, so the smoke tests cannot reach them without it. Copy the value from Vercel, Project Settings, Deployment Protection, Protection Bypass for Automation, and add it under Settings, Secrets and variables, Actions."
             exit 1
           fi
           echo "base_url=$base_url" >> "$GITHUB_OUTPUT"
           echo "smoke_env=$smoke_env" >> "$GITHUB_OUTPUT"
           echo "Testing $base_url as $smoke_env (URL from $source)"
       - name: Mark commit status pending
-        if: github.event_name == 'deployment_status'
+        if: github.event_name == 'repository_dispatch'
         shell: bash
         run: |
           gh api "repos/${{ github.repository }}/statuses/$DEPLOY_SHA" \
@@ -104,7 +124,7 @@ jobs:
         run: node scripts/smoke.mjs "$BASE_URL"
       - name: Report commit status
         # Manual runs have no deployment to attach a status to, they only write the step summary.
-        if: always() && github.event_name == 'deployment_status'
+        if: always() && github.event_name == 'repository_dispatch'
         shell: bash
         env:
           SMOKE_OUTCOME: ${{ steps.smoke.outcome }}
@@ -121,18 +141,16 @@ jobs:
   skipped:
     name: Skipped codex preview
     if: >-
-      github.event_name == 'deployment_status' &&
-      github.event.deployment_status.state == 'success' &&
-      contains(github.event.deployment.environment, 'financial-dashboard') &&
-      startsWith(github.event.deployment.ref, 'codex/')
+      github.event_name == 'repository_dispatch' &&
+      github.event.client_payload.project.name == 'financial-dashboard' &&
+      startsWith(github.event.client_payload.git.ref, 'codex/')
     runs-on: ubuntu-latest
     timeout-minutes: 1
     env:
-      DEPLOY_REF: ${{ github.event.deployment.ref }}
+      DEPLOY_REF: ${{ github.event.client_payload.git.ref }}
     steps:
       - name: Say why nothing ran
         shell: bash
         run: |
           echo "Skipped: codex branch preview"
           echo "Branch: $DEPLOY_REF. codex/ previews use the staging database, so the smoke tests stay away from them."
-
