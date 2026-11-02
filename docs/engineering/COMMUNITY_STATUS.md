@@ -1,8 +1,91 @@
 # Community implementation status
 
-Updated: 3 November 2026, 04:47 WITA (UTC+8).
+Updated: 3 November 2026, 05:18 WITA (UTC+8).
 
-## Batch 1B: Settings, public profiles, images and optional setup
+## Batch 2A: earned achievements and profile showcase
+
+**Deployment: PENDING USER ACTION. NOT DEPLOYED BY CODEX.**
+
+- Started from main `b98e97c6f6fee107749b99d87caa68a0e7b8a795`, then fast-forwarded the user's README deployment commit `6c2946d8c5309b902362488a7392fc653bd92740`. No README changes were authored by Codex. Branch: `codex/community-batch-2a-2026-11-03`.
+- Delivery PR, tested head, CI and final merge SHA: pending final verification/merge; recorded below before handoff completion.
+- Earlier prerequisites remain outstanding: user/operator must verify/install 0007 and runtime grants; 0008/private Blob is a separate optional image prerequisite. Merged code does not establish database installation or deployment.
+
+### Definitions and authoritative eligibility
+
+| ID | Badge | Current requirement |
+|---|---|---|
+| `first-spark` | First Spark | 1 published owned problem |
+| `problem-weaver` | Problem Weaver | 5 published owned problems |
+| `equation-architect` | Equation Architect | 15 published owned problems |
+| `master-problem-setter` | Master Problem Setter | 50 published owned problems |
+| `first-breakthrough` | First Breakthrough | 1 verified complete solve |
+| `persistent-solver` | Persistent Solver | 10 distinct verified complete solves |
+| `olympiad-pathfinder` | Olympiad Pathfinder | 50 distinct verified complete solves |
+
+- The typed client-safe registry is `lib/community/achievements.ts`. SQL 0009 independently enforces its thresholds; integration tests check the thresholds and persisted selections. No client counts, arbitrary IDs, credentials or manual staff awards are accepted.
+- Author count is distinct owned `authored_problem` identities with `state='published'` and a valid current revision. Drafts and historical/repeated revisions do not count. Unpublish removes the problem; republish counts the same identity once. Counts cap at 50.
+- A solve requires a currently published, non-self-authored schema-v1 revision with at least one part. Every relational part is required and must support automatic numeric or expression grading. For every part, the same user must have a current-revision immutable receipt with `status='correct'`, `assisted=false`, matching answer kind and supported engine/reason (`numeric-v1`/`within-tolerance` or `symbolic-v1`/`symbolic-equivalent`). Multiple attempts count one problem. Partial, incorrect, needs-review, ungraded/manual, unsupported and cross-revision work is excluded. Static/legacy self-review, solution/page views, Elo and contest events provide no authoritative completion evidence and are excluded.
+- Existing reveal tracking makes every later attempt in that revision assisted. Earlier qualifying unassisted receipts remain qualifying after a later reveal. The grader, immutable attempt/reveal records, auth, authoring and ratings are unchanged.
+- Eligibility reflects a database statement snapshot. Unpublication removes author and solve credit; a new revision needs complete receipts for that revision. Restoring the exact previously solved revision can restore credit. No historical award ledger is implied.
+- Live indexed reads avoid cache invalidation: author aggregation stops at 50; loose seeks over the partial correct/unassisted index skip repeated attempts. Solver evaluation stops at 50 qualifying problems or 2,000 candidate identities. If more candidates remain and 50 cannot yet be established, solver progress is **null/unavailable**, not zero or a fabricated total. Author progress remains independently available. SQL request statements have a five-second timeout; contention/errors return generic unavailable responses.
+
+### Selection, API and screens
+
+- `GET /api/community/achievements`: authenticated own progress, active ordered `selectedIds`, `hiddenSelectionCount`, and `profileExists`; no profile is auto-created. No email/name copying or identity backfill.
+- `PATCH /api/community/achievements`: strict `{selectedIds: [...]}` only; zero to two distinct known eligible IDs. Requires verified existing Better Auth session, same-origin request and existing own profile. No target user ID is accepted. Shared PostgreSQL quota is 10 writes/account/minute, independent of profile/image quotas; invalid writes consume quota. Per-owner transaction serialization prevents interleaved array updates. Last successful whole-array write wins; order persists.
+- `GET /api/community/achievements?handle=<handle>`: currently public profiles only; missing/private both 404. Returns only `{selectedIds}`, with no internal IDs, counts, attempt details or unpublished content. Every nonempty public showcase is filtered against live eligibility and current visibility in the same SQL snapshot. All responses are private/no-store/noindex and vary on Cookie.
+- Ineligible saved choices are dormant and immediately hidden publicly and in active preview. They can reappear if eligibility returns; the owner sees the hidden count. Saving replaces the entire saved preference, including dormant choices. SQL CHECK/FK/trigger constraints also reject forged, unearned, duplicate, oversized or identity-changing runtime writes.
+- `/settings` has an Achievements section with definitions, measured progress, locked/unlocked/unavailable states, 0–2 selection, order swap, live profile/showcase previews, save/reload and loading/error/success states. Saves remain disabled without a saved profile or verified session. Account changes abort requests and reset scoped state through the existing keyed editor.
+- `/u/[handle]` renders active badges beside the display name only after public authorization. Reusable badges have distinct colors/icons, restrained rare styling, wrapping and native keyboard/touch-accessible details. Styling is static and respects reduced motion without animation. No medal/staff/credential placeholders were added.
+
+### Changed files
+
+- API: `app/api/community/achievements/route.ts`; `lib/community/achievements{,-api,-route,-server}.ts`.
+- UI: `components/community/achievement-{badge,settings}.tsx`, `account-settings.tsx`, `profile-card.tsx`; `app/settings/page.tsx`, `app/u/[handle]/page.tsx`.
+- Database: `migrations/0009_community_achievements.{up,down}.sql`, `lib/db/schema.ts`, `migrations/README.md`. Migrations 0001–0008 are unchanged. New selection/rate tables, two read-only progress functions, a guard on the new selection table and two additive indexes; no new triggers on existing publication/grading tables.
+- Verification: `lib/community-achievements.test.ts`, `tests/community-achievement-fixtures.ts`, `tests/community-achievements.browser.mjs`, and extended existing profile browser harness. No dependency/infrastructure changes.
+
+### Validation
+
+- Targeted disposable PostgreSQL 18.6 tests: **10 passed**, including author/solver thresholds, drafts, repeated publication, multipart/cross-revision/manual/unsupported results, assisted receipts, idempotent concurrent submissions, unpublish/restoration, forged/oversized/unauthorized writes, SQL constraints, restricted runtime privileges, selection races, shared limits, private lookups and bounded sparse-history unavailable semantics. 0009 up/down/up preserves existing default-private 0007 profiles; populated rollback is refused. 0008 is deliberately absent throughout these tests.
+- Browser: **21 assertions passed** with real UI/API factories and disposable PostgreSQL, Chromium at 1440px/375px, reduced motion, light/dark, keyboard disclosure, selection limit/order/persistence, public/private and live eligibility revocation, generic error/retry, feature-off no API requests and no server query code in the browser bundle. Axe: zero violations in all four checked configurations. Mobile screenshots visually reviewed; local synthetic artifacts are outside the repository at `/workspace/work/batch2a-ui-final`.
+- `bash scripts/test-problem-authoring.sh corepack pnpm test`: **675 server passed, 0 failed, 1 inherited corpus-punctuation TODO; 29 UI passed**. Includes existing profile/auth/authoring/submission/grading/solution regressions.
+- Pinned `corepack pnpm exec next typegen`, `corepack pnpm exec tsc --noEmit`, `corepack pnpm lint --max-warnings=0` and `corepack pnpm build`: passed. Synthetic build credentials only. `python3 -B scripts/phase-c-offline/run.py safety` and `git diff --check`: passed. React lifecycle, serialization, privacy and accessibility review completed.
+- Actual built Next server with all community flags OFF and an intentionally unreachable synthetic DB: new GET/PATCH routes returned explicit disabled 503/private-no-store, profile URLs consistently returned 404, and mobile Settings/Appearance loaded with theme persistence and zero community API requests/browser errors. No new schema is required to ship disabled code.
+- The full suite caught the existing copy rule against “unlock”; the interface now uses Earned/Locked without weakening that rule. The browser harness now lets theme color transitions settle before contrast measurement. Generated prior-batch build caches were removed to recover local test disk space. No unrelated production features or tests were rewritten. GitHub CI result recorded with delivery before handoff completion.
+
+### Exact later production enablement: user/operator only
+
+1. Keep `COMMUNITY_PROFILES_ENABLED`, `COMMUNITY_PROFILE_MEDIA_ENABLED` and **`COMMUNITY_ACHIEVEMENTS_ENABLED` OFF** while shipping this code against the current schema. The achievements gate requires both profiles and achievements to equal `true`, and precedes session/database imports and all new table access. Media readiness is independent. Settings/Appearance and existing application features work with all community tables absent.
+2. Separately authorize a recovery point and migration window; confirm the production direct/non-pooled owner connection, existing runtime role and current migration ledger. Inspect `public.physcratic_production_migrations`, schema and checksums from the reviewed merge. Do not infer any installed migration from a merged PR. Never replay 0001–0008 or frozen historical packages. If 0007 is absent, install its complete reviewed up file **once** using the earlier profile procedure below and verify its grants/private defaults. If installed, verify checksum/schema and skip its SQL. Drift means stop and reconcile.
+3. After existing authored migrations 0001–0006 and 0007 are verified, install **0009 only if absent**. Review `sha256sum migrations/0009_community_achievements.up.sql`. On that confirmed direct owner connection, explicitly `BEGIN`, `SET LOCAL search_path=public,pg_catalog`, `SET LOCAL lock_timeout='5s'`, `SET LOCAL statement_timeout='60s'`, then `SELECT pg_advisory_xact_lock(hashtextextended('physcratic:authoring:migrations:v1',0));`. Execute the complete reviewed 0009 up file once. Verify both new tables, constraints/FKs/selection guard, both eligibility functions and partial indexes; compare source counts/read plans on synthetic operator-controlled accounts. Record migration ID/checksum/source commit/actor/time/result using the existing ledger format, and commit only after all checks succeed. Roll back on failure. Index creation takes bounded locks on existing authored tables; choose a quiet window and retry later if the lock timeout fires. No automatic build/start migration hook exists.
+4. Grant only to the confirmed existing application role (substitute its reviewed name; retain existing schema USAGE):
+
+   ```sql
+   GRANT SELECT ON public.community_profile, public.authored_problem,
+     public.authored_revision, public.authored_revision_part, public.authored_attempt
+     TO "CONFIRMED_RUNTIME_ROLE";
+   GRANT SELECT, INSERT, UPDATE ON public.community_badge_selection,
+     public.community_achievement_write_limit TO "CONFIRMED_RUNTIME_ROLE";
+   GRANT EXECUTE ON FUNCTION public.community_achievement_progress(text),
+     public.community_achievement_problem_solved(text, uuid)
+     TO "CONFIRMED_RUNTIME_ROLE";
+   ```
+
+   Preserve existing auth/authoring/profile grants. Do not grant PUBLIC access, trigger-function EXECUTE, table ownership, schema CREATE or new private-key access. Test these exact privileges before enabling. Functions run with invoker privileges, not SECURITY DEFINER.
+5. The user may enable profiles after 0007/grants and achievements after 0009/grants by setting `COMMUNITY_PROFILES_ENABLED=true` and `COMMUNITY_ACHIEVEMENTS_ENABLED=true`. Keep media OFF until its separate 0008/grants/private Blob prerequisites below are satisfied. 0008 is not an achievement dependency.
+6. **Only the user** triggers deployment through the GitHub account associated with the paid Vercel seat. Verify Production READY and a deployed SHA containing this merge; then smoke-test Settings save/reload/clear/order, public/private visibility, unpublication/revision revocation, auth, submissions and authoring. Codex has not initiated Vercel builds, changed flags/settings, applied SQL, or made a README-trigger commit. Git merge is not deployment evidence.
+7. Roll back exposure by disabling achievements (or profiles to gate all community features) and redeploying through the user. Preserve saved selections and immutable history. Do not run down on populated production tables: 0009 down deliberately refuses any saved selection. Disposable up/down/up is not production SQL authorization.
+
+### Outstanding and next phase
+
+- Implementation/CI/merge status finalized below. Production migration 0007/0009, runtime grants, flag enablement, deployment and deployed smoke remain **PENDING USER ACTION**. Optional media retains separate 0008/private-storage prerequisites.
+- Counts are current eligibility rather than lifetime awards, capped at 50; sparse histories beyond the bounded budget report unavailable solver progress. No unsupported/static completion claims or background projection jobs were introduced. The new indexes need an operator migration window. No production schema introspection or deployed verification was performed; current-schema compatibility is established by default-off lazy gates and local built-server checks.
+- **Next: Batch 2B**, starting from latest main in a new request. No medal verification, staff roles, favourites, comments or leaderboards are included. Stop after Batch 2A.
+
+---
+
+## Historical Batch 1B handoff (pre-Batch 2A; retained for media/profile operator details)
 
 **Deployment: PENDING USER ACTION. NOT DEPLOYED BY CODEX.**
 
