@@ -4,20 +4,39 @@
 
 | Workflow | Trigger | What it does |
 | --- | --- | --- |
-| `.github/workflows/smoke.yml` | A Vercel deployment succeeds (`deployment_status`), or a manual run | Runs `scripts/smoke.mjs` against the deployment URL and posts a commit status named "Smoke tests" on the deployed commit, so it shows on the PR. |
+| `.github/workflows/smoke.yml` | Vercel's `repository_dispatch` events `vercel.deployment.success` and `vercel.deployment.ready`, or a manual run | Runs `scripts/smoke.mjs` against the deployment URL and posts a commit status named "Smoke tests" on the deployed commit, so it shows on the PR. |
 | `.github/workflows/deploy-watch.yml` | Push to `main`, and any commit status event | On a push it polls the commit status "Vercel – financial-dashboard" once a minute for up to 20 minutes. If it fails, errors, or never appears, it opens an issue. When the status is `success` (on the push, or later on a status event for a commit already on `main`), it closes the open `deploy-blocked` issues whose commit is that commit or one of its ancestors, with the comment "Live in `<short sha>`." (`scripts/close-deploy-blocked.sh`). |
 
 Both workflows run from the default branch, so edits to them only take effect once merged. Neither is a required check.
 
 ### Which deployments
 
-`smoke.yml` only runs when the deployment state is `success` and the environment name contains `financial-dashboard`. The `physcratic-integration` project is ignored. The environment is `production` when the name starts with "Production", otherwise `preview`.
+Vercel does not create GitHub deployments for this repository, so there are no `deployment_status` events. Vercel's GitHub integration sends `repository_dispatch` events instead (schema: `github.com/vercel/repository-dispatch`, `packages/repository-dispatch/src/data`). `smoke.yml` listens for two of them: `vercel.deployment.success` (built and promoted to production) and `vercel.deployment.ready` (built, not promoted, which is how previews arrive). It reads these `client_payload` fields:
 
-**Previews of `codex/` branches are skipped** (the deployment's `ref` starts with `codex/`). Those previews use the staging database, and the authoring team requires CI to stay isolated from it, so the smoke tests must not send requests to them. The run logs "Skipped: codex branch preview" and posts no "Smoke tests" status for that commit. A manual run ("Run it by hand on a preview") is still allowed, because someone chose that URL.
+| Field | Used for |
+| --- | --- |
+| `client_payload.project.name` | Only `financial-dashboard` runs. `physcratic-integration` is ignored. |
+| `client_payload.environment` | `production` runs the production checks. Anything else is a preview. |
+| `client_payload.git.ref` | A ref that starts with `codex/` is skipped (below). |
+| `client_payload.git.sha` | The commit that gets the "Smoke tests" status. A `repository_dispatch` run itself checks out the latest commit on `main`. |
+| `client_payload.url` | The base URL to test. `https://` is added when it is missing. |
+
+The payload's host must be a `*.vercel.app` host or `physcratic.com`, because anyone with write access can send a `repository_dispatch` and the bypass secret goes to the host. Anything else fails the "Work out what to test" step.
+
+**Previews of `codex/` branches are skipped** (`client_payload.git.ref` starts with `codex/`). Those previews use the staging database, and the authoring team requires CI to stay isolated from it, so the smoke tests must not send requests to them. The run logs "Skipped: codex branch preview" and posts no "Smoke tests" status for that commit. A manual run ("Run it by hand on a preview") is still allowed, because someone chose that URL.
 
 ### Preview deployments and the bypass secret
 
-Previews sit behind Vercel Deployment Protection. The repository secret `VERCEL_AUTOMATION_BYPASS_SECRET` (Vercel, Project Settings, Deployment Protection, Protection Bypass for Automation) is sent as the `x-vercel-protection-bypass` header. A preview run without it fails with a message saying so. Production runs send it only if it is set.
+Deployments on `*.vercel.app` URLs sit behind Vercel Deployment Protection, previews and the production deployment's own URL alike (the project protects everything except custom domains). The repository secret `VERCEL_AUTOMATION_BYPASS_SECRET` (Vercel, Project Settings, Deployment Protection, Protection Bypass for Automation) is sent as the `x-vercel-protection-bypass` header. A run against a `vercel.app` URL without it fails with a message saying so. A manual run against `physcratic.com` needs no secret.
+
+### How to confirm it works on the next deploy
+
+1. Push a commit or open a PR from a branch that does not start with `codex/`, and wait for the Vercel build to finish.
+2. GitHub, Actions, "Smoke tests". A new run should appear with the event `repository_dispatch` within a minute of the build finishing (the first run ever means the trigger works). The run title shows the event, and its summary lists every check.
+3. The PR (or the commit) gets a "Smoke tests" status: pending while it runs, then success or failure, with a link to the run.
+4. In the run, the "Work out what to test" step logs `Testing https://... as preview (URL from the payload url)`. After a production deploy it says `as production`.
+5. Push a branch called `codex/anything`: an "Skipped codex preview" job runs and prints "Skipped: codex branch preview", and no "Smoke tests" status is posted.
+6. If no run appears at all, Vercel is not sending the event. Check Vercel, Project Settings, Git, that the GitHub integration is connected, and whether the project has an option for `repository_dispatch` events (the exact name is not something this repository can read). A blocked deployment (Hobby plan) never reaches `ready` or `success`, so it sends no event either.
 
 ### Blocked production deploys
 
