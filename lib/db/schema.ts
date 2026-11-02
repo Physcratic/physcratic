@@ -1,6 +1,7 @@
 import { sql } from "drizzle-orm";
 import type { AuthoredDocument, PrivatePart } from "@/lib/problem-authoring";
-import { check, foreignKey, index, type AnyPgColumn, boolean, bigint, date, doublePrecision, integer, jsonb, pgTable, primaryKey, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
+import { check, foreignKey, index, type AnyPgColumn, boolean, bigint, date, doublePrecision, integer, jsonb, pgTable, primaryKey, text, timestamp, unique, uniqueIndex, uuid } from "drizzle-orm/pg-core";
+import type { ProfileEducationLevel, ProfileTopicId } from "@/lib/community/profile-contracts";
 import type { SolutionSubmission } from "@/lib/solution-grading";
 import type { ProblemAnswerCheck } from "@/lib/individual-elo";
 
@@ -18,6 +19,32 @@ export const user = pgTable("user", {
   termsAcceptedVersion: text("termsAcceptedVersion"), termsAcceptedAt: timestamp("termsAcceptedAt", { withTimezone: true }),
   createdAt: timestamp("createdAt").notNull().defaultNow(), updatedAt: timestamp("updatedAt").notNull().defaultNow(),
 });
+// Additive 0007 only. SQL owns the immutable identity/server timestamp trigger.
+export const communityProfiles = pgTable("community_profile", {
+  userId: text("user_id").primaryKey().references(() => user.id, { onDelete: "cascade" }),
+  handle: text("handle").notNull(),
+  displayName: text("display_name").notNull().default(""),
+  bio: text("bio").notNull().default(""),
+  educationLevel: text("education_level").$type<ProfileEducationLevel>().notNull().default("prefer-not-to-say"),
+  favoriteTopicIds: text("favorite_topic_ids").array().$type<ProfileTopicId[]>().notNull().default(sql`'{}'::text[]`),
+  publicVisibility: boolean("public_visibility").notNull().default(false),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().default(sql`clock_timestamp()`),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().default(sql`clock_timestamp()`),
+}, (t) => [
+  uniqueIndex("community_profile_handle_unique").on(sql`lower(${t.handle})`),
+  check("community_profile_handle_format", sql`${t.handle} ~ '^[a-z0-9][a-z0-9_]{2,23}$'`),
+  check("community_profile_handle_reserved", sql`${t.handle} NOT IN ('admin','administrator','moderator','mod','physcratic','support','root','system','api','auth','me','profile','profiles','settings','account','login','logout','dashboard','deleted','null','undefined','official','staff')`),
+  check("community_profile_display_name_check", sql`char_length(${t.displayName})<=80`),
+  check("community_profile_bio_check", sql`char_length(${t.bio})<=500`),
+  check("community_profile_education_level_check", sql`${t.educationLevel} IN ('high-school','university','other','prefer-not-to-say')`),
+  check("community_profile_favorite_topic_ids_check", sql`cardinality(${t.favoriteTopicIds})<=6 AND (cardinality(${t.favoriteTopicIds})=0 OR array_ndims(${t.favoriteTopicIds})=1) AND array_position(${t.favoriteTopicIds},NULL) IS NULL AND ${t.favoriteTopicIds} <@ ARRAY['mechanics','electromagnetism','waves','thermodynamics','optics','modern-physics']::text[]`),
+]);
+export const communityProfileWriteLimits = pgTable("community_profile_write_limit", {
+  userId: text("user_id").primaryKey().references(() => user.id, { onDelete: "cascade" }),
+  windowStart: timestamp("window_start", { withTimezone: true }).notNull(),
+  requests: integer("requests").notNull(),
+}, (t) => [check("community_profile_write_limit_requests_check", sql`${t.requests} BETWEEN 1 AND 11`)]);
+
 export const session = pgTable("session", {
   id: text("id").primaryKey(), expiresAt: timestamp("expiresAt").notNull(), token: text("token").notNull().unique(),
   createdAt: timestamp("createdAt").notNull().defaultNow(), updatedAt: timestamp("updatedAt").notNull().defaultNow(),
