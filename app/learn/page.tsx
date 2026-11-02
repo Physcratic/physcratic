@@ -5,9 +5,9 @@ import { formatDate, learnPath, publishedArticles } from "@/lib/learn/articles";
 import { jsonLdScript, learnHubGraph } from "@/lib/seo/json-ld";
 import { baseOpenGraph } from "@/lib/site";
 
-const TITLE = "Physics Olympiad guides";
+const TITLE = "Physics Olympiad and Physcratic guides";
 const DESCRIPTION =
-  "Plain guides to the physics olympiads for students and parents. Every fact has a numbered source, and anything that changes says which year it applies to.";
+  "Practical guides to using Physcratic, writing physics problems and preparing for IPhO, APhO and EuPhO, with sources for olympiad advice.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -30,13 +30,12 @@ export default function LearnPage() {
       />
       <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Learn</h1>
       <p className="mt-4 max-w-prose text-lg text-muted-foreground">
-        Short guides to the physics olympiads, written for students and the
-        parents who support them. Every fact has a numbered source. Anything
-        that changes from year to year says which year it applies to.
+        Learn how to use Physcratic, publish a problem or plan your physics
+        olympiad study. The olympiad guides include numbered sources.
       </p>
       <p className="mt-3 max-w-prose text-sm text-muted-foreground">
-        Physcratic does not run any of these olympiads. Always confirm details
-        with your national organiser and the current host site.
+        For olympiad dates and entry rules, confirm details with your national
+        organiser and the current host site. Physcratic does not run these olympiads.
       </p>
       <ul className="mt-8 grid gap-4 sm:grid-cols-1">
         {publishedArticles.map((article) => (

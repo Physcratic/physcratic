@@ -18,10 +18,10 @@ const citedIds = (a: Article): string[] => {
 };
 
 describe("learn articles", () => {
-  it("has unique slugs and the three guides", () => {
+  it("has unique slugs, four reviewed guides and two product guides", () => {
     const slugs = articles.map((a) => a.slug);
     assert.equal(new Set(slugs).size, slugs.length);
-    assert.equal(articles.length, 4);
+    assert.equal(articles.length, 6);
   });
   for (const a of articles) {
     describe(a.slug, () => {
@@ -32,13 +32,17 @@ describe("learn articles", () => {
         assert.ok(!Number.isNaN(Date.parse(a.updated)));
         assert.match(a.slug, /^[a-z0-9]+(-[a-z0-9]+)*$/);
       });
-      it("has the reviewer", () => {
+      it("records human review only for reviewed guides", () => {
+        if (a.kind === "product") {
+          assert.equal(a.reviewedBy, null);
+          return;
+        }
         assert.equal(a.reviewedBy.name, "Arrow Dunatos");
         assert.equal(a.reviewedBy.credential, "IPhO 2026 bronze medallist");
       });
-      it("is 900 to 1,400 words (700 to 1,200 for the resources guide)", () => {
+      it("keeps the existing guide length limits and allows complete product documentation", () => {
         const words = wordCount(a.body);
-        const [min, max] = a.slug === "physics-olympiad-books-and-resources" ? [700, 1200] : [900, 1400];
+        const [min, max] = a.kind === "product" ? [900, 2000] : a.slug === "physics-olympiad-books-and-resources" ? [700, 1200] : [900, 1400];
         assert.ok(words >= min && words <= max, `${words} words`);
       });
       it("computes reading minutes at 220 words a minute", () => {

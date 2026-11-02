@@ -107,7 +107,7 @@ export function articleGraph(article: Article) {
       "@id": `${url}#webpage`,
       url,
       name: article.title,
-      reviewedBy: { "@type": "Person", name: article.reviewedBy.name },
+      ...(article.reviewedBy ? { reviewedBy: { "@type": "Person", name: article.reviewedBy.name } } : {}),
       mainEntity: { "@id": `${url}#article` },
     },
     {

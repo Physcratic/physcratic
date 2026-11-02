@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Layout from "@/components/kokonutui/layout";
 import { ProblemReader } from "@/components/physics/problem-reader";
 import { problems } from "@/lib/physics";
-import { practiceProblemDescription } from "@/lib/problem-meta";
+import { problemPageMetadata } from "@/lib/seo/problem-descriptions";
 import { catalogProblems } from "@/lib/corpus-catalog";
 import { ImportedProblemRoute } from "@/components/physics/imported-problem-route";
 import { ArenaProblemReader } from "@/components/physics/arena-problem-reader";
@@ -17,10 +17,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const problem = problems.find((item) => item.id === id);
   const imported = catalogProblems.find((item) => item.id === id);
   const arenaProblem = arena.problems.find((item) => item.id === id);
-  return {
-    title: problem?.title ?? imported?.title ?? arenaProblem?.title ?? "Problem not found",
-    description: arenaProblem?.summary ?? (problem ? (practiceProblemDescription(problem.id) ?? problem.prompt) : undefined) ?? (imported ? `${imported.competition} ${imported.year} ${imported.code}: original English problem and solution PDFs, with plain-text solution submission.` : undefined),
-  };
+  const selected = problem ?? imported ?? arenaProblem;
+  return selected ? problemPageMetadata(selected) : { title: "Problem not found" };
 }
 
 export default async function PracticeProblemPage({ params }: Props) {
