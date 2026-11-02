@@ -3,7 +3,7 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, codex/physcratic-authoring-completion]
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -20,8 +20,6 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
-        with:
-          version: 10
       - uses: actions/setup-node@v5
         with:
           node-version: 22
@@ -30,13 +28,18 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Typecheck
         run: pnpm exec next typegen && pnpm exec tsc --noEmit
+      - name: ESLint
+        run: pnpm lint --max-warnings=0
       - name: Unit tests
-        shell: bash
-        # *.pg.test.ts need Postgres; a DB job can come later.
-        # lib/corpus-translation.test.ts test 64 is marked todo in the file (inherited corpus punctuation drift; remove todo after PR #2 merges).
-        run: pnpm exec tsx --conditions=react-server --test $(ls lib/*.test.ts | grep -v '\.pg\.test\.ts$')
+        run: pnpm run test:server
       - name: Component rendering tests
         run: pnpm test:ui
+      - name: Production build
+        env:
+          # Synthetic build-only values; no live service credentials.
+          BETTER_AUTH_SECRET: ci-build-only-physcratic-synthetic-secret-0000000000000000
+          BETTER_AUTH_URL: http://localhost:3000
+        run: pnpm build
 
   database:
     name: Database tests
@@ -44,7 +47,7 @@ jobs:
     timeout-minutes: 15
     services:
       postgres:
-        image: postgres:17-alpine
+        image: postgres:18.6-alpine
         env:
           POSTGRES_PASSWORD: local-test-only
           POSTGRES_DB: physcratic_authoring_test
@@ -58,11 +61,10 @@ jobs:
     env:
       # Disposable service container only. Never set DATABASE_URL here.
       AUTHORING_TEST_DATABASE_URL: postgresql://postgres:local-test-only@127.0.0.1:5432/physcratic_authoring_test
+      AUTHORING_TEST_EXPECTED_VERSION: "18.6"
     steps:
       - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
-        with:
-          version: 10
       - uses: actions/setup-node@v5
         with:
           node-version: 22
@@ -80,3 +82,13 @@ jobs:
           echo "Running:"
           echo "$files"
           pnpm exec tsx --conditions=react-server --test $files
+      - name: Reviewed authoring release package and transport guards
+        run: |
+          mkdir -p work/neon-release-audit
+          (cd scripts/authoring-release && sha256sum -c PACKAGE_SHA256SUMS)
+          node --test scripts/authoring-release/release.test.mjs
+          pnpm exec tsx --conditions=react-server --test scripts/authoring-release/mail-audit.test.ts lib/author-media-storage.test.ts
+      - name: Production operator package and rejection guards
+        run: |
+          (cd scripts/authoring-release-production && sha256sum -c PACKAGE_SHA256SUMS)
+          node --test scripts/authoring-release-production/core.test.mjs

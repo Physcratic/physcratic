@@ -1,4 +1,5 @@
 "use client";
+import { WorkedSolution } from "./worked-solution";
 import {
   useCallback,
   useEffect,
@@ -192,7 +193,7 @@ export function StudentWorkspace({
       <header className="border-b bg-background">
         <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-3 px-5 py-4 sm:px-8">
           <a
-            href="/dashboard?view=problems"
+            href="/dashboard?view=problems&collection=authored"
             className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold"
           >
             <ArrowLeft aria-hidden="true" className="size-4" /> Physcratic
@@ -219,14 +220,14 @@ export function StudentWorkspace({
       </header>
       <main
         id="solver-main"
-        className="mx-auto max-w-[1440px] space-y-7 px-4 py-6 sm:px-8 sm:py-10"
+        className="mx-auto w-full min-w-0 max-w-[1440px] space-y-7 px-4 py-6 sm:px-8 sm:py-10"
       >
         <div className="flex flex-wrap items-end justify-between gap-4 border-b pb-6">
-          <div>
+          <div className="min-w-0 max-w-full">
             <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
               Authored physics · Practice
             </p>
-            <h1 className="max-w-4xl break-words text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h1 className="max-w-4xl text-3xl font-semibold tracking-tight [overflow-wrap:anywhere] sm:text-4xl">
               {availability === "ready"
                 ? revision?.content.title
                 : "Physics problem"}
@@ -457,13 +458,12 @@ function PrivateWorkspace({
     historyTitle = useRef<HTMLHeadingElement>(null),
     partTitle = useRef<HTMLHeadingElement>(null),
     seenResult = useRef<string | null>(null);
+  const revisionId = revision?.id;
   const parts =
       revision?.content.sections.flatMap((s) =>
         s.parts.map((p) => ({ ...p, sectionTitle: s.title })),
       ) ?? [],
     part = parts.find((p) => p.id === selected) ?? parts[0];
-  const revisionId = revision?.id;
-  const firstPartId = parts[0]?.id ?? "";
   const cancelInfo = useCallback(() => {
     infoSerial.current++;
     infoAbort.current?.abort();
@@ -496,6 +496,7 @@ function PrivateWorkspace({
     window.addEventListener("beforeunload", unload);
     return () => window.removeEventListener("beforeunload", unload);
   }, [state.book, state.rawRecovery]);
+  const firstPartId = parts[0]?.id ?? "";
   useEffect(() => {
     setSelected(firstPartId);
   }, [revisionId, firstPartId]);
@@ -601,9 +602,9 @@ function PrivateWorkspace({
     setHistoryBusy(false);
     setHistoryLoaded(false);
     setHistoryEpoch((x) => x + 1);
-    if (part?.id === a.partId && revision?.id === a.revisionId)
+    if (part?.id === a.partId && revisionId === a.revisionId)
       requestAnimationFrame(() => resultRef.current?.focus());
-  }, [state.lastResult, part?.id, revision?.id]);
+  }, [state.lastResult, part?.id, revisionId]);
   useEffect(() => {
     if ([401, 403].includes(state.lastStatus)) denyAuth();
   }, [state.lastStatus, denyAuth]);
@@ -834,7 +835,7 @@ function PrivateWorkspace({
                 <li key={a.id} className="space-y-3 py-5">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <p className="font-medium">
-                      Attempt {a.attemptNumber} · {feedback[a.status].label}
+                      Attempt {a.attemptNumber} · {feedback[a.status].label} · {a.assisted ? "Assisted" : "Unassisted"}
                     </p>
                     <time
                       className="text-xs text-muted-foreground"
@@ -954,7 +955,7 @@ function PrivateWorkspace({
                         {feedback[receipt.attempt.status].text}
                       </p>
                       <p className="break-words text-xs">
-                        Submitted answer: {answerText(receipt.attempt.answer)}
+                        {receipt.attempt.assisted ? "Assisted (server record)" : "Unassisted (server record)"} · Submitted answer: {answerText(receipt.attempt.answer)}
                       </p>
                     </div>
                   )}
@@ -1073,6 +1074,7 @@ function PrivateWorkspace({
                 {state.message}
               </p>
             </section>
+            {availability === "ready" && revision && part && <WorkedSolution key={`${revision.id}:${part.id}`} problemId={problemId} revisionId={revision.id} partId={part.id} onStale={invalidate} onAuth={denyAuth} />}
             <section className="space-y-2 rounded-xl border bg-muted/20 p-5">
               <h2 className="flex items-center gap-2 text-sm font-semibold">
                 <Clock3 aria-hidden="true" className="size-4" /> Practice, then
