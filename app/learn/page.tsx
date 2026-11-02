@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { formatDate, learnPath, publishedArticles } from "@/lib/learn/articles";
+import { jsonLdScript, learnHubGraph } from "@/lib/seo/json-ld";
 import { baseOpenGraph } from "@/lib/site";
 
 const TITLE = "Physics Olympiad guides";
@@ -23,6 +24,10 @@ export const metadata: Metadata = {
 export default function LearnPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(learnHubGraph({ title: TITLE, description: DESCRIPTION, articles: publishedArticles })) }}
+      />
       <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Learn</h1>
       <p className="mt-4 max-w-prose text-lg text-muted-foreground">
         Short guides to the physics olympiads, written for students and the

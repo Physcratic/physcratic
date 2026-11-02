@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { CoachingTutorSlideshow } from "./coaching-tutors";
+import { trackConsultationClick } from "@/lib/coaching/analytics";
 import { coachingPathways, consultationHref, consultationSource } from "@/lib/coaching/consultation";
 import { content } from "@/lib/coaching/content";
 import { Highlighted } from "./coaching-highlight";
@@ -46,7 +47,7 @@ export function CoachingHero({ initialGoal }: { initialGoal?: string }) {
             <a
               className="coaching-button"
               {...(href
-                ? { href, target: "_blank", rel: "noopener noreferrer" }
+                ? { href, target: "_blank", rel: "noopener noreferrer", onClick: () => trackConsultationClick(pathway), onAuxClick: (event: React.MouseEvent) => { if (event.button === 1) trackConsultationClick(pathway); } }
                 : { role: "link", "aria-disabled": true, tabIndex: -1, onClick: (event: React.MouseEvent) => event.preventDefault() })}
               aria-describedby="consultation-note"
             >{hero.continueLabel}</a>

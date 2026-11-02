@@ -42,8 +42,18 @@ export function buildCoachingContent(list: readonly Medallist[]) {
 
   return {
     meta: {
-      title: "Physics Olympiad coaching from medallists",
-      description: definition,
+      // The root layout's title template adds " | Physcratic".
+      title: "Physics Olympiad Coaching by IPhO Medallists",
+      description: `Live online Physics Olympiad classes taught by IPhO, APhO and EuPhO medallists. Up to ${maxStudents} students, matched by level and schedule. Also IB and A-Level physics.`,
+    },
+    // Copy for the link preview image (app/coaching/opengraph-image.tsx) and the structured data.
+    og: {
+      tagline: "Physics Olympiad coaching from IPhO, APhO and EuPhO medallists",
+      stats: `${coachCount} medallist coaches from ${countryCount} countries`,
+    },
+    seo: {
+      breadcrumb: "Coaching",
+      serviceType: "Physics Olympiad coaching",
     },
     ui: {
       skipLink: "Skip to coaching content",

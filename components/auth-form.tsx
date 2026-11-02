@@ -68,7 +68,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
         {verificationEmail !== null ? <VerificationNotice email={verificationEmail} returnTo={returnTo} onBack={() => setVerificationEmail(null)} /> : <Card>
           <CardHeader><CardTitle>{creating ? "Keep your working. Track your progress." : "Welcome back."}</CardTitle><CardDescription>{creating ? "Create an account to privately save your olympiad solutions." : "Sign in to return to your saved attempts."}</CardDescription></CardHeader>
           <CardContent>
-            <form id="account-form" onSubmit={submit} onKeyDown={(event) => {
+            <form id="account-form" method="post" onSubmit={submit} onKeyDown={(event) => {
               if (event.key === "Enter" && (event.nativeEvent.isComposing || event.keyCode === 229)) event.preventDefault();
             }}>
               <fieldset disabled={busy}><FieldGroup>

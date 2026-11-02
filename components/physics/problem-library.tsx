@@ -35,6 +35,7 @@ import { OlympiadCatalog } from "./olympiad-catalog";
 import { catalogProblems } from "@/lib/corpus-catalog";
 import arena from "@/lib/arena/index.json";
 import { ArenaCollection } from "./arena-collection";
+import { AuthoredLibraryCollection } from "@/components/authored/library-collection";
 
 export function ProblemLibrary({
   topic,
@@ -50,7 +51,8 @@ export function ProblemLibrary({
   const [collection, setCollection] = useState(
     requestedCollection === "practice" ||
       requestedCollection === "pilot" ||
-      requestedCollection === "arena"
+      requestedCollection === "arena" ||
+      requestedCollection === "authored"
       ? requestedCollection
       : "catalog",
   );
@@ -112,6 +114,7 @@ export function ProblemLibrary({
               Quick practice ·{" "}
               {filterProblemsByTag(problems, selectedTopic).length}
             </TabsTrigger>
+            <TabsTrigger value="authored">Authored problems</TabsTrigger>
           </TabsList>
         </div>
         <Card className="shadow-none">
@@ -127,6 +130,7 @@ export function ProblemLibrary({
                 <Input
                   id="problem-search"
                   autoFocus
+                  maxLength={collection === "authored" ? 200 : undefined}
                   placeholder="Search by problem or tag…"
                   value={search}
                   onChange={(event) => setSearch(event.target.value)}
@@ -147,7 +151,7 @@ export function ProblemLibrary({
                   />
                 </Field>
               )}
-              <Field className="sm:w-48">
+              {collection !== "authored" && <Field className="sm:w-48">
                 <FieldLabel htmlFor="topic-filter">Tag</FieldLabel>
                 <Select value={selectedTopic} onValueChange={setSelectedTopic}>
                   <SelectTrigger id="topic-filter">
@@ -166,8 +170,8 @@ export function ProblemLibrary({
                     </SelectGroup>
                   </SelectContent>
                 </Select>
-              </Field>
-              <Field className="sm:w-44">
+              </Field>}
+              {collection !== "authored" && <Field className="sm:w-44">
                 <FieldLabel htmlFor="difficulty-filter">
                   ELO difficulty
                 </FieldLabel>
@@ -189,10 +193,13 @@ export function ProblemLibrary({
                     </SelectGroup>
                   </SelectContent>
                 </Select>
-              </Field>
+              </Field>}
             </FieldGroup>
           </CardContent>
         </Card>
+        <TabsContent value="authored" className="min-w-0">
+          <AuthoredLibraryCollection query={search} />
+        </TabsContent>
         <TabsContent value="arena" className="min-w-0">
           <ArenaCollection
             query={search}

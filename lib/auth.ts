@@ -4,6 +4,9 @@ import { after } from "next/server";
 import { pool } from "@/lib/db";
 import { sendVerificationEmail } from "@/lib/verification-email";
 import { getTermsAcceptance } from "@/lib/terms";
+import { authoringStagingAuth } from "@/lib/authoring-staging";
+
+const stagingAuth = authoringStagingAuth();
 
 export const auth = betterAuth({
   database: pool,
@@ -37,6 +40,7 @@ export const auth = betterAuth({
     },
   },
   baseURL:
+    stagingAuth?.baseURL ??
     process.env.BETTER_AUTH_URL ??
     (process.env.VERCEL_PROJECT_PRODUCTION_URL
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
@@ -76,7 +80,7 @@ export const auth = betterAuth({
       "/send-verification-email": { window: 60, max: 3 },
     },
   },
-  trustedOrigins: [
+  trustedOrigins: stagingAuth?.trustedOrigins ?? [
     ...(process.env.NODE_ENV === "development"
       ? [
           "http://localhost:3000",

@@ -44,7 +44,6 @@ export default async function Image({
           {title}
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={mark} width={84} height={84} alt="" style={{ flexShrink: 0 }} />
           <div style={{ fontSize: 44, fontWeight: 700, color: "#6091ff" }}>
             Physcratic

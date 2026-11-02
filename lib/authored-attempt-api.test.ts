@@ -152,8 +152,8 @@ test(
       return { owner, student, d, r };
     }
     function input(
-      d: any,
-      r: any,
+      d: { problemId: string; content: AuthoredDocument },
+      r: { id: string },
       index = 0,
       answer: unknown = { kind: "numeric", value: 2, units: "" },
     ) {
@@ -171,8 +171,8 @@ test(
     }
     async function submit(
       who: string,
-      d: any,
-      r: any,
+      d: { problemId: string; content: AuthoredDocument },
+      r: { id: string },
       body: unknown = input(d, r),
       api = attempts,
     ) {
@@ -192,8 +192,8 @@ test(
     }
     async function seed(
       who: string,
-      d: any,
-      r: any,
+      d: { problemId: string; content: AuthoredDocument },
+      r: { id: string },
       partId: string,
       n: number,
       when?: Date,
@@ -400,7 +400,7 @@ test(
           assert.match(metadata.parts[0].attemptsUsed, /^[0-9]+$/);
           assert.equal(metadata.limits.attemptsPerPart, null);
           assert.ok(
-            metadata.parts.every((p: any) => p.attemptsRemaining === null),
+            metadata.parts.every((p: { attemptsRemaining: number | null }) => p.attemptsRemaining === null),
           );
           assert.equal(
             metadata.links.submit,
@@ -533,7 +533,7 @@ test(
                 ),
               )
             ).json();
-            seen.push(...listed.attempts.map((x: any) => x.id));
+            seen.push(...listed.attempts.map((x: { id: string }) => x.id));
             after = listed.nextCursor;
             if (!after) break;
           }

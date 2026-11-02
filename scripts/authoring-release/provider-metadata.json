@@ -1,0 +1,423 @@
+{
+  "source": "read-only provider metadata; Vercel decryption=false; no remote SQL",
+  "neon": {
+    "project": "divine-mode-82940461",
+    "pg_major_version": 18,
+    "branches": [
+      {
+        "id": "br-quiet-dawn-b7m2zrt3",
+        "name": "main",
+        "current_state": "ready",
+        "default": true,
+        "protected": false
+      },
+      {
+        "id": "br-solitary-thunder-b7h5q79t",
+        "name": "physcratic-integration",
+        "current_state": "ready",
+        "default": false,
+        "protected": false
+      },
+      {
+        "id": "br-lingering-heart-b7gda0w4",
+        "name": "physcratic-staging",
+        "current_state": "ready",
+        "default": false,
+        "protected": false
+      }
+    ],
+    "snapshots": [
+      {
+        "id": "snap-bitter-cloud-b75hikb1",
+        "name": "physcratic-integration-pre-0004",
+        "source_branch_id": "br-solitary-thunder-b7h5q79t",
+        "created_at": "2026-11-01T10:21:53Z",
+        "manual": true,
+        "full_size": 33431552
+      }
+    ],
+    "capacity_exhausted_source": "user-verified; provider project response does not expose remaining restore slots"
+  },
+  "vercel": {
+    "project": "prj_phm4794zl2QBICu5MMbLFxcHAfFq",
+    "environment_metadata": [
+      {
+        "key": "STAGING_VERIFICATION_EMAIL_ALLOWLIST",
+        "type": "encrypted",
+        "target": [
+          "preview"
+        ],
+        "gitBranch": "codex/integrate-auth-authoring-v1",
+        "customEnvironmentIds": [],
+        "updatedAt": 1793529839423
+      },
+      {
+        "key": "RESEND_EMAIL_DOMAIN",
+        "type": "encrypted",
+        "target": [
+          "preview"
+        ],
+        "gitBranch": "codex/integrate-auth-authoring-v1",
+        "customEnvironmentIds": [],
+        "updatedAt": 1793527211805
+      },
+      {
+        "key": "RESEND_API_KEY",
+        "type": "sensitive",
+        "target": [
+          "preview"
+        ],
+        "gitBranch": "codex/integrate-auth-authoring-v1",
+        "customEnvironmentIds": [],
+        "updatedAt": 1793527190354
+      },
+      {
+        "key": "RESEND_EMAIL_DOMAIN",
+        "type": "encrypted",
+        "target": [
+          "preview"
+        ],
+        "gitBranch": "codex/physcratic-authoring-completion",
+        "customEnvironmentIds": [],
+        "updatedAt": 1793526590754
+      },
+      {
+        "key": "RESEND_API_KEY",
+        "type": "sensitive",
+        "target": [
+          "preview"
+        ],
+        "gitBranch": "codex/physcratic-authoring-completion",
+        "customEnvironmentIds": [],
+        "updatedAt": 1793526459068
+      },
+      {
+        "key": "AUTHORING_STAGING_BLOB_ENABLED",
+        "type": "encrypted",
+        "target": [
+          "preview"
+        ],
+        "gitBranch": "codex/physcratic-authoring-completion",
+        "customEnvironmentIds": [],
+        "updatedAt": 1793526312185
+      },
+      {
+        "key": "NEXT_PUBLIC_SITE_URL",
+        "type": "encrypted",
+        "target": [
+          "preview"
+        ],
+        "gitBranch": "codex/physcratic-authoring-completion",
+        "customEnvironmentIds": [],
+        "updatedAt": 1793526275732
+      },
+      {
+        "key": "BETTER_AUTH_URL",
+        "type": "encrypted",
+        "target": [
+          "preview"
+        ],
+        "gitBranch": "codex/physcratic-authoring-completion",
+        "customEnvironmentIds": [],
+        "updatedAt": 1793526231150
+      },
+      {
+        "key": "BETTER_AUTH_SECRET",
+        "type": "sensitive",
+        "target": [
+          "preview"
+        ],
+        "gitBranch": "codex/physcratic-authoring-completion",
+        "customEnvironmentIds": [],
+        "updatedAt": 1793526140858
+      },
+      {
+        "key": "DATABASE_URL",
+        "type": "sensitive",
+        "target": [
+          "preview"
+        ],
+        "gitBranch": "codex/physcratic-authoring-completion",
+        "customEnvironmentIds": [],
+        "updatedAt": 1793525848156
+      },
+      {
+        "key": "AUTHORING_STAGING_BLOB_WEBHOOK_PUBLIC_KEY",
+        "type": "plain",
+        "target": [
+          "preview"
+        ],
+        "gitBranch": null,
+        "updatedAt": 1793462065223
+      },
+      {
+        "key": "AUTHORING_STAGING_BLOB_STORE_ID",
+        "type": "plain",
+        "target": [
+          "preview"
+        ],
+        "gitBranch": null,
+        "updatedAt": 1793462065187
+      },
+      {
+        "key": "NEXT_PUBLIC_SITE_URL",
+        "type": "encrypted",
+        "target": [
+          "production"
+        ],
+        "gitBranch": null,
+        "updatedAt": 1793451648836
+      },
+      {
+        "key": "STAGING_VERIFICATION_EMAIL_ALLOWLIST",
+        "type": "sensitive",
+        "target": [
+          "preview"
+        ],
+        "gitBranch": null,
+        "customEnvironmentIds": [],
+        "updatedAt": 1793419945443
+      },
+      {
+        "key": "STAGING_VERIFICATION_EMAIL_ALLOWLIST",
+        "type": "sensitive",
+        "target": [
+          "preview"
+        ],
+        "gitBranch": "codex/auth-hardening",
+        "customEnvironmentIds": [],
+        "updatedAt": 1793419930201
+      },
+      {
+        "key": "RESEND_EMAIL_DOMAIN",
+        "type": "encrypted",
+        "target": [
+          "preview"
+        ],
+        "gitBranch": "codex/auth-hardening",
+        "customEnvironmentIds": [],
+        "updatedAt": 1793392330446
+      },
+      {
+        "key": "RESEND_API_KEY",
+        "type": "sensitive",
+        "target": [
+          "preview"
+        ],
+        "gitBranch": "codex/auth-hardening",
+        "customEnvironmentIds": [],
+        "updatedAt": 1793392285594
+      },
+      {
+        "key": "BETTER_AUTH_SECRET",
+        "type": "sensitive",
+        "target": [
+          "preview"
+        ],
+        "gitBranch": "codex/auth-hardening",
+        "customEnvironmentIds": [],
+        "updatedAt": 1793389206706
+      },
+      {
+        "key": "BETTER_AUTH_URL",
+        "type": "encrypted",
+        "target": [
+          "preview"
+        ],
+        "gitBranch": "codex/auth-hardening",
+        "customEnvironmentIds": [],
+        "updatedAt": 1793388755501
+      },
+      {
+        "key": "DATABASE_URL",
+        "type": "sensitive",
+        "target": [
+          "preview"
+        ],
+        "gitBranch": "codex/auth-hardening",
+        "customEnvironmentIds": [],
+        "updatedAt": 1793420450006
+      },
+      {
+        "key": "RESEND_API_KEY",
+        "type": "encrypted",
+        "target": [
+          "production",
+          "preview",
+          "development"
+        ],
+        "gitBranch": null,
+        "updatedAt": 1793369982603
+      },
+      {
+        "key": "RESEND_EMAIL_DOMAIN",
+        "type": "encrypted",
+        "target": [
+          "production",
+          "preview",
+          "development"
+        ],
+        "gitBranch": null,
+        "updatedAt": 1793369982603
+      },
+      {
+        "key": "BETTER_AUTH_SECRET",
+        "type": "encrypted",
+        "target": [
+          "production",
+          "preview",
+          "development"
+        ],
+        "gitBranch": null,
+        "updatedAt": 1793173917367
+      },
+      {
+        "key": "BLOB_READ_WRITE_TOKEN",
+        "type": "encrypted",
+        "target": [
+          "production",
+          "preview",
+          "development"
+        ],
+        "gitBranch": null,
+        "updatedAt": 1793173798671
+      },
+      {
+        "key": "DATABASE_URL",
+        "type": "encrypted",
+        "target": [
+          "production",
+          "preview",
+          "development"
+        ],
+        "gitBranch": null,
+        "updatedAt": 1793173788202
+      },
+      {
+        "key": "PGUSER",
+        "type": "encrypted",
+        "target": [
+          "production",
+          "preview",
+          "development"
+        ],
+        "gitBranch": null,
+        "updatedAt": 1793173788202
+      },
+      {
+        "key": "POSTGRES_USER",
+        "type": "encrypted",
+        "target": [
+          "production",
+          "preview",
+          "development"
+        ],
+        "gitBranch": null,
+        "updatedAt": 1793173788202
+      },
+      {
+        "key": "PGDATABASE",
+        "type": "encrypted",
+        "target": [
+          "production",
+          "preview",
+          "development"
+        ],
+        "gitBranch": null,
+        "updatedAt": 1793173788202
+      },
+      {
+        "key": "DATABASE_URL_UNPOOLED",
+        "type": "encrypted",
+        "target": [
+          "production",
+          "preview",
+          "development"
+        ],
+        "gitBranch": null,
+        "updatedAt": 1793173788202
+      },
+      {
+        "key": "POSTGRES_PRISMA_URL",
+        "type": "encrypted",
+        "target": [
+          "production",
+          "preview",
+          "development"
+        ],
+        "gitBranch": null,
+        "updatedAt": 1793173788202
+      },
+      {
+        "key": "POSTGRES_PASSWORD",
+        "type": "encrypted",
+        "target": [
+          "production",
+          "preview",
+          "development"
+        ],
+        "gitBranch": null,
+        "updatedAt": 1793173788202
+      },
+      {
+        "key": "POSTGRES_HOST",
+        "type": "encrypted",
+        "target": [
+          "production",
+          "preview",
+          "development"
+        ],
+        "gitBranch": null,
+        "updatedAt": 1793173788202
+      },
+      {
+        "key": "POSTGRES_URL_NO_SSL",
+        "type": "encrypted",
+        "target": [
+          "production",
+          "preview",
+          "development"
+        ],
+        "gitBranch": null,
+        "updatedAt": 1793173788202
+      },
+      {
+        "key": "PGHOST_UNPOOLED",
+        "type": "encrypted",
+        "target": [
+          "production",
+          "preview",
+          "development"
+        ],
+        "gitBranch": null,
+        "updatedAt": 1793173788202
+      },
+      {
+        "key": "POSTGRES_URL",
+        "type": "encrypted",
+        "target": [
+          "production",
+          "preview",
+          "development"
+        ],
+        "gitBranch": null,
+        "updatedAt": 1793173788202
+      },
+      {
+        "key": "POSTGRES_DATABASE",
+        "type": "encrypted",
+        "target": [
+          "production",
+          "preview",
+          "development"
+        ],
+        "gitBranch": null,
+        "updatedAt": 1793173788202
+      }
+    ],
+    "staging_store_id_matches": true,
+    "no_staging_read_write_token": true
+  },
+  "remote_sql_executed": false,
+  "remote_writes_performed": false
+}

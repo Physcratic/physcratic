@@ -112,3 +112,16 @@ export function publicAuthoredRevision(input: unknown) {
 export type AuthoredDocument = z.infer<typeof authoredDocumentSchema>;
 export type PrivatePart = z.infer<typeof privatePartSchema>;
 export type AuthoredKey = z.infer<typeof authoredKeySchema>;
+
+// The discovery projection is a subset of the same public document contract.
+// No statement, attachment, owner or private-part fields are forwarded.
+export const publicAuthoredMetadataSchema = z.object({
+  title: authoredDocumentSchema.shape.title, topicTags: authoredDocumentSchema.shape.topicTags,
+  methodTags: authoredDocumentSchema.shape.methodTags, estimatedDifficulty: authoredDocumentSchema.shape.estimatedDifficulty,
+  provenance: authoredDocumentSchema.shape.provenance,
+});
+export function publicAuthoredMetadata(input: unknown) {
+  const row = publicAuthoredMetadataSchema.parse(input);
+  return { title: row.title, topicTags: row.topicTags, methodTags: row.methodTags,
+    estimatedDifficulty: row.estimatedDifficulty, provenance: row.provenance };
+}
