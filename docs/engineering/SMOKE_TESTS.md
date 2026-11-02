@@ -5,7 +5,7 @@
 | Workflow | Trigger | What it does |
 | --- | --- | --- |
 | `.github/workflows/smoke.yml` | A Vercel deployment succeeds (`deployment_status`), or a manual run | Runs `scripts/smoke.mjs` against the deployment URL and posts a commit status named "Smoke tests" on the deployed commit, so it shows on the PR. |
-| `.github/workflows/deploy-watch.yml` | Push to `main` | Polls the commit status "Vercel – financial-dashboard" once a minute for up to 20 minutes. If it fails, errors, or never appears, it opens an issue. |
+| `.github/workflows/deploy-watch.yml` | Push to `main`, and any commit status event | On a push it polls the commit status "Vercel – financial-dashboard" once a minute for up to 20 minutes. If it fails, errors, or never appears, it opens an issue. When the status is `success` (on the push, or later on a status event for a commit already on `main`), it closes the open `deploy-blocked` issues whose commit is that commit or one of its ancestors, with the comment "Live in `<short sha>`." (`scripts/close-deploy-blocked.sh`). |
 
 Both workflows run from the default branch, so edits to them only take effect once merged. Neither is a required check.
 
