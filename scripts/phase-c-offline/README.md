@@ -4,6 +4,7 @@ Run from this worktree with Python 3 and existing Node/PostgreSQL 18.6 binaries:
 
 ```
 py -3 -B scripts/phase-c-offline/run.py self-test
+py -3 -B scripts/phase-c-offline/run.py safety
 py -3 -B scripts/phase-c-offline/run.py install
 py -3 -B scripts/phase-c-offline/run.py pure
 py -3 -B scripts/phase-c-offline/run.py pg

@@ -18,7 +18,9 @@ The nine failures are not nine application regressions:
 - Smoke-workflow test setup similarly assumes LF and cannot parse its step.
 These files are unchanged by Phase C. WSL has no installed distribution; Docker
 and a local Linux toolchain are unavailable. Current-main Ubuntu CI already
-passed (run 41457926735). Candidate Ubuntu CI is the authoritative final gate.
+passed (run 41457926735). Candidate Ubuntu CI is the authoritative final gate. The existing CI workflow
+also runs the isolated guard/env/config checks through the credential-scrubbing
+runner. No second test framework, deployment job or shared service is added.
 No guard exemption, skipped meaningful test or production logic workaround added.
 
 ## Deployment effects

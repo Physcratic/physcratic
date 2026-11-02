@@ -1,4 +1,5 @@
 .gitattributes
+.github/workflows/ci.yml
 docs/engineering/BETA_READINESS.md
 eslint.config.mjs
 evidence/phase-c-main-integration/committed-files.txt

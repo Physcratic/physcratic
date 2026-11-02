@@ -192,7 +192,7 @@ class Runner:
                *[str(p.relative_to(ROOT)) for p in sorted((ROOT/'tests').glob('*.test.ts'))]],timeout=600)
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('mode',choices=['self-test','install','pure','pg','lint','lint-ci','types','build','suite','app-suite'])
+    parser=argparse.ArgumentParser();parser.add_argument('mode',choices=['self-test','safety','install','pure','pg','lint','lint-ci','types','build','suite','app-suite'])
     parser.add_argument('--pg-test',choices=[p.name for p in (ROOT/'lib').glob('*.test.ts')
                         if 'AUTHORING_TEST_DATABASE_URL' in p.read_text(encoding='utf8')])
     options=parser.parse_args();mode=options.mode
@@ -204,7 +204,9 @@ def main():
     # Preserve previous bounded command results; repeated names are separate runs.
     if runner.path.exists(): runner.results=json.loads(runner.path.read_text())['results']
     start_index=len(runner.results)
-    if mode=='install': runner.install()
+    if mode=='safety':
+        if runner.safety(): runner.run('eslint-config-scope',[runner.node,'--test','--test-reporter=tap',HERE/'eslint-config.test.mjs'])
+    elif mode=='install': runner.install()
     elif mode=='pure': runner.pure()
     elif mode=='pg': runner.pg(options.pg_test)
     else: runner.check(mode)
