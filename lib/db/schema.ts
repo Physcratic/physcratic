@@ -45,6 +45,34 @@ export const communityProfileWriteLimits = pgTable("community_profile_write_limi
   requests: integer("requests").notNull(),
 }, (t) => [check("community_profile_write_limit_requests_check", sql`${t.requests} BETWEEN 1 AND 11`)]);
 
+// Additive 0008. SQL owns media identity/state-transition/deletion guards.
+export const communityProfileMedia = pgTable("community_profile_media", {
+  id: uuid("id").primaryKey(),
+  userId: text("user_id").notNull().references(() => communityProfiles.userId, { onDelete: "restrict" }),
+  kind: text("kind").$type<"avatar" | "banner">().notNull(),
+  pathname: text("pathname").notNull().unique(),
+  state: text("state").$type<"pending" | "active" | "retired" | "deleting">().notNull().default("pending"),
+  bytes: integer("bytes").notNull(),
+  deleteAfter: timestamp("delete_after", { withTimezone: true }).notNull().default(sql`clock_timestamp()+interval '1 hour'`),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().default(sql`clock_timestamp()`),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().default(sql`clock_timestamp()`),
+}, (t) => [
+  uniqueIndex("community_profile_media_active").on(t.userId,t.kind).where(sql`${t.state}='active'`),
+  index("community_profile_media_owner").on(t.userId,t.createdAt),
+  check("community_profile_media_kind_check", sql`${t.kind} IN ('avatar','banner')`),
+  check("community_profile_media_state_check", sql`${t.state} IN ('pending','active','retired','deleting')`),
+  check("community_profile_media_bytes_check", sql`${t.bytes} BETWEEN 1 AND 1048576`),
+  check("community_profile_media_pathname_check", sql`${t.pathname}='community-profile-media/'||${t.id}::text||'.webp'`),
+]);
+export const communityProfileMediaLimits = pgTable("community_profile_media_limit", {
+  userId: text("user_id").primaryKey().references(() => user.id, { onDelete: "cascade" }),
+  minuteStart: timestamp("minute_start", { withTimezone: true }).notNull(),
+  requests: integer("requests").notNull(),
+  dayStart: timestamp("day_start", { withTimezone: true }).notNull(),
+  uploads: integer("uploads").notNull(),
+}, (t) => [check("community_profile_media_limit_requests_check", sql`${t.requests} BETWEEN 1 AND 6`),
+  check("community_profile_media_limit_uploads_check", sql`${t.uploads} BETWEEN 0 AND 21`)]);
+
 export const session = pgTable("session", {
   id: text("id").primaryKey(), expiresAt: timestamp("expiresAt").notNull(), token: text("token").notNull().unique(),
   createdAt: timestamp("createdAt").notNull().defaultNow(), updatedAt: timestamp("updatedAt").notNull().defaultNow(),

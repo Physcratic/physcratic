@@ -38,5 +38,9 @@ test("server registry metadata must match every submitted evidence field", () =>
 test("authentication return destinations cannot redirect off-site", () => {
   assert.equal(safeReturnPath("/dashboard?view=problems"), "/dashboard?view=problems");
   assert.equal(safeReturnPath("/dashboard/submissions"), "/dashboard/submissions");
+  assert.equal(safeReturnPath("/settings"), "/settings");
+  assert.equal(safeReturnPath("/settings?onboarding=1"), "/settings?onboarding=1");
+  for (const unsafe of ["/settings/evil", "/settings-other", "/settings\\evil.example", "/settings\nother"])
+    assert.equal(safeReturnPath(unsafe), "/dashboard/submissions");
   for (const unsafe of ["//evil.example", "https://evil.example", "/dashboard\\evil.example", "/dashboard-other", "/dashboard\nother", undefined]) assert.equal(safeReturnPath(unsafe), "/dashboard/submissions");
 });

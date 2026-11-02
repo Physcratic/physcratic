@@ -25,7 +25,7 @@ export function isAllowedSubmissionOrigin(request: Request, configured: readonly
   });
 }
 export function safeReturnPath(value: unknown) {
-  return typeof value === "string" && /^\/dashboard(?:[/?]|$)/.test(value) && !/[\\\u0000-\u001f]/.test(value) ? value : "/dashboard/submissions";
+  return typeof value === "string" && /^\/(?:dashboard(?:[/?]|$)|settings(?:[?]|$))/.test(value) && !/[\\\u0000-\u001f]/.test(value) ? value : "/dashboard/submissions";
 }
 export function validUploadSize(bytes: number) {
   return Number.isSafeInteger(bytes) && bytes > 0 && bytes <= submissionLimits.maxFileBytes;

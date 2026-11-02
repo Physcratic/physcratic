@@ -16,7 +16,6 @@ import {
 import { AccountNav } from "@/components/account-nav";
 import { BrandMark } from "@/components/brand-mark";
 import { FeedbackLink } from "@/components/feedback-link";
-import { SettingsDialog } from "@/components/settings-dialog";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -186,15 +185,14 @@ export default function Sidebar({
         </div>
       </nav>
       <div className="shrink-0 border-t p-4">
-        <SettingsDialog>
-          <button
-            type="button"
+          <Link
+            href="/settings"
+            onClick={() => setMobileOpen(false)}
             className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <Settings className="size-[18px]" strokeWidth={1.7} aria-hidden="true" />
             Settings
-          </button>
-        </SettingsDialog>
+          </Link>
       </div>
     </div>
   );

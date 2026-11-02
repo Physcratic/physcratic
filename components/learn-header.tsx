@@ -4,7 +4,6 @@ import * as React from "react";
 import Link from "next/link";
 import { BookOpen, GraduationCap, LayoutGrid, Menu, Settings } from "lucide-react";
 import { BrandMark } from "@/components/brand-mark";
-import { SettingsDialog } from "@/components/settings-dialog";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { coachingEntryHandlers } from "@/lib/coaching/analytics";
@@ -41,11 +40,11 @@ export function LearnHeader() {
             </Link>
           </Button>
           <div className="hidden sm:block">
-            <SettingsDialog>
-              <Button variant="ghost" size="icon" className="size-11" aria-label="Settings">
+              <Button asChild variant="ghost" size="icon" className="size-11">
+                <Link href="/settings" aria-label="Settings">
                 <Settings aria-hidden="true" />
+                </Link>
               </Button>
-            </SettingsDialog>
           </div>
           <div className="sm:hidden">
             <Sheet open={open} onOpenChange={setOpen}>
@@ -66,12 +65,10 @@ export function LearnHeader() {
                     <LayoutGrid className="size-[18px]" aria-hidden="true" />
                     Dashboard
                   </Link>
-                  <SettingsDialog>
-                    <button type="button" className={rowClass}>
+                    <Link href="/settings" onClick={() => setOpen(false)} className={rowClass}>
                       <Settings className="size-[18px]" aria-hidden="true" />
                       Settings
-                    </button>
-                  </SettingsDialog>
+                    </Link>
                 </div>
               </SheetContent>
             </Sheet>
