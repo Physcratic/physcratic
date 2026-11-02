@@ -84,7 +84,7 @@ export default async function LearnArticlePage({ params }: Props) {
             {" · "}
             {article.readingMinutes} min read
           </p>
-          <p className="mt-1 text-sm text-muted-foreground">
+          {article.reviewedBy ? <p className="mt-1 text-sm text-muted-foreground">
             Reviewed by{" "}
             <Link
               href="/coaching"
@@ -93,13 +93,13 @@ export default async function LearnArticlePage({ params }: Props) {
               {article.reviewedBy.name}
             </Link>
             , {article.reviewedBy.credential}
-          </p>
+          </p> : <p className="mt-1 text-sm text-muted-foreground">Product documentation. No independent human review is recorded.</p>}
         </header>
         <div className="mt-8">
           <ArticleBody blocks={article.body} sources={article.sources} />
         </div>
 
-        <section aria-labelledby="sources-heading" className="mt-12 border-t pt-8">
+        {article.sources.length > 0 && <section aria-labelledby="sources-heading" className="mt-12 border-t pt-8">
           <h2 id="sources-heading" className="text-2xl font-semibold tracking-tight">
             Sources
           </h2>
@@ -127,7 +127,7 @@ export default async function LearnArticlePage({ params }: Props) {
               </li>
             ))}
           </ol>
-        </section>
+        </section>}
 
         <section aria-labelledby="practise-heading" className="mt-12">
           <Card>

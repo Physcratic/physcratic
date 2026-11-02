@@ -32,6 +32,8 @@ export type Block =
   | { type: "problemLink"; problemId: string; label: string; note?: string }
   /** Links to another guide, optionally to a heading id inside it. */
   | { type: "guideLink"; slug: string; hash?: string; label: string; note?: string }
+  /** A contextual link to an implemented route on this site. */
+  | { type: "siteLink"; href: string; label: string; note?: string }
   /** Display maths. TeX is rendered on the server with KaTeX. */
   | { type: "math"; tex: string; caption?: string }
   | {
@@ -47,7 +49,7 @@ export interface Reviewer {
   credential: string;
 }
 
-export interface ArticleDraft {
+interface ArticleFields {
   slug: string;
   /** Under 60 characters. */
   title: string;
@@ -55,17 +57,22 @@ export interface ArticleDraft {
   description: string;
   /** ISO date (YYYY-MM-DD). */
   updated: string;
-  reviewedBy: Reviewer;
   sources: Source[];
   body: Block[];
   /** false keeps the guide out of the hub, registry, sitemap and llms.txt, and makes its URL 404. */
   published: boolean;
 }
 
-export interface Article extends ArticleDraft {
+/** Product documentation records no human review. Existing guides still require one. */
+export type ArticleDraft = ArticleFields & (
+  | { kind?: "guide"; reviewedBy: Reviewer }
+  | { kind: "product"; reviewedBy: null }
+);
+
+export type Article = ArticleDraft & {
   /** Computed from the body word count at about 220 words a minute. */
   readingMinutes: number;
-}
+};
 
 /** Text used in a table cell when a fact could not be confirmed. */
 export const CHECK_HOST_SITE = "Check the current host site";

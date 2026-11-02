@@ -11,6 +11,7 @@ const NON_COPY_KEYS = new Set([
   "cite",
   "updated",
   "accessed",
+  "href",
 ]);
 
 /** Every reader-facing string in a value, depth first. Skips ids, URLs and dates. */
@@ -39,6 +40,7 @@ export function bodyText(body: Block[]): string[] {
       case "problemLink":
         return [block.label, block.note ?? ""];
       case "guideLink":
+      case "siteLink":
         return [block.label, block.note ?? ""];
       case "math":
         return [block.caption ?? ""];
