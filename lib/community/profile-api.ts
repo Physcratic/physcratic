@@ -36,7 +36,7 @@ export function createCommunityProfileApi(deps: Dependencies) {
         // Select only fields intentionally published by the profile owner. No identity joins.
         const { rows } = await deps.pool.query(`SELECT handle,display_name AS "displayName",bio,
           education_level AS "educationLevel",favorite_topic_ids AS "favoriteTopicIds"
-          FROM community_profile WHERE handle=$1 AND public_visibility=true`, [parsed.data]);
+          FROM community_profile WHERE lower(handle)=$1 AND public_visibility=true`, [parsed.data]);
         if (!rows[0]) throw new ProfileError(404, "Profile not found.");
         return profileReply({ profile: rows[0] });
       }
