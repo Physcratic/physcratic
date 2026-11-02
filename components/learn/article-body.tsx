@@ -142,10 +142,11 @@ export function ArticleBody({
               </Link>
             );
           case "guideLink":
+          case "siteLink":
             return (
               <Link
                 key={index}
-                href={`/learn/${block.slug}${block.hash ? `#${block.hash}` : ""}`}
+                href={block.type === "siteLink" ? block.href : `/learn/${block.slug}${block.hash ? `#${block.hash}` : ""}`}
                 className="group flex max-w-prose items-start gap-3 rounded-lg border bg-card p-4 transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <ArrowRight

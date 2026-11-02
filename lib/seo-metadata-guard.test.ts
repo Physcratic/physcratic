@@ -1,4 +1,4 @@
-import { practiceProblemDescription } from "./problem-meta";
+import { problemPageMetadata } from "./seo/problem-descriptions";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { describe, it } from "node:test";
@@ -47,7 +47,8 @@ function resolve(route: PublicRoute): Resolved {
   if (route.kind === "problem") {
     const problem = findPublicProblem(route.path.split("/").pop()!)!;
     // Title and description come from the page, the canonical from the problem layout.
-    return { title: route.title + TEMPLATE, description: practiceProblemDescription(problem.id) ?? problem.prompt, canonical: declaredCanonical("app/dashboard/problems/[id]/layout.tsx", route.path) };
+    const metadata = problemPageMetadata(problem);
+    return { title: route.title + TEMPLATE, description: metadata.description ?? undefined, canonical: metadata.alternates?.canonical as string };
   }
   if (route.kind === "learn") {
     if (route.path === "/learn") {
@@ -112,9 +113,9 @@ describe("public route metadata", () => {
   });
 
   it("uses the written problem descriptions on the page itself", () => {
-    assert.match(read("app/dashboard/problems/[id]/page.tsx"), /practiceProblemDescription\(problem\.id\)/);
+    assert.match(read("app/dashboard/problems/[id]/page.tsx"), /problemPageMetadata\(selected\)/);
     for (const id of ["first-law", "heat", "incline", "projectile", "spring"]) {
-      assert.ok(practiceProblemDescription(id), id);
+      assert.ok(problemPageMetadata(findPublicProblem(id)!).description, id);
     }
   });
 });
