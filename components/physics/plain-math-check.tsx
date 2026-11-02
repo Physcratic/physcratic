@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { Calculator, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Field, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field";
@@ -8,16 +8,48 @@ import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { runPlainMath } from "@/lib/plain-math";
+import type { runPlainMath } from "@/lib/plain-math";
 import { MathFormula } from "./math-formula";
+
+let engine: Promise<typeof import("@/lib/plain-math")> | undefined;
+function loadCalculator() {
+  return engine ??= import("@/lib/plain-math").catch((error: unknown) => {
+    engine = undefined;
+    throw error;
+  });
+}
 
 export function PlainMathCheck() {
   const id = useId();
   const [expression, setExpression] = useState("");
   const [bindings, setBindings] = useState("");
   const [feedback, setFeedback] = useState<{ error?: string; value?: ReturnType<typeof runPlainMath> } | null>(null);
+  const [calculating, setCalculating] = useState(false);
+  const generation = useRef(0);
+  function clearFeedback() {
+    generation.current++;
+    setFeedback(null);
+  }
+  async function calculate() {
+    const request = ++generation.current;
+    setCalculating(true);
+    setFeedback(null);
+    try {
+      const calculator = await loadCalculator().catch(() => {
+        throw new Error("Could not load the calculator. Please retry.");
+      });
+      if (generation.current === request) setFeedback({ value: calculator.runPlainMath(expression, bindings) });
+    } catch (error) {
+      if (generation.current === request) setFeedback({ error: error instanceof Error ? error.message : "Could not read this expression." });
+    } finally {
+      setCalculating(false);
+    }
+  }
   return (
-    <details className="group/calculator min-w-0 rounded-lg border bg-muted/30 text-foreground">
+    <details className="group/calculator min-w-0 rounded-lg border bg-muted/30 text-foreground" onToggle={(event) => {
+      // Warm the existing engine while the user enters an equation. No UI is deferred.
+      if (event.currentTarget.open) void loadCalculator().catch(() => {});
+    }}>
       <summary className="flex cursor-pointer list-none items-center justify-between gap-3 rounded-lg p-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring [&::-webkit-details-marker]:hidden">
         <span className="flex min-w-0 items-center gap-3">
           <span className="flex size-10 shrink-0 items-center justify-center rounded-md bg-accent text-accent-foreground">
@@ -35,21 +67,21 @@ export function PlainMathCheck() {
         <FieldGroup className="gap-4">
           <Field>
             <FieldLabel htmlFor={`${id}-expression`}>Equation</FieldLabel>
-            <Input id={`${id}-expression`} value={expression} onChange={(event) => { setExpression(event.target.value); setFeedback(null); }} maxLength={350} placeholder="a = g*sin(theta)" autoCapitalize="off" autoComplete="off" spellCheck={false} />
+            <Input id={`${id}-expression`} value={expression} onChange={(event) => { setExpression(event.target.value); clearFeedback(); }} maxLength={350} placeholder="a = g*sin(theta)" autoCapitalize="off" autoComplete="off" spellCheck={false} />
           </Field>
           <Field>
             <FieldLabel htmlFor={`${id}-values`}>Variable values</FieldLabel>
-            <Textarea id={`${id}-values`} rows={3} maxLength={2000} value={bindings} onChange={(event) => { setBindings(event.target.value); setFeedback(null); }} placeholder={"g = 9.81\ntheta = pi/6"} spellCheck={false} aria-describedby={`${id}-values-help`} />
+            <Textarea id={`${id}-values`} rows={3} maxLength={2000} value={bindings} onChange={(event) => { setBindings(event.target.value); clearFeedback(); }} placeholder={"g = 9.81\ntheta = pi/6"} spellCheck={false} aria-describedby={`${id}-values-help`} />
             <FieldDescription id={`${id}-values-help`}>Optional, one value per line. Leave blank to preview the notation.</FieldDescription>
           </Field>
         </FieldGroup>
         <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-          <Button type="button" disabled={!expression.trim()} onClick={() => { try { setFeedback({ value: runPlainMath(expression, bindings) }); } catch (error) { setFeedback({ error: error instanceof Error ? error.message : "Could not read this expression." }); } }}>
-            <Calculator data-icon="inline-start" />Calculate
+          <Button type="button" disabled={!expression.trim() || calculating} onClick={calculate}>
+            <Calculator data-icon="inline-start" />{calculating ? "Calculating…" : "Calculate"}
           </Button>
           <p className="text-sm leading-relaxed text-muted-foreground">Angles in <strong className="font-medium text-foreground">radians</strong>. Keep units separate.</p>
         </div>
-        <div aria-live="polite" role="status">
+        <div aria-live="polite" role="status" aria-busy={calculating}>
           {feedback?.error && <Alert variant="destructive"><AlertTitle>Check the expression</AlertTitle><AlertDescription>{feedback.error}</AlertDescription></Alert>}
           {feedback?.value && <Alert><AlertTitle>{feedback.value.result === null ? "Notation understood" : "Calculated result"}</AlertTitle><AlertDescription><MathFormula formula={`$$${feedback.value.symbol ? `${feedback.value.symbol} = ` : ""}${feedback.value.tex}$$`} /><p className="font-mono text-lg font-semibold text-foreground">{feedback.value.result === null ? `Add values for: ${feedback.value.missing.join(", ")}` : `${feedback.value.symbol ?? "result"} = ${Number(feedback.value.result.toPrecision(12))}`}</p></AlertDescription></Alert>}
         </div>
