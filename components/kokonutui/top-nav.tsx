@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { BookOpen, ChevronRight, Search } from "lucide-react";
+import { BookOpen, ChevronRight, GraduationCap, Search } from "lucide-react";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { FeedbackLink } from "@/components/feedback-link";
 import { AccountNav } from "@/components/account-nav";
+import { coachingEntryHandlers } from "@/lib/coaching/analytics";
 import { viewTitles, type View } from "@/lib/physics";
 
 export default function TopNav({
@@ -46,33 +47,43 @@ export default function TopNav({
           {topic || viewTitles[view]}
         </span>
       </nav>
-      <div className="flex shrink-0 items-center gap-3 sm:gap-5">
+      <div className="flex shrink-0 items-center gap-1 sm:gap-5">
         <Button
           variant="ghost"
           size="sm"
+          className="px-2 sm:px-3"
           onClick={() => router.push("/dashboard?view=problems&search=1")}
           aria-label="Search problems"
         >
           <Search data-icon="inline-start" />
-          <span className="hidden font-normal text-muted-foreground md:inline">
+          <span className="hidden font-normal text-muted-foreground xl:inline">
             Search problems...
           </span>
           <kbd className="hidden rounded border px-1.5 py-0.5 font-sans text-sm text-muted-foreground xl:inline">
             ⌘ K
           </kbd>
         </Button>
-        <Button asChild variant="ghost" size="sm">
+        <Button asChild variant="ghost" size="sm" className="px-2 sm:px-3">
           <Link href="/learn" aria-label="Learn">
             <BookOpen aria-hidden="true" />
             <span className="hidden font-normal md:inline">Learn</span>
           </Link>
         </Button>
-        <Link
-          href="/coaching"
-          className="hidden rounded-sm text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:inline"
+        <Button
+          asChild
+          variant="outline"
+          size="sm"
+          className="border-primary px-2 text-accent-foreground hover:bg-accent hover:text-accent-foreground sm:px-3"
         >
-          Coaching
-        </Link>
+          <Link
+            href="/coaching"
+            aria-label="Coaching"
+            {...coachingEntryHandlers("topbar")}
+          >
+            <GraduationCap aria-hidden="true" />
+            <span className="hidden font-medium sm:inline">Coaching</span>
+          </Link>
+        </Button>
         <FeedbackLink variant="nav" />
         <ThemeToggle />
         <span className="hidden h-5 border-l sm:block" />

@@ -20,6 +20,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { coachingEntryHandlers } from "@/lib/coaching/analytics";
 import { problems, topics, type View } from "@/lib/physics";
 import { catalogProblems } from "@/lib/corpus-catalog";
 import arena from "@/lib/arena/index.json";
@@ -33,6 +34,7 @@ export default function Sidebar({
   topic?: string;
 }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const entry = coachingEntryHandlers("sidebar");
   const mainItems = [
     { view: "overview", label: "Lobby", icon: LayoutGrid },
     { view: "problems", label: "Problems", icon: BookOpen },
@@ -100,11 +102,18 @@ export default function Sidebar({
             })}
             <Link
               href="/coaching"
-              onClick={() => setMobileOpen(false)}
-              className="flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              onClick={() => {
+                setMobileOpen(false);
+                entry.onClick();
+              }}
+              onAuxClick={entry.onAuxClick}
+              className="flex min-h-11 items-center gap-3 rounded-lg px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
             >
-              <GraduationCap className="size-[18px]" strokeWidth={1.7} />
-              Coaching
+              <GraduationCap className="size-[18px] shrink-0" strokeWidth={1.7} />
+              <span className="flex flex-col">
+                <span>Coaching</span>
+                <span className="text-xs leading-tight">Medallist coaches</span>
+              </span>
             </Link>
           </div>
         </div>
