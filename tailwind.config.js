@@ -11,7 +11,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-inter, Arial)", "Arial", "sans-serif"],
+        sans: ["var(--font-plex-sans, Arial)", "Arial", "sans-serif"],
+        mono: ["var(--font-plex-mono, monospace)", "ui-monospace", "monospace"],
       },
       colors: {
         rating: "hsl(var(--rating))",

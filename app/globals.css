@@ -4,7 +4,8 @@
 
 @layer base {
   :root {
-    --font-sans: var(--font-inter);
+    --font-sans: var(--font-plex-sans);
+    --font-mono: var(--font-plex-mono);
     --chart-1: hsl(var(--primary));
     --chart-2: hsl(var(--rating));
     --rating: 45 88% 30%;

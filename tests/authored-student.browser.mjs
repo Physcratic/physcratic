@@ -394,7 +394,7 @@ try {
           : { state: "guest" };
       res.setHeader("Content-Type", "text/html");
       res.end(
-        `<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>Physcratic solving test</title><style>:root{--font-inter:Arial,sans-serif}body{font-family:Arial,sans-serif}</style><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/katex.css"></head><body><div id="root"></div><script>window.__student=${JSON.stringify({ problemId, viewer })}</script><script src="/bundle.js"></script></body></html>`,
+        `<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>Physcratic solving test</title><style>:root{--font-plex-sans:Arial,sans-serif}body{font-family:Arial,sans-serif}</style><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/katex.css"></head><body><div id="root"></div><script>window.__student=${JSON.stringify({ problemId, viewer })}</script><script src="/bundle.js"></script></body></html>`,
       );
     } catch (error) {
       console.error(error);
