@@ -10,8 +10,7 @@
  *   embedded, so it needs no entry here. Add `https://tally.so` to frame-src if an embed arrives.
  * - The PDF viewer's worker is bundled and served from /_next/static (worker-src, plus blob: for pdf.js).
  * - Fonts come from next/font, which self-hosts them. Auth calls only our own /api/auth.
- * - reCAPTCHA is not on main yet. The unmerged sign-up captcha (branch codex/signup-captcha) loads
- *   https://www.google.com/recaptcha/api.js, so its origins are allowed here ahead of time.
+ * - Signup reCAPTCHA v3 loads Google scripts/frames and connects to the verification service.
  *
  * Reports use report-uri, which every browser delivers at once (checked in Chromium). The endpoint
  * also parses the newer Reporting API shape (application/reports+json), so adding report-to and a
