@@ -3,6 +3,8 @@ import type { View } from "@/lib/physics";
 import { SkipLink } from "@/components/skip-link";
 import Sidebar from "./sidebar";
 import TopNav from "./top-nav";
+import { communityProfilesEnabled } from "@/lib/community/profile-route";
+import { ProfileSetupPrompt } from "@/components/community/profile-setup-prompt";
 
 export default function Layout({
   children,
@@ -20,7 +22,7 @@ export default function Layout({
       <div className="flex min-w-0 flex-1 flex-col lg:pl-60">
         <TopNav view={view} topic={topic} />
         <main id="main-content" tabIndex={-1} className="flex-1 p-5 focus:outline-none sm:p-8 xl:p-10">
-          <div className="mx-auto w-full max-w-7xl">{children}</div>
+          <div className="mx-auto w-full max-w-7xl">{communityProfilesEnabled() && <ProfileSetupPrompt />}{children}</div>
         </main>
       </div>
     </div>
