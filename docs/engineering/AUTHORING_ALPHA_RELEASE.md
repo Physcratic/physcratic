@@ -1,3 +1,96 @@
+# Authoring alpha release checkpoint, 2 November 2026
+
+PR 27 stays unmerged until Production compatibility and remaining acceptance
+gates pass. Staging canonical 0001-0006, the five new-table grants and four legacy
+grading/rating grants are complete. Never replay them. Production has sixteen
+legacy tables and no authoring ledger. Its existing owner application role is
+unchanged. Production migration has not been executed at this checkpoint.
+
+## Real staging acceptance
+
+Against Preview commit `2c35d61a5fcf6680a4054380a4bfcff1b71bc9e6`, real signup
+enforced Terms and verification. The operator received and clicked the genuine
+message in the existing allowlisted inbox. Normal login, draft creation,
+autosave/reload, publishing, OIDC-backed private statement/solution PNG uploads
+and authenticated reads passed. No mail allowlist expansion or auth bypass.
+
+Numeric attempts recorded incorrect, units mismatch and correct outcomes.
+An identical retry returned the original attempt without a duplicate. Explicit
+author permission and reader confirmation revealed the solution. A subsequent
+attempt became assisted. Full-row fingerprints of the three earlier attempts
+remained unchanged. Revoking permission denied fresh solution-image reads.
+Unpublishing removed discovery/read access while retaining one immutable revision,
+four attempts, the reveal record and both media objects. Guest private routes
+deny access and logout clears the app session. These are labelled synthetic
+fixtures, retained without automatic destructive cleanup. This live exercise
+uses one verified actor; it does not claim live cross-user testing.
+
+Staging has no reviewed configured/rated legacy reference fixture. The existing
+controlled checklist disallows silently seeding one. Actual restricted-role
+PostgreSQL 18.6 tests cover configured legacy grading, Elo, retries, history and
+cross-user isolation. Live configured legacy grading remains a separate coverage
+limitation unless an existing approved fixture is identified.
+
+## Auth transport correction
+
+The shared signup/signin HTML form now explicitly uses POST. Before hydration,
+the browser's default GET could otherwise place credentials in a URL. Hydrated
+Better Auth behaviour is unchanged. The synthetic staging test credential used
+in that observation was retired through authenticated Better Auth password change.
+The specifically authorized earlier guarded synthetic-account recovery ran once
+and was independently checked. No Production credential, verification flag,
+Terms field or artificial session was changed.
+
+Two SSR regression tests and a real Chromium no-JavaScript submission test cover
+the transport. The browser test's negative GET control reproduced the issue and
+the actual fixed SSR form sent credentials only in the POST body. TypeScript,
+lint, build and server/UI tests pass. Fresh CI and Preview must bind these checks
+to the newly committed release candidate before Production execution.
+
+## Production execution
+
+The operator's Windows-host read-only direct TLS test passed for Production
+`ep-snowy-heart-b7c1220y.c-13.us-east-1.aws.neon.tech`, database `neondb`,
+role `neondb_owner`, PostgreSQL 18.6, TLS 1.3 and authorised certificate.
+This is not a verification of the connector's different transport.
+
+The Production-only Windows runner is in
+[`scripts/authoring-release-production`](../../scripts/authoring-release-production/README.md).
+It preserves reviewed SQL SHA-256
+`afc68f3435b46e319329aa456d3e2249537aa5ac39b66a575c704bc53de4f5da`,
+all six canonical files and the frozen staging package. It checks clean exact
+execution commit, full package manifest, direct target/TLS, schema/locale,
+ledger absence, recovery record digest, explicit current writer hold and finite
+window. The common advisory lock and all sixteen legacy table locks precede a
+second recovery check. One atomic transaction creates canonical v6 plus the
+Production ledger. A new TLS connection independently verifies schema, ledger,
+FK enforcement and preservation of every existing record.
+
+Retained recovery branch `br-polished-heart-b7sfrgfi` and an independent copy
+`br-weathered-shadow-b7rsjgvv` matched the Production schema and all original
+records. Both computes are suspended. This proves same-provider copy recovery,
+not snapshot restore or actual Production traffic failover. The existing staging
+snapshot was retained; the account's single manual snapshot slot prevented a
+Production snapshot. No Production backup exception is inferred from staging's
+exception. A changed Production record digest blocks this runner.
+
+The remaining operator action is running this reviewed Node runner on the same
+verified Windows computer, after fresh CI/Preview acceptance and a refreshed
+writer/deployment hold. Existing conditional execution authority is preserved.
+No additional general phase approval is required, but a connector cannot be
+substituted for the approved execution host. After verified Production migration,
+recheck main, merge PR 27 under the existing authority, verify Production READY,
+then smoke test and release the hold. A Vercel owner README commit is needed only
+if an actual commit-author deployment rejection occurs.
+
+---
+
+## Historical staging-candidate checkpoint
+
+The earlier checkpoint below is retained as history. Its missing-approval and
+incomplete-staging-acceptance statements are superseded by the current checkpoint
+above and the owner's subsequent full conditional execution authorization.
+
 # Problem Authoring alpha release: staging candidate
 
 The accepted migration source is a87077ffef2a7191e137e6a3c3b9286ed4f041e4.

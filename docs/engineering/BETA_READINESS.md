@@ -316,3 +316,21 @@ Retained main's new codex Preview smoke exclusion unchanged. Manual smoke checks
 - TypeScript, lint, build, PG18.6, release/transport and all three browser suites pass. One inherited corpus punctuation TODO remains, without changing generated main content.
 - Independent READ ONLY Production inspection found no authoring tables/functions. This blocks merge/deployment to Production until a separately approved migration plan or complete tested feature-disable strategy exists. No Production write is authorized here.
 - Fresh Preview deployment and real verified-account/email/Blob acceptance remain required. The connected inbox is not the allowlisted recipient, so no unrelated inbox is searched and no allowlist is broadened to make acceptance pass.
+
+## 2026-11-02: real authoring acceptance and Production execution transport
+
+- Real staging Terms, mailbox verification, login, save/reload, publish, private
+  OIDC PNG uploads/reads, numeric outcomes/retry, explicit solution reveal,
+  assisted-attempt immutability, revocation, unpublish and logout checks passed
+  on the accepted Preview. Labelled immutable fixtures are retained.
+- Shared auth forms now explicitly submit POST before hydration, preventing
+  credentials in default GET query strings. SSR and real no-JavaScript Chromium
+  tests cover the defect. Hydrated Better Auth flow is unchanged.
+- Added a Production-only Windows runner around the unchanged reviewed SQL.
+  Disposable PG18.6 covers data preservation, atomic failure rollback, stale
+  recovery rejection, writer lock timeout, window expiry and replay rejection.
+  Existing canonical migrations and staging package are unchanged.
+- Production remains gated on fresh candidate CI/Preview and execution on the
+  operator's verified Windows host with a current writer/deployment hold.
+  No Production SQL write or merge is recorded here. Details and live legacy
+  coverage limitations are in AUTHORING_ALPHA_RELEASE.md.

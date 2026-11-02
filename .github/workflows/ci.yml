@@ -88,3 +88,7 @@ jobs:
           (cd scripts/authoring-release && sha256sum -c PACKAGE_SHA256SUMS)
           node --test scripts/authoring-release/release.test.mjs
           pnpm exec tsx --conditions=react-server --test scripts/authoring-release/mail-audit.test.ts lib/author-media-storage.test.ts
+      - name: Production operator package and rejection guards
+        run: |
+          (cd scripts/authoring-release-production && sha256sum -c PACKAGE_SHA256SUMS)
+          node --test scripts/authoring-release-production/core.test.mjs
