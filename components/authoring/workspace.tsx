@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowLeft, FilePlus2, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ErrorText, HowItWorksLink, studioTokens } from "./studio-ui";
 import {
   draftRequest,
   editorBase,
@@ -77,7 +78,7 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
       />
     );
   return (
-    <div className="min-h-dvh bg-background text-foreground">
+    <div className={`min-h-dvh bg-background text-foreground ${studioTokens}`}>
       <header className="border-b">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
           <Link
@@ -87,7 +88,12 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
             <ArrowLeft className="size-4" />
             Physcratic
           </Link>
-          <span className="text-sm text-muted-foreground">Problem Studio</span>
+          <div className="flex items-center gap-4">
+            <HowItWorksLink />
+            <span className="hidden text-sm text-muted-foreground sm:inline">
+              Problem Studio
+            </span>
+          </div>
         </div>
       </header>
       <main
@@ -150,7 +156,7 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
                   {},
                 );
                 setCleanupNotice(
-                  `Cleaned ${result.deleted} files; ${result.retry} need retry. Repeat for additional files.`,
+                  `Cleaned ${result.deleted} files. ${result.retry} need retry. Repeat for additional files.`,
                 );
               } catch (e) {
                 setError(e instanceof Error ? e.message : "Cleanup failed.");
@@ -169,9 +175,9 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
         {error && (
           <div
             role="alert"
-            className="my-6 rounded-lg border border-destructive/40 p-4"
+            className="my-6 rounded-lg border border-destructive p-4"
           >
-            <p className="text-sm">{error}</p>
+            <ErrorText>{error}</ErrorText>
             <Button
               type="button"
               variant="outline"
@@ -185,7 +191,7 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
         <p role="status" className="my-6 text-sm text-muted-foreground">
           {busy ? "Loading…" : `${items.length} drafts loaded`}
         </p>
-        <div className="divide-y rounded-xl border">
+        <div className="divide-y rounded-xl border bg-card">
           {items.length
             ? items.map((item) => (
                 <article
@@ -204,7 +210,7 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
                       </p>
                     </div>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex items-center gap-2">
                     <Button
                       type="button"
                       variant="outline"
@@ -216,9 +222,11 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
                         {item.title || "untitled problem"}
                       </span>
                     </Button>
+                    <span aria-hidden="true" className="mx-2 h-6 w-px bg-border" />
                     <Button
                       type="button"
                       variant="ghost"
+                      className="text-destructive hover:bg-destructive/10 hover:text-destructive"
                       disabled={busy || item.state === "published"}
                       onClick={async () => {
                         if (
@@ -268,6 +276,7 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
                   <p className="mt-3 text-sm text-muted-foreground">
                     Start a problem above. It stays private until you publish.
                   </p>
+                  <HowItWorksLink className="mt-2" />
                 </div>
               )}
         </div>
@@ -283,9 +292,9 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
           </Button>
         )}
         <p className="mt-8 max-w-2xl text-xs leading-relaxed text-muted-foreground">
-          Only original or authorized content may be published. Images and PDF
-          uploads arrive in a later release. Drafts and private answer keys are
-          accessible only to your verified author account.
+          Only original or authorized content may be published. Drafts and
+          private answer keys are accessible only to your verified author
+          account.
         </p>
       </main>
     </div>

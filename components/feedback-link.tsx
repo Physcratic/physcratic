@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { buildFeedbackHref, feedbackBase } from "@/lib/feedback";
 
 type Props = {
-  variant: "nav" | "inline";
+  variant: "nav" | "inline" | "text";
   /** Error digest, passed to the form as the `ref` hidden field. */
   errorRef?: string;
 };
@@ -59,6 +59,18 @@ export function FeedbackLink({ variant, errorRef }: Props) {
           <span className="hidden font-normal md:inline">Feedback</span>
         </a>
       </Button>
+    );
+  }
+
+  if (variant === "text") {
+    return (
+      <a
+        {...linkProps}
+        className="rounded-sm underline underline-offset-4 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      >
+        Feedback
+        {external ? <span className="sr-only"> (opens in a new tab)</span> : null}
+      </a>
     );
   }
 

@@ -11,6 +11,7 @@ import { z } from "zod";
 import Image from "next/image";
 import useSWR from "swr";
 import { Button } from "@/components/ui/button";
+import { ErrorText, StepCard } from "./studio-ui";
 import {
   collectAuthorMedia,
   authorMediaMaxBytes,
@@ -254,14 +255,12 @@ export function MediaAttachments({
     a.purpose.endsWith("pdf"),
   );
   return (
-    <section id="author-assets" className="space-y-5 border-t pt-8">
-      <h2 className="text-xl font-semibold">Images & optional PDFs</h2>
-      <p className="text-sm leading-relaxed text-muted-foreground">
-        Add images where they belong in the statement, hints or worked solution.
-        All uploads stay in private storage. Statement files become readable
-        only when pinned to a published revision. Solution files remain
-        author-only.
-      </p>
+    <StepCard
+      id="author-assets"
+      step={4}
+      title="Images and optional PDFs"
+      hint="Add images where they belong in the statement, hints or worked solution. All uploads stay in private storage. Statement files become readable only when pinned to a published revision. Solution files remain author-only."
+    >
       <div className="grid gap-6 sm:grid-cols-2">
         {(["statement-pdf", "solution-pdf"] as const).map((purpose) => (
           <UploadControl
@@ -437,12 +436,15 @@ export function MediaAttachments({
           </Button>
         </div>
       </details>
-      <p
-        role={error || loadError ? "alert" : "status"}
-        className={`text-sm ${error || loadError ? "text-destructive" : "text-muted-foreground"}`}
-      >
-        {error || (loadError ? "Could not load media." : message)}
-      </p>
-    </section>
+      {error || loadError ? (
+        <div role="alert">
+          <ErrorText>{error || "Could not load media."}</ErrorText>
+        </div>
+      ) : (
+        <p role="status" className="text-sm text-muted-foreground">
+          {message}
+        </p>
+      )}
+    </StepCard>
   );
 }

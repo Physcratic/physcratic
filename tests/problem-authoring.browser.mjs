@@ -292,7 +292,7 @@ try {
     .getByRole("button", { name: "+ Add part to section 1", exact: true })
     .click();
   await page
-    .getByText("Private answer, hints & solution · part 1", { exact: true })
+    .getByText("Answer key, hints and solution · part 1", { exact: true })
     .click();
   await page.getByLabel("Answer type", { exact: true }).selectOption("numeric");
   await page.getByLabel("Expected value", { exact: true }).fill("");
@@ -328,7 +328,7 @@ try {
     .locator("section[data-order-item]")
     .filter({ has: page.getByLabel("Section 2 title", { exact: true }) });
   await secondSection
-    .getByText("Private answer, hints & solution · part 1", { exact: true })
+    .getByText("Answer key, hints and solution · part 1", { exact: true })
     .click();
   await secondSection
     .getByLabel("Answer type", { exact: true })
@@ -734,7 +734,7 @@ try {
     .getByRole("button", { name: "+ Add part to section 2", exact: true })
     .click();
   await secondSection
-    .getByText("Private answer, hints & solution · part 2", { exact: true })
+    .getByText("Answer key, hints and solution · part 2", { exact: true })
     .click();
   await secondSection
     .getByLabel("Answer type", { exact: true })

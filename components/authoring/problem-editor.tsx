@@ -1,7 +1,7 @@
 "use client";
 import { SolutionPermissions } from "./solution-permissions";
 import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
-import { Eye, FilePenLine, Save, ShieldCheck } from "lucide-react";
+import { CircleAlert, Eye, FilePenLine, Save, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   authoredDraftSchema,
@@ -25,6 +25,8 @@ import {
   StatementPdfLinks,
 } from "./media-controls";
 import { AnswerPanel } from "./answer-panel";
+import { TagPicker, MissingTagNote } from "./tag-picker";
+import { HowItWorksLink, StatusBar, StepCard, studioTokens } from "./studio-ui";
 import {
   BlocksEditor,
   Field,
@@ -42,72 +44,6 @@ function download(draft: EditorDraft) {
   link.download = `physcratic-private-draft-${draft.problemId}.json`;
   link.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
-function Tags({
-  label,
-  values,
-  change,
-}: {
-  label: string;
-  values: string[];
-  change: (values: string[]) => void;
-}) {
-  const [pending, setPending] = useState("");
-  function add() {
-    const value = pending.trim();
-    if (value && !values.includes(value) && values.length < 30) {
-      change([...values, value]);
-      setPending("");
-    }
-  }
-  return (
-    <div className="space-y-2">
-      <div className="flex gap-2">
-        <div className="flex-1">
-          <Field label={label}>
-            {(id) => (
-              <input
-                id={id}
-                className={inputClass}
-                maxLength={80}
-                value={pending}
-                placeholder="Add a tag, then press Enter"
-                onChange={(e) => setPending(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" && !e.nativeEvent.isComposing) {
-                    e.preventDefault();
-                    add();
-                  }
-                }}
-              />
-            )}
-          </Field>
-        </div>
-        <Button
-          type="button"
-          variant="outline"
-          className="mt-7"
-          onClick={add}
-          disabled={!pending.trim() || values.length >= 30}
-        >
-          Add
-        </Button>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        {values.map((tag) => (
-          <button
-            key={tag}
-            type="button"
-            className="min-h-11 rounded-full border px-3 text-xs hover:bg-muted"
-            aria-label={`Remove ${label} ${tag}`}
-            onClick={() => change(values.filter((v) => v !== tag))}
-          >
-            {tag} ×
-          </button>
-        ))}
-      </div>
-    </div>
-  );
 }
 export function ProblemEditor({
   initial,
@@ -261,7 +197,7 @@ export function ProblemEditor({
       disabled={busy || uploads > 0 || !!recovery || !!snapshot.recoveryRaw}
       pending={uploadPending}
     >
-    <div className="min-h-dvh bg-background text-foreground">
+    <div className={`min-h-dvh bg-background text-foreground ${studioTokens}`}>
       <header className="sticky top-0 z-20 border-b bg-background/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-8">
           <div className="flex items-center gap-3">
@@ -276,6 +212,7 @@ export function ProblemEditor({
             <span className="hidden text-sm text-muted-foreground sm:inline">
               Problem Studio
             </span>
+            <HowItWorksLink />
           </div>
           <div className="flex flex-wrap items-center gap-2">
             <span
@@ -305,6 +242,7 @@ export function ProblemEditor({
             <Button
               type="button"
               size="sm"
+              className="disabled:border disabled:border-input disabled:bg-muted disabled:text-muted-foreground disabled:opacity-100"
               disabled={
                 busy ||
                 uploads > 0 ||
@@ -351,9 +289,19 @@ export function ProblemEditor({
               Write a problem, add a solution, then publish.
             </p>
           </div>
-          <span className="rounded-full border px-3 py-1 text-xs capitalize">
-            {draft.state} · version {draft.version}
-          </span>
+          <StatusBar
+            state={draft.state}
+            version={draft.version}
+            saveMessage={uploads > 0 ? "Uploading privately…" : message}
+            saveTone={
+              phase === "error" || phase === "conflict"
+                ? "error"
+                : phase === "saved" && uploads === 0
+                  ? "ok"
+                  : "busy"
+            }
+            checksLeft={issues.length}
+          />
         </div>
         <p role="status" aria-live="polite" className="mb-3 text-sm">
           {notice}
@@ -550,7 +498,7 @@ export function ProblemEditor({
             <Button
               type="button"
               aria-pressed={tab === "edit"}
-              variant={tab === "edit" ? "default" : "ghost"}
+              variant={tab === "edit" ? "secondary" : "ghost"}
               onClick={() => setTab("edit")}
             >
               <FilePenLine className="mr-2 size-4" />
@@ -559,7 +507,7 @@ export function ProblemEditor({
             <Button
               type="button"
               aria-pressed={tab === "preview"}
-              variant={tab === "preview" ? "default" : "ghost"}
+              variant={tab === "preview" ? "secondary" : "ghost"}
               onClick={() => setTab("preview")}
             >
               <Eye className="mr-2 size-4" />
@@ -639,16 +587,21 @@ export function ProblemEditor({
               disabled={
                 busy || uploads > 0 || !!recovery || !!snapshot.recoveryRaw
               }
-              className="min-w-0 space-y-10 disabled:opacity-70"
+              className="min-w-0 space-y-8 disabled:opacity-70"
             >
               <legend className="sr-only">Problem authoring document</legend>
-              <section className="space-y-6">
+              <StepCard
+                id="step-statement"
+                step={1}
+                title="Statement"
+                hint="The title, difficulty and the context shared by every part."
+              >
                 <Field label="Problem title">
                   {(id) => (
                     <input
                       id={id}
-                      className="w-full border-0 border-b bg-transparent px-0 py-3 text-2xl font-medium outline-none focus-visible:ring-2 focus-visible:ring-ring sm:text-3xl"
-                      placeholder="Give the problem a clear title…"
+                      className={`${inputClass} py-3 text-xl font-medium sm:text-2xl`}
+                      placeholder="Give the problem a clear title"
                       maxLength={200}
                       value={draft.content.title}
                       onChange={(e) =>
@@ -659,26 +612,6 @@ export function ProblemEditor({
                     />
                   )}
                 </Field>
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <Tags
-                    label="Topic tags"
-                    values={draft.content.topicTags}
-                    change={(v) =>
-                      edit((d) => {
-                        d.content.topicTags = v;
-                      })
-                    }
-                  />
-                  <Tags
-                    label="Method tags"
-                    values={draft.content.methodTags}
-                    change={(v) =>
-                      edit((d) => {
-                        d.content.methodTags = v;
-                      })
-                    }
-                  />
-                </div>
                 <Field
                   label="Estimated difficulty (optional)"
                   help="An author estimate, not an Elo rating."
@@ -698,15 +631,12 @@ export function ProblemEditor({
                     />
                   )}
                 </Field>
-              </section>
-              <section id="common-context" className="scroll-mt-24 space-y-4">
-                <h2 className="text-xl font-semibold tracking-tight">
-                  Set the scene
-                </h2>
-                <p className="text-sm text-muted-foreground">
-                  Shared context for every part. Add inline equations inside
-                  text, or give an equation its own block.
-                </p>
+                <div id="common-context" className="scroll-mt-24 space-y-3">
+                  <h3 className="text-base font-semibold">Set the scene</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Shared context for every part. Add inline equations inside
+                    text, or give an equation its own block.
+                  </p>
                 <BlocksEditor
                   label="Common context"
                   blocks={draft.content.context}
@@ -716,19 +646,26 @@ export function ProblemEditor({
                     })
                   }
                 />
-              </section>
+                </div>
+              </StepCard>
+              <StepCard
+                id="step-parts"
+                step={2}
+                title="Parts and answers"
+                hint="Each part has its own statement, answer key, hints and worked solution. Answer keys stay private."
+              >
               {draft.content.sections.map((section, si) => (
                 <section
                   key={section.id}
                   data-order-item
                   id={`section-${section.id}`}
                   tabIndex={-1}
-                  className="scroll-mt-24 space-y-6 rounded-xl border p-4 sm:p-6"
+                  className="scroll-mt-24 space-y-6 rounded-lg border bg-background p-4 sm:p-5"
                 >
                   <div className="flex items-center justify-between gap-3">
-                    <h2 className="text-xl font-semibold">
+                    <h3 className="text-lg font-semibold">
                       Section {si + 1}
-                    </h2>
+                    </h3>
                     <OrderControls
                       label={`section ${si + 1}`}
                       index={si}
@@ -803,12 +740,12 @@ export function ProblemEditor({
                         key={part.id}
                         data-order-item
                         tabIndex={-1}
-                        className="space-y-5 rounded-lg bg-muted/30 p-4"
+                        className="space-y-5 rounded-lg border bg-muted/30 p-4"
                       >
                         <div className="flex items-center justify-between">
-                          <h3 className="font-semibold">
+                          <h4 className="font-semibold">
                             Part {part.label || pi + 1}
-                          </h3>
+                          </h4>
                           <OrderControls
                             label={`section ${si + 1} part ${pi + 1}`}
                             index={pi}
@@ -870,10 +807,10 @@ export function ProblemEditor({
                             })
                           }
                         />
-                        <details className="rounded-lg border bg-background p-4">
+                        <details className="rounded-lg border bg-card p-4">
                           <summary className="flex min-h-11 cursor-pointer items-center gap-2 text-sm font-medium">
                             <ShieldCheck className="size-4" />
-                            Private answer, hints & solution · part{" "}
+                            Answer key, hints and solution · part{" "}
                             {part.label || pi + 1}
                           </summary>
                           <div className="mt-5">
@@ -974,19 +911,45 @@ export function ProblemEditor({
               >
                 + Add section
               </Button>
-              <MediaAttachments draft={draft} edit={edit} />
-              <section
-                id="publication"
-                className="scroll-mt-24 space-y-5 border-t pt-8"
+              </StepCard>
+              <StepCard
+                id="step-tags"
+                step={3}
+                title="Tags"
+                hint="Tags help students find the problem in the library. Choose from the same list the library uses."
               >
-                <h2 className="text-xl font-semibold tracking-tight">
-                  Ready to share?
-                </h2>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  Publish only original or properly authorized material. New
-                  publications create immutable revisions. Your earlier
-                  published version stays visible while you edit.
-                </p>
+                <div className="grid gap-6 lg:grid-cols-2">
+                  <TagPicker
+                    kind="topic"
+                    label="Topics"
+                    values={draft.content.topicTags}
+                    change={(v) =>
+                      edit((d) => {
+                        d.content.topicTags = v;
+                      })
+                    }
+                  />
+                  <TagPicker
+                    kind="method"
+                    label="Methods"
+                    values={draft.content.methodTags}
+                    pickedTopics={draft.content.topicTags}
+                    change={(v) =>
+                      edit((d) => {
+                        d.content.methodTags = v;
+                      })
+                    }
+                  />
+                </div>
+                <MissingTagNote />
+              </StepCard>
+              <MediaAttachments draft={draft} edit={edit} />
+              <StepCard
+                id="publication"
+                step={5}
+                title="Publish"
+                hint="Publish only original or properly authorized material. New publications create immutable revisions. Your earlier published version stays visible while you edit."
+              >
                 <Field label="Content provenance">
                   {(id) => (
                     <select
@@ -1044,16 +1007,19 @@ export function ProblemEditor({
                     />
                   )}
                 </Field>
-                <div className="rounded-lg border p-4">
-                  <h3 className="text-sm font-medium">Publication checks</h3>
+                <div className="rounded-lg border bg-background p-4">
+                  <h3 className="text-sm font-semibold">Publication checks</h3>
                   {issues.length ? (
-                    <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+                    <ul className="mt-3 space-y-2 text-sm">
                       {issues.slice(0, 8).map((issue, i) => (
-                        <li key={i}>
-                          {issue.path.length
-                            ? `${issue.path.join(" → ")}: `
-                            : ""}
-                          {issue.message}
+                        <li key={i} className="flex items-start gap-2 text-destructive">
+                          <CircleAlert aria-hidden="true" className="mt-0.5 size-4 shrink-0" />
+                          <span>
+                            {issue.path.length
+                              ? `${issue.path.join(" → ")}: `
+                              : ""}
+                            {issue.message}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -1076,9 +1042,16 @@ export function ProblemEditor({
                   </a>
                 )}
                 {draft.state === "published" && (
+                  <div className="space-y-3 rounded-lg border border-destructive p-4">
+                  <h3 className="text-sm font-semibold">Danger zone</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Unpublishing stops the problem being publicly readable.
+                    Previous revisions stay retained.
+                  </p>
                   <Button
                     type="button"
                     variant="outline"
+                    className="border-destructive text-destructive hover:bg-destructive/10 hover:text-destructive"
                     disabled={uploads > 0}
                     onClick={() => {
                       if (
@@ -1097,32 +1070,57 @@ export function ProblemEditor({
                   >
                     Unpublish problem
                   </Button>
+                  </div>
                 )}
-              </section>
+              </StepCard>
             </fieldset>
             <aside className="hidden lg:block">
               <nav
                 aria-label="Document outline"
-                className="sticky top-24 space-y-4 rounded-lg border p-5"
+                className="sticky top-24 space-y-3 rounded-lg border bg-card p-5"
               >
                 <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                  In this problem
+                  Steps
                 </h2>
-                <a href="#common-context" className="block py-2 text-sm">
-                  Common context
-                </a>
-                {draft.content.sections.map((s, i) => (
-                  <a
-                    key={s.id}
-                    href={`#section-${s.id}`}
-                    className="block truncate py-2 text-sm"
-                  >
-                    {i + 1}. {s.title || "Untitled section"}
-                  </a>
-                ))}
-                <a href="#publication" className="block py-2 text-sm">
-                  Publication checks
-                </a>
+                <ol className="space-y-1 text-sm">
+                  <li>
+                    <a href="#step-statement" className="block rounded-sm py-2 hover:underline">
+                      1. Statement
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#step-parts" className="block rounded-sm py-2 hover:underline">
+                      2. Parts and answers
+                    </a>
+                    <ul className="ml-4 space-y-1 border-l pl-3">
+                      {draft.content.sections.map((section, i) => (
+                        <li key={section.id}>
+                          <a
+                            href={`#section-${section.id}`}
+                            className="block truncate rounded-sm py-1.5 text-muted-foreground hover:text-foreground hover:underline"
+                          >
+                            {section.title || `Section ${i + 1}`}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#step-tags" className="block rounded-sm py-2 hover:underline">
+                      3. Tags
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#author-assets" className="block rounded-sm py-2 hover:underline">
+                      4. Images and PDFs
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#publication" className="block rounded-sm py-2 hover:underline">
+                      5. Publish
+                    </a>
+                  </li>
+                </ol>
                 <p className="border-t pt-4 text-xs leading-relaxed text-muted-foreground">
                   Use the arrow buttons to reorder with a keyboard. No uploads
                   are needed. Native content comes first.

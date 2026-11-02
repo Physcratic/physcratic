@@ -1,5 +1,6 @@
 "use client";
 import { SkipLink } from "@/components/skip-link";
+import { studioTokens } from "@/components/authoring/studio-ui";
 import { WorkedSolution } from "./worked-solution";
 import {
   useCallback,
@@ -50,7 +51,7 @@ const feedback = {
   "needs-review": {
     label: "Needs review",
     text: "The checker could not establish a result. This does not necessarily mean your answer is wrong. Unsupported expressions, units or domain conditions can need review.",
-    color: "border-amber-500/40 bg-amber-500/5",
+    color: "border-amber-600 bg-amber-500/5",
   },
   ungraded: {
     label: "Ungraded",
@@ -184,7 +185,7 @@ export function StudentWorkspace({
   useEffect(() => setAuthDenied(false), [accountKey, viewer.state]);
   const denyAuth = useCallback(() => setAuthDenied(true), []);
   return (
-    <div className="min-h-dvh bg-background text-foreground">
+    <div className={`min-h-dvh bg-background text-foreground ${studioTokens}`}>
       <SkipLink targetId="solver-main">Skip to problem content</SkipLink>
       <header className="border-b bg-background">
         <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-3 px-5 py-4 sm:px-8">
@@ -198,7 +199,7 @@ export function StudentWorkspace({
             <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
               Problem room
             </span>
-            <span className="rounded-md border px-3 py-2 text-xs">
+            <span className="rounded-md border bg-card px-3 py-2 text-xs">
               {authDenied
                 ? "Recheck your account"
                 : viewer.state === "verified"
@@ -253,7 +254,7 @@ export function StudentWorkspace({
         {publicMessage && (
           <div
             role="alert"
-            className="rounded-lg border border-amber-500/40 bg-amber-500/5 p-5 text-sm leading-relaxed"
+            className="rounded-lg border border-amber-600 bg-amber-500/5 p-5 text-sm leading-relaxed"
           >
             {publicMessage}
           </div>
@@ -274,7 +275,7 @@ export function StudentWorkspace({
               revision={availability === "ready" ? revision : null}
               problemId={problemId}
             />
-            <section className="mx-auto max-w-3xl space-y-4 rounded-xl border p-6">
+            <section className="mx-auto max-w-3xl space-y-4 rounded-xl border bg-card p-6">
               <h2 className="text-xl font-semibold">
                 {viewer.state === "unverified"
                   ? "Verify your email to submit"
@@ -655,7 +656,7 @@ function PrivateWorkspace({
         >
           <Button
             type="button"
-            variant={tab === "problem" ? "default" : "outline"}
+            variant={tab === "problem" ? "secondary" : "outline"}
             aria-pressed={tab === "problem"}
             onClick={() => setTab("problem")}
           >
@@ -663,7 +664,7 @@ function PrivateWorkspace({
           </Button>
           <Button
             type="button"
-            variant={tab === "history" ? "default" : "outline"}
+            variant={tab === "history" ? "secondary" : "outline"}
             aria-pressed={tab === "history"}
             onClick={() => setTab("history")}
           >
@@ -692,7 +693,7 @@ function PrivateWorkspace({
       {state.storageWarning && (
         <p
           role="alert"
-          className="rounded-lg border border-amber-500/40 p-4 text-sm"
+          className="rounded-lg border border-amber-600 p-4 text-sm"
         >
           {state.storageWarning}
         </p>
@@ -706,7 +707,7 @@ function PrivateWorkspace({
       {pending && (
         <section
           aria-label="Original submission recovery"
-          className="space-y-3 rounded-lg border border-amber-500/40 bg-amber-500/5 p-5"
+          className="space-y-3 rounded-lg border border-amber-600 bg-amber-500/5 p-5"
         >
           <h2 className="font-semibold">
             {state.busy
@@ -764,7 +765,7 @@ function PrivateWorkspace({
       {!pending && state.error && (
         <p
           role="alert"
-          className="rounded-lg border border-destructive/40 p-4 text-sm"
+          className="rounded-lg border border-destructive p-4 text-sm"
         >
           {state.error}
         </p>
@@ -772,7 +773,7 @@ function PrivateWorkspace({
       {tab === "history" ? (
         <section
           aria-label="My saved submissions"
-          className="space-y-5 rounded-xl border p-5 sm:p-7"
+          className="space-y-5 rounded-xl border bg-card p-5 sm:p-7"
         >
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h2
