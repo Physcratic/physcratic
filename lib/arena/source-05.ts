@@ -323,7 +323,7 @@ Using $$\operatorname{arcosh}\sqrt2\simeq0.88$$ gives $$3.52\tau_{\mathrm{sp}}$$
     id: "arena-the-invisible-brake", title: "The Invisible Brake", topic: "Mechanics", tags: ["Viscosity", "Kinetic theory", "Poiseuille flow"], summary: "Connect molecular momentum transport to gas viscosity, pipe flow and viscous heating.", statementFile: "03_The_Invisible_Brake_Problem.pdf", solutionFile: "03_The_ Invisible_Brake_Solution.pdf",
     statement: String.raw`## Molecular viscosity and flow through a pipe
 
-Consider a gas at temperature $$T$$ confined between two parallel plates separated by a distance $$D$$. The lower plate is fixed while the upper plate moves at speed $$v$$ in the $$x$$ direction. The mean gas velocity $$\langle v_x\rangle$$ varies linearly from zero at the lower plate to $$v$$ at the upper plate. Relative to this local mean velocity, the molecular velocities follow the Maxwell-Boltzmann distribution.
+Consider a gas at temperature $$T$$ confined between two parallel plates separated by a distance $$D$$. The lower plate is fixed while the upper plate moves at speed $$v$$ in the $$x$$ direction. The mean gas velocity $$\langle v_x\rangle$$ varies linearly from zero at the lower plate to $$v$$ at the upper plate. Relative to this local mean velocity, the molecular velocities follow the Maxwell–Boltzmann distribution.
 
 The coefficient of viscosity $$\eta$$ is defined by
 
@@ -368,7 +368,7 @@ Let $$\bar v=\langle|\boldsymbol v|\rangle$$ be the mean molecular speed. In an 
 
 $$\begin{aligned}J_+&=n\bar v\int_0^{2\pi}\int_0^{\pi/2}\frac{\cos\theta\sin\theta}{4\pi}\,d\theta\,d\phi\\&=\frac{n\bar v}4.\end{aligned}$$
 
-For Maxwell-Boltzmann velocities, $$\bar v=\sqrt{8k_BT/(\pi m)}$$.
+For Maxwell–Boltzmann velocities, $$\bar v=\sqrt{8k_BT/(\pi m)}$$.
 
 $$\boxed{J_+=\frac n4\sqrt{\frac{8k_BT}{\pi m}}}$$
 
