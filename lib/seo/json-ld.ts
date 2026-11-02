@@ -1,3 +1,4 @@
+import { classHours, content as coachingContent } from "../coaching/content";
 import type { Article } from "../learn/types";
 import type { Problem } from "../physics";
 import { SITE, siteUrl } from "../site";
@@ -7,6 +8,9 @@ const LOGO_PATH = "/icon-512.png";
 
 const orgId = () => `${siteUrl()}/#organization`;
 
+/** Physcratic's Instagram profile, the same link as in the coaching footer. */
+export const INSTAGRAM_URL = "https://www.instagram.com/physcratic";
+
 export function organization() {
   return {
     "@context": "https://schema.org",
@@ -15,6 +19,7 @@ export function organization() {
     name: SITE.name,
     url: siteUrl(),
     logo: `${siteUrl()}${LOGO_PATH}`,
+    sameAs: [INSTAGRAM_URL],
   };
 }
 
@@ -124,6 +129,65 @@ export function articleGraph(article: Article) {
       })),
     },
   ];
+}
+
+/**
+ * Structured data for /coaching, built from lib/coaching/content.ts: the Organization, a Service that
+ * lists the programs, one Course per program and a BreadcrumbList. Courses are online, weekly and
+ * two hours long, and carry no prices, because prices are set per country.
+ *
+ * On purpose there is NO FAQPage, Review, AggregateRating or Person markup:
+ * - FAQPage rich results ended in May 2026, so the markup would buy nothing.
+ * - Reviews of your own business are self-serving and not eligible for review rich results, and a single
+ *   quoted student is not an aggregate rating.
+ * - Some coaches may be minors, so no Person node is published for any of them.
+ */
+export function coachingGraph(content: typeof coachingContent = coachingContent) {
+  const base = siteUrl();
+  const url = `${base}/coaching`;
+  const courseId = (pathway: string) => `${url}#course-${pathway.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")}`;
+  const courses = content.programs.items.map((item) => ({
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "@id": courseId(item.pathway),
+    name: item.title,
+    description: `${item.for} ${item.goal}`,
+    url,
+    provider: { "@id": orgId() },
+    educationalLevel: item.title.replace(/^Olympiad /, ""),
+    inLanguage: ["en"],
+    hasCourseInstance: {
+      "@type": "CourseInstance",
+      courseMode: "Online",
+      courseSchedule: { "@type": "Schedule", repeatFrequency: "P1W", duration: `PT${classHours}H` },
+    },
+  }));
+  const service = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${url}#service`,
+    name: content.ui.brand,
+    description: content.meta.description,
+    url,
+    serviceType: content.seo.serviceType,
+    provider: { "@id": orgId() },
+    areaServed: "Worldwide",
+    audience: { "@type": "EducationalAudience", educationalRole: "student" },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: content.programs.title,
+      itemListElement: courses.map((course) => ({ "@id": course["@id"] })),
+    },
+  };
+  const breadcrumbs = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { name: SITE.name, item: base },
+      { name: content.seo.breadcrumb, item: url },
+    ].map((entry, index) => ({ "@type": "ListItem", position: index + 1, ...entry })),
+  };
+  return [organization(), service, ...courses, breadcrumbs];
 }
 
 /** JSON for an inline <script>: < > & are escaped so no value can close the tag. */

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Bowlby_One } from "next/font/google";
 import styles from "./coaching.module.css";
 import { content } from "@/lib/coaching/content";
+import { coachingSocial } from "@/lib/coaching/social";
 
 // v0 kept: Bowlby One as the display font, and no noindex.
 const display = Bowlby_One({ subsets: ["latin"], weight: "400", variable: "--font-coaching-display", display: "swap" });
@@ -10,6 +11,8 @@ export const metadata: Metadata = {
   title: content.meta.title,
   description: content.meta.description,
   alternates: { canonical: "/coaching" },
+  // The image comes from opengraph-image.tsx in this folder.
+  ...coachingSocial({ title: content.meta.title, description: content.meta.description, url: "/coaching", withImage: false }),
 };
 
 export const viewport: Viewport = { themeColor: "#0c101a" };

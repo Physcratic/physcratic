@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { trackConsultationClick, trackTutorClick } from "@/lib/coaching/analytics";
 import { consultationHref, consultationSource, tutorFormHref, type CoachingPathway } from "@/lib/coaching/consultation";
 
 /**
@@ -13,5 +14,6 @@ export function CoachingFormLink({ form, pathway, label }: { form: "consultation
     setSource(consultationSource(window.location.search, document.referrer));
   }, []);
   const href = form === "tutor" ? tutorFormHref({ source }) : consultationHref({ pathway, source });
-  return <a href={href} target="_blank" rel="noopener noreferrer" className="coaching-button">{label}</a>;
+  const onClick = () => (form === "tutor" ? trackTutorClick() : trackConsultationClick(pathway ?? "none"));
+  return <a href={href} target="_blank" rel="noopener noreferrer" className="coaching-button" onClick={onClick}>{label}</a>;
 }
