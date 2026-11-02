@@ -1,5 +1,58 @@
 # Community implementation status
 
+## Batch 2B1: medal verification backend and staff authorization
+
+**Deployment: PENDING USER ACTION. No production/staging SQL or Vercel actions performed.**
+
+Started from `0f77f22b21cbe43f09b7f128b7d8b59b5a072025`; incorporated main's PR #89 (`31b9c10`) without changing the calculator work. Branch `codex/community-batch-2b1`. PR/tested head/merge SHA and final CI result recorded at completion.
+
+### Backend and security contract
+
+- Independent default-off flags: **both** `COMMUNITY_MEDALS_ENABLED=true` and `COMMUNITY_STAFF_ENABLED=true` are required. The gate runs before importing auth/database/storage bindings. Profiles, media and achievement flags/migrations are not prerequisites. Existing Better Auth verified sessions and origin validation remain authoritative; no signup/profile/body/header role claims are trusted.
+- `POST /api/community/medals`: raw `application/pdf` body, with a UTF-8 JSON `X-Medal-Claim` header (maximum 4096 bytes). Strict keys: `competition` (IPhO/APhO/EuPhO/National), `award` (gold/silver/bronze/honourable-mention), integer `year` (1959 through current UTC year), `certificateName` (1–160 characters), optional two-letter uppercase `country`, optional `competitionName` (maximum 120). National claims require country and competition name. Certificate identity is immutable and separate from profile display names. No public proof URL or automatic public medal is created.
+- `GET /api/community/medals`: own claims/status only, at most 20. No other user's selector is accepted. Authentication and verified email are required. Own responses omit storage paths, hashes and reviewer IDs.
+- Admin-only `GET /api/community/medals/review?after=<uuid>`: bounded queue, 50 records, UUID keyset cursor. `GET /api/community/medals/[id]/review`: claim and immutable audit history. `POST` to the same URL accepts only `{version, decision, reason}`; decisions approved/rejected/more-info/revoked. Version conflicts return 409; nonempty reason required. Pending/more-info can become approved/rejected or request more info; only approved can become revoked. Submitted fields never change. Rejected/revoked claims can be submitted afresh; approved/pending/uploading/more-info claims occupy one active competition/year slot (National also includes country/name). Changing country/name cannot duplicate an international claim.
+- `GET /api/community/medals/[id]/proof`: verified current admin only, **including denial to the claimant even if they are an admin**. Moderators cannot review or download. Self-review is denied. Staff permissions are re-read with row locks inside review transactions; downloads recheck after bounded storage retrieval and compare claim version, byte count and SHA-256 before returning anything. Concurrent role revocation blocks further authorization. Downloads already sent cannot be recalled.
+- Proofs are attachment-only `application/pdf`, sandboxed, nosniff, private/no-store/noindex; error responses never expose storage/database details. No SDK URLs, proof paths or certificate names enter public profiles or achievement responses.
+- PDFs: maximum 5 MiB, actual signature/EOF/structure checks plus PDF.js parsing, 1–20 pages. Reject encrypted PDFs, compressed object streams and known JavaScript/action/embedded-file/rich-media markers, including hex-escaped names. Parser and worker are bundled together and loaded only on enabled submissions. Documents are never rendered by this backend. This is structural validation and a restricted PDF subset, not an antivirus service; some optimized PDFs require a conventional PDF export.
+- Shared database limits: 30 requests/account/minute and 5 upload attempts/UTC day, including rejected input. Maximum **20 lifetime claim reservations/account**, bounding stored proof bytes to 100 MiB/account including failed/ambiguous uploads. Limits serialize across instances. Original submissions and audit rows cannot be updated/deleted; role changes record old/new role, reason, database session operator and timestamp.
+- Storage PUT occurs only after a reservation is committed. Failed/ambiguous PUT or finalization leaves a tracked `uploading` claim; it cannot be reviewed or downloaded. It continues consuming the active slot and lifetime reservation until an operator reconciles the object. No automatic destructive cleanup or retry overwrite is performed. This conservative recovery/retention limitation is explicit; a retry must not create untracked objects. More-info does not mutate/replace the original proof; a reviewer can reject with instructions for a fresh corrected claim.
+
+### Schema, privileges and exact operator prerequisites
+
+Migration **0010_community_medals** adds `community_staff`, `community_staff_audit`, `community_medal_claim`, `community_medal_audit`, `community_medal_limit`, constraints/indexes, immutable/state/audit triggers and `community_admin_locked(text)`. Existing migrations 0001–0009 are untouched. It depends only on the existing Better Auth `user(id)` table. Drizzle declarations mirror fields/indexes; SQL is authoritative for guards and constraints.
+
+1. Keep both new flags OFF while deploying code against the current production schema. The user/operator first authorizes a recovery point and migration window, verifies the direct production owner connection and existing runtime role, inspects the existing migration ledger/checksums, and confirms 0010 is absent. Never replay earlier migrations or infer installation from merged code.
+2. On that reviewed direct owner connection: `BEGIN; SET LOCAL search_path=public,pg_catalog; SET LOCAL lock_timeout='5s'; SET LOCAL statement_timeout='60s'; SELECT pg_advisory_xact_lock(hashtextextended('physcratic:authoring:migrations:v1',0));` then execute the complete reviewed `migrations/0010_community_medals.up.sql` once. Record checksum/source commit/actor/time/result in `public.physcratic_production_migrations` using its existing format. Verify all guards, indexes and privileges before commit; rollback on failure. The two SECURITY DEFINER functions capture this trusted search_path: one locks/reads staff without granting staff UPDATE, the other appends trigger-derived medal audit rows. Never install with an untrusted schema in search_path.
+3. Apply the following to the **confirmed existing non-owner runtime role** (replace the placeholder). Audit existing inherited memberships/default grants: runtime must not own these objects or inherit owner/operator privileges. Preserve unrelated existing grants.
+
+```sql
+REVOKE ALL ON public.community_staff, public.community_staff_audit,
+  public.community_medal_audit FROM "CONFIRMED_RUNTIME_ROLE";
+GRANT SELECT, INSERT, UPDATE ON public.community_medal_claim,
+  public.community_medal_limit TO "CONFIRMED_RUNTIME_ROLE";
+GRANT SELECT ON public.community_medal_audit TO "CONFIRMED_RUNTIME_ROLE";
+GRANT EXECUTE ON FUNCTION public.community_admin_locked(text)
+  TO "CONFIRMED_RUNTIME_ROLE";
+```
+
+Existing schema USAGE is needed. Do not grant runtime staff writes, audit INSERT/UPDATE/DELETE/TRUNCATE, schema CREATE, owner-role membership or trigger-function EXECUTE. SQL trigger audit inserts run as the migration owner, with a fixed trusted search_path. Restrict table owner credentials to operators; owners inherently can bypass database permissions, so they must not be used by the app. Test the runtime grants before enablement.
+4. Staff assignment/revocation is **only** the audited direct-connection operator procedure `scripts/community-staff.sql`. Supply psql `--set=ON_ERROR_STOP=1 --set=user_id=<stable Better Auth ID> --set=staff_role=admin|moderator|none --set=reason='<reviewed operator ticket/reason>' --file=scripts/community-staff.sql`. Verify account identity separately before assignment. `none` revokes; never delete staff history. The transaction records `session_user` and reason automatically, including bootstrap. No HTTP role-assignment endpoint exists. Do not run this script using application credentials.
+5. Independently configure `COMMUNITY_MEDAL_BLOB_STORE_ID` to an intended **existing private** Vercel Blob store, with the project's per-request OIDC private put/get permission. The adapter uses only `community-medal-proof/<server UUID>.pdf`, private access and no overwrites; it never falls back to legacy/public credentials or the profile namespace. Confirm private-store configuration and runtime retrieval before enabling the flags. Codex has not configured/provisioned storage or changed Vercel settings.
+6. Only the user deploys through the GitHub account associated with the paid Vercel seat. After migration/grants/store/staff setup are verified, the user enables both flags, deploys, verifies Production READY and the intended SHA, then checks own submission/status, admin review/audit/download, moderator/claimant denial, revocation and existing auth/submission flows. Production installation/storage transport remain unverified until this operator step.
+7. Roll back exposure by turning either new flag OFF and redeploying via the user. Preserve all proof/claim/staff/audit data. The down migration refuses any claim or staff audit history and is for empty disposable testing only. Stuck uploading claims require operator verification of object existence/length/hash before finalization; do not blindly delete the reservation or enable review. Retention and automated cleanup are not included in 2B1.
+
+### Files and validation
+
+- API routes under `app/api/community/medals`; `lib/community/medal-{api,contracts,route,server,storage}.ts`; `lib/db/schema.ts`; SQL 0010 up/down; `scripts/community-staff.sql`; `types/medal-pdf-worker.d.ts`; `lib/community-medals.test.ts`.
+- Disposable PostgreSQL checks cover up/down/up without any community prerequisites, runtime least privileges, role forgery/revocation, self-review, IDOR, review races, audit immutability, private downloads, PDF spoofing/abuse, ambiguous storage failures and shared limits. Private-store adapter tests cover explicit binding/namespace/OIDC/private options. Local full suite: **682 server tests passed, zero failures, one inherited corpus-punctuation TODO; 29 UI tests passed**. Seven targeted checks (including nested database cases and storage adapter) pass. Pinned `corepack pnpm` typecheck, lint and production build pass; isolation guards and `git diff --check` pass. The actual production-bundled PDF parser/worker also accepted a synthetic valid proof. GitHub CI result recorded with delivery.
+- Actual built Next server with both new flags OFF and an intentionally unreachable synthetic database: own/submit/queue/proof/review returned explicit disabled 503/private-no-store; Settings returned 200. No new schema is needed to ship disabled code.
+- No review dashboard, medal showcase, public staff badges, comments or later batches implemented. **Next: Batch 2B2.** Deployment/migration/grants/private-store setup and smoke testing remain **PENDING USER ACTION**.
+
+---
+
+## Historical Batch 2A handoff
+
 Updated: 3 November 2026, 05:21 WITA (UTC+8).
 
 ## Batch 2A: earned achievements and profile showcase

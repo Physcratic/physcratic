@@ -570,3 +570,20 @@ export const authoredSolutionReveals = pgTable(
     ),
   ],
 );
+
+// 0010 SQL owns immutable submission/audit guards, state transitions and locked staff authorization.
+export const communityStaff = pgTable('community_staff', {
+ userId:text('user_id').primaryKey().references(()=>user.id,{onDelete:'restrict'}), role:text('role').notNull(),reason:text('reason').notNull(),updatedAt:timestamp('updated_at',{withTimezone:true}).notNull().defaultNow(),
+},t=>[check('community_staff_role_check',sql`${t.role} IN ('admin','moderator','none')`)]);
+export const communityStaffAudit=pgTable('community_staff_audit',{
+ id:bigint('id',{mode:'number'}).primaryKey().generatedAlwaysAsIdentity(),userId:text('user_id').notNull().references(()=>user.id),oldRole:text('old_role'),newRole:text('new_role').notNull(),reason:text('reason').notNull(),operator:text('operator').notNull(),createdAt:timestamp('created_at',{withTimezone:true}).notNull().defaultNow(),
+});
+export const communityMedalClaims=pgTable('community_medal_claim',{
+ id:uuid('id').primaryKey(),userId:text('user_id').notNull().references(()=>user.id,{onDelete:'restrict'}),competition:text('competition').notNull(),award:text('award').notNull(),year:integer('year').notNull(),country:text('country').notNull(),competitionName:text('competition_name').notNull(),certificateName:text('certificate_name').notNull(),pathname:text('pathname').notNull().unique(),bytes:integer('bytes').notNull(),sha256:text('sha256').notNull(),state:text('state').notNull().default('uploading'),version:integer('version').notNull().default(1),reviewerId:text('reviewer_id').references(()=>user.id),reason:text('reason').notNull().default(''),createdAt:timestamp('created_at',{withTimezone:true}).notNull().defaultNow(),updatedAt:timestamp('updated_at',{withTimezone:true}).notNull().defaultNow(),
+},t=>[index('community_medal_owner').on(t.userId,t.createdAt.desc(),t.id),index('community_medal_queue').on(t.state,t.createdAt,t.id),uniqueIndex('community_medal_pending').on(t.userId,t.competition,t.year,sql`CASE WHEN ${t.competition}='National' THEN ${t.country} ELSE '' END`,sql`CASE WHEN ${t.competition}='National' THEN lower(${t.competitionName}) ELSE '' END`).where(sql`${t.state} IN ('uploading','pending','more-info','approved')`)]);
+export const communityMedalAudit=pgTable('community_medal_audit',{
+ id:bigint('id',{mode:'number'}).primaryKey().generatedAlwaysAsIdentity(),claimId:uuid('claim_id').notNull().references(()=>communityMedalClaims.id),version:integer('version').notNull(),actorId:text('actor_id').notNull().references(()=>user.id),state:text('state').notNull(),reason:text('reason').notNull(),createdAt:timestamp('created_at',{withTimezone:true}).notNull().defaultNow(),
+},t=>[unique().on(t.claimId,t.version)]);
+export const communityMedalLimits=pgTable('community_medal_limit',{
+ userId:text('user_id').primaryKey().references(()=>user.id),minute:timestamp('minute',{withTimezone:true}).notNull(),requests:integer('requests').notNull(),day:date('day').notNull(),uploads:integer('uploads').notNull(),
+});
