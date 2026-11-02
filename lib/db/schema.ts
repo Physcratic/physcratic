@@ -4,6 +4,7 @@ import { check, foreignKey, index, type AnyPgColumn, boolean, bigint, date, doub
 import type { ProfileEducationLevel, ProfileTopicId } from "@/lib/community/profile-contracts";
 import type { SolutionSubmission } from "@/lib/solution-grading";
 import type { ProblemAnswerCheck } from "@/lib/individual-elo";
+import type { AchievementId } from "@/lib/community/achievements";
 
 // Mirrors the already-deployed Better Auth shared limiter table.
 export const rateLimit = pgTable("rateLimit", {
@@ -44,6 +45,23 @@ export const communityProfileWriteLimits = pgTable("community_profile_write_limi
   windowStart: timestamp("window_start", { withTimezone: true }).notNull(),
   requests: integer("requests").notNull(),
 }, (t) => [check("community_profile_write_limit_requests_check", sql`${t.requests} BETWEEN 1 AND 11`)]);
+
+// Additive 0009. SQL owns live eligibility functions and the selection validation trigger.
+export const communityBadgeSelections = pgTable("community_badge_selection", {
+  userId: text("user_id").primaryKey().references(() => communityProfiles.userId, { onDelete: "cascade" }),
+  badgeIds: text("badge_ids").array().$type<AchievementId[]>().notNull().default(sql`'{}'::text[]`),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().default(sql`clock_timestamp()`),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().default(sql`clock_timestamp()`),
+}, (t) => [check("community_badge_selection_ids_check", sql`(
+  cardinality(${t.badgeIds})<=2 AND (cardinality(${t.badgeIds})=0 OR (array_ndims(${t.badgeIds})=1 AND array_lower(${t.badgeIds},1)=1))
+  AND array_position(${t.badgeIds},NULL) IS NULL AND (cardinality(${t.badgeIds})<2 OR ${t.badgeIds}[1]<>${t.badgeIds}[2])
+  AND ${t.badgeIds} <@ ARRAY['first-spark','problem-weaver','equation-architect','master-problem-setter','first-breakthrough','persistent-solver','olympiad-pathfinder']::text[]
+  ) IS TRUE`)]);
+export const communityAchievementWriteLimits = pgTable("community_achievement_write_limit", {
+  userId: text("user_id").primaryKey().references(() => user.id, { onDelete: "cascade" }),
+  windowStart: timestamp("window_start", { withTimezone: true }).notNull(),
+  requests: integer("requests").notNull(),
+}, (t) => [check("community_achievement_write_limit_requests_check", sql`${t.requests} BETWEEN 1 AND 11`)]);
 
 // Additive 0008. SQL owns media identity/state-transition/deletion guards.
 export const communityProfileMedia = pgTable("community_profile_media", {
@@ -169,6 +187,7 @@ export const authoredProblems = pgTable("authored_problem", {
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
 }, (t) => [
   index("authored_problem_owner_idx").on(t.ownerId),
+  index("community_achievement_author_idx").on(t.ownerId,t.id).where(sql`${t.state}='published'`),
   index("authored_problem_discovery_idx").on(t.id).where(sql`${t.state}='published'`),
   check("authored_problem_state_check", sql`${t.state} in ('draft','published','archived')`),
   check("authored_problem_slug_check", sql`${t.slug} ~ '^[a-z0-9]+(-[a-z0-9]+)*$' and length(${t.slug}) <= 120`),
@@ -421,6 +440,7 @@ export const authoredAttempts = pgTable(
       t.id.desc(),
     ),
     index("authored_attempt_revision_idx").on(t.revisionId, t.partId),
+    index("community_achievement_attempt_idx").on(t.userId,t.problemId,t.revisionId,t.partId).where(sql`${t.status}='correct' AND ${t.assisted}=false`),
     foreignKey({
       columns: [t.problemId, t.revisionId],
       foreignColumns: [authoredRevisions.problemId, authoredRevisions.id],

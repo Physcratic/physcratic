@@ -14,6 +14,8 @@ import { SkipLink } from "@/components/skip-link";
 import { AppearanceSettings } from "./appearance-settings";
 import { ProfileCard } from "./profile-card";
 import { ProfileMediaControls } from "./profile-media-controls";
+import { AchievementSettings } from "./achievement-settings";
+import type { AchievementId } from "@/lib/community/achievements";
 
 type Form = PublicProfile & { publicVisibility: boolean };
 const initialForm: Form = { handle: "", displayName: "", bio: "", educationLevel: "prefer-not-to-say", favoriteTopicIds: [], publicVisibility: false };
@@ -23,13 +25,14 @@ function fromProfile(profile: OwnProfile | null): Form {
   return { handle, displayName, bio, educationLevel, favoriteTopicIds, publicVisibility };
 }
 
-function ProfileEditor({ userId, verified, mediaEnabled, onboarding }: {
-  userId: string; verified: boolean; mediaEnabled: boolean; onboarding: boolean;
+function ProfileEditor({ userId, verified, mediaEnabled, achievementsEnabled, onboarding }: {
+  userId: string; verified: boolean; mediaEnabled: boolean; achievementsEnabled: boolean; onboarding: boolean;
 }) {
   const [form, setForm] = useState(initialForm), [saved, setSaved] = useState<OwnProfile | null>(null);
   const [loading, setLoading] = useState(true), [loadFailed, setLoadFailed] = useState(false), [reload, setReload] = useState(0);
   const [saving, setSaving] = useState(false), [error, setError] = useState(""), [success, setSuccess] = useState("");
   const [images, setImages] = useState(emptyProfileMedia);
+  const [badgeIds, setBadgeIds] = useState<AchievementId[]>([]);
   const alive = useRef(true), saveController = useRef<AbortController | null>(null);
   const dirty = JSON.stringify(form) !== JSON.stringify(fromProfile(saved));
   useEffect(() => { alive.current = true; return () => { alive.current = false; saveController.current?.abort(); }; }, []);
@@ -90,15 +93,16 @@ function ProfileEditor({ userId, verified, mediaEnabled, onboarding }: {
           {success && <p role="status" className="flex items-center gap-2 text-sm"><Check aria-hidden="true" className="size-4" />{success}</p>}
           <div className="flex flex-wrap items-center gap-3 border-t pt-5"><Button type="submit" disabled={saving || !verified}>{saving ? "Saving…" : saved ? "Save changes" : "Create profile"}</Button>{dirty && <Button type="button" variant="ghost" disabled={saving} onClick={() => { setForm(fromProfile(saved)); setError(""); setSuccess(""); }}>Discard changes</Button>}{saved?.publicVisibility && <Link className="inline-flex items-center gap-2 rounded px-1 py-2 text-sm underline underline-offset-4" href={`/u/${saved.handle}`}><Eye aria-hidden="true" className="size-4" />View saved public profile</Link>}</div>
         </form>
-        <section className="min-w-0 space-y-3 xl:sticky xl:top-6" aria-labelledby="preview-heading"><div className="flex items-center justify-between"><h2 id="preview-heading" className="text-sm font-medium">Live preview</h2><span className="rounded-full border px-2 py-1 text-xs text-muted-foreground">{form.publicVisibility ? "Public after saving" : "Private"}</span></div><ProfileCard profile={form} media={images} compact headingLevel={3} /><p className="px-1 text-xs leading-5 text-muted-foreground">Details are a preview until you save. Uploaded images save separately.</p></section>
+        <section className="min-w-0 space-y-3 xl:sticky xl:top-6" aria-labelledby="preview-heading"><div className="flex items-center justify-between"><h2 id="preview-heading" className="text-sm font-medium">Live preview</h2><span className="rounded-full border px-2 py-1 text-xs text-muted-foreground">{form.publicVisibility ? "Public after saving" : "Private"}</span></div><ProfileCard profile={form} media={images} badgeIds={badgeIds} compact headingLevel={3} /><p className="px-1 text-xs leading-5 text-muted-foreground">Details are a preview until you save. Uploaded images save separately.</p></section>
       </div>
     </section>
+    {achievementsEnabled && <AchievementSettings profileSaved={Boolean(saved)} verified={verified} onPreviewChange={setBadgeIds} />}
     <ProfileMediaControls enabled={mediaEnabled} saved={Boolean(saved)} verified={verified} onChange={setImages} />
   </>;
 }
 
-export function AccountSettings({ profilesEnabled, mediaEnabled, onboarding = false }: {
-  profilesEnabled: boolean; mediaEnabled: boolean; onboarding?: boolean;
+export function AccountSettings({ profilesEnabled, mediaEnabled, achievementsEnabled = false, onboarding = false }: {
+  profilesEnabled: boolean; mediaEnabled: boolean; achievementsEnabled?: boolean; onboarding?: boolean;
 }) {
   const { data, isPending, error, refetch } = authClient.useSession();
   const user = data?.user;
@@ -106,7 +110,7 @@ export function AccountSettings({ profilesEnabled, mediaEnabled, onboarding = fa
     <SkipLink targetId="settings-main">Skip to settings</SkipLink>
     <header className="border-b"><div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5 sm:px-8"><Link href="/dashboard" className="text-lg font-semibold tracking-tight">Physcratic</Link><Link href="/dashboard?view=problems" className="inline-flex items-center gap-2 rounded px-1 py-2 text-sm text-muted-foreground hover:text-foreground"><ArrowLeft aria-hidden="true" className="size-4" />Back to Arena</Link></div></header>
     <main id="settings-main" tabIndex={-1} className="mx-auto max-w-6xl px-5 py-8 focus:outline-none sm:px-8 sm:py-12"><div className="mb-8 space-y-2"><p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Your account</p><h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Account Settings</h1><p className="text-sm leading-6 text-muted-foreground">Manage your profile, privacy and appearance.</p></div>
-      <div className="grid items-start gap-8 lg:grid-cols-[180px_minmax(0,1fr)] lg:gap-10"><nav aria-label="Settings sections" className="flex flex-wrap gap-2 lg:sticky lg:top-6 lg:flex-col">{[["Profile", "#profile-settings", UserRound], ["Appearance", "#appearance-settings", Palette], ...(profilesEnabled && user ? [["Images", "#image-settings", ImageIcon]] : [])].map(([label, href, Icon]) => {
+      <div className="grid items-start gap-8 lg:grid-cols-[180px_minmax(0,1fr)] lg:gap-10"><nav aria-label="Settings sections" className="flex flex-wrap gap-2 lg:sticky lg:top-6 lg:flex-col">{[["Profile", "#profile-settings", UserRound], ["Appearance", "#appearance-settings", Palette], ...(profilesEnabled && user ? [["Images", "#image-settings", ImageIcon], ...(achievementsEnabled ? [["Achievements", "#achievement-settings", Check]] : [])] : [])].map(([label, href, Icon]) => {
         const SectionIcon = Icon as typeof UserRound;
         return <a key={label as string} href={href as string} className="flex min-h-11 items-center gap-3 rounded-lg border border-transparent px-3 py-2 text-sm hover:border-border hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><SectionIcon aria-hidden="true" className="size-4" />{label as string}</a>;
       })}</nav>
@@ -115,7 +119,7 @@ export function AccountSettings({ profilesEnabled, mediaEnabled, onboarding = fa
             : isPending ? <section id="profile-settings" className="rounded-2xl border p-7"><h2 className="text-lg font-semibold">Profile</h2><p role="status" className="mt-3 text-sm">Loading your account…</p></section>
             : error ? <section id="profile-settings" className="space-y-3 rounded-2xl border p-7"><h2 className="text-lg font-semibold">Profile</h2><p role="alert" className="text-sm">Your account could not be loaded.</p><Button variant="outline" onClick={() => refetch()}>Retry account</Button></section>
             : !user ? <section id="profile-settings" className="space-y-3 rounded-2xl border p-7"><h2 className="text-lg font-semibold">Profile</h2><p className="text-sm text-muted-foreground">Sign in to create or edit your profile.</p><Button asChild><Link href="/sign-in?returnTo=%2Fsettings">Sign in</Link></Button></section>
-            : <ProfileEditor key={user.id} userId={user.id} verified={user.emailVerified === true} mediaEnabled={mediaEnabled} onboarding={onboarding} />}
+            : <ProfileEditor key={user.id} userId={user.id} verified={user.emailVerified === true} mediaEnabled={mediaEnabled} achievementsEnabled={achievementsEnabled} onboarding={onboarding} />}
           <AppearanceSettings />
         </div>
       </div>
