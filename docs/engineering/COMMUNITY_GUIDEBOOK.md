@@ -103,6 +103,7 @@ You are editing Physcratic/physcratic. You may commit, push and merge to main on
 **Relevant files:** \`components/physics/problem-library.tsx\`, dashboard query/link tests, \`lib/site.ts\` and actual brand consumers.
 
 ~~~text
+RECOMMENDED CODEX MODEL: GPT-6.1 Terra · Medium
 BATCH 0 — Arena navigation cleanup. First fetch/read docs/engineering/COMMUNITY_GUIDEBOOK.md from the roadmap branch and include the guidebook in your change to main. On latest main, remove the "Quick practice" TAB from the problem library because it dilutes the primary Olympiad experience; preserve its data and any existing deep links/API behavior, and map old ?collection=practice to the Arena/default experience. Make the Arena the obvious primary view; avoid destructive data deletion. If an actual "Two particles" title exists, replace user-visible title with "Physcratic"; lib/site.ts already says Physcratic, so do not invent a rename. If a tested submission status already has authoritative correct/incorrect values, add modest accessible green/red state styling only in an isolated component. Avoid changing grade logic, editorial Elo or problem routes. Test navigation, URL persistence, keyboard/mobile behavior, typecheck/lint/build. Commit/merge if green. Update COMMUNITY_STATUS.md with exact changes. No DB migrations.
 ~~~
 
@@ -114,6 +115,7 @@ BATCH 0 — Arena navigation cleanup. First fetch/read docs/engineering/COMMUNIT
 **Relevant files:** \`lib/db/schema.ts\`, \`lib/auth.ts\`, auth/session helpers, new \`lib/community/profile*\`, new \`app/api/community/profile/*\`.
 
 ~~~text
+RECOMMENDED CODEX MODEL: GPT-6.1 Sol · High
 BATCH 1A — Public community profile foundation. Follow operating contract. Implement additive public profile record tied to existing Better Auth user ID, with unique normalized handle, editable displayName, bio, educationLevel, favoriteTopicIds from the existing canonical taxonomy, publicVisibility opt-in, and proper created/updated times. Existing users must NOT become public by default; their email/name and private attempts must not leak. Public GET only for opted-in profiles; session-protected own GET/PATCH with strict Zod validation, reserved handles, abuse-safe slug/rename policy, unique index/transactional conflict semantics and rate limits. Do not mutate Better Auth sign-in identity or change signup payload yet. Add migration + down/documented rollback for disposable use, Drizzle schema, API tests: unauthorized, duplicate handles, visibility, IDOR, invalid data and concurrent handle claims. Feature-flag-safe with absent production tables; do NOT apply SQL to production. Run checks; commit/merge when safe; handoff.
 ~~~
 
@@ -125,6 +127,7 @@ BATCH 1A — Public community profile foundation. Follow operating contract. Imp
 **Relevant files:** \`components/settings-dialog.tsx\`, \`components/account-nav.tsx\`, \`components/auth-form.tsx\`, new \`app/u/[handle]\` / profile UI.
 
 ~~~text
+RECOMMENDED CODEX MODEL: GPT-6.1 Sol · Medium
 BATCH 1B — Build public /u/[handle] profiles and a functional, polished Account Settings screen. Keep Theme but make Settings a spacious responsive page or well-organized tabs: Profile, Appearance, later Achievements/Verification placeholders ONLY if not dead controls. Implement displayName, bio, education level, canonical favourite topic multi-select, handle/visibility with clear save/error states and own preview. Add optional post-email-verification onboarding ("skip for now"); do not alter pre-verification signup, Terms, CAPTCHA or verification transport. Add avatar and banner upload using image-only PNG/JPEG/WebP, server-side byte/type/dimension limits, re-encoding/metadata stripping where feasible, safe object keys, ownership checks, replacement cleanup and reasonable quotas. Do not reuse private authored media permission model incorrectly. Public images only after explicit user choice; no arbitrary external URLs/SVG. Test edit/save/reload, media abuse/IDOR, opt-out/privacy, desktop/mobile/keyboard/reduced-motion. Commit/merge safely with gates.
 ~~~
 
@@ -136,6 +139,7 @@ BATCH 1B — Build public /u/[handle] profiles and a functional, polished Accoun
 **Relevant files:** new community achievement registry, \`lib/db/schema.ts\`, author/attempt relations, profile and authored card components.
 
 ~~~text
+RECOMMENDED CODEX MODEL: GPT-6.1 Sol · High
 BATCH 2A — Implement server-owned achievement definitions (First Spark 1 authored publication, Problem Weaver 5, Equation Architect 15, Master Problem Setter 50; First Breakthrough 1, Persistent Solver 10, Olympiad Pathfinder 50 unique verified complete solves). Do not count drafts, self-favourites, ungraded/awaiting-reference results, or duplicate attempts. Be precise that user-authored problem solves require all mandatory parts of current revision graded correct and distinguish assisted solves. Use bounded recompute/materialization with reliable invalidation on publish/unpublish/regrade; no client-awarded badges. Allow user to select MAX TWO earned badges shown beside public display name. Include elegant consistent badge colors/rarity outline, rare subtle glitter using CSS with reduced-motion fallback and accessible readable labels. Do not implement medal claims or staff permissions in this batch. Test spoofed badges, duplicate submissions, race/revision changes, and mobile overflow. Merge after checks and handoff.
 ~~~
 
@@ -147,6 +151,7 @@ BATCH 2A — Implement server-owned achievement definitions (First Spark 1 autho
 **Relevant files:** community credentials, secure Blob helpers, private admin routes/dashboard.
 
 ~~~text
+RECOMMENDED CODEX MODEL: GPT-6 Astra · High
 BATCH 2B — Add Olympiad medalist verification requests for IPhO/APhO/EuPhO/national competitions. Form asks competition, award, year, country/competition for national awards, certificate full name, one private PDF proof. Server validates file bytes/type/size (5 MB suggested) and binds proof to requestor. Build admin-only pending/rejected/approved queue, private proof fetch, decision reason/time, revocation, immutable reviewer audit, duplicate-claim guard; no public proof URL or user-accessible list of others' claims. Public badge appears ONLY upon approval, can fill one of the two showcases. Add developer-only role assignment via audited privileged script/action to stable user IDs; staff label never grants permissions by itself. Support private CSV export of claim metadata (not certificates); defer Google Sheets automation unless independently configured and access-restricted. Test permission escalation, self-approval, PDF spoofing, URL leakage, deleted claim, concurrent approvals, retention/privacy. Never include proof in logs or public API. Merge only with safe migration flags and handoff.
 ~~~
 
@@ -158,6 +163,7 @@ BATCH 2B — Add Olympiad medalist verification requests for IPhO/APhO/EuPhO/nat
 **Relevant files:** \`components/physics/problem-library.tsx\`, \`arena-collection.tsx\`, \`authored/library-collection.tsx\`, \`authored-library-api.ts\`, typed contracts.
 
 ~~~text
+RECOMMENDED CODEX MODEL: GPT-6.1 Sol · High
 BATCH 3A — Present a single Physcratic Arena collection combining static Arena entries and public current-revision authored problems; keep all source-specific readers/graders, immutable revisions, private solutions and original attribution unchanged. Provide type-safe problemKey namespace; no collisions between authored UUID and static IDs. Static internally authored Arena problems show publisher Physcratic; real user-authored problems show linked public author profile, display name and up to two approved achievements, respecting privacy. Original source attributions remain clear. Preserve efficient paginated authored discovery and avoid fetching full private authored documents or N+1 queries. Search/filter across sources must not silently omit results because one source is paginated; choose transparent "load more" behavior or a well-tested federated query. Test old routes, search, unpublication, private author fallback, publication races, performance, mobile. Merge safely and handoff.
 ~~~
 
@@ -169,6 +175,7 @@ BATCH 3A — Present a single Physcratic Arena collection combining static Arena
 **Relevant files:** new favourite model/API, shared problem identity, authored attempt aggregation, Arena cards/reader.
 
 ~~~text
+RECOMMENDED CODEX MODEL: GPT-6.1 Sol · High
 BATCH 3B — Build authenticated idempotent favourite/unfavourite for valid public Arena problemKey, uniqueness (userId, problemKey), accessible heart/bookmark control and aggregated favourite counts shown in Arena cards and detail reader. Persist across sessions; prevent inflated counters on races and retries; rate-limit writes. Add truthful public complete/solved counts only where the existing server grader can prove a unique verified user correctly completed all required parts of the current public revision; exclude repeated checks, ungraded, needs-review, assisted if presented as independent solves, and legacy awaiting-reference. For static Arena without trusted full-problem grading show explicit unavailable state, not 0. Do not confuse unique solves with page views, and do not reveal private user identities. Use bounded queries without N+1. Test concurrency, unpublish, fake problemKey, private ownership, account switch, data races. Keep existing solution permissions intact.
 ~~~
 
@@ -180,6 +187,7 @@ BATCH 3B — Build authenticated idempotent favourite/unfavourite for valid publ
 **Relevant files:** new comment APIs/contract, Arena problem detail UI, session authorization helpers.
 
 ~~~text
+RECOMMENDED CODEX MODEL: GPT-6.1 Sol · High
 BATCH 4 — Implement readable Reddit-like nested discussion threads for public Arena problems, with root and child comments, max 3–4 visual indentation levels, replying-to label for deeper threads, cursor pagination, newest/top sorting, like/unlike, safe body rendering, own-edit (edited timestamp) and soft-delete retaining child context. Parent must belong to SAME public problem; handle unpublished problem, deleted account/comment and concurrent replies. Verified sessions required to create/edit/like; guests read visible comments. Server validates text lengths and rejects unsafe markup/links. Add bounded per-account/IP throttling and spam duplicate guards. Feature flag COMMUNITY_COMMENTS_ENABLED must default FALSE until Batch 5 moderation/report UI and abuse controls exist; preserve current production behavior with absent schema. Browser-test 375px keyboard/screenreader, deep threads, loading/optimistic rollback, XSS and IDOR. Merge code with flag off, handoff.
 ~~~
 
@@ -191,6 +199,7 @@ BATCH 4 — Implement readable Reddit-like nested discussion threads for public 
 **Relevant files:** new reports/admin/moderation APIs + UI, staff permission helper, comment create/edit flows.
 
 ~~~text
+RECOMMENDED CODEX MODEL: GPT-6 Astra · High
 BATCH 5 — Build user/problem/comment report API with reason enum, optional text, anti-abuse throttling and idempotent dedup. Implement restricted moderator/admin console for triage, private evidence, hide/restore comment, lock thread, dismiss/action reports, role-specific authority and immutable actor/time/reason audit. Implement server-side content rules on comment creation AND edit: normalized token-level slur/threat filter, conservative profanity/URL/link-spam handling, hold-for-review for uncertain cases, configurable tested allowlist of legitimate educational terms. Avoid false positives from substrings and never let users override server decisions. Provide appeal path/review correction. Every report and moderation endpoint must test unauthorized, owner impersonation, IDOR, CSRF/rate-limits, private proof isolation, duplicate spam, concurrent state changes. Validate reviewer UI mobile/keyboard, retention/privacy and no raw DB diagnostics. Only enable COMMUNITY_COMMENTS_ENABLED after private admin queue, reporting, and staging end-to-end verification are proven. Commit/merge and report deployment/migration status.
 ~~~
 
