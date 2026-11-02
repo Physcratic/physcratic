@@ -1,15 +1,15 @@
 # Community implementation status
 
-Updated: 3 November 2026, 02:42 WITA (UTC+8).
+Updated: 3 November 2026, 02:50 WITA (UTC+8).
 
 ## Batch 1A: profile backend
 
 **Deployment: PENDING USER ACTION. NOT DEPLOYED BY CODEX.**
 
 - Base: latest main `f13a74b36d0379be3cab93ed0ce6c77c02ba78ce`, including the user's deployment-trigger commit after Batch 0.
-- Implementation SHA: `bd3ee3bffbf360301faa8289e2c11b3d954108d8`.
+- Final implementation SHA: `b8dd54b30725b3c5d72b788d350f64f24d25c177` (includes the indexed public lookup refinement).
 - Branch: `codex/community-batch-1a-2026-11-03`.
-- Final merge SHA: pending CI and merge; finalized after merge.
+- Final feature merge SHA: `07dcad9d6fd446a42c85cb2724724b52993de9ab`, merged to main through [PR #79](https://github.com/Physcratic/physcratic/pull/79). This final handoff update is a subsequent documentation-only commit.
 - Batch 0 remains merged through PR #77 (`5209a47b2d099b3e9dce4f49fbdf45abe1a3974b`). No Batch 0 implementation was repeated.
 
 ### Implemented and changed files
@@ -54,7 +54,8 @@ Updated: 3 November 2026, 02:42 WITA (UTC+8).
 - `python3 -B scripts/phase-c-offline/run.py safety`: passed runner self-test, 5 transport tests (2 expected skips), and 1 ESLint scope guard.
 - `corepack pnpm build`: passed using synthetic build-only auth settings, with profiles disabled and no live database binding.
 - Built local Next server with an intentionally unreachable synthetic loopback database: own GET, own PATCH and public GET all returned the expected disabled 503 JSON and private/no-store headers. The existing Better Auth initializer logged the unavailable synthetic database; no profile feature was enabled. Separate loader-counter tests prove disabled profile handlers never load their auth/database dependencies.
-- `git diff --check`: passed. GitHub CI and final merge result are recorded after merge below.
+- `git diff --check`: passed.
+- [GitHub CI #140](https://github.com/Physcratic/physcratic/actions/runs/41503409156): passed on final implementation SHA `b8dd54b30725b3c5d72b788d350f64f24d25c177`. Both jobs succeeded, including database tests, reviewed release/transport guards, typecheck, lint, server/component tests and production build. Targeted profile tests, typecheck and lint were also rerun locally after the indexed lookup refinement.
 
 ### Later production migration: user/operator action only
 
@@ -69,6 +70,6 @@ Updated: 3 November 2026, 02:42 WITA (UTC+8).
 
 ### Outstanding and next phase
 
-- No implementation blockers after local verification; merge is gated on GitHub CI. Production migration, runtime grants, feature enablement and Vercel deployment remain **PENDING USER ACTION**.
+- No implementation blockers. PR #79 merged after local verification and successful GitHub CI #140. Production migration, runtime grants, feature enablement and Vercel deployment remain **PENDING USER ACTION**.
 - No profile/onboarding/settings/media UI, handle rename, badges, roles, comments or other future phases implemented.
 - Next phase: **Batch 1B**, starting from latest main, this handoff and the guidebook. Confirm schema/application readiness before enabling or using profiles.
