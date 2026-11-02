@@ -1,0 +1,218 @@
+{
+  "baseline": "bbcfe194b76a974b9587a8e11c3fc57668d7a530",
+  "old_phase_c_commit": "893af8bb717127c79caf44666542f037575204fb",
+  "historical_live_evidence": {
+    "source": "docs/engineering/AUTHORING_ALPHA_RELEASE.md",
+    "sha": "2c35d61a5fcf6680a4054380a4bfcff1b71bc9e6",
+    "scope": "PR27 separate Preview; one verified actor; documented only, not repeated or promoted to historical integration live PASS"
+  },
+  "cases": [
+    {
+      "id": "A01",
+      "title": "Offline regressions",
+      "coverage": "terms; verification-email; numeric/symbolic grading; author-media-storage",
+      "classification": "Improved",
+      "limitations": "No CAPTCHA implementation on main; old fixture/schema framework redundant.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "B01",
+      "title": "Deployment/resource identity",
+      "coverage": "authoring-staging; runtime-database transport guards",
+      "classification": "Live required",
+      "limitations": "No fresh provider metadata or live DB inspection in this task.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "B02",
+      "title": "Protection, public rendering and routing",
+      "coverage": "tests/auth-form; dashboard-route; submission-security",
+      "classification": "Partial live evidence",
+      "limitations": "PR27 signup/author flow documented; exact old Preview protection requires separate proof.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "B03",
+      "title": "Public authored and legacy metadata",
+      "coverage": "authored-library; problem-authoring-api; authored-attempt-api",
+      "classification": "Partial live evidence",
+      "limitations": "Authored discovery/read/unpublish documented; old metadata target not rerun.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "C01",
+      "title": "Terms/CAPTCHA rejection",
+      "coverage": "terms; staging-auth-review new rejection subtest",
+      "classification": "Improved / missing CAPTCHA",
+      "limitations": "No account/mail for invalid consent tested on disposable PG. CAPTCHA absent on released main.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "C02",
+      "title": "Signup and audit fields",
+      "coverage": "staging-auth-review",
+      "classification": "Partial live evidence / missing CAPTCHA",
+      "limitations": "Real Terms/signup documented; token replay/action/score/hostname cannot be claimed.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "C03",
+      "title": "Email verification",
+      "coverage": "staging-auth-review; verification-email new provider failure tests",
+      "classification": "Improved / partial live evidence",
+      "limitations": "PR27 real allowed email click documented. Current provider scope/allowlist still needs attestation.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "C04",
+      "title": "Session login/logout/cookies",
+      "coverage": "staging-auth-review; auth-form",
+      "classification": "Partial live evidence",
+      "limitations": "Local verify/no-autologin/explicit signin; PR27 login/logout. Exact deployed cookie behavior requires browser.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "C05",
+      "title": "Second user and enumeration",
+      "coverage": "staging-auth-review; owner/API tests",
+      "classification": "Live required",
+      "limitations": "Release used one verified actor; no live two-user claim.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "C06",
+      "title": "Owner draft CRUD/isolation",
+      "coverage": "problem-authoring-api",
+      "classification": "Automated / partial live evidence",
+      "limitations": "Strong disposable PG owner-negative coverage; live single-owner creation documented.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "C07",
+      "title": "Autosave and optimistic conflict",
+      "coverage": "problem-authoring-api; problem-authoring-editor",
+      "classification": "Automated / partial live evidence",
+      "limitations": "DB version races tested; live autosave/reload documented, two-tab live conflict not established.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "C08",
+      "title": "Interrupted save and recovery",
+      "coverage": "problem-authoring-editor; tests/problem-authoring.browser.mjs",
+      "classification": "Automated / live required",
+      "limitations": "Unit recovery state covered. Browser harness not executed here.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "C09",
+      "title": "Private media upload/read",
+      "coverage": "author-media-api; author-media-storage",
+      "classification": "Automated / partial live evidence",
+      "limitations": "Release OIDC private statement/solution bytes documented; live cross-user negative still separate.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "C10",
+      "title": "Origin, owner and secret DTO boundaries",
+      "coverage": "problem-authoring-api; author-media-api; authored-solution-api",
+      "classification": "Automated / partial live evidence",
+      "limitations": "Release guest denials documented; two-user live boundary remains untested.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "C11",
+      "title": "Publish immutable revisions/visibility",
+      "coverage": "problem-authoring-api; authored-library; authored-attempt-api; authored-solution-api",
+      "classification": "Automated / partial live evidence",
+      "limitations": "Release one retained revision; historical requirement for two revisions not satisfied by that evidence.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "C12",
+      "title": "Draft delete",
+      "coverage": "problem-authoring-api",
+      "classification": "Automated",
+      "limitations": "Local delete/access controls. Exact old scratch fixture not executed.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "C13",
+      "title": "Media deletion/retention",
+      "coverage": "author-media-api",
+      "classification": "Automated",
+      "limitations": "Local explicit delete/retention/failure/race tests; no remote cleanup performed.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "C14",
+      "title": "Legacy practice idempotency/history",
+      "coverage": "practice; individual-rating.integration; submission-security",
+      "classification": "Automated / live required",
+      "limitations": "Authored attempts now also covered. Live legacy fixture unavailable in release evidence.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "C15",
+      "title": "Legacy submission persistence",
+      "coverage": "individual-rating.integration; submission-request; authored-attempt-api",
+      "classification": "Automated / live required",
+      "limitations": "Released authored transport adds grading/attempts; do not replace historical legacy-route assertions with its PASS.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "B04",
+      "title": "DB identity/schema/grants correlation",
+      "coverage": "authoring-migration-upgrade; individual-rating.integration; API PG fixtures",
+      "classification": "Automated / live required",
+      "limitations": "Fresh disposable upgrade/rollback/grants only. No shared ledger queried or modified.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "C16",
+      "title": "Login rate limiting/recovery",
+      "coverage": "staging-auth-review",
+      "classification": "Partial automated / live required",
+      "limitations": "Local signup throttle tested. Main limiter memory default; cross-instance persistence not proven.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "C17",
+      "title": "Unpublish and retained history",
+      "coverage": "problem-authoring-api; authored-library; authored-attempt-api; authored-solution-api; author-media-api",
+      "classification": "Automated / partial live evidence",
+      "limitations": "Release unpublish removes discovery/read; retains revision/attempts/media. Old two-revision budget not executed.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    },
+    {
+      "id": "B05",
+      "title": "Cleanup/accounting",
+      "coverage": "local cluster finally; release retained-fixture notes",
+      "classification": "Partial live evidence",
+      "limitations": "All local cluster data removed. Release retains its own fixture set, not old Phase B expected counts.",
+      "live_current_task": "NOT TESTED",
+      "historical_phase_b_case": "NOT EXECUTED HERE"
+    }
+  ]
+}

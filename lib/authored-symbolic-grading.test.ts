@@ -1,8 +1,18 @@
 import assert from "node:assert/strict";
-import test from "node:test";
+import test, { beforeEach } from "node:test";
 import { evaluateExpressionAnswer } from "./authored-symbolic-grading";
 import { symbolicLimits } from "./authored-expression-language";
 import type { AuthoredKey } from "./problem-authoring";
+// Semantic assertions must not depend on worker descheduling. Keep all algebraic
+// assertions and operation/shape/bit limits. The attack test retains its real
+// elapsed-time assertion; the two clock-policy tests exercise deadline expiry.
+beforeEach((t) => {
+  if (t.name.startsWith("wall-clock") || t.name.startsWith("parser, expansion")) return;
+  if (!("mock" in t)) throw new Error("Expected per-test clock isolation");
+  const now = performance.now();
+  t.mock.method(performance, "now", () => now);
+});
+
 type Key = Extract<AuthoredKey, { kind: "expression" }>;
 const variable = (
   name = "x",
@@ -273,4 +283,27 @@ test("seeded polynomial and total rational identity properties never depend on n
     assert.equal(grade(left, `(${expanded})+1`).status, "incorrect");
     correct(`(${a}*x+${b})/(x^2+1)`, `(${2 * a}*x+${2 * b})/(2*x^2+2)`);
   }
+});
+
+test("wall-clock budget expiry explains a valid identity becoming needs-review after a scheduling pause", (t) => {
+  const now = 1000;
+  const clock = t.mock.method(performance, "now", () => now);
+  // Same small identity recorded in the earlier parallel failure.
+  assert.deepEqual(grade("(-2*x+0)*(2*x+-1)", "-4*x^2+2*x+0"), {
+    status: "correct", reason: "symbolic-equivalent",
+  });
+  // Budget construction captures 1000; the next observation simulates a pause.
+  let calls = 0;
+  clock.mock.mockImplementation(() => ++calls === 1 ? now : now + symbolicLimits.milliseconds + 1);
+  assert.deepEqual(grade("(-2*x+0)*(2*x+-1)", "-4*x^2+2*x+0"), {
+    status: "needs-review", reason: "symbolic-resource-limit",
+  });
+});
+
+test("wall-clock expiry is per evaluation and does not contaminate later identities", (t) => {
+  let calls = 0;
+  const clock = t.mock.method(performance, "now", () => ++calls === 1 ? 0 : symbolicLimits.milliseconds + 1);
+  assert.deepEqual(grade("x+x", "2*x"), { status: "needs-review", reason: "symbolic-resource-limit" });
+  clock.mock.mockImplementation(() => 2000);
+  correct("x+x", "2*x");
 });

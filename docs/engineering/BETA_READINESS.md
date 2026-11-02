@@ -390,3 +390,14 @@ Retained main's new codex Preview smoke exclusion unchanged. Manual smoke checks
 - **Contrast:** the Studio, draft list and authored-problem student view scope stronger `--border` and `--input` tokens (`studioTokens` in `components/authoring/studio-ui.tsx`), so the rest of the site keeps its quiet borders. Measured in a browser at 375 and 1440 in both themes on the empty state, draft list, editor (complete and blank) and student view: lowest text contrast 4.67:1 (light) and 5.20:1 (dark), lowest border contrast 4.53:1 (light) and 3.41:1 (dark), no failures.
 - **How it works:** a link to `/learn/how-to-write-a-problem` in the Studio header (list and editor) and in the empty state. The guide may not exist yet.
 - **Not changed:** what authoring saves, validates or grades. The Playwright browser harness strings were updated for the renamed "Answer key, hints and solution" summary (not run here, it needs Postgres).
+
+
+## 2026-11-02 - Phase C offline acceptance reconciled with current main
+
+- Baseline `bbcfe194b76a974b9587a8e11c3fc57668d7a530`. Adapted only the independent offline runner/transport guard. Reused the released API, PostgreSQL and fixture coverage instead of copying a second workflow framework.
+- Added Terms rejection, mocked verification-delivery failures, deterministic symbolic budget policies, transport inheritance and lint-scope regressions. No runtime auth, authoring, grading or storage implementation was changed.
+- Canonical LF migration checkout attributes preserve audited SQL checksum bytes. No migration SQL, schema, dependencies or lockfile changed. All SQL fixture execution used fresh owned loopback clusters only.
+- Evidence and all 23 historical-case classifications: `evidence/phase-c-main-integration/review.md` and `coverage.md`. Offline results do not establish live acceptance. Earlier failures and remaining native-shell validation gates are retained there.
+- No push, PR, provider/config change, shared database operation or deployment. The original three worktrees were hash/index/HEAD checked unchanged. A new branch's Preview resource bindings must be proven isolated before any push.
+
+- Final local results: 82 selected tests, 484 application-subset tests, 24 UI tests and 76 parallel disposable-PG tests passed. TypeScript, zero-warning lint and the optimized local-font build exited 0. The complete guarded server suite exited 1 (nine workflow/native-shell failures), with 9 skips and the inherited punctuation TODO. Earlier load-sensitive PG failures remain recorded. All live cases remain NOT TESTED.

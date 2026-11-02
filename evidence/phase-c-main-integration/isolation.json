@@ -1,0 +1,36 @@
+{
+  "original_worktrees": [
+    {
+      "path": "C:\\Users\\THINKPAD\\Desktop\\physcratic",
+      "head": "052fe922ea1ced798fd5b265863f4ae055209700",
+      "branch": "codex/auth-hardening",
+      "status": "",
+      "tracked_files_checked": 1193,
+      "changed_tracked_files": [],
+      "index_matches": true,
+      "head_matches": true
+    },
+    {
+      "path": "C:\\Users\\THINKPAD\\Desktop\\physcratic-integration",
+      "head": "9351c4bb9a9e7702152e2576640d8a71124a1894",
+      "branch": "codex/integrate-auth-authoring-v1",
+      "status": "",
+      "tracked_files_checked": 1264,
+      "changed_tracked_files": [],
+      "index_matches": true,
+      "head_matches": true
+    },
+    {
+      "path": "C:\\Users\\THINKPAD\\Desktop\\physcratic-phase-c-offline",
+      "head": "893af8bb717127c79caf44666542f037575204fb",
+      "branch": "codex/phase-c-offline-acceptance",
+      "status": "",
+      "tracked_files_checked": 1292,
+      "changed_tracked_files": [],
+      "index_matches": true,
+      "head_matches": true
+    }
+  ],
+  "owned_pg_clusters_remaining": [],
+  "shared_changes": "none; only authorized origin/main remote-tracking ref fetches"
+}

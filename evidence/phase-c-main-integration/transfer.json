@@ -1,0 +1,36 @@
+{
+  "source_commit": "893af8bb717127c79caf44666542f037575204fb",
+  "baseline": "bbcfe194b76a974b9587a8e11c3fc57668d7a530",
+  "selected_for_adaptation": [
+    "scripts/phase-c-offline/network-guard.cjs",
+    "scripts/phase-c-offline/safety.test.mjs",
+    "scripts/phase-c-offline/run.py"
+  ],
+  "not_transferred": [
+    "scripts/phase-c-offline/contracts.test.ts",
+    "scripts/phase-c-offline/coverage.json",
+    "scripts/phase-c-offline/fixtures.json",
+    "scripts/phase-c-offline/fixtures.test.ts",
+    "scripts/phase-c-offline/README.md",
+    "scripts/phase-c-offline/report.py",
+    "scripts/phase-c-offline/report.test.py",
+    "scripts/phase-c-offline/workflow.pg.test.ts",
+    "evidence/phase-c-offline/committed-files.txt",
+    "evidence/phase-c-offline/final-review.json",
+    "evidence/phase-c-offline/final-review.md",
+    "evidence/phase-c-offline/integrity.json",
+    "evidence/phase-c-offline/ipc-fix.patch",
+    "evidence/phase-c-offline/pg-stdout-fix.patch",
+    "evidence/phase-c-offline/preserved-failure-hashes.json",
+    "evidence/phase-c-offline/report.md",
+    "evidence/phase-c-offline/results.json",
+    "evidence/phase-c-offline/baseline/.gitattributes",
+    "evidence/phase-c-offline/baseline/runtime-phase-a-evidence.json",
+    "evidence/phase-c-offline/baseline/runtime-phase-a-preflight.md",
+    "evidence/phase-c-offline/baseline/runtime-phase-b-approval.txt",
+    "evidence/phase-c-offline/baseline/runtime-phase-b-fixtures.json",
+    "evidence/phase-c-offline/baseline/runtime-phase-b-matrix.json",
+    "evidence/phase-c-offline/baseline/runtime-phase-b-plan.md",
+    "evidence/phase-c-offline/baseline/SHA256.json"
+  ]
+}
