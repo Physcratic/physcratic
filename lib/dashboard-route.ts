@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { topics, type View } from "./physics";
 import { topicHasProblems } from "./seo/public-routes";
 import { SITE, baseOpenGraph } from "./site";
+import { resolvePhysicsTag } from "./physics-taxonomy";
 
 export type DashboardParams = Record<string, string | string[] | undefined>;
 export interface ParsedDashboard {
@@ -18,11 +19,11 @@ export function parseDashboardParams(params: DashboardParams): ParsedDashboard {
   const view: View = VIEWS.includes(requestedView)
     ? (requestedView as View)
     : "overview";
-  const requestedTopic =
-    params.topic === "Electricity" ? "Electromagnetism" : params.topic;
-  const topic = topics.some((item) => item.name === requestedTopic)
-    ? (requestedTopic as string)
-    : undefined;
+  const resolvedTopic = typeof params.topic === "string"
+    ? resolvePhysicsTag(params.topic, "topic") : undefined;
+  const topic = topics.find((item) =>
+    resolvedTopic && resolvePhysicsTag(item.name, "topic")?.id === resolvedTopic.id,
+  )?.name;
   const query =
     typeof params.q === "string" ? params.q.slice(0, 200) : undefined;
   return { view, topic, query };

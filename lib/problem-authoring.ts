@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { physicsTagLabels } from "./physics-taxonomy";
 
 // Data contracts only. Grading/evaluation and authorization belong to server services.
 // Normalize before parent refinements so comparisons and stored JSON match PostgreSQL uuid.
@@ -98,7 +99,9 @@ export function normalizeAuthoredRevisionRow(input: unknown) {
 
 export function publicAuthoredContent(input: unknown) {
   const content = authoredDocumentSchema.parse(input);
-  return { ...content, attachments: content.attachments.filter(a => a.purpose !== "solution-pdf") };
+  return { ...content, topicTags: physicsTagLabels(content.topicTags, "topic"),
+    methodTags: physicsTagLabels(content.methodTags, "method"),
+    attachments: content.attachments.filter(a => a.purpose !== "solution-pdf") };
 }
 
 // Serialization is not authorization: callers must establish published visibility first.
@@ -122,6 +125,6 @@ export const publicAuthoredMetadataSchema = z.object({
 });
 export function publicAuthoredMetadata(input: unknown) {
   const row = publicAuthoredMetadataSchema.parse(input);
-  return { title: row.title, topicTags: row.topicTags, methodTags: row.methodTags,
+  return { title: row.title, topicTags: physicsTagLabels(row.topicTags, "topic"), methodTags: physicsTagLabels(row.methodTags, "method"),
     estimatedDifficulty: row.estimatedDifficulty, provenance: row.provenance };
 }

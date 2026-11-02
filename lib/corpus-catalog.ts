@@ -12,6 +12,7 @@ import {
 import { corpusProblems } from "./corpus-pilot";
 import { getProblemTags, tagLabel } from "./problem-tags";
 import { matchesEstimatedDifficulty } from "./problem-archive";
+import { physicsTagAliases } from "./physics-taxonomy";
 
 const httpsUrl = z.string().url().startsWith("https://");
 const catalogSourceSchema = z.object({
@@ -143,7 +144,7 @@ export const catalogProblems: CatalogProblem[] = (
       primaryTopic,
       tags,
       topics: [
-        ...new Set([primaryTopic, ...(imported?.topics.map(tagLabel) ?? [])]),
+        ...new Set([primaryTopic, ...(imported?.topics.map((value) => tagLabel(value)) ?? [])]),
       ],
       availability: "imported",
       hasPilotGuide: Boolean(imported),
@@ -208,8 +209,7 @@ export function filterCatalog({
       problem.competition,
       problem.year,
       problem.code,
-      ...problem.topics,
-      ...problem.tags,
+      ...getProblemTags(problem).flatMap((tag) => physicsTagAliases(tag)),
     ]
       .join(" ")
       .toLocaleLowerCase();

@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { legacyPhysicsTopicLabels, physicsTopicLabels } from "./physics-taxonomy";
 
 export const corpusBlockSchema = z.discriminatedUnion("type", [
   z.object({ type: z.literal("text"), value: z.string().min(1) }),
@@ -40,14 +41,7 @@ export const corpusProblemSchema = z
     title: z.string().min(1),
     topics: z
       .array(
-        z.enum([
-          "Mechanics",
-          "Electromagnetism",
-          "Waves",
-          "Thermodynamics",
-          "Optics",
-          "Modern",
-        ]),
+        z.enum([...legacyPhysicsTopicLabels, ...physicsTopicLabels]),
       )
       .min(1),
     tags: z.array(z.string()).min(1),

@@ -6,6 +6,7 @@ import { iphoPapers, iphoSubproblems } from "./ipho-archive";
 import { corpusProblemSchema, type CorpusProblem } from "./corpus-schema";
 import { getProblemTags, tagLabel } from "./problem-tags";
 import { matchesEstimatedDifficulty } from "./problem-archive";
+import { physicsTagAliases } from "./physics-taxonomy";
 
 const topicMap: Record<string, CorpusProblem["topics"]> = {
   t1: ["Modern", "Mechanics"],
@@ -124,7 +125,7 @@ export function filterCorpus({
         problem.code,
         problem.competition,
         problem.summary,
-        ...getProblemTags(problem),
+        ...getProblemTags(problem).flatMap((tag) => physicsTagAliases(tag)),
         ...problem.parts.map((part) => `${part.title} ${part.prompt}`),
       ]
         .join(" ")

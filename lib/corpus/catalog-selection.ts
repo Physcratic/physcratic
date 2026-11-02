@@ -1,11 +1,6 @@
-export const catalogTopics = [
-  "Mechanics",
-  "Electromagnetism",
-  "Waves",
-  "Thermodynamics",
-  "Optics",
-  "Modern physics",
-] as const;
+import { physicsTopicLabels } from "../physics-taxonomy";
+
+export const catalogTopics = physicsTopicLabels;
 
 export type CatalogTopic = (typeof catalogTopics)[number];
 export type Competition = "IPhO" | "APhO" | "EuPhO";

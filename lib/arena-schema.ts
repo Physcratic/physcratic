@@ -1,5 +1,7 @@
 import { z } from "zod";
 import { matchesEstimatedDifficulty } from "./problem-archive";
+import { physicsTopicLabels, physicsTagAliases } from "./physics-taxonomy";
+import { getProblemTags, tagLabel } from "./problem-tags";
 
 export const arenaProvenance = {
   sourceArchive: "Physcratic Arena Problems",
@@ -9,7 +11,7 @@ export const arenaProvenance = {
   grading: "Unrated self-review; no marks or ELO awarded.",
 } as const;
 
-export const arenaTopics = ["Mechanics", "Electromagnetism", "Waves", "Thermodynamics", "Optics", "Modern physics"] as const;
+export const arenaTopics = physicsTopicLabels;
 export const arenaProblemSchema = z.object({
   id: z.string().regex(/^arena-[a-z]+(?:-[a-z]+)*$/),
   title: z.string().min(1),
@@ -29,8 +31,8 @@ export type ArenaCatalogEntry = Omit<ArenaProblem, "statement" | "solution"> & {
 export function filterArena(problems: ArenaCatalogEntry[], { query = "", topic = "all", difficulty = "all" }: { query?: string; topic?: string; difficulty?: string }) {
   const words = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
   return problems.filter((problem) => {
-    const tags = [problem.topic, ...problem.tags];
-    const searchable = [problem.title, problem.summary, ...tags].join(" ").toLocaleLowerCase();
-    return matchesEstimatedDifficulty(problem.id, difficulty) && (topic === "all" || tags.includes(topic)) && words.every((word) => searchable.includes(word));
+    const tags = getProblemTags(problem);
+    const searchable = [problem.title, problem.summary, ...tags.flatMap((tag) => physicsTagAliases(tag))].join(" ").toLocaleLowerCase();
+    return matchesEstimatedDifficulty(problem.id, difficulty) && (topic === "all" || tags.includes(tagLabel(topic))) && words.every((word) => searchable.includes(word));
   });
 }

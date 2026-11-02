@@ -1,38 +1,39 @@
 import { Atom, Orbit, ScanLine, Thermometer, Waves, Zap } from "lucide-react";
+import { legacyPhysicsTopicLabels } from "./physics-taxonomy";
 
 export const topics = [
   {
-    name: "Mechanics",
+    name: legacyPhysicsTopicLabels[0],
     icon: Orbit,
     description: "Motion, forces & energy",
     count: 3,
   },
   {
-    name: "Electromagnetism",
+    name: legacyPhysicsTopicLabels[1],
     icon: Zap,
     description: "Charges, fields & circuits",
     count: 3,
   },
   {
-    name: "Waves",
+    name: legacyPhysicsTopicLabels[2],
     icon: Waves,
     description: "Oscillations, sound & light",
     count: 3,
   },
   {
-    name: "Thermodynamics",
+    name: legacyPhysicsTopicLabels[3],
     icon: Thermometer,
     description: "Heat, work & temperature",
     count: 3,
   },
   {
-    name: "Optics",
+    name: legacyPhysicsTopicLabels[4],
     icon: ScanLine,
     description: "Reflection, refraction & lenses",
     count: 0,
   },
   {
-    name: "Modern",
+    name: legacyPhysicsTopicLabels[5],
     icon: Atom,
     description: "Quantum, atomic & nuclear physics",
     count: 0,

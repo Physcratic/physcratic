@@ -245,7 +245,7 @@ test(
             { q: "PRIVATE_HINT_SENTINEL" },
             { q: "STATEMENT_ONLY_SENTINEL" },
             { q: "DRAFT_ONLY_SENTINEL" },
-            { tag: "mechanics" },
+            { tag: "unknown mechanics tag" },
             { difficulty: "Advanced" },
             { q: "' OR 1=1 --" },
           ])
@@ -273,6 +273,7 @@ test(
             ).problems.length,
             1,
           );
+          assert.equal((await (await list({ tag: "mechanics" })).json()).problems.length, 24);
           for (const query of [
             "ownerId=author",
             "revisionId=" + published[0].revision,
@@ -285,6 +286,80 @@ test(
                 .status,
               400,
             );
+        },
+      );
+      await t.test(
+        "taxonomy aliases filter legacy JSON before pagination without rewriting revisions",
+        async () => {
+          await pool.query("DELETE FROM authored_write_limit");
+          const fixtures: { id: string; revision: string; content: AuthoredDocument }[] = [];
+          const topicVariants = ["Modern", "Modern physics", "modern-physics", "mOdErN\t PhYsIcS", "Modern\u00a0physics", "MODERN"];
+          const methodVariants = ["Blackbody radiation", "Black-body radiation", "black-body-radiation", "bLaCk—bOdY\t Radiation"];
+          let hiddenId: string | undefined;
+          let hiddenPublished = false;
+          try {
+            for (let i = 0; i < 28; i++) {
+              const body = input(`Taxonomy fixture ${i}`);
+              body.content.topicTags = [topicVariants[i % topicVariants.length]];
+              body.content.methodTags = [methodVariants[i % methodVariants.length], "My custom technique"];
+              if (i === 0) {
+                body.content.topicTags.push("modern-physics");
+                body.content.methodTags.push("Black-body radiation");
+              }
+              const d = await action("create", undefined, body);
+              const p = await action("publish", d.problemId, { version: 1 });
+              fixtures.push({ id: d.problemId, revision: p.revision.id, content: body.content });
+            }
+            // A newer editable draft must never replace the published tag snapshot.
+            const edited = input("DRAFT_TAXONOMY_SENTINEL");
+            edited.content.topicTags = ["Optics"];
+            await action("update", fixtures[0].id, { ...edited, version: 2 }, "PUT");
+            const hidden = input("UNPUBLISHED_TAXONOMY_SENTINEL");
+            hidden.content.topicTags = ["Modern"];
+            hidden.content.methodTags = ["Blackbody radiation"];
+            hiddenId = (await action("create", undefined, hidden)).problemId;
+            assert.equal((await (await list({ tag: "Modern" })).json()).problems.length, 24);
+            await action("publish", hiddenId, { version: 1 });
+            hiddenPublished = true;
+            await action("unpublish", hiddenId, { version: 2 });
+            const expected = fixtures.map((f) => f.id).sort();
+            for (const tag of ["Modern", "Modern physics", "modern-physics", "  MODERN   PHYSICS ",
+              "Blackbody radiation", "Black-body radiation", "black-body-radiation", "My custom technique"]) {
+              const firstResponse = await list({ tag });
+              assert.equal(firstResponse.status, 200, await firstResponse.clone().text());
+              const first: AuthoredLibraryPage = await firstResponse.json();
+              assert.equal(first.problems.length, 24, tag);
+              assert.ok(first.nextCursor);
+              const second: AuthoredLibraryPage = await (await list({ tag, after: first.nextCursor! })).json();
+              assert.equal(second.problems.length, 4, tag);
+              assert.equal(second.nextCursor, null);
+              const combined = [...first.problems, ...second.problems];
+              assert.deepEqual(combined.map((p) => p.problemId), expected, tag);
+              for (const p of combined) {
+                assert.deepEqual(p.topicTags, ["Modern physics"]);
+                assert.deepEqual(p.methodTags, ["Black-body radiation", "My custom technique"]);
+                assert.equal(p.revisionId, fixtures.find((f) => f.id === p.problemId)!.revision);
+              }
+              for (const secret of ["PRIVATE_HINT", "STATEMENT_ONLY", "SENTINEL", "attachments", "solution", "ownerId"])
+                assert.equal(JSON.stringify(combined).includes(secret), false, secret);
+            }
+            for (const tag of ["my custom technique", "My custom technique' OR true --", "Blackbody radiations", "Optics"]) {
+              const page: AuthoredLibraryPage = await (await list({ tag })).json();
+              assert.equal(page.problems.some((p) => expected.includes(p.problemId)), false, tag);
+            }
+            const { rows } = await pool.query("SELECT id,content FROM authored_revision WHERE id = ANY($1::uuid[])", [fixtures.map((f) => f.revision)]);
+            assert.equal(rows.length, fixtures.length);
+            for (const row of rows) assert.deepEqual(row.content, fixtures.find((f) => f.revision === row.id)!.content);
+          } finally {
+            await pool.query("DELETE FROM authored_write_limit");
+            for (const fixture of fixtures) {
+              const version = fixture.id === fixtures[0].id ? 3 : 2;
+              await action("unpublish", fixture.id, { version });
+              await action("delete", fixture.id, { version: version + 1 }, "DELETE");
+            }
+            if (hiddenId) await action("delete", hiddenId, { version: hiddenPublished ? 3 : 1 }, "DELETE");
+            await pool.query("DELETE FROM authored_write_limit");
+          }
         },
       );
       await t.test(

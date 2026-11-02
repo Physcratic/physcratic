@@ -1,7 +1,7 @@
-import { topics } from "./physics";
+import { physicsTopics, physicsTagLabel } from "./physics-taxonomy";
 
-export function tagLabel(tag: string) {
-  return tag === "Modern" ? "Modern physics" : tag;
+export function tagLabel(tag: string): string {
+  return physicsTagLabel(tag);
 }
 
 export function getProblemTags(problem: {
@@ -24,7 +24,7 @@ export function getProblemTags(problem: {
         ...(problem.topics ?? (problem.topic ? [problem.topic] : [])),
         ...(problem.tags ?? (problem.concept ? [problem.concept] : [])),
         ...(languageTag ? [languageTag] : []),
-      ].map(tagLabel),
+      ].map((value) => tagLabel(value)),
     ),
   ];
 }
@@ -41,7 +41,7 @@ export function filterProblemsByTag<
 export function getTagOptions(
   problems: Parameters<typeof getProblemTags>[0][],
 ) {
-  const subjects = topics.map(({ name }) => tagLabel(name));
+  const subjects: string[] = physicsTopics.map(({ label }) => label);
   const concepts = [...new Set(problems.flatMap(getProblemTags))]
     .filter((tag) => !subjects.includes(tag))
     .sort((a, b) => a.localeCompare(b));

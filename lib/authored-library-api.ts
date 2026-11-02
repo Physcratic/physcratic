@@ -5,6 +5,7 @@ import {
   authoredLibraryPageSchema,
 } from "./authored-library-contracts";
 import { publicAuthoredMetadata } from "./problem-authoring";
+import { authoredLibraryTagPredicate } from "./authored-library-tags";
 
 const headers = {
   "Content-Type": "application/json",
@@ -49,11 +50,7 @@ export function createAuthoredLibraryApi(pool: Pool) {
           `authored_discovery_terms(r.content) @@ websearch_to_tsquery('simple'::regconfig, ${bind(q)})`,
         );
       if (tag) {
-        const topic = bind(JSON.stringify({ topicTags: [tag] }));
-        const method = bind(JSON.stringify({ methodTags: [tag] }));
-        where.push(
-          `(r.content @> ${topic}::jsonb OR r.content @> ${method}::jsonb)`,
-        );
+        where.push(authoredLibraryTagPredicate(tag, bind));
       }
       if (difficulty)
         where.push(`r.content->>'estimatedDifficulty' = ${bind(difficulty)}`);
