@@ -29,6 +29,10 @@ Each prints one `PASS`, `FAIL` or `SKIP` line. Any `FAIL` makes the script exit 
 - `/dashboard` answers 200 and has a `<title>` inside `<head>`
 - `/dashboard/problems/incline` answers 200 and its `<head>` has a title, a canonical link and `og:image`
 - `/coaching` answers 200
+- `/learn` answers 200 and its `<head>` has a title and a canonical link. Any JSON-LD on it must parse
+- The first guide that `/learn` links to answers 200, its `<head>` has a title and a canonical link, and it has at least one JSON-LD block, and every block parses
+- `/coaching/consultation` and `/coaching/become-a-tutor` answer 200, and each links to `https://tally.so/`
+- `/sign-in` answers 200 in production. It is a SKIP on a preview, where the sign-in page can need setup the preview lacks
 - `/this-page-does-not-exist` answers 404 and contains "Page not found"
 - `/sitemap.xml` answers 200 with an xml content type, no raw `&` outside an entity, at least 20 `<loc>` entries, all starting with `https://physcratic.com`
 - `/robots.txt`: preview contains `Disallow: /`. Production contains `Sitemap: https://physcratic.com/sitemap.xml` and no bare `Disallow: /` line
@@ -37,7 +41,7 @@ Each prints one `PASS`, `FAIL` or `SKIP` line. Any `FAIL` makes the script exit 
 - `/opengraph-image` answers 200 as `image/png`
 - `/api/health` answers 200 with `ok: true`. A 404 is a SKIP ("arrives in Batch 7")
 
-Redirects are not followed (except the one allowed for `/`), so a redirect shows up as a failure. Requests send the User-Agent `PhyscraticSmoke/1.0 (+https://physcratic.com)`. `next.config.mjs` sets `htmlLimitedBots` to match every User-Agent, so metadata is always rendered into `<head>`. Override the User-Agent with `SMOKE_USER_AGENT`.
+Redirects are not followed (except the one allowed for `/`), so a redirect shows up as a failure. Requests send the User-Agent `PhyscraticSmoke/1.0 (+https://physcratic.com)`. `next.config.ts` sets `htmlLimitedBots` to match every User-Agent, so metadata is always rendered into `<head>`. Override the User-Agent with `SMOKE_USER_AGENT`.
 
 ## Run it locally
 
