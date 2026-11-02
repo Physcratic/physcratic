@@ -24,7 +24,7 @@ export function CoachingCard() {
           Train with IPhO, APhO and EuPhO medallists
         </h2>
       </div>
-      <Button asChild variant="outline" className="shrink-0 border-primary text-accent-foreground hover:bg-accent hover:text-accent-foreground">
+      <Button asChild variant="outline" className="shrink-0 border-accent-foreground text-accent-foreground hover:bg-accent hover:text-accent-foreground">
         <Link href="/coaching" {...coachingEntryHandlers("card")}>
           Meet the coaches
           <ArrowRight aria-hidden="true" data-icon="inline-end" />

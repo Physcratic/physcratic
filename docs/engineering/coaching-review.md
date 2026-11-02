@@ -72,8 +72,8 @@ With Vercel Analytics initialised, the hero button and the consultation page sen
 
 ## Recommendations (not done)
 
-1. Make the footer links, "Back to coaching" and the two "See all" links at least 44px tall (padding on the link, or a taller list row).
-2. Decide whether the fixed mobile bar should hide while a section's own call to action is visible.
+1. ~~Make the footer links 44px tall.~~ **Fixed in batch C4:** every footer link and the Instagram link is at least 44px tall on touch screens (`pointer: coarse`), and the desktop footer is unchanged. Still open: "Back to coaching" (20px) and the two "See all" links (20px).
+2. ~~Hide the fixed mobile bar while a call to action is visible.~~ **Fixed in batch C4:** the bar hides while the hero's call to action or the footer is on screen, and the footer keeps 4rem (the bar plus its margin) of room at the bottom on small screens.
 3. Raise the 40px slideshow and gallery buttons to 44px.
 4. `/dashboard` already scrolls sideways by 12px at 375: the right-hand group of the top bar ends at 387px (`components/kokonutui/top-nav.tsx`, outside the coaching area).
 

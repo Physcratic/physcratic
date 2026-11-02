@@ -1,3 +1,4 @@
+import { CoachingMobileCta } from "@/components/coaching/coaching-mobile-cta";
 import { SkipLink } from "@/components/skip-link";
 import { CoachingHeader, CoachingFooter, CoachingSections } from "@/components/coaching/coaching-sections";
 import { CoachingHero } from "@/components/coaching/coaching-hero";
@@ -16,6 +17,6 @@ export default async function CoachingPage({ searchParams }: { searchParams: Pro
     </main>
     <CoachingFooter />
     <CoachingReveal />
-    <a href="#hero-cta" className="coaching-mobile-cta">{content.ui.consultationCta}</a>
+    <CoachingMobileCta label={content.ui.consultationCta} />
   </>;
 }

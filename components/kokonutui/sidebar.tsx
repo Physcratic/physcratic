@@ -1,17 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   BookOpen,
   FilePenLine,
+  Search,
+  Settings,
   LayoutGrid,
   Menu,
   Trophy,
   ChartNoAxesCombined,
   GraduationCap,
 } from "lucide-react";
+import { AccountNav } from "@/components/account-nav";
 import { BrandMark } from "@/components/brand-mark";
+import { FeedbackLink } from "@/components/feedback-link";
+import { SettingsDialog } from "@/components/settings-dialog";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -34,6 +39,15 @@ export default function Sidebar({
   topic?: string;
 }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  // Below 640px the menu button sits on the right of the header, so the menu opens from the right.
+  const [phone, setPhone] = useState(false);
+  useEffect(() => {
+    const query = window.matchMedia("(max-width: 639px)");
+    const update = () => setPhone(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
   const entry = coachingEntryHandlers("sidebar");
   const mainItems = [
     { view: "overview", label: "Lobby", icon: LayoutGrid },
@@ -141,7 +155,47 @@ export default function Sidebar({
             ))}
           </div>
         </div>
+        <div className="flex flex-col gap-3 sm:hidden">
+          <h2 className="px-3 text-base font-semibold tracking-tight text-foreground">
+            More
+          </h2>
+          <div className="flex flex-col gap-1">
+            <Link
+              href="/dashboard?view=problems&search=1"
+              onClick={() => setMobileOpen(false)}
+              className="flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            >
+              <Search className="size-[18px]" strokeWidth={1.7} />
+              Search problems
+            </Link>
+            <Link
+              href="/learn"
+              onClick={() => setMobileOpen(false)}
+              className="flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            >
+              <BookOpen className="size-[18px]" strokeWidth={1.7} />
+              Learn
+            </Link>
+            <div className="px-3 py-1">
+              <FeedbackLink variant="inline" />
+            </div>
+            <div className="px-3 py-1">
+              <AccountNav />
+            </div>
+          </div>
+        </div>
       </nav>
+      <div className="shrink-0 border-t p-4">
+        <SettingsDialog>
+          <button
+            type="button"
+            className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <Settings className="size-[18px]" strokeWidth={1.7} aria-hidden="true" />
+            Settings
+          </button>
+        </SettingsDialog>
+      </div>
     </div>
   );
 
@@ -150,14 +204,14 @@ export default function Sidebar({
       <aside className="fixed inset-y-0 left-0 hidden w-60 border-r lg:block">
         {navigation}
       </aside>
-      <div className="fixed left-4 top-3.5 z-30 lg:hidden">
+      <div className="fixed right-3 top-3.5 z-30 sm:left-4 sm:right-auto lg:hidden">
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" aria-label="Open navigation">
+            <Button variant="ghost" size="icon" className="size-11" aria-label="Open navigation">
               <Menu />
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="w-72 p-0">
+          <SheetContent side={phone ? "right" : "left"} className="w-72 p-0">
             <SheetTitle className="sr-only">Physcratic navigation</SheetTitle>
             <SheetDescription className="sr-only">
               Browse your physics workspace and topics.

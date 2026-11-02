@@ -100,6 +100,8 @@
 .page :global(.coaching-instagram-icon) { display: inline-block; width: 1.25rem; height: 1.25rem; flex-shrink: 0; background: currentColor; mask: url("/coaching/instagram.svg") center / contain no-repeat; }
 .page :global(.coaching-rise) { animation: coaching-rise .6s ease-out both; }
 .page :global(.coaching-mobile-cta) { position: fixed; inset: auto 1rem 1rem; z-index: 30; display: flex; min-height: 3rem; align-items: center; justify-content: center; border-radius: .5rem; background: hsl(var(--accent)); color: hsl(var(--accent-foreground)); font-weight: 700; box-shadow: 0 4px 24px hsl(var(--background) / .7); }
+.page :global(.coaching-mobile-cta[data-hidden]) { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 160ms ease-out, visibility 0s linear 160ms; }
+@media (pointer: coarse) { .page :global(.coaching-footer-link) { display: inline-flex; min-height: 2.75rem; align-items: center; } }
 .page :global(.coaching-input) { width: 100%; min-height: 3rem; border: 1px solid hsl(var(--border)); border-radius: .5rem; padding: .75rem; background: hsl(var(--muted)); color: hsl(var(--foreground)); }
 .page :global(.coaching-map-shell) { display: flex; min-height: 18rem; flex-direction: column; justify-content: center; gap: .75rem; border: 1px solid hsl(var(--border)); border-radius: 1rem; padding: .75rem; background: hsl(var(--foreground) / .03); }
 .page :global(.coaching-map-shell svg) { width: 100%; height: auto; }

@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { BookOpen, ChevronRight, GraduationCap, Search } from "lucide-react";
+import { BrandMark } from "@/components/brand-mark";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { FeedbackLink } from "@/components/feedback-link";
 import { AccountNav } from "@/components/account-nav";
 import { coachingEntryHandlers } from "@/lib/coaching/analytics";
@@ -31,10 +31,14 @@ export default function TopNav({
   }, [router]);
 
   return (
-    <header className="flex h-[72px] shrink-0 items-center justify-between border-b bg-background px-5 pl-16 sm:px-8 sm:pl-16 lg:pl-8 xl:px-10">
+    <header className="flex h-[72px] shrink-0 items-center justify-between border-b bg-background pl-4 pr-[68px] sm:px-8 sm:pl-16 lg:pl-8 xl:px-10">
+      <Link href="/dashboard" className="flex min-w-0 items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:hidden" aria-label="Physcratic home">
+        <BrandMark size={32} className="shrink-0 rounded-md" />
+        <span className="truncate text-xl font-semibold tracking-[-0.05em]">Physcratic</span>
+      </Link>
       <nav
         aria-label="Breadcrumb"
-        className="flex min-w-0 items-center gap-2 text-sm sm:gap-3"
+        className="hidden min-w-0 items-center gap-2 text-sm sm:flex sm:gap-3"
       >
         <Link
           href="/dashboard"
@@ -48,6 +52,7 @@ export default function TopNav({
         </span>
       </nav>
       <div className="flex shrink-0 items-center gap-1 sm:gap-5">
+        <div className="hidden sm:contents">
         <Button
           variant="ghost"
           size="sm"
@@ -69,11 +74,12 @@ export default function TopNav({
             <span className="hidden font-normal md:inline">Learn</span>
           </Link>
         </Button>
+        </div>
         <Button
           asChild
           variant="outline"
           size="sm"
-          className="border-primary px-2 text-accent-foreground hover:bg-accent hover:text-accent-foreground sm:px-3"
+          className="size-11 border-accent-foreground p-0 text-accent-foreground hover:bg-accent hover:text-accent-foreground sm:h-9 sm:w-auto sm:px-3"
         >
           <Link
             href="/coaching"
@@ -84,10 +90,11 @@ export default function TopNav({
             <span className="hidden font-medium sm:inline">Coaching</span>
           </Link>
         </Button>
-        <FeedbackLink variant="nav" />
-        <ThemeToggle />
-        <span className="hidden h-5 border-l sm:block" />
-        <AccountNav />
+        <div className="hidden sm:contents">
+          <FeedbackLink variant="nav" />
+          <span className="h-5 border-l" />
+          <AccountNav />
+        </div>
       </div>
     </header>
   );

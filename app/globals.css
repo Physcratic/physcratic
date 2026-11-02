@@ -28,8 +28,9 @@
     --accent-foreground: 22 45% 32%;
     --destructive: 22 62% 38%;
     --destructive-foreground: 0 0% 100%;
-    --border: 240 5% 88%;
-    --input: 240 5% 85%;
+    /* Borders and input outlines are 3:1 or better on the page and card backgrounds (WCAG 1.4.11). */
+    --border: 240 5% 52%;
+    --input: 240 5% 52%;
     --ring: 22 65% 58%;
     --radius: 0.75rem;
     --hero: 240 5% 10%;
@@ -40,7 +41,7 @@
     --sidebar-primary-foreground: 240 6% 10%;
     --sidebar-accent: 21 55% 94%;
     --sidebar-accent-foreground: 22 45% 32%;
-    --sidebar-border: 240 5% 88%;
+    --sidebar-border: 240 5% 52%;
     --sidebar-ring: 22 65% 58%;
   }
   .dark {
@@ -102,10 +103,10 @@
 }
 
 .problem-entry {
-  --problem-color: var(--primary);
+  --problem-color: var(--accent-foreground);
   background: hsl(var(--card));
   color: hsl(var(--card-foreground));
-  border: 1px solid hsl(var(--problem-color) / 0.3);
+  border: 1px solid hsl(var(--problem-color));
   border-radius: var(--radius);
   overflow: hidden;
 }
@@ -129,7 +130,7 @@
 }
 .problem-entry:has(:focus-visible),
 .problem-entry:hover {
-  border-color: hsl(var(--problem-color) / 0.65);
+  border-color: hsl(var(--problem-color));
 }
 
 .featured-contest-card {

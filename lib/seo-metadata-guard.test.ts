@@ -1,3 +1,4 @@
+import { practiceProblemDescription } from "./problem-meta";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { describe, it } from "node:test";
@@ -46,7 +47,7 @@ function resolve(route: PublicRoute): Resolved {
   if (route.kind === "problem") {
     const problem = findPublicProblem(route.path.split("/").pop()!)!;
     // Title and description come from the page, the canonical from the problem layout.
-    return { title: route.title + TEMPLATE, description: problem.prompt, canonical: declaredCanonical("app/dashboard/problems/[id]/layout.tsx", route.path) };
+    return { title: route.title + TEMPLATE, description: practiceProblemDescription(problem.id) ?? problem.prompt, canonical: declaredCanonical("app/dashboard/problems/[id]/layout.tsx", route.path) };
   }
   if (route.kind === "learn") {
     if (route.path === "/learn") {
@@ -68,13 +69,6 @@ function resolve(route: PublicRoute): Resolved {
 const resolved = publicRoutes.map((route) => ({ route, ...resolve(route) }));
 const indexable = resolved.filter((r) => r.route.indexable);
 
-/**
- * Practice problem pages use the whole problem prompt as the description (app/dashboard/problems/[id]/page.tsx,
- * which belongs to the Practice UI work). These five are over 160 characters until that page writes a real summary.
- * The last test fails if one of them is fixed, so remove it from this list then.
- */
-const LONG_PROBLEM_DESCRIPTIONS = new Set(["first-law", "heat", "incline", "projectile", "spring"].map((id) => `/dashboard/problems/${id}`));
-
 describe("public route metadata", () => {
   it("covers every route in the registry", () => {
     assert.equal(resolved.length, publicRoutes.length);
@@ -90,7 +84,6 @@ describe("public route metadata", () => {
 
   it("keeps every description between 70 and 160 characters", () => {
     const bad = indexable
-      .filter((r) => !LONG_PROBLEM_DESCRIPTIONS.has(r.route.path))
       .filter((r) => !r.description || r.description.length < 70 || r.description.length > 160)
       .map((r) => `${r.route.path}: ${r.description?.length ?? "none"}`);
     assert.deepEqual(bad, []);
@@ -118,11 +111,10 @@ describe("public route metadata", () => {
     assert.deepEqual(failures, []);
   });
 
-  it("still needs every entry in the known-offender list", () => {
-    for (const path of LONG_PROBLEM_DESCRIPTIONS) {
-      const r = resolved.find((item) => item.route.path === path);
-      assert.ok(r, `${path} is no longer a public route, remove it from the list`);
-      assert.ok((r.description?.length ?? 0) > 160, `${path} is now within 160 characters, remove it from the list`);
+  it("uses the written problem descriptions on the page itself", () => {
+    assert.match(read("app/dashboard/problems/[id]/page.tsx"), /practiceProblemDescription\(problem\.id\)/);
+    for (const id of ["first-law", "heat", "incline", "projectile", "spring"]) {
+      assert.ok(practiceProblemDescription(id), id);
     }
   });
 });
