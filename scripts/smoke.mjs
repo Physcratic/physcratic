@@ -16,7 +16,7 @@ import { appendFileSync } from 'node:fs'
 
 const CANONICAL_ORIGIN = 'https://physcratic.com'
 const TIMEOUT_MS = 20_000
-// next.config.mjs sets htmlLimitedBots to match every User-Agent, so metadata is always
+// next.config.ts sets htmlLimitedBots to match every User-Agent, so metadata is always
 // rendered into <head> and a plain identifying User-Agent is enough.
 const USER_AGENT = process.env.SMOKE_USER_AGENT || 'PhyscraticSmoke/1.0 (+https://physcratic.com)'
 
@@ -89,6 +89,36 @@ function hasTag(head, tag, attr, value) {
   return (head.match(tagPattern) || []).some((t) => attrPattern.test(t))
 }
 
+/** Every <script type="application/ld+json"> block in a page, parsed. Fails on the first block that is not JSON. */
+function jsonLdBlocks(html) {
+  const raw = [...html.matchAll(/<script\b[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)].map((m) => m[1])
+  return raw.map((text, index) => {
+    try {
+      return JSON.parse(text)
+    } catch (err) {
+      return fail(`JSON-LD block ${index + 1} is not valid JSON: ${err.message}`)
+    }
+  })
+}
+
+/** The first link to tally.so in the page, without its query string, or null. */
+function tallyLink(html) {
+  const match = html.match(/href\s*=\s*["'](https:\/\/tally\.so\/[^"']*)["']/i)
+  if (!match) return null
+  return match[1].replace(/&amp;/g, '&').split(/[?#]/)[0]
+}
+
+/** A page with a head that has a title and a canonical link. Returns the head. */
+function expectTitleAndCanonical(res) {
+  const head = headOf(res.text)
+  if (!head) fail('no <head> in the HTML')
+  const missing = []
+  if (!titleIn(head)) missing.push('title')
+  if (!hasTag(head, 'link', 'rel', 'canonical')) missing.push('canonical link')
+  if (missing.length) fail(`<head> is missing: ${missing.join(', ')}`)
+  return head
+}
+
 const checks = [
   {
     name: '/',
@@ -138,6 +168,65 @@ const checks = [
     async run() {
       expectStatus(await get('/coaching'), 200)
       return '200'
+    },
+  },
+  {
+    name: '/learn',
+    async run() {
+      const res = await get('/learn')
+      expectStatus(res, 200)
+      expectTitleAndCanonical(res)
+      // The hub itself carries no JSON-LD today. If it ever does, it has to parse.
+      const blocks = jsonLdBlocks(res.text).length
+      return `200, head has title and canonical${blocks ? `, ${blocks} JSON-LD block(s) parse` : ''}`
+    },
+  },
+  {
+    name: '/learn (first guide)',
+    async run() {
+      const hub = await get('/learn')
+      expectStatus(hub, 200)
+      const link = hub.text.match(/href\s*=\s*["'](\/learn\/[a-z0-9][a-z0-9-]*)["']/i)
+      if (!link) fail('/learn links to no guide')
+      const res = await get(link[1])
+      expectStatus(res, 200)
+      expectTitleAndCanonical(res)
+      const blocks = jsonLdBlocks(res.text).length
+      if (!blocks) fail('no JSON-LD block in the page')
+      return `${link[1]}: 200, head has title and canonical, ${blocks} JSON-LD block(s) parse`
+    },
+  },
+  {
+    name: '/coaching/consultation',
+    async run() {
+      const res = await get('/coaching/consultation')
+      expectStatus(res, 200)
+      const link = tallyLink(res.text)
+      if (!link) fail('no link to tally.so')
+      return `200, links to ${link.replace('https://', '')}`
+    },
+  },
+  {
+    name: '/coaching/become-a-tutor',
+    async run() {
+      const res = await get('/coaching/become-a-tutor')
+      expectStatus(res, 200)
+      const link = tallyLink(res.text)
+      if (!link) fail('no link to tally.so')
+      return `200, links to ${link.replace('https://', '')}`
+    },
+  },
+  {
+    name: '/sign-in',
+    async run() {
+      if (smokeEnv === 'preview') throw new Skip('production only')
+      const res = await get('/sign-in')
+      expectStatus(res, 200)
+      const head = headOf(res.text)
+      if (!head) fail('no <head> in the HTML')
+      const title = titleIn(head)
+      if (!title) fail('no <title> inside <head>')
+      return `200, title "${title}"`
     },
   },
   {

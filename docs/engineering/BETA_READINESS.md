@@ -265,3 +265,14 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **Tests:** `lib/deploy-watch.test.ts` runs the script against a fake `gh` (ancestors closed, newer and unrelated commits left, a commit not on main, no issues, the title fallback, a failing close, a bad SHA) and checks the workflow's triggers and conditions. I checked that it fails when the script's ancestor check or the on-main check is removed.
 - **Not testable before merge:** GitHub runs `push` and `status` workflows from the default branch, so the workflow itself only starts running once this is on main. The first real run will close the `deploy-blocked` issues that are still open if a later commit is live. Please check that one run in the Actions tab.
 
+## 2026-11-02 - Smoke tests: learn, coaching forms and sign-in
+
+- **New checks in `scripts/smoke.mjs`** (now 16, listed in `docs/engineering/SMOKE_TESTS.md`):
+  - `/learn`: 200, and a `<head>` with a title and a canonical link. The hub carries no JSON-LD today, so none is required there, but any it has must parse.
+  - The first guide that `/learn` links to (found from the hub, so a renamed guide does not break the check): 200, title, canonical, at least one JSON-LD block, and every block parses.
+  - `/coaching/consultation` and `/coaching/become-a-tutor`: 200, and each links to `https://tally.so/`.
+  - `/sign-in`: 200 in production, SKIP on a preview (`SMOKE_ENV=preview`).
+- **Checked:** against the real build (all five pass, `/sign-in` skips in preview), and against a mock server with a missing canonical, broken JSON-LD, no JSON-LD, no Tally link, a hub with no guides and a 500 on `/sign-in`. Each defect fails exactly the check that should catch it.
+- **Not checkable locally:** `/sign-in` returns 500 on a local build because there is no database, so in production mode it fails there, as it should. The first run against production is the real test. The existing sitemap check also fails on a local build, because the sitemap advertises `localhost:3000`.
+- **Also:** the comment and docs now say `next.config.ts` (it was renamed in the CSP change).
+
