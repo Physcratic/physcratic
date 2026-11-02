@@ -89,7 +89,7 @@ export const iphoTasks: IphoTask[] = [
     answerTex: "$$r_c=\\frac{2\\sigma}{P(c/c_0-1)}$$",
     unit: "m",
     solution: [
-      { title: "Account for the curved interface", text: "Laplace’s law makes the pressure inside a gas bubble higher than the pressure in the surrounding liquid. There is a single liquid–gas interface, unlike a soap bubble.", formula: "$$p_{\\mathrm{b}}=P+\\frac{2\\sigma}{r}$$" },
+      { title: "Account for the curved interface", text: "Laplace’s law makes the pressure inside a gas bubble higher than the pressure in the surrounding liquid. There is a single liquid-gas interface, unlike a soap bubble.", formula: "$$p_{\\mathrm{b}}=P+\\frac{2\\sigma}{r}$$" },
       { title: "Apply Henry’s law at the threshold", text: "Let kH be Henry’s constant. At the critical radius, the concentration at the bubble surface equals the far-field concentration. Use c₀ = kH P to eliminate the constant.", formula: "$$c=k_H\\left(P+\\frac{2\\sigma}{r_c}\\right),\\qquad c_0=k_HP\\quad\\Longrightarrow\\quad r_c=\\frac{2\\sigma}{P(c/c_0-1)}$$" },
       { title: "Identify the growing side", text: "Above the critical radius the surface equilibrium concentration is below the far-field concentration. CO₂ diffuses toward the bubble, so it grows.", formula: "$$r>r_c\\quad\\Longrightarrow\\quad c_{\\mathrm{surface}}<c$$" },
     ],

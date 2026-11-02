@@ -40,7 +40,7 @@ export const iphoPapers: IphoPaper[] = [
       { letter: "A", title: "Introduction: hydrogen" },
       { letter: "B", title: "Rotation curves of galaxies" },
       { letter: "C", title: "Mass distribution in our galaxy" },
-      { letter: "D", title: "Tully–Fisher relation and MOND" },
+      { letter: "D", title: "Tully-Fisher relation and MOND" },
     ],
   },
   {
@@ -236,12 +236,12 @@ const problemsByPaper: Record<
     },
     {
       part: "D.1",
-      title: "The Tully–Fisher exponent",
+      title: "The Tully-Fisher exponent",
       points: 0.4,
       page: 5,
       solutionPage: 12,
       prompt:
-        "Assuming a galaxy’s radius is independent of its mass, show that the density model in Part B produces a power-law relation between total mass and asymptotic circular speed. Determine its exponent and prefactor. Read the observed Tully–Fisher exponent from Figure 4 and compare the two results.",
+        "Assuming a galaxy’s radius is independent of its mass, show that the density model in Part B produces a power-law relation between total mass and asymptotic circular speed. Determine its exponent and prefactor. Read the observed Tully-Fisher exponent from Figure 4 and compare the two results.",
       model: String.raw`$$M_{\mathrm{tot}}=\eta\,v_{c,\infty}^{\gamma}$$`,
     },
     {
@@ -255,12 +255,12 @@ const problemsByPaper: Record<
     },
     {
       part: "D.3",
-      title: "Tully–Fisher from MOND",
+      title: "Tully-Fisher from MOND",
       points: 0.8,
       page: 6,
       solutionPage: 13,
       prompt:
-        "In the deep-MOND regime, determine the mass–speed power-law exponent for circular motion around a fixed central mass. Use the NGC 6946 data and/or the Tully–Fisher relation to estimate the MOND acceleration constant and verify that the assumed low-acceleration regime is consistent.",
+        "In the deep-MOND regime, determine the mass-speed power-law exponent for circular motion around a fixed central mass. Use the NGC 6946 data and/or the Tully-Fisher relation to estimate the MOND acceleration constant and verify that the assumed low-acceleration regime is consistent.",
       model: String.raw`$$\vec F=m\mu(a/a_0)\vec a,\qquad \mu(x)=\frac{x}{1+x},\qquad a\ll a_0$$`,
     },
     {
@@ -292,7 +292,7 @@ const problemsByPaper: Record<
       page: 2,
       solutionPage: 3,
       prompt:
-        "For each of the three water experiments in Table 1, identify whether force–height behaviour A or B occurs. Complete the official answer-sheet table with the maximum holding force and, when relevant, the threshold height where the force plateaus. Use the stated temperatures, densities, saturated vapour pressures, tube dimensions, and atmospheric pressure.",
+        "For each of the three water experiments in Table 1, identify whether force-height behaviour A or B occurs. Complete the official answer-sheet table with the maximum holding force and, when relevant, the threshold height where the force plateaus. Use the stated temperatures, densities, saturated vapour pressures, tube dimensions, and atmospheric pressure.",
     },
     {
       part: "A.3",
@@ -320,7 +320,7 @@ const problemsByPaper: Record<
       page: 3,
       solutionPage: 6,
       prompt:
-        "At fixed atmospheric pressure, lift the two-part tube from full submersion until its base reaches the bath surface. Sketch added mass against the height of the tube–bulb junction over the full specified interval. Give analytical expressions for the slopes of each segment and the heights of all corners, in terms of the dimensions, cross sections, pressure, density, and gravity.",
+        "At fixed atmospheric pressure, lift the two-part tube from full submersion until its base reaches the bath surface. Sketch added mass against the height of the tube-bulb junction over the full specified interval. Give analytical expressions for the slopes of each segment and the heights of all corners, in terms of the dimensions, cross sections, pressure, density, and gravity.",
       model: String.raw`$$h_t\in[-H_b,H_t],\qquad H_t=80\,\mathrm{cm},\quad H_b=20\,\mathrm{cm}$$`,
     },
     {
@@ -330,7 +330,7 @@ const problemsByPaper: Record<
       page: 4,
       solutionPage: 7,
       prompt:
-        "Hold the tube–bulb junction at a fixed height so that the mercury free surface stays inside the bulb. Atmospheric pressure follows the triangular perturbation in Figure 4 with amplitude 500 pascals. Derive and evaluate the amplitude of added-mass variation for tube and bulb cross sections of 5 and 200 square centimetres, respectively.",
+        "Hold the tube-bulb junction at a fixed height so that the mercury free surface stays inside the bulb. Atmospheric pressure follows the triangular perturbation in Figure 4 with amplitude 500 pascals. Derive and evaluate the amplitude of added-mass variation for tube and bulb cross sections of 5 and 200 square centimetres, respectively.",
     },
     {
       part: "C.1",
@@ -339,7 +339,7 @@ const problemsByPaper: Record<
       page: 5,
       solutionPage: 9,
       prompt:
-        "Use the cistern, barometric tube, pulley arrangement, dimensions, and initial balance described on pages 4–5. Determine the threshold of the dimensionless friction parameter above which the sliding mass remains permanently at rest. Use its definition in Equation 3 and the periodic pressure forcing.",
+        "Use the cistern, barometric tube, pulley arrangement, dimensions, and initial balance described on pages 4 to 5. Determine the threshold of the dimensionless friction parameter above which the sliding mass remains permanently at rest. Use its definition in Equation 3 and the periodic pressure forcing.",
     },
     {
       part: "C.2",
@@ -357,7 +357,7 @@ const problemsByPaper: Record<
       page: 6,
       solutionPage: 14,
       prompt:
-        "When the friction parameter is below the no-motion threshold, distinguish the two possible operating regimes. Complete the official answer-sheet table with conditions expressed as inequalities in the dimensionless friction and displacement parameters defined in Equations 3–4. Sketch the normalized mass displacement over the first three pressure periods, starting from the stated balanced initial condition. Coordinates of special points are not required.",
+        "When the friction parameter is below the no-motion threshold, distinguish the two possible operating regimes. Complete the official answer-sheet table with conditions expressed as inequalities in the dimensionless friction and displacement parameters defined in Equations 3 to 4. Sketch the normalized mass displacement over the first three pressure periods, starting from the stated balanced initial condition. Coordinates of special points are not required.",
     },
     {
       part: "C.4",
@@ -375,7 +375,7 @@ const problemsByPaper: Record<
       page: 6,
       solutionPage: 17,
       prompt:
-        "For the optimal operating configuration, calculate the work supplied to the system by atmospheric-pressure forces during a complete cycle. Determine the ratio of recovered energy to that pressure work. A pressure–volume diagram may be useful.",
+        "For the optimal operating configuration, calculate the work supplied to the system by atmospheric-pressure forces during a complete cycle. Determine the ratio of recovered energy to that pressure work. A pressure-volume diagram may be useful.",
     },
   ],
   t3: [
@@ -386,7 +386,7 @@ const problemsByPaper: Record<
       page: 1,
       solutionPage: 1,
       prompt:
-        "A spherical carbon-dioxide bubble forms in champagne at atmospheric liquid pressure. Express the bubble’s internal pressure in terms of ambient pressure, bubble radius, and surface tension. There is one liquid–gas interface.",
+        "A spherical carbon-dioxide bubble forms in champagne at atmospheric liquid pressure. Express the bubble’s internal pressure in terms of ambient pressure, bubble radius, and surface tension. There is one liquid-gas interface.",
     },
     {
       part: "A.2",
@@ -405,7 +405,7 @@ const problemsByPaper: Record<
       page: 2,
       solutionPage: 2,
       prompt:
-        "For a visible bubble, neglect the pressure excess due to surface tension and write its carbon-dioxide content using the ideal-gas law. Derive the radius as a function of time for both interfacial-flux models below, starting from the given initial radius. Use the measured radius–time graph in Figure 2 to select the model and determine the appropriate transport coefficient numerically.",
+        "For a visible bubble, neglect the pressure excess due to surface tension and write its carbon-dioxide content using the ideal-gas law. Derive the radius as a function of time for both interfacial-flux models below, starting from the given initial radius. Use the measured radius-time graph in Figure 2 to select the model and determine the appropriate transport coefficient numerically.",
       model: String.raw`$$j_1=\frac D a(c_\ell-c_b),\qquad j_2=K(c_\ell-c_b),\qquad c_\ell\simeq4c_0$$`,
     },
     {
@@ -510,7 +510,7 @@ const problemsByPaper: Record<
       page: 4,
       solutionPage: 4,
       prompt:
-        "At a fixed current of approximately 1 ampere, measure and plot the axial magnetic field against sensor position inside the anti-Helmholtz coils. Identify the largest position interval over which the measured field is linear. Use the probe positioning and coil wiring instructions on pages 1–2.",
+        "At a fixed current of approximately 1 ampere, measure and plot the axial magnetic field against sensor position inside the anti-Helmholtz coils. Identify the largest position interval over which the measured field is linear. Use the probe positioning and coil wiring instructions on pages 1 to 2.",
     },
     {
       part: "A.3",
@@ -586,7 +586,7 @@ const problemsByPaper: Record<
       page: 5,
       solutionPage: 12,
       prompt:
-        "From your earlier measurements, express and evaluate the critical wire length where the amplitudes of wire torque and magnetic torque are equal. For your B.2 setup, calculate the wire-to-magnetic torque-amplitude ratio and place it in one of the specified percentage intervals: below 1, 1–5, 5–20, 20–50, or at least 50 percent.",
+        "From your earlier measurements, express and evaluate the critical wire length where the amplitudes of wire torque and magnetic torque are equal. For your B.2 setup, calculate the wire-to-magnetic torque-amplitude ratio and place it in one of the specified percentage intervals: below 1, 1 to 5, 5 to 20, 20 to 50, or at least 50 percent.",
       model: String.raw`$$\frac{C_f}{L_c}=m_mB_e$$`,
     },
     {
@@ -616,7 +616,7 @@ const problemsByPaper: Record<
       page: 4,
       solutionPage: 4,
       prompt:
-        "Drop ball 3 from 50 centimetres onto the prepared sand bed and measure the crater diameter. Repeat the experiment five times, remixing and carefully leveling the sand without compacting it after each impact. Tabulate all measurements and report the crater diameter with uncertainty. Ball and apparatus specifications are on pages 1–4.",
+        "Drop ball 3 from 50 centimetres onto the prepared sand bed and measure the crater diameter. Repeat the experiment five times, remixing and carefully leveling the sand without compacting it after each impact. Tabulate all measurements and report the crater diameter with uncertainty. Ball and apparatus specifications are on pages 1 to 4.",
     },
     {
       part: "A.2",
@@ -635,7 +635,7 @@ const problemsByPaper: Record<
       page: 5,
       solutionPage: 5,
       prompt:
-        "Measure crater diameters over a broad range of impact energies using different steel balls and release heights. For each ball–height combination, repeat the drop twice and average the diameters. Present a table containing ball mass, drop height, impact energy, and mean crater diameter. Respect the height limit established in A.2 and the stated maximum apparatus height of 2 metres.",
+        "Measure crater diameters over a broad range of impact energies using different steel balls and release heights. For each ball-height combination, repeat the drop twice and average the diameters. Present a table containing ball mass, drop height, impact energy, and mean crater diameter. Respect the height limit established in A.2 and the stated maximum apparatus height of 2 metres.",
     },
     {
       part: "A.4",
@@ -668,7 +668,7 @@ const problemsByPaper: Record<
     },
     {
       part: "B.3",
-      title: "Distance–time measurements",
+      title: "Distance-time measurements",
       points: 0.8,
       page: 6,
       solutionPage: 8,
@@ -682,7 +682,7 @@ const problemsByPaper: Record<
       page: 6,
       solutionPage: 8,
       prompt:
-        "Plot the B.3 measurements with error bars to test the distance–time law derived in B.1. Use the graph to estimate gravitational acceleration with its uncertainty, including the actual rolling geometry of the rail.",
+        "Plot the B.3 measurements with error bars to test the distance-time law derived in B.1. Use the graph to estimate gravitational acceleration with its uncertainty, including the actual rolling geometry of the rail.",
     },
     {
       part: "B.5",

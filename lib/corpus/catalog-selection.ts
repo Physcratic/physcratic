@@ -120,7 +120,7 @@ export const catalogSelection: Record<Competition, readonly Selection[]> = {
     [
       2018,
       "T1",
-      "LIGO–GW150914",
+      "LIGO-GW150914",
       "Waves",
       ["Gravitational waves", "Binary systems", "Orbital dynamics"],
     ],
@@ -278,7 +278,7 @@ export const catalogSelection: Record<Competition, readonly Selection[]> = {
     [
       2009,
       "T1",
-      "Evolution of the Earth–Moon system",
+      "Evolution of the Earth-Moon system",
       "Mechanics",
       ["Angular momentum", "Tidal forces", "Orbital dynamics"],
     ],
@@ -357,7 +357,7 @@ export const catalogSelection: Record<Competition, readonly Selection[]> = {
     [
       2022,
       "T1",
-      "The Stern–Gerlach experiment",
+      "The Stern-Gerlach experiment",
       "Modern physics",
       ["Spin", "Magnetic moments", "Atomic beams"],
     ],
@@ -497,7 +497,7 @@ export const catalogSelection: Record<Competition, readonly Selection[]> = {
     [
       2015,
       "T3",
-      "Fabry–Pérot interferometer",
+      "Fabry-Pérot interferometer",
       "Optics",
       ["Interference", "Optical resonators", "Spectral resolution"],
     ],
@@ -571,7 +571,7 @@ export const catalogSelection: Record<Competition, readonly Selection[]> = {
       "T3",
       "Crossed wires",
       "Electromagnetism",
-      ["Magnetic fields", "Field lines", "Biot–Savart law"],
+      ["Magnetic fields", "Field lines", "Biot-Savart law"],
     ],
     [
       2024,
@@ -590,7 +590,7 @@ export const catalogSelection: Record<Competition, readonly Selection[]> = {
     [
       2024,
       "T3",
-      "Fabry–Pérot interferometer",
+      "Fabry-Pérot interferometer",
       "Optics",
       ["Interference", "Optical resonators", "Energy storage"],
     ],

@@ -2,7 +2,7 @@ import type { Problem } from "./physics";
 
 export const eloBands = [
   { id: "under-1200", name: "Foundational", range: "Below 1,200", min: 0, max: 1200, variant: "elo-foundation" },
-  { id: "1200-1599", name: "Intermediate", range: "1,200–1,599", min: 1200, max: 1600, variant: "elo-intermediate" },
+  { id: "1200-1599", name: "Intermediate", range: "1,200 to 1,599", min: 1200, max: 1600, variant: "elo-intermediate" },
   { id: "1600-plus", name: "Advanced", range: "1,600+", min: 1600, max: Infinity, variant: "elo-advanced" },
 ] as const;
 

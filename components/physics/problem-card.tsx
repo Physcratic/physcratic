@@ -58,7 +58,7 @@ export function ProblemCard({
   const titleId = React.useId();
   const Heading = headingLevel === 4 ? "h4" : "h3";
   const band = elo === undefined ? undefined : getEloBand(elo);
-  const actionLabel = `Exercise: ${[source, reference, title].filter(Boolean).join(" — ")}`;
+  const actionLabel = `Exercise: ${[source, reference, title].filter(Boolean).join(", ")}`;
   const titleClassName =
     "rounded-sm text-left transition-colors hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-card";
   const actionContent = (

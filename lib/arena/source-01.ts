@@ -93,7 +93,7 @@ $$R'_1=3.00\ \mathrm{cm},\qquad R'_2=4.00\ \mathrm{cm}.$$
 (i) Find the radius of curvature of the film separating the two bubbles.
 
 (ii) Find the distance between the centers of the two bubbles.`,
-    solution: String.raw`Treat each bubble’s gas as ideal and conserve its amount separately. The temperature is constant. Each thin soap film has two liquid–air surfaces, so its effective tension is $$2\sigma$$.
+    solution: String.raw`Treat each bubble’s gas as ideal and conserve its amount separately. The temperature is constant. Each thin soap film has two liquid-air surfaces, so its effective tension is $$2\sigma$$.
 
 ## (a.i)
 
@@ -281,7 +281,7 @@ Further assume a spatially flat Universe, so that $$\xi=0$$. Find the ratio of t
 
 ## (l)
 
-Matter and radiation have equal energy densities when the Universe is 60 000 years old. Recombination occurs at a temperature of 3000 K when the Universe is 360 000 years old, by which time matter dominates. Find the temperature at matter–radiation equality. Assume a flat Universe and that the scaling found in part (j) still applies.
+Matter and radiation have equal energy densities when the Universe is 60 000 years old. Recombination occurs at a temperature of 3000 K when the Universe is 360 000 years old, by which time matter dominates. Find the temperature at matter-radiation equality. Assume a flat Universe and that the scaling found in part (j) still applies.
 
 ## (m)
 
@@ -344,7 +344,7 @@ Use $$r_1\simeq0.20$$ in the final estimate. A physical freeze-out temperature w
 
 ## (e)
 
-At threshold, two oppositely directed photons must supply the rest energy of an electron–positron pair. Using the thermal-energy scale from part (a),
+At threshold, two oppositely directed photons must supply the rest energy of an electron-positron pair. Using the thermal-energy scale from part (a),
 
 $$2k_BT_2\simeq2m_ec^2.$$
 

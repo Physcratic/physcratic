@@ -3,6 +3,7 @@ import { describe, it } from "node:test";
 import { findCopyProblems } from "./copy-rules";
 import { articles, COACHING_LINE } from "./learn/articles";
 import { visibleStrings } from "./learn/reading";
+import { scanCopy, stringsIn } from "./copy-scan";
 
 describe("findCopyProblems", () => {
   it("passes plain copy", () => {
@@ -53,5 +54,27 @@ describe("the coaching line at the end of every guide", () => {
     assert.equal(`${COACHING_LINE.lead} ${COACHING_LINE.linkLabel}`, "Want a coach who has sat these exams? Meet our medallist coaches.");
     assert.equal(COACHING_LINE.href, "/coaching");
     for (const text of [COACHING_LINE.lead, COACHING_LINE.linkLabel]) assert.deepEqual(findCopyProblems(text), []);
+  });
+});
+
+describe("copy scanner", () => {
+  it("reads string literals, template text and JSX text but not comments", () => {
+    const source = [
+      "// comment — ignored",
+      "const a = \"one — two\";",
+      "const b = `three – ${a}`;",
+      "export const c = <p>four — five</p>;",
+    ].join("\n");
+    const texts = stringsIn("sample.tsx", source).map((s) => s.text);
+    assert.deepEqual(texts, ["one — two", "three – ", "four — five"]);
+  });
+});
+
+describe("no em dashes or en dashes in the app", () => {
+  it("has none in any string literal or JSX text under app/ and components/", () => {
+    const failures = scanCopy(process.cwd(), ["app", "components"])
+      .filter((f) => f.rule === "em dash" || f.rule === "en dash")
+      .map((f) => `${f.file}:${f.line} ${f.rule}: ${f.text}`);
+    assert.deepEqual(failures, []);
   });
 });

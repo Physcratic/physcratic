@@ -154,7 +154,7 @@ export function ProblemCollection<T extends { id: string }>({
           <CardDescription aria-live="polite">
             {items.length} of {totalCount} problems
             {items.length > 0 &&
-              ` · Showing ${(page - 1) * pageSize + 1}–${Math.min(page * pageSize, items.length)}`}
+              ` · Showing ${(page - 1) * pageSize + 1} to ${Math.min(page * pageSize, items.length)}`}
             {status && ` · ${status}`}
           </CardDescription>
         </CardHeader>

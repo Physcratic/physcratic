@@ -23,7 +23,7 @@ export default function TermsPage() {
         <p className="text-sm leading-relaxed text-muted-foreground">Effective {TERMS_EFFECTIVE_DATE} · Version {TERMS_VERSION}</p>
       </header>
       <Alert>
-        <AlertTitle>Starter terms — pending legal review</AlertTitle>
+        <AlertTitle>Starter terms, pending legal review</AlertTitle>
         <AlertDescription>This is a provisional agreement, not legal advice. Before a public launch, the operator must have it reviewed, add its legal identity and contact details, and publish a separate privacy notice.</AlertDescription>
       </Alert>
       <nav aria-label="Terms sections" className="flex flex-col gap-2 rounded-lg border border-border bg-card p-5 text-card-foreground">

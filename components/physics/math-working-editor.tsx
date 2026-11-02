@@ -20,7 +20,7 @@ export function MathWorkingEditor({ id, value, onChange, description, mode = "pl
       <FieldLabel htmlFor={id}>Your working</FieldLabel>
       <Badge variant="outline">{mode === "latex" ? "Text + LaTeX" : "Plain text"}</Badge>
     </div>
-    <p id={`${id}-syntax`} className="text-sm leading-relaxed text-muted-foreground">{mode === "latex" ? <>Explain your reasoning in words. Wrap equations in double dollar signs, for example <code className="font-mono">{"$$a = g\\sin\\theta$$"}</code>.</> : <>Explain your reasoning. Write equations like <code className="rounded bg-muted px-1 py-0.5 font-mono text-foreground">a = g*sin(theta)</code> — no LaTeX needed.</>}</p>
+    <p id={`${id}-syntax`} className="text-sm leading-relaxed text-muted-foreground">{mode === "latex" ? <>Explain your reasoning in words. Wrap equations in double dollar signs, for example <code className="font-mono">{"$$a = g\\sin\\theta$$"}</code>.</> : <>Explain your reasoning. Write equations like <code className="rounded bg-muted px-1 py-0.5 font-mono text-foreground">a = g*sin(theta)</code>. No LaTeX needed.</>}</p>
     <div className="flex min-w-0 flex-col gap-4 xl:flex-row">
       <div className="flex min-w-0 flex-1 flex-col gap-2">
         <p className="text-sm font-medium">Write</p>

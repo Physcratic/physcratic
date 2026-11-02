@@ -44,7 +44,7 @@ export function ArchiveStats({ topic }: { topic?: string }) {
           </p>
           <p className="text-sm text-muted-foreground">
             {addedLast24Hours === null
-              ? "New in the last 24 hours: not tracked — addition dates are unavailable."
+              ? "New in the last 24 hours: not tracked. Addition dates are unavailable."
               : `New in the last 24 hours: ${addedLast24Hours.toLocaleString("en-US")}`}
           </p>
         </div>
