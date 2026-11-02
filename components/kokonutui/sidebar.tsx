@@ -91,7 +91,7 @@ export default function Sidebar({
                   <Icon className="size-[18px]" strokeWidth={1.7} />
                   {label}
                   {itemView === "problems" && (
-                    <span className="ml-auto text-sm opacity-70">
+                    <span className="ml-auto text-sm">
                       {(
                         problems.length + catalogProblems.length + arena.count
                       ).toLocaleString("en-US")}

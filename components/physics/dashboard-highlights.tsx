@@ -108,7 +108,7 @@ function DailyProblem({
         <CardTitle>
           <h2
             id="daily-problem-heading"
-            className="flex items-center gap-2 text-sm font-medium text-primary"
+            className="flex items-center gap-2 text-sm font-medium text-accent-foreground"
           >
             <Sun aria-hidden="true" className="size-4" strokeWidth={1.6} />
             Recommended problem

@@ -47,46 +47,42 @@ export default function Content({
 
   return (
     <div className="workspace-enter flex flex-col gap-7">
-      {view === "overview" ? (
-        <h1 className="sr-only">Lobby</h1>
-      ) : (
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="flex flex-col gap-2">
-            <h1 className="text-2xl font-medium tracking-[-0.04em] sm:text-[27px]">
-              {topic || viewTitles[view]}
-            </h1>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              {subtitles[view]}
-            </p>
-          </div>
-          {view === "rankings" && (
-            <Field className="w-full sm:w-72">
-              <FieldLabel htmlFor="ranking-search" className="sr-only">
-                Search contestants
-              </FieldLabel>
-              <Input
-                id="ranking-search"
-                type="search"
-                value={rankingSearch}
-                onChange={(event) => setRankingSearch(event.target.value)}
-                placeholder="Search contestants…"
-                aria-controls="rankings-table"
-              />
-            </Field>
-          )}
-          {view === "problems" && (
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={openRandomProblem}
-              disabled={!choices.length}
-            >
-              <Shuffle data-icon="inline-start" />
-              Random quick practice
-            </Button>
-          )}
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <div className="flex flex-col gap-2">
+          <h1 className="text-2xl font-medium tracking-[-0.04em] sm:text-[27px]">
+            {topic || viewTitles[view]}
+          </h1>
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            {subtitles[view]}
+          </p>
         </div>
-      )}
+        {view === "rankings" && (
+          <Field className="w-full sm:w-72">
+            <FieldLabel htmlFor="ranking-search" className="sr-only">
+              Search contestants
+            </FieldLabel>
+            <Input
+              id="ranking-search"
+              type="search"
+              value={rankingSearch}
+              onChange={(event) => setRankingSearch(event.target.value)}
+              placeholder="Search contestants…"
+              aria-controls="rankings-table"
+            />
+          </Field>
+        )}
+        {view === "problems" && (
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={openRandomProblem}
+            disabled={!choices.length}
+          >
+            <Shuffle data-icon="inline-start" />
+            Random quick practice
+          </Button>
+        )}
+      </div>
       {view === "overview" && (
         <Overview dailyProblem={dailyProblem} onOpen={openProblem} />
       )}
