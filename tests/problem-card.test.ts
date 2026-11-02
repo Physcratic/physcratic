@@ -38,7 +38,7 @@ test("problem cards share a labelled article, header, details and exercise actio
   assert.match(html, /5 min · Hint \+ worked solution/);
   assert.match(html, /English.*Unrated/);
   assert.match(html, /Exercise/);
-  assert.match(html, /Exercise: Quick practice — A block on an incline/);
+  assert.match(html, /Exercise: Quick practice, A block on an incline/);
   assert.match(html, /Newton’s laws/);
 });
 
@@ -53,7 +53,7 @@ test("cards without extra metadata retain their title, difficulty, tags and exer
   assert.match(html, /Champagne!/);
   assert.match(html, /Estimated difficulty 2,500/);
   assert.match(html, /Newton’s laws/);
-  assert.match(html, /Exercise: Quick practice — Champagne!/);
+  assert.match(html, /Exercise: Quick practice, Champagne!/);
   assert.doesNotMatch(html, /border-destructive|5 min|Hint \+ worked solution|scored subparts|Official solution/);
 });
 
@@ -118,7 +118,7 @@ test("Arena cards use the archive template and retain their individual difficult
   }
   assert.doesNotMatch(html, /Unrated|Self-review|Statement \+ worked solution/);
   assert.match(html, /id="arena-results"/);
-  assert.match(html, /18 of 18 problems · Showing 1–10/);
+  assert.match(html, /18 of 18 problems · Showing 1 to 10/);
   assert.equal([...html.matchAll(/Page 1 of 2/g)].length, 2);
   assert.match(html, /aria-label="Arena pages \(top\)"/);
   assert.match(html, /aria-label="Arena pages \(bottom\)"/);
@@ -148,7 +148,7 @@ test("the shared collection reuses archive spacing, heading and top/bottom pagin
     assert.match(html, /id="test-results-heading" tabindex="-1"/);
     assert.match(html, /scroll-mt-6 overflow-hidden shadow-none/);
     assert.match(html, /gap-4 px-4 pb-5 sm:px-6/);
-    assert.ok(html.includes(`${count} of ${count} problems · Showing 1–${visible}`));
+    assert.ok(html.includes(`${count} of ${count} problems · Showing 1 to ${visible}`));
     assert.equal([...html.matchAll(/data-problem-card=/g)].length, visible);
     assert.equal([...html.matchAll(new RegExp(`Page 1 of ${Math.ceil(count / 10)}`, "g"))].length, 2);
     assert.equal([...html.matchAll(/<nav /g)].length, 2);
@@ -161,7 +161,7 @@ test("retained collection pages show the remaining problems and clamp out-of-ran
   for (const page of [2, 5]) {
     const html = renderCollection(18, 18, page);
     assert.equal([...html.matchAll(/data-problem-card=/g)].length, 8);
-    assert.match(html, /18 of 18 problems · Showing 11–18/);
+    assert.match(html, /18 of 18 problems · Showing 11 to 18/);
     assert.match(html, /Page 2 of 2/);
     assert.match(html, /data-problem-card="problem-11"/);
     assert.match(html, /data-problem-card="problem-18"/);
@@ -171,14 +171,14 @@ test("retained collection pages show the remaining problems and clamp out-of-ran
 
 test("changing collection filters resets a retained page to the first page", () => {
   const html = renderCollection(12, 18, 2, "previous-filters");
-  assert.match(html, /12 of 18 problems · Showing 1–10/);
+  assert.match(html, /12 of 18 problems · Showing 1 to 10/);
   assert.match(html, /Page 1 of 2/);
   assert.match(html, /data-problem-card="problem-1"/);
 });
 
 test("the shared collection reports filtered results against the topic total", () => {
   const html = renderCollection(2, 18);
-  assert.match(html, /2 of 18 problems · Showing 1–2/);
+  assert.match(html, /2 of 18 problems · Showing 1 to 2/);
 });
 
 test("empty collections keep the archive shell and reset action without misleading pagination", () => {
