@@ -92,7 +92,8 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
       </header>
       <main
         id="author-main"
-        className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-20"
+        tabIndex={-1}
+        className="focus:outline-none mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-20"
       >
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
           A blank page. A good question.

@@ -1,3 +1,4 @@
+import { SkipLink } from "@/components/skip-link";
 import { CoachingHeader, CoachingFooter, CoachingSections } from "@/components/coaching/coaching-sections";
 import { CoachingHero } from "@/components/coaching/coaching-hero";
 import { CoachingReveal } from "@/components/coaching/coaching-reveal";
@@ -7,9 +8,9 @@ export default async function CoachingPage({ searchParams }: { searchParams: Pro
   const { goal } = await searchParams;
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(coachingGraph()) }} />
-    <a className="sr-only focus:not-sr-only focus:block focus:p-4" href="#coaching-main">{content.ui.skipLink}</a>
+    <SkipLink targetId="coaching-main">{content.ui.skipLink}</SkipLink>
     <CoachingHeader />
-    <main id="coaching-main">
+    <main id="coaching-main" tabIndex={-1} className="focus:outline-none">
       <CoachingHero key={goal ?? ""} initialGoal={goal} />
       <CoachingSections />
     </main>

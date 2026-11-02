@@ -1,3 +1,4 @@
+import { SkipLink } from "@/components/skip-link";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
@@ -33,12 +34,7 @@ export default async function AuthorPage() {
     );
   return (
     <>
-      <a
-        href="#author-main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:bg-background focus:p-3"
-      >
-        Skip to editor content
-      </a>
+      <SkipLink targetId="author-main">Skip to editor content</SkipLink>
       <AuthoringWorkspace userId={session.user.id} />
     </>
   );

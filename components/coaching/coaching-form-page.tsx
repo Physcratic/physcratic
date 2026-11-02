@@ -1,3 +1,4 @@
+import { SkipLink } from "@/components/skip-link";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { content } from "@/lib/coaching/content";
@@ -10,9 +11,9 @@ type Page = typeof content.consultationPage | typeof content.tutorPage;
 /** Short intro plus one button to a Tally form, on the coaching header and footer. */
 export function CoachingFormPage({ page, form, pathway }: { page: Page; form: "consultation" | "tutor"; pathway?: CoachingPathway }) {
   return <>
-    <a className="sr-only focus:not-sr-only focus:block focus:p-4" href="#coaching-main">{content.ui.skipLink}</a>
+    <SkipLink targetId="coaching-main">{content.ui.skipLink}</SkipLink>
     <CoachingHeader base="/coaching" />
-    <main id="coaching-main" className="coaching-container py-16 sm:py-20" aria-labelledby="coaching-form-title">
+    <main id="coaching-main" tabIndex={-1} className="focus:outline-none coaching-container py-16 sm:py-20" aria-labelledby="coaching-form-title">
       <div className="flex max-w-2xl flex-col items-start gap-6">
         <Link href="/coaching" className="coaching-link inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"><ArrowLeft className="size-4" aria-hidden="true" />{page.back}</Link>
         <h1 id="coaching-form-title" className="font-serif text-balance text-4xl leading-[1.1] sm:text-5xl">{page.title}</h1>

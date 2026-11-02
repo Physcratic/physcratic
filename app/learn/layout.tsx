@@ -1,16 +1,12 @@
 import Link from "next/link";
 import { BrandMark } from "@/components/brand-mark";
+import { SkipLink } from "@/components/skip-link";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function LearnLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-dvh bg-background text-foreground">
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:ring-2 focus:ring-ring"
-      >
-        Skip to main content
-      </a>
+      <SkipLink targetId="main-content">Skip to main content</SkipLink>
       <header className="border-b">
         <div className="mx-auto flex h-16 w-full max-w-3xl items-center justify-between gap-3 px-4 sm:px-6">
           <Link
@@ -34,7 +30,8 @@ export default function LearnLayout({ children }: { children: React.ReactNode })
       </header>
       <main
         id="main-content"
-        className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6 sm:py-12"
+        tabIndex={-1}
+        className="focus:outline-none mx-auto w-full max-w-3xl px-4 py-8 sm:px-6 sm:py-12"
       >
         {children}
       </main>

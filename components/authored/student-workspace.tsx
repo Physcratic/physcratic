@@ -1,4 +1,5 @@
 "use client";
+import { SkipLink } from "@/components/skip-link";
 import { WorkedSolution } from "./worked-solution";
 import {
   useCallback,
@@ -184,12 +185,7 @@ export function StudentWorkspace({
   const denyAuth = useCallback(() => setAuthDenied(true), []);
   return (
     <div className="min-h-dvh bg-background text-foreground">
-      <a
-        href="#solver-main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:rounded-md focus:bg-background focus:p-3"
-      >
-        Skip to problem content
-      </a>
+      <SkipLink targetId="solver-main">Skip to problem content</SkipLink>
       <header className="border-b bg-background">
         <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-3 px-5 py-4 sm:px-8">
           <a
@@ -220,7 +216,8 @@ export function StudentWorkspace({
       </header>
       <main
         id="solver-main"
-        className="mx-auto w-full min-w-0 max-w-[1440px] space-y-7 px-4 py-6 sm:px-8 sm:py-10"
+        tabIndex={-1}
+        className="focus:outline-none mx-auto w-full min-w-0 max-w-[1440px] space-y-7 px-4 py-6 sm:px-8 sm:py-10"
       >
         <div className="flex flex-wrap items-end justify-between gap-4 border-b pb-6">
           <div className="min-w-0 max-w-full">
