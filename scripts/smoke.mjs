@@ -176,7 +176,7 @@ const checks = [
       const res = await get('/learn')
       expectStatus(res, 200)
       expectTitleAndCanonical(res)
-      // The hub itself carries no JSON-LD today. If it ever does, it has to parse.
+      // The hub carries a CollectionPage graph (see learnHubGraph). Any JSON-LD on it has to parse.
       const blocks = jsonLdBlocks(res.text).length
       return `200, head has title and canonical${blocks ? `, ${blocks} JSON-LD block(s) parse` : ''}`
     },
