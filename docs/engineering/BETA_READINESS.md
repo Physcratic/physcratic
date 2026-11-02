@@ -299,6 +299,13 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **What:** in `smoke.yml` the `smoke` job (and the `skipped` job that logs codex/ previews) only counts `ready` when `client_payload.environment` is `preview` and `success` when it is `production`. A manual run is unaffected.
 - **Tests:** `lib/smoke-workflow.test.ts` now evaluates each job's real `if:` expression against sample events: ready with preview and success with production run, ready with production and success with preview do not, other projects and `codex/` refs are filtered, and the skipped job logs each codex deployment once.
 
+## 2026-11-02 - Coaching Phase 4 review
+
+- **What:** a read-only review of `main` plus the Coaching Phase 3 branch (PR #73), written up in `docs/engineering/coaching-review.md`: every consultation and tutor button's Tally URL (5 pathways, 4 "Ask about this program" links, the two form pages, and four source cases), `content.ts` against the rendered pages (254 strings), the copy rules on the rendered text, 19 coaches and 12 countries with their flags and photos, the 375px layout, and the analytics events.
+- **Result:** everything passes. One gap was found and fixed in PR #73 (a middle-click sent no analytics event).
+- **Fix in this PR:** the FAQ question rows were only 28px high to tap, because the padding sat on the wrapper. It now sits on the `<summary>`, so each row is 84px high and the closed height is unchanged.
+- **Recommendations, not done:** 44px tap targets for the footer and "See all" links and the 40px slideshow buttons, a decision on the always-visible mobile "Get a consultation" bar, and the 12px sideways scroll of `/dashboard` at 375 (`top-nav.tsx`).
+
 ## 2026-11-02 - Coaching Phase 3: SEO and structured data
 
 - **Left as they were:** `/coaching` in the route registry, the sitemap and `llms.txt` (from #46), and the removed noindex.
