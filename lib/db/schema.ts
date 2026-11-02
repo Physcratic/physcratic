@@ -4,6 +4,14 @@ import { check, foreignKey, index, type AnyPgColumn, boolean, bigint, date, doub
 import type { SolutionSubmission } from "@/lib/solution-grading";
 import type { ProblemAnswerCheck } from "@/lib/individual-elo";
 
+// Mirrors the already-deployed Better Auth shared limiter table.
+export const rateLimit = pgTable("rateLimit", {
+  id: text("id").primaryKey(),
+  key: text("key").notNull().unique(),
+  count: integer("count").notNull(),
+  lastRequest: bigint("lastRequest", { mode: "number" }).notNull(),
+});
+
 export const user = pgTable("user", {
   id: text("id").primaryKey(), name: text("name").notNull(), email: text("email").notNull().unique(),
   emailVerified: boolean("emailVerified").notNull().default(false), image: text("image"),

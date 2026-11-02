@@ -128,7 +128,7 @@ test("actual Better Auth configuration on the candidate stable Preview origin, d
       assert.equal((await pool.query('SELECT count(*)::integer AS n FROM "session"')).rows[0].n, 1);
     });
     await t.test("registration rate limit rejects the fourth request in one per-IP path bucket", async () => {
-      assert.equal(context.rateLimit.storage, "memory");
+      assert.equal(context.rateLimit.storage, "database");
       for (let i = 0; i < 4; i++) {
         // Missing Terms acceptance prevents creation even for the first three.
         const response = await post("/sign-up/email", credentials, candidateOrigin, "192.0.2.77");

@@ -19,3 +19,8 @@
 - Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-6b
 - Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-6b?expand=1
 - Next: user review Phase6B; stop. No next phase or explicit worked-solution reveal without separate request.
+
+
+## 2026-11-03 shared authentication limiter release
+
+Extracted validated database rate limiting independently of CAPTCHA. See docs/engineering/AUTH_RATE_LIMIT_RELEASE.md. Existing Production table is ready; no migrations or grants are part of this release.
