@@ -1,13 +1,13 @@
 # Community implementation status
 
-Updated: 3 November 2026, 05:18 WITA (UTC+8).
+Updated: 3 November 2026, 05:21 WITA (UTC+8).
 
 ## Batch 2A: earned achievements and profile showcase
 
 **Deployment: PENDING USER ACTION. NOT DEPLOYED BY CODEX.**
 
 - Started from main `b98e97c6f6fee107749b99d87caa68a0e7b8a795`, then fast-forwarded the user's README deployment commit `6c2946d8c5309b902362488a7392fc653bd92740`. No README changes were authored by Codex. Branch: `codex/community-batch-2a-2026-11-03`.
-- Delivery PR, tested head, CI and final merge SHA: pending final verification/merge; recorded below before handoff completion.
+- Implementation/tested head: `88c5291cdaaf775387870490be3830419c23b354`. Delivery: [PR #86](https://github.com/Physcratic/physcratic/pull/86). Final feature merge SHA: **`e4f6ad2bf88f68ca9a4ea1b48607ba02ddd7e1d3`**, merged after successful [GitHub CI #151](https://github.com/Physcratic/physcratic/actions/runs/41526808039). Both jobs passed, including database tests, release/transport guards, typecheck, lint, server/component tests and production build. This final handoff is a subsequent documentation-only commit.
 - Earlier prerequisites remain outstanding: user/operator must verify/install 0007 and runtime grants; 0008/private Blob is a separate optional image prerequisite. Merged code does not establish database installation or deployment.
 
 ### Definitions and authoritative eligibility
@@ -52,7 +52,7 @@ Updated: 3 November 2026, 05:18 WITA (UTC+8).
 - `bash scripts/test-problem-authoring.sh corepack pnpm test`: **675 server passed, 0 failed, 1 inherited corpus-punctuation TODO; 29 UI passed**. Includes existing profile/auth/authoring/submission/grading/solution regressions.
 - Pinned `corepack pnpm exec next typegen`, `corepack pnpm exec tsc --noEmit`, `corepack pnpm lint --max-warnings=0` and `corepack pnpm build`: passed. Synthetic build credentials only. `python3 -B scripts/phase-c-offline/run.py safety` and `git diff --check`: passed. React lifecycle, serialization, privacy and accessibility review completed.
 - Actual built Next server with all community flags OFF and an intentionally unreachable synthetic DB: new GET/PATCH routes returned explicit disabled 503/private-no-store, profile URLs consistently returned 404, and mobile Settings/Appearance loaded with theme persistence and zero community API requests/browser errors. No new schema is required to ship disabled code.
-- The full suite caught the existing copy rule against “unlock”; the interface now uses Earned/Locked without weakening that rule. The browser harness now lets theme color transitions settle before contrast measurement. Generated prior-batch build caches were removed to recover local test disk space. No unrelated production features or tests were rewritten. GitHub CI result recorded with delivery before handoff completion.
+- The full suite caught the existing copy rule against “unlock”; the interface now uses Earned/Locked without weakening that rule. The browser harness now lets theme color transitions settle before contrast measurement. Generated prior-batch build caches were removed to recover local test disk space. No unrelated production features or tests were rewritten. GitHub CI #151 passed on the exact tested head above before PR #86 was merged.
 
 ### Exact later production enablement: user/operator only
 
@@ -79,7 +79,7 @@ Updated: 3 November 2026, 05:18 WITA (UTC+8).
 
 ### Outstanding and next phase
 
-- Implementation/CI/merge status finalized below. Production migration 0007/0009, runtime grants, flag enablement, deployment and deployed smoke remain **PENDING USER ACTION**. Optional media retains separate 0008/private-storage prerequisites.
+- No implementation blockers. PR #86 merged after local verification and green GitHub CI #151. Production migration 0007/0009, runtime grants, flag enablement, deployment and deployed smoke remain **PENDING USER ACTION**. Optional media retains separate 0008/private-storage prerequisites.
 - Counts are current eligibility rather than lifetime awards, capped at 50; sparse histories beyond the bounded budget report unavailable solver progress. No unsupported/static completion claims or background projection jobs were introduced. The new indexes need an operator migration window. No production schema introspection or deployed verification was performed; current-schema compatibility is established by default-off lazy gates and local built-server checks.
 - **Next: Batch 2B**, starting from latest main in a new request. No medal verification, staff roles, favourites, comments or leaderboards are included. Stop after Batch 2A.
 
