@@ -67,6 +67,12 @@ export default function TopNav({
             <span className="hidden font-normal md:inline">Learn</span>
           </Link>
         </Button>
+        <Link
+          href="/coaching"
+          className="hidden rounded-sm text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:inline"
+        >
+          Coaching
+        </Link>
         <FeedbackLink variant="nav" />
         <ThemeToggle />
         <span className="hidden h-5 border-l sm:block" />
