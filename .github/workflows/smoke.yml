@@ -27,10 +27,13 @@ jobs:
   smoke:
     name: Smoke tests
     # Only successful financial-dashboard deployments. The physcratic-integration project is ignored.
+    # Previews of codex/ branches are skipped (see the "skipped" job): they use the staging database,
+    # and the authoring team requires CI to stay isolated from it. A manual run is always allowed.
     if: >-
       github.event_name == 'workflow_dispatch' ||
       (github.event.deployment_status.state == 'success' &&
-       contains(github.event.deployment.environment, 'financial-dashboard'))
+       contains(github.event.deployment.environment, 'financial-dashboard') &&
+       !startsWith(github.event.deployment.ref, 'codex/'))
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
@@ -113,3 +116,23 @@ jobs:
           fi
           gh api "repos/${{ github.repository }}/statuses/$DEPLOY_SHA" \
             -f state="$state" -f context="Smoke tests" -f description="$description" -f target_url="$RUN_URL"
+
+  # The smoke job above never runs for a codex/ preview, so this job says why in the Actions log.
+  skipped:
+    name: Skipped codex preview
+    if: >-
+      github.event_name == 'deployment_status' &&
+      github.event.deployment_status.state == 'success' &&
+      contains(github.event.deployment.environment, 'financial-dashboard') &&
+      startsWith(github.event.deployment.ref, 'codex/')
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    env:
+      DEPLOY_REF: ${{ github.event.deployment.ref }}
+    steps:
+      - name: Say why nothing ran
+        shell: bash
+        run: |
+          echo "Skipped: codex branch preview"
+          echo "Branch: $DEPLOY_REF. codex/ previews use the staging database, so the smoke tests stay away from them."
+
