@@ -6,9 +6,9 @@ Updated: 3 November 2026, 03:42 WITA (UTC+8).
 
 **Deployment: PENDING USER ACTION. NOT DEPLOYED BY CODEX.**
 
-- Base: latest main `cfcbfaa97cb33db44e7bd85e520dd63c45c31a1d`.
+- Starting base: latest main `cfcbfaa97cb33db44e7bd85e520dd63c45c31a1d`. During work, main advanced through PR #80 to `5689bb193fe466faa6058202a4477f46886246d9`; integrated it normally as `3bcf7627b8f2e05b5309af20ffe3fa56a9260382`, preserving all new guides/metadata changes, then reran combined checks.
 - Implementation SHA: `3b640c8c176bf32e5fde4a1be48635c4cccaded4`.
-- Branch: `codex/community-batch-1b-2026-11-03`. PR/final merge SHA: pending CI and merge, finalized afterward.
+- Branch: `codex/community-batch-1b-2026-11-03`. Delivery: [PR #83](https://github.com/Physcratic/physcratic/pull/83). Final merge SHA: pending CI and merge, finalized afterward.
 - Prior deliveries remain intact: Batch 0 PR #77 (`5209a47`), Batch 1A PR #79 (`07dcad9`). The user reports production migration 0007/runtime grants are **not installed**. No installation or production readiness is assumed here.
 
 ### Implemented screens and behaviour
@@ -53,7 +53,7 @@ Updated: 3 November 2026, 03:42 WITA (UTC+8).
 
 - Pinned `corepack pnpm install --frozen-lockfile`: passed after the direct Sharp dependency/lockfile update.
 - `corepack pnpm exec next typegen && corepack pnpm exec tsc --noEmit`: passed. `corepack pnpm lint --max-warnings=0`: passed.
-- `bash scripts/test-problem-authoring.sh corepack pnpm test`: 638 server tests, 637 passed, zero failures/skips, one inherited corpus punctuation TODO. All 28 component tests passed. Includes existing actual Better Auth, CAPTCHA/Terms, authoring, grading, private solutions and submission regressions.
+- `bash scripts/test-problem-authoring.sh corepack pnpm test`: 666 server tests, 665 passed, zero failures/skips, one inherited corpus punctuation TODO. All 29 component tests passed, including the incoming product-guide checks. Includes existing actual Better Auth, CAPTCHA/Terms, authoring, grading, private solutions and submission regressions.
 - New media coverage: valid formats/dimensions/re-encoding/metadata removal, MIME spoofing/animation/size rejection, owner/guest/other-account access, origin rejection, cross-instance limits, daily/storage quotas, replacement/removal, remove-versus-late-PUT race, ambiguous upload and delete outage/retry, restricted runtime grants and migration up/down/up preserving 0007 profiles. Disabled route/page exports are tested without new schema.
 - `AUTHORING_BROWSER_TOOLS=<local Playwright+axe tooling> CHROMIUM_PATH=/usr/bin/chromium bash scripts/test-problem-authoring.sh node --require ./tests/server-only-register.cjs --import tsx tests/community-profile.browser.mjs`: **91 assertions passed** using real production UI components/API factories, disposable PostgreSQL, actual Sharp and an in-memory private-storage boundary. Covers save/reload/permanent handle/duplicate identity, private/public changes, guest image revocation, image changes/failures/spoofs/size limits, onboarding skip/completion/account switch, flags, errors/retry, guest/unverified settings, native keyboard radio controls and System persistence. Axe reported zero violations at 1440px/375px in light/dark. Desktop/mobile screenshots were visually reviewed; synthetic artifacts are outside the repository under `/workspace/work/batch1b-ui-artifacts`.
 - `corepack pnpm build`: passed. The actual built Next server was additionally checked with both flags OFF and an intentionally unreachable synthetic database: Settings/theme worked at 375px with no profile/media requests, missing/private profile URLs returned consistent 404, and all new API methods returned disabled 503/private-no-store. No live DB/Blob binding was used.
