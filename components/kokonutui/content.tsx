@@ -14,11 +14,11 @@ import { Contests } from "@/components/physics/contests";
 import { Rankings } from "@/components/physics/rankings";
 
 const subtitles: Record<View, string> = {
-  overview: "Less memorizing. More understanding.",
-  problems: "Good questions lead to great discoveries. Find your next one.",
-  contests: "Think clearly. Solve together. Find your competitive side.",
-  rankings: "The leaderboard. See who’s leading, and who’s on a roll.",
-  guide: "A few small steps to your first breakthrough.",
+  overview: "Today's problem, your rating and recommended practice.",
+  problems: "Browse practice problems and filter by topic.",
+  contests: "Upcoming and past contests.",
+  rankings: "Contestants ranked by rating.",
+  guide: "How Physcratic works.",
 };
 
 export default function Content({

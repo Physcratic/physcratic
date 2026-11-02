@@ -142,12 +142,12 @@ export function StudentWorkspace({
           needsReload.current = true;
           setAvailability("unavailable");
           setPublicMessage(
-            "This problem is unpublished, deleted or unavailable. Its statement is hidden; your own saved attempts and local work remain available.",
+            "This problem is unpublished, deleted or unavailable. Its statement is hidden. Your own saved attempts and local work remain available.",
           );
         } else {
           setAvailability("error");
           setPublicMessage(
-            "We could not confirm the current publication. New submissions are paused; your local work is retained.",
+            "We could not confirm the current publication. New submissions are paused. Your local work is retained.",
           );
         }
       } finally {
@@ -284,7 +284,7 @@ export function StudentWorkspace({
                 {viewer.state === "loading"
                   ? "Checking your account. Published problem content stays available below."
                   : viewer.state === "error" || authDenied
-                    ? "We could not verify your session. Refresh the page to retry; submissions and private history are paused."
+                    ? "We could not verify your session. Refresh the page to retry. Submissions and private history are paused."
                     : viewer.state === "unverified"
                       ? "Use your email verification link, then sign in again. No answer will be sent until your account is verified."
                       : "Published statements and public attachments are open to everyone. A verified account is required to save answers and see your own attempt history."}
@@ -301,7 +301,7 @@ export function StudentWorkspace({
       </main>
       <footer className="mx-auto max-w-[1440px] border-t px-5 py-6 text-xs leading-relaxed text-muted-foreground sm:px-8">
         Practice has no permanent per-part cap. Submitting or receiving a grade
-        does not unlock private answers, hints or worked solutions.
+        does not reveal private answers, hints or worked solutions.
       </footer>
     </div>
   );
@@ -1078,7 +1078,7 @@ function PrivateWorkspace({
                 reflect
               </h2>
               <p className="text-xs leading-relaxed text-muted-foreground">
-                A grade never unlocks private answers or worked solutions.
+                A grade never reveals private answers or worked solutions.
                 “Needs review” is not a verdict that your mathematics is wrong.
                 You can keep practicing within the temporary request limits.
               </p>
@@ -1101,7 +1101,7 @@ function AnswerFields({
       <>
         <Field
           label="Numerical answer"
-          help="A finite, representable decimal or scientific-notation number, for example -0.5 or 1.2e3. Numbers use binary64 precision; nonzero underflow is rejected."
+          help="A finite, representable decimal or scientific-notation number, for example -0.5 or 1.2e3. Numbers use binary64 precision. Nonzero underflow is rejected."
         >
           {(id) => (
             <input

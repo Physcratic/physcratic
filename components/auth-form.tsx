@@ -66,7 +66,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
       <div className="flex w-full max-w-md flex-col gap-6">
         <Button variant="ghost" className="w-fit" asChild><Link href="/dashboard"><ArrowLeft data-icon="inline-start" /> Back to Physcratic</Link></Button>
         {verificationEmail !== null ? <VerificationNotice email={verificationEmail} returnTo={returnTo} onBack={() => setVerificationEmail(null)} /> : <Card>
-          <CardHeader><CardTitle>{creating ? "Keep your working. Track your progress." : "Welcome back."}</CardTitle><CardDescription>{creating ? "Create an account to privately save your olympiad solutions." : "Sign in to return to your saved attempts."}</CardDescription></CardHeader>
+          <CardHeader><CardTitle>{creating ? "Create an account" : "Sign in"}</CardTitle><CardDescription>{creating ? "Save your olympiad solutions privately." : "Sign in to see your saved attempts."}</CardDescription></CardHeader>
           <CardContent>
             <form id="account-form" method="post" onSubmit={submit} onKeyDown={(event) => {
               if (event.key === "Enter" && (event.nativeEvent.isComposing || event.keyCode === 229)) event.preventDefault();

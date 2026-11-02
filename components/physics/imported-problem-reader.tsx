@@ -266,7 +266,7 @@ export function ImportedProblemReader({
           <AlertTitle>English translation pending</AlertTitle>
           <AlertDescription>
             This imported statement is currently in Russian. The problem title
-            is retained from the original source; an English title does not mean
+            is retained from the original source. An English title does not mean
             the statement has been translated. English drafts are being added
             separately, with equations, figures and original source text
             retained.

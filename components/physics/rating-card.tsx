@@ -139,7 +139,7 @@ export function RatingCard({
         <div className="flex items-center justify-between gap-3">
           <CardTitle>
             <h2 className="text-base font-medium tracking-tight">
-              {expanded ? "Your rating journey" : "Your rating"}
+              {expanded ? "Your rating history" : "Your rating"}
             </h2>
           </CardTitle>
           <Badge variant="outline">Rated results</Badge>

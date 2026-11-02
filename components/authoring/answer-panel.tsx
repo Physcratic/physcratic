@@ -19,7 +19,7 @@ export function AnswerPanel({
     <div className="space-y-6">
       <p className="text-xs leading-relaxed text-muted-foreground">
         Private author content · never included in the student preview. These
-        settings define a future checker; no mathematical grading runs here.
+        settings define a future checker. No mathematical grading runs here.
       </p>
       <Field label="Answer type">
         {(id) => (
@@ -76,7 +76,7 @@ export function AnswerPanel({
         <div className="space-y-5">
           <Field
             label="Expected expression"
-            help="Plain text: g*sin(3*theta)^(1/2). Use explicit * multiplication; units are separate from expression input."
+            help="Plain text: g*sin(3*theta)^(1/2). Use explicit * multiplication. Units are separate from expression input."
           >
             {(id) => (
               <input

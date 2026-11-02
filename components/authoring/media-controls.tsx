@@ -138,7 +138,7 @@ export function UploadControl({
       />
       <p id={`${id}-help`} className="text-xs text-muted-foreground">
         {purpose.endsWith("pdf")
-          ? "PDF attachment; downloaded safely rather than embedded."
+          ? "PDF attachment. Downloaded safely rather than embedded."
           : "PNG, JPEG or static WebP. Add descriptive alt text after upload."}{" "}
         Up to 3 MiB.
       </p>
@@ -170,7 +170,7 @@ export function MediaImage({
     <figure className="space-y-2">
       {failed ? (
         <p role="status" className="text-sm text-destructive">
-          This image is unavailable. Save or replace the reference; your other
+          This image is unavailable. Save or replace the reference. Your other
           work is retained.
         </p>
       ) : (
@@ -259,7 +259,7 @@ export function MediaAttachments({
       <p className="text-sm leading-relaxed text-muted-foreground">
         Add images where they belong in the statement, hints or worked solution.
         All uploads stay in private storage. Statement files become readable
-        only when pinned to a published revision; solution files remain
+        only when pinned to a published revision. Solution files remain
         author-only.
       </p>
       <div className="grid gap-6 sm:grid-cols-2">
@@ -409,7 +409,7 @@ export function MediaAttachments({
             onClick={async () => {
               if (
                 !window.confirm(
-                  "Clean up old unlinked uploads across your problems? Unsaved recovery references older than 24 hours may need replacement; saved and historical revisions are protected.",
+                  "Clean up old unlinked uploads across your problems? Unsaved recovery references older than 24 hours may need replacement. Saved and historical revisions are protected.",
                 )
               )
                 return;
@@ -428,7 +428,7 @@ export function MediaAttachments({
                 setError(
                   e instanceof Error
                     ? e.message
-                    : "Cleanup failed; tracked files remain private.",
+                    : "Cleanup failed. Tracked files remain private.",
                 );
               }
             }}

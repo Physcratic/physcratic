@@ -59,7 +59,7 @@ export function SolutionPermissions({ problemId }: { problemId: string }) {
     } catch {
       if (serial === epoch.current)
         setMessage(
-          "Publication unavailable. Previously loaded permission may still be revoked; enabling requires current publication.",
+          "Publication unavailable. Previously loaded permission may still be revoked. Enabling requires current publication.",
         );
     } finally {
       if (serial === epoch.current) {
@@ -95,7 +95,7 @@ export function SolutionPermissions({ problemId }: { problemId: string }) {
     } catch {
       if (serial === epoch.current)
         setMessage(
-          "Permission could not be loaded. Retry this read; no change was sent.",
+          "Permission could not be loaded. Retry this read. No change was sent.",
         );
     } finally {
       if (serial === epoch.current) {

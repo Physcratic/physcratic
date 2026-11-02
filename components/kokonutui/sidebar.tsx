@@ -64,7 +64,7 @@ export default function Sidebar({
           className="flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
         >
           <FilePenLine className="size-[18px]" strokeWidth={1.7} />
-          Problem studio
+          Problem Studio
         </Link>
         <div className="flex flex-col gap-3">
           <h2 className="px-3 text-base font-semibold tracking-tight text-foreground">

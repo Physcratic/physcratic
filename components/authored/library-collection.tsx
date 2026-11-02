@@ -156,7 +156,7 @@ export function AuthoredLibraryCollection({ query }: { query: string }) {
         </Field>
       </div>
       <p className="text-sm text-muted-foreground">
-        Stable library order. Pages show current publications; refresh to
+        Stable library order. Pages show current publications. Refresh to
         include newly published entries earlier in the list. Worked solutions
         require separate authorization.
       </p>

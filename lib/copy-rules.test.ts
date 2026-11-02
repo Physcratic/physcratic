@@ -1,9 +1,11 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { findCopyProblems } from "./copy-rules";
+import { findBannedWords, findCopyProblems } from "./copy-rules";
 import { articles, COACHING_LINE } from "./learn/articles";
 import { visibleStrings } from "./learn/reading";
-import { scanCopy, stringsIn } from "./copy-scan";
+import { PROSE_SEMICOLON, scanCopy, sourceFiles, stringsIn } from "./copy-scan";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 
 describe("findCopyProblems", () => {
   it("passes plain copy", () => {
@@ -29,6 +31,15 @@ describe("findCopyProblems", () => {
       const found = findCopyProblems(`Some ${phrase.toUpperCase()} text`);
       assert.equal(found.length, 1, phrase);
     }
+  });
+  it("flags the banned words as whole words only", () => {
+    for (const word of ["elegant", "worth", "craft", "effortless", "next-level"]) {
+      assert.equal(findBannedWords(`A ${word.toUpperCase()} thing`).length, 1, word);
+    }
+    for (const word of ["journey", "unlock", "seamless"]) {
+      assert.equal(findCopyProblems(`A ${word.toUpperCase()} thing`).length, 1, word);
+    }
+    assert.deepEqual(findBannedWords("An aircraft, a worthwhile Wentworth and a handicraft"), []);
   });
   it("reports every repeat", () => {
     assert.equal(findCopyProblems("a; b; c").length, 2);
@@ -75,6 +86,28 @@ describe("no em dashes or en dashes in the app", () => {
     const failures = scanCopy(process.cwd(), ["app", "components"])
       .filter((f) => f.rule === "em dash" || f.rule === "en dash")
       .map((f) => `${f.file}:${f.line} ${f.rule}: ${f.text}`);
+    assert.deepEqual(failures, []);
+  });
+});
+
+describe("no banned words or joined clauses in the app", () => {
+  it("has no banned phrases or words in any string literal or JSX text under app/ and components/", () => {
+    const failures = scanCopy(process.cwd(), ["app", "components"])
+      .filter((f) => f.rule.startsWith("phrase") || f.rule.startsWith("banned word"))
+      .map((f) => `${f.file}:${f.line} ${f.rule}: ${f.text}`);
+    assert.deepEqual(failures, []);
+  });
+  it("has no semicolons joining clauses of prose under app/ and components/", () => {
+    const failures: string[] = [];
+    for (const dir of ["app", "components"]) {
+      for (const file of sourceFiles(process.cwd(), dir)) {
+        for (const { text, line } of stringsIn(file, readFileSync(join(process.cwd(), file), "utf8"))) {
+          if (PROSE_SEMICOLON.test(text.replace(/&[a-z]+;/g, "")) && !/[=<>{}]|charset|base64|path=/.test(text)) {
+            failures.push(`${file}:${line} ${text.trim().slice(0, 70)}`);
+          }
+        }
+      }
+    }
     assert.deepEqual(failures, []);
   });
 });

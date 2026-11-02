@@ -83,15 +83,15 @@ export function CorpusDocumentReader({
           src={document.image}
           enlargeHref={document.image}
           enlargeLabel={`Enlarge ${problem.year} ${problem.code} ${label.toLowerCase()}, page ${page}`}
-          alt={`IPhO ${problem.year}, ${problem.title}, ${label.toLowerCase()}, page ${page}. Original text, equations, figures, and tables; the PDF provides selectable text.`}
+          alt={`IPhO ${problem.year}, ${problem.title}, ${label.toLowerCase()}, page ${page}. Original text, equations, figures, and tables. The PDF provides selectable text.`}
           width={1191}
           height={1684}
           className="h-auto w-full"
         />
         <figcaption className="px-4 py-3 text-sm leading-relaxed text-muted-foreground">
           IPhO {problem.year} · {problem.code} · Page {page} of {document.pages}
-          . Original layout preserved. Select another page for shared setup;
-          click to enlarge.
+          . Original layout preserved. Select another page for shared setup.
+          Click to enlarge.
         </figcaption>
       </figure>
     </div>

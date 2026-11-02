@@ -108,7 +108,7 @@ export function WorkedSolution({
         if (e.status === 409) onStale();
       }
       setMessage(
-        "PDF access unavailable or uncertain. Solution hidden; explicitly recheck access.",
+        "PDF access unavailable or uncertain. Solution hidden. Explicitly recheck access.",
       );
     } finally {
       if (serial === epoch.current) {
@@ -159,7 +159,7 @@ export function WorkedSolution({
       shown.current = true;
       setValue(data);
       setMessage(
-        "Server-confirmed reveal. Subsequent new attempts on this revision are assisted; original attempts and retries retain their saved status.",
+        "Server-confirmed reveal. Subsequent new attempts on this revision are assisted. Original attempts and retries retain their saved status.",
       );
     } catch (e) {
       if (serial !== epoch.current) return;
@@ -172,11 +172,11 @@ export function WorkedSolution({
             ? "Worked solution unavailable: private, revoked, expired or unpublished."
             : e.status === 429
               ? "Temporary request limit. Wait before explicitly requesting again."
-              : "Access could not be confirmed. Solution hidden; reload the problem or explicitly request again.",
+              : "Access could not be confirmed. Solution hidden. Reload the problem or explicitly request again.",
         );
       } else
         setMessage(
-          "Reveal could not be confirmed. It may have been recorded as assistance. Solution hidden; explicitly request again.",
+          "Reveal could not be confirmed. It may have been recorded as assistance. Solution hidden. Explicitly request again.",
         );
     } finally {
       if (serial === epoch.current) {
@@ -239,7 +239,7 @@ export function WorkedSolution({
                   onError={() => {
                     clear();
                     setMessage(
-                      "Media access uncertain. Solution hidden; explicitly recheck access.",
+                      "Media access uncertain. Solution hidden. Explicitly recheck access.",
                     );
                   }}
                 />

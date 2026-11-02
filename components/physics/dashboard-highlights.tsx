@@ -73,8 +73,8 @@ function FeaturedContest() {
             <EmptyHeader>
               <EmptyTitle>No upcoming contests yet</EmptyTitle>
               <EmptyDescription>
-                Published rounds will appear here. Explore the problem archive
-                while you wait.
+                Published rounds will appear here. Browse the problem archive in
+                the meantime.
               </EmptyDescription>
             </EmptyHeader>
           </Empty>
@@ -111,7 +111,7 @@ function DailyProblem({
             className="flex items-center gap-2 text-sm font-medium text-primary"
           >
             <Sun aria-hidden="true" className="size-4" strokeWidth={1.6} />
-            Recommended For You
+            Recommended problem
           </h2>
         </CardTitle>
       </CardHeader>

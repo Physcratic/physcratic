@@ -67,13 +67,13 @@ export function ArchiveAnswerPanel({ problemId, onCorrect }: { problemId: string
     {data?.problemId === problemId && <form onSubmit={checkAnswers} className="flex min-w-0 flex-col gap-6" onKeyDown={(event) => {
       if (event.key === "Enter" && (event.nativeEvent.isComposing || event.keyCode === 229)) event.preventDefault();
     }}>
-      <p className="text-sm leading-relaxed text-muted-foreground">Type raw LaTeX without dollar signs: <code className="font-mono">{"\\frac{1}{2}"}</code>, <code className="font-mono">{"\\sqrt{13}"}</code>, or a number. Use the displayed units; unit conversion is not automatic. Leave parts blank to check them later.</p>
+      <p className="text-sm leading-relaxed text-muted-foreground">Type raw LaTeX without dollar signs: <code className="font-mono">{"\\frac{1}{2}"}</code>, <code className="font-mono">{"\\sqrt{13}"}</code>, or a number. Use the displayed units. Unit conversion is not automatic. Leave parts blank to check them later.</p>
       <FieldGroup>
         {data.parts.map((part) => {
           const id = `${fieldPrefix}-${part.id}`;
           const feedback = result?.results.find((item) => item.partId === part.id);
           const invalid = feedback?.status === "invalid" || feedback?.status === "incorrect";
-          if (part.kind === "self-review") return <Alert key={part.id}><AlertTitle>{part.sourcePart} · {part.label}</AlertTitle><AlertDescription>Self-review: {part.help} Compare your reasoning with the worked solution; this part is not automatically graded.</AlertDescription></Alert>;
+          if (part.kind === "self-review") return <Alert key={part.id}><AlertTitle>{part.sourcePart} · {part.label}</AlertTitle><AlertDescription>Self-review: {part.help} Compare your reasoning with the worked solution. This part is not automatically graded.</AlertDescription></Alert>;
           return <Field key={part.id} data-invalid={invalid} data-disabled={busy}>
             <FieldLabel htmlFor={id}>{part.sourcePart} · {part.label}{part.unit && <span className="font-normal text-muted-foreground"> ({part.unit})</span>}</FieldLabel>
             <Input id={id} className="font-mono" value={answers[part.id] ?? ""} maxLength={archiveAnswerLimit} autoComplete="off" spellCheck={false} disabled={busy} placeholder={part.kind === "numeric" ? "Number or LaTeX expression" : "LaTeX result (right-hand side only)"} aria-invalid={invalid} aria-describedby={`${id}-help${feedback ? ` ${id}-result` : ""}`} onChange={(event) => {

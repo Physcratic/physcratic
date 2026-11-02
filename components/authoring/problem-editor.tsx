@@ -274,7 +274,7 @@ export function ProblemEditor({
               ← Drafts
             </Button>
             <span className="hidden text-sm text-muted-foreground sm:inline">
-              Problem studio
+              Problem Studio
             </span>
           </div>
           <div className="flex flex-wrap items-center gap-2">
@@ -316,7 +316,7 @@ export function ProblemEditor({
               onClick={() => {
                 if (
                   window.confirm(
-                    "Publish this version? Its statement becomes public; your grading keys stay private.",
+                    "Publish this version? Its statement becomes public. Your grading keys stay private.",
                   )
                 )
                   void session.publish("publish", (d) =>
@@ -344,15 +344,11 @@ export function ProblemEditor({
       >
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-              Create something worth solving
-            </p>
             <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-              Your next physics problem.
+              Problem Studio
             </h1>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
-              Build the statement in small blocks. Keep the reasoning elegant
-              and the answer keys private.
+              Write a problem, add a solution, then publish.
             </p>
           </div>
           <span className="rounded-full border px-3 py-1 text-xs capitalize">
@@ -419,8 +415,8 @@ export function ProblemEditor({
             <h2 className="font-semibold">Unsaved work from this tab</h2>
             <p className="text-sm">
               A local copy of version {recovery.version} is available. Your
-              server copy is version {draft.version}. Choose which to open;
-              nothing is replaced automatically.
+              server copy is version {draft.version}. Choose which to open.
+              Nothing is replaced automatically.
             </p>
             <div className="flex flex-wrap gap-2">
               <Button type="button" disabled={uploads > 0} onClick={() => session.restoreRecovery()}>
@@ -460,7 +456,7 @@ export function ProblemEditor({
                 : "Your work has not been saved"}
             </h2>
             <p className="text-sm">
-              {message} Downloaded copies include private keys; keep them
+              {message} Downloaded copies include private keys. Keep them
               private.
             </p>
             <div className="flex flex-wrap gap-2">
@@ -899,7 +895,7 @@ export function ProblemEditor({
                                   !entry.key ||
                                   entry.key.kind === mode ||
                                   window.confirm(
-                                    "Change answer type? This replaces the current private grading configuration; hints and solution remain.",
+                                    "Change answer type? This replaces the current private grading configuration. Hints and solution remain.",
                                   )
                                 ) {
                                   if (
@@ -988,7 +984,7 @@ export function ProblemEditor({
                 </h2>
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   Publish only original or properly authorized material. New
-                  publications create immutable revisions; your earlier
+                  publications create immutable revisions. Your earlier
                   published version stays visible while you edit.
                 </p>
                 <Field label="Content provenance">
@@ -1012,7 +1008,7 @@ export function ProblemEditor({
                 </Field>
                 <Field
                   label="Source / permission reference"
-                  help="Required for authorized material; include where permission was granted."
+                  help="Required for authorized material. Include where permission was granted."
                 >
                   {(id) => (
                     <input
@@ -1087,7 +1083,7 @@ export function ProblemEditor({
                     onClick={() => {
                       if (
                         window.confirm(
-                          "Unpublish this problem? It will stop being publicly readable; previous revisions stay retained.",
+                          "Unpublish this problem? It will stop being publicly readable. Previous revisions stay retained.",
                         )
                       )
                         void session.publish("unpublish", (d) =>
@@ -1129,7 +1125,7 @@ export function ProblemEditor({
                 </a>
                 <p className="border-t pt-4 text-xs leading-relaxed text-muted-foreground">
                   Use the arrow buttons to reorder with a keyboard. No uploads
-                  are needed; native content comes first.
+                  are needed. Native content comes first.
                 </p>
               </nav>
             </aside>

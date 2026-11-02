@@ -7,7 +7,7 @@ import { auth } from "@/lib/auth";
 import { AuthoringWorkspace } from "@/components/authoring/workspace";
 
 export const metadata: Metadata = {
-  title: "Problem studio · Physcratic",
+  title: "Problem Studio · Physcratic",
   robots: { index: false, follow: false },
 };
 export const dynamic = "force-dynamic";
@@ -22,7 +22,7 @@ export default async function AuthorPage() {
         </h1>
         <p>
           Use the verification link sent to your email, then sign in again.
-          Problem studio is available to verified authors.
+          Problem Studio is available to verified authors.
         </p>
         <Link
           className="inline-block py-3 underline"

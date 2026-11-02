@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 import ts from "typescript";
-import { findCopyProblems, type CopyProblem } from "./copy-rules";
+import { findBannedWords, findCopyProblems, type CopyProblem } from "./copy-rules";
 
 export interface CopyFinding extends CopyProblem {
   file: string;
@@ -46,7 +46,7 @@ export function scanCopy(root: string, dirs: string[], skip: (file: string) => b
     for (const file of sourceFiles(root, dir)) {
       if (skip(file)) continue;
       for (const { text, line } of stringsIn(file, readFileSync(join(root, file), "utf8"))) {
-        for (const problem of findCopyProblems(text)) {
+        for (const problem of [...findCopyProblems(text), ...findBannedWords(text)]) {
           findings.push({ ...problem, file: relative(root, join(root, file)), line, text: text.trim().slice(0, 80) });
         }
       }
@@ -54,3 +54,6 @@ export function scanCopy(root: string, dirs: string[], skip: (file: string) => b
   }
   return findings;
 }
+
+/** A semicolon that joins two clauses of prose, as opposed to one in CSS, a header or a data URL. */
+export const PROSE_SEMICOLON = /;\s+[a-zA-Z]/;

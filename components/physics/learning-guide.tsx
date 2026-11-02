@@ -15,31 +15,30 @@ export function LearningGuide() {
     <div className="flex max-w-4xl flex-col gap-6">
       <div className="rounded-xl border bg-card p-6 text-card-foreground sm:p-8">
         <h2 className="text-balance text-2xl font-medium tracking-tight">
-          You don&apos;t have to be a physicist to think like one.
+          How Physcratic works
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-          Physcratic is a quiet space to understand how the world works. Start
-          with a question, reason through the possibilities, and let each small
-          discovery lead to the next.
+          Practise physics problems, check your answers and read worked
+          solutions. Olympiad archives and contests are included.
         </p>
       </div>
       <div className="grid gap-5 md:grid-cols-2">
         {[
           {
             icon: BookOpen,
-            title: "Find your starting point",
+            title: "Find a problem",
             description:
-              "Browse imported olympiad problems and introductory quick practice across physics topics. Filter by subject, or search for a concept you want to explore.",
+              "Browse imported olympiad problems and introductory quick practice across physics topics. Filter by subject, or search for a concept.",
             href: "/dashboard?view=problems",
-            action: "Explore the library",
+            action: "Browse problems",
           },
           {
             icon: Trophy,
-            title: "Put your intuition to the test",
+            title: "Enter a contest",
             description:
-              "Explore published contests and register for upcoming rounds. Between events, work through the official IPhO archive and save your own notes and self-review marks.",
+              "See published contests and register for upcoming rounds. Between events, work through the official IPhO archive and save your own notes and self-review marks.",
             href: "/dashboard?view=contests",
-            action: "Explore contests",
+            action: "View contests",
           },
         ].map(({ icon: Icon, title, description, href, action }) => (
           <Card key={title} className="flex flex-col shadow-none">
@@ -67,15 +66,15 @@ export function LearningGuide() {
       <section className="flex flex-col gap-5 rounded-xl border p-6 sm:p-8">
         <div className="flex items-center gap-3">
           <Lightbulb className="size-5 text-primary" />
-          <h2 className="text-lg font-medium">A few things worth knowing</h2>
+          <h2 className="text-lg font-medium">Good to know</h2>
         </div>
         <div className="flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
           <p>
             <strong className="font-medium text-foreground">
-              A hint isn&apos;t a shortcut.
+              Hints.
             </strong>{" "}
-            It&apos;s another way to see the problem. Each practice problem
-            includes a hint and a complete worked solution.
+            Each practice problem includes a hint and a complete worked
+            solution.
           </p>
           <p>
             <strong className="font-medium text-foreground">
@@ -86,7 +85,7 @@ export function LearningGuide() {
           </p>
           <p>
             <strong className="font-medium text-foreground">
-              This is an open practice workspace.
+              Open practice.
             </strong>{" "}
             Browse without an account. Sign in to save checked practice answers,
             full solution attempts and archive progress privately across

@@ -434,7 +434,7 @@ export function BlocksEditor({
               />
               <Field
                 label={`${label} image ${index + 1} alt text`}
-                help="Describe the image for readers who cannot see it; required to publish."
+                help="Describe the image for readers who cannot see it. Required to publish."
               >
                 {(id) => (
                   <input

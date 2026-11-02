@@ -87,7 +87,7 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
             <ArrowLeft className="size-4" />
             Physcratic
           </Link>
-          <span className="text-sm text-muted-foreground">Problem studio</span>
+          <span className="text-sm text-muted-foreground">Problem Studio</span>
         </div>
       </header>
       <main
@@ -95,17 +95,13 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
         tabIndex={-1}
         className="focus:outline-none mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-20"
       >
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-          A blank page. A good question.
-        </p>
         <div className="my-6 flex flex-wrap items-end justify-between gap-5">
           <div>
             <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-              Your problem studio
+              Problem Studio
             </h1>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-              Turn a physical idea into a problem others can explore. Draft in
-              native text and mathematics, then publish when it is ready.
+              Write a problem, add a solution, then publish.
             </p>
           </div>
           <Button
@@ -167,7 +163,7 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
           </Button>
           <p role="status" className="text-xs text-muted-foreground">
             {cleanupNotice ||
-              "Private uploads removed from drafts can be cleaned after 24 hours; historical files are retained."}
+              "Private uploads removed from drafts can be cleaned after 24 hours. Historical files are retained."}
           </p>
         </div>
         {error && (
@@ -227,7 +223,7 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
                       onClick={async () => {
                         if (
                           !window.confirm(
-                            "Delete this draft? Saved working content is removed; historical published revisions are retained. Download any unsaved recovery work first.",
+                            "Delete this draft? Saved working content is removed. Historical published revisions are retained. Download any unsaved recovery work first.",
                           )
                         )
                           return;
@@ -267,7 +263,7 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
             : !busy && (
                 <div className="px-6 py-16 text-center">
                   <h2 className="text-xl font-medium">
-                    Room for your first idea
+                    No problems yet
                   </h2>
                   <p className="mt-3 text-sm text-muted-foreground">
                     Start a problem above. It stays private until you publish.

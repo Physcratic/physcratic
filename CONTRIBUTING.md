@@ -42,6 +42,16 @@ For user-visible text:
 
 - No em dashes, en dashes or semicolons. Use a full stop or a comma.
 - Spelling: medallist, practise (the verb), honourable mention.
+- Say what the page does, in plain words. Headings are short, and an intro is one functional line at most. No slogans, no aphorisms and no two-part poetic lines.
+- Banned words and phrases: elegant, worth (as in "worth solving"), journey, unlock, craft, seamless, effortless, next-level, delve, elevate, game-changer, dive into, look no further.
+- `lib/copy-rules.test.ts` scans every string literal and piece of JSX text in `app/` and `components/` for all of the above, so a new one fails CI. The Learn guides and `lib/coaching/content.ts` are reviewed separately.
+
+Before and after:
+
+| Before | After |
+| --- | --- |
+| "Create something worth solving" / "Your next physics problem." / "Build the statement in small blocks. Keep the reasoning elegant and the answer keys private." | Title "Problem Studio" and one line: "Write a problem, add a solution, then publish." |
+| "Less memorizing. More understanding." (dashboard subtitle) | "Today's problem, your rating and recommended practice." |
 
 ## Production
 
