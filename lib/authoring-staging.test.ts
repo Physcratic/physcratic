@@ -89,3 +89,21 @@ test("staging verification links and callbacks cannot point at Production or ano
     `${authoringStagingOrigin.replace("https://", "https://u:p@")}/api/auth/verify-email`])
     assert.throws(() => verificationRecipient("allowed@example.invalid", url, preview()), /email is unavailable/);
 });
+
+test("staging DB diagnostics contain only fixed reason codes and generic messages", () => {
+  for (const [env, code] of [
+    [{ ...preview(), PGHOST: "private-alias-sentinel" }, "INHERITED_ALIAS_PRESENT"],
+    [{ ...preview(), DATABASE_URL: "private-url-sentinel" }, "PRIMARY_URL_INVALID"],
+    [{ ...preview(), DATABASE_URL: preview().DATABASE_URL!.replace("physcratic_integration_app:", "neondb_owner:") }, "APPLICATION_ROLE_MISMATCH"],
+  ] as const) {
+    assert.throws(() => runtimeDatabaseOptions(env), (error: unknown) => {
+      assert.ok(error instanceof Error);
+      assert.equal(error.name, `StagingDatabaseConfigurationError[${code}]`);
+      assert.equal(error.message, "Authoring staging database is unavailable.");
+      assert.ok(!error.stack?.includes("private-"));
+      assert.ok(!error.stack?.includes("synthetic-password"));
+      assert.ok(!error.stack?.includes("postgresql://"));
+      return true;
+    });
+  }
+});
