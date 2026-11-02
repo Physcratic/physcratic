@@ -13,7 +13,7 @@ export const authoredAttemptPolicy = Object.freeze({
   bodyTimeoutMs: 5000,
   historyPageSize: 50,
   spoilerPolicy: "no-reveal-v1" as const,
-  reveal: "disabled" as const, // No reveal endpoint in Phase 6A, not a permanent ban.
+  reveal: "disabled" as const, // Automatic disclosure by grading stays disabled; explicit solution access is separate.
 });
 export const studentSubmissionSchema = gradeSelectionSchema
   .omit({ problemId: true })
@@ -89,5 +89,5 @@ export type AuthoredAttempt = {
   attemptNumber: string; // Exact positive bigint decimal; never round through Number.
   createdAt: string;
   spoilerPolicy: "no-reveal-v1";
-  assisted: false;
+  assisted: boolean; // Derived server-side from revision-wide reveal history.
 };

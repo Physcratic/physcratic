@@ -1,0 +1,2434 @@
+{
+  "schema_sha256": "981c4ab8adb6d48bab6953d0b0475d54b42fd8b3993217da92efb19d7aa2a6e5",
+  "catalog": {
+    "types": [],
+    "views": [],
+    "tables": [
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "account",
+        "owner": "neondb_owner",
+        "columns": [
+          {
+            "name": "id",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "accountId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "providerId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "userId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "accessToken",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": false,
+            "generated": ""
+          },
+          {
+            "name": "refreshToken",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": false,
+            "generated": ""
+          },
+          {
+            "name": "idToken",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": false,
+            "generated": ""
+          },
+          {
+            "name": "accessTokenExpiresAt",
+            "type": "timestamp without time zone",
+            "default": null,
+            "identity": "",
+            "not_null": false,
+            "generated": ""
+          },
+          {
+            "name": "refreshTokenExpiresAt",
+            "type": "timestamp without time zone",
+            "default": null,
+            "identity": "",
+            "not_null": false,
+            "generated": ""
+          },
+          {
+            "name": "scope",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": false,
+            "generated": ""
+          },
+          {
+            "name": "password",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": false,
+            "generated": ""
+          },
+          {
+            "name": "createdAt",
+            "type": "timestamp without time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "updatedAt",
+            "type": "timestamp without time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          }
+        ],
+        "indexes": [
+          {
+            "name": "account_pkey",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX account_pkey ON public.account USING btree (id)",
+            "constraint_index": true
+          }
+        ],
+        "triggers": [],
+        "force_rls": false,
+        "constraints": [
+          {
+            "name": "account_accountId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"accountId\""
+          },
+          {
+            "name": "account_createdAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"createdAt\""
+          },
+          {
+            "name": "account_id_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL id"
+          },
+          {
+            "name": "account_pkey",
+            "type": "p",
+            "validated": true,
+            "definition": "PRIMARY KEY (id)"
+          },
+          {
+            "name": "account_providerId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"providerId\""
+          },
+          {
+            "name": "account_updatedAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"updatedAt\""
+          },
+          {
+            "name": "account_userId_fkey",
+            "type": "f",
+            "validated": true,
+            "definition": "FOREIGN KEY (\"userId\") REFERENCES \"user\"(id) ON DELETE CASCADE"
+          },
+          {
+            "name": "account_userId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"userId\""
+          }
+        ]
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "archive_progress",
+        "owner": "neondb_owner",
+        "columns": [
+          {
+            "name": "userId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "taskId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "reviewed",
+            "type": "boolean",
+            "default": "false",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "notes",
+            "type": "text",
+            "default": "''::text",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "answer",
+            "type": "text",
+            "default": "''::text",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "updatedAt",
+            "type": "timestamp with time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          }
+        ],
+        "indexes": [
+          {
+            "name": "archive_progress_pkey",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX archive_progress_pkey ON public.archive_progress USING btree (\"userId\", \"taskId\")",
+            "constraint_index": true
+          }
+        ],
+        "triggers": [],
+        "force_rls": false,
+        "constraints": [
+          {
+            "name": "archive_progress_answer_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL answer"
+          },
+          {
+            "name": "archive_progress_notes_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL notes"
+          },
+          {
+            "name": "archive_progress_pkey",
+            "type": "p",
+            "validated": true,
+            "definition": "PRIMARY KEY (\"userId\", \"taskId\")"
+          },
+          {
+            "name": "archive_progress_reviewed_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL reviewed"
+          },
+          {
+            "name": "archive_progress_taskId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"taskId\""
+          },
+          {
+            "name": "archive_progress_updatedAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"updatedAt\""
+          },
+          {
+            "name": "archive_progress_userId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"userId\""
+          }
+        ]
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "coaching_inquiry",
+        "owner": "neondb_owner",
+        "columns": [
+          {
+            "name": "id",
+            "type": "uuid",
+            "default": "gen_random_uuid()",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "pathway",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "audience",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "current_level",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "goals",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "contact",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "created_at",
+            "type": "timestamp with time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          }
+        ],
+        "indexes": [
+          {
+            "name": "coaching_inquiry_pkey",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX coaching_inquiry_pkey ON public.coaching_inquiry USING btree (id)",
+            "constraint_index": true
+          }
+        ],
+        "triggers": [],
+        "force_rls": false,
+        "constraints": [
+          {
+            "name": "coaching_inquiry_audience_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL audience"
+          },
+          {
+            "name": "coaching_inquiry_contact_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL contact"
+          },
+          {
+            "name": "coaching_inquiry_created_at_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL created_at"
+          },
+          {
+            "name": "coaching_inquiry_current_level_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL current_level"
+          },
+          {
+            "name": "coaching_inquiry_goals_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL goals"
+          },
+          {
+            "name": "coaching_inquiry_id_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL id"
+          },
+          {
+            "name": "coaching_inquiry_pathway_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL pathway"
+          },
+          {
+            "name": "coaching_inquiry_pkey",
+            "type": "p",
+            "validated": true,
+            "definition": "PRIMARY KEY (id)"
+          }
+        ]
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "contest",
+        "owner": "neondb_owner",
+        "columns": [
+          {
+            "name": "id",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "name",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "description",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "startsAt",
+            "type": "timestamp with time zone",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "durationMinutes",
+            "type": "integer",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "published",
+            "type": "boolean",
+            "default": "false",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "rated",
+            "type": "boolean",
+            "default": "false",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "registrationOpen",
+            "type": "boolean",
+            "default": "false",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "problemIds",
+            "type": "jsonb",
+            "default": "'[]'::jsonb",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "creators",
+            "type": "jsonb",
+            "default": "'[]'::jsonb",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "createdAt",
+            "type": "timestamp with time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          }
+        ],
+        "indexes": [
+          {
+            "name": "contest_pkey",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX contest_pkey ON public.contest USING btree (id)",
+            "constraint_index": true
+          }
+        ],
+        "triggers": [],
+        "force_rls": false,
+        "constraints": [
+          {
+            "name": "contest_createdAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"createdAt\""
+          },
+          {
+            "name": "contest_creators_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL creators"
+          },
+          {
+            "name": "contest_description_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL description"
+          },
+          {
+            "name": "contest_durationMinutes_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK ((\"durationMinutes\" > 0))"
+          },
+          {
+            "name": "contest_durationMinutes_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"durationMinutes\""
+          },
+          {
+            "name": "contest_id_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL id"
+          },
+          {
+            "name": "contest_name_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL name"
+          },
+          {
+            "name": "contest_pkey",
+            "type": "p",
+            "validated": true,
+            "definition": "PRIMARY KEY (id)"
+          },
+          {
+            "name": "contest_problemIds_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"problemIds\""
+          },
+          {
+            "name": "contest_published_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL published"
+          },
+          {
+            "name": "contest_rated_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL rated"
+          },
+          {
+            "name": "contest_registrationOpen_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"registrationOpen\""
+          },
+          {
+            "name": "contest_startsAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"startsAt\""
+          }
+        ]
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "contest_rating",
+        "owner": "neondb_owner",
+        "columns": [
+          {
+            "name": "id",
+            "type": "uuid",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "userId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "contestId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "publicHandle",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": false,
+            "generated": ""
+          },
+          {
+            "name": "rating",
+            "type": "integer",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "change",
+            "type": "integer",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "createdAt",
+            "type": "timestamp with time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          }
+        ],
+        "indexes": [
+          {
+            "name": "contest_rating_pkey",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX contest_rating_pkey ON public.contest_rating USING btree (id)",
+            "constraint_index": true
+          },
+          {
+            "name": "contest_rating_userId_contestId_key",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX \"contest_rating_userId_contestId_key\" ON public.contest_rating USING btree (\"userId\", \"contestId\")",
+            "constraint_index": true
+          }
+        ],
+        "triggers": [],
+        "force_rls": false,
+        "constraints": [
+          {
+            "name": "contest_rating_change_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL change"
+          },
+          {
+            "name": "contest_rating_contestId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"contestId\""
+          },
+          {
+            "name": "contest_rating_createdAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"createdAt\""
+          },
+          {
+            "name": "contest_rating_id_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL id"
+          },
+          {
+            "name": "contest_rating_pkey",
+            "type": "p",
+            "validated": true,
+            "definition": "PRIMARY KEY (id)"
+          },
+          {
+            "name": "contest_rating_rating_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK ((rating >= 0))"
+          },
+          {
+            "name": "contest_rating_rating_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL rating"
+          },
+          {
+            "name": "contest_rating_userId_contestId_key",
+            "type": "u",
+            "validated": true,
+            "definition": "UNIQUE (\"userId\", \"contestId\")"
+          },
+          {
+            "name": "contest_rating_userId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"userId\""
+          }
+        ]
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "contest_registration",
+        "owner": "neondb_owner",
+        "columns": [
+          {
+            "name": "userId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "contestId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "createdAt",
+            "type": "timestamp with time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          }
+        ],
+        "indexes": [
+          {
+            "name": "contest_registration_pkey",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX contest_registration_pkey ON public.contest_registration USING btree (\"userId\", \"contestId\")",
+            "constraint_index": true
+          }
+        ],
+        "triggers": [],
+        "force_rls": false,
+        "constraints": [
+          {
+            "name": "contest_registration_contestId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"contestId\""
+          },
+          {
+            "name": "contest_registration_createdAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"createdAt\""
+          },
+          {
+            "name": "contest_registration_pkey",
+            "type": "p",
+            "validated": true,
+            "definition": "PRIMARY KEY (\"userId\", \"contestId\")"
+          },
+          {
+            "name": "contest_registration_userId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"userId\""
+          }
+        ]
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "individual_rating",
+        "owner": "neondb_owner",
+        "columns": [
+          {
+            "name": "userId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "rating",
+            "type": "integer",
+            "default": "1200",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "ratedAttempts",
+            "type": "integer",
+            "default": "0",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "updatedAt",
+            "type": "timestamp with time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          }
+        ],
+        "indexes": [
+          {
+            "name": "individual_rating_pkey",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX individual_rating_pkey ON public.individual_rating USING btree (\"userId\")",
+            "constraint_index": true
+          }
+        ],
+        "triggers": [],
+        "force_rls": false,
+        "constraints": [
+          {
+            "name": "individual_rating_pkey",
+            "type": "p",
+            "validated": true,
+            "definition": "PRIMARY KEY (\"userId\")"
+          },
+          {
+            "name": "individual_rating_ratedAttempts_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK ((\"ratedAttempts\" >= 0))"
+          },
+          {
+            "name": "individual_rating_ratedAttempts_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"ratedAttempts\""
+          },
+          {
+            "name": "individual_rating_rating_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK (((rating >= 0) AND (rating <= 4000)))"
+          },
+          {
+            "name": "individual_rating_rating_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL rating"
+          },
+          {
+            "name": "individual_rating_updatedAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"updatedAt\""
+          },
+          {
+            "name": "individual_rating_userId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"userId\""
+          }
+        ]
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "individual_rating_event",
+        "owner": "neondb_owner",
+        "columns": [
+          {
+            "name": "id",
+            "type": "uuid",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "userId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "attemptId",
+            "type": "uuid",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "problemId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "sourceVersion",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "ratingVersion",
+            "type": "integer",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "problemRating",
+            "type": "integer",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "beforeRating",
+            "type": "integer",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "afterRating",
+            "type": "integer",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "change",
+            "type": "integer",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "score",
+            "type": "double precision",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "expectedScore",
+            "type": "double precision",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "kFactor",
+            "type": "integer",
+            "default": "32",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "createdAt",
+            "type": "timestamp with time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          }
+        ],
+        "indexes": [
+          {
+            "name": "individual_rating_event_attemptId_key",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX \"individual_rating_event_attemptId_key\" ON public.individual_rating_event USING btree (\"attemptId\")",
+            "constraint_index": true
+          },
+          {
+            "name": "individual_rating_event_once",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX individual_rating_event_once ON public.individual_rating_event USING btree (\"userId\", \"problemId\")",
+            "constraint_index": true
+          },
+          {
+            "name": "individual_rating_event_pkey",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX individual_rating_event_pkey ON public.individual_rating_event USING btree (id)",
+            "constraint_index": true
+          },
+          {
+            "name": "individual_rating_event_user_created_idx",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE INDEX individual_rating_event_user_created_idx ON public.individual_rating_event USING btree (\"userId\", \"createdAt\" DESC)",
+            "constraint_index": false
+          }
+        ],
+        "triggers": [],
+        "force_rls": false,
+        "constraints": [
+          {
+            "name": "individual_rating_event_afterRating_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK (((\"afterRating\" >= 0) AND (\"afterRating\" <= 4000)))"
+          },
+          {
+            "name": "individual_rating_event_afterRating_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"afterRating\""
+          },
+          {
+            "name": "individual_rating_event_attemptId_key",
+            "type": "u",
+            "validated": true,
+            "definition": "UNIQUE (\"attemptId\")"
+          },
+          {
+            "name": "individual_rating_event_attemptId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"attemptId\""
+          },
+          {
+            "name": "individual_rating_event_beforeRating_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK (((\"beforeRating\" >= 0) AND (\"beforeRating\" <= 4000)))"
+          },
+          {
+            "name": "individual_rating_event_beforeRating_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"beforeRating\""
+          },
+          {
+            "name": "individual_rating_event_change_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL change"
+          },
+          {
+            "name": "individual_rating_event_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK ((change = (\"afterRating\" - \"beforeRating\")))"
+          },
+          {
+            "name": "individual_rating_event_createdAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"createdAt\""
+          },
+          {
+            "name": "individual_rating_event_expectedScore_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK (((\"expectedScore\" >= (0)::double precision) AND (\"expectedScore\" <= (1)::double precision)))"
+          },
+          {
+            "name": "individual_rating_event_expectedScore_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"expectedScore\""
+          },
+          {
+            "name": "individual_rating_event_id_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL id"
+          },
+          {
+            "name": "individual_rating_event_kFactor_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK ((\"kFactor\" = 32))"
+          },
+          {
+            "name": "individual_rating_event_kFactor_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"kFactor\""
+          },
+          {
+            "name": "individual_rating_event_once",
+            "type": "u",
+            "validated": true,
+            "definition": "UNIQUE (\"userId\", \"problemId\")"
+          },
+          {
+            "name": "individual_rating_event_pkey",
+            "type": "p",
+            "validated": true,
+            "definition": "PRIMARY KEY (id)"
+          },
+          {
+            "name": "individual_rating_event_problemId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"problemId\""
+          },
+          {
+            "name": "individual_rating_event_problemRating_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK (((\"problemRating\" >= 0) AND (\"problemRating\" <= 4000)))"
+          },
+          {
+            "name": "individual_rating_event_problemRating_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"problemRating\""
+          },
+          {
+            "name": "individual_rating_event_ratingVersion_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK ((\"ratingVersion\" > 0))"
+          },
+          {
+            "name": "individual_rating_event_ratingVersion_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"ratingVersion\""
+          },
+          {
+            "name": "individual_rating_event_score_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK (((score >= (0)::double precision) AND (score <= (1)::double precision)))"
+          },
+          {
+            "name": "individual_rating_event_score_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL score"
+          },
+          {
+            "name": "individual_rating_event_sourceVersion_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"sourceVersion\""
+          },
+          {
+            "name": "individual_rating_event_userId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"userId\""
+          }
+        ]
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "practice_attempt",
+        "owner": "neondb_owner",
+        "columns": [
+          {
+            "name": "id",
+            "type": "uuid",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "userId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "problemId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "idempotencyKey",
+            "type": "uuid",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "answer",
+            "type": "double precision",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "working",
+            "type": "text",
+            "default": "''::text",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "correct",
+            "type": "boolean",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "createdAt",
+            "type": "timestamp with time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          }
+        ],
+        "indexes": [
+          {
+            "name": "practice_attempt_pkey",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX practice_attempt_pkey ON public.practice_attempt USING btree (id)",
+            "constraint_index": true
+          },
+          {
+            "name": "practice_attempt_userId_idempotencyKey_key",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX \"practice_attempt_userId_idempotencyKey_key\" ON public.practice_attempt USING btree (\"userId\", \"idempotencyKey\")",
+            "constraint_index": true
+          }
+        ],
+        "triggers": [],
+        "force_rls": false,
+        "constraints": [
+          {
+            "name": "practice_attempt_answer_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL answer"
+          },
+          {
+            "name": "practice_attempt_correct_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL correct"
+          },
+          {
+            "name": "practice_attempt_createdAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"createdAt\""
+          },
+          {
+            "name": "practice_attempt_id_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL id"
+          },
+          {
+            "name": "practice_attempt_idempotencyKey_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"idempotencyKey\""
+          },
+          {
+            "name": "practice_attempt_pkey",
+            "type": "p",
+            "validated": true,
+            "definition": "PRIMARY KEY (id)"
+          },
+          {
+            "name": "practice_attempt_problemId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"problemId\""
+          },
+          {
+            "name": "practice_attempt_userId_idempotencyKey_key",
+            "type": "u",
+            "validated": true,
+            "definition": "UNIQUE (\"userId\", \"idempotencyKey\")"
+          },
+          {
+            "name": "practice_attempt_userId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"userId\""
+          },
+          {
+            "name": "practice_attempt_working_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL working"
+          }
+        ]
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "problem_rating",
+        "owner": "neondb_owner",
+        "columns": [
+          {
+            "name": "problemId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "sourceVersion",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "rating",
+            "type": "integer",
+            "default": null,
+            "identity": "",
+            "not_null": false,
+            "generated": ""
+          },
+          {
+            "name": "ratingVersion",
+            "type": "integer",
+            "default": "1",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "ratedEnabled",
+            "type": "boolean",
+            "default": "false",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "checks",
+            "type": "jsonb",
+            "default": "'[]'::jsonb",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "reviewedBy",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": false,
+            "generated": ""
+          },
+          {
+            "name": "updatedAt",
+            "type": "timestamp with time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          }
+        ],
+        "indexes": [
+          {
+            "name": "problem_rating_pkey",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX problem_rating_pkey ON public.problem_rating USING btree (\"problemId\")",
+            "constraint_index": true
+          }
+        ],
+        "triggers": [],
+        "force_rls": false,
+        "constraints": [
+          {
+            "name": "problem_rating_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK (((NOT \"ratedEnabled\") OR ((rating IS NOT NULL) AND (\"reviewedBy\" IS NOT NULL) AND (jsonb_array_length(checks) > 0))))"
+          },
+          {
+            "name": "problem_rating_checks_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK ((jsonb_typeof(checks) = 'array'::text))"
+          },
+          {
+            "name": "problem_rating_checks_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL checks"
+          },
+          {
+            "name": "problem_rating_pkey",
+            "type": "p",
+            "validated": true,
+            "definition": "PRIMARY KEY (\"problemId\")"
+          },
+          {
+            "name": "problem_rating_problemId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"problemId\""
+          },
+          {
+            "name": "problem_rating_ratedEnabled_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"ratedEnabled\""
+          },
+          {
+            "name": "problem_rating_ratingVersion_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK ((\"ratingVersion\" > 0))"
+          },
+          {
+            "name": "problem_rating_ratingVersion_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"ratingVersion\""
+          },
+          {
+            "name": "problem_rating_rating_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK (((rating >= 0) AND (rating <= 4000)))"
+          },
+          {
+            "name": "problem_rating_sourceVersion_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK ((\"sourceVersion\" ~ '^[a-f0-9]{64}$'::text))"
+          },
+          {
+            "name": "problem_rating_sourceVersion_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"sourceVersion\""
+          },
+          {
+            "name": "problem_rating_updatedAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"updatedAt\""
+          }
+        ]
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "session",
+        "owner": "neondb_owner",
+        "columns": [
+          {
+            "name": "id",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "expiresAt",
+            "type": "timestamp without time zone",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "token",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "createdAt",
+            "type": "timestamp without time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "updatedAt",
+            "type": "timestamp without time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "ipAddress",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": false,
+            "generated": ""
+          },
+          {
+            "name": "userAgent",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": false,
+            "generated": ""
+          },
+          {
+            "name": "userId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          }
+        ],
+        "indexes": [
+          {
+            "name": "session_pkey",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX session_pkey ON public.session USING btree (id)",
+            "constraint_index": true
+          },
+          {
+            "name": "session_token_key",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX session_token_key ON public.session USING btree (token)",
+            "constraint_index": true
+          }
+        ],
+        "triggers": [],
+        "force_rls": false,
+        "constraints": [
+          {
+            "name": "session_createdAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"createdAt\""
+          },
+          {
+            "name": "session_expiresAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"expiresAt\""
+          },
+          {
+            "name": "session_id_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL id"
+          },
+          {
+            "name": "session_pkey",
+            "type": "p",
+            "validated": true,
+            "definition": "PRIMARY KEY (id)"
+          },
+          {
+            "name": "session_token_key",
+            "type": "u",
+            "validated": true,
+            "definition": "UNIQUE (token)"
+          },
+          {
+            "name": "session_token_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL token"
+          },
+          {
+            "name": "session_updatedAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"updatedAt\""
+          },
+          {
+            "name": "session_userId_fkey",
+            "type": "f",
+            "validated": true,
+            "definition": "FOREIGN KEY (\"userId\") REFERENCES \"user\"(id) ON DELETE CASCADE"
+          },
+          {
+            "name": "session_userId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"userId\""
+          }
+        ]
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "solution_attempt",
+        "owner": "neondb_owner",
+        "columns": [
+          {
+            "name": "id",
+            "type": "uuid",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "userId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "problemId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "problemVersion",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "partId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "payload",
+            "type": "jsonb",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "status",
+            "type": "text",
+            "default": "'awaiting-reference'::text",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "idempotencyKey",
+            "type": "uuid",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "createdAt",
+            "type": "timestamp with time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          }
+        ],
+        "indexes": [
+          {
+            "name": "solution_attempt_pkey",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX solution_attempt_pkey ON public.solution_attempt USING btree (id)",
+            "constraint_index": true
+          },
+          {
+            "name": "solution_attempt_userId_idempotencyKey_key",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX \"solution_attempt_userId_idempotencyKey_key\" ON public.solution_attempt USING btree (\"userId\", \"idempotencyKey\")",
+            "constraint_index": true
+          }
+        ],
+        "triggers": [],
+        "force_rls": false,
+        "constraints": [
+          {
+            "name": "solution_attempt_createdAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"createdAt\""
+          },
+          {
+            "name": "solution_attempt_id_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL id"
+          },
+          {
+            "name": "solution_attempt_idempotencyKey_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"idempotencyKey\""
+          },
+          {
+            "name": "solution_attempt_partId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"partId\""
+          },
+          {
+            "name": "solution_attempt_payload_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL payload"
+          },
+          {
+            "name": "solution_attempt_pkey",
+            "type": "p",
+            "validated": true,
+            "definition": "PRIMARY KEY (id)"
+          },
+          {
+            "name": "solution_attempt_problemId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"problemId\""
+          },
+          {
+            "name": "solution_attempt_problemVersion_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"problemVersion\""
+          },
+          {
+            "name": "solution_attempt_status_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK ((status = 'awaiting-reference'::text))"
+          },
+          {
+            "name": "solution_attempt_status_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL status"
+          },
+          {
+            "name": "solution_attempt_userId_idempotencyKey_key",
+            "type": "u",
+            "validated": true,
+            "definition": "UNIQUE (\"userId\", \"idempotencyKey\")"
+          },
+          {
+            "name": "solution_attempt_userId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"userId\""
+          }
+        ]
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "solution_check",
+        "owner": "neondb_owner",
+        "columns": [
+          {
+            "name": "attemptId",
+            "type": "uuid",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "userId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "problemId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "partId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "sourceVersion",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "ratingVersion",
+            "type": "integer",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "matched",
+            "type": "boolean",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "maxPoints",
+            "type": "double precision",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "awardedPoints",
+            "type": "double precision",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "createdAt",
+            "type": "timestamp with time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          }
+        ],
+        "indexes": [
+          {
+            "name": "solution_check_pkey",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX solution_check_pkey ON public.solution_check USING btree (\"attemptId\")",
+            "constraint_index": true
+          }
+        ],
+        "triggers": [],
+        "force_rls": false,
+        "constraints": [
+          {
+            "name": "solution_check_attemptId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"attemptId\""
+          },
+          {
+            "name": "solution_check_awardedPoints_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"awardedPoints\""
+          },
+          {
+            "name": "solution_check_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK (((\"awardedPoints\" >= (0)::double precision) AND (\"awardedPoints\" <= \"maxPoints\")))"
+          },
+          {
+            "name": "solution_check_createdAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"createdAt\""
+          },
+          {
+            "name": "solution_check_matched_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL matched"
+          },
+          {
+            "name": "solution_check_maxPoints_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK ((\"maxPoints\" > (0)::double precision))"
+          },
+          {
+            "name": "solution_check_maxPoints_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"maxPoints\""
+          },
+          {
+            "name": "solution_check_partId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"partId\""
+          },
+          {
+            "name": "solution_check_pkey",
+            "type": "p",
+            "validated": true,
+            "definition": "PRIMARY KEY (\"attemptId\")"
+          },
+          {
+            "name": "solution_check_problemId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"problemId\""
+          },
+          {
+            "name": "solution_check_ratingVersion_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"ratingVersion\""
+          },
+          {
+            "name": "solution_check_sourceVersion_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"sourceVersion\""
+          },
+          {
+            "name": "solution_check_userId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"userId\""
+          }
+        ]
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "solution_evidence",
+        "owner": "neondb_owner",
+        "columns": [
+          {
+            "name": "id",
+            "type": "uuid",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "userId",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "pathname",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "filename",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "mediaType",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "bytes",
+            "type": "integer",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "sha256",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "createdAt",
+            "type": "timestamp with time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          }
+        ],
+        "indexes": [
+          {
+            "name": "solution_evidence_pathname_key",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX solution_evidence_pathname_key ON public.solution_evidence USING btree (pathname)",
+            "constraint_index": true
+          },
+          {
+            "name": "solution_evidence_pkey",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX solution_evidence_pkey ON public.solution_evidence USING btree (id)",
+            "constraint_index": true
+          }
+        ],
+        "triggers": [],
+        "force_rls": false,
+        "constraints": [
+          {
+            "name": "solution_evidence_bytes_check",
+            "type": "c",
+            "validated": true,
+            "definition": "CHECK (((bytes > 0) AND (bytes <= 3145728)))"
+          },
+          {
+            "name": "solution_evidence_bytes_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL bytes"
+          },
+          {
+            "name": "solution_evidence_createdAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"createdAt\""
+          },
+          {
+            "name": "solution_evidence_filename_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL filename"
+          },
+          {
+            "name": "solution_evidence_id_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL id"
+          },
+          {
+            "name": "solution_evidence_mediaType_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"mediaType\""
+          },
+          {
+            "name": "solution_evidence_pathname_key",
+            "type": "u",
+            "validated": true,
+            "definition": "UNIQUE (pathname)"
+          },
+          {
+            "name": "solution_evidence_pathname_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL pathname"
+          },
+          {
+            "name": "solution_evidence_pkey",
+            "type": "p",
+            "validated": true,
+            "definition": "PRIMARY KEY (id)"
+          },
+          {
+            "name": "solution_evidence_sha256_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL sha256"
+          },
+          {
+            "name": "solution_evidence_userId_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"userId\""
+          }
+        ]
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "user",
+        "owner": "neondb_owner",
+        "columns": [
+          {
+            "name": "id",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "name",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "email",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "emailVerified",
+            "type": "boolean",
+            "default": "false",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "image",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": false,
+            "generated": ""
+          },
+          {
+            "name": "createdAt",
+            "type": "timestamp without time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "updatedAt",
+            "type": "timestamp without time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "termsAcceptedVersion",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": false,
+            "generated": ""
+          },
+          {
+            "name": "termsAcceptedAt",
+            "type": "timestamp with time zone",
+            "default": null,
+            "identity": "",
+            "not_null": false,
+            "generated": ""
+          }
+        ],
+        "indexes": [
+          {
+            "name": "user_email_key",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX user_email_key ON public.\"user\" USING btree (email)",
+            "constraint_index": true
+          },
+          {
+            "name": "user_pkey",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX user_pkey ON public.\"user\" USING btree (id)",
+            "constraint_index": true
+          }
+        ],
+        "triggers": [],
+        "force_rls": false,
+        "constraints": [
+          {
+            "name": "user_createdAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"createdAt\""
+          },
+          {
+            "name": "user_emailVerified_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"emailVerified\""
+          },
+          {
+            "name": "user_email_key",
+            "type": "u",
+            "validated": true,
+            "definition": "UNIQUE (email)"
+          },
+          {
+            "name": "user_email_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL email"
+          },
+          {
+            "name": "user_id_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL id"
+          },
+          {
+            "name": "user_name_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL name"
+          },
+          {
+            "name": "user_pkey",
+            "type": "p",
+            "validated": true,
+            "definition": "PRIMARY KEY (id)"
+          },
+          {
+            "name": "user_updatedAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"updatedAt\""
+          }
+        ]
+      },
+      {
+        "rls": false,
+        "kind": "r",
+        "name": "verification",
+        "owner": "neondb_owner",
+        "columns": [
+          {
+            "name": "id",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "identifier",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "expiresAt",
+            "type": "timestamp without time zone",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "generated": ""
+          },
+          {
+            "name": "createdAt",
+            "type": "timestamp without time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": false,
+            "generated": ""
+          },
+          {
+            "name": "updatedAt",
+            "type": "timestamp without time zone",
+            "default": "now()",
+            "identity": "",
+            "not_null": false,
+            "generated": ""
+          }
+        ],
+        "indexes": [
+          {
+            "name": "verification_pkey",
+            "ready": true,
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX verification_pkey ON public.verification USING btree (id)",
+            "constraint_index": true
+          }
+        ],
+        "triggers": [],
+        "force_rls": false,
+        "constraints": [
+          {
+            "name": "verification_expiresAt_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL \"expiresAt\""
+          },
+          {
+            "name": "verification_id_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL id"
+          },
+          {
+            "name": "verification_identifier_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL identifier"
+          },
+          {
+            "name": "verification_pkey",
+            "type": "p",
+            "validated": true,
+            "definition": "PRIMARY KEY (id)"
+          },
+          {
+            "name": "verification_value_not_null",
+            "type": "n",
+            "validated": true,
+            "definition": "NOT NULL value"
+          }
+        ]
+      }
+    ],
+    "database": {
+      "ctype": "C.UTF-8",
+      "locale": "C.UTF-8",
+      "collate": "C.UTF-8",
+      "encoding": "UTF8",
+      "provider": "b",
+      "collation_version": "1"
+    },
+    "policies": [],
+    "functions": [],
+    "sequences": []
+  },
+  "structural_schema_sha256": "f28774f723be5c3393c3268384f4f8abfcbc35d4912bf7b9bc482ae9f9638c7f"
+}

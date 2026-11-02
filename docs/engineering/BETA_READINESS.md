@@ -299,3 +299,46 @@ Local result: 158 tests, 0 fail, 1 todo, 4 skipped.
 - **What:** in `smoke.yml` the `smoke` job (and the `skipped` job that logs codex/ previews) only counts `ready` when `client_payload.environment` is `preview` and `success` when it is `production`. A manual run is unaffected.
 - **Tests:** `lib/smoke-workflow.test.ts` now evaluates each job's real `if:` expression against sample events: ready with preview and success with production run, ready with production and success with preview do not, other projects and `codex/` refs are filtered, and the skipped job logs each codex deployment once.
 
+
+
+## 2026-11-02: local Problem Authoring Preview reconciliation
+
+Prepared against main 60a4825212a67077c2d5dc5e668dad252df06653 without changing the accepted migration candidate or executing remote changes. Staging migrations are complete. Application grants and Preview push/deployment remain separately gated. Coaching, learn, arena and newer main functionality are retained.
+
+Retained main's new codex Preview smoke exclusion unchanged. Manual smoke checks still use Production sitemap origins; an authoring Preview advertises its reviewed Preview metadata origin. No check is weakened by this reconciliation.
+
+## 2026-11-02: authorized staging release candidate
+
+- Applied only the reviewed five-table grants to physcratic_integration_app on the isolated staging branch. Exact40 effective privilege checks pass, no grant options or ledger/schema/role expansion. Migrations were not rerun.
+- Reconciled the accepted authoring candidate with main60a4825, preserving coaching, Arena, learning, auth, performance/CSP and current smoke dispatch/deduplication policy.
+- Fixed Preview-only discovery files to use public canonical URLs without changing stable auth/page origins. Full local Preview-profile HTTP smoke now15 PASS,0fail,1Production-only skip.
+- Staging DB guard additionally pins the exact approved DNS names and restricted application role. Production behavior is unchanged. Shared PostgreSQL aliases remain rejected and Blob OIDC/mail allowlist enforcement retained.
+- TypeScript, lint, build, PG18.6, release/transport and all three browser suites pass. One inherited corpus punctuation TODO remains, without changing generated main content.
+- Independent READ ONLY Production inspection found no authoring tables/functions. This blocks merge/deployment to Production until a separately approved migration plan or complete tested feature-disable strategy exists. No Production write is authorized here.
+- Fresh Preview deployment and real verified-account/email/Blob acceptance remain required. The connected inbox is not the allowlisted recipient, so no unrelated inbox is searched and no allowlist is broadened to make acceptance pass.
+
+## 2026-11-02: real authoring acceptance and Production execution transport
+
+- Real staging Terms, mailbox verification, login, save/reload, publish, private
+  OIDC PNG uploads/reads, numeric outcomes/retry, explicit solution reveal,
+  assisted-attempt immutability, revocation, unpublish and logout checks passed
+  on the accepted Preview. Labelled immutable fixtures are retained.
+- Shared auth forms now explicitly submit POST before hydration, preventing
+  credentials in default GET query strings. SSR and real no-JavaScript Chromium
+  tests cover the defect. Hydrated Better Auth flow is unchanged.
+- Added a Production-only Windows runner around the unchanged reviewed SQL.
+  Disposable PG18.6 covers data preservation, atomic failure rollback, stale
+  recovery rejection, writer lock timeout, window expiry and replay rejection.
+  Existing canonical migrations and staging package are unchanged.
+- Production remains gated on fresh candidate CI/Preview and execution on the
+  operator's verified Windows host with a current writer/deployment hold.
+  No Production SQL write or merge is recorded here. Details and live legacy
+  coverage limitations are in AUTHORING_ALPHA_RELEASE.md.
+
+## 2026-11-02: Production operator timestamp correction
+
+- Derive the window end from the captured start, preventing Node startup time
+  from extending the interval beyond the existing thirty-minute validation.
+- The actual shell calculation passes millisecond and year-rollover regressions.
+  A thirty-minute-plus-204ms interval remains rejected. Canonical SQL, target,
+  TLS, locks, recovery and approval checks are unchanged. Refresh package hashes.

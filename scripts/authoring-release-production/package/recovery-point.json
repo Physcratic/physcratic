@@ -1,0 +1,9 @@
+{
+  "project": "divine-mode-82940461",
+  "production_branch": "br-quiet-dawn-b7m2zrt3",
+  "recovery_branch": "br-polished-heart-b7sfrgfi",
+  "rehearsal_branch": "br-weathered-shadow-b7rsjgvv",
+  "parent_lsn": "0/2D856E8",
+  "legacy_record_digest": "8774fc847cd2840b6a52b09a24100942024686279d04905df8030996cea023e1",
+  "method": "independently verified retained branch and copy; not a snapshot or cross-provider backup"
+}

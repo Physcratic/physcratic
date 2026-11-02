@@ -4,6 +4,8 @@ This phase adds persistent student attempts and API integration only. It adds no
 
 Phase6B now consumes these unchanged APIs through the [student solving interface](AUTHORED_STUDENT_UI.md); that document specifies client recovery, revision visibility and browser verification. This document remains the Phase6A server/persistence policy.
 
+Phase6C-A adds separately authorized [explicit solution access and reveal-based assistance](AUTHORED_SOLUTION_ACCESS.md). This leaves no-reveal-v1 automatic disclosure disabled; existing attempts remain unchanged and future assisted flags derive from the server ledger. The API details below describe the original Phase6A boundary where noted.
+
 ## Published reader integration
 
 `GET /api/authored-problems/[problemId]` keeps its existing allowlisted current revision body. A successful response adds a `Link` header with `rel="submission-info"` pointing to `/api/authored-problems/[problemId]/submission-info`.
@@ -29,7 +31,7 @@ An attempt response contains only server attempt ID, problem/revision/part IDs, 
 - Rate429 includes Retry-After60; rolling-day quota exhaustion429 omits that fixed-minute advice. There is no permanently exhausted practice revision.
 - Body: actual-byte20,000 limit with5s read deadline, strict JSON, finite numeric answers, existing field caps; NUL/unpaired-surrogate strings rejected before PostgreSQL JSONB. Forged Content-Length cannot bypass the byte limit.
 - DB operations use statement5s, lock2s and idle-in-transaction10s limits, plus existing production connection limits. Symbolic CPU/work limits remain Phase 5B's bounded cooperative100ms policy.
-- `no-reveal-v1` means **submitting an answer or receiving a grade does not automatically unlock private answers**, hints, worked solutions or private assets. It is not a permanent prohibition on a separate, explicit student-initiated worked-solution viewing feature in a future phase. Such a feature must use its own authorization/reveal/assistance contract; none is implemented here. The current reveal="disabled" metadata describes Phase 6A only. `assisted:false` records only that this app did not reveal a solution before this attempt; it makes no claim about external assistance.
+- `no-reveal-v1` means **submitting an answer or receiving a grade does not automatically unlock private answers**, hints, worked solutions or private assets. It is not a permanent prohibition on a separate, explicit student-initiated worked-solution viewing feature in a future phase. Such a feature must use its own authorization/reveal/assistance contract; none is implemented here. The current reveal="disabled" metadata describes Phase 6A only. Originally `assisted:false` recorded that no app solution reveal preceded the attempt. After0005, this is a server-derived boolean: any explicit own reveal on the immutable revision assists subsequent new attempts; earlier flags and idempotent replays remain unchanged. It makes no claim about external assistance.
 
 Own historical attempt records remain readable/replayable after unpublish or newer publication, but contain only the student's answer/result/selection. Replay is record retrieval, not a new historical grading request. It never restores access to withdrawn statement content or private assets. New attempts always require the current published revision, including for problem authors.
 

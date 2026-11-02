@@ -3,6 +3,9 @@ import { notFound } from "next/navigation";
 import { z } from "zod";
 import { StudentPageClient } from "@/components/authored/student-page-client";
 export const metadata: Metadata = {
+  // Keep this interactive account/permission surface out of search engines.
+  // Discovery is public in the library; no private or withdrawn title metadata,
+  // sitemap entry, static generation or cached historical statement is emitted.
   title: "Authored problem · Practice",
   robots: { index: false, follow: false },
 };

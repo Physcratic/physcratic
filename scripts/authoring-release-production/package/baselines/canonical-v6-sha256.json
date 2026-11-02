@@ -1,0 +1,4 @@
+{
+  "catalog_sha256": "1861da3a0225efcd379feeb23383fbea804e4498ec35995fe0d8de90945fe293",
+  "source": "verified immutable PG18.6 staging v6 catalog; read-only capture; excludes ledger and row values"
+}
