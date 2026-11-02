@@ -1,0 +1,15 @@
+{
+  "problemId": "incline",
+  "version": "d417e8ce42f18339bdb15eddd5e46892c267aeec1f8d7d83cb1e1e950d13f00f",
+  "parts": [
+    {
+      "id": "answer",
+      "sourcePart": "Answer",
+      "label": "Final answer",
+      "kind": "numeric",
+      "unit": "m/s²",
+      "symbols": [],
+      "help": "Use the displayed unit, without a unit suffix. Tolerance: 0.5% relative, with a 0.005 absolute floor. No unit conversion."
+    }
+  ]
+}

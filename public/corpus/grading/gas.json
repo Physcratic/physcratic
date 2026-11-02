@@ -1,0 +1,15 @@
+{
+  "problemId": "gas",
+  "version": "802fd17e256dbd26d9a37fa423aa33e9bf5f5f75af8392a47cce16226c281d21",
+  "parts": [
+    {
+      "id": "answer",
+      "sourcePart": "Answer",
+      "label": "Final answer",
+      "kind": "numeric",
+      "unit": "J",
+      "symbols": [],
+      "help": "Use the displayed unit, without a unit suffix. Tolerance: 0.5% relative, with a 0.005 absolute floor. No unit conversion."
+    }
+  ]
+}

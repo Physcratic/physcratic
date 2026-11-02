@@ -1,0 +1,33 @@
+{
+  "problemId": "arena-titans-double-take",
+  "version": "45fa82bd064175f46226272400877830c7bc1d94b6506590c8e730f07e4503f1",
+  "parts": [
+    {
+      "id": "a.index",
+      "sourcePart": "a",
+      "label": "Liquid refractive index relative to the atmosphere",
+      "kind": "numeric",
+      "unit": "1",
+      "symbols": [],
+      "help": "Spherical droplets; atmosphere index taken as one. Solve stationary primary deviation at an antisolar radius of 49°. Tolerance ±0.003."
+    },
+    {
+      "id": "b.angle",
+      "sourcePart": "b",
+      "label": "Secondary antisolar angular radius",
+      "kind": "numeric",
+      "unit": "degrees",
+      "symbols": [],
+      "help": "Use the index inferred in part (a), not a generic terrestrial index. This branch lies inside the 49° primary bow; tolerance ±0.1°."
+    },
+    {
+      "id": "b.diagram",
+      "sourcePart": "b",
+      "label": "Relative position diagram",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "help": "Review the two concentric bows around the antisolar point, secondary inside primary, with opposite colour ordering for normal dispersion."
+    }
+  ]
+}

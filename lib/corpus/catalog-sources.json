@@ -481,833 +481,2333 @@
     {
       "url": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025",
       "status": "http-ok"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2025_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2025_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2025_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2025_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2025_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2025_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2024_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2024_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2024_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2024_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2024_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2024_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2023_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2023_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2023_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2023_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2023_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2023_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2021_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2021_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2021_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2021_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2019_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2019_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2019_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2019_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2019_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2019_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2018_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2018_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2018_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2018_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2018_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2018_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2008_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2008_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2017_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2017_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2017_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2017_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2016_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2016_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2005_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2005_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2015_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2015_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2015_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2015_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2015_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2015_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2016_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2016_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2014_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2014_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2013_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2013_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2013_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2013_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2013_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2013_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2012_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2012_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2011_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2011_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2010_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2010_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2010_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2010_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2008_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2008_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2007_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2007_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2009_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2009_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2005_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2005_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2009_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2009_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2004_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2004_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2025_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2025_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2025_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2025_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2025_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2025_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2024_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2024_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2023_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2023_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2023_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2023_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2011_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2011_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2022_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2022_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2022_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2022_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2022_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2022_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2021_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2021_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2021_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2021_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2021_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2021_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2019_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2019_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2019_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2019_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2019_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2019_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2018_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2018_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2018_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2018_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2018_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2018_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2017_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2017_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2017_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2017_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2017_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2017_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2016_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2016_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2009_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2009_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2016_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2016_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2015_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2015_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2015_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2015_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2015_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2015_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2006_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2006_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2014_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2014_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2014_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2014_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2013_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2013_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2013_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2013_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2012_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2012_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2012_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2012_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2025_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2025_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2025_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2025_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2025_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2025_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2024_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2024_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2024_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2024_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2024_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2024_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2023_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2023_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2023_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2023_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2023_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2023_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2021_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2021_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2021_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2021_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2019_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2019_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2019_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2019_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2019_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2019_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2018_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2018_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2018_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2018_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2018_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2018_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2008_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2008_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2017_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2017_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2017_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2017_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2016_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2016_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2005_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2005_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2015_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2015_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2015_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2015_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2015_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2015_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2016_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2016_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2014_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2014_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2013_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2013_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2013_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2013_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2013_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2013_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2012_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2012_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2011_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2011_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2010_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2010_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2010_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2010_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2008_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2008_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2007_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2007_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2009_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2009_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2005_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2005_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2009_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2009_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2004_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2004_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2025_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2025_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2025_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2025_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2025_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2025_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2024_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2024_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2023_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2023_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2023_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2023_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2011_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2011_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2022_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2022_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2022_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2022_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2022_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2022_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2021_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2021_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2021_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2021_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2021_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2021_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2019_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2019_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2019_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2019_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2019_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2019_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2018_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2018_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2018_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2018_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2018_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2018_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2017_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2017_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2017_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2017_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2017_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2017_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2016_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2016_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2009_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2009_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2016_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2016_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2015_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2015_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2015_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2015_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2015_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2015_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2006_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2006_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2014_Q2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2014_S2.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2014_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2014_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2013_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2013_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2013_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2013_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2012_Q1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2012_S1.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2012_Q3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2012_S3.pdf",
+      "status": 200,
+      "checkedOn": "2026-10-31"
     }
   ],
   "problems": [
     {
       "id": "ipho-2025-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Водород и галактики",
-      "statementUrl": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025",
-      "solutionUrl": "/ipho/2025-t1-solutions.pdf",
-      "sourceHost": "ipho2025.fr",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2025_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2025_S1.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "imported-official",
-      "discoveryUrl": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2025-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Часы Джеймса Кокса",
-      "statementUrl": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025",
-      "solutionUrl": "/ipho/2025-t2-solutions.pdf",
-      "sourceHost": "ipho2025.fr",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2025_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2025_S2.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "imported-official",
-      "discoveryUrl": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2025-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Выпьем за любовь!",
-      "statementUrl": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025",
-      "solutionUrl": "/ipho/2025-t3-solutions.pdf",
-      "sourceHost": "ipho2025.fr",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2025_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2025_S3.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "imported-official",
-      "discoveryUrl": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2024-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Парниковый эффект",
-      "statementUrl": "https://pho.rs/p/4174",
-      "solutionUrl": "https://pho.rs/p/4174/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://i.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2024_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2024_S1.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2024-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Ионная ловушка и охлаждение атомов",
-      "statementUrl": "https://pho.rs/p/4176",
-      "solutionUrl": "https://pho.rs/p/4176/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://i.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2024_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2024_S2.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2024-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Пульсар «Чёрная вдова»",
-      "statementUrl": "https://pho.rs/p/4175",
-      "solutionUrl": "https://pho.rs/p/4175/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://i.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2024_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2024_S3.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2023-t1",
-      "checkedOn": "2026-10-28",
-      "sourceTitle": "Свойства ко��лоидных частиц",
-      "statementUrl": "https://pho.rs/p/3709",
-      "solutionUrl": "https://pho.rs/p/3709/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://i.pho.rs/"
+      "checkedOn": "2026-10-31",
+      "sourceTitle": "Свойства коллоидных частиц",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2023_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2023_S1.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2023-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Нейтронные звезды",
-      "statementUrl": "https://pho.rs/p/3734",
-      "solutionUrl": "https://pho.rs/p/3734/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://i.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2023_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2023_S2.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2023-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Вода и предметы",
-      "statementUrl": "https://pho.rs/p/3708",
-      "solutionUrl": "https://pho.rs/p/3708/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://i.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2023_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2023_S3.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2021-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Планетарная физика",
-      "statementUrl": "https://pho.rs/p/382",
-      "solutionUrl": "https://pho.rs/p/382/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://i.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2021_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2021_S1.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2021-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Электростатическая линза",
-      "statementUrl": "https://pho.rs/p/383",
-      "solutionUrl": "https://pho.rs/p/383/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://i.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2021_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2021_S2.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2019-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Пружина нулевой длины и слинки",
-      "statementUrl": "https://www.ipho-new.org/download/1314/",
-      "solutionUrl": "https://www.ipho-new.org/download/1314/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2019_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2019_S1.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2019-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Физика в микроволновке",
-      "statementUrl": "https://www.ipho-new.org/download/1314/",
-      "solutionUrl": "https://www.ipho-new.org/download/1314/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2019_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2019_S2.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2019-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Термоакустический двигатель",
-      "statementUrl": "https://www.ipho-new.org/download/1314/",
-      "solutionUrl": "https://www.ipho-new.org/download/1314/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2019_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2019_S3.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2018-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "LIGO-GW150914",
-      "statementUrl": "https://www.ipho-new.org/download/678/",
-      "solutionUrl": "https://www.ipho-new.org/download/678/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2018_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2018_S1.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2018-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "В поисках нейтрино",
-      "statementUrl": "https://www.ipho-new.org/download/678/",
-      "solutionUrl": "https://www.ipho-new.org/download/678/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2018_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2018_S2.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2018-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Физика живых систем",
-      "statementUrl": "https://www.ipho-new.org/download/678/",
-      "solutionUrl": "https://www.ipho-new.org/download/678/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2018_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2018_S3.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2008-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Водяная ступа для шлифовки риса",
-      "statementUrl": "https://www.ipho-new.org/download/558/",
-      "solutionUrl": "https://www.ipho-new.org/download/558/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2008_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2008_S1.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2017-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Вулканы, землетрясения и цунами",
-      "statementUrl": "https://www.ipho-new.org/download/674/",
-      "solutionUrl": "https://www.ipho-new.org/download/674/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2017_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2017_S2.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2017-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Расширение Вселенной",
-      "statementUrl": "https://www.ipho-new.org/download/674/",
-      "solutionUrl": "https://www.ipho-new.org/download/674/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2017_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2017_S3.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2016-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Нелинейная динамика в электрических цепях",
-      "statementUrl": "https://www.ipho-new.org/download/671/",
-      "solutionUrl": "https://www.ipho-new.org/download/671/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2016_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2016_S2.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2005-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Спутник с печальной судьбой",
-      "statementUrl": "https://www.ipho-new.org/download/549/",
-      "solutionUrl": "https://www.ipho-new.org/download/549/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2005_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2005_S1.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2015-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Частицы от Солнца",
-      "statementUrl": "https://www.ipho-new.org/download/668/",
-      "solutionUrl": "https://www.ipho-new.org/download/668/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2015_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2015_S1.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2015-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Принцип экстремума",
-      "statementUrl": "https://www.ipho-new.org/download/668/",
-      "solutionUrl": "https://www.ipho-new.org/download/668/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2015_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2015_S2.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2015-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Конструирование ядерного реактора",
-      "statementUrl": "https://www.ipho-new.org/download/668/",
-      "solutionUrl": "https://www.ipho-new.org/download/668/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2015_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2015_S3.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2016-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": null,
-      "statementUrl": "https://www.ipho-new.org/download/671/",
-      "solutionUrl": "https://www.ipho-new.org/download/671/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2016_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2016_S1.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2014-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Простейшая модель газового разряда",
-      "statementUrl": "https://www.ipho-new.org/download/576/",
-      "solutionUrl": "https://www.ipho-new.org/download/576/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2014_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2014_S3.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2013-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Метеорит Марибо",
-      "statementUrl": "https://www.ipho-new.org/download/573/",
-      "solutionUrl": "https://www.ipho-new.org/download/573/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2013_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2013_S1.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2013-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Плазмонный парогенератор",
-      "statementUrl": "https://www.ipho-new.org/download/573/",
-      "solutionUrl": "https://www.ipho-new.org/download/573/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2013_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2013_S2.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2013-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Ледяной щит Гренландии",
-      "statementUrl": "https://www.ipho-new.org/download/573/",
-      "solutionUrl": "https://www.ipho-new.org/download/573/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2013_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2013_S3.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2012-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Капельница Кельвина",
-      "statementUrl": "https://www.ipho-new.org/download/570/",
-      "solutionUrl": "https://www.ipho-new.org/download/570/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2012_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2012_S2.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2011-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Проблема трех тел и LISA",
-      "statementUrl": "https://www.ipho-new.org/download/567/",
-      "solutionUrl": "https://www.ipho-new.org/download/567/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2011_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2011_S1.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2010-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Метод изображений",
-      "statementUrl": "https://www.ipho-new.org/download/564/",
-      "solutionUrl": "https://www.ipho-new.org/download/564/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2010_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2010_S1.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2010-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Физика дымовой трубы",
-      "statementUrl": "https://www.ipho-new.org/download/564/",
-      "solutionUrl": "https://www.ipho-new.org/download/564/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2010_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2010_S2.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2008-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Черенковское излучение и кольцевой черенковский детектор",
-      "statementUrl": "https://www.ipho-new.org/download/558/",
-      "solutionUrl": "https://www.ipho-new.org/download/558/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2008_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2008_S2.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2007-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Воздушная подушка",
-      "statementUrl": "https://www.ipho-new.org/download/555/",
-      "solutionUrl": "https://www.ipho-new.org/download/555/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2007_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2007_S2.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2009-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Эволюция системы Земля-Луна",
-      "statementUrl": "https://www.ipho-new.org/download/561/",
-      "solutionUrl": "https://www.ipho-new.org/download/561/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2009_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2009_S1.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2005-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Абсолютные измерения электрических величин",
-      "statementUrl": "https://www.ipho-new.org/download/549/",
-      "solutionUrl": "https://www.ipho-new.org/download/549/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2005_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2005_S2.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2009-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Лазерное охлаждение атомов и «оптическая патока»",
-      "statementUrl": "https://www.ipho-new.org/download/561/",
-      "solutionUrl": "https://www.ipho-new.org/download/561/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2009_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2009_S2.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "ipho-2004-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Атомный зондирующий микроскоп",
-      "statementUrl": "https://www.ipho-new.org/download/546/",
-      "solutionUrl": "https://www.ipho-new.org/download/546/",
-      "sourceHost": "ipho-new.org",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2004_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2004_S3.pdf",
+      "sourceHost": "olimpicos.net",
       "language": "en",
-      "sourceKind": "official-bundle",
-      "discoveryUrl": "https://www.ipho-new.org/documentations/"
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
     },
     {
       "id": "apho-2025-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Прецессия земной оси",
-      "statementUrl": "https://pho.rs/p/4711",
-      "solutionUrl": "https://pho.rs/p/4711/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2025_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2025_S1.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2025-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Волны и фазовые переходы в спиновых системах",
-      "statementUrl": "https://pho.rs/p/4712",
-      "solutionUrl": "https://pho.rs/p/4712/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2025_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2025_S2.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2025-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Атмосферная задача",
-      "statementUrl": "https://pho.rs/p/4713",
-      "solutionUrl": "https://pho.rs/p/4713/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2025_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2025_S3.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2024-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Первый открытый квазар: тайны источника 3C 273",
-      "statementUrl": "https://pho.rs/p/4071",
-      "solutionUrl": "https://pho.rs/p/4071/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2024_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2024_S3.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2023-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Снижение орбиты МКС",
-      "statementUrl": "https://pho.rs/p/3680",
-      "solutionUrl": "https://pho.rs/p/3680/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2023_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2023_S1.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2023-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Шарик на вращающемся диске",
-      "statementUrl": "https://pho.rs/p/3681",
-      "solutionUrl": "https://pho.rs/p/3681/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2023_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2023_S2.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2011-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Скрипящая дверь",
-      "statementUrl": "https://pho.rs/p/3172",
-      "solutionUrl": "https://pho.rs/p/3172/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2011_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2011_S2.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2022-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Опыт Штерна-Герлаха",
-      "statementUrl": "https://pho.rs/p/3090",
-      "solutionUrl": "https://pho.rs/p/3090/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2022_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2022_S1.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2022-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Механическая модель фазовых переходов",
-      "statementUrl": "https://pho.rs/p/3089",
-      "solutionUrl": "https://pho.rs/p/3089/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2022_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2022_S2.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2022-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Максвелл, Релей и гора Эверест",
-      "statementUrl": "https://pho.rs/p/3091",
-      "solutionUrl": "https://pho.rs/p/3091/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2022_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2022_S3.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2021-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Гидравлический удар",
-      "statementUrl": "https://pho.rs/p/291",
-      "solutionUrl": "https://pho.rs/p/291/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2021_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2021_S1.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2021-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Трассировка лучей и генерация запутанных фотонов",
-      "statementUrl": "https://pho.rs/p/292",
-      "solutionUrl": "https://pho.rs/p/292/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2021_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2021_S2.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2021-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Магнитная левитация",
-      "statementUrl": "https://pho.rs/p/293",
-      "solutionUrl": "https://pho.rs/p/293/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2021_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2021_S3.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2019-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Рефлектометрия в одноэлектронных схемах",
-      "statementUrl": "https://pho.rs/p/3324",
-      "solutionUrl": "https://pho.rs/p/3324/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2019_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2019_S1.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2019-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Рентгеновские джеты активных ядер галактик",
-      "statementUrl": "https://pho.rs/p/3323",
-      "solutionUrl": "https://pho.rs/p/3323/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2019_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2019_S2.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2019-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Китайский волчок",
-      "statementUrl": "https://pho.rs/p/3446",
-      "solutionUrl": "https://pho.rs/p/3446/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2019_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2019_S3.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2018-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Атомы в оптической ловушке",
-      "statementUrl": "https://pho.rs/p/3597",
-      "solutionUrl": "https://pho.rs/p/3597/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2018_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2018_S1.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2018-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Космический лифт",
-      "statementUrl": "https://pho.rs/p/3598",
-      "solutionUrl": "https://pho.rs/p/3598/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2018_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2018_S2.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2018-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Термоэлектричество",
-      "statementUrl": "https://pho.rs/p/3599",
-      "solutionUrl": "https://pho.rs/p/3599/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2018_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2018_S3.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2017-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Вихри в сверхтекучей жидкости",
-      "statementUrl": "https://pho.rs/p/3442",
-      "solutionUrl": "https://pho.rs/p/3442/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2017_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2017_S1.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2017-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Эволюция системы бинарных сверхмассивных черных дыр",
-      "statementUrl": "https://pho.rs/p/3445",
-      "solutionUrl": "https://pho.rs/p/3445/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2017_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2017_S2.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2017-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Космический мусор",
-      "statementUrl": "https://pho.rs/p/3453",
-      "solutionUrl": "https://pho.rs/p/3453/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2017_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2017_S3.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2016-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Механика деформируемой структуры",
-      "statementUrl": "https://pho.rs/p/3351",
-      "solutionUrl": "https://pho.rs/p/3351/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2016_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2016_S1.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2009-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Катающиеся цилиндры",
-      "statementUrl": "https://pho.rs/p/3153",
-      "solutionUrl": "https://pho.rs/p/3153/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2009_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2009_S1.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2016-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Действие магнитного поля на сверхпроводники",
-      "statementUrl": "https://pho.rs/p/3608",
-      "solutionUrl": "https://pho.rs/p/3608/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2016_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2016_S3.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2015-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Дробный квантовый эффект Холла",
-      "statementUrl": "https://pho.rs/p/3283",
-      "solutionUrl": "https://pho.rs/p/3283/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2015_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2015_S1.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2015-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Как солнечный ветер вызывает северное сияние",
-      "statementUrl": "https://pho.rs/p/3307",
-      "solutionUrl": "https://pho.rs/p/3307/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2015_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2015_S2.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2015-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Интерферометр Фабри-Перо",
-      "statementUrl": "https://pho.rs/p/3356",
-      "solutionUrl": "https://pho.rs/p/3356/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2015_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2015_S3.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2006-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Маятник с сухим трением",
-      "statementUrl": "https://pho.rs/p/3149",
-      "solutionUrl": "https://pho.rs/p/3149/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2006_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2006_S2.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2014-t2",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Интерференция электронов",
-      "statementUrl": "https://pho.rs/p/3290",
-      "solutionUrl": "https://pho.rs/p/3290/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2014_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2014_S2.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2014-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Гравитационное линзирование",
-      "statementUrl": "https://pho.rs/p/3296",
-      "solutionUrl": "https://pho.rs/p/3296/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2014_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2014_S3.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2013-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Цилиндры в проводящей жидкости",
-      "statementUrl": "https://pho.rs/p/3348",
-      "solutionUrl": "https://pho.rs/p/3348/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2013_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2013_S1.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2013-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Физика спина",
-      "statementUrl": "https://pho.rs/p/3297",
-      "solutionUrl": "https://pho.rs/p/3297/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2013_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2013_S3.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2012-t1",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Сила сопротивления, действующая на падающий магнит",
-      "statementUrl": "https://pho.rs/p/3303",
-      "solutionUrl": "https://pho.rs/p/3303/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2012_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2012_S1.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "apho-2012-t3",
-      "checkedOn": "2026-10-28",
+      "checkedOn": "2026-10-31",
       "sourceTitle": "Фаза Панчаратнама",
-      "statementUrl": "https://pho.rs/p/3305",
-      "solutionUrl": "https://pho.rs/p/3305/s",
-      "sourceHost": "pho.rs",
-      "language": "ru",
-      "sourceKind": "mirror",
-      "discoveryUrl": "https://a.pho.rs/"
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2012_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2012_S3.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
     },
     {
       "id": "eupho-2025-t1",

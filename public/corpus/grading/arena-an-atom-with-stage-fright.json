@@ -1,0 +1,126 @@
+{
+  "problemId": "arena-an-atom-with-stage-fright",
+  "version": "7f29a893002da71a979705d066fa605233c639b2eb4b83c06da61026925ca3e4",
+  "parts": [
+    {
+      "id": "a.dipole",
+      "sourcePart": "a",
+      "label": "Complex oscillating vector dipole",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "help": "Complex conjugates, vector dipoles and real-part operations are outside this checker. Review the two conjugate cross terms and the sign convention."
+    },
+    {
+      "id": "b.power",
+      "sourcePart": "b",
+      "label": "Mean transition power",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "n",
+        "\\omega_0",
+        "\\mu_{21}",
+        "\\varepsilon_0",
+        "c",
+        "x"
+      ],
+      "help": "Use x = |a₂|², 0 ≤ x ≤ 1, and μ₂₁ for the positive norm of the transition dipole; other constants positive. Slowly varying populations, semiclassical model."
+    },
+    {
+      "id": "c.energy",
+      "sourcePart": "c",
+      "label": "Mean atomic energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "x",
+        "E_1",
+        "E_2"
+      ],
+      "help": "Use x = |a₂|² and normalization |a₁|² = 1 − x; 0 ≤ x ≤ 1, E₂ > E₁."
+    },
+    {
+      "id": "d.lifetime",
+      "sourcePart": "d",
+      "label": "Lifetime parameter τsp",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\varepsilon_0",
+        "\\hbar",
+        "c",
+        "n",
+        "\\omega_0",
+        "\\mu_{21}"
+      ],
+      "help": "Nonzero transition dipole; all listed scales positive. This is the lifetime parameter of the specified semiclassical equation."
+    },
+    {
+      "id": "d.function",
+      "sourcePart": "d",
+      "label": "Population function f(x)",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "x"
+      ],
+      "help": "x = |a₂|², 0 ≤ x ≤ 1; not simply x."
+    },
+    {
+      "id": "e.population",
+      "sourcePart": "e",
+      "label": "Excited-state population x(t)",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "x_0",
+        "t",
+        "\\tau_{sp}"
+      ],
+      "help": "Use x₀ = |a₂(0)|², 0 < x₀ < 1, t ≥ 0, τ_sp > 0. For the sketch the initial amplitude 0.9 means x₀ = 0.81."
+    },
+    {
+      "id": "e.sketch",
+      "sourcePart": "e",
+      "label": "Population sketch for initial amplitude 0.9",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "help": "Review x(0) = 0.81, the half-population time about 1.45τsp, and decay towards zero."
+    },
+    {
+      "id": "f.explanation",
+      "sourcePart": "f",
+      "label": "Pure excited initial state",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "help": "Explain why this semiclassical model remains at x = 1 with zero radiated power, and why that is a limitation rather than a prediction of quantum spontaneous emission."
+    },
+    {
+      "id": "g.power",
+      "sourcePart": "g",
+      "label": "Radiated-power pulse",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\hbar",
+        "\\omega_0",
+        "\\tau_{sp}",
+        "t",
+        "t_0"
+      ],
+      "help": "τ_sp, ℏ, ω₀ > 0; t₀ = τsp ln(x₀/(1−x₀)) is the half-population time. Pulse formula within the slowly varying semiclassical treatment."
+    },
+    {
+      "id": "g.sketch",
+      "sourcePart": "g",
+      "label": "Power sketch for initial amplitude 0.9",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "help": "Review the initial rise, maximum at 1.45τsp, and subsequent decay; only t ≥ 0 is physical for the specified initial condition."
+    }
+  ]
+}

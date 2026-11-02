@@ -1,0 +1,15 @@
+{
+  "problemId": "circuit",
+  "version": "bdf67d4311bc120a570c120f39347fb8e15b109f3c78fdc787c032125436cf5c",
+  "parts": [
+    {
+      "id": "answer",
+      "sourcePart": "Answer",
+      "label": "Final answer",
+      "kind": "numeric",
+      "unit": "A",
+      "symbols": [],
+      "help": "Use the displayed unit, without a unit suffix. Tolerance: 0.5% relative, with a 0.005 absolute floor. No unit conversion."
+    }
+  ]
+}

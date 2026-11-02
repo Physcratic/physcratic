@@ -2,14 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, Check, FileText, Info } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check, Info } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -67,7 +66,6 @@ export function CorpusProblemReader({
           <ArrowLeft data-icon="inline-start" />
           Back to collection
         </Button>
-        <Badge variant="outline">Unrated · self-review only</Badge>
       </div>
       <div className="flex flex-col gap-3">
         <p className="text-sm text-muted-foreground">
@@ -149,9 +147,6 @@ export function CorpusProblemReader({
                   {part.title}
                 </h3>
               </CardTitle>
-              <CardDescription>
-                Editorial reading guide · original statement on page {part.page}
-              </CardDescription>
             </CardHeader>
             <CardContent className="flex min-w-0 flex-col gap-5">
               <p className="text-pretty text-base leading-relaxed">
@@ -184,17 +179,6 @@ export function CorpusProblemReader({
                   )}
                 </div>
               </details>
-              <div className="flex flex-col gap-2">
-                <h4 className="flex items-center gap-2 text-sm font-medium">
-                  <FileText className="size-4" />
-                  Complete original statement
-                </h4>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  The pages below preserve all shared assumptions, equations,
-                  tables, and original figures. The text above is a restatement,
-                  not a substitute for the complete paper.
-                </p>
-              </div>
               <CorpusDocumentReader
                 key={`${taskKey}:questions`}
                 problem={problem}
@@ -205,7 +189,7 @@ export function CorpusProblemReader({
                 id="corpus-working"
                 value={notes[taskKey] ?? ""}
                 onChange={(value) => onNotesChange(taskKey, value)}
-                description="Use Save subpart progress below to keep your notes and self-review mark in your private account. Unsaved edits are lost on leaving or refresh. No marks or Elo are awarded."
+                description="Use Save subpart progress below to keep your notes and self-review mark in your private account. Unsaved edits are lost on leaving or refresh. No marks or ELO are awarded."
               />
               <details
                 key={taskKey}
@@ -323,7 +307,7 @@ export function CorpusProblemReader({
         <AlertTitle>Learning, not a rating event</AlertTitle>
         <AlertDescription>
           Reviews are your own learning notes. This pilot has no contest
-          submissions, automatic full-problem judging, or Elo changes.
+          submissions, automatic full-problem judging, or ELO changes.
         </AlertDescription>
       </Alert>
     </section>

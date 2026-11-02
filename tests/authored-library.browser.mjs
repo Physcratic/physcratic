@@ -362,13 +362,16 @@ try {
       .filter({ hasText: /Incline|Motion|Pendulum|Energy|Circuit|Spring/i })
       .count()) > 0,
   );
-  await page.getByRole("tab", { name: /Imported problems/ }).click();
+  // The reconciliation must retain main's Arena collection as well as authoring.
+  await page.getByRole("tab", { name: /Physcratic Arena/ }).click();
+  await page.getByRole("heading", { name: "Physcratic Arena", exact: true }).waitFor();
+  await page.getByRole("tab", { name: /Olympiad archive/ }).click();
   await page
-    .getByRole("heading", { name: "The olympiad library", exact: true })
+    .getByRole("heading", { name: "Full theory problems", exact: true })
     .waitFor();
   assert.equal(
     await page
-      .getByRole("tab", { name: /Imported problems/ })
+      .getByRole("tab", { name: /Olympiad archive/ })
       .getAttribute("aria-selected"),
     "true",
   );

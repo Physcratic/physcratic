@@ -152,11 +152,6 @@ export function ProblemHistory({
           })}
         </div>
       )}
-      <p className="text-sm leading-relaxed text-muted-foreground">
-        Practice results are checked numerically. Saved full solutions await
-        rubric review. Archive review marks are self-assessed. Neither awards
-        Elo.
-      </p>
     </section>
   );
 }

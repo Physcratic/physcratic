@@ -7,7 +7,7 @@ function preview(): Record<string, string | undefined> {
   return { VERCEL: "1", VERCEL_ENV: "preview", VERCEL_PROJECT_ID: "prj_phm4794zl2QBICu5MMbLFxcHAfFq",
     VERCEL_GIT_COMMIT_REF: "codex/physcratic-authoring-completion", AUTHORING_STAGING_BLOB_ENABLED: "1",
     BETTER_AUTH_URL: authoringStagingOrigin,
-    DATABASE_URL: "postgresql://staging-user:synthetic-password@ep-green-waterfall-b7qaw260-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require",
+    DATABASE_URL: "postgresql://physcratic_integration_app:synthetic-password@ep-green-waterfall-b7qaw260-pooler.c-13.us-east-1.aws.neon.tech/neondb?sslmode=require",
     STAGING_VERIFICATION_EMAIL_ALLOWLIST: "allowed@example.invalid, Second@example.invalid" };
 }
 const link = `${authoringStagingOrigin}/api/auth/verify-email?token=synthetic&callbackURL=%2Fsign-in`;
@@ -31,9 +31,9 @@ test("staging DB driver receives only the pinned endpoint and complete explicit 
     const env = preview();
     if (!pooled) env.DATABASE_URL = env.DATABASE_URL!.replace("-pooler", "");
     const config = runtimeDatabaseOptions(env);
-    assert.equal(config.host, `ep-green-waterfall-b7qaw260${pooled ? "-pooler" : ""}.us-east-2.aws.neon.tech`);
+    assert.equal(config.host, `ep-green-waterfall-b7qaw260${pooled ? "-pooler" : ""}.c-13.us-east-1.aws.neon.tech`);
     assert.equal(config.database, "neondb");
-    assert.equal(config.user, "staging-user");
+    assert.equal(config.user, "physcratic_integration_app");
     assert.equal(config.password, "synthetic-password");
     assert.equal("connectionString" in config, false);
     assert.deepEqual(config.ssl, { rejectUnauthorized: true });
@@ -48,11 +48,23 @@ test("every inherited PostgreSQL alias fails before any connection and never lea
 });
 test("missing/incomplete/wrong-endpoint/wrong-database/non-TLS primary URL cannot fall back", () => {
   for (const url of [undefined, "", "bad", "postgresql://u:p@ep-production.aws.neon.tech/neondb?sslmode=require",
-    "postgresql://u:p@ep-green-waterfall-b7qaw260.us-east-2.aws.neon.tech/other?sslmode=require",
-    "postgresql://u:p@ep-green-waterfall-b7qaw260.us-east-2.aws.neon.tech/neondb",
-    "postgresql://u@ep-green-waterfall-b7qaw260.us-east-2.aws.neon.tech/neondb?sslmode=require",
-    "postgresql://u:p@ep-green-waterfall-b7qaw260.us-east-2.aws.neon.tech/neondb?sslmode=disable"]) {
+    "postgresql://u:p@ep-green-waterfall-b7qaw260.c-13.us-east-1.aws.neon.tech/other?sslmode=require",
+    "postgresql://u:p@ep-green-waterfall-b7qaw260.c-13.us-east-1.aws.neon.tech/neondb",
+    "postgresql://u@ep-green-waterfall-b7qaw260.c-13.us-east-1.aws.neon.tech/neondb?sslmode=require",
+    "postgresql://u:p@ep-green-waterfall-b7qaw260.c-13.us-east-1.aws.neon.tech/neondb?sslmode=disable"]) {
     assert.throws(() => runtimeDatabaseOptions({ ...preview(), DATABASE_URL: url }), { message: "Authoring staging database is unavailable." });
+  }
+});
+test("staging refuses owner credentials and any unverified hostname variant", () => {
+  const good = preview().DATABASE_URL!;
+  for (const value of [
+    good.replace("physcratic_integration_app:", "neondb_owner:"),
+    good.replace("physcratic_integration_app:", "other_role:"),
+    good.replace(".c-13.us-east-1.aws.neon.tech", ".other-region.aws.neon.tech"),
+    good.replace(".c-13.us-east-1.aws.neon.tech", ".c-13.us-east-1.aws.neon.tech.attacker.invalid"),
+  ]) {
+    assert.throws(() => runtimeDatabaseOptions({ ...preview(), DATABASE_URL: value }),
+      { message: "Authoring staging database is unavailable." });
   }
 });
 test("only the stable staging origin is trusted; extra SDK origins and missing base fail closed", () => {

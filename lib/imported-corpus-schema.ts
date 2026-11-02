@@ -78,9 +78,9 @@ export const importedPdfSchema = z.object({
         width: z.number().positive(),
         height: z.number().positive(),
       }),
-    )
-    .min(1),
+    ),
   text: z.string().min(80),
+  textExtraction: z.enum(["available", "image-only"]).optional(),
   shared: z.boolean(),
   sourcePages: z.array(z.number().int().positive()).min(1),
   initialPage: z.number().int().positive().default(1),

@@ -1,9 +1,13 @@
 import type { MetadataRoute } from "next";
 import { indexableRoutes } from "@/lib/seo/public-routes";
-import { siteUrl } from "@/lib/site";
+import { xmlEscape } from "@/lib/seo/xml";
+import { publicDiscoveryUrl } from "@/lib/public-discovery";
 
 // No lastModified/priority/changefreq: Google ignores priority and we have
 // no trustworthy modification dates.
 export default function sitemap(): MetadataRoute.Sitemap {
-  return indexableRoutes.map((route) => ({ url: `${siteUrl()}${route.path}` }));
+  return indexableRoutes.map((route) => ({
+    // Next 15.5 writes <loc> verbatim, so a raw "&" would make the XML invalid.
+    url: xmlEscape(`${publicDiscoveryUrl()}${route.path}`),
+  }));
 }

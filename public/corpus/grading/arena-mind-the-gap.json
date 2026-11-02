@@ -1,0 +1,29 @@
+{
+  "problemId": "arena-mind-the-gap",
+  "version": "9e1d6ff639093dbd0fad75a37f78776c01b77db28846dd190e5c838d6511ae50",
+  "parts": [
+    {
+      "id": "a.radius",
+      "sourcePart": "a",
+      "label": "Dark-ring radius",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "\\lambda",
+        "R_0",
+        "R_1"
+      ],
+      "help": "Reflected light, near-normal incidence; R₀ > R₁ > 0, λ > 0, m = 0, 1, …; principal positive root."
+    },
+    {
+      "id": "b.radius",
+      "sourcePart": "b",
+      "label": "Fitted lens radius R₁",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "help": "Use the least-squares fit to consecutive squared ring radii. Measurement precision supports rounding to two significant figures."
+    }
+  ]
+}

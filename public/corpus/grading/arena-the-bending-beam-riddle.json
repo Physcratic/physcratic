@@ -1,0 +1,167 @@
+{
+  "problemId": "arena-the-bending-beam-riddle",
+  "version": "64636f8580c74b6fabfb527f62122bf72cf7f6732a9fdf825a7c2281c8627ade",
+  "parts": [
+    {
+      "id": "a.i.shear",
+      "sourcePart": "a.i",
+      "label": "Right-hand side of dM/dx",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "V"
+      ],
+      "help": "Use V for the signed shear V(x) in the source convention."
+    },
+    {
+      "id": "a.ii.curvature",
+      "sourcePart": "a.ii",
+      "label": "Second derivative d²M/dx²",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\rho",
+        "b",
+        "d",
+        "g"
+      ],
+      "help": "Uniform beam and stated shear convention; all dimensional parameters positive."
+    },
+    {
+      "id": "a.iii.shear",
+      "sourcePart": "a.iii",
+      "label": "Shear V(x)",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\rho",
+        "b",
+        "d",
+        "g",
+        "L",
+        "x"
+      ],
+      "help": "Simply supported beam; 0 ≤ x ≤ L, positive dimensions, density and g."
+    },
+    {
+      "id": "a.iii.moment",
+      "sourcePart": "a.iii",
+      "label": "Bending moment M(x)",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\rho",
+        "b",
+        "d",
+        "g",
+        "L",
+        "x"
+      ],
+      "help": "Simply supported beam; M(0) = M(L) = 0 and 0 ≤ x ≤ L."
+    },
+    {
+      "id": "b.i.stress",
+      "sourcePart": "b.i",
+      "label": "Normal stress fxx(y)",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "Y",
+        "y",
+        "R"
+      ],
+      "help": "Use R for the signed radius R(x), R ≠ 0. Source convention Y = −fxx/(Δl/l)."
+    },
+    {
+      "id": "b.ii.moment",
+      "sourcePart": "b.ii",
+      "label": "Bending moment from curvature",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "Y",
+        "b",
+        "d",
+        "R"
+      ],
+      "help": "R is the signed curvature radius R(x), R ≠ 0; rectangular section."
+    },
+    {
+      "id": "b.iii.drop",
+      "sourcePart": "b.iii",
+      "label": "Positive midpoint drop",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\rho",
+        "g",
+        "L",
+        "Y",
+        "d"
+      ],
+      "help": "Small slopes, simple supports, self-weight only. Enter a positive drop, not the negative upward displacement."
+    },
+    {
+      "id": "c.i.order",
+      "sourcePart": "c.i",
+      "label": "Wave-equation order n",
+      "kind": "numeric",
+      "unit": "1",
+      "symbols": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    },
+    {
+      "id": "c.i.a",
+      "sourcePart": "c.i",
+      "label": "Wave-equation coefficient A",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\rho",
+        "Y",
+        "d"
+      ],
+      "help": "Rayleigh beam model including rotational inertia; positive physical parameters."
+    },
+    {
+      "id": "c.i.b",
+      "sourcePart": "c.i",
+      "label": "Wave-equation coefficient B",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\rho",
+        "Y"
+      ],
+      "help": "Rotational inertia term on the right-hand side has positive coefficient."
+    },
+    {
+      "id": "c.ii.phase",
+      "sourcePart": "c.ii",
+      "label": "Thin-beam phase velocity",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "Y",
+        "d",
+        "\\rho",
+        "\\omega"
+      ],
+      "help": "Neglect rotational inertia; all parameters positive; ω is angular frequency, not ordinary frequency."
+    },
+    {
+      "id": "c.ii.group",
+      "sourcePart": "c.ii",
+      "label": "Thin-beam group velocity",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "Y",
+        "d",
+        "\\rho",
+        "\\omega"
+      ],
+      "help": "Same thin-beam limit; group velocity is twice phase velocity."
+    }
+  ]
+}

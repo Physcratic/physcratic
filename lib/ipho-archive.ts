@@ -47,7 +47,7 @@ export const iphoPapers: IphoPaper[] = [
     id: "t2",
     code: "T2",
     kind: "Theory",
-    title: "Cox’s Timepiece",
+    title: "Cox's Timepiece",
     topic: "Hydrostatics · Mechanics",
     pages: 6,
     solutionPages: 20,

@@ -1,0 +1,194 @@
+{
+  "problemId": "arena-the-cosmic-kitchen",
+  "version": "1443e8bdd69fcb9f11f5177de3cdaa93a10f1d7fae4bf64d551b84a7d236da2d",
+  "parts": [
+    {
+      "id": "a.energy",
+      "sourcePart": "a",
+      "label": "Photon thermal-energy scale kBT",
+      "kind": "numeric",
+      "unit": "MeV",
+      "symbols": [],
+      "help": "Use the question’s kBT scale at 10¹² K, not the blackbody mean 2.701kBT. Polarization counting does not derive the photon mean energy."
+    },
+    {
+      "id": "b.density",
+      "sourcePart": "b",
+      "label": "Nonrelativistic particle number density",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "k_B",
+        "T",
+        "\\hbar",
+        "\\mu",
+        "c"
+      ],
+      "help": "Dilute nonrelativistic gas; one internal state, g = 1, kBT ≪ mc². Dimensional constants and T are positive; μ is real."
+    },
+    {
+      "id": "c.ratio",
+      "sourcePart": "c",
+      "label": "Initial neutron-to-proton ratio",
+      "kind": "numeric",
+      "unit": "1",
+      "symbols": [],
+      "help": "Neglect electron/neutrino chemical potentials and use the kBT energy scale. A ratio near one is an intended estimate."
+    },
+    {
+      "id": "d.temperature",
+      "sourcePart": "d",
+      "label": "Estimated T₁",
+      "kind": "numeric",
+      "unit": "K",
+      "symbols": [],
+      "help": "Use kBT₁ ≈ 0.8 MeV (or 0.79 MeV threshold); not a weak-rate freeze-out calculation."
+    },
+    {
+      "id": "d.ratio",
+      "sourcePart": "d",
+      "label": "Neutron-to-proton ratio at T₁",
+      "kind": "numeric",
+      "unit": "1",
+      "symbols": [],
+      "help": "The worked estimate rounds this ratio to 0.20."
+    },
+    {
+      "id": "e.temperature",
+      "sourcePart": "e",
+      "label": "Estimated T₂",
+      "kind": "numeric",
+      "unit": "K",
+      "symbols": [],
+      "help": "Use kBT₂ ≈ mₑc² = 0.51 MeV; an estimate of pair-abundance suppression, not exact loss of chemical equilibrium."
+    },
+    {
+      "id": "f.ratio",
+      "sourcePart": "f",
+      "label": "Deuterium equilibrium ratio nD/(np nn)",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m_D",
+        "m_p",
+        "m_n",
+        "\\hbar",
+        "k_B",
+        "T",
+        "B_D"
+      ],
+      "help": "Single-state convention; B_D is the positive binding energy 2.24 MeV in consistent units. Spin multiplicities are not included."
+    },
+    {
+      "id": "g.equation",
+      "sourcePart": "g",
+      "label": "Numerical-equation right-hand side (set equal to 1)",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "u"
+      ],
+      "help": "u is the numerical value of kBT in keV; ηB = 6.1×10⁻¹⁰, Xp ≈ 1, XD/Xn ≈ 1. Use the coefficient precision in the solution."
+    },
+    {
+      "id": "g.temperature",
+      "sourcePart": "g",
+      "label": "Low-temperature root T₃",
+      "kind": "numeric",
+      "unit": "K",
+      "symbols": [],
+      "help": "Select the low-temperature root near kBT₃ = 69.1 keV, not the unrelated high-temperature root."
+    },
+    {
+      "id": "h.zeta",
+      "sourcePart": "h",
+      "label": "Coefficient ζ",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G"
+      ],
+      "help": "Uniform Newtonian sphere; ρ is mass-equivalent density."
+    },
+    {
+      "id": "h.xi",
+      "sourcePart": "h",
+      "label": "Curvature term ξ",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "k",
+        "c",
+        "a"
+      ],
+      "help": "a is the positive scale factor; k is signed curvature, c > 0."
+    },
+    {
+      "id": "i.i.exponent",
+      "sourcePart": "i.i",
+      "label": "Dust exponent p in energy density proportional to aᵖ",
+      "kind": "numeric",
+      "unit": "1",
+      "symbols": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    },
+    {
+      "id": "i.ii.exponent",
+      "sourcePart": "i.ii",
+      "label": "Radiation exponent p in energy density proportional to aᵖ",
+      "kind": "numeric",
+      "unit": "1",
+      "symbols": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    },
+    {
+      "id": "j.exponent",
+      "sourcePart": "j",
+      "label": "Temperature exponent p in T proportional to aᵖ",
+      "kind": "numeric",
+      "unit": "1",
+      "symbols": [],
+      "help": "Radiation domination with fixed relativistic particle content."
+    },
+    {
+      "id": "k.ratio",
+      "sourcePart": "k",
+      "label": "Temperature ratio T(t₁)/T(t₂)",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "t_1",
+        "t_2"
+      ],
+      "help": "Flat radiation-dominated Universe; Big Bang at t = 0; both times positive."
+    },
+    {
+      "id": "l.temperature",
+      "sourcePart": "l",
+      "label": "Temperature at matter–radiation equality",
+      "kind": "numeric",
+      "unit": "K",
+      "symbols": [],
+      "help": "Separate matter-dominated power law from equality to recombination."
+    },
+    {
+      "id": "m.fraction",
+      "sourcePart": "m",
+      "label": "Helium mass fraction",
+      "kind": "numeric",
+      "unit": "1",
+      "symbols": [],
+      "help": "Enter a fraction, not percent. Rounded r₁ = 0.20, Δt ≈ 290 s, half-life 612 s; all surviving neutrons enter helium; neglect baryonic mass differences."
+    },
+    {
+      "id": "m.reasoning",
+      "sourcePart": "m",
+      "label": "Baryon counting and decay reasoning",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "help": "Check comoving baryon counting and the neutron-decay derivation against the solution; only the final fraction is checked automatically."
+    }
+  ]
+}

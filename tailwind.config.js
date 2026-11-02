@@ -1,6 +1,3 @@
-// Tailwind loads this CommonJS configuration with require().
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const tailwindcssAnimate = require("tailwindcss-animate");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -64,5 +61,5 @@ module.exports = {
       },
     },
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [require("tailwindcss-animate")],
 };

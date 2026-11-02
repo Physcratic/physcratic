@@ -1,0 +1,95 @@
+{
+  "problemId": "arena-the-invisible-brake",
+  "version": "20d754089cea687f2bd5550e3b8cfc977352bdd56caa1f8510869139fc0069a9",
+  "parts": [
+    {
+      "id": "one.a.flux",
+      "sourcePart": "one.a",
+      "label": "Upward number flux",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "n",
+        "k_B",
+        "T",
+        "m"
+      ],
+      "help": "Statement §1(a), solution §(a)(i). Dilute isotropic Maxwell–Boltzmann gas; all scales positive."
+    },
+    {
+      "id": "one.b.momentum",
+      "sourcePart": "one.b",
+      "label": "Mean x-momentum transferred per crossing molecule",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "\\lambda",
+        "G"
+      ],
+      "help": "Statement §1(b), solution §(a)(ii). Use G = d⟨vx⟩/dz. Flux-weighted angular average; transfer to the faster layer is negative for G > 0."
+    },
+    {
+      "id": "one.c.exponent",
+      "sourcePart": "one.c",
+      "label": "Viscosity temperature exponent α",
+      "kind": "numeric",
+      "unit": "1",
+      "symbols": [],
+      "help": "Statement §1(c), solution §(a)(iii); b ≪ λ ≪ D, dilute gas."
+    },
+    {
+      "id": "one.c.coefficient",
+      "sourcePart": "one.c",
+      "label": "Viscosity coefficient ξ",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "k_B",
+        "b"
+      ],
+      "help": "The number density cancels; b is molecular diameter; positive scales, dilute-gas approximation."
+    },
+    {
+      "id": "two.a.velocity",
+      "sourcePart": "two.a",
+      "label": "Axial velocity profile",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "\\eta",
+        "R",
+        "r"
+      ],
+      "help": "Statement §2(a), solution §(b)(i). Use G = dp/dx, signed pressure gradient; η, R > 0, 0 ≤ r ≤ R; steady nearly incompressible Poiseuille flow."
+    },
+    {
+      "id": "two.b.flow",
+      "sourcePart": "two.b",
+      "label": "Volumetric flow rate",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R",
+        "G",
+        "\\eta"
+      ],
+      "help": "Use G = dp/dx, negative for positive flow; fully developed nearly incompressible flow."
+    },
+    {
+      "id": "two.c.heat",
+      "sourcePart": "two.c",
+      "label": "Wall heat per unit time per unit length",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R",
+        "G",
+        "\\eta"
+      ],
+      "help": "Use G = dp/dx. Pressure-work dissipation is removed as wall heat; steady nearly incompressible flow. Isothermal compressible gas alone does not justify this formula."
+    }
+  ]
+}

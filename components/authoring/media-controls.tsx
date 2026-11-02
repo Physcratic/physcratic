@@ -1,7 +1,6 @@
 "use client";
 import {
   createContext,
-  useCallback,
   useContext,
   useEffect,
   useId,
@@ -9,6 +8,8 @@ import {
   type ReactNode,
 } from "react";
 import { z } from "zod";
+import Image from "next/image";
+import useSWR from "swr";
 import { Button } from "@/components/ui/button";
 import {
   collectAuthorMedia,
@@ -173,8 +174,12 @@ export function MediaImage({
           work is retained.
         </p>
       ) : (
-        // eslint-disable-next-line @next/next/no-img-element -- Owner-only media must use the authenticated proxy without an optimizer cache.
-        <img
+        <Image
+          // Keep authorization and private cache policy on the media route, not the optimizer.
+          unoptimized
+          width={0}
+          height={0}
+          style={{ width: "auto", height: "auto" }}
           src={authorMediaPath(ctx.problemId, mediaId)}
           alt={alt}
           loading="lazy"
@@ -217,24 +222,23 @@ export function MediaAttachments({
   edit: (fn: (d: EditorDraft) => void) => void;
 }) {
   const ctx = useContext(context),
-    [files, setFiles] = useState<AuthorMediaInfo[]>([]),
     [message, setMessage] = useState(""),
     [error, setError] = useState("");
-  const mediaProblemId = ctx?.problemId;
-  const refresh = useCallback(async () => {
-    if (!mediaProblemId) return;
+  const { data: files = [], error: loadError, mutate } = useSWR<AuthorMediaInfo[]>(
+    ctx ? [`${editorBase}/${ctx.problemId}/media`, draft.version] : null,
+    async ([url]: [string, number]) => {
+      const result = await draftRequest(url);
+      return result.files;
+    },
+    { revalidateOnFocus: false },
+  );
+  async function refresh() {
     try {
-      const result = await draftRequest(
-        `${editorBase}/${mediaProblemId}/media`,
-      );
-      setFiles(result.files);
+      await mutate();
     } catch (e) {
       setError(e instanceof Error ? e.message : "Could not load media.");
     }
-  }, [mediaProblemId]);
-  useEffect(() => {
-    void refresh();
-  }, [draft.version, refresh]);
+  }
   if (!ctx) return null;
   let localRefs: Set<string>;
   try {
@@ -272,7 +276,7 @@ export function MediaAttachments({
               edit((d) => {
                 d.content.attachments.push({ id: file.id, purpose });
               });
-              setFiles((previous) => [...previous, file]);
+              void mutate((previous = []) => [...previous, file], { revalidate: false });
             }}
           />
         ))}
@@ -308,7 +312,7 @@ export function MediaAttachments({
                     a.id === ref.id ? { id: next.id, purpose: ref.purpose } : a,
                   );
                 });
-                setFiles((previous) => [...previous, next]);
+                void mutate((previous = []) => [...previous, next], { revalidate: false });
               }}
             />
             <Button
@@ -434,10 +438,10 @@ export function MediaAttachments({
         </div>
       </details>
       <p
-        role={error ? "alert" : "status"}
-        className={`text-sm ${error ? "text-destructive" : "text-muted-foreground"}`}
+        role={error || loadError ? "alert" : "status"}
+        className={`text-sm ${error || loadError ? "text-destructive" : "text-muted-foreground"}`}
       >
-        {error || message}
+        {error || (loadError ? "Could not load media." : message)}
       </p>
     </section>
   );

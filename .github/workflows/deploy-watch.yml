@@ -1,0 +1,131 @@
+name: Deploy watch
+
+# Opens an issue when a commit on main does not go live on Vercel (for example a blocked
+# deployment on the Hobby plan), and closes the open deploy-blocked issues again once a
+# deployment that contains their commit is live ("Live in <short sha>."). The cleanup also runs
+# on a status event, so a Redeploy or an owner commit closes the backlog without a new push.
+# GitHub runs push and status workflows from the default branch, so this only applies once merged.
+on:
+  push:
+    branches: [main]
+  status:
+
+permissions:
+  contents: read
+  statuses: read
+  issues: write
+
+jobs:
+  watch:
+    name: Production deploy went live
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+      SHA: ${{ github.sha }}
+      COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    steps:
+      - name: Wait for the Vercel status
+        id: wait
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Match on a prefix and a substring so the en dash in "Vercel – financial-dashboard" is never typed.
+          select='[.[] | select((.context | startswith("Vercel")) and (.context | contains("financial-dashboard")))] | .[0] // {}'
+          state=""; context=""; description=""; target=""
+          for attempt in $(seq 1 20); do
+            latest=$(gh api "repos/$REPO/commits/$SHA/statuses?per_page=100" --jq "$select")
+            state=$(jq -r '.state // ""' <<<"$latest")
+            context=$(jq -r '.context // ""' <<<"$latest")
+            description=$(jq -r '.description // ""' <<<"$latest")
+            target=$(jq -r '.target_url // ""' <<<"$latest")
+            echo "Check $attempt of 20: ${state:-no status yet} ${context:+($context)}"
+            if [[ "$state" == success || "$state" == failure || "$state" == error ]]; then break; fi
+            if [[ "$attempt" -lt 20 ]]; then sleep 60; fi
+          done
+
+          if [[ "$state" == success ]]; then
+            echo "Production deploy for ${SHA:0:7} is live."
+            exit 0
+          fi
+
+          case "$state" in
+            failure|error) reason="Vercel reported \`$state\`: ${description:-no description}." ;;
+            pending)       reason="Vercel was still \`pending\` after 20 minutes." ;;
+            *)             reason="No Vercel status appeared on this commit within 20 minutes." ;;
+          esac
+
+          short="${SHA:0:7}"
+          title="Production deploy did not go live for $short"
+
+          # Never open a second issue for the same SHA, open or closed.
+          existing=$(gh issue list --repo "$REPO" --state all --search "\"$title\" in:title" \
+            --json number,title --jq "[.[] | select(.title == \"$title\")] | .[0].number // empty")
+          if [[ -n "$existing" ]]; then
+            echo "Issue #$existing already exists for $short, not opening another."
+            exit 1
+          fi
+
+          # Link to the Vercel project when the status gives a team URL, else to the dashboard.
+          project="https://vercel.com/dashboard"
+          if [[ "$target" =~ ^(https://vercel\.com/[^/]+/financial-dashboard) ]]; then project="${BASH_REMATCH[1]}"; fi
+
+          gh label create deploy-blocked --repo "$REPO" --color B60205 \
+            --description "A production deploy did not go live" 2>/dev/null || true
+
+          body=$(mktemp)
+          {
+            echo "Commit: https://github.com/$REPO/commit/$SHA"
+            echo
+            echo "Commit message:"
+            echo
+            echo '```'
+            echo "$COMMIT_MESSAGE"
+            echo '```'
+            echo
+            echo "$reason"
+            echo
+            echo "Vercel project: $project"
+            if [[ -n "$target" ]]; then echo "Deployment: $target"; fi
+            echo "Detected by: $RUN_URL"
+            echo
+            echo "The Vercel owner should open the blocked deployment and click Redeploy."
+          } > "$body"
+
+          gh issue create --repo "$REPO" --title "$title" --label deploy-blocked --body-file "$body"
+          exit 1
+
+      # Only reached when the Vercel status is success: the step above fails otherwise.
+      - name: Check out the cleanup script
+        uses: actions/checkout@v5
+      - name: Close the deploy-blocked issues this deployment makes obsolete
+        shell: bash
+        env:
+          LIVE_SHA: ${{ github.sha }}
+        run: bash scripts/close-deploy-blocked.sh
+
+  cleanup:
+    name: Close deploy-blocked issues
+    # A successful financial-dashboard status on any commit that is already on main.
+    if: >-
+      github.event_name == 'status' &&
+      github.event.state == 'success' &&
+      startsWith(github.event.context, 'Vercel') &&
+      contains(github.event.context, 'financial-dashboard')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    concurrency:
+      group: deploy-watch-cleanup
+      cancel-in-progress: false
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+      LIVE_SHA: ${{ github.event.sha }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Close the deploy-blocked issues this deployment makes obsolete
+        shell: bash
+        run: bash scripts/close-deploy-blocked.sh

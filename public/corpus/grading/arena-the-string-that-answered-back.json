@@ -1,0 +1,80 @@
+{
+  "problemId": "arena-the-string-that-answered-back",
+  "version": "83649400606709ce41afb25595c1d186520292d34ac490be9dc8504f7dda3800",
+  "parts": [
+    {
+      "id": "a.left",
+      "sourcePart": "a",
+      "label": "Periodic displacement for 0 ≤ x ≤ L/2",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "L",
+        "t",
+        "\\tau",
+        "x"
+      ],
+      "help": "Small slopes; L, τ > 0. Exclude free oscillations depending on initial conditions. Angles in radians."
+    },
+    {
+      "id": "a.right",
+      "sourcePart": "a",
+      "label": "Periodic displacement for L/2 ≤ x ≤ L",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "L",
+        "t",
+        "\\tau",
+        "x"
+      ],
+      "help": "Same periodic particular solution; L, τ > 0. Angles in radians."
+    },
+    {
+      "id": "a.sketches",
+      "sourcePart": "a",
+      "label": "Four midpoint-driven string sketches",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "help": "Review the profiles at t = 0, τ/4, τ/2 and 3τ/4, including zero-displacement instants and opposite extrema."
+    },
+    {
+      "id": "b.left",
+      "sourcePart": "b",
+      "label": "Periodic displacement for 0 ≤ x ≤ 2L/3",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "L",
+        "t",
+        "\\tau",
+        "x"
+      ],
+      "help": "Small-slope periodic response, not the full undamped initial-value solution; L, τ > 0. Radians."
+    },
+    {
+      "id": "b.right",
+      "sourcePart": "b",
+      "label": "Periodic displacement for 2L/3 ≤ x ≤ L",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "L",
+        "t",
+        "\\tau",
+        "x"
+      ],
+      "help": "Same periodic particular solution; L, τ > 0. Radians."
+    },
+    {
+      "id": "b.sketches",
+      "sourcePart": "b",
+      "label": "Four off-centre-driven string sketches",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "help": "Review all four times t = 0, τ/4, τ/2 and 3τ/4 and the derivative jump at the driving point."
+    }
+  ]
+}

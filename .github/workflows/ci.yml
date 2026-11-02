@@ -14,24 +14,13 @@ permissions:
 
 jobs:
   check:
-    name: Lint, types, PostgreSQL tests and production build
+    name: Typecheck and unit tests
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-    services:
-      postgres:
-        image: postgres:18.6-alpine
-        env:
-          POSTGRES_PASSWORD: local-test-only
-          POSTGRES_DB: physcratic_authoring_test
-        ports: [5432:5432]
-        options: >-
-          --health-cmd "pg_isready -U postgres -d physcratic_authoring_test"
-          --health-interval 5s --health-timeout 5s --health-retries 10
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
-        # Uses the exact packageManager version in package.json.
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: pnpm
@@ -41,20 +30,61 @@ jobs:
         run: pnpm exec next typegen && pnpm exec tsc --noEmit
       - name: ESLint
         run: pnpm lint --max-warnings=0
-      - name: Full unit and disposable PostgreSQL integration tests
+      - name: Unit tests
+        run: pnpm run test:server
+      - name: Component rendering tests
+        run: pnpm test:ui
+      - name: Production build
         env:
-          # CI service only; never a shared/production DATABASE_URL or secret.
-          AUTHORING_TEST_DATABASE_URL: postgresql://postgres:local-test-only@127.0.0.1:5432/physcratic_authoring_test
-          AUTHORING_TEST_EXPECTED_VERSION: "18.6"
-        run: pnpm test
-      - name: Reviewed release package and staging mail transport guard
+          # Synthetic build-only values; no live service credentials.
+          BETTER_AUTH_SECRET: ci-build-only-physcratic-synthetic-secret-0000000000000000
+          BETTER_AUTH_URL: http://localhost:3000
+        run: pnpm build
+
+  database:
+    name: Database tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:18.6-alpine
         env:
-          AUTHORING_TEST_DATABASE_URL: postgresql://postgres:local-test-only@127.0.0.1:5432/physcratic_authoring_test
+          POSTGRES_PASSWORD: local-test-only
+          POSTGRES_DB: physcratic_authoring_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      # Disposable service container only. Never set DATABASE_URL here.
+      AUTHORING_TEST_DATABASE_URL: postgresql://postgres:local-test-only@127.0.0.1:5432/physcratic_authoring_test
+      AUTHORING_TEST_EXPECTED_VERSION: "18.6"
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Install
+        run: pnpm install --frozen-lockfile
+      - name: Database tests
+        shell: bash
         run: |
+          files=$(grep -l AUTHORING_TEST_DATABASE_URL lib/*.test.ts || true)
+          if [ -z "$files" ]; then
+            echo "No test files reference AUTHORING_TEST_DATABASE_URL, nothing to run."
+            exit 0
+          fi
+          echo "Running:"
+          echo "$files"
+          pnpm exec tsx --conditions=react-server --test $files
+      - name: Reviewed authoring release package and transport guards
+        run: |
+          mkdir -p work/neon-release-audit
           (cd scripts/authoring-release && sha256sum -c PACKAGE_SHA256SUMS)
           node --test scripts/authoring-release/release.test.mjs
-          pnpm exec tsx --conditions=react-server --test scripts/authoring-release/mail-audit.test.ts
-      - name: Production build (local licensed Inter; no live font download)
-        run: pnpm build
-      # Browser harnesses additionally require Playwright, axe and Chromium.
-      # They remain explicit local checks; no browser run is claimed by this job.
+          pnpm exec tsx --conditions=react-server --test scripts/authoring-release/mail-audit.test.ts lib/author-media-storage.test.ts

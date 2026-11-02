@@ -1,0 +1,15 @@
+{
+  "problemId": "projectile",
+  "version": "feb0d42297095db1ff9494e5b3cb2d49a251d578b4a702d77d835cff7e840efe",
+  "parts": [
+    {
+      "id": "answer",
+      "sourcePart": "Answer",
+      "label": "Final answer",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "help": "Use the displayed unit, without a unit suffix. Tolerance: 0.5% relative, with a 0.005 absolute floor. No unit conversion."
+    }
+  ]
+}

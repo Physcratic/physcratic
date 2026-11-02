@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import Image from "next/image";
+import dynamic from "next/dynamic";
 import useSWRImmutable from "swr/immutable";
 import {
   ArrowLeft,
@@ -42,6 +42,11 @@ import { assessSolutionSource } from "@/lib/corpus-readiness";
 import { ImportedSourceContent } from "./imported-source-content";
 import { SolutionSubmissionForm } from "./solution-submission-form";
 
+const PdfPageViewer = dynamic(() => import("./pdf-page-viewer"), {
+  ssr: false,
+  loading: () => <Skeleton className="h-96 w-full" />,
+});
+
 async function loadProblem(url: string) {
   const response = await fetch(url);
   if (!response.ok)
@@ -64,16 +69,15 @@ function PdfReader({
 }) {
   const topId = useId();
   const [page, setPage] = useState(
-    Math.min(document.initialPage, document.pages.length),
+    Math.min(document.initialPage, document.sourcePages.length),
   );
-  const image = document.pages[page - 1];
-  const [failedImage, setFailedImage] = useState<string | null>(null);
   function changePage(next: number) {
     setPage(next);
     window.document.getElementById(topId)?.scrollIntoView({ block: "start" });
   }
   return (
     <div className="flex min-w-0 flex-col gap-4" id={topId}>
+      {document.textExtraction === "image-only" && <p className="text-sm leading-relaxed text-muted-foreground">This original PDF contains scanned pages. Search and screen-reader text may not be available.</p>}
       {document.shared && (
         <p className="text-sm leading-relaxed text-muted-foreground">
           This original document contains several problems. Locate the problem
@@ -103,9 +107,9 @@ function PdfReader({
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                {document.pages.map((_, index) => (
+                {document.sourcePages.map((_, index) => (
                   <SelectItem key={index} value={String(index + 1)}>
-                    Page {index + 1} of {document.pages.length}
+                    Page {index + 1} of {document.sourcePages.length}
                   </SelectItem>
                 ))}
               </SelectGroup>
@@ -115,63 +119,26 @@ function PdfReader({
             variant="outline"
             size="icon"
             aria-label={`Next ${label} page`}
-            disabled={page === document.pages.length}
+            disabled={page === document.sourcePages.length}
             onClick={() => changePage(page + 1)}
           >
             <ArrowRight />
           </Button>
         </div>
-        <Button variant="outline" size="sm" asChild>
-          <a href={document.pdf} download>
-            <Download data-icon="inline-start" /> Download local PDF
-          </a>
-        </Button>
+        <div className="flex flex-wrap gap-2">
+          <Button variant="outline" size="sm" asChild>
+            <a href={`${document.pdf}#page=${page}`} target="_blank" rel="noopener noreferrer">
+              <ArrowUpRight data-icon="inline-start" /> Open PDF
+            </a>
+          </Button>
+          <Button variant="outline" size="sm" asChild>
+            <a href={document.pdf} download>
+              <Download data-icon="inline-start" /> Download PDF
+            </a>
+          </Button>
+        </div>
       </nav>
-      <figure className="min-w-0 overflow-hidden rounded-lg border border-border">
-        {failedImage === image.src ? (
-          <Alert>
-            <AlertTitle>Page image could not load</AlertTitle>
-            <AlertDescription>
-              The complete imported PDF is still available using the download
-              button above.
-            </AlertDescription>
-          </Alert>
-        ) : (
-          <a
-            href={image.src}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Enlarge ${label}, page ${page}`}
-          >
-            <Image
-              src={image.src}
-              alt={`${label}, page ${page} of ${document.pages.length}. Original equations, diagrams and tables. Selectable text is available below.`}
-              width={image.width}
-              height={image.height}
-              unoptimized
-              className="h-auto w-full"
-              onError={() => setFailedImage(image.src)}
-            />
-          </a>
-        )}
-        <figcaption className="px-4 py-3 text-sm leading-relaxed text-muted-foreground">
-          {label} · Page {page} of {document.pages.length} · Original layout ·
-          Click to enlarge
-        </figcaption>
-      </figure>
-      <details className="rounded-lg border border-border px-4 py-3">
-        <summary className="cursor-pointer text-sm font-medium">
-          Selectable source text
-        </summary>
-        <p className="py-3 text-sm leading-relaxed text-muted-foreground">
-          Extracted from the original PDF for searching and accessibility.
-          Formula positioning may differ. Use the original page for
-          authoritative notation.
-        </p>
-        <pre className="whitespace-pre-wrap break-words font-sans text-sm leading-relaxed">
-          {document.text}
-        </pre>
-      </details>
+      <PdfPageViewer file={document.pdf} page={page} label={`${label}, page ${page}`} />
       {"appendix" in document && document.appendix && (
         <details className="rounded-lg border border-border px-4 py-3">
           <summary className="cursor-pointer text-sm font-medium">
@@ -193,20 +160,28 @@ export function ImportedProblemReader({
 }: {
   problem: CatalogProblem;
   onBack: () => void;
-  onOpenPilot: (id: string) => void;
+  onOpenPilot?: (id: string) => void;
 }) {
   const { data, error, isLoading, mutate } = useSWRImmutable(
-    `/corpus/problems/${problem.id}.json`,
+    problem.importPath,
     loadProblem,
   );
   const [tab, setTab] = useState("statement");
   const [language, setLanguage] = useState("en");
-  const translationRecord = translationIndex.records.find((record) => record.id === problem.id);
-  const { data: english, error: translationError, isLoading: translationLoading, mutate: retryTranslation } = useSWRImmutable(
+  const translationRecord = problem.importLanguage === "ru" ? translationIndex.records.find(
+    (record) => record.id === problem.id,
+  ) : undefined;
+  const {
+    data: english,
+    error: translationError,
+    isLoading: translationLoading,
+    mutate: retryTranslation,
+  } = useSWRImmutable(
     translationRecord && language === "en" ? translationRecord.path : null,
     loadTranslation,
   );
-  const readingData = translationRecord && language === "en" ? english?.content : data;
+  const readingData =
+    translationRecord && language === "en" ? english?.content : data;
   const readiness = data ? assessSolutionSource(data) : undefined;
   const missingSolution = readiness?.status === "missing-derivation";
   return (
@@ -218,7 +193,7 @@ export function ImportedProblemReader({
         <Button variant="ghost" onClick={onBack}>
           <ArrowLeft data-icon="inline-start" /> Back to all 100 problems
         </Button>
-        {problem.hasPilotGuide && (
+        {problem.hasPilotGuide && onOpenPilot && (
           <Button
             variant="outline"
             size="sm"
@@ -242,15 +217,25 @@ export function ImportedProblemReader({
         </div>
         <h2
           id="imported-problem-title"
+          lang={problem.titleLanguage}
           className="text-balance text-2xl font-medium tracking-tight"
         >
           {problem.title}
         </h2>
         <p className="text-sm leading-relaxed text-muted-foreground">
           Complete statement and original diagrams stored in this app. Solution
-          content is checked separately before it can become a grading reference.
-          Unrated. Automatic grading is not enabled.
+          content is checked separately before it can become a grading
+          reference. Unrated. Automatic grading is not enabled.
         </p>
+        <a
+          href={problem.titleSourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-fit text-sm text-accent-foreground underline underline-offset-4"
+        >
+          Original title source{" "}
+          <span className="sr-only">(opens in a new tab)</span>
+        </a>
       </header>
       {translationRecord ? (
         <div className="flex flex-col gap-3">
@@ -258,18 +243,21 @@ export function ImportedProblemReader({
             <SelectTrigger className="w-60" aria-label="Reading language">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent><SelectGroup>
-              <SelectItem value="en">English · translation draft</SelectItem>
-              <SelectItem value="ru">Russian · original source</SelectItem>
-            </SelectGroup></SelectContent>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="en">English · translation draft</SelectItem>
+                <SelectItem value="ru">Russian · original source</SelectItem>
+              </SelectGroup>
+            </SelectContent>
           </Select>
           <Alert>
             <AlertTitle>English translation draft available</AlertTitle>
             <AlertDescription>
-              The source prose is translated, not summarized. The Russian original,
-              diagrams, and equations are preserved, including source notation and
-              any Russian labels or units inside equations. Independent physics
-              review is pending. The translation does not create missing solution content.
+              The source prose is translated, not summarized. The Russian
+              original, diagrams, and equations are preserved, including source
+              notation and any Russian labels or units inside equations.
+              Independent physics review is pending. The translation does not
+              create missing solution content.
             </AlertDescription>
           </Alert>
         </div>
@@ -277,16 +265,21 @@ export function ImportedProblemReader({
         <Alert>
           <AlertTitle>English translation pending</AlertTitle>
           <AlertDescription>
-            This complete source is currently in Russian. Its English catalog
-            title is not a translated statement. English drafts are being added
-            separately, with equations, figures and original source text retained.
+            This imported statement is currently in Russian. The problem title
+            is retained from the original source; an English title does not mean
+            the statement has been translated. English drafts are being added
+            separately, with equations, figures and original source text
+            retained.
           </AlertDescription>
         </Alert>
       ) : null}
       {missingSolution && (
         <Alert>
           <AlertTitle>Worked solution not available in this import</AlertTitle>
-          <AlertDescription>{readiness.reason} The original imported page is retained for transparency.</AlertDescription>
+          <AlertDescription>
+            {readiness.reason} The original imported page is retained for
+            transparency.
+          </AlertDescription>
         </Alert>
       )}
       {translationError && language === "en" && (
@@ -294,8 +287,20 @@ export function ImportedProblemReader({
           <AlertTitle>Could not load the English draft</AlertTitle>
           <AlertDescription>
             <div className="flex flex-wrap gap-3">
-              <Button variant="outline" size="sm" onClick={() => retryTranslation()}>Retry English</Button>
-              <Button variant="outline" size="sm" onClick={() => setLanguage("ru")}>Read Russian original</Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => retryTranslation()}
+              >
+                Retry English
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setLanguage("ru")}
+              >
+                Read Russian original
+              </Button>
             </div>
           </AlertDescription>
         </Alert>
@@ -327,7 +332,9 @@ export function ImportedProblemReader({
         >
           <TabsList className="h-auto w-fit max-w-full flex-wrap">
             <TabsTrigger value="statement">Problem statement</TabsTrigger>
-            <TabsTrigger value="solution">{missingSolution ? "Source solution page" : "Worked solution"}</TabsTrigger>
+            <TabsTrigger value="solution">
+              {missingSolution ? "Source solution page" : "Worked solution"}
+            </TabsTrigger>
             <TabsTrigger value="submission">Your solution</TabsTrigger>
           </TabsList>
           {(["statement", "solution"] as const).map((kind) => (
@@ -336,13 +343,21 @@ export function ImportedProblemReader({
                 <CardHeader>
                   <CardTitle>
                     {kind === "statement"
-                      ? readingData.language === "en" && translationRecord && language === "en" ? "English problem statement" : "Original problem"
-                      : missingSolution ? "Imported page · no derivation supplied" : "Worked solution"}
+                      ? readingData.language === "en" &&
+                        translationRecord &&
+                        language === "en"
+                        ? "English problem statement"
+                        : "Original problem"
+                      : missingSolution
+                        ? "Imported page · no derivation supplied"
+                        : "Worked solution"}
                   </CardTitle>
                   <CardDescription>
                     {kind === "statement"
                       ? "All source subparts, figures and tables are included."
-                      : missingSolution ? "This mirror page repeats the questions. It is not a worked solution or a marking rubric." : "Contains spoilers. Compare with your own derivation before self-assessing. Reference review is still pending."}
+                      : missingSolution
+                        ? "This mirror page repeats the questions. It is not a worked solution or a marking rubric."
+                        : "Contains spoilers. Compare with your own derivation before self-assessing. Reference review is still pending."}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="min-w-0">
@@ -386,7 +401,7 @@ export function ImportedProblemReader({
         <div className="flex flex-col gap-3 pt-4 text-sm leading-relaxed text-muted-foreground">
           <p>{problem.attribution}</p>
           <p>
-            Imported 28 October 2026. Source credits are retained. Importing
+            Imported {data?.importedOn ?? "2026-10-31"}. Source credits are retained. Importing
             does not establish republication permission. Rights review and
             independent physics review are pending.
           </p>

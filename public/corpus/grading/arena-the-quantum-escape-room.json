@@ -1,0 +1,100 @@
+{
+  "problemId": "arena-the-quantum-escape-room",
+  "version": "fb0b6a09be3d773fe3bc9356e0c1497ac68db0a28877197a9c64d558d39b8617",
+  "parts": [
+    {
+      "id": "a.wave-number",
+      "sourcePart": "a",
+      "label": "Free wave number k₀",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "E",
+        "\\hbar"
+      ],
+      "help": "m, E and ℏ positive; principal positive wave number."
+    },
+    {
+      "id": "b.parallel",
+      "sourcePart": "b",
+      "label": "Wave number k₂y",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "k_0",
+        "\\theta"
+      ],
+      "help": "Conserved tangential momentum; k₀ > 0; incidence angle in radians, 0 ≤ θ < π/2."
+    },
+    {
+      "id": "c.decay",
+      "sourcePart": "c",
+      "label": "Barrier decay parameter κ",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "V_0",
+        "E",
+        "\\theta",
+        "\\hbar"
+      ],
+      "help": "V₀ > E > 0; m, ℏ > 0; real positive decay constant; θ in radians."
+    },
+    {
+      "id": "d.normal",
+      "sourcePart": "d",
+      "label": "Transmitted wave number k₃x",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "k_0",
+        "\\theta"
+      ],
+      "help": "Positive-x transmitted wave; k₀ > 0; 0 ≤ θ < π/2 in radians."
+    },
+    {
+      "id": "d.parallel",
+      "sourcePart": "d",
+      "label": "Transmitted wave number k₃y",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "k_0",
+        "\\theta"
+      ],
+      "help": "Tangential momentum is conserved; radians."
+    },
+    {
+      "id": "e.probability",
+      "sourcePart": "e",
+      "label": "Transmission probability",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "V_0",
+        "E_x",
+        "\\kappa",
+        "d"
+      ],
+      "help": "Use E_x = E cos²θ > 0 and κ from part (c); V₀ > E_x, d > 0. This form uses the normal energy, not total E."
+    },
+    {
+      "id": "f.rate",
+      "sourcePart": "f",
+      "label": "Square-box escape-rate approximation λ",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "a",
+        "E",
+        "m",
+        "V_0",
+        "\\kappa_{45}",
+        "d"
+      ],
+      "help": "a ≫ d; independent collisions and small escape probability. κ₄₅ = √(2m(V₀ − E/2))/ℏ. Count all four wall collisions; all length/energy/mass scales positive."
+    }
+  ]
+}

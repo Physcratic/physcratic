@@ -1,1348 +1,1430 @@
 {
   "schemaVersion": "1.0.0",
-  "importedOn": "2026-10-28",
+  "importedOn": "2026-10-31",
   "count": 100,
   "problems": [
     {
       "id": "ipho-2025-t1",
-      "path": "/corpus/problems/ipho-2025-t1.json",
+      "path": "/corpus/english-problems/ipho-2025-t1.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2025_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "/ipho/2025-t1-solutions.pdf",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2025_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2025-t2",
-      "path": "/corpus/problems/ipho-2025-t2.json",
+      "path": "/corpus/english-problems/ipho-2025-t2.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2025_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "/ipho/2025-t2-solutions.pdf",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2025_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2025-t3",
-      "path": "/corpus/problems/ipho-2025-t3.json",
+      "path": "/corpus/english-problems/ipho-2025-t3.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho2025.fr/sujets-officiels-ipho-france-2025",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2025_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "/ipho/2025-t3-solutions.pdf",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2025_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2024-t1",
-      "path": "/corpus/problems/ipho-2024-t1.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/ipho-2024-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/4174",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2024_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/4174/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2024_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2024-t2",
-      "path": "/corpus/problems/ipho-2024-t2.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/ipho-2024-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/4176",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2024_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/4176/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2024_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2024-t3",
-      "path": "/corpus/problems/ipho-2024-t3.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/ipho-2024-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/4175",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2024_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/4175/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2024_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2023-t1",
-      "path": "/corpus/problems/ipho-2023-t1.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/ipho-2023-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3709",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2023_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3709/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2023_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2023-t2",
-      "path": "/corpus/problems/ipho-2023-t2.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/ipho-2023-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3734",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2023_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3734/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2023_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2023-t3",
-      "path": "/corpus/problems/ipho-2023-t3.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/ipho-2023-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3708",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2023_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3708/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2023_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2021-t1",
-      "path": "/corpus/problems/ipho-2021-t1.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/ipho-2021-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/382",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2021_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/382/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2021_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2021-t2",
-      "path": "/corpus/problems/ipho-2021-t2.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/ipho-2021-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/383",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2021_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/383/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2021_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2019-t1",
-      "path": "/corpus/problems/ipho-2019-t1.json",
+      "path": "/corpus/english-problems/ipho-2019-t1.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/1314/",
           "kind": "statement",
-          "archiveMember": "1-Th1-Th3-Questions.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2019_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/1314/",
           "kind": "solution",
-          "archiveMember": "3-Th1-Th3-Solutions.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2019_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2019-t2",
-      "path": "/corpus/problems/ipho-2019-t2.json",
+      "path": "/corpus/english-problems/ipho-2019-t2.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/1314/",
           "kind": "statement",
-          "archiveMember": "1-Th1-Th3-Questions.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2019_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/1314/",
           "kind": "solution",
-          "archiveMember": "3-Th1-Th3-Solutions.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2019_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2019-t3",
-      "path": "/corpus/problems/ipho-2019-t3.json",
+      "path": "/corpus/english-problems/ipho-2019-t3.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/1314/",
           "kind": "statement",
-          "archiveMember": "1-Th1-Th3-Questions.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2019_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/1314/",
           "kind": "solution",
-          "archiveMember": "3-Th1-Th3-Solutions.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2019_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2018-t1",
-      "path": "/corpus/problems/ipho-2018-t1.json",
+      "path": "/corpus/english-problems/ipho-2018-t1.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/678/",
           "kind": "statement",
-          "archiveMember": "IPhO2018-Portugal/Experiment/Theory/Theory 1/SE1-IPhO2018.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2018_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/678/",
           "kind": "solution",
-          "archiveMember": "IPhO2018-Portugal/Experiment/Theory/Theory 1/ST1-IPhO2018.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2018_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2018-t2",
-      "path": "/corpus/problems/ipho-2018-t2.json",
+      "path": "/corpus/english-problems/ipho-2018-t2.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/678/",
           "kind": "statement",
-          "archiveMember": "IPhO2018-Portugal/Experiment/Theory/Theory 2/TRANSLATION_T2_Q_Official_english.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2018_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/678/",
           "kind": "solution",
-          "archiveMember": "IPhO2018-Portugal/Experiment/Theory/Theory 2/ST2-IPhO2018.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2018_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2018-t3",
-      "path": "/corpus/problems/ipho-2018-t3.json",
+      "path": "/corpus/english-problems/ipho-2018-t3.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/678/",
           "kind": "statement",
-          "archiveMember": "IPhO2018-Portugal/Experiment/Theory/Theory 3/TRANSLATION_T3_Q_Official_english.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2018_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/678/",
           "kind": "solution",
-          "archiveMember": "IPhO2018-Portugal/Experiment/Theory/Theory 3/ST3-IPhO2018.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2018_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2008-t1",
-      "path": "/corpus/problems/ipho-2008-t1.json",
+      "path": "/corpus/english-problems/ipho-2008-t1.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/558/",
           "kind": "statement",
-          "archiveMember": "2008/IPhO_2008_Theory_1_Problem.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2008_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/558/",
           "kind": "solution",
-          "archiveMember": "2008/IPhO_2008_Theory_1_Solution.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2008_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2017-t2",
-      "path": "/corpus/problems/ipho-2017-t2.json",
+      "path": "/corpus/english-problems/ipho-2017-t2.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/674/",
           "kind": "statement",
-          "archiveMember": "Theory-Indonesia2017/Problems T2.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2017_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/674/",
           "kind": "solution",
-          "archiveMember": "Theory-Indonesia2017/Solution n Marking Scheme T2.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2017_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2017-t3",
-      "path": "/corpus/problems/ipho-2017-t3.json",
+      "path": "/corpus/english-problems/ipho-2017-t3.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/674/",
           "kind": "statement",
-          "archiveMember": "Theory-Indonesia2017/Problems T3.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2017_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/674/",
           "kind": "solution",
-          "archiveMember": "Theory-Indonesia2017/Solution n Marking Scheme T3.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2017_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2016-t2",
-      "path": "/corpus/problems/ipho-2016-t2.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/ipho-2016-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/671/",
           "kind": "statement",
-          "urls": [
-            "https://pho.rs/p/3204"
-          ],
-          "note": "The official year bundle omits these questions, both mechanics sections are imported together from the Russian mirror."
+          "url": "https://olimpicos.net/files/ipho/IPhO_2016_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/671/",
           "kind": "solution",
-          "urls": [
-            "https://pho.rs/p/3204/s"
-          ],
-          "note": "The official year bundle omits these questions, both mechanics sections are imported together from the Russian mirror."
+          "url": "https://olimpicos.net/files/ipho/IPhO_2016_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2005-t1",
-      "path": "/corpus/problems/ipho-2005-t1.json",
+      "path": "/corpus/english-problems/ipho-2005-t1.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/549/",
           "kind": "statement",
-          "archiveMember": "2005/IPhO_2005_Theo_question 1(pdf).pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2005_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/549/",
           "kind": "solution",
-          "archiveMember": "2005/IPhO_2005_Theo_solution 1(pdf).pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2005_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2015-t1",
-      "path": "/corpus/problems/ipho-2015-t1.json",
+      "path": "/corpus/english-problems/ipho-2015-t1.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/668/",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2015_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/668/",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2015_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2015-t2",
-      "path": "/corpus/problems/ipho-2015-t2.json",
+      "path": "/corpus/english-problems/ipho-2015-t2.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/668/",
           "kind": "statement",
-          "archiveMember": "IPhO2015- Mumbai/Theory/T2-Questions.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2015_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/668/",
           "kind": "solution",
-          "archiveMember": "IPhO2015- Mumbai/Theory/T2-Solutions.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2015_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2015-t3",
-      "path": "/corpus/problems/ipho-2015-t3.json",
+      "path": "/corpus/english-problems/ipho-2015-t3.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/668/",
           "kind": "statement",
-          "archiveMember": "IPhO2015- Mumbai/Theory/T3-Questions.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2015_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/668/",
           "kind": "solution",
-          "archiveMember": "IPhO2015- Mumbai/Theory/T3-Solutions.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2015_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2016-t1",
-      "path": "/corpus/problems/ipho-2016-t1.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/ipho-2016-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/671/",
           "kind": "statement",
-          "urls": [
-            "https://pho.rs/p/3152",
-            "https://pho.rs/p/3412"
-          ],
-          "note": "The official year bundle omits these questions, both mechanics sections are imported together from the Russian mirror."
+          "url": "https://olimpicos.net/files/ipho/IPhO_2016_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/671/",
           "kind": "solution",
-          "urls": [
-            "https://pho.rs/p/3152/s",
-            "https://pho.rs/p/3412/s"
-          ],
-          "note": "The official year bundle omits these questions, both mechanics sections are imported together from the Russian mirror."
+          "url": "https://olimpicos.net/files/ipho/IPhO_2016_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2014-t3",
-      "path": "/corpus/problems/ipho-2014-t3.json",
+      "path": "/corpus/english-problems/ipho-2014-t3.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/576/",
           "kind": "statement",
-          "archiveMember": "2014/2014_IPhO_Theory_Problem_3.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2014_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/576/",
           "kind": "solution",
-          "archiveMember": "2014/2014_IPhO_Solution_to_Theory_Problem_3.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2014_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2013-t1",
-      "path": "/corpus/problems/ipho-2013-t1.json",
+      "path": "/corpus/english-problems/ipho-2013-t1.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/573/",
           "kind": "statement",
-          "archiveMember": "2013/ipho2013-theoretical-problem-1.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2013_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/573/",
           "kind": "solution",
-          "archiveMember": "2013/IPhO2013_T1_solution.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2013_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2013-t2",
-      "path": "/corpus/problems/ipho-2013-t2.json",
+      "path": "/corpus/english-problems/ipho-2013-t2.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/573/",
           "kind": "statement",
-          "archiveMember": "2013/ipho2013-theoretical-problem-2.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2013_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/573/",
           "kind": "solution",
-          "archiveMember": "2013/IPhO2013_T2_solution.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2013_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2013-t3",
-      "path": "/corpus/problems/ipho-2013-t3.json",
+      "path": "/corpus/english-problems/ipho-2013-t3.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/573/",
           "kind": "statement",
-          "archiveMember": "2013/ipho2013-theoretical-problem-3.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2013_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/573/",
           "kind": "solution",
-          "archiveMember": "2013/IPhO2013_T3_solution.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2013_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2012-t2",
-      "path": "/corpus/problems/ipho-2012-t2.json",
+      "path": "/corpus/english-problems/ipho-2012-t2.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/570/",
           "kind": "statement",
-          "archiveMember": "2012/2012-08-09 IPhO2012_Theoretical_problems.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2012_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/570/",
           "kind": "solution",
-          "archiveMember": "2012/2012-08-09 IPO2012 Theory_Solutions_ENG.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2012_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2011-t1",
-      "path": "/corpus/problems/ipho-2011-t1.json",
+      "path": "/corpus/english-problems/ipho-2011-t1.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/567/",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2011_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/567/",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2011_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2010-t1",
-      "path": "/corpus/problems/ipho-2010-t1.json",
+      "path": "/corpus/english-problems/ipho-2010-t1.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/564/",
           "kind": "statement",
-          "archiveMember": "2010/IPhO_2010_Theo_Problem 1.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2010_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/564/",
           "kind": "solution",
-          "archiveMember": "2010/IPhO_2010_Theo_1_Solution.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2010_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2010-t2",
-      "path": "/corpus/problems/ipho-2010-t2.json",
+      "path": "/corpus/english-problems/ipho-2010-t2.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/564/",
           "kind": "statement",
-          "archiveMember": "2010/IPhO_2010_Theo_Problem 2.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2010_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/564/",
           "kind": "solution",
-          "archiveMember": "2010/IPhO_2010_Theo_2_Solution.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2010_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2008-t2",
-      "path": "/corpus/problems/ipho-2008-t2.json",
+      "path": "/corpus/english-problems/ipho-2008-t2.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/558/",
           "kind": "statement",
-          "archiveMember": "2008/IPhO_2008_Theory_2_Problem.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2008_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/558/",
           "kind": "solution",
-          "archiveMember": "2008/IPhO_2008_Theory_2_Solution.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2008_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2007-t2",
-      "path": "/corpus/problems/ipho-2007-t2.json",
+      "path": "/corpus/english-problems/ipho-2007-t2.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/555/",
           "kind": "statement",
-          "archiveMember": "2007/IPhO_2007_Theo(Orange)_question.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2007_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/555/",
           "kind": "solution",
-          "archiveMember": "2007/IPhO_2007_Theo(Orange)_answer.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2007_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2009-t1",
-      "path": "/corpus/problems/ipho-2009-t1.json",
+      "path": "/corpus/english-problems/ipho-2009-t1.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/561/",
           "kind": "statement",
-          "archiveMember": "2009/IPhO_2009_Theo_Problem 1.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2009_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/561/",
           "kind": "solution",
-          "archiveMember": "2009/IPhO_2009_Theo_Solution 1.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2009_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2005-t2",
-      "path": "/corpus/problems/ipho-2005-t2.json",
+      "path": "/corpus/english-problems/ipho-2005-t2.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/549/",
           "kind": "statement",
-          "archiveMember": "2005/IPhO_2005_Theo_question 2(pdf).pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2005_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/549/",
           "kind": "solution",
-          "archiveMember": "2005/IPhO_2005_Theo_solution 2(pdf).pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2005_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2009-t2",
-      "path": "/corpus/problems/ipho-2009-t2.json",
+      "path": "/corpus/english-problems/ipho-2009-t2.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/561/",
           "kind": "statement",
-          "archiveMember": "2009/IPhO_2009_Theo_Problem 2.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2009_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/561/",
           "kind": "solution",
-          "archiveMember": "2009/IPhO_2009_Theo_Solution 2.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2009_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "ipho-2004-t3",
-      "path": "/corpus/problems/ipho-2004-t3.json",
+      "path": "/corpus/english-problems/ipho-2004-t3.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://www.ipho-new.org/download/546/",
           "kind": "statement",
-          "archiveMember": "2004/IPhO_2004_Theoretical Question 3.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2004_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://www.ipho-new.org/download/546/",
           "kind": "solution",
-          "archiveMember": "2004/IPhO_2004_Theo_solution 3.pdf"
+          "url": "https://olimpicos.net/files/ipho/IPhO_2004_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2025-t1",
-      "path": "/corpus/problems/apho-2025-t1.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2025-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/4711",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2025_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/4711/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2025_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2025-t2",
-      "path": "/corpus/problems/apho-2025-t2.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2025-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/4712",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2025_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/4712/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2025_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2025-t3",
-      "path": "/corpus/problems/apho-2025-t3.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2025-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/4713",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2025_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/4713/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2025_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2024-t3",
-      "path": "/corpus/problems/apho-2024-t3.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2024-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/4071",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2024_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/4071/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2024_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2023-t1",
-      "path": "/corpus/problems/apho-2023-t1.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2023-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3680",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2023_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3680/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2023_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2023-t2",
-      "path": "/corpus/problems/apho-2023-t2.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2023-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3681",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2023_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3681/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2023_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2011-t2",
-      "path": "/corpus/problems/apho-2011-t2.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2011-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3172",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2011_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3172/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2011_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2022-t1",
-      "path": "/corpus/problems/apho-2022-t1.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2022-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3090",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2022_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3090/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2022_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2022-t2",
-      "path": "/corpus/problems/apho-2022-t2.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2022-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3089",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2022_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3089/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2022_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2022-t3",
-      "path": "/corpus/problems/apho-2022-t3.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2022-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3091",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2022_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3091/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2022_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2021-t1",
-      "path": "/corpus/problems/apho-2021-t1.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2021-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/291",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2021_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/291/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2021_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2021-t2",
-      "path": "/corpus/problems/apho-2021-t2.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2021-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/292",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2021_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/292/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2021_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2021-t3",
-      "path": "/corpus/problems/apho-2021-t3.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2021-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/293",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2021_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/293/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2021_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2019-t1",
-      "path": "/corpus/problems/apho-2019-t1.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2019-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3324",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2019_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3324/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2019_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2019-t2",
-      "path": "/corpus/problems/apho-2019-t2.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2019-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3323",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2019_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3323/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2019_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2019-t3",
-      "path": "/corpus/problems/apho-2019-t3.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2019-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3446",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2019_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3446/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2019_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2018-t1",
-      "path": "/corpus/problems/apho-2018-t1.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2018-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3597",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2018_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3597/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2018_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2018-t2",
-      "path": "/corpus/problems/apho-2018-t2.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2018-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3598",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2018_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3598/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2018_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2018-t3",
-      "path": "/corpus/problems/apho-2018-t3.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2018-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3599",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2018_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3599/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2018_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2017-t1",
-      "path": "/corpus/problems/apho-2017-t1.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2017-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3442",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2017_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3442/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2017_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2017-t2",
-      "path": "/corpus/problems/apho-2017-t2.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2017-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3445",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2017_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3445/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2017_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2017-t3",
-      "path": "/corpus/problems/apho-2017-t3.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2017-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3453",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2017_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3453/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2017_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2016-t1",
-      "path": "/corpus/problems/apho-2016-t1.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2016-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3351",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2016_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3351/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2016_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2009-t1",
-      "path": "/corpus/problems/apho-2009-t1.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2009-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3153",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2009_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3153/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2009_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2016-t3",
-      "path": "/corpus/problems/apho-2016-t3.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2016-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3608",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2016_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3608/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2016_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2015-t1",
-      "path": "/corpus/problems/apho-2015-t1.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2015-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3283",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2015_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3283/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2015_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2015-t2",
-      "path": "/corpus/problems/apho-2015-t2.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2015-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3307",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2015_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3307/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2015_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2015-t3",
-      "path": "/corpus/problems/apho-2015-t3.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2015-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3356",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2015_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3356/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2015_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2006-t2",
-      "path": "/corpus/problems/apho-2006-t2.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2006-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3149",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2006_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3149/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2006_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2014-t2",
-      "path": "/corpus/problems/apho-2014-t2.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2014-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3290",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2014_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3290/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2014_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2014-t3",
-      "path": "/corpus/problems/apho-2014-t3.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2014-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3296",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2014_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3296/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2014_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2013-t1",
-      "path": "/corpus/problems/apho-2013-t1.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2013-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3348",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2013_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3348/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2013_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2013-t3",
-      "path": "/corpus/problems/apho-2013-t3.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2013-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3297",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2013_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3297/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2013_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2012-t1",
-      "path": "/corpus/problems/apho-2012-t1.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2012-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3303",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2012_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3303/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2012_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
     {
       "id": "apho-2012-t3",
-      "path": "/corpus/problems/apho-2012-t3.json",
-      "language": "ru",
-      "statementFormat": "html",
-      "solutionFormat": "html",
+      "path": "/corpus/english-problems/apho-2012-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
       "sources": [
         {
-          "url": "https://pho.rs/p/3305",
-          "kind": "statement"
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2012_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         },
         {
-          "url": "https://pho.rs/p/3305/s",
-          "kind": "solution"
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2012_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
     },
@@ -1775,8 +1857,758 @@
   "assets": [
     {
       "path": "/corpus/collection.json",
-      "bytes": 4697279,
-      "sha256": "65c52999a35c8f578852f376ea75d48ce91f8a7811de2ee01069483cbcd5fd13"
+      "bytes": 2322059,
+      "sha256": "209dddb7ee809280b46a98473ae79cb594de583eb9a5de22c77041eb2cf25a23"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2006-t2-solution/document.pdf",
+      "bytes": 499160,
+      "sha256": "7f912dd1f1d611176ba80b3670f50a20a5c0fbd365a81cd8a6610aa89f76b8cc"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2006-t2-statement/document.pdf",
+      "bytes": 89631,
+      "sha256": "9a229d0e841347a9ec2d8d3fd134c7b59621440fac408b3585a890facbf6e49a"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2009-t1-solution/document.pdf",
+      "bytes": 64933,
+      "sha256": "67ede6d73f3935409f4dc204ed583e16580af1d537a767403e99ef80dbed419e"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2009-t1-statement/document.pdf",
+      "bytes": 102985,
+      "sha256": "775f096f642e87b459f2433ba83b870889531977c4113249cfb656d62b9240da"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2011-t2-solution/document.pdf",
+      "bytes": 379771,
+      "sha256": "be31437d7e2a5c5c64285d270cd8b3b84581e004e4c4fe10e48c0ed7640e6881"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2011-t2-statement/document.pdf",
+      "bytes": 363626,
+      "sha256": "8462e48e92094017d3ec904a8c6cbc60c680d7a28266016fa1a86a57aab44b15"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2012-t1-solution/document.pdf",
+      "bytes": 133685,
+      "sha256": "e26d6d64e8a52ddfdf5319a9ba873d3709de6cc132462eb870a2978aa34d3a5c"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2012-t1-statement/document.pdf",
+      "bytes": 426739,
+      "sha256": "ee699cfd960016652e8058a68439bd0fb669738a7dd1f6977250a20394905c75"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2012-t3-solution/document.pdf",
+      "bytes": 142289,
+      "sha256": "b3a5406b544b2a96ad06726006c899a24d949c8b1ce2fe9d2611617dd9b92460"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2012-t3-statement/document.pdf",
+      "bytes": 619344,
+      "sha256": "c96a44cdc5476b3b921d0dd2b0253daff1ced71b28e13aa5e29f3905bdea42f9"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2013-t1-solution/document.pdf",
+      "bytes": 1292536,
+      "sha256": "162c21f08ae1fa1fcb27b693b8fea70d56d06e02364209034dba470e5ca7c895"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2013-t1-statement/document.pdf",
+      "bytes": 1466106,
+      "sha256": "c367ae27d70e1b04de8be8dcb550696c20fc3a004a5ec5df192bb6a5ca83f766"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2013-t3-solution/document.pdf",
+      "bytes": 1006547,
+      "sha256": "50381c3693a220ee37be80155e86ce6eb52e3533d7c636a4a3f9688b4a0fb42b"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2013-t3-statement/document.pdf",
+      "bytes": 4865896,
+      "sha256": "9827ab77ad668760a97a15cad9cfeef4baf19881f9b4ef125bccbaf3d60a83de"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2014-t2-solution/document.pdf",
+      "bytes": 668776,
+      "sha256": "2cc4f79bba40e23017ab263939eed3d6a4ab2d9019aee5868142dbd9bfbd9e43"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2014-t2-statement/document.pdf",
+      "bytes": 513784,
+      "sha256": "36457730acc639e286c2e447277876fdd3edd71cf8fd01bd7b038f33f57b9b43"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2014-t3-solution/document.pdf",
+      "bytes": 228981,
+      "sha256": "11fdc9aa88f96d31f6c601046ddd5230f9ae70dd27d41a69679771154b76b8c5"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2014-t3-statement/document.pdf",
+      "bytes": 386911,
+      "sha256": "3507ee19e53fa1e9a782722f3d6c51d6ade6d3dda3d132519c757fca7ad4bfe7"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2015-t1-solution/document.pdf",
+      "bytes": 181183,
+      "sha256": "7cdb8ea6a2c6a0c3a2182d2249210956d706f965dd7336904f9a9ea76f658bd4"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2015-t1-statement/document.pdf",
+      "bytes": 210662,
+      "sha256": "71e314181b1b58b3a4f62e823e917f4810c46a466265b348325ebe4963d9fe91"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2015-t2-solution/document.pdf",
+      "bytes": 201940,
+      "sha256": "3555ec0187782336bb332dc86f932905f83ca97c5efd2d5d66bcc93717500a09"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2015-t2-statement/document.pdf",
+      "bytes": 622696,
+      "sha256": "93fea0aa00d3d25dc88221a9e80bff5a93986132db869cf7467bebd7dbba5c9c"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2015-t3-solution/document.pdf",
+      "bytes": 197922,
+      "sha256": "ea72af7482eb68dc2ca81707691d5358c16dbe4b8866202511c134102dc38cce"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2015-t3-statement/document.pdf",
+      "bytes": 157292,
+      "sha256": "81a3d2e03f8585eca26cb872c2e4181b652f792b6c7677ad97526bd3e66879a4"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2016-t1-solution/document.pdf",
+      "bytes": 632179,
+      "sha256": "c318b8f120d4f6fa54dde09d89a9881695e13111e0dc02f4ff7de28c1b92d8dd"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2016-t1-statement/document.pdf",
+      "bytes": 727652,
+      "sha256": "a09471cbeaa43759b19fa7f508b687156ab4dbdcbb753b4aba827ef348d67a76"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2016-t3-solution/document.pdf",
+      "bytes": 555976,
+      "sha256": "989cba1161ad8ebb0283a4fc6836c4d6af37669bd5b801e574c49bd8342e85df"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2016-t3-statement/document.pdf",
+      "bytes": 670459,
+      "sha256": "2c1d1c4d62c9e78a235a96cebd86ce699b030e6d52b906ba0f3410dd7dde554b"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2017-t1-solution/document.pdf",
+      "bytes": 199488,
+      "sha256": "5543d7cf45403b3139af927526f892fdf0f180845b4929d50c24c8ccf3fb616d"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2017-t1-statement/document.pdf",
+      "bytes": 2398494,
+      "sha256": "250263c0501cf00c413bb068fdea601a2b7b0adc9ff94d0fbcb170cea378e24b"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2017-t2-solution/document.pdf",
+      "bytes": 98313,
+      "sha256": "8d22819a21f53c4073194b9436fc45796ee8b1fa09be0adc02802f35fbb8eeb8"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2017-t2-statement/document.pdf",
+      "bytes": 91660,
+      "sha256": "e39d71efe30ec9eae62b74f90c31675b6075baa92e42cac9182d0284c868202a"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2017-t3-solution/document.pdf",
+      "bytes": 1859387,
+      "sha256": "a68dd4493eccde788e9d805bab0b21561e255b6c6d206d4d5d4e3773734d588a"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2017-t3-statement/document.pdf",
+      "bytes": 69978,
+      "sha256": "39c6a0c5b6c28dc54e4c4ae4ca67c02f7369631705b69b2dcb2ae45c6c4bce73"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2018-t1-solution/document.pdf",
+      "bytes": 157498,
+      "sha256": "b3aa97212a8c8b3b38fe8381f0ef4cba1d91b0726ddb3471b95f1ae83abdd100"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2018-t1-statement/document.pdf",
+      "bytes": 1462797,
+      "sha256": "5337e5696833799cf565cb5ef6ca90cb195ae45075a56b7e6128d4d63a17050f"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2018-t2-solution/document.pdf",
+      "bytes": 240936,
+      "sha256": "abac49a42939d8a4639c07e9892560fb8336b1f5c0cf7e503e30b1a059d804ad"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2018-t2-statement/document.pdf",
+      "bytes": 12679132,
+      "sha256": "06c54bf0fe8e9e4d1e5ccc104ff608a41bff74cde4bea53c8f87f2eb1396400b"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2018-t3-solution/document.pdf",
+      "bytes": 162689,
+      "sha256": "ddb6ac87b744095a0664a59179bd35fe2b9e62d91541cd6a6a42843f083404aa"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2018-t3-statement/document.pdf",
+      "bytes": 213425,
+      "sha256": "64100f01973713343700f62a8b5e51a76c7985f2a5bf8265322fa31fd3ad7292"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2019-t1-solution/document.pdf",
+      "bytes": 96051,
+      "sha256": "dcb877086e63cad93dde2b3abca90f3bff8811e5f23c14b2465af950623df0a5"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2019-t1-statement/document.pdf",
+      "bytes": 441973,
+      "sha256": "aa38cd9596f44656d9ed4b7973778ae5ec284d29b7c7ca21df9fe77917de2601"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2019-t2-solution/document.pdf",
+      "bytes": 164036,
+      "sha256": "ce7da27669e382e8466cedfcd8fb35804e1d322a6596d1ca8ba9b974cb4b4a58"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2019-t2-statement/document.pdf",
+      "bytes": 1224097,
+      "sha256": "5efc7dcba95a671a062f53a2278dc7a473b9893cc7293c253b0ebfa6e939f03f"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2019-t3-solution/document.pdf",
+      "bytes": 166389,
+      "sha256": "92f6642ec76407a48895524426d98fde1e874ea8dfa3c138f58c9b30079301a5"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2019-t3-statement/document.pdf",
+      "bytes": 66912,
+      "sha256": "b4d75088981628eec08fa7ca1156d9782365c265b7b740d76344f8633caff44b"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2021-t1-solution/document.pdf",
+      "bytes": 1167317,
+      "sha256": "7490ed2a57d12df13b2c5ab9f50de6713ed6296e29e7ab11ca2b3bbbc1f5a8f8"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2021-t1-statement/document.pdf",
+      "bytes": 151737,
+      "sha256": "2a1fb6322b5c85c41fde5e2ba952d8c18f8f3ebe43bc6875421a2d04a9aeb746"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2021-t2-solution/document.pdf",
+      "bytes": 222869,
+      "sha256": "cafdc1d5a6f6400ee9b01154cec4f44f1d24d6d6b0d6a18c83866b837a52dadb"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2021-t2-statement/document.pdf",
+      "bytes": 197549,
+      "sha256": "c2fe02a61d641a44e6a8c3f6048a87061736e7d65ccbf217ccb2797d87f863dd"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2021-t3-solution/document.pdf",
+      "bytes": 711845,
+      "sha256": "5f0308f8ea44f8e95c9dd436501b2a4eef64d6f8241cb5f7ce36a6a3e1ea6b66"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2021-t3-statement/document.pdf",
+      "bytes": 272651,
+      "sha256": "aae77264d35880893c40cc5dd551c54e44965c9dfe19ee04b2a34e67e4d1dd17"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2022-t1-solution/document.pdf",
+      "bytes": 243777,
+      "sha256": "1139a5228eb5d8351e9c40d994f1ea33dbb36f707e69d5cd7e6abcf5460fd15b"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2022-t1-statement/document.pdf",
+      "bytes": 430589,
+      "sha256": "2ea57b3ea45d3e0688ee32a6883d8bde86bec6863a4187c645bf8ae26e3a8fa9"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2022-t2-solution/document.pdf",
+      "bytes": 339010,
+      "sha256": "3781256cd2e3b3b30a595b7160acef2cba706f5dd484554180dbe2e30fb31922"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2022-t2-statement/document.pdf",
+      "bytes": 295894,
+      "sha256": "b5bc5ffcd53a30943215d5a4bb8d48221ed6ae6e0cfb3d397bbda07ec4494481"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2022-t3-solution/document.pdf",
+      "bytes": 244681,
+      "sha256": "59cecef7d93bba5ca5b8a52d004278aba70c9e996d7a40408af0ad924f20eeec"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2022-t3-statement/document.pdf",
+      "bytes": 233396,
+      "sha256": "8fc87dbae975d577745dfdfe351b3419172145f2aad70a83a0563db53beee55c"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2023-t1-solution/document.pdf",
+      "bytes": 709770,
+      "sha256": "b96f04c5f589bcddb0076c92f7e691786ca5f411734001136215b30546d7fac2"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2023-t1-statement/document.pdf",
+      "bytes": 698891,
+      "sha256": "c107325e7d34217900653f8dc337ceddb80aa9e7cd2e1ff53c591f2cd92c8e28"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2023-t2-solution/document.pdf",
+      "bytes": 191886,
+      "sha256": "58a38d67e7f097a033c6ec735a7a231c5476ee91556605f9bb2fd8592c0638f9"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2023-t2-statement/document.pdf",
+      "bytes": 129782,
+      "sha256": "3bbff44638e7bbd44d369a4469014b73095efedb60708fa2d9d4dac7107add44"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2024-t3-solution/document.pdf",
+      "bytes": 996722,
+      "sha256": "5b275efc5059714722f09f05768797e4afb424c028e70e4767d35fb0719e5bf0"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2024-t3-statement/document.pdf",
+      "bytes": 5522025,
+      "sha256": "b76c445714fb8c56a197163171c4f80abbc99cc2c35bed577cfd127bba74d5dc"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2025-t1-solution/document.pdf",
+      "bytes": 294399,
+      "sha256": "2d21348ab2d688c0099fb1d769c985dc6a45a89cee9de2094f1d393d882b7f36"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2025-t1-statement/document.pdf",
+      "bytes": 331588,
+      "sha256": "147955df3edee9127aeee3eaac3e457a33773976dca5a13c03159b4f7d28bd38"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2025-t2-solution/document.pdf",
+      "bytes": 359388,
+      "sha256": "9c3b53aa167f4fc963ca864f302afc48304016122cf6f33ec06738a6c9ab6719"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2025-t2-statement/document.pdf",
+      "bytes": 2325364,
+      "sha256": "5d83bac49bd75466a699c054a5cd70d0e141cac327bd5260733869154a20536f"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2025-t3-solution/document.pdf",
+      "bytes": 276729,
+      "sha256": "2e7b2dff2a82b50193208b258b1a8b7369a4b7ba7d177581088ed2a758e868b6"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2025-t3-statement/document.pdf",
+      "bytes": 1857889,
+      "sha256": "1bf6709ccd044f96985d6cb75373f6711e878046493cfcf0dda5e0c72ce68258"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2004-t3-solution/document.pdf",
+      "bytes": 199126,
+      "sha256": "f603df2f6c8226653eaeb61917c37919e41cc87ad25624b9d61aa65bfff2338e"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2004-t3-statement/document.pdf",
+      "bytes": 168554,
+      "sha256": "a9a4e9f678153ab190f268dc19930dab8067d05f1fbcb1d38cb9b38610f9ba4b"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2005-t1-solution/document.pdf",
+      "bytes": 86487,
+      "sha256": "727521a1884ddd4aecea001f600f536f2a9070de2e053a4207fc24755f7dbd33"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2005-t1-statement/document.pdf",
+      "bytes": 120688,
+      "sha256": "7ab175fc3932a60b47f0f7999e1ad5cd91c12f9d47ff54c47b958f05bf04a847"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2005-t2-solution/document.pdf",
+      "bytes": 78348,
+      "sha256": "08581879a750b3f096d3a605c25bfd04fe63bee32f331d920ab463d06ec2d6e5"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2005-t2-statement/document.pdf",
+      "bytes": 123728,
+      "sha256": "ccdc01b92366f30ddeb017eeba5223765b436ddfdee0101ea774c8ae0e76ef49"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2007-t2-solution/document.pdf",
+      "bytes": 39919,
+      "sha256": "161f46402b8ed8c52cf0e5bd422e7eaf318eef5a5f4d024b86cf1bc6ba03f4c0"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2007-t2-statement/document.pdf",
+      "bytes": 144345,
+      "sha256": "a5553bf1e5702140aa3c4e3496acde6fb826e114b976b17e50bb7bcd906dd48b"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2008-t1-solution/document.pdf",
+      "bytes": 172211,
+      "sha256": "3480c3404fa6cdbef4f75aa4a445ba3aa27feabfb34247633c01f57c9e614152"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2008-t1-statement/document.pdf",
+      "bytes": 312200,
+      "sha256": "06d0070a48ec398a02c337a160be4b0d59e106257b7e95ad53d139fb2e95114e"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2008-t2-solution/document.pdf",
+      "bytes": 147167,
+      "sha256": "5dc0c1abba3d7d496c0e2cace0ac10b137f1e006118abb091f6af73ae314f9f9"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2008-t2-statement/document.pdf",
+      "bytes": 106311,
+      "sha256": "75e6b3948a145525ff31121ea279d7d2071fc8db2e7a0bd82330aac0a43685a6"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2009-t1-solution/document.pdf",
+      "bytes": 71421,
+      "sha256": "ce30702d56bfd330316994aa217f3b66b716b465efadcdebc9ecdf21982982be"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2009-t1-statement/document.pdf",
+      "bytes": 404089,
+      "sha256": "d33c90b9353747045d51c1fcf29c28290371fcdc036ae79aa6dc41409bc56560"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2009-t2-solution/document.pdf",
+      "bytes": 235667,
+      "sha256": "3cd04b42dacfff97486c6a84182924c4e32b5e6b839a2e3efdbff84934bc68b8"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2009-t2-statement/document.pdf",
+      "bytes": 132434,
+      "sha256": "456e8dcc4e97c4a6a3d95ca24b09eab5c9d03aa4e5d0230ab568ba9777104bac"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2010-t1-solution/document.pdf",
+      "bytes": 686576,
+      "sha256": "b7b89a6e6394a7b4a10d21c091d0eb90b9b58ed5bac5df9044e69c82e9fbe20f"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2010-t1-statement/document.pdf",
+      "bytes": 509011,
+      "sha256": "67701ceca004cc12a187b6f0d8dc950a73ec9af64dc1a22b2f7e0bba0af0d195"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2010-t2-solution/document.pdf",
+      "bytes": 406563,
+      "sha256": "6c28269b658ecd0dd4feef3cbdc3905d0f9e980d315442b4e964223a56b3575d"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2010-t2-statement/document.pdf",
+      "bytes": 616122,
+      "sha256": "04358456d1e6541487927ff56142df9615213af4453a5c3872994865fb504c0f"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2011-t1-solution/document.pdf",
+      "bytes": 267235,
+      "sha256": "06f6156471f82b403cf10adf6cbf8479d062cbf922c2762239013d212a152e26"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2011-t1-statement/document.pdf",
+      "bytes": 240691,
+      "sha256": "356ee3ec4a4f3ea200393a2b814b7bbdcdfc4bbd831cf99055cb1db093d0aaae"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2012-t2-solution/document.pdf",
+      "bytes": 174252,
+      "sha256": "214e34713f3d8e5c95c0069c888952a37a4451f01cf745dd5bffc5ec19bcaa33"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2012-t2-statement/document.pdf",
+      "bytes": 119458,
+      "sha256": "2861013a629439e55c3db905e764fd115fb31c9b1ce294d1e1aab3c78a19b2a2"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2013-t1-solution/document.pdf",
+      "bytes": 354928,
+      "sha256": "b98f225380755f27a81ae8b7250fb000861d3c6833abdfc9fd171c8c2877336a"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2013-t1-statement/document.pdf",
+      "bytes": 803494,
+      "sha256": "2c684cd54d06972ad1b220c0d9554a70e56112e984bcb3590be5c084a94a9875"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2013-t2-solution/document.pdf",
+      "bytes": 510112,
+      "sha256": "2c8f13c50b96025ff547e77747e80bcfcd927c78c37928b141ffdaa335c54cb1"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2013-t2-statement/document.pdf",
+      "bytes": 622363,
+      "sha256": "5f7951cb064f66701ac13e3b584cc74d2af76da8725b134b6f325f6010950be8"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2013-t3-solution/document.pdf",
+      "bytes": 311047,
+      "sha256": "d37b0711e8adbc031cfc1a014a68c82bb07bc48f6cea1e14de30763e8d59c4bc"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2013-t3-statement/document.pdf",
+      "bytes": 922020,
+      "sha256": "8b84c2f2f11830442b585c49db7b0859f83de57d43fd36e74ce14ba96f82ea30"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2014-t3-solution/document.pdf",
+      "bytes": 527347,
+      "sha256": "910439829cf48dfcc008f560e0fac1dda8f44e694ab450b2b392574b3f98cad5"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2014-t3-statement/document.pdf",
+      "bytes": 549150,
+      "sha256": "0e3dcc253bdf2e889af946083bcba30328cdcc920ac2a3da0fa54c94bcce2138"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2015-t1-solution/document.pdf",
+      "bytes": 221204,
+      "sha256": "1fc4e7a3ecf0c6eecd1d5ff3602c73a6f45e3d8b07079a8b199bc67e3f94dff4"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2015-t1-statement/document.pdf",
+      "bytes": 254278,
+      "sha256": "8a2011423c093bffb23b121b63e7e07f8422f20a49d5a6521623a58d44759f9c"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2015-t2-solution/document.pdf",
+      "bytes": 311631,
+      "sha256": "009df4f7fef4808869f07c156686856957df76f4a2fc0c3a1b9380557c091cb8"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2015-t2-statement/document.pdf",
+      "bytes": 574295,
+      "sha256": "408546e55fec4a800aebb7ea20aaddc70bf87e9e5899772518130da6aa98a891"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2015-t3-solution/document.pdf",
+      "bytes": 520426,
+      "sha256": "9beed7a47d96aad3014b1c664affeb9cfd8ebc7b00dd93a98be9989280afb821"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2015-t3-statement/document.pdf",
+      "bytes": 359949,
+      "sha256": "9d713aaa58ff54b62a0c07496328cb82b5d209fc0e6ba4eab0ca57825a72c892"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2016-t1-solution/document.pdf",
+      "bytes": 803505,
+      "sha256": "8cc8664f1cfc01c33270e65a9571aec3d8adff673189acb02be2cfb36637f75f"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2016-t1-statement/document.pdf",
+      "bytes": 100321,
+      "sha256": "bb5f498da4d5f0fe13e8540346780e17a12a1a5aefd1f3ee1f1b8c8bab724300"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2016-t2-solution/document.pdf",
+      "bytes": 921795,
+      "sha256": "e55ce8e3ab2507ad0f33eee724c241171d9aa9121d932494f08565a036165b22"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2016-t2-statement/document.pdf",
+      "bytes": 123683,
+      "sha256": "6bf5c3371973491e192442bc6585262a6574d0f8fd34debeca2e83625041a1b7"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2017-t2-solution/document.pdf",
+      "bytes": 9530783,
+      "sha256": "e7dfa9566d96ca5dea0442227b4bc6364045619492862f3806fa3eec06fc448d"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2017-t2-statement/document.pdf",
+      "bytes": 2764562,
+      "sha256": "56af240e6ee694b30404ad210c50544a8e2b37ff656a8dd2f26909c06a314e4f"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2017-t3-solution/document.pdf",
+      "bytes": 13678651,
+      "sha256": "a1d8218781278d86d74490b63b8ec49b22eba61475b1a7d746b7c3ad1afd90d5"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2017-t3-statement/document.pdf",
+      "bytes": 2218518,
+      "sha256": "23dab6c537a9007370eba4f67c31c715c71f2aaa856716b7a3fdee357b543e61"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2018-t1-solution/document.pdf",
+      "bytes": 113560,
+      "sha256": "e6b70d5098fd1952bef4bcd0cee54003a24ea2edd080160d4e9759282e358613"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2018-t1-statement/document.pdf",
+      "bytes": 215868,
+      "sha256": "5d0ba5473601aec11962a660ed55bc759485db68a0b66109c324335fbebf9752"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2018-t2-solution/document.pdf",
+      "bytes": 106250,
+      "sha256": "b03fc35de0fdf623b1d0100006388abfded702582df2e1634fa14aaf15787846"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2018-t2-statement/document.pdf",
+      "bytes": 461112,
+      "sha256": "848199e2cc3a3118555fb8e73dbfbd3d0f05969beb37317d5757c1499f48e1f6"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2018-t3-solution/document.pdf",
+      "bytes": 109007,
+      "sha256": "7667b3768d15b8ba7baf58124634d0882fe22633214273c2f7decddd6294e4e9"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2018-t3-statement/document.pdf",
+      "bytes": 225115,
+      "sha256": "fdce49fdb954bb317d0e6c5e227adef48a758ac90e0d45bbcecdb6991c40165e"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2019-t1-solution/document.pdf",
+      "bytes": 732127,
+      "sha256": "b6edd014adb2f8bab5a47289b137f3b61f84186bd602b7212fa86088e7bbbce2"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2019-t1-statement/document.pdf",
+      "bytes": 921181,
+      "sha256": "96b623b665b38e671740257d7e28b7b2b2d92db3450be39e5043f00e22ef6927"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2019-t2-solution/document.pdf",
+      "bytes": 1008311,
+      "sha256": "ad1a091d3213eddd0946745ed8ef72a1f5fd1b2f2a82532b21ae238645946888"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2019-t2-statement/document.pdf",
+      "bytes": 1113719,
+      "sha256": "a33326a968579e95499464f29c90da9bffb3c4e6e715d54bab49e9f5319a8ee1"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2019-t3-solution/document.pdf",
+      "bytes": 708118,
+      "sha256": "21e25ca7ce7449d7936893b7a96394f9b19395d671d0e8388ad3398b1e8e6be4"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2019-t3-statement/document.pdf",
+      "bytes": 73388,
+      "sha256": "30182f27b8154b5fa2e7c12b99e11b98c3a3dc136b77ad74722df26bdf040362"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2021-t1-solution/document.pdf",
+      "bytes": 319957,
+      "sha256": "aa13de734a87886a58f99b95e00ae4c1e7c93404b7ec4f742179170886767392"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2021-t1-statement/document.pdf",
+      "bytes": 186420,
+      "sha256": "f37517d2efa23f5d2b7c1426452bb6af43302aba01ba5c2fb516ca4e763342c1"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2021-t2-solution/document.pdf",
+      "bytes": 441749,
+      "sha256": "26a1fdb2a4987f4062a46468afb8e3a4516f5c6daa563632138cd0b33c548e0a"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2021-t2-statement/document.pdf",
+      "bytes": 159750,
+      "sha256": "7c90dde74ecbae904c90324acf177348b68ef8f5b00b865e890bd5a3cf296a2f"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2023-t1-solution/document.pdf",
+      "bytes": 485577,
+      "sha256": "a813483dd978f206c2c237e2516abc8b6ae922bb794491c51d1b1abb33a3e03c"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2023-t1-statement/document.pdf",
+      "bytes": 659955,
+      "sha256": "4fef805edaaa3c236c1e6a326bb5dd217e2915bee3bddfeb42652355cd7154c0"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2023-t2-solution/document.pdf",
+      "bytes": 79300,
+      "sha256": "a202c939bb78a0e384830b2e2d901a660661051ecba28214ab64f7dfd1b9942d"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2023-t2-statement/document.pdf",
+      "bytes": 811220,
+      "sha256": "1952ff21f907107b23c3757af34ecdcb362f38b56085aae32bc183d287beb4cd"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2023-t3-solution/document.pdf",
+      "bytes": 533510,
+      "sha256": "d86cee21f6fe4322ef9a796061ac6021a63115e56e0285593ce33141b527d7fc"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2023-t3-statement/document.pdf",
+      "bytes": 3740620,
+      "sha256": "fe25d0f5ef076db853d8b64a1a9d58ca343665087ab8afe1dec294e53d8a9016"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2024-t1-solution/document.pdf",
+      "bytes": 329386,
+      "sha256": "c7006bbcadf2bdfa1feaf99c89cac6c7aa8b41f66cc742d0a12dc41a90bf6e52"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2024-t1-statement/document.pdf",
+      "bytes": 1061026,
+      "sha256": "a513d544b6dc80e8fd6454d908e14b378b6e4306cb3bc49d26f826558862803a"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2024-t2-solution/document.pdf",
+      "bytes": 283925,
+      "sha256": "084625e46ab1bff700c9434a9a663a846ab66f7c59c895bd4394bbf079c4711b"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2024-t2-statement/document.pdf",
+      "bytes": 1353737,
+      "sha256": "0f3b3e4f6162f1e0341cfe0ab33b22e98fadb3d9750de53ebf2fb169d9263df4"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2024-t3-solution/document.pdf",
+      "bytes": 300534,
+      "sha256": "6199c3c566ae49a2c542e70b3a6ff2cbaf70dab821a5e4a173e6dc315cd557d0"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2024-t3-statement/document.pdf",
+      "bytes": 1749492,
+      "sha256": "2ff2d180492f1655f30d2655847b2aeaff827d69ccba54ff5d0dbcb9f7489ddb"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2025-t1-solution/document.pdf",
+      "bytes": 1958938,
+      "sha256": "4551f43739a66723fae135aa80f5811cca0c719a9d8e9ca2d72c63ec9d28d988"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2025-t1-statement/document.pdf",
+      "bytes": 1649097,
+      "sha256": "866d34e6f1c5469c9a33761f9b8fea94e41620cb28831ed5401b056febdc4485"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2025-t2-solution/document.pdf",
+      "bytes": 4195186,
+      "sha256": "4845538076deabf1207426c57ee2948fe8d9939163b26fb68e77761a45ffedb8"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2025-t2-statement/document.pdf",
+      "bytes": 4137572,
+      "sha256": "2a23bf9c8451fbaa7036ca6eaf83aaae49995d3b5aa5f2600874296319ddd333"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2025-t3-solution/document.pdf",
+      "bytes": 536377,
+      "sha256": "fed9e276bcc33b300fcf58a510554ccbe503f0a5da1b27ab22b9414aeca7c913"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2025-t3-statement/document.pdf",
+      "bytes": 478721,
+      "sha256": "d8715ed3a2c6e552f294aef451382db869c8e7fd800621a7b1b30886c705cdd8"
     },
     {
       "path": "/corpus/documents/eupho-2017-solution/document.pdf",
@@ -4284,6 +5116,381 @@
       "sha256": "2c3011c6f862d7f4622364be3be97a7ce7508b4eef7fb688db9771b0628abe4a"
     },
     {
+      "path": "/corpus/english-problems/apho-2006-t2.json",
+      "bytes": 13085,
+      "sha256": "ace8abc5cbf5cc08c646a6d12abab34b2f0224c7c4497fa9a6b4b3bbfc541ef3"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2009-t1.json",
+      "bytes": 16480,
+      "sha256": "2adc78c1cbb46e87b06989a67ea25aef486e9bca4c0b975ee76023ee7d972506"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2011-t2.json",
+      "bytes": 11737,
+      "sha256": "8d846a3f5b44442ba43ed11a2bc6832888aa57b0ee9a89f73d4186b18e94844e"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2012-t1.json",
+      "bytes": 9890,
+      "sha256": "d9071f0c4b767ad9d7e4c6a478f93d6b6d7a3879064b6b8c8a66ce1ea8f5feed"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2012-t3.json",
+      "bytes": 12825,
+      "sha256": "40f9e449f5a122607a6a8312f2a170db12682d0c5216353af8abd5969e69ba19"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2013-t1.json",
+      "bytes": 11909,
+      "sha256": "403d66e1ae205971b15591f5a94c8a2744b3655f223fbc4595b5062534f91125"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2013-t3.json",
+      "bytes": 22885,
+      "sha256": "83e74d474e7a4d3dcdb0aa24d6017da5a0ce89bc0f7a97bcaaee9c4d074766ef"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2014-t2.json",
+      "bytes": 10112,
+      "sha256": "d5fd97f9827e6bcbac359d65e487cddb2e391dee6b6ef060c5d1b8e3b93040b9"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2014-t3.json",
+      "bytes": 16271,
+      "sha256": "cfdd4b454e992e50d08442db46d3f17edf699d0fdbb43aa459c9c78c919f42b3"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2015-t1.json",
+      "bytes": 21923,
+      "sha256": "8a2f7268cdc06e7bc66ebe39f7595342fb23942b0c94da511db0e70ada7a890e"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2015-t2.json",
+      "bytes": 25089,
+      "sha256": "d16f4d10d28a71e545fda39ccae1dc1dfb473a2576e38fbc0026693e1cc76374"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2015-t3.json",
+      "bytes": 24162,
+      "sha256": "d6f33e780f797e6c58ec9400ec1c0832b35f189dc27c3e9321e5aee2191f268f"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2016-t1.json",
+      "bytes": 24624,
+      "sha256": "9e8883e412d352d5a147553aa5341f8dc2ec987ab356c26c7bf4c61b76840a97"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2016-t3.json",
+      "bytes": 17884,
+      "sha256": "e13acb677f82cbe567381e392e7c65a1859f9ee03bda60c6f09ae9679a54398d"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2017-t1.json",
+      "bytes": 22310,
+      "sha256": "30b0de423411e380b8d516dac7db363be7b95e5fd575d4b837fe0d15e75f84ef"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2017-t2.json",
+      "bytes": 21757,
+      "sha256": "c2a2a0d34bd6d0925a5d3ae0ed95fd5c3fe70e98569a764c9e3fd36b6bdbfaff"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2017-t3.json",
+      "bytes": 27913,
+      "sha256": "6395daefa97430da414e2331d42d4167a8041a756fa02fd359c797e7abe3f2eb"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2018-t1.json",
+      "bytes": 27052,
+      "sha256": "ae292866a8e9cd6df55b41e6581051d136187b10a92fcf107702e851a9a59a1f"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2018-t2.json",
+      "bytes": 21402,
+      "sha256": "d009d6ca94f1e317b36ab30fbfbcda028409ff2aeec58cca2220d442b86c0eea"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2018-t3.json",
+      "bytes": 28420,
+      "sha256": "8c24ab9b20402428c7eb45cc2170dbb126315e2813818a5bc652ac910bf94fb0"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2019-t1.json",
+      "bytes": 22109,
+      "sha256": "e4706cfdcfba87995ac9a9703ab34bb18424d98070067e4d87693a16d730a44e"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2019-t2.json",
+      "bytes": 24057,
+      "sha256": "e52a333dbb6af0ac01dcc2c658134383fe50f421747d70b31902698111805743"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2019-t3.json",
+      "bytes": 15744,
+      "sha256": "627c1fdc563c5230ac09499865c737dd0aa44a4b163da21267de9b2e3f80a075"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2021-t1.json",
+      "bytes": 27826,
+      "sha256": "42c2c80e4ee17bdf4ef2d9481381d4181593a6a4e5ad86c77e2320b17d8656eb"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2021-t2.json",
+      "bytes": 35198,
+      "sha256": "177a3cf7756fa650633395fbb9b716be466325d0a54c80dc4833c28f2d2847a1"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2021-t3.json",
+      "bytes": 28677,
+      "sha256": "bb1d360227a9e97c8fdb789411022d4cfc1a3621a35246791eb17802c438dc53"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2022-t1.json",
+      "bytes": 16483,
+      "sha256": "ba7c1329c6ee77b15da9159f168a44b1ca22ede629773f4b6a721fac068c91cc"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2022-t2.json",
+      "bytes": 17144,
+      "sha256": "d79bece1f79a8eebe21a923c25a38a938dc45325756c6d7c5e88dfc7c6eafa9d"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2022-t3.json",
+      "bytes": 16207,
+      "sha256": "19ba6d10a285178302ad6565d1cb10f317d04b9dc75ba8e3215635d418f03f99"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2023-t1.json",
+      "bytes": 30673,
+      "sha256": "867355ee365710c1112d66f8883b698e6aabd2e19dbb032b5c35ddc7effd48af"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2023-t2.json",
+      "bytes": 31866,
+      "sha256": "c27c2ca45880ada0628e02311b76065607b1a36ddcf3e2e97929015664f124f7"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2024-t3.json",
+      "bytes": 18169,
+      "sha256": "fd83b6b9b7714e9e14555ef6e765b5653317db665b9b351db91fae61d9fa898e"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2025-t1.json",
+      "bytes": 22218,
+      "sha256": "234fa22e5bcf303d414df917109e333fecc3798e2b224612d4e239eab2e79990"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2025-t2.json",
+      "bytes": 23783,
+      "sha256": "5e7c02e3fc569795cfdd2caeb0580443468482e79ceb16c53720fce5d4e203cf"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2025-t3.json",
+      "bytes": 27175,
+      "sha256": "420b3785c682dccefff90b50e3b136196a1bad866b299b2e11c14a400d255d0b"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2004-t3.json",
+      "bytes": 13093,
+      "sha256": "ebbe397b3c3d05c411b0b828765dc27e4d2b722d3f8d2404300dfb8701ea9fd3"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2005-t1.json",
+      "bytes": 14221,
+      "sha256": "1313f13396164cba2cd7df06b5c15041aa7552b467e75510716c8ecd031fb4b7"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2005-t2.json",
+      "bytes": 12639,
+      "sha256": "7596105e5cb2ab9f2af3145cdfd836c0fb0060d278e9e303eae221ac243e37da"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2007-t2.json",
+      "bytes": 15504,
+      "sha256": "b1d644569905c7f2286ac1ec08785bdc2d67068d5c9456b141a0a6c18fc4f749"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2008-t1.json",
+      "bytes": 22907,
+      "sha256": "3a3b6b2b0b6eb66eb0643e1830cda0283b1e06c9652822fa6c3e0619fcff03f6"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2008-t2.json",
+      "bytes": 19289,
+      "sha256": "cc982a648c884e2192e5c99ebc0a9885f4ed3cfa71d5c03d837dbf32523f8ff3"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2009-t1.json",
+      "bytes": 16313,
+      "sha256": "580d6a3dab64248f7b2965b2815a1eee6f91f7206b147ce4b9367b9665fdb6a2"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2009-t2.json",
+      "bytes": 21099,
+      "sha256": "3a530d04563665bed663bc9b4b0c4dcf411ab0d8f2ba49c54ccf363268611089"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2010-t1.json",
+      "bytes": 16143,
+      "sha256": "a79b7b8c80b7e9862faeef56c9a2f780b5962d6138b06f935ce294abf2388f10"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2010-t2.json",
+      "bytes": 12428,
+      "sha256": "4c2848b6862071c216777819bcaaecefd68ae39a34a0ce601d6e865207da4a9a"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2011-t1.json",
+      "bytes": 16785,
+      "sha256": "e56ff38afe7f12dd231c23559f9477b7ddd64a56a45c3c1f439ae470003fdea0"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2012-t2.json",
+      "bytes": 9051,
+      "sha256": "a31cddaa6a8d7e5d941578592d038f658b97e3e7fd60775a52c6ca9d9ea6150f"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2013-t1.json",
+      "bytes": 15581,
+      "sha256": "df05ebd9252085e84cc416741f350dc2e7f82d89eff5e1a7e069c080d8386856"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2013-t2.json",
+      "bytes": 20083,
+      "sha256": "f1024d4696e9888c19318f4f706857baa80c69d68155bfa51780dd0762c05b4a"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2013-t3.json",
+      "bytes": 22129,
+      "sha256": "24cdeea25a981659ec641554a9b179b33a5ed7c0a2f08da9d7f11f32eaef9ade"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2014-t3.json",
+      "bytes": 15863,
+      "sha256": "416307ada5eeebd0509c8e7819fc6c3e07853a829731b4d1bf50769a94d9e327"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2015-t1.json",
+      "bytes": 19774,
+      "sha256": "b54ed78ecd0b5d5890de0babf892c56e8a4f1a81c9d9a33a7bcb25dfd641a4eb"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2015-t2.json",
+      "bytes": 19766,
+      "sha256": "733a5ef37413f3f7ee28b12f7fb8297fb8f705f7c27594c80bb6f4519101cefe"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2015-t3.json",
+      "bytes": 25083,
+      "sha256": "bf191b529fc35d0731e22bced126e7939b470cf36c5265212652357a36923658"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2016-t1.json",
+      "bytes": 24194,
+      "sha256": "8ec81ddf9425791f36c10e677a394263fa96ea59967d806e13babde00c0f0386"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2016-t2.json",
+      "bytes": 16709,
+      "sha256": "c4482578e0c9678e531fc4bb6b302e11a50f4eacc505161dc1ebdd242d8267fd"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2017-t2.json",
+      "bytes": 1733,
+      "sha256": "702b5d76250e02c818cad35409f52782d3c464c2d268de1aba30b08ccd230b4b"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2017-t3.json",
+      "bytes": 2411,
+      "sha256": "efa399475d476b8563148b3b136926e4b23aa52569438d13eea36f49b767f943"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2018-t1.json",
+      "bytes": 14168,
+      "sha256": "86bbe597b9f6c63bc8ba973e018cd7ffe848c3a211776a32bd5fb61901b8945a"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2018-t2.json",
+      "bytes": 15245,
+      "sha256": "36877a05e4a54b0dfbf8fe9e207d050ebdfec984dc3c7a4fcb9c86f9eafa3747"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2018-t3.json",
+      "bytes": 16925,
+      "sha256": "87e8269fd73200c7b14c2f84bbc5141b5d7c04d462d8928ee3e66f39bc9db0db"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2019-t1.json",
+      "bytes": 14113,
+      "sha256": "08bebeeaace1380e040607060a26b1a71abe60704d08b40b57dcf116f1ab825f"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2019-t2.json",
+      "bytes": 23800,
+      "sha256": "6a2c7520eaa821248c706c869fc0fe163607de38a6ebea5f6aaa84f95576ab52"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2019-t3.json",
+      "bytes": 17490,
+      "sha256": "b5d3b57a7d264a86b2c47338bba5da2cfb70cb341881bac7f6129e1b703b0d8f"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2021-t1.json",
+      "bytes": 17667,
+      "sha256": "0d70bf960978a15c6128e742163b1fd913320520c18321f57df7893cd4c2da4b"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2021-t2.json",
+      "bytes": 21563,
+      "sha256": "db0342de2a77f9791cff5e022fc81465d7bf98eed99f8c9ee6f6cbd33856471b"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2023-t1.json",
+      "bytes": 23781,
+      "sha256": "b605f0e434b8070fe4a7620f96394fb05ee04abff75203fb950746b3ddfe3876"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2023-t2.json",
+      "bytes": 20656,
+      "sha256": "f720e647d9f15e7e8767dde481f2f9277ad28081b2dd36a5ec106982d77ffb0d"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2023-t3.json",
+      "bytes": 15203,
+      "sha256": "2b50a05a9e7f9ac77cc95fdb2828e2d8ed35ba2c53f2fdb82140c65c86c34937"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2024-t1.json",
+      "bytes": 19829,
+      "sha256": "1f7be18fe860751f1a3dacc0a0c1903d98b73e2a36173711bb25a7975245c0e4"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2024-t2.json",
+      "bytes": 20481,
+      "sha256": "bb2832d26a250c80fdcdfe2e88d0e4322ae4597599d01a0e93ffbbcad8a7c642"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2024-t3.json",
+      "bytes": 19255,
+      "sha256": "19ab63f88c6077bc3f2e2c0ef428f44dd0f09262cb8775afda6e932c0fe0393e"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2025-t1.json",
+      "bytes": 42925,
+      "sha256": "4b55e62c9b792c676468a9ccfb6b28a27fd7b5dba3d2b45df9c7586d719f54e5"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2025-t2.json",
+      "bytes": 44408,
+      "sha256": "3cc882a6e12021a18bee58ef2b6dcbffa189c3157c2aae725cfa4749b7279784"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2025-t3.json",
+      "bytes": 45563,
+      "sha256": "e032a0382d64521a26bfb27e00e2e698976db5901e630a0ac5dd41d8e36b62f7"
+    },
+    {
       "path": "/corpus/figures/00238773ab1fdd48e768.webp",
       "bytes": 3892,
       "sha256": "027b9ba07e9ed2773c3629d3482f961d5b4e15d4f4908cfdeaad694a23ee738d"
@@ -5852,6 +7059,41 @@
       "path": "/corpus/problems/ipho-2025-t3.json",
       "bytes": 39666,
       "sha256": "9bbfe60e01d7440578cae2196fc131c63f791025354cbf417f29684547bc528b"
+    },
+    {
+      "path": "/corpus/translations/apho-2006-t2.json",
+      "bytes": 21880,
+      "sha256": "d31dc99086cac22dc2b35913856f84df641ba7cbbcc6e31578e6b11513939ca6"
+    },
+    {
+      "path": "/corpus/translations/apho-2009-t1.json",
+      "bytes": 56944,
+      "sha256": "956f9155e2742012142eb5ef98a5843d2d4b15b6cc620de89c2a9eee89a37b04"
+    },
+    {
+      "path": "/corpus/translations/apho-2011-t2.json",
+      "bytes": 40170,
+      "sha256": "81296408cd91cd6fd436d0cbb49658929f57e95862d2d210c85e783f68292f3f"
+    },
+    {
+      "path": "/corpus/translations/apho-2012-t1.json",
+      "bytes": 23099,
+      "sha256": "6fe00752ee563562911f01e79db08c47bee5b651932574e13df480f8346dd2b5"
+    },
+    {
+      "path": "/corpus/translations/apho-2012-t3.json",
+      "bytes": 37896,
+      "sha256": "62a1cb6ddf83ae7f7105f1e232c1eeb9229f584311b8df97476815312ff15525"
+    },
+    {
+      "path": "/corpus/translations/apho-2014-t2.json",
+      "bytes": 17087,
+      "sha256": "825b6b628b571350293566bd6e1e2ca16e84fe900b4d5ed5d9a8281a7f2ceb65"
+    },
+    {
+      "path": "/corpus/translations/index.json",
+      "bytes": 5627,
+      "sha256": "bb6078413d330d087236121de9abb02df1e3918361ba40309fef6c80ee7eb748"
     }
   ]
 }

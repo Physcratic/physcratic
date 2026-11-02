@@ -1,83 +1,21 @@
 # Work status
 
-## Phase 8B audit handoff — 2026-10-31 (Asia/Makassar)
-
-Current verdict: BLOCKED for controlled live staging validation. Latest main
-SEOa55bb1a merged bya3269e7, preserving both readiness-log sides and local Inter.
-Audited code/test32761ee fixes only three incoming SEO fixture lint errors.
-All6C/7/8A commits preserved; no new feature expansion or shared migration.
-Full merged PG252/252; independent security83/83 and migration51/51,0skip/TODO;
-exact PG17.11 migration order/down/up proof preserves legacy data. No confirmed
-application-security/migration blocker. External read-only evidence now confirms
-financial-dashboard→Physcratic mapping and successful f876792 CI (PR41210409141,
-push41210403475). Preview/Production DB/Blob/auth isolation remains NOT
-ESTABLISHED; actual connected Neon branch/role and remote ledger/backup UNKNOWN.
-The staging subdomain maps to auth-hardening, not authoring-completion. Current evidence, browser reruns and precise operator approval
-gates: [readiness](docs/engineering/AUTHORING_RELEASE_READINESS.md),
-[runbook](docs/engineering/AUTHORING_RELEASE_RUNBOOK.md),
-[blockers](docs/engineering/AUTHORING_RELEASE_BLOCKERS.md).
-Draft consolidated PR only; no merge/auto-merge/deploy/shared writes. Stop after
-Phase8B handoff. Earlier phase notes below are historical.
-
-
-## Current: Phase 8A — 2026-10-31 (Asia/Makassar)
-
-- Same integration branch; c259602/0418b9a/8293f26 preserved. Mainc2139de merged non-destructively by5d1e20b4cfd2dafbc8666325ba9aa890bf84383c, no conflicts/file changes.
-- Restored pinned ESLint9.39.5/Next15.5.28/FlatCompat3.3.5 and pnpm10.34.9; fixed12 errors/19 warnings with typed test fixtures, stable hook captures/cancellation and small unused-binding corrections. Final lint0 errors/0 warnings; only documented per-line proxy-image/CommonJS exceptions.
-- Pinned licensed local Inter5.3.0 via next/font/local, existing variable/swap/weights retained and Arial fallback. Build no longer fetches Google Fonts; OFL license distributed. Real Node22 production build passes.
-- Corpus root cause:17 seed/output punctuation mismatches introduced by8e5914a in four editorial seeds. Restored original seed blobs exactly matching pending PR#2; original/generated content/hashes/formulas/comparison unchanged. All6 corpus tests pass; TODO removed after invariant proven.
-- Genuinely independent6C-B/7 read-only review and follow-up completed. Exact difficulty whitespace finding fixed in schema/UI identity/params, indexed SQL unchanged; PG/browser regression added. Reviewer33/33 PG + both browser suites pass, no remaining confirmed findings; root fixes hook changes independently inspected too.
-- Actual compiled production smoke found long unbroken reader title overflow at375px. Constrained main/title flex widths and word wrapping; new real browser regression + final library/student suites + compiled smoke pass. Reviewer inspected final CSS, root executed latest checks.
-- Complete editor-created problem now crosses autosave/media/preview/publish → library → numerical/symbolic/manual attempts/history → explicit solution/private image → assisted subsequent attempts → revoke/unpublish in the existing browser harness. Sessions/storage injected; live sign-in/Blob not claimed.
-- Frozen clean installation and typegen/TypeScript/zero-warning ESLint/build pass on Node22.22.2/pnpm10.34.9. Full disposable PG17 suite225/225,0 fail/skip/TODO. All three browser suites pass with desktop/mobile axe/overflow; library light/dark. Compiled Next guest routes/local WOFF2/no Google requests/layout smoke passes with disposable local auth+authoring DB.
-- CI preserved/extended: integration branch push, pinned manager, Node22, lint/types/full PG service tests/build; no secrets/deploy actions. Browser tooling remains outside normal CI and was run explicitly locally.
-- Migrations0001–0006 unchanged;0005/0006 ordering/additive behavior/rollback verified, no build/startup/deploy migration hooks. No shared/production DB/Blob operation; remote ledger status unverified, must be checked by authorized operator.
-- Handoffs: docs/engineering/AUTHORING_PHASE8A.md and AUTHORING_RELEASE_BLOCKERS.md; map/status/solution/library/Beta Readiness/migration guidance updated. Remaining release gates: live isolated Better Auth/email/origin and private Blob staging, ledger/operator review and Phase8B audit.
-- Ready to ENTER Phase8B review, not deploy. Separate Phase8A commit as Codex, push SAME branch, STOP. No PR, merge into main, README trigger, deployment, shared/production migration or unrelated product expansion.
-
-## Historical Phase 7 checkpoint
-
-- Phase7 ONLY,2026-10-31 (Asia/Makassar), existing `codex/physcratic-authoring-completion`.
-- Fetched main and integration refs; verified6C-A `c259602` and6C-B `0418b9a`. Main `54f373e8f93dd2dc2b94d85aae9a11c67b19cf48` merged safely by `2e0b90ca0571ac15607ad198545e5e29b3f82e63`, no conflicts. Prior phase commits preserved; CI/CLAUDE.md/Analytics/corpus TODO retained.
-- Post-integration regression34/34 before implementation. Required handoffs and affected existing library/resolver/archive/public serializers/media/reader inspected; unrelated parallel paths preserved.
-- Existing library Authored problems tab, shared search, exact existing tag/difficulty/provenance filters, current-only public metadata, safe attribution/rights and direct authored-reader navigation/return link. Imported catalog/pilot/quick-practice navigation unchanged; no ratings introduced.
-- Bounded24-row public page with25-row lookahead, parameterized metadata-only full-text query, deterministic immutable UUID keyset order and active request guards. No draft/history/private key/solution/hint/permission/reveal/attempt exposure or preloading. Existing submission and explicit solution policies unchanged.
-- Explicit additive0006 indexes/function added and tested only on disposable PostgreSQL; no runtime migration, shared/production DB/storage or external import. Generic dynamic noindex reader retained; no authored sitemap/cached metadata.
-- Targeted19/19; full224 tests:223 pass,0 fail/skip,1 inherited corpus punctuation TODO. Defect remains unresolved, repair deferred to8A. Typegen/TypeScript/diff pass.
-- New actual library/reader+API/disposable PG browser PASS: real tabs/search/filters/pagination/cursor reset/stale search/navigation, guest/math, republish/unpublish, empty/error/loading/retry, keyboard and1440/375px light/dark axe/overflow. Existing full student/solution browser regression PASS including verified attempts, explicit approved solutions, retries/recovery/history/IDOR/account/revision/media.
-- Separate focused manual query/privacy/navigation review fixed stale-effect completion guard and library tab contrast; no remaining confirmed findings. Same implementing agent; a second independent review remains outstanding.
-- Inherited missing ESLint and Inter/Google Fonts build blockers confirmed; no config/dependency workaround. Live Better Auth/private Blob/staging/deployment untested; migration0006 requires later separate authorization.
-- Detailed handoff: docs/engineering/AUTHORED_LIBRARY.md; map/status/student/solution handoffs and migration README updated. No PR, merge into main, deploy, README trigger, contests/leaderboards/ratings/comments or unrelated changes.
-- Separate implementation commit as Codex; SHA via latest git log. Push SAME integration branch, then STOP after Phase7; await separately supplied8A prompt.
-
-Final main refresh: `6af2b2cae95408ceea2081dffb7d1458d5f4f6ff` (error pages and
-feedback link) integrated by a second safe merge
-`2b42138b3eb3153b71a0f9f7ac0739c6fc1c59ad`. Both Git merges were conflict-free.
-Temporary restoration of Phase7 changes conflicted only in
-`docs/engineering/BETA_READINESS.md`; resolved by retaining both main's Batch2
-entry and the Phase7 entry. Incoming product code preserved unchanged. No phase
-commit was rewritten. Final regression/full counts below supersede earlier
-pre-refresh counts where applicable.
-
-Final post-refresh verification:45/45 focused integration checks; full224 tests,223 pass,0 fail,0 skip,1 inherited corpus punctuation TODO. Typegen/TypeScript and diff checks pass. Both library and student/solution browser suites passed; latest main does not change their exercised components or APIs.
-
-Final8B local gates: frozen install/types/lint0/build PASS; full252/252,0skip/TODO; fresh authoring/student browser PASS; library rerun ENOSPC-blocked (prior8A evidence only). Final CI/target-isolation/remote-ledger evidence required. See release readiness/runbook; STOP after handoff/draft PR attempt.
-
-Draft consolidated PR27 created: https://github.com/Physcratic/physcratic/pull/27
-No merge/auto-merge. GitHub pending contexts show both physcratic and financial-
-dashboard; mapping/isolation still unverified. Final documentation-only observation
-commit follows55b5f68; require fresh CI for final SHA. No deployment API used.
-
-
-## Phase8B external evidence follow-up
-
-f876792 CI gate satisfied: both remote jobs and exact checkout SHA independently
-verified. User-supplied external read-only Vercel/Neon metadata confirms repository
-mapping and8A Preview/Production identities. No secrets decrypted or resource
-changes. Broad P/P/D entries and no authoring-specific overrides mean isolation
-is not established; Neon names do not prove connectivity. Actual authoring target,
-private Blob store, effective origin and ledger/backup still unverified. No live
-write tests or migrations. Library rerun remains ENOSPC-blocked.
-Canonical identifiers/scopes: [environment evidence](docs/engineering/AUTHORING_ENVIRONMENT_EVIDENCE.md).
-Evidence-only follow-up changes no runtime code; record its CI separately from
-the satisfied f876792 gate. Verdict remains BLOCKED; stop after documentation.
+- Scope: Phase6B student solving interface ONLY,2026-10-31 (Asia/Makassar).
+- Fresh main `268a4e61f08e960140bf691d77090deb17af88e1` (Phase6A PR#21); reviewed Phase6A tree verified. Branch `codex/problem-authoring-phase-6b`.
+- Required handoffs/student/symbolic policies read first; affected dependencies only, no repeated audit.
+- Public `/dashboard/authored/[id]`: ordered native statements/math/images/public PDFs, metadata and multipart navigation; existing safe public serializer/proxy, no private or historical statement fetch. Author editor links published student view.
+- Verified Better Auth gates own submissions/history; guests read. Account/problem remounts, abort/generation guards and API401/403 invalidate private panels.
+- Numeric/shared dimensionless, bounded expression guidance and explicit manual ungraded inputs; four conservative feedback outcomes, no client grader/keys/witnesses/internal diagnostics.
+- Per-account/problem/revision/part tab-local recovery; persist exact payload/key before send, explicit same-key retries after uncertainty/reload, atomic receipt acknowledgement and separate new-intent action prevent duplicate attempts. Storage failures pause new sends; work downloadable.
+- Stale/unavailable revisions hidden and explicitly reloaded; no silent answer retargeting. Own history paginated50, selection IDs preserved; successful submit resets page+cursor to avoid gaps. Temporary limits/counts shown, no lifetime cap/reveal.
+- Targeted64/64 PASS incl8 new model tests; rendered actual UI/API/grader/disposable PG+memory storage browser PASS, including retry/reload, multipart, all modes/outcomes, rate/errors/read failure, IDOR/account race,50+ pagination, revision/reload-focus/unpublish, media/private isolation.
+- Desktop/mobile axe zero; keyboard formula scrolling,375px overflow and independent screenshot review PASS.
+- Full192/193 PASS; sole inherited corpus punctuation assertion lib/corpus-translation.test.ts:66 unchanged from baseline. Next typegen/TypeScript/diff PASS.
+- Inherited lint missing ESLint; build Inter/Google Fonts network EPERM confirmed by in-process diagnostic. No tracked config workarounds.
+- Independent read-only UX/accessibility/security/data-integrity review complete; fixed five confirmed findings, no remaining confirmed blockers. Reviewer independently reran8/8 model tests.
+- Handoffs/map/status + AUTHORED_STUDENT_UI.md updated; Phase6A/symbolic policies preserved. No backend/auth/media-policy/grading/limit/migration/dependency/social/Elo changes, merge/deploy or production services/data.
+- Browser uses injected sessions with real production API/grader factories; live Better Auth/Vercel staging not exercised. Recovery is tab-local; own persistent history remains server-owned.
+- Implementation `a111a5f` pushed; final SHA via git log -1. Draft PR creation blocked: both GitHub GraphQL and REST POST returned Forbidden; no PR number created.
+- Open PR: https://github.com/Physcratic/physcratic/pull/new/codex/problem-authoring-phase-6b
+- Compare: https://github.com/Physcratic/physcratic/compare/main...codex/problem-authoring-phase-6b?expand=1
+- Next: user review Phase6B; stop. No next phase or explicit worked-solution reveal without separate request.
