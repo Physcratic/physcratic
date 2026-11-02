@@ -410,3 +410,13 @@ Retained main's new codex Preview smoke exclusion unchanged. Manual smoke checks
 - **Wordmark:** the brand is "Physcratic". A search of `app/`, `components/` and `lib/` (header, sidebar, coaching header and footer, the OG images, titles, `SITE.name`) found no trailing full stop in any wordmark, so nothing needed changing. The only "Physcratic." matches are sentence endings in prose.
 - **Coaching fixes:** the fixed "Get a consultation" bar now hides while the hero call to action or the footer is on screen, and the footer keeps 4rem (the bar plus its margin) of room under it on small screens. Every footer link and the Instagram link is at least 44px tall on touch screens (`pointer: coarse`), and the desktop footer is unchanged. Both are marked fixed in `docs/engineering/coaching-review.md`.
 - **Problem descriptions:** first-law, heat, incline, projectile and spring now have 70 to 160 character descriptions in `lib/problem-meta.ts`, used by `app/dashboard/problems/[id]/page.tsx` (metadata only). The known-offenders list in `lib/seo-metadata-guard.test.ts` is removed.
+
+
+## 2026-11-03 - P1: defer the equation calculator engine
+
+- The existing calculator form remains server rendered. Opening it warms the unchanged maths module. Calculate waits when necessary, ignores stale input and recovers from failed downloads. Only `components/physics/plain-math-check.tsx` changes at runtime.
+- Reconciled with main `0f77f22`, preserving Community Batch 2A and migrations 0007 to 0009. The comparable dashboard manifest falls from 2,386,548 to 1,732,868 raw bytes and from 662,875 to 481,240 gzip-9 bytes. Next first-load JS falls from 662 to 479 kB. Manifest chunks remain 19.
+- Cold browser totals, including shared and prefetched assets, fall from 677,498 to 495,864 gzip bytes. Entering Problems adds no JavaScript. Calculator opening adds two files, 181,931 gzip bytes, once.
+- Discarded a broader view-splitting experiment because first Problems navigation became slower. No view fallback or navigation change ships.
+- Local checks passed: frozen install, offline guards, route generation, typecheck, zero-warning lint, 571 server tests, 29 component tests, 114 disposable PostgreSQL tests, release/storage guards, build and 85 targeted browser checks. No live data, migration, infrastructure or flag changes.
+- Methodology, complete before/after tables and trade-offs: [Dashboard JavaScript P1](DASHBOARD_PERFORMANCE_P1.md). Reproduction scripts use external browser tooling and add no app dependencies.
