@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { parseProblemCollection, problemCollectionHref } from "@/lib/problem-collection-route";
 import { corpusProblems } from "@/lib/corpus-pilot";
 import {
   filterProblemsByTag,
-  getProblemTags,
   getTagOptions,
   tagLabel,
 } from "@/lib/problem-tags";
@@ -25,10 +25,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { problems, type Problem } from "@/lib/physics";
-import { PracticeProblemCard } from "./problem-list";
-import { ProblemCollection } from "./problem-collection";
-import { eloBands, getEloBand } from "@/lib/problem-archive";
+import { type Problem } from "@/lib/physics";
+import { eloBands } from "@/lib/problem-archive";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CorpusCollection } from "./corpus-collection";
 import { OlympiadCatalog } from "./olympiad-catalog";
@@ -40,7 +38,6 @@ import { AuthoredLibraryCollection } from "@/components/authored/library-collect
 export function ProblemLibrary({
   topic,
   query,
-  onOpen,
 }: {
   topic?: string;
   query?: string;
@@ -48,14 +45,15 @@ export function ProblemLibrary({
 }) {
   const params = useSearchParams();
   const requestedCollection = params.get("collection");
-  const [collection, setCollection] = useState(
-    requestedCollection === "practice" ||
-      requestedCollection === "pilot" ||
-      requestedCollection === "arena" ||
-      requestedCollection === "authored"
-      ? requestedCollection
-      : "catalog",
-  );
+  const [collection, setCollection] = useState(() => parseProblemCollection(requestedCollection));
+  useEffect(() => {
+    setCollection(parseProblemCollection(requestedCollection));
+  }, [requestedCollection]);
+
+  function changeCollection(value: string) {
+    setCollection(parseProblemCollection(value));
+    window.history.replaceState(null, "", problemCollectionHref(window.location.href, value));
+  }
   const [competition, setCompetition] = useState("");
   const [pilotProblemId, setPilotProblemId] = useState<string | undefined>();
   const [search, setSearch] = useState(query || "");
@@ -67,17 +65,7 @@ export function ProblemLibrary({
     ...catalogProblems,
     ...arena.problems,
     ...corpusProblems,
-    ...problems,
   ]);
-  const filtered = problems.filter(
-    (problem) =>
-      (selectedTopic === "all" ||
-        getProblemTags(problem).includes(selectedTopic)) &&
-      (difficulty === "all" || getEloBand(problem.elo).id === difficulty) &&
-      `${problem.title} ${getProblemTags(problem).join(" ")} ${problem.prompt}`
-        .toLowerCase()
-        .includes(search.toLowerCase().trim()),
-  );
 
   function reset() {
     setSearch("");
@@ -90,7 +78,7 @@ export function ProblemLibrary({
     <div className="flex min-w-0 flex-col gap-7">
       <Tabs
         value={collection}
-        onValueChange={setCollection}
+        onValueChange={changeCollection}
         className="flex min-w-0 flex-col gap-6"
       >
         <div className="flex min-w-0 flex-col gap-3">
@@ -109,10 +97,6 @@ export function ProblemLibrary({
             <TabsTrigger value="pilot">
               Guided exercises ·{" "}
               {filterProblemsByTag(corpusProblems, selectedTopic).length}
-            </TabsTrigger>
-            <TabsTrigger value="practice">
-              Quick practice ·{" "}
-              {filterProblemsByTag(problems, selectedTopic).length}
             </TabsTrigger>
             <TabsTrigger value="authored">Authored problems</TabsTrigger>
           </TabsList>
@@ -217,7 +201,7 @@ export function ProblemLibrary({
             onReset={reset}
             onOpenImported={(id) => {
               setPilotProblemId(id);
-              setCollection("pilot");
+              changeCollection("pilot");
             }}
           />
         </TabsContent>
@@ -233,26 +217,6 @@ export function ProblemLibrary({
             query={search}
             topic={selectedTopic}
             difficulty={difficulty}
-            onReset={reset}
-          />
-        </TabsContent>
-        <TabsContent value="practice" className="min-w-0">
-          <ProblemCollection
-            id="practice-results"
-            title="Quick practice"
-            paginationLabel="Quick practice"
-            items={filtered}
-            totalCount={filterProblemsByTag(problems, selectedTopic).length}
-            filterKey={JSON.stringify([search, selectedTopic, difficulty])}
-            renderProblem={(problem) => (
-              <PracticeProblemCard
-                problem={problem}
-                headingLevel={4}
-                onOpen={onOpen}
-              />
-            )}
-            emptyTitle="No problems found"
-            emptyDescription="Try a different concept or clear your filters to see the whole collection."
             onReset={reset}
           />
         </TabsContent>

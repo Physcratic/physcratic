@@ -347,21 +347,17 @@ try {
   await page.keyboard.press("ArrowLeft");
   await page
     .locator('[role="tab"][data-state="active"]')
-    .filter({ hasText: "Quick practice" })
+    .filter({ hasText: "Guided exercises" })
     .waitFor();
   assert.equal(
     await page
-      .getByRole("tab", { name: /Quick practice/ })
+      .getByRole("tab", { name: /Guided exercises/ })
       .getAttribute("aria-selected"),
     "true",
   );
   await page.getByLabel("Find a problem", { exact: true }).fill("");
-  assert.ok(
-    (await page
-      .locator("button")
-      .filter({ hasText: /Incline|Motion|Pendulum|Energy|Circuit|Spring/i })
-      .count()) > 0,
-  );
+  assert.equal(await page.getByRole("tab", { name: /Quick practice/ }).count(), 0);
+  assert.equal(new URL(page.url()).searchParams.get("collection"), "pilot");
   // The reconciliation must retain main's Arena collection as well as authoring.
   await page.getByRole("tab", { name: /Physcratic Arena/ }).click();
   await page.getByRole("heading", { name: "Physcratic Arena", exact: true }).waitFor();
