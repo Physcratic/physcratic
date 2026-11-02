@@ -2,6 +2,7 @@ import { classHours, content as coachingContent } from "../coaching/content";
 import type { Article } from "../learn/types";
 import type { Problem } from "../physics";
 import { SITE, siteUrl } from "../site";
+import { problemDescription } from "./problem-descriptions";
 
 /** Largest raster icon in public/ (512×512). */
 const LOGO_PATH = "/icon-512.png";
@@ -34,8 +35,9 @@ export function website() {
   };
 }
 
-/** Plain-text summary, at most 300 chars. */
-export function problemSummary(problem: Pick<Problem, "prompt">): string {
+/** Editorial summaries for identified problems; preserve the 300-char prompt-only API. */
+export function problemSummary(problem: Pick<Problem, "prompt"> & Partial<Pick<Problem, "id">>): string {
+  if (problem.id) return problemDescription(problem);
   const text = problem.prompt
     .replace(/\$\$?[^$]*\$\$?/g, " ")
     .replace(/[`*_#>]/g, "")
