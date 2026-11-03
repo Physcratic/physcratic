@@ -9,3 +9,4 @@ export function createMedalRoute(enabled=medalsEnabled,load=()=>import('./medal-
  };
 }
 export const medalRoute=createMedalRoute();
+export function verificationUiEnabled(env:Record<string,string|undefined>=process.env){return medalsEnabled(env)&&env.COMMUNITY_VERIFICATION_UI_ENABLED==='true';}
