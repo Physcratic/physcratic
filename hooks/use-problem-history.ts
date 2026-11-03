@@ -2,7 +2,7 @@
 
 import useSWR, { useSWRConfig } from "swr";
 import { authClient } from "@/lib/auth-client";
-import { fetchJson } from "@/lib/api-client";
+import { apiReadSWRConfig, fetchJson } from "@/lib/api-client";
 import { checkPracticeAnswer } from "@/lib/practice";
 import type { ProblemHistoryEntry } from "@/lib/problem-history";
 
@@ -15,6 +15,7 @@ export function useProblemHistory() {
     session.data?.user ? ["/api/progress", session.data.user.id] : null,
     ([url]: [string, string]) =>
       fetchJson<{ history: ProblemHistoryEntry[] }>(url),
+    apiReadSWRConfig,
   );
   async function recordResult(
     problemId: string,
