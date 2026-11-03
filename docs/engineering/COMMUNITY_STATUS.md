@@ -1,5 +1,9 @@
 # Community implementation status
 
+## Batch 3B: favourites and truthful completion counts
+
+Prepared on `codex/community-3b-favorites` from main `0f2c7f4`. Independent default-off API/UI and additive migration 0012, with no operator or deployment actions. See [contract, bounded counts, tests and operator prerequisites](COMMUNITY_3B.md) and [exact delivery state](AGENT_HANDOFF.md). Historical Batch 3A records below describe its earlier state.
+
 ## Batch 3A: unified Arena and authorship
 
 **Deployment: PENDING USER ACTION. NOT DEPLOYED BY CODEX. No production/staging SQL, Vercel changes, feature enablement or README-trigger commits.**

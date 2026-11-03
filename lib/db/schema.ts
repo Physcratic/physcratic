@@ -587,3 +587,11 @@ export const communityMedalAudit=pgTable('community_medal_audit',{
 export const communityMedalLimits=pgTable('community_medal_limit',{
  userId:text('user_id').primaryKey().references(()=>user.id),minute:timestamp('minute',{withTimezone:true}).notNull(),requests:integer('requests').notNull(),day:date('day').notNull(),uploads:integer('uploads').notNull(),
 });
+
+// 0012 preferences and shared interaction quota. SQL owns validation/indexes.
+export const communityFavorites=pgTable('community_favorite',{
+ userId:text('user_id').notNull().references(()=>user.id,{onDelete:'cascade'}),problemKey:text('problem_key').notNull(),createdAt:timestamp('created_at',{withTimezone:true}).notNull().defaultNow(),
+},t=>[primaryKey({columns:[t.userId,t.problemKey]}),index('community_favorite_problem').on(t.problemKey,t.userId)]);
+export const communityInteractionLimits=pgTable('community_interaction_limit',{
+ userId:text('user_id').primaryKey().references(()=>user.id,{onDelete:'cascade'}),windowStart:timestamp('window_start',{withTimezone:true}).notNull(),requests:integer('requests').notNull(),
+});

@@ -9,6 +9,7 @@ import { ImportedProblemRoute } from "@/components/physics/imported-problem-rout
 import { ArenaProblemReader } from "@/components/physics/arena-problem-reader";
 import arena from "@/lib/arena/index.json";
 import type { ArenaCatalogEntry } from "@/lib/arena-schema";
+import { ProblemInteractions } from '@/components/community/problem-interactions';
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -24,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PracticeProblemPage({ params }: Props) {
   const { id } = await params;
   const arenaProblem = arena.problems.find((item) => item.id === id);
-  if (arenaProblem) return <Layout view="problems"><ArenaProblemReader problem={arenaProblem as ArenaCatalogEntry} /></Layout>;
+  if (arenaProblem) return <Layout view="problems"><ProblemInteractions problemKey={`arena:${id}`}/><ArenaProblemReader problem={arenaProblem as ArenaCatalogEntry} /></Layout>;
   const problem = problems.find((item) => item.id === id);
   if (!problem) {
     const imported = catalogProblems.find((item) => item.id === id);

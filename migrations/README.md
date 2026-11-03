@@ -92,3 +92,10 @@ See `docs/engineering/COMMUNITY_STATUS.md` for precise semantics, reviewed grant
 ## Community medal showcase (0011)
 
 `0011_community_medal_showcase.up.sql` requires installed 0009 and 0010. It preserves saved selections/order and extends the two-slot guard with owned, currently approved medals. Install its validation-function runtime EXECUTE grant **in the same transaction before COMMIT**, including when medal flags remain off, because earned-only writes also use the new CHECK. The approved-medal view additionally needs runtime SELECT. Exact prerequisites, grants, default-off UI/showcase flags and user-owned production procedure are in `docs/engineering/COMMUNITY_STATUS.md`. Never replay or edit 0001–0010. Down refuses any stored medal selection; preserve production data and roll back exposure with flags.
+
+
+## Community problem interactions (0012)
+
+Additive operator-controlled migration requiring the authored 0001–0006 schema, independent of optional community 0007–0011. New favourite/quota tables and an indexed independent-completion candidate path. Keep `COMMUNITY_PROBLEM_INTERACTIONS_ENABLED` OFF until separately reviewed installation and runtime permissions are verified. Disabled routes require no new schema. Existing migrations remain unchanged.
+
+See [Batch 3B prerequisites](../docs/engineering/COMMUNITY_3B.md) for exact permissions, publication row-lock requirements, count/work budgets and index lock/time review. No SQL/grants were run outside disposable local/CI databases. The down migration refuses populated favourites; preserve saved preferences and roll back exposure rather than deleting data. No startup/build migration hook exists.

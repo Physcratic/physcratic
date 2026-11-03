@@ -2,6 +2,7 @@
 import { authClient } from "@/lib/auth-client";
 import type { Viewer } from "@/lib/authored-student";
 import { StudentWorkspace } from "./student-workspace";
+import { ProblemInteractions } from '@/components/community/problem-interactions';
 export function StudentPageClient({ problemId }: { problemId: string }) {
   const { data, isPending, error } = authClient.useSession();
   const viewer: Viewer = isPending
@@ -15,6 +16,6 @@ export function StudentPageClient({ problemId }: { problemId: string }) {
             id: data.user.id,
           };
   return (
-    <StudentWorkspace key={problemId} problemId={problemId} viewer={viewer} />
+    <><ProblemInteractions problemKey={`authored:${problemId}`}/><StudentWorkspace key={problemId} problemId={problemId} viewer={viewer} /></>
   );
 }

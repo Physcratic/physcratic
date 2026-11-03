@@ -1,5 +1,11 @@
 # Beta readiness log
 
+## 2026-11-03 — Community Batch 3B
+
+- Added default-off batched favourites/statistics for unified Arena cards and existing readers. Verified idempotent writes, bounded truthful current-revision completion counts and explicit unavailable states preserve server grading and private metadata.
+- Additive migration 0012 and operator prerequisites are documented in [COMMUNITY_3B.md](COMMUNITY_3B.md). Existing migrations and live infrastructure remain unchanged.
+- Added disposable database and real component/API browser regressions, plus persistent agent rules/roadmap/handoff. See [AGENT_HANDOFF.md](AGENT_HANDOFF.md) for final validation and exact delivery state. No merge or deployment is authorised for this sensitive batch.
+
 ## 2026-11-02 — Merge UI work into main
 
 - Reconciled `v0/ui-work` with current `main`, preserving coaching, account, authoring and practice changes. Kept all practice/contest and coaching schema declarations without applying any database migration.
