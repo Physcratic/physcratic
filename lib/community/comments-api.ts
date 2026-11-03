@@ -5,6 +5,7 @@ import {z} from 'zod';
 import {readRequestBytes,RequestBodyTimeoutError} from '../submission-request';
 import {profileReply} from './profile-api';
 import {commentWriteSchema,commentListSchema,commentCursorSchema,commentsPageSchema} from './comments-contracts';
+const normalizedText=(body:string)=>body.normalize('NFKC').toLowerCase().replace(/\s+/gu,' ').trim();
 class Fault extends Error{constructor(public status:number,public message:string){super(message);}}
 type Deps={pool:Pool;user:(r:Request)=>Promise<{id:string;emailVerified?:boolean}|null|undefined>;origin:(r:Request)=>boolean;ip:(r:Request)=>string;profiles?:()=>boolean};
 export function createCommentsApi(deps:Deps){
@@ -14,7 +15,7 @@ export function createCommentsApi(deps:Deps){
  ON CONFLICT(bucket) DO UPDATE SET requests=CASE WHEN community_comment_limit.minute=date_trunc('minute',clock_timestamp()) THEN least(121,community_comment_limit.requests+1) ELSE 1 END,minute=date_trunc('minute',clock_timestamp()),
  minute_posts=CASE WHEN community_comment_limit.post_minute=date_trunc('minute',clock_timestamp()) THEN least(7,community_comment_limit.minute_posts+$2) ELSE $2 END,post_minute=date_trunc('minute',clock_timestamp()),
  posts=CASE WHEN community_comment_limit.day=(clock_timestamp() AT TIME ZONE 'UTC')::date THEN least(51,community_comment_limit.posts+$2) ELSE $2 END,day=(clock_timestamp() AT TIME ZONE 'UTC')::date RETURNING requests,minute_posts,posts`,values:[bucket,post?1:0],query_timeout:5000};const {rows}=await deps.pool.query(query);if(rows[0].requests>max||rows[0].minute_posts>6||rows[0].posts>50)throw new Fault(429,'Discussion limit reached. Retry later.');}
- async function spam(c:PoolClient,user:string,body:string){const hash=createHash('sha256').update(body.normalize('NFKC').toLowerCase().replace(/\s+/gu,' ').trim()).digest('hex');
+ async function spam(c:PoolClient,user:string,body:string){const hash=createHash('sha256').update(normalizedText(body)).digest('hex');
   // A rolling ten-minute duplicate block, shared across problems and create/edit actions.
   const result=await c.query(`INSERT INTO community_comment_spam(user_id,body_hash,last_post) VALUES($1,$2,clock_timestamp()) ON CONFLICT(user_id,body_hash) DO UPDATE SET last_post=excluded.last_post WHERE community_comment_spam.last_post<clock_timestamp()-interval '10 minutes' RETURNING 1`,[user,hash]);if(!result.rows[0])throw new Fault(409,'Duplicate text. Wait or write a different comment.');
   await c.query("DELETE FROM community_comment_spam WHERE user_id=$1 AND last_post<clock_timestamp()-interval '10 minutes'",[user]);
@@ -66,7 +67,7 @@ export function createCommentsApi(deps:Deps){
    }
    if(row.user_id!==user.id)throw new Fault(403,'Only your own comment can be changed.');
    if(row.deleted_at||row.version!==body.version||row.version===2147483647)throw new Fault(409,'Comment changed. Reload before editing.');
-   if(body.action==='edit'){if(row.body===body.body)return profileReply({id:body.id});await spam(c,user.id,body.body);await c.query('UPDATE community_comment SET body=$2,version=version+1 WHERE id=$1',[body.id,body.body]);}
+   if(body.action==='edit'){if(row.body===body.body)return profileReply({id:body.id});if(normalizedText(row.body)!==normalizedText(body.body))await spam(c,user.id,body.body);await c.query('UPDATE community_comment SET body=$2,version=version+1 WHERE id=$1',[body.id,body.body]);}
    else await c.query('UPDATE community_comment SET deleted_at=clock_timestamp(),version=version+1 WHERE id=$1',[body.id]);
    return profileReply({id:body.id});
   });

@@ -55,7 +55,8 @@ test('0013 threaded comments, pagination, ownership, races and runtime grants',{
  await assert.rejects(runtime.query('UPDATE community_comment SET score=100 WHERE id=$1',[root]));await assert.rejects(runtime.query('DELETE FROM community_comment WHERE id=$1',[root]));
  await reset();const edits=await Promise.all(['Concurrent edit A','Concurrent edit B'].map(body=>write(owner,{action:'edit',key,id:root,version:1,body})));assert.deepEqual(edits.map(r=>r.status).sort(),[200,409]);
  const row=(await parsed(await list(key,undefined,'newest',undefined,owner))).comments.find((c:{id:string})=>c.id===root);assert.equal(row.version,2);assert.ok(row.editedAt);assert.equal(row.owned,true);
- const races=await Promise.all([write(owner,{action:'delete',key,id:root,version:2}),write(owner,{action:'edit',key,id:root,version:2,body:'Racing final edit'}),like()]);assert.ok(races.some(r=>r.status===409));
+ await parsed(await write(owner,{action:'edit',key,id:root,version:2,body:row.body.toUpperCase()}));
+ const races=await Promise.all([write(owner,{action:'delete',key,id:root,version:3}),write(owner,{action:'edit',key,id:root,version:3,body:'Racing final edit'}),like()]);assert.ok(races.some(r=>r.status===409));
  const current=(await pool.query('SELECT version,deleted_at FROM community_comment WHERE id=$1',[root])).rows[0];if(!current.deleted_at)await parsed(await write(owner,{action:'delete',key,id:root,version:current.version}));
  const deleted=(await parsed(await list(key,undefined,'newest',undefined,owner))).comments.find((c:{id:string})=>c.id===root);assert.equal(deleted.body,'');assert.equal(deleted.author,null);assert.equal(deleted.owned,false);assert.equal((await parsed(await list(key,root))).comments[0].id,reply);assert.equal((await like()).status,409);
  // Deep ancestry is stored correctly without unbounded visual indentation; SQL rejects depth 65.
