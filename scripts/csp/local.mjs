@@ -33,7 +33,7 @@ export async function productionBuild(root = process.cwd()) {
   return log;
 }
 
-export async function startLocal(mode, root = process.cwd()) {
+export async function startLocal(mode, root = process.cwd(), options = {}) {
   assert.ok(['report', 'enforce', 'native'].includes(mode));
   await cleanRoot(root);
   // Reserve a loopback port. Next binds only to loopback, never 0.0.0.0.
@@ -117,6 +117,10 @@ export async function startLocal(mode, root = process.cwd()) {
       if (!['GET', 'HEAD'].includes(req.method)) return send('text/plain', 'Local writes denied', 405);
       const upstream = request({ hostname: '127.0.0.1', port: upstreamPort, path: req.url, method: req.method, headers: { ...req.headers, host: `127.0.0.1:${upstreamPort}` } }, response => {
         const result = { ...response.headers };
+        // Trusted, build-bound policies supplied only by isolated experiments.
+        // Intersect with a route's existing stricter policy; never replace it.
+        const staticPolicy = options.staticPolicies?.[url.pathname];
+        if (staticPolicy) result['content-security-policy'] = result['content-security-policy'] ? `${result['content-security-policy']}, ${staticPolicy}` : staticPolicy;
         if (mode === 'enforce') {
           // Intersection, never replacement, of existing restrictive media CSP.
           result['content-security-policy'] = result['content-security-policy'] ? `${result['content-security-policy']}, ${policy}` : policy;
@@ -128,7 +132,7 @@ export async function startLocal(mode, root = process.cwd()) {
       req.pipe(upstream);
     });
     const port = await listen(server), origin = localOrigin(`http://127.0.0.1:${port}`);
-    return { origin, reports, analytics, allowedAssets, log: () => log, close: async () => { server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); child.kill('SIGTERM'); await once(child, 'exit'); } };
+    return { origin, reports, analytics, allowedAssets, processId: child.pid, log: () => log, close: async () => { server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); child.kill('SIGTERM'); await once(child, 'exit'); } };
   } catch (error) { child.kill(); throw error; }
 }
 if (process.argv[2] === '--build') console.log((await productionBuild()).slice(-2000));
