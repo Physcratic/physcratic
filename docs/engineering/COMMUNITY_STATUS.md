@@ -2,7 +2,7 @@
 
 ## Batch 3B: favourites and truthful completion counts
 
-Prepared on `codex/community-3b-favorites` from main `0f2c7f4`. Independent default-off API/UI and additive migration 0012, with no operator or deployment actions. See [contract, bounded counts, tests and operator prerequisites](COMMUNITY_3B.md) and [exact delivery state](AGENT_HANDOFF.md). Historical Batch 3A records below describe its earlier state.
+Delivered for review in [PR #102](https://github.com/Physcratic/physcratic/pull/102), implementation `f0cdc9b2457b658bfaa60af839adb88bdae86c1c`, from main `0f2c7f4`. Independent default-off API/UI and additive migration 0012, with no operator or deployment actions. See [contract, bounded counts, tests and operator prerequisites](COMMUNITY_3B.md) and [exact delivery state](AGENT_HANDOFF.md). Historical Batch 3A records below describe its earlier state.
 
 ## Batch 3A: unified Arena and authorship
 

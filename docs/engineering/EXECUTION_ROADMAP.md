@@ -6,7 +6,7 @@ Baseline: main `0f2c7f4`, verified 3 November 2026. Source: [community guidebook
 | --- | --- | --- |
 | Complete | Authoring/revisions, student reading/submissions/grading, taxonomy, Learn, P1 | Preserve contracts; existing regression suites |
 | Complete | Community 2A/2B1/2B2/3A | PRs #90/#95/#98 and historical status; flags remain disabled, deployment/operator prerequisites unverified |
-| Review P1 | Batch 3B favourites and truthful completion counts | Implemented, independently reviewed and locally verified; PR/CI state in [handoff](AGENT_HANDOFF.md). Valid public namespaced identities, verified idempotent writes, shared quota, bounded batched counts, current-revision independent completion proof, gated API/UI, retries/privacy/races tested |
+| Review P1 | Batch 3B favourites and truthful completion counts | Implemented, independently reviewed and locally verified; [PR #102](https://github.com/Physcratic/physcratic/pull/102), evidence in [handoff](AGENT_HANDOFF.md). Valid public namespaced identities, verified idempotent writes, shared quota, bounded batched counts, current-revision independent completion proof, gated API/UI, retries/privacy/races tested |
 | Next P2 | Threaded discussion (Batch 4) | Only after 3B review; bounded depth, safe content, pagination/ownership. Default OFF until moderation exists |
 | Next P2 | Moderation/reporting (Batch 5) | Protected queue/audit, filters, reports and abuse controls; approved moderation semantics and private access tests before exposure |
 | Blocked | Community installation/grants/flags/deployment | User/operator only; migrations 0007–0011 remain immutable. New 3B migration 0012 needs separate review/operator action |
