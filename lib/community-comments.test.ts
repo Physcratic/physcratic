@@ -33,7 +33,7 @@ test('0013 threaded comments, pagination, ownership, races and runtime grants',{
  await pool.query(`GRANT USAGE ON SCHEMA ${schema} TO ${role};GRANT SELECT,INSERT ON community_comment TO ${role};GRANT UPDATE(body,version,deleted_at) ON community_comment TO ${role};GRANT SELECT,INSERT,DELETE ON community_comment_like,community_comment_spam TO ${role};GRANT UPDATE(last_post) ON community_comment_spam TO ${role};GRANT SELECT,INSERT,UPDATE ON community_comment_limit TO ${role};GRANT SELECT ON authored_problem,authored_revision TO ${role};GRANT UPDATE(id) ON authored_problem TO ${role}`);
  runtime=new Pool({connectionString:url,options:`-c search_path=${schema},public -c role=${role}`});const api=createCommentsApi({...f.deps,pool:runtime,ip:()=> 'unknown'});
  const write=(who:string|undefined,body:unknown)=>api(req(who,body));
- const post=(who=owner,text='A new discussion',parent:string|null=null,k=key,requestId=randomUUID())=>write(who,{action:'create',key:k,parent,body:text,requestId});
+ const post=(who=owner,text='A new discussion',parent:string|null=null,k=key,requestId:string=randomUUID())=>write(who,{action:'create',key:k,parent,body:text,requestId});
  const list=async(k=key,parent?:string,sort='newest',after?:string,who?:string)=>api(req(who,undefined,'GET','/api?'+new URLSearchParams({key:k,sort,...(parent?{parent}:{}),...(after?{after}:{})})));
  const reset=()=>pool.query('DELETE FROM community_comment_limit');
  assert.equal((await write(undefined,{})).status,401);assert.equal((await post('unverified')).status,403);
