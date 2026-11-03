@@ -32,8 +32,7 @@ import { CorpusCollection } from "./corpus-collection";
 import { OlympiadCatalog } from "./olympiad-catalog";
 import { catalogProblems } from "@/lib/corpus-catalog";
 import arena from "@/lib/arena/index.json";
-import { ArenaCollection } from "./arena-collection";
-import { AuthoredLibraryCollection } from "@/components/authored/library-collection";
+import { UnifiedArenaCollection } from "./unified-arena-collection";
 
 export function ProblemLibrary({
   topic,
@@ -61,6 +60,7 @@ export function ProblemLibrary({
     topic ? tagLabel(topic) : "all",
   );
   const [difficulty, setDifficulty] = useState("all");
+  const difficultyForCollection = (collection === "arena" || collection === "authored" || difficulty !== "unrated") ? difficulty : "all";
   const tagOptions = getTagOptions([
     ...catalogProblems,
     ...arena.problems,
@@ -86,9 +86,8 @@ export function ProblemLibrary({
             aria-label="Problem collections"
             className="h-auto w-fit max-w-full flex-wrap"
           >
-            <TabsTrigger value="arena">
-              Physcratic Arena ·{" "}
-              {filterProblemsByTag(arena.problems, selectedTopic).length}
+            <TabsTrigger value={collection === "authored" ? "authored" : "arena"}>
+              Physcratic Arena
             </TabsTrigger>
             <TabsTrigger value="catalog">
               Olympiad archive ·{" "}
@@ -98,7 +97,6 @@ export function ProblemLibrary({
               Guided exercises ·{" "}
               {filterProblemsByTag(corpusProblems, selectedTopic).length}
             </TabsTrigger>
-            <TabsTrigger value="authored">Authored problems</TabsTrigger>
           </TabsList>
         </div>
         <Card className="shadow-none">
@@ -114,7 +112,7 @@ export function ProblemLibrary({
                 <Input
                   id="problem-search"
                   autoFocus
-                  maxLength={collection === "authored" ? 200 : undefined}
+                  maxLength={200}
                   placeholder="Search by problem or tag…"
                   value={search}
                   onChange={(event) => setSearch(event.target.value)}
@@ -135,40 +133,25 @@ export function ProblemLibrary({
                   />
                 </Field>
               )}
-              {collection !== "authored" && <Field className="sm:w-48">
+              <Field className="sm:w-48">
                 <FieldLabel htmlFor="topic-filter">Tag</FieldLabel>
-                <Select value={selectedTopic} onValueChange={setSelectedTopic}>
-                  <SelectTrigger id="topic-filter">
-                    <SelectValue>
-                      {selectedTopic === "all" ? "All tags" : selectedTopic}
-                    </SelectValue>
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectGroup>
-                      <SelectItem value="all">All tags</SelectItem>
-                      {tagOptions.map((tag) => (
-                        <SelectItem key={tag} value={tag}>
-                          {tag}
-                        </SelectItem>
-                      ))}
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
-              </Field>}
-              {collection !== "authored" && <Field className="sm:w-44">
+                <Input id="topic-filter" list="problem-tag-options" maxLength={80} value={selectedTopic === "all" ? "" : selectedTopic} placeholder="All tags" onChange={e => setSelectedTopic(e.target.value || "all")} />
+                <datalist id="problem-tag-options">{tagOptions.map(tag => <option key={tag} value={tag} />)}</datalist>
+              </Field>
+              <Field className="sm:w-44">
                 <FieldLabel htmlFor="difficulty-filter">
-                  ELO difficulty
+                  Estimated difficulty
                 </FieldLabel>
-                <Select value={difficulty} onValueChange={setDifficulty}>
+                <Select value={difficultyForCollection} onValueChange={setDifficulty}>
                   <SelectTrigger id="difficulty-filter">
                     <SelectValue>
-                      {eloBands.find((band) => band.id === difficulty)?.range ??
-                        "All ratings"}
+                      {difficultyForCollection === "unrated" ? "Unrated / author labels" : eloBands.find((band) => band.id === difficultyForCollection)?.range ?? "All ratings"}
                     </SelectValue>
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
                       <SelectItem value="all">All ratings</SelectItem>
+                      {(collection === "arena" || collection === "authored") && <SelectItem value="unrated">Unrated / author labels</SelectItem>}
                       {eloBands.map((band) => (
                         <SelectItem key={band.id} value={band.id}>
                           {band.range}
@@ -177,18 +160,18 @@ export function ProblemLibrary({
                     </SelectGroup>
                   </SelectContent>
                 </Select>
-              </Field>}
+              </Field>
             </FieldGroup>
           </CardContent>
         </Card>
         <TabsContent value="authored" className="min-w-0">
-          <AuthoredLibraryCollection query={search} />
+          <UnifiedArenaCollection query={search} topic={selectedTopic} difficulty={difficultyForCollection} source="authored" onReset={reset} />
         </TabsContent>
         <TabsContent value="arena" className="min-w-0">
-          <ArenaCollection
+          <UnifiedArenaCollection
             query={search}
             topic={selectedTopic}
-            difficulty={difficulty}
+            difficulty={difficultyForCollection}
             onReset={reset}
           />
         </TabsContent>
@@ -197,7 +180,7 @@ export function ProblemLibrary({
             query={search}
             topic={selectedTopic}
             competition={competition}
-            difficulty={difficulty}
+            difficulty={difficultyForCollection}
             onReset={reset}
             onOpenImported={(id) => {
               setPilotProblemId(id);
@@ -216,7 +199,7 @@ export function ProblemLibrary({
             onActiveProblemChange={setPilotProblemId}
             query={search}
             topic={selectedTopic}
-            difficulty={difficulty}
+            difficulty={difficultyForCollection}
             onReset={reset}
           />
         </TabsContent>

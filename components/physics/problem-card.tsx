@@ -34,6 +34,7 @@ export type ProblemCardProps = {
   details?: readonly string[];
   tags: readonly string[];
   elo?: number;
+  attribution?: React.ReactNode;
 } & (
   | { href: string; onOpen?: never }
   | { href?: never; onOpen: () => void }
@@ -52,6 +53,7 @@ export function ProblemCard({
   details,
   tags,
   elo,
+  attribution,
   href,
   onOpen,
 }: ProblemCardProps) {
@@ -157,6 +159,7 @@ export function ProblemCard({
           </p>
         </CardContent>
       ) : null}
+      {attribution && <CardContent className="space-y-3 px-5 pb-5">{attribution}</CardContent>}
       <CardFooter className="problem-entry-details flex min-h-14 flex-wrap items-center gap-2 px-5 py-3">
         {tags.map((tag) => (
           <Badge key={tag} variant="concept">
