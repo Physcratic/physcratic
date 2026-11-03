@@ -39,7 +39,7 @@ try{
   res.setHeader('content-type','text/html');res.end('<!doctype html><html lang="en"><head><title>Interaction fixture</title><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/style.css"></head><body><div id="root"></div><script src="/bundle.js"></script></body></html>');
  }catch(e){errors.push(String(e));res.writeHead(500);res.end();}});
  await new Promise(r=>server.listen(0,'127.0.0.1',r));origin='http://127.0.0.1:'+server.address().port;
- browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',headless:true,args:['--no-sandbox']});const context=await browser.newContext({viewport:{width:1440,height:1000}});await context.route('**/*',r=>new URL(r.request().url()).origin===origin?r.continue():r.abort());
+ browser=await chromium.launch({...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),headless:true,args:['--no-sandbox']});const context=await browser.newContext({viewport:{width:1440,height:1000}});await context.route('**/*',r=>new URL(r.request().url()).origin===origin?r.continue():r.abort());
  const page=await context.newPage();page.on('pageerror',e=>errors.push(String(e)));await page.goto(origin);
  await page.getByText('0 favourites',{exact:true}).waitFor();await page.getByText('Verified completion count unavailable',{exact:true}).waitFor();
  await page.request.get(origin+'/fixture/hold');await page.getByRole('button',{name:'Save favourite',exact:true}).click();
