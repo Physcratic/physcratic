@@ -26,7 +26,7 @@ export const collectionEntrySchema = z.strictObject({
   provenance:authoredLibraryPageSchema.shape.problems.element.shape.provenance.optional(),
   author:publicAuthorSchema.nullable(),
 });
-export const unifiedArenaPageSchema = z.strictObject({problems:z.array(collectionEntrySchema).max(24),nextCursor:problemKeySchema.nullable(),authoredUnavailable:z.boolean(),attributionUnavailable:z.boolean()});
+export const unifiedArenaPageSchema = z.strictObject({problems:z.array(collectionEntrySchema).max(24),nextCursor:problemKeySchema.nullable(),authoredUnavailable:z.boolean(),attributionUnavailable:z.boolean(),statsEnabled:z.boolean().optional()});
 export type CollectionEntry = z.infer<typeof collectionEntrySchema>;
 export type UnifiedArenaPage = z.infer<typeof unifiedArenaPageSchema>;
 export function staticArenaEntries(filters:z.infer<typeof arenaFiltersSchema>):CollectionEntry[] {

@@ -1,4 +1,5 @@
 "use client";
+import {ProblemStatsPanel} from '@/components/community/problem-stats';
 import { SkipLink } from "@/components/skip-link";
 import { studioTokens } from "@/components/authoring/studio-ui";
 import { WorkedSolution } from "./worked-solution";
@@ -83,9 +84,11 @@ type Availability = "loading" | "ready" | "stale" | "unavailable" | "error";
 export function StudentWorkspace({
   problemId,
   viewer,
+  statsEnabled=false,
 }: {
   problemId: string;
   viewer: Viewer;
+  statsEnabled?:boolean;
 }) {
   const [revision, setRevision] = useState<PublicRevision | null>(null),
     [availability, setAvailability] = useState<Availability>("loading"),
@@ -248,6 +251,7 @@ export function StudentWorkspace({
               : "Recheck publication"}
           </Button>
         </div>
+        {statsEnabled && availability === "ready" && <ProblemStatsPanel problemKey={`authored:${problemId}`}/>}
         {availability === "loading" && (
           <p role="status">Loading the current published problem…</p>
         )}

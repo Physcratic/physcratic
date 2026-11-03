@@ -2,7 +2,7 @@
 import { authClient } from "@/lib/auth-client";
 import type { Viewer } from "@/lib/authored-student";
 import { StudentWorkspace } from "./student-workspace";
-export function StudentPageClient({ problemId }: { problemId: string }) {
+export function StudentPageClient({ problemId,statsEnabled=false }: { problemId: string;statsEnabled?:boolean }) {
   const { data, isPending, error } = authClient.useSession();
   const viewer: Viewer = isPending
     ? { state: "loading" }
@@ -15,6 +15,6 @@ export function StudentPageClient({ problemId }: { problemId: string }) {
             id: data.user.id,
           };
   return (
-    <StudentWorkspace key={problemId} problemId={problemId} viewer={viewer} />
+    <StudentWorkspace key={problemId} problemId={problemId} viewer={viewer} statsEnabled={statsEnabled} />
   );
 }

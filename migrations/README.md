@@ -92,3 +92,8 @@ See `docs/engineering/COMMUNITY_STATUS.md` for precise semantics, reviewed grant
 ## Community medal showcase (0011)
 
 `0011_community_medal_showcase.up.sql` requires installed 0009 and 0010. It preserves saved selections/order and extends the two-slot guard with owned, currently approved medals. Install its validation-function runtime EXECUTE grant **in the same transaction before COMMIT**, including when medal flags remain off, because earned-only writes also use the new CHECK. The approved-medal view additionally needs runtime SELECT. Exact prerequisites, grants, default-off UI/showcase flags and user-owned production procedure are in `docs/engineering/COMMUNITY_STATUS.md`. Never replay or edit 0001–0010. Down refuses any stored medal selection; preserve production data and roll back exposure with flags.
+
+
+## Community favourites and verified solve counts (0012)
+
+0012 requires authored 0001–0006 and Better Auth, independently of profile/achievement migrations. Install once via the reviewed owner ledger procedure, with trusted `search_path`, bounded lock/statement timeouts and the exact runtime grants in `docs/engineering/COMMUNITY_STATUS.md`. Only the trigger owner writes atomic totals; runtime receives SELECT on totals, SELECT/INSERT/DELETE on favourites and SELECT/INSERT/UPDATE on the shared limiter. Publication row locks retain existing authored UPDATE permission. The new attempt scan index needs a quiet migration window. Keep `COMMUNITY_PROBLEM_STATS_ENABLED` OFF until installation/grants are verified. Down refuses saved favourites. Future static Arena additions require an additive SQL allowlist update. No production SQL or deployment is performed by this repository change.
