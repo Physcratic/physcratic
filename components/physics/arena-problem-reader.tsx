@@ -14,13 +14,14 @@ import { ArenaDocument } from "./arena-document";
 import { ArchiveAnswerPanel } from "./archive-answer-panel";
 
 import {ProblemStatsPanel} from '@/components/community/problem-stats';
+import {Discussions} from '@/components/community/discussions';
 async function loadProblem(url: string) {
   const response = await fetch(url);
   if (!response.ok) throw new Error("The Arena problem could not be loaded.");
   return arenaProblemSchema.parse(await response.json());
 }
 
-export function ArenaProblemReader({ problem,statsEnabled=false }: { problem: ArenaCatalogEntry;statsEnabled?:boolean }) {
+export function ArenaProblemReader({ problem,statsEnabled=false,commentsEnabled=false }: { problem: ArenaCatalogEntry;statsEnabled?:boolean;commentsEnabled?:boolean }) {
   const { data, isLoading, error, mutate } = useSWRImmutable(problem.path, loadProblem);
   return <section className="mx-auto flex w-full max-w-4xl min-w-0 flex-col gap-6" aria-labelledby="arena-problem-title">
     <div><Button variant="ghost" asChild><Link href="/dashboard?view=problems&collection=arena"><ArrowLeft data-icon="inline-start" />Back to Physcratic Arena</Link></Button></div>
@@ -39,5 +40,6 @@ export function ArenaProblemReader({ problem,statsEnabled=false }: { problem: Ar
         <div className="flex min-w-0 flex-col gap-6"><Card className="min-w-0 shadow-none"><CardHeader><CardTitle>{kind === "statement" ? "Problem statement" : "Worked solution"}</CardTitle><CardDescription>{kind === "statement" ? "Transcribed text and LaTeX, with original diagrams." : "Contains spoilers. Transcribed from the supplied worked solution, including its assumptions and qualifications."}</CardDescription></CardHeader><CardContent className="min-w-0"><ArenaDocument content={data[kind]} /></CardContent></Card>{kind === "statement" && <Card className="min-w-0 shadow-none"><CardContent className="pt-6"><ArchiveAnswerPanel key={problem.id} problemId={problem.id} /></CardContent></Card>}</div>
       </TabsContent>)}
     </Tabs>}
+    {commentsEnabled&&<Discussions problemKey={`arena:${problem.id}`}/>}
   </section>;
 }

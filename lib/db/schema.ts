@@ -603,3 +603,22 @@ export const communityFavourites=pgTable('community_favourite',{
 export const communityFavouriteLimits=pgTable('community_favourite_limit',{
  userId:text('user_id').primaryKey().references(()=>user.id,{onDelete:'cascade'}),windowStart:timestamp('window_start',{withTimezone:true}).notNull(),requests:integer('requests').notNull(),
 },t=>[check('community_favourite_limit_requests_check',sql`${t.requests} BETWEEN 1 AND 61`)]);
+
+// Additive 0013. SQL owns ancestry/immutability/version and reaction-score guards.
+export const communityComments=pgTable('community_comment',{
+ id:uuid('id').primaryKey(),problemKey:text('problem_key').notNull(),userId:text('user_id').references(()=>user.id,{onDelete:'set null'}),
+ parentId:uuid('parent_id'),requestId:uuid('request_id').notNull(),body:text('body').notNull(),depth:integer('depth').notNull().default(0),
+ version:integer('version').notNull().default(1),score:bigint('score',{mode:'number'}).notNull().default(0),
+ createdAt:timestamp('created_at',{withTimezone:true,precision:3}).notNull().default(sql`clock_timestamp()`),updatedAt:timestamp('updated_at',{withTimezone:true,precision:3}).notNull().default(sql`clock_timestamp()`),
+ editedAt:timestamp('edited_at',{withTimezone:true,precision:3}),deletedAt:timestamp('deleted_at',{withTimezone:true,precision:3}),
+ authoredProblemId:uuid('authored_problem_id').generatedAlwaysAs(sql`CASE WHEN problem_key LIKE 'authored:%' THEN substring(problem_key FROM 10)::uuid END`).references(()=>authoredProblems.id,{onDelete:'restrict'}),
+},t=>[unique().on(t.userId,t.requestId),unique().on(t.problemKey,t.id),foreignKey({columns:[t.problemKey,t.parentId],foreignColumns:[t.problemKey,t.id]}).onDelete('restrict'),index('community_comment_newest_idx').on(t.problemKey,t.parentId,t.createdAt.desc(),t.id.desc()),index('community_comment_top_idx').on(t.problemKey,t.parentId,t.score.desc(),t.createdAt.desc(),t.id.desc()),index('community_comment_authored_idx').on(t.authoredProblemId).where(sql`${t.authoredProblemId} IS NOT NULL`),check('community_comment_depth_check',sql`${t.depth} BETWEEN 0 AND 64`),check('community_comment_version_check',sql`${t.version}>0`),check('community_comment_score_check',sql`${t.score}>=0`),check('community_comment_key_check',sql`${t.problemKey} ~ '^authored:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' OR ${t.problemKey}=ANY(${sql.raw("ARRAY["+arenaRegistry.problems.map(p=>"'arena:"+p.id+"'").join(',')+"]::text[]")})`),check('community_comment_check',sql`(${t.deletedAt} IS NULL AND char_length(${t.body}) BETWEEN 1 AND 2000 AND octet_length(${t.body})<=8000) OR (${t.deletedAt} IS NOT NULL AND ${t.body}='')`)]);
+export const communityCommentLikes=pgTable('community_comment_like',{
+ commentId:uuid('comment_id').notNull().references(()=>communityComments.id,{onDelete:'restrict'}),userId:text('user_id').notNull().references(()=>user.id,{onDelete:'cascade'}),
+},t=>[primaryKey({columns:[t.commentId,t.userId]})]);
+export const communityCommentLimits=pgTable('community_comment_limit',{
+ bucket:text('bucket').primaryKey(),minute:timestamp('minute',{withTimezone:true}).notNull(),requests:integer('requests').notNull(),postMinute:timestamp('post_minute',{withTimezone:true}).notNull(),minutePosts:integer('minute_posts').notNull().default(0),day:date('day').notNull(),posts:integer('posts').notNull().default(0),
+},t=>[check('community_comment_limit_requests_check',sql`${t.requests} BETWEEN 1 AND 121`),check('community_comment_limit_minute_posts_check',sql`${t.minutePosts} BETWEEN 0 AND 7`),check('community_comment_limit_posts_check',sql`${t.posts} BETWEEN 0 AND 51`)]);
+export const communityCommentSpam=pgTable('community_comment_spam',{
+ userId:text('user_id').notNull().references(()=>user.id,{onDelete:'cascade'}),bodyHash:text('body_hash').notNull(),lastPost:timestamp('last_post',{withTimezone:true}).notNull(),
+},t=>[primaryKey({columns:[t.userId,t.bodyHash]}),check('community_comment_spam_body_hash_check',sql`${t.bodyHash} ~ '^[0-9a-f]{64}$'`)]);
