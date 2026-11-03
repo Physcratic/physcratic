@@ -4,6 +4,7 @@ on:
     paths:
       - 'scripts/csp/**'
       - 'tests/csp-harness.test.ts'
+      - 'tests/csp-architecture.test.ts'
       - '.github/workflows/csp-harness.yml'
   workflow_dispatch:
 permissions:
@@ -31,6 +32,11 @@ jobs:
           AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/csp-tools
           CSP_REQUIRE_ALL: '1'
         run: node --import tsx scripts/csp/browser.mjs
+      - name: Verify isolated hybrid architecture and public caching
+        env:
+          AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/csp-tools
+          CSP_REQUIRE_ALL: '1'
+        run: node --import tsx scripts/csp/architecture.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
