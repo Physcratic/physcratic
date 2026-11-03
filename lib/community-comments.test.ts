@@ -30,7 +30,7 @@ test('0013 threaded comments, pagination, ownership, races and runtime grants',{
  await pool.query('CREATE TABLE "user"(id text PRIMARY KEY)');for(const name of achievementMigrations.filter(n=>!n.startsWith('0007')))await pool.query('BEGIN;'+await readFile(`migrations/${name}.up.sql`,'utf8')+'COMMIT;');
  const up=await readFile('migrations/0013_community_comments.up.sql','utf8'),down=await readFile('migrations/0013_community_comments.down.sql','utf8');for(const s of [up,down,up])await pool.query('BEGIN;'+s+'COMMIT;');
  const f=achievementFixtures(pool),owner=await f.user(undefined,false),other=await f.user(undefined,false);await f.user('unverified',false);const problem=await f.problem(owner),authored='authored:'+problem.id;
- await pool.query(`GRANT USAGE ON SCHEMA ${schema} TO ${role};GRANT SELECT,INSERT ON community_comment TO ${role};GRANT UPDATE(body,version,deleted_at) ON community_comment TO ${role};GRANT SELECT,INSERT,DELETE ON community_comment_like,community_comment_spam TO ${role};GRANT UPDATE(last_post) ON community_comment_spam TO ${role};GRANT SELECT,INSERT,UPDATE ON community_comment_limit TO ${role};GRANT SELECT ON authored_problem,authored_revision TO ${role};GRANT UPDATE ON authored_problem TO ${role}`);
+ await pool.query(`GRANT USAGE ON SCHEMA ${schema} TO ${role};GRANT SELECT,INSERT ON community_comment TO ${role};GRANT UPDATE(body,version,deleted_at) ON community_comment TO ${role};GRANT SELECT,INSERT,DELETE ON community_comment_like,community_comment_spam TO ${role};GRANT UPDATE(last_post) ON community_comment_spam TO ${role};GRANT SELECT,INSERT,UPDATE ON community_comment_limit TO ${role};GRANT SELECT ON authored_problem,authored_revision TO ${role};GRANT UPDATE(id) ON authored_problem TO ${role}`);
  runtime=new Pool({connectionString:url,options:`-c search_path=${schema},public -c role=${role}`});const api=createCommentsApi({...f.deps,pool:runtime,ip:()=> 'unknown'});
  const write=(who:string|undefined,body:unknown)=>api(req(who,body));
  const post=(who=owner,text='A new discussion',parent:string|null=null,k=key,requestId=randomUUID())=>write(who,{action:'create',key:k,parent,body:text,requestId});
@@ -42,7 +42,7 @@ test('0013 threaded comments, pagination, ownership, races and runtime grants',{
  assert.equal((await post(owner,'unknown public',null,'authored:'+randomUUID())).status,404);
  const reference=randomUUID(),root=(await parsed(await post(owner,'Initial text',null,key,reference),201)).id;
  assert.equal((await parsed(await post(owner,'Initial text',null,key,reference))).id,root);assert.equal((await post(owner,'Different intent',null,key,reference)).status,409);assert.equal((await post(owner,' Ｉｎｉｔｉａｌ  TEXT ')).status,409);
- const reply=(await parsed(await post(other,'A thoughtful reply',root),201)).id;assert.equal((await post(other,'Cross problem',root,otherKey)).status,404);
+ const replyRequest=randomUUID(),reply=(await parsed(await post(other,'A thoughtful reply',root,key,replyRequest),201)).id;assert.equal((await parsed(await post(other,'A thoughtful reply',root.toUpperCase(),key,replyRequest.toUpperCase()))).id,reply);assert.equal((await post(other,'Cross problem',root,otherKey)).status,404);
  await reset();
  assert.equal((await write(other,{action:'edit',key,id:root,version:1,body:'Forged edit'})).status,403);
  assert.equal((await write(other,{action:'delete',key,id:root,version:1})).status,403);
