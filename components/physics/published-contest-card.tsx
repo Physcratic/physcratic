@@ -13,6 +13,7 @@ import {
 import { useDashboard } from "@/hooks/use-dashboard";
 import { fetchJson } from "@/lib/api-client";
 import { contestStatus, type PublishedContest } from "@/lib/dashboard-data";
+import { formatContestDuration } from "@/lib/contest-contracts";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -120,7 +121,7 @@ export function PublishedContestCard({
           </span>
           <span className="flex items-center gap-2">
             <Clock3 className="size-4" aria-hidden="true" />
-            {contest.durationMinutes} minutes
+            {formatContestDuration(contest.durationMinutes)}
           </span>
           <span className="flex items-center gap-2">
             <Users className="size-4" aria-hidden="true" />
@@ -154,6 +155,7 @@ export function PublishedContestCard({
         )}
       </CardContent>
       <CardFooter className="flex-col items-start gap-3">
+        {contest.interactive && <Button asChild variant="outline"><Link href={`/dashboard/contests/${encodeURIComponent(contest.id)}`}>{status === "live" ? "Open live contest" : status === "past" ? "View saved contest answers" : "Contest details"}</Link></Button>}
         {registrationOpen ? (
           data?.user ? (
             <Button
@@ -181,7 +183,9 @@ export function PublishedContestCard({
               ? "You are registered."
               : status === "past"
                 ? "This contest has ended."
-                : "Registration is closed."}
+                : contest.interactive && status === "live" && contest.registrationOpen
+                  ? "Open the contest to join before it closes."
+                  : "Registration is closed."}
           </p>
         )}
         {notice && (
