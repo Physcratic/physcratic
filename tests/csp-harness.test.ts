@@ -26,6 +26,7 @@ test('diagnostic attribution excludes private paths, samples, identifiers and qu
   assert.equal(safeViolation({ ...event, sourceFile: 'http://local/__csp/private-user-id.js' }).asset, 'unknown');
   const result = safeViolation({ ...event, sourceFile: 'https://local/dashboard/authored/private-user-id?token=secret', sample: 'private content' });
   assert.equal(result.asset, 'unknown');
+  assert.equal(safeViolation({ ...event, blockedURI: 'https://blocked.invalid/disallowed.js' }).blocked, 'negative-control');
   assert.ok(!/private|secret|token|example/.test(JSON.stringify(result)));
 });
 

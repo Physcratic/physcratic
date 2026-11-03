@@ -50,10 +50,12 @@ export async function startLocal(mode, root = process.cwd()) {
     }
     const bundle = await build({ stdin: { contents: `
       import {z} from 'zod';
+      import {util} from 'zod/v4/core';
       import {getSignupCaptchaToken} from './lib/signup-captcha-client';
       if(new URLSearchParams(location.search).has('jitless')) z.config({jitless:true});
       const schema=z.object({value:z.number()});
       window.runZod=()=>({valid:schema.parse({value:4}).value,invalid:schema.safeParse({value:'bad'}).success});
+      window.zodCapability=()=>util.allowsEval.value;
       window.runCaptcha=getSignupCaptchaToken;
     `, resolveDir: root }, bundle: true, write: false, platform: 'browser', format: 'iife', define: { 'process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY': '"synthetic-local-fixture"' } });
     const reports = [], analytics = [];

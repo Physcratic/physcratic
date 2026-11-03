@@ -29,6 +29,8 @@ export function safeViolation(event, allowedAssets = []) {
   // Diagnostic proposal, NOT wired into the live collector. No arbitrary page
   // paths, blocked hostnames, script samples, stack strings or URL components.
   let asset = 'unknown';
+  let negativeControl = false;
+  try { negativeControl = new URL(event.blockedURI).origin === 'https://blocked.invalid'; } catch { /* keyword */ }
   try {
     const path = new URL(event.sourceFile).pathname;
     if (allowedAssets.includes(path)) asset = path.slice(0, 160);
@@ -36,7 +38,7 @@ export function safeViolation(event, allowedAssets = []) {
   } catch { /* non-URL source */ }
   return {
     directive: directives.has(event.effectiveDirective) ? event.effectiveDirective : 'other',
-    blocked: ['eval', 'wasm-eval', 'inline', 'data', 'blob'].includes(event.blockedURI) ? event.blockedURI : 'resource',
+    blocked: negativeControl ? 'negative-control' : ['eval', 'wasm-eval', 'inline', 'data', 'blob'].includes(event.blockedURI) ? event.blockedURI : 'resource',
     disposition: event.disposition === 'enforce' ? 'enforce' : 'report', asset,
     line: Number.isInteger(event.lineNumber) && event.lineNumber >= 0 ? Math.min(event.lineNumber, 1000000) : 0,
     column: Number.isInteger(event.columnNumber) && event.columnNumber >= 0 ? Math.min(event.columnNumber, 1000000) : 0,

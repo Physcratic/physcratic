@@ -49,13 +49,15 @@ Local Next 15.5.28 production build, React 19.3.1, pnpm 10.34.9, Playwright 1.64
 
 The codec fixture supplies local codec assets and `wasmUrl`; the production viewer does not configure that option. This proves PDF.js fallback capability, not every shipped PDF's codec coverage or production asset availability. No WASM permission is added.
 
-Firefox and WebKit binaries are absent locally (`firefox-1555`, `webkit-2370`): **test environment limitations**. The new `Local CSP harness` CI workflow installs all three engines and requires all three to run. Check its results on the final PR head; local Chromium alone is insufficient for an enforcement GO.
+Firefox and WebKit binaries are absent locally (`firefox-1555`, `webkit-2370`): **test environment limitations**. GitHub CI installs all three engines and has exercised all 54 workflow/mode combinations. Chromium and Firefox completed all assertions on the first run. WebKit completed functional flows, but exposed an incorrect test assumption: report-only Zod eval produced no event, despite valid/invalid parsing succeeding. Its enforcement fallback and negative-script blocking/report-delivery checks succeeded.
+
+The corrected test checks Zod's cached eval capability directly and records absent report-only eval events as an explicit **test environment / browser observability limitation**, rather than an application failure. Unexpected sites still fail. WASM fallback is verified independently through pixel output and downloaded assets, including when a worker report is absent. This blind spot is further evidence that report-only telemetry alone cannot justify enforcement. Require the corrected three-engine job to be green on the final PR head.
 
 Both existing authenticated student/editor browser suites pass with enforcing headers, disposable PostgreSQL 18.6, injected verified identities and in-memory private storage. They cover authoring CRUD/publication, math/media, private PDF downloads, explicit solution access/revocation, answer modes, assisted submissions, recovery/history, account isolation, keyboard controls, desktop/mobile overflow and axe. These are injected sessions, not real Better Auth login.
 
 **Remaining environment limitations:** real login/logout/cookie renewal; signup CAPTCHA scoring/challenge/server verification; verification/resend mail; private Blob transport; Vercel analytics execution/ingestion. No live credentials are bound. Stop those tests rather than using Production writes. Later setup needs isolated accounts, disposable DB, controlled mail recipients/provider sandbox and isolated storage. Community stays disabled; no migration or flag activation belongs to X3B.
 
-An initial build exhausted generated-cache disk space; the clean rerun passed. Early harness selector and guard argument-normalisation bugs were fixed before final validation. Those are not application regressions.
+An initial build exhausted generated-cache disk space; the clean rerun passed. Early harness selector, guard argument-normalisation and uniform report-only eval-event assumptions were corrected. Those are not application regressions.
 
 ## Attribution privacy and abuse resistance
 
@@ -113,7 +115,7 @@ Local checks pass: offline safety guards; Next typegen and `tsc --noEmit`; zero-
 
 ## X3C / eventual enforcement gates
 
-X3C may develop separately reviewed attribution and a scoped candidate after this test-only PR is accepted. Replace missing historical evidence with reproducible current-flow coverage; do not assert all eight reports were Zod.
+**X3C diagnostics/prototype GO:** this test-only PR is reviewed, reconciled with current main and green in standard CI plus all three browser engines; functional assertions pass, every observed exception is classified, and privacy/egress guards pass. X3C may then develop separately reviewed attribution and a scoped candidate while Production stays report-only. Missing real-provider credentials block those particular tests, not unrelated isolated diagnostic work. Replace missing historical evidence with reproducible current-flow coverage; do not assert all eight reports were Zod.
 
 Production remains NO-GO until all gates hold:
 
