@@ -69,9 +69,8 @@ test("EXIF-oriented crops use displayed dimensions and position", async () => {
     assert.ok(data[middle + channel] > 240);
   }
 });
-test("banners do not accept avatar crop settings and old callers still work", async () => {
+test("old callers without crop settings still work for pictures and banners", async () => {
   const bytes = await splitImage();
-  await assert.rejects(encodeProfileImage(bytes, "banner", defaultProfilePictureCrop), InvalidProfileImage);
   const avatar = await sharp(await encodeProfileImage(bytes, "avatar")).metadata();
   const banner = await sharp(await encodeProfileImage(bytes, "banner")).metadata();
   assert.equal(avatar.width, 512); assert.equal(banner.width, 1600); assert.equal(banner.height, 400);

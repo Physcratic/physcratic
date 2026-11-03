@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { profileMediaPolicy } from "./profile-media-contracts";
+import { profileMediaPolicy, type ProfileMediaKind } from "./profile-media-contracts";
 
 export const profilePictureCropSchema = z.strictObject({
   zoom: z.number().min(1).max(3),
@@ -9,18 +9,24 @@ export const profilePictureCropSchema = z.strictObject({
 export type ProfilePictureCrop = z.infer<typeof profilePictureCropSchema>;
 export const defaultProfilePictureCrop: ProfilePictureCrop = { zoom: 1, horizontal: 50, vertical: 50 };
 
-export function profilePictureCropBounds(width: number, height: number, adjustment: ProfilePictureCrop) {
+export function profileImageCropBounds(width: number, height: number, adjustment: ProfilePictureCrop, kind: ProfileMediaKind) {
   if (!Number.isInteger(width) || !Number.isInteger(height) || width < 32 || height < 32 ||
     width > profileMediaPolicy.maxEdge || height > profileMediaPolicy.maxEdge ||
     width * height > profileMediaPolicy.maxPixels) throw new RangeError("Unsupported image dimensions");
   const crop = profilePictureCropSchema.parse(adjustment);
-  const size = Math.max(1, Math.floor(Math.min(width, height) / crop.zoom));
+  const ratio = profileMediaPolicy[kind].width / profileMediaPolicy[kind].height;
+  const cropHeight = Math.max(1, Math.floor(Math.min(width / ratio, height) / crop.zoom));
+  const cropWidth = cropHeight * ratio;
   return {
-    left: Math.floor((width - size) * crop.horizontal / 100),
-    top: Math.floor((height - size) * crop.vertical / 100),
-    width: size,
-    height: size,
+    left: Math.floor((width - cropWidth) * crop.horizontal / 100),
+    top: Math.floor((height - cropHeight) * crop.vertical / 100),
+    width: cropWidth,
+    height: cropHeight,
   };
+}
+
+export function profilePictureCropBounds(width: number, height: number, adjustment: ProfilePictureCrop) {
+  return profileImageCropBounds(width, height, adjustment, "avatar");
 }
 
 export function isSupportedProfileImage(bytes: Uint8Array) {

@@ -134,6 +134,27 @@ test("profile media lifecycle and privacy on disposable PostgreSQL", { skip: !ur
     assert.equal(JSON.stringify(body).includes("zoom"), false);
   });
 
+  await t.test("cropped banner keeps avatar intact and follows visibility and removal", async () => {
+    const avatarId = (await (await upload()).json()).media.avatar.id;
+    const response = await apis[0]("upload", request(png, "owner", { "X-Profile-Banner-Crop": JSON.stringify({ zoom: 2, horizontal: 100, vertical: 0 }) }), "banner");
+    assert.equal(response.status, 201);
+    const body = await response.json(), bannerId = body.media.banner.id;
+    assert.equal(body.media.avatar.id, avatarId);
+    const ownerImage = await image(bannerId, "owner");
+    assert.equal(ownerImage.status, 200);
+    const metadata = await sharp(Buffer.from(await ownerImage.arrayBuffer())).metadata();
+    assert.equal(metadata.width, 1600); assert.equal(metadata.height, 400); assert.equal(metadata.exif, undefined);
+    assert.equal((await image(bannerId)).status, 404); assert.equal((await image(bannerId, "other")).status, 404);
+    await setup.query("UPDATE community_profile SET public_visibility=true WHERE user_id='owner'");
+    assert.equal((await image(bannerId)).status, 200);
+    await setup.query("UPDATE community_profile SET public_visibility=false WHERE user_id='owner'");
+    assert.equal((await image(bannerId)).status, 404);
+    const removed = await apis[0]("remove", request(), "banner");
+    assert.equal(removed.status, 200); assert.equal((await removed.json()).media.banner, null);
+    assert.equal((await image(bannerId, "owner")).status, 404); assert.equal((await image(avatarId, "owner")).status, 200);
+    assert.equal(objects.size, 1); assert.equal(JSON.stringify(body).includes("zoom"), false);
+  });
+
   await t.test("explicit owner upload, guest privacy, image revocation and sanitized metadata", async () => {
     const response = await upload(); assert.equal(response.status, 201);
     const body = await response.json(); assert.ok(body.media.avatar.id); assert.equal(body.media.banner, null);

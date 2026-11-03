@@ -128,8 +128,12 @@ export function createProfileMediaApi(deps: Dependencies) {
         await cleanup(user.id).catch(() => {});
         return profileReply(await ownResult(user.id));
       }
-      const cropHeader = request.headers.get("X-Profile-Picture-Crop");
-      if (cropHeader !== null && (kind !== "avatar" || cropHeader.length > 256)) throw new MediaError(400, "Invalid picture crop.");
+      const pictureCrop = request.headers.get("X-Profile-Picture-Crop");
+      const bannerCrop = request.headers.get("X-Profile-Banner-Crop");
+      if ((pictureCrop !== null && kind !== "avatar") || (bannerCrop !== null && kind !== "banner"))
+        throw new MediaError(400, "Invalid image crop.");
+      const cropHeader = kind === "avatar" ? pictureCrop : bannerCrop;
+      if (cropHeader !== null && cropHeader.length > 256) throw new MediaError(400, "Invalid image crop.");
       const crop = cropHeader === null ? undefined : profilePictureCropSchema.parse(JSON.parse(cropHeader));
       const bytes = await readRequestBytes(request, policy[kind!].inputBytes, 5000);
       const output = await encodeProfileImage(bytes, kind!, crop);

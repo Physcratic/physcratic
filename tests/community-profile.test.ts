@@ -6,6 +6,7 @@ import { ProfileCard } from "../components/community/profile-card";
 import { AccountSettings } from "../components/community/account-settings";
 import { publicProfileSchema, onboardingKey } from "../lib/community/profile-client";
 import { ProfilePictureUpload } from "../components/community/profile-picture-upload";
+import { ProfileBannerUpload } from "../components/community/profile-banner-upload";
 import { ProfileMediaControls } from "../components/community/profile-media-controls";
 
 test("profile rendering uses only approved fields and escapes biography and display names", () => {
@@ -45,6 +46,25 @@ test("picture picker labels the file input and shows saved media without exposin
   assert.match(html, /Remove picture/); assert.ok(html.includes(`src="${url}"`));
   assert.doesNotMatch(html, /blob\.vercel-storage|\/_next\/image|Save picture/);
 });
+test("banner picker shows saved application images, labelled input and bounded upload policy", () => {
+  const id = "00000000-0000-4000-8000-000000000002", url = `/api/community/profile-media/image/${id}`;
+  for (const busy of [false, true]) {
+    const html = renderToStaticMarkup(createElement(ProfileBannerUpload, {
+      media: { id, url }, busy, onUpload: async () => true, onRemove: () => {},
+    }));
+    assert.match(html, /Your saved banner/); assert.match(html, /Choose a replacement banner/);
+    assert.match(html, /for="banner-file"/); assert.match(html, /aria-describedby="banner-help"/);
+    assert.match(html, /Saved profile banner/); assert.match(html, /1600 × 400/); assert.match(html, /up to 5 MB/);
+    assert.match(html, /Remove banner/); assert.ok(html.includes(`src="${url}"`));
+    assert.doesNotMatch(html, /blob\.vercel-storage|\/_next\/image|Save banner/);
+    assert.equal(/<fieldset disabled/.test(html), busy);
+  }
+  const empty = renderToStaticMarkup(createElement(ProfileBannerUpload, {
+    media: null, busy: false, onUpload: async () => true, onRemove: () => {},
+  }));
+  assert.match(empty, /No banner uploaded/); assert.match(empty, /Choose a banner/);
+  assert.doesNotMatch(empty, /<img|Remove banner|Save banner/);
+});
 test("media controls keep upload fields behind saved-profile and verification gates", () => {
   for (const [enabled, saved, verified, message] of [
     [false, true, true, "Profile images are not available yet"],
@@ -52,6 +72,6 @@ test("media controls keep upload fields behind saved-profile and verification ga
     [true, true, false, "Verify your email before changing profile images"],
   ] as const) {
     const html = renderToStaticMarkup(createElement(ProfileMediaControls, { ownerId: "test-owner", enabled, saved, verified, onChange: () => {} }));
-    assert.ok(html.includes(message)); assert.doesNotMatch(html, /id="avatar-file"|Save picture|Remove picture/);
+    assert.ok(html.includes(message)); assert.doesNotMatch(html, /id="(?:avatar|banner)-file"|Save picture|Remove picture|Save banner|Remove banner/);
   }
 });
