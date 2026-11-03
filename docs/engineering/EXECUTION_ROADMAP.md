@@ -6,7 +6,7 @@ Baseline: main `ca9eeb79f5621d69d81b8a59a97a0b82892762ce`, verified 3 November 2
 | --- | --- | --- |
 | Complete | Authoring/revisions, student reading/submissions/grading, taxonomy, Learn, P1 | Preserve contracts and regressions |
 | Complete | Community 2A/2B1/2B2/3A/3B | PRs #90/#95/#98/#101; code merged, operator deployment/enablement remains unverified |
-| Active quality | Persistent agent memory and browser/CSP regression integration | No runtime/schema changes. Validate existing merged 3B in CI; keep local fixtures aligned with unified Arena. Exact delivery in [handoff](AGENT_HANDOFF.md) |
+| Active quality | Persistent agent memory and browser/CSP regression integration | No runtime/schema changes. Validate existing merged 3B in CI; keep local fixtures aligned with unified Arena. [PR #105](https://github.com/Physcratic/physcratic/pull/105), exact delivery in [handoff](AGENT_HANDOFF.md) |
 | Next P1 | Threaded discussion (Batch 4) | Bounded depth/pagination, safe content, ownership and withdrawal; default OFF until moderation is ready |
 | Next P1 | Moderation/reporting (Batch 5) | Protected queue/audit, reports/filtering/abuse controls and private access tests before discussion exposure |
 | Blocked | Community installation/grants/flags/deployment | User/operator only. Merged migrations 0007–0012 immutable; follow existing reviewed status procedures |

@@ -1,5 +1,11 @@
 # Beta readiness log
 
+## 2026-11-03 — Roadmap handoff and community regression integration
+
+- Recognised concurrent Batch 3B PR #101 on updated main and closed overlapping PR #102. Preserved the merged API, UI, schema and immutable migration 0012.
+- Added persistent agent rules, dependency-ordered roadmap and compact handoff. Aligned the local CSP fixture with unified Arena metadata and added a contract regression.
+- Made existing statistics/Arena browser suites portable and loopback-only, expanded statistics theme/keyboard checks and added disposable browser CI. No runtime, policy, migration or provider changes. Exact validation and delivery: [PR #105](https://github.com/Physcratic/physcratic/pull/105) and [handoff](AGENT_HANDOFF.md).
+
 ## 2026-11-02 — Merge UI work into main
 
 - Reconciled `v0/ui-work` with current `main`, preserving coaching, account, authoring and practice changes. Kept all practice/contest and coaching schema declarations without applying any database migration.
