@@ -13,13 +13,14 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { ArenaDocument } from "./arena-document";
 import { ArchiveAnswerPanel } from "./archive-answer-panel";
 
+import {ProblemStatsPanel} from '@/components/community/problem-stats';
 async function loadProblem(url: string) {
   const response = await fetch(url);
   if (!response.ok) throw new Error("The Arena problem could not be loaded.");
   return arenaProblemSchema.parse(await response.json());
 }
 
-export function ArenaProblemReader({ problem }: { problem: ArenaCatalogEntry }) {
+export function ArenaProblemReader({ problem,statsEnabled=false }: { problem: ArenaCatalogEntry;statsEnabled?:boolean }) {
   const { data, isLoading, error, mutate } = useSWRImmutable(problem.path, loadProblem);
   return <section className="mx-auto flex w-full max-w-4xl min-w-0 flex-col gap-6" aria-labelledby="arena-problem-title">
     <div><Button variant="ghost" asChild><Link href="/dashboard?view=problems&collection=arena"><ArrowLeft data-icon="inline-start" />Back to Physcratic Arena</Link></Button></div>
@@ -29,6 +30,7 @@ export function ArenaProblemReader({ problem }: { problem: ArenaCatalogEntry }) 
       <p className="text-pretty leading-relaxed text-muted-foreground">{problem.summary}</p>
       <div className="flex flex-wrap gap-2">{problem.tags.map((tag) => <Badge key={tag} variant="secondary">{tag}</Badge>)}</div>
     </header>
+    {statsEnabled&&<ProblemStatsPanel problemKey={`arena:${problem.id}`}/>}
     {isLoading && <div role="status" className="flex flex-col gap-3"><span className="text-sm text-muted-foreground">Loading typeset problem…</span><Skeleton className="h-96 w-full" /></div>}
     {error && <Alert variant="destructive"><AlertTitle>Could not load this problem</AlertTitle><AlertDescription><Button variant="outline" onClick={() => mutate()}><RotateCcw data-icon="inline-start" />Retry</Button></AlertDescription></Alert>}
     {data && <Tabs key={problem.id} defaultValue="statement" className="flex min-w-0 flex-col gap-4">

@@ -1,3 +1,4 @@
+import arenaRegistry from "@/lib/arena/index.json";
 import { sql } from "drizzle-orm";
 import type { AuthoredDocument, PrivatePart } from "@/lib/problem-authoring";
 import { check, foreignKey, index, type AnyPgColumn, boolean, bigint, date, doublePrecision, integer, jsonb, pgTable, primaryKey, text, timestamp, unique, uniqueIndex, uuid } from "drizzle-orm/pg-core";
@@ -440,6 +441,7 @@ export const authoredAttempts = pgTable(
       t.id.desc(),
     ),
     index("authored_attempt_revision_idx").on(t.revisionId, t.partId),
+    index("community_solve_scan_idx").on(t.revisionId,t.partId,t.userId).where(sql`${t.status}='correct' AND ${t.assisted}=false`),
     index("community_achievement_attempt_idx").on(t.userId,t.problemId,t.revisionId,t.partId).where(sql`${t.status}='correct' AND ${t.assisted}=false`),
     foreignKey({
       columns: [t.problemId, t.revisionId],
@@ -587,3 +589,17 @@ export const communityMedalAudit=pgTable('community_medal_audit',{
 export const communityMedalLimits=pgTable('community_medal_limit',{
  userId:text('user_id').primaryKey().references(()=>user.id),minute:timestamp('minute',{withTimezone:true}).notNull(),requests:integer('requests').notNull(),day:date('day').notNull(),uploads:integer('uploads').notNull(),
 });
+
+// Additive 0012. SQL guards own immutable identities, publication locks and atomic totals.
+export const communityProblemTotals=pgTable('community_problem_total',{
+ problemKey:text('problem_key').primaryKey(),favourites:bigint('favourites',{mode:'number'}).notNull().default(0),
+},t=>[check('community_problem_total_favourites_check',sql`${t.favourites}>=0`)]);
+export const communityFavourites=pgTable('community_favourite',{
+ userId:text('user_id').notNull().references(()=>user.id,{onDelete:'cascade'}),
+ problemKey:text('problem_key').notNull(),
+ authoredProblemId:uuid('authored_problem_id').generatedAlwaysAs(sql`CASE WHEN problem_key LIKE 'authored:%' THEN substring(problem_key FROM 10)::uuid END`).references(()=>authoredProblems.id,{onDelete:'cascade'}),
+ createdAt:timestamp('created_at',{withTimezone:true}).notNull().default(sql`clock_timestamp()`),
+},t=>[primaryKey({columns:[t.userId,t.problemKey]}),index('community_favourite_problem_idx').on(t.problemKey,t.userId),index('community_favourite_authored_idx').on(t.authoredProblemId).where(sql`${t.authoredProblemId} IS NOT NULL`),check('community_favourite_key_check',sql`${t.problemKey} ~ '^authored:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' OR ${t.problemKey}=ANY(${sql.raw("ARRAY["+arenaRegistry.problems.map(p=>"'arena:"+p.id+"'").join(',')+"]::text[]")})`)]);
+export const communityFavouriteLimits=pgTable('community_favourite_limit',{
+ userId:text('user_id').primaryKey().references(()=>user.id,{onDelete:'cascade'}),windowStart:timestamp('window_start',{withTimezone:true}).notNull(),requests:integer('requests').notNull(),
+},t=>[check('community_favourite_limit_requests_check',sql`${t.requests} BETWEEN 1 AND 61`)]);

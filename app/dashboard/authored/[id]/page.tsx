@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { z } from "zod";
 import { StudentPageClient } from "@/components/authored/student-page-client";
+import {communityProblemStatsEnabled} from '@/lib/community/problem-stats-route';
 export const metadata: Metadata = {
   // Keep this interactive account/permission surface out of search engines.
   // Discovery is public in the library; no private or withdrawn title metadata,
@@ -17,5 +18,5 @@ export default async function AuthoredProblemPage({
 }) {
   const parsed = z.uuid().safeParse((await params).id);
   if (!parsed.success) notFound();
-  return <StudentPageClient problemId={parsed.data.toLowerCase()} />;
+  return <StudentPageClient statsEnabled={communityProblemStatsEnabled()} problemId={parsed.data.toLowerCase()} />;
 }

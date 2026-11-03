@@ -4,7 +4,7 @@ import { createAuthoredLibraryApi } from './authored-library-api';
 import { arenaFiltersSchema, staticArenaEntries, unifiedArenaPageSchema, type CollectionEntry } from './unified-arena';
 import { achievementEligible, achievementIdSchema, type PublicMedal } from './community/achievements';
 const headers={'Cache-Control':'private, no-store','X-Robots-Tag':'noindex, nofollow','X-Content-Type-Options':'nosniff'};
-export function createUnifiedArenaApi(pool:Pool, flags:()=>{authors:boolean;badges:boolean;medals:boolean}=()=>({authors:false,badges:false,medals:false})) {
+export function createUnifiedArenaApi(pool:Pool, flags:()=>{authors:boolean;badges:boolean;medals:boolean;stats?:boolean}=()=>({authors:false,badges:false,medals:false})) {
  const library=createAuthoredLibraryApi(pool);
  return async(request:Request)=>{
   try {
@@ -45,7 +45,7 @@ export function createUnifiedArenaApi(pool:Pool, flags:()=>{authors:boolean;badg
      if(page.problems.length>room||page.nextCursor)nextCursor=problems.at(-1)?.key??f.after??null;
     }
    }
-   return Response.json(unifiedArenaPageSchema.parse({problems,nextCursor,authoredUnavailable,attributionUnavailable}),{headers});
+   return Response.json(unifiedArenaPageSchema.parse({problems,nextCursor,authoredUnavailable,attributionUnavailable,...(flags().stats?{statsEnabled:true}:{})}),{headers});
   }catch{return Response.json({error:'The collection is temporarily unavailable.'},{status:503,headers});}
  };
 }
