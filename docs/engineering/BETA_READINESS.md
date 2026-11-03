@@ -427,3 +427,10 @@ Retained main's new codex Preview smoke exclusion unchanged. Manual smoke checks
 - Local Chromium passes 18 scenarios. Both authenticated fixture suites and relevant CI-equivalent checks pass. CI exercises all three engines; WebKit's missing report-only eval events are an explicit observability limitation, while enforcement fallback and negative reporting succeed.
 - Reproduced Zod probe and JIT sites, without attributing all eight historical reports by assumption. The isolated nonce prototype loses public prerendering/caching and does not ship.
 - Production remains report-only and NO-GO for enforcement, prohibited before 9 November and conditional thereafter. Evidence, limitations and X3C gates: [CSP X3B](CSP_X3B.md).
+
+## 2026-11-03 - X3C: CSP architecture and provider preparation
+
+- Merged reviewed X3B PR #93 as `c63d739`, after current-main and both-workflow checks. Production policy/collector and application interfaces remain unchanged.
+- Added isolated hybrid nonce/hash experiments, build-bound static header proposals, privacy/budget diagnostics and fail-closed offline provider preflight. The scoped prototype retains all 19 prerendered entries and public caching, with measured small JS and server-workload costs.
+- Real providers remain blocked by missing disposable resources, credentials/origin and egress. No Production/staging configuration, database/migration/grant or feature changes. No active architecture or enforcement is merged.
+- Decision, reproducible measurements and explicit next-phase gates: [CSP X3C](CSP_X3C.md). Exact provider setup and assertions: [provider handoff](CSP_PROVIDER_VERIFICATION.md).
