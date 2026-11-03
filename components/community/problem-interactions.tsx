@@ -1,5 +1,5 @@
 "use client";
-import React,{createContext,useContext,useEffect,useRef,useState} from 'react';
+import React,{createContext,useContext,useEffect,useLayoutEffect,useRef,useState} from 'react';
 import Link from 'next/link';
 import { authClient } from '@/lib/auth-client';
 import { Button } from '@/components/ui/button';
@@ -9,10 +9,13 @@ export function ProblemInteractionsProvider({keys,children}:{keys:string[];child
  const {data:session,isPending,error:sessionError}=authClient.useSession();
  const [reload,setReload]=useState(0);
  const fingerprint=JSON.stringify([keys,session?.user.id??'guest',session?.user.emailVerified??false,isPending,!!sessionError,reload]);
- const generation=useRef({fingerprint,value:0});
- if(generation.current.fingerprint!==fingerprint)generation.current={fingerprint,value:generation.current.value+1};
- const requestKey=JSON.stringify([fingerprint,generation.current.value]);
- const active=useRef(requestKey);active.current=requestKey;
+ // Render-phase state is discarded with abandoned work. Shared refs must only
+ // track committed selections, or a suspended render could cancel the live GET.
+ const [selection,setSelection]=useState({fingerprint,generation:0});
+ if(selection.fingerprint!==fingerprint)setSelection({fingerprint,generation:selection.generation+1});
+ const requestKey=JSON.stringify([fingerprint,selection.generation]);
+ const active=useRef<string|null>(requestKey);
+ useLayoutEffect(()=>{active.current=requestKey;return()=>{active.current=null;};},[requestKey]);
  const [result,setResult]=useState<{key:string;data?:ReturnType<typeof interactionsSchema.parse>;error?:boolean;disabled?:boolean;busy?:boolean}>();
  const current=result?.key===requestKey?result:undefined;
  const selected=JSON.stringify(keys);
