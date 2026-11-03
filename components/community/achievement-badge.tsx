@@ -1,7 +1,8 @@
 import React from "react";
 import { Flame, Layers, Shapes, Crown, Lightbulb, Compass, Mountain } from "lucide-react";
-import { achievementDefinitions, type AchievementId } from "@/lib/community/achievements";
+import { achievementDefinitions, achievementIdSchema, type BadgeId, type PublicMedal, type AchievementId } from "@/lib/community/achievements";
 
+import { MedalBadge } from "./medal-badge";
 const colors = {
   slate: "border-slate-400 bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-slate-100",
   teal: "border-teal-500 bg-teal-50 text-teal-900 dark:bg-teal-950 dark:text-teal-100",
@@ -26,7 +27,7 @@ export function AchievementBadge({ id }: { id: AchievementId }) {
   </details>;
 }
 
-export function AchievementShowcase({ ids }: { ids: readonly AchievementId[] }) {
+export function AchievementShowcase({ ids, medals=[] }: { ids: readonly BadgeId[]; medals?:PublicMedal[] }) {
   if (!ids.length) return null;
-  return <div aria-label="Achievement showcase" className="flex min-w-0 flex-wrap items-start gap-2">{[...new Set(ids)].slice(0, 2).map(id => <AchievementBadge key={id} id={id} />)}</div>;
+  return <div aria-label="Achievement showcase" className="flex min-w-0 flex-wrap items-start gap-2">{[...new Set(ids)].slice(0, 2).map(id => {const earned=achievementIdSchema.safeParse(id),medal=medals.find(m=>m.id===id);return earned.success?<AchievementBadge key={id} id={earned.data} />:medal?<MedalBadge key={id} medal={medal}/>:null;})}</div>;
 }

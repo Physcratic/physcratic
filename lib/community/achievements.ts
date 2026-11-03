@@ -12,8 +12,14 @@ export const achievementDefinitions = [
 export type AchievementId = typeof achievementDefinitions[number]["id"];
 export type AchievementCategory = "author" | "solver";
 export const achievementIdSchema = z.enum(achievementDefinitions.map(item => item.id));
-export const showcaseSchema = z.strictObject({ selectedIds: z.array(achievementIdSchema).max(2)
+export const medalBadgeIdSchema=z.string().regex(/^medal:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/);
+export const badgeIdSchema=z.union([achievementIdSchema,medalBadgeIdSchema]);
+export type BadgeId=z.infer<typeof badgeIdSchema>;
+export const publicMedalSchema=z.strictObject({id:medalBadgeIdSchema,competition:z.enum(['IPhO','APhO','EuPhO','National']),award:z.enum(['gold','silver','bronze','honourable-mention']),year:z.number().int(),country:z.string(),competitionName:z.string()});
+export type PublicMedal=z.infer<typeof publicMedalSchema>;
+export const showcaseSchema = z.strictObject({ selectedIds: z.array(badgeIdSchema).max(2)
   .refine(ids => new Set(ids).size === ids.length) });
+export const publicShowcaseSchema=showcaseSchema.extend({medals:z.array(publicMedalSchema).max(2).optional()});
 export const achievementProgressSchema = z.strictObject({ author: z.number().int().min(0).max(50), solver: z.number().int().min(0).max(50).nullable() });
 export type AchievementProgress = z.infer<typeof achievementProgressSchema>;
 export function achievementEligible(id: AchievementId, progress: AchievementProgress) {
@@ -22,6 +28,7 @@ export function achievementEligible(id: AchievementId, progress: AchievementProg
   return count !== null && count >= definition.threshold;
 }
 export const ownAchievementsSchema = z.strictObject({
+  medals:z.array(publicMedalSchema).max(20).optional(),
   progress: achievementProgressSchema, selectedIds: showcaseSchema.shape.selectedIds,
   hiddenSelectionCount: z.number().int().min(0).max(2), profileExists: z.boolean(),
 });
