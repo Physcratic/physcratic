@@ -1,5 +1,57 @@
 # Community implementation status
 
+## Batch 2B2: verification UI and medal badges
+
+**Deployment: PENDING USER ACTION. NOT DEPLOYED BY CODEX. No production/staging SQL, Vercel actions, feature enablement or README-trigger commits performed.**
+
+Started from main `c7bb242c246bb4a43c01fe38058099d82f8f3d9b`; incorporated main's unrelated CSP diagnostics PR #93 (`c63d739ac850b4cd7488a34505ec2704eb0dbce5`). Branch `codex/community-batch-2b2`. Delivered in [PR #95](https://github.com/Physcratic/physcratic/pull/95), tested head `f6fccf2040c3b3b3758874c7f78190851ba52674`. Final feature merge SHA: **`f74ddcafcf2ead63d98ae146b767b546e1933422`**. [GitHub CI #163](https://github.com/Physcratic/physcratic/actions/runs/41580876669) passed both jobs, including database/operator guards, typecheck, lint, unit/component tests and production build. This handoff is a subsequent documentation-only commit. No implementation blockers remain.
+
+### Implemented behaviour and changed files
+
+- `/settings` now has a separately gated verification section: competition, award, year, country/National competition name, private certificate name and PDF submission, bounded validation, Unicode-safe claim headers, own claim history/status/reviewer feedback and explicit retry/reconciliation guidance. It uses the unchanged Batch 2B1 upload/status APIs. Approval does not publish a medal automatically.
+- `/admin/verification` authorizes through the existing admin API before rendering the dashboard. It provides 50-record keyset pagination, claim-ID lookup for completed reviews, private certificate download, approve/reject/request-more-info/revoke with required reasons and version checks, and immutable audit history. CSV exports only the current page's metadata (ID, competition, award, year, country, state), with spreadsheet formula escaping. Certificate names, files and review reasons are excluded from CSV. Session changes reset scoped client state; authorization failures clear private details. Staff identity or appearance never grants permission. Existing server-side role, self-review and proof-download checks remain authoritative.
+- Approved medals share the existing **two ordered showcase slots** with earned achievements. Existing selections are preserved without backfill or automatic publication. Gold, Silver, Bronze and Honourable Mention are distinct, labelled with competition/year and accessible keyboard/touch details. Only explicitly selected, currently approved medals on currently public profiles are returned publicly. Public responses omit certificate names, files, storage details, reviewer identity and claim reasons. Revocation removes eligibility on the next uncached read; dormant selections remain stored until replaced by the owner. Flags off hide medals safely without invalidating earned selections.
+- UI: `components/community/verification-{settings,dashboard}.tsx`, `medal-badge.tsx`, existing `achievement-{badge,settings}.tsx`, `account-settings.tsx`, `profile-card.tsx`; `app/admin/verification/page.tsx`, `app/settings/page.tsx`, `app/u/[handle]/page.tsx`.
+- Contracts/API wiring: `lib/community/medal-client.ts`, `achievements{,-api,-route,-server}.ts`, `medal-route.ts`; Drizzle `lib/db/schema.ts`; additive `migrations/0011_community_medal_showcase.{up,down}.sql`. Established PDF upload/review/storage backend and migrations **0001–0010 are unchanged**.
+- Verification: `lib/community-medal-showcase.test.ts`, `tests/community-medal-badge.test.ts`, `tests/community-verification.browser.mjs`, extended `tests/community-profile-harness.tsx`.
+
+### Default-off flags and exact schema/grant prerequisites
+
+- **`COMMUNITY_VERIFICATION_UI_ENABLED=true`** exposes the Settings/review UI only when both existing `COMMUNITY_MEDALS_ENABLED=true` and `COMMUNITY_STAFF_ENABLED=true` are also set. The admin page's disabled gate runs before session/API/database access. Verification UI needs installed **0010**, its exact grants, audited staff setup and private storage prerequisites below. It does not itself require 0011 or a public profile.
+- **`COMMUNITY_MEDAL_SHOWCASE_ENABLED=true`** additionally requires profiles, achievements, medals and staff flags all true. It enables approved-medal queries only after installed **0007, 0009, 0010 and 0011** and grants. With this new flag off, earned achievements still work on the existing 0009 schema without 0010/0011; neither the new view nor medal table is queried. Optional image migration 0008 and media flag remain independent.
+- **0011** preserves the selection table and its existing data/order. It replaces the CHECK/guard to allow earned IDs or `medal:<uuid>`, still at most two unique entries. The guard locks the current approved claim and verifies ownership, preventing foreign/unapproved selections and serializing against revocation. `community_approved_medal` is a security-invoker view with public-safe columns only. Runtime retains existing 0010 SELECT/UPDATE on claims (the row lock requires UPDATE) and all existing 0009 grants. No staff-write or proof-access privilege is added.
+
+**Later production procedure — user/operator only:**
+
+1. Keep the two new flags OFF. Verify a recovery point, direct non-pooled owner connection, confirmed non-owner runtime role, migration ledger/checksums and installed prerequisite schemas/grants. Do not infer installation from merged code or replay 0001–0010. Install absent prerequisites only through their separately reviewed procedures below; reconcile drift before proceeding.
+2. Review `sha256sum migrations/0011_community_medal_showcase.up.sql` against the reviewed merge (SHA-256 `d38abcc9f4efd5ed01e1f530e62d610e13ef91ef7ecf034c30bbce478ccd9802`). If 0011 is absent, use the confirmed owner connection with `BEGIN; SET LOCAL search_path=public,pg_catalog; SET LOCAL lock_timeout='5s'; SET LOCAL statement_timeout='60s'; SELECT pg_advisory_xact_lock(hashtextextended('physcratic:authoring:migrations:v1',0));`, then execute the complete reviewed 0011 up file once.
+3. **Before COMMIT, in the same transaction**, grant the helper and view to the confirmed existing runtime role:
+
+```sql
+GRANT EXECUTE ON FUNCTION public.community_showcase_ids_valid(text[])
+  TO "CONFIRMED_RUNTIME_ROLE";
+GRANT SELECT ON public.community_approved_medal
+  TO "CONFIRMED_RUNTIME_ROLE";
+```
+
+The helper grant is mandatory for **all** showcase writes after installation, including earned-only writes while the medal flag is OFF, because the CHECK calls it. Do not commit the migration without this grant. Retain existing schema USAGE, 0009 table/function grants and 0010 claim SELECT/INSERT/UPDATE grants documented below. Never grant runtime staff writes, audit writes, ownership or schema CREATE.
+4. Verify constraints/view/trigger, existing selections/order and runtime earned/medal/private/revoked cases. Record ID, checksum, source commit, actor, time and result in `public.physcratic_production_migrations` using its existing format. Commit only after migration and grants succeed, otherwise roll back. Lock timeout means retry later in an appropriate window.
+5. Only the user configures flags/deploys through the GitHub account associated with the paid Vercel seat, after prerequisite installation, grants, private-store access and audited staff setup are verified. Confirm the deployed SHA/READY state, then smoke-test own submission, non-admin and self-review denial, admin review/private download, mixed selection/order, profile privacy, revocation and existing auth/submission/authoring. No production installation or deployment is asserted by this handoff.
+6. Roll back exposure by disabling the new flags and deploying through the user. Preserve claim/proof/audit/selection data. The 0011 down migration refuses any stored medal selection, including dormant entries; it restores the old earned-only guard and is intended for disposable verification, not automatic production rollback.
+
+### Validation and limitations
+
+- Targeted disposable PostgreSQL 18.6: **19 tests passed**, including 0011 up/down/up preserving old selections, populated-down refusal, restricted runtime privileges, missing-new-schema compatibility while disabled, ownership/forged IDs, two-slot uniqueness/order, private/public visibility and live revocation. Existing 2B1 tests cover self-review denial, staff role forgery/revocation, approval races, IDOR, PDF abuse and storage failures.
+- Real-component/API/disposable-PostgreSQL browser flow: **23 assertions passed**. Covers PDF submission with a non-ASCII certificate name, paginated queue, secure download, metadata CSV, more-info/approval/audit, mixed slot selection/order/persistence, public redaction, revocation, private profiles and non-admin denial. Chromium desktop/mobile (1440px/375px), light/dark, keyboard disclosure and mobile overflow checked; axe found **zero violations** in all checked views. Screenshots visually reviewed; synthetic artifacts kept outside the repository.
+- Typecheck, zero-warning lint, production build, offline isolation guards and `git diff --check` passed. Full suite on the synchronized main: **684 server tests passed, zero failures, one inherited corpus-punctuation TODO; 35 component tests passed**. GitHub CI #163 passed on the exact tested head before merge. An initial local rerun could not start disposable PostgreSQL due to local disk pressure; generated build cache was cleared and the suite restarted. No production resources were involved.
+- Actual built Next server with all community flags OFF and an unreachable synthetic database: Settings and admin unavailable page returned 200; medal own/queue and achievement routes returned explicit disabled 503 with private/no-store. No new schema is required to ship disabled code. The existing global Better Auth connection diagnostic remains unrelated to community table access.
+- Retained 2B1 limits: 5 MiB/20-page restricted PDFs, five upload attempts/day, 20 lifetime reservations/account; ambiguous uploads require operator reconciliation. More-info does not replace immutable proof; reviewers must reject before a corrected fresh claim. No automated retention/cleanup is introduced. The review queue contains pending/more-info records; completed claims are opened by claim ID. CSV is current-page metadata only. Previously downloaded proofs cannot be recalled.
+- **Next phase: Batch 3A. Stop after 2B2.** Production migration/grants, enablement, private-store configuration, deployment and deployed smoke checks remain **PENDING USER ACTION**.
+
+---
+
+## Historical Batch 2B1 handoff
+
 ## Batch 2B1: medal verification backend and staff authorization
 
 **Deployment: PENDING USER ACTION. No production/staging SQL or Vercel actions performed.**

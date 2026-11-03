@@ -4,17 +4,18 @@ import { z } from "zod";
 import { readRequestBytes, RequestBodyTimeoutError } from "../submission-request";
 import { profileHandleSchema } from "./profile-contracts";
 import { profileReply } from "./profile-api";
-import { achievementEligible, showcaseSchema, type AchievementId, type AchievementProgress } from "./achievements";
+import { achievementEligible, showcaseSchema, achievementIdSchema, type BadgeId, type PublicMedal, type AchievementProgress } from "./achievements";
 
 type Dependencies = {
   pool: Pool;
+  medalsEnabled?:()=>boolean;
   user: (request: Request) => Promise<{ id: string; emailVerified?: boolean } | null | undefined>;
   origin: (request: Request) => boolean;
 };
 class AchievementError extends Error {
   constructor(public status: number, message: string) { super(message); }
 }
-type Snapshot = { author: number; solver: number | null; badgeIds: AchievementId[]; profileExists: boolean };
+type Snapshot = { author: number; solver: number | null; badgeIds: BadgeId[]; profileExists: boolean };
 const projection = `g.author_count AS author,g.solve_count AS solver,coalesce(s.badge_ids,'{}'::text[]) AS "badgeIds"`;
 
 export function createCommunityAchievementsApi(deps: Dependencies) {
@@ -22,6 +23,7 @@ export function createCommunityAchievementsApi(deps: Dependencies) {
     let client: PoolClient | undefined;
     let transaction = false;
     try {
+      const medalsOn=deps.medalsEnabled?.()===true;
       const url = new URL(request.url), handle = url.searchParams.get("handle");
       if ([...url.searchParams.keys()].some(key => key !== "handle") || url.searchParams.getAll("handle").length > 1)
         throw new AchievementError(400, "Invalid achievements request.");
@@ -44,12 +46,13 @@ export function createCommunityAchievementsApi(deps: Dependencies) {
           response.headers.set("Retry-After", "60"); return response;
         }
       }
-      let selection: { selectedIds: AchievementId[] } | undefined;
+      let selection: { selectedIds: BadgeId[] } | undefined;
       if (request.method === "PATCH") {
         if (request.headers.get("content-type")?.split(";")[0].trim().toLowerCase() !== "application/json")
           throw new AchievementError(415, "Send JSON.");
         const bytes = await readRequestBytes(request, 2048, 5000);
         selection = showcaseSchema.parse(JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes)));
+        if(!medalsOn&&selection.selectedIds.some(id=>!achievementIdSchema.safeParse(id).success))throw new AchievementError(400,"Medal showcase is disabled.");
       }
       client = await deps.pool.connect();
       await client.query("BEGIN"); transaction = true;
@@ -57,11 +60,11 @@ export function createCommunityAchievementsApi(deps: Dependencies) {
       await client.query("SET LOCAL lock_timeout='2s'");
       if (handle !== null) {
         // Never return identity or progress publicly. Resolve visibility and current eligibility in one snapshot.
-        const lookup = await client.query<{ badgeIds: AchievementId[] }>(`SELECT coalesce(s.badge_ids,'{}'::text[]) AS "badgeIds"
+        const lookup = await client.query<{ badgeIds: BadgeId[] }>(`SELECT coalesce(s.badge_ids,'{}'::text[]) AS "badgeIds"
           FROM community_profile p LEFT JOIN community_badge_selection s ON s.user_id=p.user_id
           WHERE lower(p.handle)=$1 AND p.public_visibility=true`, [parsedHandle!.data]);
         if (!lookup.rows[0]) throw new AchievementError(404, "Profile not found.");
-        let selectedIds: AchievementId[] = [];
+        let selectedIds: BadgeId[] = [];
         if (lookup.rows[0].badgeIds.length) {
           const result = await client.query<Snapshot>(`SELECT ${projection} FROM community_profile p
             JOIN community_badge_selection s ON s.user_id=p.user_id
@@ -70,8 +73,10 @@ export function createCommunityAchievementsApi(deps: Dependencies) {
           if (!result.rows[0]) throw new AchievementError(404, "Profile not found.");
           selectedIds = active(result.rows[0]);
         }
+        let medals:PublicMedal[]=[];
+        if(medalsOn){medals=(await client.query<PublicMedal>(`SELECT m.id,m.competition,m.award,m.year,m.country,m."competitionName" FROM community_approved_medal m JOIN community_profile p ON p.user_id=m.user_id JOIN community_badge_selection s ON s.user_id=p.user_id WHERE lower(p.handle)=$1 AND p.public_visibility=true AND m.id=ANY(s.badge_ids)`,[parsedHandle!.data])).rows;selectedIds=lookup.rows[0].badgeIds.filter(id=>selectedIds.includes(id)||medals.some(m=>m.id===id));}
         await client.query("COMMIT"); transaction = false;
-        return profileReply({ selectedIds });
+        return profileReply({ selectedIds,...(medalsOn?{medals}: {}) });
       }
       if (selection) {
         await client.query("SELECT pg_advisory_xact_lock(hashtextextended($1,9))", [`community-achievements:${user!.id}`]);
@@ -85,10 +90,12 @@ export function createCommunityAchievementsApi(deps: Dependencies) {
       }
       const result = await client.query<Snapshot>(`SELECT ${projection},EXISTS(SELECT 1 FROM community_profile WHERE user_id=$1) AS "profileExists"
         FROM community_achievement_progress($1) g LEFT JOIN community_badge_selection s ON s.user_id=$1`, [user!.id]);
-      const snapshot = result.rows[0], selectedIds = active(snapshot);
+      const snapshot = result.rows[0];
+      const medals:PublicMedal[]=medalsOn?(await client.query<PublicMedal>(`SELECT id,competition,award,year,country,"competitionName" FROM community_approved_medal WHERE user_id=$1 ORDER BY year DESC,id LIMIT 20`,[user!.id])).rows:[];
+      const earned=active(snapshot),selectedIds=snapshot.badgeIds.filter(id=>earned.includes(id)||medals.some(m=>m.id===id));
       await client.query("COMMIT"); transaction = false;
       return profileReply({ progress: { author: snapshot.author, solver: snapshot.solver }, selectedIds,
-        hiddenSelectionCount: snapshot.badgeIds.length - selectedIds.length, profileExists: snapshot.profileExists });
+        hiddenSelectionCount: snapshot.badgeIds.length - selectedIds.length, profileExists: snapshot.profileExists,...(medalsOn?{medals}: {}) });
     } catch (error) {
       if (client && transaction) await client.query("ROLLBACK").catch(() => {});
       if (error instanceof AchievementError) return profileReply({ error: error.message }, error.status);
@@ -101,7 +108,7 @@ export function createCommunityAchievementsApi(deps: Dependencies) {
     } finally { client?.release(); }
   };
 }
-function active(snapshot: Snapshot): AchievementId[] {
+function active(snapshot: Snapshot): BadgeId[] {
   const progress: AchievementProgress = { author: snapshot.author, solver: snapshot.solver };
-  return snapshot.badgeIds.filter(id => achievementEligible(id, progress));
+  return snapshot.badgeIds.filter(id => {const parsed=achievementIdSchema.safeParse(id);return parsed.success&&achievementEligible(parsed.data, progress);});
 }

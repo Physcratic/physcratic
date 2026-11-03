@@ -4,7 +4,7 @@ import { check, foreignKey, index, type AnyPgColumn, boolean, bigint, date, doub
 import type { ProfileEducationLevel, ProfileTopicId } from "@/lib/community/profile-contracts";
 import type { SolutionSubmission } from "@/lib/solution-grading";
 import type { ProblemAnswerCheck } from "@/lib/individual-elo";
-import type { AchievementId } from "@/lib/community/achievements";
+import type { BadgeId } from "@/lib/community/achievements";
 
 // Mirrors the already-deployed Better Auth shared limiter table.
 export const rateLimit = pgTable("rateLimit", {
@@ -49,13 +49,13 @@ export const communityProfileWriteLimits = pgTable("community_profile_write_limi
 // Additive 0009. SQL owns live eligibility functions and the selection validation trigger.
 export const communityBadgeSelections = pgTable("community_badge_selection", {
   userId: text("user_id").primaryKey().references(() => communityProfiles.userId, { onDelete: "cascade" }),
-  badgeIds: text("badge_ids").array().$type<AchievementId[]>().notNull().default(sql`'{}'::text[]`),
+  badgeIds: text("badge_ids").array().$type<BadgeId[]>().notNull().default(sql`'{}'::text[]`),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().default(sql`clock_timestamp()`),
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().default(sql`clock_timestamp()`),
 }, (t) => [check("community_badge_selection_ids_check", sql`(
   cardinality(${t.badgeIds})<=2 AND (cardinality(${t.badgeIds})=0 OR (array_ndims(${t.badgeIds})=1 AND array_lower(${t.badgeIds},1)=1))
   AND array_position(${t.badgeIds},NULL) IS NULL AND (cardinality(${t.badgeIds})<2 OR ${t.badgeIds}[1]<>${t.badgeIds}[2])
-  AND ${t.badgeIds} <@ ARRAY['first-spark','problem-weaver','equation-architect','master-problem-setter','first-breakthrough','persistent-solver','olympiad-pathfinder']::text[]
+  AND community_showcase_ids_valid(${t.badgeIds})
   ) IS TRUE`)]);
 export const communityAchievementWriteLimits = pgTable("community_achievement_write_limit", {
   userId: text("user_id").primaryKey().references(() => user.id, { onDelete: "cascade" }),

@@ -5,10 +5,10 @@ import { educationLabels, type PublicProfile } from "@/lib/community/profile-cli
 import { emptyProfileMedia, type ProfileMediaSet } from "@/lib/community/profile-media-contracts";
 import { ProfileImage } from "./profile-image";
 import { AchievementShowcase } from "./achievement-badge";
-import type { AchievementId } from "@/lib/community/achievements";
+import type { BadgeId, PublicMedal } from "@/lib/community/achievements";
 
-export function ProfileCard({ profile, media = emptyProfileMedia, badgeIds = [], compact = false, headingLevel = 1 }: {
-  profile: PublicProfile; media?: ProfileMediaSet; badgeIds?: AchievementId[]; compact?: boolean; headingLevel?: 1 | 3;
+export function ProfileCard({ profile, media = emptyProfileMedia, badgeIds = [], medals = [], compact = false, headingLevel = 1 }: {
+  profile: PublicProfile; media?: ProfileMediaSet; badgeIds?: BadgeId[]; medals?:PublicMedal[]; compact?: boolean; headingLevel?: 1 | 3;
 }) {
   const Heading = headingLevel === 1 ? "h1" : "h3";
   return <article className="min-w-0 overflow-hidden rounded-2xl border bg-card text-card-foreground shadow-sm" aria-label={compact ? "Profile preview" : "Public profile"}>
@@ -20,7 +20,7 @@ export function ProfileCard({ profile, media = emptyProfileMedia, badgeIds = [],
         {media.avatar ? <ProfileImage src={media.avatar.url} avatar />
           : <UserRound aria-hidden="true" className="size-9 text-muted-foreground" />}
       </div>
-      <div className="flex min-w-0 flex-wrap items-center gap-3"><Heading className={`${compact ? "text-xl" : "text-2xl sm:text-3xl"} min-w-0 break-words font-semibold tracking-tight [overflow-wrap:anywhere]`}>{profile.displayName || profile.handle || "Your display name"}</Heading><AchievementShowcase ids={badgeIds} /></div>
+      <div className="flex min-w-0 flex-wrap items-center gap-3"><Heading className={`${compact ? "text-xl" : "text-2xl sm:text-3xl"} min-w-0 break-words font-semibold tracking-tight [overflow-wrap:anywhere]`}>{profile.displayName || profile.handle || "Your display name"}</Heading><AchievementShowcase ids={badgeIds} medals={medals} /></div>
       <p className="mt-1 break-all text-sm text-muted-foreground">@{profile.handle || "username"}</p>
       {profile.bio && <p className="mt-5 whitespace-pre-wrap break-words text-sm leading-7 [overflow-wrap:anywhere]">{profile.bio}</p>}
       {profile.educationLevel !== "prefer-not-to-say" && <p className="mt-5 flex items-center gap-2 text-sm text-muted-foreground"><GraduationCap aria-hidden="true" className="size-4 shrink-0" />{educationLabels[profile.educationLevel]}</p>}
