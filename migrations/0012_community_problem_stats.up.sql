@@ -37,6 +37,10 @@ BEGIN
  UPDATE community_problem_total SET favourites=favourites-1 WHERE problem_key=OLD.problem_key;
  RETURN OLD;
 END $$;
+-- Explicit pg_temp last prevents caller-created temporary relations shadowing owner tables.
+DO $$ DECLARE trusted_schema text:=current_schema(); BEGIN
+ EXECUTE pg_catalog.format('ALTER FUNCTION %I.community_favourite_total() SET search_path TO %I, pg_catalog, pg_temp',trusted_schema,trusted_schema);
+END $$;
 CREATE TRIGGER community_favourite_total AFTER INSERT OR DELETE ON community_favourite FOR EACH ROW EXECUTE FUNCTION community_favourite_total();
 CREATE INDEX community_solve_scan_idx ON authored_attempt(revision_id,part_id,user_id)
  WHERE status='correct' AND assisted=false;

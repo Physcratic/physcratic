@@ -24,6 +24,12 @@ test('0012 favourites, exact solve eligibility, isolation and concurrency on dis
  runtime=new Pool({connectionString:url,options:`-c search_path=${schema},public -c role=${role}`});const api=createProblemStatsApi({...f.deps,pool:runtime});
  const write=(who:string|undefined,k=key,favourite=true,extra={})=>api(req(who,{key:k,favourite,...extra},'PUT','/api'));
  const read=async(who?:string,keys=[key,staticKey])=>parsed(await api(req(who,undefined,'GET','/api?'+new URLSearchParams({keys:JSON.stringify(keys)}))));
+ const shadow=await runtime.connect();
+ await shadow.query('CREATE TEMP TABLE community_problem_total(problem_key text PRIMARY KEY,favourites bigint CHECK(false))');
+ await shadow.query('INSERT INTO community_favourite(user_id,problem_key) VALUES($1,$2)',[owner,staticKey]);
+ assert.equal(Number((await pool.query(`SELECT favourites FROM ${schema}.community_problem_total WHERE problem_key=$1`,[staticKey])).rows[0].favourites),1);
+ await shadow.query('DELETE FROM community_favourite WHERE user_id=$1 AND problem_key=$2',[owner,staticKey]);
+ await shadow.query('DROP TABLE pg_temp.community_problem_total');shadow.release();
  assert.equal((await write(undefined)).status,401);assert.equal((await write(unverified)).status,403);assert.equal((await write(student,key,true,{userId:owner})).status,400);
  const wrongOrigin=req(student,{key,favourite:true},'PUT');wrongOrigin.headers.set('origin','https://evil.test');assert.equal((await api(wrongOrigin)).status,403);
  for(const k of ['authored:not-a-uuid','arena:fake',owner])assert.equal((await write(student,k)).status,400);
