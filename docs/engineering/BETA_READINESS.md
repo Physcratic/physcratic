@@ -420,3 +420,10 @@ Retained main's new codex Preview smoke exclusion unchanged. Manual smoke checks
 - Discarded a broader view-splitting experiment because first Problems navigation became slower. No view fallback or navigation change ships.
 - Local checks passed: frozen install, offline guards, route generation, typecheck, zero-warning lint, 571 server tests, 29 component tests, 114 disposable PostgreSQL tests, release/storage guards, build and 85 targeted browser checks. No live data, migration, infrastructure or flag changes.
 - Methodology, complete before/after tables and trade-offs: [Dashboard JavaScript P1](DASHBOARD_PERFORMANCE_P1.md). Reproduction scripts use external browser tooling and add no app dependencies.
+
+## 2026-11-03 - X3B: CSP diagnostics and local enforcement harness
+
+- Added loopback-only production-build browser comparisons, source-location attribution, safe negative/report-delivery controls, Zod benchmarks and optional enforcing headers for disposable authenticated fixtures. No application, live CSP/collector, database, migration, grant, flag or Production/Preview setting changes.
+- Local Chromium passes 18 scenarios. Both authenticated fixture suites and relevant CI-equivalent checks pass. CI exercises all three engines; WebKit's missing report-only eval events are an explicit observability limitation, while enforcement fallback and negative reporting succeed.
+- Reproduced Zod probe and JIT sites, without attributing all eight historical reports by assumption. The isolated nonce prototype loses public prerendering/caching and does not ship.
+- Production remains report-only and NO-GO for enforcement, prohibited before 9 November and conditional thereafter. Evidence, limitations and X3C gates: [CSP X3B](CSP_X3B.md).
