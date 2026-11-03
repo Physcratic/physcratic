@@ -120,6 +120,20 @@ test("profile media lifecycle and privacy on disposable PostgreSQL", { skip: !ur
   t.beforeEach(async () => { await setup.query("TRUNCATE community_profile_media,community_profile_media_limit"); objects.clear(); failPut = latePut = failDel = false; puts = 0; beforePut = undefined;
     await setup.query("UPDATE community_profile SET public_visibility=false"); });
 
+  await t.test("avatar crop metadata persists only normalized image bytes", async () => {
+    const response = await apis[0]("upload", request(png, "owner", { "X-Profile-Picture-Crop": JSON.stringify({ zoom: 2, horizontal: 100, vertical: 0 }) }), "avatar");
+    assert.equal(response.status, 201);
+    const body = await response.json();
+    const output = objects.values().next().value;
+    assert.ok(output);
+    const metadata = await sharp(output).metadata();
+    assert.equal(metadata.width, 512); assert.equal(metadata.height, 512);
+    assert.equal(metadata.exif, undefined);
+    assert.equal((await image(body.media.avatar.id)).status, 404);
+    assert.equal((await image(body.media.avatar.id, "owner")).status, 200);
+    assert.equal(JSON.stringify(body).includes("zoom"), false);
+  });
+
   await t.test("explicit owner upload, guest privacy, image revocation and sanitized metadata", async () => {
     const response = await upload(); assert.equal(response.status, 201);
     const body = await response.json(); assert.ok(body.media.avatar.id); assert.equal(body.media.banner, null);

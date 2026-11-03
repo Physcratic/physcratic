@@ -1,22 +1,25 @@
 import "server-only";
 import sharp from "sharp";
 import { profileMediaPolicy as policy, type ProfileMediaKind } from "./profile-media-contracts";
+import { isSupportedProfileImage, profilePictureCropBounds, type ProfilePictureCrop } from "./profile-picture-crop";
 
 export class InvalidProfileImage extends Error {}
-export async function encodeProfileImage(bytes: Uint8Array, kind: ProfileMediaKind) {
+export async function encodeProfileImage(bytes: Uint8Array, kind: ProfileMediaKind, crop?: ProfilePictureCrop) {
   if (bytes.byteLength > policy[kind].inputBytes) throw new RangeError("Image too large");
-  const starts = (...magic: number[]) => magic.every((value, i) => bytes[i] === value);
-  const ascii = (start: number, end: number) => Buffer.from(bytes.subarray(start, end)).toString("ascii");
-  if (!(starts(137, 80, 78, 71, 13, 10, 26, 10) || starts(255, 216, 255) ||
-    (ascii(0, 4) === "RIFF" && ascii(8, 12) === "WEBP"))) throw new InvalidProfileImage();
+  if (!isSupportedProfileImage(bytes) || (crop && kind !== "avatar")) throw new InvalidProfileImage();
   try {
     const image = sharp(bytes, { failOn: "error", limitInputPixels: policy.maxPixels, animated: false });
     const metadata = await image.metadata();
     if (!metadata.width || !metadata.height || metadata.width > policy.maxEdge || metadata.height > policy.maxEdge ||
       metadata.width < 32 || metadata.height < 32 || (metadata.pages ?? 1) !== 1 ||
       !["png", "jpeg", "webp"].includes(metadata.format ?? "")) throw new InvalidProfileImage();
-    // Rotate from orientation, then re-encode pixels. Sharp strips EXIF/XMP/ICC by default.
-    const output = await image.rotate().resize(policy[kind].width, policy[kind].height, { fit: "cover" })
+    // Crop after EXIF rotation, matching the browser preview. Re-encoding strips metadata.
+    const oriented = image.rotate();
+    if (crop) {
+      const swapped = (metadata.orientation ?? 1) >= 5;
+      oriented.extract(profilePictureCropBounds(swapped ? metadata.height : metadata.width, swapped ? metadata.width : metadata.height, crop));
+    }
+    const output = await oriented.resize(policy[kind].width, policy[kind].height, { fit: "cover" })
       .webp({ quality: 82, effort: 4 }).toBuffer();
     if (output.byteLength > policy.maxOutputBytes) throw new InvalidProfileImage();
     return output;
