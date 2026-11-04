@@ -99,7 +99,7 @@ function ProfileEditor({ userId, verified, mediaEnabled, achievementsEnabled, on
       </div>
     </section>
     {achievementsEnabled && <AchievementSettings profileSaved={Boolean(saved)} verified={verified} onPreviewChange={setBadgeIds} onMedalsChange={setMedals} />}
-    <ProfileMediaControls enabled={mediaEnabled} saved={Boolean(saved)} verified={verified} onChange={setImages} />
+    <ProfileMediaControls ownerId={userId} enabled={mediaEnabled} saved={Boolean(saved)} verified={verified} onChange={setImages} />
   </>;
 }
 

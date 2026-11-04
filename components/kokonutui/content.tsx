@@ -12,6 +12,7 @@ import { ProblemLibrary } from "@/components/physics/problem-library";
 import { LearningGuide } from "@/components/physics/learning-guide";
 import { Contests } from "@/components/physics/contests";
 import { Rankings } from "@/components/physics/rankings";
+import { RANKINGS_SEARCH_MAX_LENGTH } from "@/lib/rankings";
 
 const subtitles: Record<View, string> = {
   overview: "Today's problem, your rating and recommended practice.",
@@ -64,6 +65,7 @@ export default function Content({
             <Input
               id="ranking-search"
               type="search"
+              maxLength={RANKINGS_SEARCH_MAX_LENGTH}
               value={rankingSearch}
               onChange={(event) => setRankingSearch(event.target.value)}
               placeholder="Search contestants…"

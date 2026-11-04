@@ -5,6 +5,7 @@ import {
   contests,
   contestRatings,
   contestRegistrations,
+  contestProblems,
   practiceAttempts,
   solutionAttempts,
 } from "@/lib/db/schema";
@@ -25,6 +26,7 @@ export async function GET(request: Request) {
         registrationOpen: contests.registrationOpen,
         problemIds: contests.problemIds,
         creators: contests.creators,
+        interactive: sql<boolean>`exists(select 1 from ${contestProblems} where ${contestProblems.contestId} = ${contests.id})`,
         participants: sql<number>`(select count(*)::int from ${contestRegistrations} where ${contestRegistrations.contestId} = ${contests.id})`,
       })
       .from(contests)

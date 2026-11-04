@@ -3,7 +3,7 @@
 import { useState } from "react";
 import useSWR, { useSWRConfig } from "swr";
 import { authClient } from "@/lib/auth-client";
-import { fetchJson } from "@/lib/api-client";
+import { apiReadSWRConfig, fetchJson } from "@/lib/api-client";
 
 export interface ArchiveTaskProgress {
   taskId: string;
@@ -18,6 +18,7 @@ export function useArchiveProgress() {
     session.data?.user ? ["/api/archive-progress", session.data.user.id] : null,
     ([url]: [string, string]) =>
       fetchJson<{ progress: ArchiveTaskProgress[] }>(url),
+    apiReadSWRConfig,
   );
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState("");

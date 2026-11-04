@@ -2,7 +2,7 @@
 
 import useSWR from "swr";
 import { authClient } from "@/lib/auth-client";
-import { fetchJson } from "@/lib/api-client";
+import { apiReadSWRConfig, fetchJson } from "@/lib/api-client";
 import type { DashboardData } from "@/lib/dashboard-data";
 
 export function useDashboard() {
@@ -12,7 +12,7 @@ export function useDashboard() {
       ? null
       : ["/api/dashboard", session.data?.user.id ?? "guest"],
     ([url]: [string, string]) => fetchJson<DashboardData>(url),
-    { refreshInterval: 60_000, keepPreviousData: false },
+    { ...apiReadSWRConfig, refreshInterval: 60_000, keepPreviousData: false },
   );
   return {
     ...result,

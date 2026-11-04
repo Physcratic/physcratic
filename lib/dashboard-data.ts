@@ -10,6 +10,7 @@ export interface PublishedContest {
   creators: string[];
   participants: number;
   registered: boolean;
+  interactive?: boolean;
 }
 
 export interface RatingPoint {
