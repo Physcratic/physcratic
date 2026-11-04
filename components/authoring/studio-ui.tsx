@@ -3,14 +3,13 @@ import * as React from "react";
 import Link from "next/link";
 import { CircleAlert, CircleCheck, CircleDot, HelpCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { solveTokens } from "@/components/physics/solve-ui";
 
 /**
- * Stronger borders for the Problem Studio and the authored-problem student view. The site-wide border
- * token is a quiet 1.2:1 hairline, so inside these screens it is raised to at least 3:1 against the
- * page and card backgrounds (WCAG 1.4.11). Scoped here so the rest of the site is unchanged.
+ * Stronger borders for the Problem Studio and the authored-problem student view. Now shared with every
+ * solving screen (see `solveTokens`), kept under its old name so existing imports keep working.
  */
-export const studioTokens =
-  "[--border:240_5%_46%] [--input:240_5%_46%] dark:[--border:240_4%_44%] dark:[--input:240_4%_50%]";
+export const studioTokens = solveTokens;
 
 /** A numbered step of the editor: one bordered card with a visible heading. */
 export function StepCard({
