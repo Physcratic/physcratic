@@ -1,0 +1,57 @@
+name: Community statistics browser
+on:
+  pull_request:
+    paths:
+      # Include transitive source dependencies, shared fixtures and build inputs.
+      - 'app/**'
+      - 'components/**'
+      - 'lib/**'
+      - 'tests/**'
+      - 'migrations/**'
+      - 'scripts/test-problem-authoring.sh'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+      - 'next.config.*'
+      - 'tsconfig*.json'
+      - 'tailwind.config.*'
+      - 'postcss.config.*'
+      - '.github/workflows/community-stats-browser.yml'
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:18.6-alpine
+        env:
+          POSTGRES_PASSWORD: local-test-only
+          POSTGRES_DB: physcratic_authoring_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      AUTHORING_TEST_DATABASE_URL: postgresql://postgres:local-test-only@127.0.0.1:5432/physcratic_authoring_test
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: External browser tooling
+        run: |
+          npm install --prefix "$RUNNER_TEMP/community-tools" --no-audit --no-fund playwright@1.64.1 @axe-core/playwright@4.14.0
+          "$RUNNER_TEMP/community-tools/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Real component and API on disposable PostgreSQL
+        env:
+          AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/community-tools
+        run: node --require ./tests/server-only-register.cjs --import tsx tests/problem-stats.browser.mjs
+      - name: Existing unified Arena regression
+        env:
+          AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/community-tools
+        run: node --require ./tests/server-only-register.cjs --import tsx tests/unified-arena.browser.mjs

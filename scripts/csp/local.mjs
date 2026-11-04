@@ -10,6 +10,7 @@ import { once } from 'node:events';
 import { buildCsp } from '../../lib/security/csp.ts';
 import { childEnvironment, localOrigin, safeViolation } from './support.mjs';
 import { codecPdf } from './fixtures.mjs';
+import { collectionFixture } from './collection-fixture.mjs';
 const require = createRequire(import.meta.url);
 const { build } = createRequire(require.resolve('tsx'))('esbuild');
 const dashboard = { user: null, savedAttempts: 0, practiceAttempts: 0, solvedProblems: 0, archiveReviewed: 0, ratings: [], contests: [] };
@@ -108,6 +109,7 @@ export async function startLocal(mode, root = process.cwd(), options = {}) {
         return send('text/plain', '', upstream.status);
       }
       if (url.pathname.startsWith('/api/')) {
+        if (url.pathname === '/api/arena/collection') return send('application/json', JSON.stringify(collectionFixture(url.searchParams)));
         if (url.pathname === '/api/auth/get-session') return send('application/json', 'null');
         if (url.pathname === '/api/dashboard') return send('application/json', JSON.stringify(dashboard));
         if (url.pathname === '/api/rankings') return send('application/json', '{"rankings":[]}');

@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { spawnSync } from 'node:child_process';
 import { childEnvironment, localOrigin, safeViolation } from '../scripts/csp/support.mjs';
+import { collectionFixture } from '../scripts/csp/collection-fixture.mjs';
 import { evalAttribution } from '../scripts/csp/attribute.mjs';
 
 test('an unrelated eval is not attributed to Zod just because Zod is loaded', () => {
@@ -38,4 +39,14 @@ test('server guard rejects remote sockets and fetch before connecting', () => {
     assert.throws(()=>fetch('https://physcratic.com'),/denied/);
   `], { encoding: 'utf8' });
   assert.equal(child.status, 0, child.stderr);
+});
+
+
+test('local CSP collection fixture follows unified Arena filters without enabling community providers',()=>{
+ const page=collectionFixture(new URLSearchParams({q:'Mind the Gap'}));
+ assert.equal(page.problems.length,1);assert.equal(page.problems[0].key,'arena:arena-mind-the-gap');
+ assert.equal(page.statsEnabled,undefined);assert.equal(page.authoredUnavailable,true);assert.equal(page.nextCursor,null);
+ assert.ok(page.problems.every(p=>p.kind==='arena'&&p.author===null));
+ assert.deepEqual(collectionFixture(new URLSearchParams({source:'authored'})).problems,[]);
+ assert.throws(()=>collectionFixture(new URLSearchParams({userId:'private-selector'})));
 });

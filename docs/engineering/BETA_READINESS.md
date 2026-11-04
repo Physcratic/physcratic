@@ -1,5 +1,18 @@
 # Beta readiness log
 
+## 2026-11-04 — PR #105 integration after Batch 4
+
+- Reconciled the test/documentation branch with main `9367d8769e474707b3aa76c2921813b14aac58b1`, preserving Batch 4 PR #106 and its production discussion lock.
+- Updated agent rules, roadmap and handoff: Batches 3B and 4 are complete, migrations 0001–0013 are immutable, and Batch 5 moderation/reporting is reserved for a fresh session.
+- Fixed browser CI path triggers for unified Arena/transitive source, shared fixtures, dependency manifests and build configuration. No runtime, migration, flag, provider or deployed policy changes.
+- Reconciled-head standard CI, three-engine CSP and community-browser workflow evidence and exact merge are recorded in [PR #105](https://github.com/Physcratic/physcratic/pull/105). Merge is authorised after green checks; no deployment or Production operation is authorised.
+
+## 2026-11-03 — Roadmap handoff and community regression integration
+
+- Recognised concurrent Batch 3B PR #101 on updated main and closed overlapping PR #102. Preserved the merged API, UI, schema and immutable migration 0012.
+- Added persistent agent rules, dependency-ordered roadmap and compact handoff. Aligned the local CSP fixture with unified Arena metadata and added a contract regression.
+- Made existing statistics/Arena browser suites portable and loopback-only, expanded statistics theme/keyboard checks and added disposable browser CI. No runtime, policy, migration or provider changes. Exact validation and delivery: [PR #105](https://github.com/Physcratic/physcratic/pull/105) and [handoff](AGENT_HANDOFF.md).
+
 ## 2026-11-02 — Merge UI work into main
 
 - Reconciled `v0/ui-work` with current `main`, preserving coaching, account, authoring and practice changes. Kept all practice/contest and coaching schema declarations without applying any database migration.
