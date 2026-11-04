@@ -21,7 +21,7 @@ export function CoachingHeader({ base = "" }: { base?: string }) {
   const links = nav.map((link) => link.href.startsWith("#") ? { ...link, href: `${base}${link.href}` } : link);
   return <header className="coaching-header">
     <div className="coaching-container flex h-16 items-center justify-between gap-3">
-      <Link href="/coaching" className="flex shrink-0 items-center gap-2.5" aria-label={ui.homeLabel}><Image src="/logo-mark-128.png" alt="" width={44} height={44} priority className="size-10 object-contain" /><span className="text-lg font-semibold">{ui.brand}</span></Link>
+      <Link href="/coaching" className="flex min-h-11 shrink-0 items-center gap-2.5" aria-label={ui.homeLabel}><Image src="/logo-mark-128.png" alt="" width={44} height={44} priority className="size-10 object-contain" /><span className="text-lg font-semibold">{ui.brand}</span></Link>
       <div className="flex items-center gap-3 lg:gap-5 xl:gap-7">
         <nav aria-label={ui.desktopNavLabel} className="hidden items-center gap-5 whitespace-nowrap text-sm font-medium text-muted-foreground lg:flex xl:gap-7">{links.map((link) => link.href.startsWith("#") ? <a key={link.href} href={link.href} className="coaching-link hover:text-foreground">{link.label}</a> : <Link key={link.href} href={link.href} className="coaching-link hover:text-foreground">{link.label}</Link>)}</nav>
         <CoachingMobileMenu menuLabel={ui.menu} navLabel={ui.mobileNavLabel} links={links} />

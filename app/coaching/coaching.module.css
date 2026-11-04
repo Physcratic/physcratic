@@ -34,8 +34,8 @@
 .page :global(.coaching-container) { width: 100%; max-width: 72rem; margin-inline: auto; padding-inline: 1.5rem; }
 .page :global(.coaching-header) { position: sticky; top: 0; z-index: 40; border-bottom: 1px solid hsl(var(--border)); background: hsl(var(--background) / .94); backdrop-filter: blur(12px); }
 .page :global(.coaching-button) { display: inline-flex; min-height: 3rem; align-items: center; justify-content: center; gap: .5rem; border-radius: .5rem; padding: .75rem 1.5rem; background: hsl(var(--accent)); color: hsl(var(--accent-foreground)); font-size: 1rem; font-weight: 700; text-align: center; transition: opacity 180ms ease-out, transform 180ms ease-out; }
-.page :global(.coaching-header .coaching-button) { min-height: 2.5rem; padding: .5rem 1rem; font-size: .875rem; }
-.page :global(.coaching-icon-button) { display: flex; width: 2.5rem; height: 2.5rem; align-items: center; justify-content: center; border: 1px solid hsl(var(--border)); border-radius: 999px; background: hsl(var(--background) / .85); color: hsl(var(--foreground)); transition: opacity 180ms ease-out, transform 180ms ease-out; }
+.page :global(.coaching-header .coaching-button) { min-height: 2.75rem; padding: .5rem 1rem; font-size: .875rem; }
+.page :global(.coaching-icon-button) { display: flex; width: 2.75rem; height: 2.75rem; align-items: center; justify-content: center; border: 1px solid hsl(var(--border)); border-radius: 999px; background: hsl(var(--background) / .85); color: hsl(var(--foreground)); transition: opacity 180ms ease-out, transform 180ms ease-out; }
 .page :global(.coaching-link) { position: relative; }
 .page :global(.coaching-link::after) { content: ""; position: absolute; inset: auto 0 -2px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 200ms ease-out; }
 .page :global(.coaching-hero-slideshow .coaching-link::after) { transform: scaleX(1); opacity: .5; }

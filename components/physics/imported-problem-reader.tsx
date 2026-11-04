@@ -238,7 +238,7 @@ export function ImportedProblemReader({
           href={problem.titleSourceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-fit text-sm text-accent-foreground underline underline-offset-4"
+          className="inline-flex min-h-11 w-fit items-center text-sm text-accent-foreground underline underline-offset-4"
         >
           Original title source{" "}
           <span className="sr-only">(opens in a new tab)</span>

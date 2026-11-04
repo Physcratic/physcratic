@@ -62,7 +62,7 @@ export default async function LearnArticlePage({ params }: Props) {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink asChild>
+              <BreadcrumbLink asChild className="inline-flex min-h-11 items-center">
                 <Link href={learnPath()}>Learn</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>

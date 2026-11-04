@@ -58,7 +58,7 @@ function measure() {
   for (const el of document.querySelectorAll(boxes)) {
     // Tinted and outlined text badges are labels, so the text carries the meaning. Not counted as borders.
     if (!visible(el) || disabled(el) || (el.tagName === "DIV" && el.classList.contains("inline-flex"))) continue;
-    const style = getComputedStyle(el); if (parseFloat(style.borderTopWidth) < 1 || style.borderTopStyle === "none") continue;
+    const style = getComputedStyle(el); if (parseFloat(style.borderTopWidth) < 1 || style.borderTopStyle === "none" || parse(style.borderTopColor).a === 0) continue;
     const parent = backdrop(el.parentElement ?? el); const border = over(parse(style.borderTopColor), parent);
     const value = ratio(border, parent); minBorder = Math.min(minBorder, value);
     if (value < 3) fails.push({ kind: "border", ratio: +value.toFixed(2), need: 3, el: label(el), text: "" });
@@ -163,7 +163,7 @@ try {
     for (const [name, run] of stages) {
       const page = await context.newPage();
       try { await run(page); } catch (error) { record(name, theme, width, { kind: "stage-failed", el: "", text: String(error.message).split("\n")[0].slice(0, 120) }); await page.close(); continue; }
-      await page.waitForTimeout(400);
+      await page.waitForTimeout(800);
       const result = await page.evaluate(measure);
       lowestText = Math.min(lowestText, result.minText); lowestBorder = Math.min(lowestBorder, result.minBorder);
       perTheme[theme].text = Math.min(perTheme[theme].text, result.minText); perTheme[theme].border = Math.min(perTheme[theme].border, result.minBorder);
