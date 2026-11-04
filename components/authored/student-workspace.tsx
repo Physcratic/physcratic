@@ -1196,7 +1196,7 @@ function AnswerFields({
           </summary>
           <p>
             Use explicit + - * / ^ and parentheses: x*x, x^2, (x+1)/2. Powers
-            bind before unary minus; ^ is right-associative. Integer exponents
+            bind before unary minus. The ^ sign is right-associative. Integer exponents
             are limited to -8…8. Decimals and fractions are exact rational
             constants.
           </p>
