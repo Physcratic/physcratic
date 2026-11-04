@@ -63,6 +63,9 @@ export async function routeInventory(root,{matchers,hashRoutes}){
  for(const route of sourceHandlers)if(!handlers.includes(route))inventory.errors.push('Source handler absent from build: '+route);
  for(const route of handlers)if(!reviewedHandlers.includes(route))inventory.errors.push('Unreviewed route-handler response contract: '+route);
  for(const route of reviewedHandlers)if(!handlers.includes(route))inventory.errors.push('Stale route-handler response contract: '+route);
+ // Explicit current boundary inventory: a new error document needs policy review, not an implicit exemption.
+ const reviewedBoundaries=new Set(['/:error','/:global-error','/:not-found','/u/[handle]:not-found']);
+ for(const b of boundaries)if(!reviewedBoundaries.has(b.route+':'+b.kind))inventory.errors.push('Unreviewed error boundary: '+b.route+':'+b.kind);
  // Preserve the App Router RSC mappings, which Next's Pages dataRoutes array does not enumerate.
  inventory.rscRoutes=Object.entries(prerender.routes).filter(([,v])=>v.dataRoute).map(([route,v])=>({route,dataRoute:v.dataRoute}));
  inventory.buildId=(await readFile(resolve(root,'.next/BUILD_ID'),'utf8')).trim();

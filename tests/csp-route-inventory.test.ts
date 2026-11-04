@@ -43,12 +43,13 @@ test('real source/build inventory rejects a new handler and stale build source',
  const root=await mkdtemp(join(tmpdir(),'csp-inventory-'));
  try{
   for(const dir of ['app/(public)/learn','app/api/new','app/admin','scripts/csp','.next/server'])await mkdir(join(root,dir),{recursive:true});
-  await writeFile(join(root,'app/(public)/learn/page.tsx'),'');await writeFile(join(root,'app/api/new/route.ts'),'');await writeFile(join(root,'app/admin/error.tsx'),'');
+  await writeFile(join(root,'app/(public)/learn/page.tsx'),'');await writeFile(join(root,'app/api/new/route.ts'),'');await writeFile(join(root,'app/error.tsx'),'');
   const json=async(p:string,v:unknown)=>writeFile(join(root,p),JSON.stringify(v));
   await json('.next/server/app-paths-manifest.json',{'/(public)/learn/page':'app/learn/page.js','/api/new/route':'app/api/new/route.js'});
   await json('.next/prerender-manifest.json',{routes:{'/learn':{dataRoute:'/learn.rsc'}},dynamicRoutes:{}});await json('.next/routes-manifest.json',{redirects:[{source:'/old',destination:'/learn'}],dataRoutes:[]});await json('scripts/csp/non-document-routes.json',[]);await writeFile(join(root,'.next/BUILD_ID'),'synthetic-build');
   let result=await routeInventory(root,{matchers:[],hashRoutes:['/learn']});assert.equal(result.boundaries[0].kind,'error');assert.equal(result.rscRoutes[0].dataRoute,'/learn.rsc');assert.equal(result.redirects.length,1);assert.throws(()=>assertQualified(result),/mismatch/);
   await json('scripts/csp/non-document-routes.json',['/api/new']);result=await routeInventory(root,{matchers:[],hashRoutes:['/learn']});assertQualified(result);
+  await writeFile(join(root,'app/admin/error.tsx'),'');result=await routeInventory(root,{matchers:[],hashRoutes:['/learn']});assert.throws(()=>assertQualified(result),/mismatch/);
   await writeFile(join(root,'app/admin/page.tsx'),'');result=await routeInventory(root,{matchers:[],hashRoutes:['/learn']});assert.throws(()=>assertQualified(result),/mismatch/);
  }finally{await rm(root,{recursive:true,force:true});}
 });

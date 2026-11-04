@@ -4,7 +4,7 @@ Baseline: main `6f290654a0461560ce6aa9190e2bdf71fcc1dc2d`, 4 November 2026. Test
 
 ## Coverage and deliberate qualification failure
 
-`route-inventory.mjs` reconciles current App Router page/route/error filenames against the completed build's app-paths, prerender and routing manifests. It checks source-only/stale compiled pages, enumerates generated static slugs and RSC data mappings, and uses the **same exported matcher list that generates the detached prototype** plus actual static hash artifact keys. New handlers require a reviewed entry in non-document-routes.json; this registry is a response-contract review boundary, not proof that every authenticated handler was exercised.
+`route-inventory.mjs` reconciles current App Router page/route/error filenames against the completed build's app-paths, prerender and routing manifests. It checks source-only/stale compiled pages, enumerates generated static slugs and RSC data mappings, and uses the **same exported matcher list that generates the detached prototype** plus actual static hash artifact keys. New error/not-found boundaries require explicit review of the boundary registry in the inventory module. New handlers require a reviewed entry in non-document-routes.json; this registry is a response-contract review boundary, not proof that every authenticated handler was exercised.
 
 Current output: **19 document templates, 58 handlers, four error/not-found boundaries, 12 prerender RSC mappings and one routing-manifest redirect**. The generated artifact is `build/csp/route-inventory.json`.
 
