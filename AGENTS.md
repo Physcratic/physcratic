@@ -1,5 +1,7 @@
 # Physcratic agent rules
 
+**Never buy anything, change a plan, add a seat, or redeploy a blocked commit on Vercel or any other service. Stop and ask the owner.**
+
 Read `CLAUDE.md`, `CONTRIBUTING.md`, `docs/engineering/EXECUTION_ROADMAP.md` and `docs/engineering/AGENT_HANDOFF.md` before a batch. Verify code against the relevant guidebook rather than historical status prose.
 
 - Next 15 App Router, TypeScript, React 19, pnpm 10, Node 22. Reuse typed problem identities, immutable revisions, server grading, Better Auth sessions and private-media proxies.

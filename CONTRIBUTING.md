@@ -58,4 +58,4 @@ Before and after:
 The Vercel Hobby plan blocks deploys of commits made by anyone but the owner. After merging:
 
 1. Check that physcratic.com has updated.
-2. If it hasn't, ask the Vercel owner to click Redeploy.
+2. If it hasn't, stop and ask the Vercel owner. Do not redeploy a blocked commit, because that adds a paid seat.

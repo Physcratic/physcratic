@@ -4,6 +4,8 @@ Next.js 15.5 App Router, TypeScript, Tailwind, shadcn/ui (components/ui), Better
 
 Read CONTRIBUTING.md before starting.
 
+**Never buy anything, change a plan, add a seat, or redeploy a blocked commit on Vercel or any other service. Stop and ask the owner.**
+
 ## Commands
 - Unit tests: `pnpm test` (node:test via tsx over lib/*.test.ts). One file: `pnpm exec tsx --conditions=react-server --test lib/<name>.test.ts`
 - Typecheck and CI steps: `.github/workflows/ci.yml` is the source of truth.
