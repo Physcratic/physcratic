@@ -2,10 +2,10 @@
 
 ## Current Security S1 handoff (4 November 2026)
 
-- Started main `d1dc0cff8c752a8857b43fba5f88546664cc664c`, branch `codex/community-security-s1`. Exact PR/head/CI/merge SHA will be recorded after green delivery in COMMUNITY_STATUS.md.
+- Started main `d1dc0cff8c752a8857b43fba5f88546664cc664c`, branch `codex/community-security-s1`. [PR #119](https://github.com/Physcratic/physcratic/pull/119) merged as `a988056a157171db5f77e8470683fedc1cceb1e2`; exact tested head `b7112fd59168ac5d9b958a300d297b55d91d3b97` passed CI #207 (41812380330) and browser #7 (41812380259). Details/checksum/grants in COMMUNITY_STATUS.md.
 - Additive 0015 fixes `community_admin_locked` and `community_medal_log` temporary-object escalation with qualified relations and trusted-schema/pg_catalog/pg_temp-last paths. Owners/OIDs/ACLs and legitimate behavior preserved; no new runtime grants. Keep 0001–0014 immutable. Down deliberately retains hardening. Separate operator installation is still required.
 - Policy v3 holds dotless-i and new bare-domain/TLD signals on create/edit, preserving hard blocks, physics/file false-positive tests and prior holds. All nine SECURITY DEFINER paths verified; actual restricted LOGIN/non-superuser-owner exploit tests reproduce before the patch and deny table/view/trigger attacks after it.
-- Full local tests 719 server pass + one inherited TODO, 43 components; typecheck/lint/isolation and browser security pass. Production build and unreachable-schema/default-off/production-lock smoke pass; exact-head CI is required before merge. No production SQL, grants, flags, Vercel/provider/deployment actions or README triggers. Production remains NO-GO and discussion lock unchanged.
+- Full local tests 719 server pass + one inherited TODO, 43 components; typecheck/lint/isolation and browser security pass. Production build and unreachable-schema/default-off/production-lock smoke pass; exact-head standard/browser CI passed before merge. No production SQL, grants, flags, Vercel/provider/deployment actions or README triggers. Production remains NO-GO and discussion lock unchanged.
 - Stop after S1. Operator/retention/privacy/staffing/provider/load readiness and an explicit separate launch decision remain prerequisites; see COMMUNITY_LAUNCH_RUNBOOK.md. Do not activate features or start another batch.
 
 ## Phase 6A release readiness
