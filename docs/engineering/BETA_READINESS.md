@@ -1,5 +1,14 @@
 # Beta readiness log
 
+## 2026-11-04 — Contest migration numbering and LaTeX checking
+
+- Reconciled the approved migration collision on `v0/platform-features` against fetched main `9367d87`. Open PR #105 reserved no migration number. Renamed contest participation to 0014 and updated its disposable integration fixture. Community migrations 0012 and 0013 remain unchanged. A new regression test prevents different migrations sharing a number.
+- Contest SQL is byte-identical to the former branch-local 0012. SHA-256: `fcfffcae2881a5b3d27dfadbefe78df0c868f571df30e138fda0c8e6941e3cb5`. Operator notes require atomic ledger recording and catalog review when adopting an already-applied legacy contest migration. No database, ledger, grant, flag or deployment writes were performed.
+- Reproduced valid LaTeX spacing being rejected and a dangling backslash being accepted. Validate complete command tokens, canonicalize spacing aliases without removing argument tokens, and ignore parsed horizontal spacing only within implicit products. Tests cover numeric and symbolic spacing, malformed fraction/root/exponent arguments, incomplete escapes and unsafe punctuation. Existing exact proofs, domain guards, resource limits, fixed units and inconclusive outcomes are preserved.
+- Validation: frozen-lockfile install, Next route type generation, TypeScript, zero-warning ESLint, migration checksum and whitespace checks passed. Final server suite: 649 tests, 628 passed, 20 skipped, 1 inherited TODO and no failures. Component suite: 47 passed. Runtime is Node 24.16.0, not CI's Node 22. No dependency or build configuration changes. Production build was not rerun for this source-only repair.
+- Browser: the stateless `/dashboard/problems/incline` checker accepts a fraction with a trailing thin-space command at desktop 1552×851 dark. It rejects a spacing token used as a fraction argument at mobile 390×844. A dangling backslash also produced invalid feedback. No accounts, persistent attempts or ratings were written.
+- Remaining verification limits: disposable contest integration could not start because Docker and PostgreSQL server tools are absent. The full offline wrapper correctly refuses this sandbox's injected environment/config files. Its transport tests pass when invoked with the runner's credential-scrubbed environment and inherited guard: 5 passed, 2 Windows-only skips. Complete clean-checkout isolation and database qualification remain outstanding. This is not production acceptance or a deployment authorization.
+
 ## 2026-11-02 — Merge UI work into main
 
 - Reconciled `v0/ui-work` with current `main`, preserving coaching, account, authoring and practice changes. Kept all practice/contest and coaching schema declarations without applying any database migration.

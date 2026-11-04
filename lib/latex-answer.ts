@@ -12,6 +12,11 @@ export type AnswerNode =
 export class LatexAnswerError extends Error {}
 const engine = new ComputeEngine();
 const commands = new Set("frac dfrac tfrac sqrt cdot times left right big bigl bigr Big Bigl Bigr sin cos tan cot sinh cosh tanh exp ln log operatorname mathrm infty pi hbar alpha beta gamma delta epsilon varepsilon zeta eta theta vartheta kappa lambda mu nu xi rho sigma tau phi varphi chi psi omega Gamma Delta Theta Lambda Xi Pi Sigma Phi Psi Omega vert lvert rvert".split(" "));
+const spacingCommands = new Map([
+  [",", ","], [":", ":"], [";", ";"], ["!", "!"], [" ", " "],
+  ["quad", "quad"], ["qquad", "qquad"], ["enspace", "enspace"],
+  ["thinspace", ","], ["medspace", ":"], ["thickspace", ";"],
+]);
 const arities: Record<string, number | "many"> = { Add: "many", Multiply: "many", InvisibleOperator: "many", Subtract: 2, Divide: 2, Rational: 2, Negate: 1, Power: 2, Sqrt: 1, Root: 2, Sin: 1, Cos: 1, Tan: 1, Cot: 1, Sinh: 1, Cosh: 1, Tanh: 1, Exp: 1, Ln: 1, Log: 1, Abs: 1, Sign: 1, Delimiter: 1 };
 const aliasCache = new WeakMap<ArchiveSymbol[], Map<string, string>>();
 function aliasesFor(symbols: ArchiveSymbol[]) {
@@ -32,22 +37,26 @@ function aliasesFor(symbols: ArchiveSymbol[]) {
 }
 export function parseLatexAnswer(input: string, symbols: ArchiveSymbol[] = [], allowInfinity = false): AnswerNode {
   if (!input.trim() || input.length > archiveAnswerLimit) throw new LatexAnswerError("Enter a single result of at most 1024 characters.");
-  if (/[^a-zA-Z0-9\\{}()[\].,+\-*/^_|\s]/u.test(input)) throw new LatexAnswerError("Enter the result only, without dollar delimiters, equations, units, or programming constructs.");
+  const source = input.replace(/\\([a-zA-Z]+|[^a-zA-Z]|$)/g, (match, command: string) => {
+    const spacing = spacingCommands.get(command);
+    if (spacing !== undefined) return `\\${spacing}`;
+    if (!commands.has(command)) throw new LatexAnswerError("Unsupported or incomplete LaTeX command. Use ordinary arithmetic and the listed symbols.");
+    return match;
+  });
+  if (/[^a-zA-Z0-9\\{}()[\].,+\-*/^_|\s]/u.test(source.replace(/\\[,;!: ]/g, " "))) throw new LatexAnswerError("Enter the result only, without dollar delimiters, equations, units, or programming constructs.");
   let depth = 0;
-  for (const char of input) {
+  for (const char of source) {
     if ("{([".includes(char) && ++depth > 16) throw new LatexAnswerError("The expression is too deeply nested. Use a simpler final result.");
     if ("})]".includes(char) && --depth < 0) throw new LatexAnswerError("Check the grouping delimiters.");
   }
   if (depth !== 0) throw new LatexAnswerError("Close every grouping delimiter.");
-  if ((input.match(/[+*/^\-]|\\(?:frac|sqrt)/g) ?? []).length > 96 || /\d{33}/.test(input)) throw new LatexAnswerError("The expression exceeds the grading resource limits.");
-  for (const match of input.matchAll(/\d(?:\.\d*)?e([+-]?\d+)/gi)) {
+  if ((source.match(/[+*/^\-]|\\(?:frac|sqrt)/g) ?? []).length > 96 || /\d{33}/.test(source)) throw new LatexAnswerError("The expression exceeds the grading resource limits.");
+  for (const match of source.matchAll(/\d(?:\.\d*)?e([+-]?\d+)/gi)) {
     if (Math.abs(Number(match[1])) > 100) throw new LatexAnswerError("Use scientific-notation exponents between −100 and 100.");
   }
-  for (const command of input.matchAll(/\\([a-zA-Z]+|.)/g)) {
-    if (!commands.has(command[1]) && ![",", ";", "!", " "].includes(command[1])) throw new LatexAnswerError("Unsupported LaTeX command. Use ordinary arithmetic and the listed symbols.");
-  }
   const aliases = aliasesFor(symbols);
-  const parsed = engine.parse(input, { form: "raw" });
+  // Keep spacing tokens until after parsing so fraction and root arguments stay intact.
+  const parsed = engine.parse(source, { form: "raw" });
   if (parsed.errors.length) throw new LatexAnswerError("The LaTeX could not be parsed. Check fractions, roots, and grouping.");
   let nodes = 0;
   function convert(raw: unknown, level: number): AnswerNode {
@@ -62,8 +71,13 @@ export function parseLatexAnswer(input: string, symbols: ArchiveSymbol[] = [], a
       if (declared) return { type: "symbol", name: declared };
       if (raw === "Pi") return { type: "symbol", name: "pi" };
       if (raw === "ExponentialE") return { type: "symbol", name: "e" };
-      if (raw === "PositiveInfinity" && allowInfinity && /^\+?\\infty$/.test(input.replace(/\s/g, ""))) return { type: "infinity" };
+      if (raw === "PositiveInfinity" && allowInfinity && /^\+?\\infty$/.test(source.replace(/\s/g, ""))) return { type: "infinity" };
       throw new LatexAnswerError("Undeclared symbol or nonfinite value. Use the listed notation and omit unit suffixes.");
+    }
+    if (Array.isArray(raw) && raw[0] === "InvisibleOperator") {
+      const factors = raw.slice(1).filter((item) => !(Array.isArray(item) && item[0] === "HorizontalSpacing" && item.length === 2 && typeof item[1] === "number"));
+      if (factors.length === 1) return convert(factors[0], level + 1);
+      raw = ["InvisibleOperator", ...factors];
     }
     if (Array.isArray(raw) && raw.length === 2 && typeof raw[0] === "string" && aliases.has(raw[0])) {
       return { type: "operation", op: "Multiply", args: [convert(raw[0], level + 1), convert(raw[1], level + 1)] };

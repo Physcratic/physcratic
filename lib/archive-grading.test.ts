@@ -109,6 +109,34 @@ test("domain-preserving parsing and conservative inconclusive fallback", () => {
   assert.equal(checkArchivePart(trig, "1").status, "inconclusive");
   assert.equal(checkArchivePart(expression("f", "f", "x", "x", "Real x"), String.raw`\sqrt{x^2}`).status, "incorrect");
 });
+test("LaTeX spacing commands preserve numeric and symbolic answer meaning", () => {
+  const key = numeric("r", "Result", 4.9, "1");
+  const polynomial = expression("p", "Polynomial", "x^2", "x", "All real x");
+  for (const command of [",", ":", ";", "!", " ", "quad", "qquad", "enspace", "thinspace", "medspace", "thickspace"]) {
+    const space = `\\${command} `;
+    for (const value of [`${space}\\frac{49}{10}`, `\\frac{49}{10}${space}`, `\\frac{49${space}}{10}`, `4.9${space}`]) {
+      assert.equal(checkArchivePart(key, value).status, "correct", value);
+    }
+    const product = `x${space}x`;
+    assert.equal(checkArchivePart(polynomial, product).status, "correct", product);
+  }
+});
+test("LaTeX spacing cannot replace fraction, root, or exponent arguments", () => {
+  const key = numeric("r", "Result", 4.9, "1");
+  for (const command of [",", ":", ";", "!", "quad", "thinspace", "medspace", "thickspace"]) {
+    for (const value of [`\\frac\\${command}{49}{10}`, `\\sqrt\\${command}{24.01}`]) {
+      assert.equal(checkArchivePart(key, value).status, "invalid", value);
+    }
+  }
+  const polynomial = expression("p", "Polynomial", "x^2", "x", "All real x");
+  assert.equal(checkArchivePart(polynomial, String.raw`x^\!2`).status, "invalid");
+});
+test("dangling LaTeX escapes and bare punctuation are invalid", () => {
+  const key = numeric("r", "Result", 4.9, "1");
+  for (const value of ["4.9\\", "\\frac{49}{10}\\", "4.9\\\n", "4.9!", "4.9;", String.raw`4.9\\;`, String.raw`4.9\text{units}`, String.raw`4.9\newcommand{\x}{1}`]) {
+    assert.equal(checkArchivePart(key, value).status, "invalid", value);
+  }
+});
 test("malformed, malicious, nonfinite and over-budget inputs are never accepted", () => {
   const key = getArchiveDefinition("incline")!.parts[0];
   for (const value of ["NaN", "Infinity", String.raw`\infty`, "1/0", "0/0", String.raw`\sqrt{-1}`, "0^0", String.raw`\frac{1}{`, "4.9=4.9", "4.9;4.9", String.raw`\text{if} 1 \text{then} 4.9`, String.raw`\operatorname{while}(1)`, String.raw`\newcommand{\x}{4.9}\x`, String.raw`\href{javascript:alert(1)}{4.9}`, String.raw`\input{secret}`, String.raw`\begin{cases}4.9\end{cases}`, "a".repeat(1025), "(".repeat(17)+"4.9"+")".repeat(17), "-".repeat(100)+"4.9", "10^{1000}", "1e999", "1e-999", String.raw`\sqrt[999]{1}`]) assert.equal(checkArchivePart(key, value).status, "invalid", value);

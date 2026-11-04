@@ -280,7 +280,7 @@ test(
         `CREATE TABLE contest (id text PRIMARY KEY,name text NOT NULL,description text NOT NULL,"startsAt" timestamptz NOT NULL,"durationMinutes" integer NOT NULL,published boolean NOT NULL DEFAULT false,rated boolean NOT NULL DEFAULT false,"registrationOpen" boolean NOT NULL DEFAULT false,"problemIds" jsonb NOT NULL DEFAULT '[]',creators jsonb NOT NULL DEFAULT '[]',"createdAt" timestamptz NOT NULL DEFAULT now()); CREATE TABLE contest_registration ("userId" text NOT NULL,"contestId" text NOT NULL,"createdAt" timestamptz NOT NULL DEFAULT now(),PRIMARY KEY("userId","contestId"))`,
       );
       await pool.query(
-        await readFile("migrations/0012_contest_participation.up.sql", "utf8"),
+        await readFile("migrations/0014_contest_participation.up.sql", "utf8"),
       );
       await exerciseContestLifecycle(drizzle(pool, { schema }));
     } finally {
