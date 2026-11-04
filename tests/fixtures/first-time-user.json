@@ -1,0 +1,7 @@
+{
+  "note": "Inputs for tests/first-time-user.browser.mjs. No database. Grading is the real /api/archive-grade route, which is a pure function. The practice problem is lib/physics.ts incline: a = g sin 30 = 4.9 m/s2.",
+  "widths": [375, 1440],
+  "library": { "path": "/dashboard?view=problems&collection=arena", "topic": "Mechanics" },
+  "arena": { "id": "arena-mind-the-gap", "wrongAnswer": "1" },
+  "practice": { "id": "incline", "wrongAnswer": "1", "rightAnswer": "4.9" }
+}

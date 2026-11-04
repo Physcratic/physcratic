@@ -2,7 +2,7 @@ import * as React from "react";
 import { CircleAlert, CircleCheck, CircleX, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { partColor } from "@/lib/part-colors";
-import type { FeedbackTone } from "@/lib/solve-feedback";
+import { describePartResult, type FeedbackStatus, type FeedbackTone } from "@/lib/solve-feedback";
 
 /**
  * Stronger borders for every solving screen. The site-wide dark border is a quiet hairline, so inside these
@@ -98,3 +98,22 @@ export function FeedbackBox({ tone, title, children, className, id }: { tone: Fe
   );
 }
 
+
+const toneText: Record<FeedbackTone, string> = {
+  success: "text-emerald-800 dark:text-emerald-300",
+  error: "text-red-800 dark:text-red-300",
+  warning: "text-amber-800 dark:text-amber-300",
+  neutral: "text-muted-foreground",
+};
+
+/** Result for one answer, next to its input: icon, words and the grader's message. */
+export function ResultLine({ status, message, id }: { status: FeedbackStatus; message: string; id?: string }) {
+  const { tone, label } = describePartResult(status);
+  const { Icon } = toneStyles[tone];
+  return (
+    <p id={id} className={cn("flex items-start gap-2 text-sm leading-relaxed", toneText[tone])}>
+      <Icon className="mt-0.5 size-4 shrink-0" aria-hidden={true} />
+      <span className="min-w-0"><strong className="font-semibold">{label}.</strong> {message}</span>
+    </p>
+  );
+}
