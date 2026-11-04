@@ -42,7 +42,7 @@ test('0014 moderation/report/appeal permissions, state, audits and races',{skip:
  assert.equal((await post(owner,'i will kill you')).status,422);
  const held=(await parsed(await post(owner,'A questionable shit phrase'),201)).id;
  const publicHeld=(await parsed(await list())).comments.find((c:{id:string})=>c.id===held);assert.equal(publicHeld.body,'[Comment unavailable pending review]');assert.equal(publicHeld.author,null);assert.equal((await parsed(await list(owner))).comments.find((c:{id:string})=>c.id===held).body,'A questionable shit phrase');
- const heldReview=await detail(held);assert.equal(heldReview.state,'held');
+ const heldReview=await detail(held);assert.equal(heldReview.state,'held');assert.equal((await parsed(await get(reviewer,{item:'comment',id:held}))).role,'admin');
  assert.equal((await comments(req(other,{action:'like',key,id:held,liked:true}))).status,403);
  await parsed(await comments(req(owner,{action:'edit',key,id:held,version:1,body:'Clean correction stays restricted'})));assert.equal((await detail(held)).state,'held');
  const current=await detail(held);assert.equal((await write(mod,{action:'comment',id:held,version:current.version,contentVersion:current.contentVersion,state:'visible',reason:'restore'})).status,403);
@@ -63,6 +63,7 @@ test('0014 moderation/report/appeal permissions, state, audits and races',{skip:
  const race=await Promise.all([write(mod,{action:'report',id:report,version:1,state:'triaged',reason:'Triage'}),write(reviewer,{action:'report',id:report,version:1,state:'dismissed',reason:'Independent review'})]);assert.deepEqual(race.map(r=>r.status).sort(),[200,409]);
  // Hide/restore and appeal correction stay tied to the content+review version.
  let r=await detail(visible);await parsed(await write(mod,{action:'comment',id:visible,version:r.version,contentVersion:r.contentVersion,state:'hidden',reason:'Review required'}));
+ const privateReason=(await parsed(await list(owner))).comments.find((c:{id:string})=>c.id===visible);assert.equal(privateReason.moderationReason,'Review required');assert.equal((await parsed(await list(other))).comments.find((c:{id:string})=>c.id===visible).moderationReason,null);
  const appealBody={requestId:randomUUID(),key,commentId:visible,reason:'Please review this physics explanation'};const appeal=(await parsed(await write(owner,appealBody,'appeals'),201)).id;assert.equal((await parsed(await write(owner,appealBody,'appeals'))).id,appeal);
  assert.equal((await write(other,{...appealBody,requestId:randomUUID()},'appeals')).status,404);assert.equal((await get(other,{id:appeal},'appeals')).status,404);
  assert.equal((await write(mod,{action:'appeal',id:appeal,version:1,state:'accepted',reason:'Self-correction'})).status,403);

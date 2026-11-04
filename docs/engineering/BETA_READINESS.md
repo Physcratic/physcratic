@@ -454,3 +454,10 @@ Retained main's new codex Preview smoke exclusion unchanged. Manual smoke checks
 - Added authenticated reports, role-locked audited staff decisions, private immutable evidence, create/edit content policy, thread locks and independent version-bound appeals. No dashboard or Batch 5B launch integration.
 - Additive 0014 and exact least-privilege grants are in COMMUNITY_STATUS.md. Existing production discussion lock is preserved; moderation/staff gates default OFF. No production SQL, deployment, provider changes or feature enablement.
 - Disposable PostgreSQL security/race/migration tests, full regressions, Chromium permission/XSS/accessibility, typecheck/lint/build and disabled-schema/production-lock smoke pass locally. [PR #109](https://github.com/Physcratic/physcratic/pull/109) merged as `a9bff60a1ad7ab408875d3e06b432d5a1cf21925` after exact-head standard CI #190 and browser #3 passed. Details in COMMUNITY_STATUS.md.
+
+
+## 2026-11-04 - Community Batch 5B moderation UI and launch readiness
+
+- Added responsive private moderation queues/evidence/audit/actions, user report controls, private report/appeal history and restricted-comment appeals. Existing role-locked 5A authorization remains authoritative. UI defaults OFF and production discussion lock remains intact.
+- Added bounded operator-only stale limiter/spam maintenance, reviewed policy false positives and documented retention/privacy blockers. No migration/grant, production SQL, provider, deployment or flag changes. COMMUNITY_LAUNCH_RUNBOOK.md records prerequisites/stages/rollback and current NO-GO launch decision.
+- Local full suite 697 server tests plus one inherited TODO, 43 components, typecheck/lint/build, disposable PostgreSQL, browser permission/XSS/session/concurrency and light/dark desktop/mobile axe checks pass. Final PR/CI/merge evidence is recorded in COMMUNITY_STATUS.md after delivery. Stop after 5B.

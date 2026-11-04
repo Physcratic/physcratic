@@ -9,6 +9,7 @@ on:
       - 'tests/**'
       - 'migrations/**'
       - 'scripts/test-problem-authoring.sh'
+      - 'scripts/community-moderation-maintenance.ts'
       - 'package.json'
       - 'pnpm-lock.yaml'
       - 'pnpm-workspace.yaml'
@@ -59,3 +60,7 @@ jobs:
         env:
           AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/community-tools
         run: node --require ./tests/server-only-register.cjs --import tsx tests/moderation.browser.mjs
+      - name: Moderation dashboard, reporting and appeal flows
+        env:
+          AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/community-tools
+        run: node --require ./tests/server-only-register.cjs --import tsx tests/moderation-ui.browser.mjs

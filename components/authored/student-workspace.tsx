@@ -1,5 +1,6 @@
 "use client";
 import {ProblemStatsPanel} from '@/components/community/problem-stats';
+import {ReportControl} from '@/components/community/report-controls';
 import {Discussions} from '@/components/community/discussions';
 import { SkipLink } from "@/components/skip-link";
 import { studioTokens } from "@/components/authoring/studio-ui";
@@ -87,11 +88,13 @@ export function StudentWorkspace({
   viewer,
   statsEnabled=false,
   commentsEnabled=false,
+  moderationEnabled=false,
 }: {
   problemId: string;
   viewer: Viewer;
   statsEnabled?:boolean;
   commentsEnabled?:boolean;
+  moderationEnabled?:boolean;
 }) {
   const [revision, setRevision] = useState<PublicRevision | null>(null),
     [availability, setAvailability] = useState<Availability>("loading"),
@@ -254,6 +257,7 @@ export function StudentWorkspace({
               : "Recheck publication"}
           </Button>
         </div>
+        {moderationEnabled && availability === "ready" && <ReportControl subject={{kind:'problem',key:`authored:${problemId}`}}/>}
         {statsEnabled && availability === "ready" && <ProblemStatsPanel problemKey={`authored:${problemId}`}/>}
         {availability === "loading" && (
           <p role="status">Loading the current published problem…</p>
@@ -306,7 +310,7 @@ export function StudentWorkspace({
             </section>
           </>
         )}
-        {commentsEnabled && availability === "ready" && <Discussions problemKey={`authored:${problemId}`}/>}
+        {commentsEnabled && availability === "ready" && <Discussions moderationEnabled={moderationEnabled} problemKey={`authored:${problemId}`}/>}
       </main>
       <footer className="mx-auto max-w-[1440px] border-t px-5 py-6 text-xs leading-relaxed text-muted-foreground sm:px-8">
         Practice has no permanent per-part cap. Submitting or receiving a grade

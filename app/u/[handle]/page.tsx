@@ -10,6 +10,9 @@ import { ProfileCard } from "@/components/community/profile-card";
 import { communityAchievementsEnabled, communityAchievementsRoute } from "@/lib/community/achievements-route";
 import { publicShowcaseSchema, type BadgeId, type PublicMedal } from "@/lib/community/achievements";
 
+import {communityModerationUiEnabled} from '@/lib/community/moderation-route';
+import {ReportControl} from '@/components/community/report-controls';
+
 // No private identity, account dates, invented statistics or indexing in this first release.
 export const metadata: Metadata = { title: "Community profile", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
@@ -32,5 +35,5 @@ export default async function PublicProfilePage({ params }: { params: Promise<{ 
     const images = await profileMediaRoute("metadata", new Request(`https://profile.internal/api/community/profile-media?handle=${encodeURIComponent(profile.handle)}`));
     if (images.ok) media = mediaResponse.parse(await images.json()).media;
   }
-  return <main className="min-h-dvh bg-muted/20 px-5 py-8 text-foreground sm:py-12"><div className="mx-auto max-w-3xl space-y-7"><nav aria-label="Profile navigation" className="flex flex-wrap items-center justify-between gap-3"><Link href="/dashboard" className="text-lg font-semibold tracking-tight">Physcratic</Link><Link href="/dashboard?view=problems" className="rounded px-1 py-2 text-sm text-muted-foreground underline underline-offset-4">Back to Arena</Link></nav><ProfileCard profile={profile} media={media} badgeIds={badgeIds} medals={medals} /></div></main>;
+  return <main className="min-h-dvh bg-muted/20 px-5 py-8 text-foreground sm:py-12"><div className="mx-auto max-w-3xl space-y-7"><nav aria-label="Profile navigation" className="flex flex-wrap items-center justify-between gap-3"><Link href="/dashboard" className="text-lg font-semibold tracking-tight">Physcratic</Link><Link href="/dashboard?view=problems" className="rounded px-1 py-2 text-sm text-muted-foreground underline underline-offset-4">Back to Arena</Link></nav><ProfileCard profile={profile} media={media} badgeIds={badgeIds} medals={medals} />{communityModerationUiEnabled()&&<ReportControl subject={{kind:'profile',handle:profile.handle}}/>}</div></main>;
 }

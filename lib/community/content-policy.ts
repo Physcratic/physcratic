@@ -1,5 +1,5 @@
 export const contentPolicy = {
- version:'community-text-v1',
+ version:'community-text-v2',
  // Reviewed whole words, never substrings. These educational terms must stay valid.
  allowWords:new Set(['mass','class','classical','assumption','analysis','dielectric','passive','scattering','gaussian','fermion','boson','homogeneous']),
  trustedDomains:new Set(['physcratic.com','www.physcratic.com','arxiv.org','doi.org','en.wikipedia.org','physics.stackexchange.com']),
@@ -16,7 +16,7 @@ export function evaluateComment(text:string,config=contentPolicy):ContentDecisio
  if(tokens.some(t=>uncertain.has(t)&&!config.allowWords.has(t)))codes.push('language-review');
  for(let i=0;i<tokens.length;i++){let joined='';for(let j=i;j<Math.min(i+8,tokens.length);j++){joined+=tokens[j];if(joined.length>12)break;if(j>i&&(blocked.has(joined)||uncertain.has(joined))){codes.push('obfuscated-language');break;}}}
  const clean=text.normalize('NFKC').replace(/\p{Cf}/gu,'');
- if(/(?:javascript|vbscript|data)\s*:/i.test(clean))codes.push('unsafe-link-review');
+ if(/(?:javascript|vbscript)\s*:|data\s*:(?:text\/|application\/|image\/|[^\s,]*;base64,)/i.test(clean))codes.push('unsafe-link-review');
  const links=clean.match(/(?:https?:\/\/|www\.)[^\s<>]+|\b(?:[a-z0-9-]+\.)+(?:com|net|org|xyz|ru|info|io)\b/gi)??[];
  if(links.length>2)codes.push('link-volume');
  for(const link of links){try{const url=new URL(/^https?:\/\//i.test(link)?link:'https://'+link);if(!config.trustedDomains.has(url.hostname.toLowerCase())||url.username||url.password)codes.push('link-review');}catch{codes.push('link-review');}}
