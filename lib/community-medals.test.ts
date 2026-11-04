@@ -19,6 +19,7 @@ test('medal permissions, immutable audits, races and storage failures', {skip:!u
  const pool=new Pool({connectionString:url,options:`-c search_path=${schema},public`});let runtime:Pool|undefined;
  try{
  await pool.query('CREATE TABLE "user"(id text PRIMARY KEY); INSERT INTO "user" VALUES(\'owner\'),(\'admin\'),(\'other\'),(\'mod\')');const up=await readFile('migrations/0010_community_medals.up.sql','utf8'),down=await readFile('migrations/0010_community_medals.down.sql','utf8');await pool.query('BEGIN;'+up+'COMMIT;');await pool.query('BEGIN;'+down+'COMMIT;');await pool.query('BEGIN;'+up+'COMMIT;');
+ await pool.query('BEGIN;'+await readFile('migrations/0015_community_security_s1.up.sql','utf8')+'COMMIT;');
  await pool.query(`GRANT USAGE ON SCHEMA ${schema} TO ${role};GRANT SELECT,INSERT,UPDATE ON community_medal_claim,community_medal_limit TO ${role};GRANT SELECT ON community_medal_audit TO ${role};GRANT EXECUTE ON FUNCTION community_admin_locked(text) TO ${role}`);
  runtime=new Pool({connectionString:url,options:`-c search_path=${schema},public -c role=${role}`});
  await pool.query("INSERT INTO community_staff(user_id,role,reason) VALUES('admin','admin','operator test'),('mod','moderator','operator test')");

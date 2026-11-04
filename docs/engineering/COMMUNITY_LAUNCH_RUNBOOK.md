@@ -1,6 +1,6 @@
 # Community launch readiness and operator runbook
 
-Batch 5B is **code readiness only**. Deployment is **PENDING USER ACTION**. No production/shared staging SQL, grants, storage/provider changes, flags or deployment were performed. Passing tests or merging this runbook never authorizes activation.
+Batch 5B and security remediation S1 are **code readiness only**. Deployment is **PENDING USER ACTION**. No production/shared staging SQL, grants, storage/provider changes, flags or deployment were performed. Passing tests or merging this runbook never authorizes activation.
 
 ## Current launch decision: NO-GO
 
@@ -10,7 +10,7 @@ Before requesting that decision, the operator must record: exact reviewed deploy
 
 ## Schema and least privilege
 
-Inspect the ledger on the explicitly selected target using a direct non-pooled owner connection, a recovery point and the existing migration advisory lock. Never replay installed migrations or schema-push away SQL invariants. Merged 0001–0014 are immutable. For each absent migration, review its complete SQL and checksum from the approved commit, install once in an explicit transaction with `search_path=public,pg_catalog`, bounded lock/statement timeouts, apply its precise grants in that transaction, verify using the non-owner runtime role, then record ID/checksum/source commit/operator/time/result in `physcratic_production_migrations`. Stop and roll back on drift, a timeout or missing prerequisites.
+Inspect the ledger on the explicitly selected target using a direct non-pooled owner connection, a recovery point and the existing migration advisory lock. Never replay installed migrations or schema-push away SQL invariants. Merged 0001–0014 are immutable. S1 adds the separate corrective migration 0015; code merge does not install its fix. For each absent migration, review its complete SQL and checksum from the approved commit, install once in an explicit transaction with `search_path=public,pg_catalog`, bounded lock/statement timeouts, apply its precise grants in that transaction, verify using the non-owner runtime role, then record ID/checksum/source commit/operator/time/result in `physcratic_production_migrations`. Stop and roll back on drift, a timeout or missing prerequisites.
 
 The exact grant statements and transaction/ledger procedure for each batch are retained in [COMMUNITY_STATUS.md](COMMUNITY_STATUS.md). This table is a dependency checklist, not a replacement broad GRANT recipe.
 
@@ -24,6 +24,8 @@ The exact grant statements and transaction/ledger procedure for each batch are r
 | 0012 community_problem_stats | Better Auth + authored 0001–0006 | Totals SELECT, favourites SELECT/INSERT/DELETE, limiter SELECT/INSERT/UPDATE. Only trusted trigger writes totals |
 | 0013 community_comments | Better Auth + authored 0001–0006 | Comments SELECT/INSERT and UPDATE(body,version,deleted_at), reaction/spam grants and limiter. No author/parent/score mutation or comment DELETE/TRUNCATE |
 | 0014 community_moderation | 0010 + 0013 | Review/evidence/lock/audit SELECT only; report/appeal SELECT/INSERT only; limiter SELECT/INSERT/UPDATE; only four reviewed helper/decision EXECUTE grants from 5A |
+
+**S1 security prerequisite:** before any launch decision, install and verify `0015_community_security_s1` through the separately authorized owner/ledger procedure. It requires only 0010 and replaces the two old privileged medal routines with schema-qualified objects and trusted-schema/pg_catalog/pg_temp-last search paths, preserving owners/OIDs/ACLs and all existing grants. The audit reproduced temporary-object staff escalation and audit diversion without this correction. Exact checksum, grant matrix and exploit regressions are in COMMUNITY_STATUS.md. Down intentionally retains hardening as a no-op; never restore unsafe definitions.
 
 0014 captures existing current comment text into private evidence and holds legacy comments for review, preserving IDs/body/topology. It cannot recover text already erased before installation. Choose a measured maintenance window with adequate storage; timeout/failure must roll back. SQL installation remains safe with discussion exposure disabled. 5B adds **no migration**, table, staff role or runtime grant. Its operator maintenance is deliberately unavailable to the application role.
 
@@ -78,7 +80,7 @@ The fixed areas are `moderation`, `comments`, `content` and `spam`. Repeat only 
 
 ## Policy review and recovery
 
-`community-text-v2` preserves whole-token physics terminology and ordinary “data:” labels; executable data URL types stay held. Hard blocks, conservative uncertain holds, trusted-domain checks and plain-text rendering remain. This local heuristic is not comprehensive multilingual/contextual moderation. Review sampled synthetic false positives, unexpected queue growth and abuse evasions before launch; policy changes require code review/tests and never let a user override a hold. Existing held text is not automatically released after a policy update. Admin approval/appeal correction always targets current content/review versions and remains audited.
+`community-text-v3` preserves whole-token physics terminology and ordinary “data:” labels, conservatively holds dotless-i prohibited-word/threat evasions and previously missed bare domains/TLDs (including .shop), and excludes common bare filenames/single-letter dotted variables from domain signals; executable data URL types stay held. Hard blocks, conservative uncertain holds, trusted-domain checks and plain-text rendering remain. This local heuristic is not comprehensive multilingual/contextual moderation. Review sampled synthetic false positives, unexpected queue growth and abuse evasions before launch; policy changes require code review/tests and never let a user override a hold. Existing held text is not automatically released after a policy update. Admin approval/appeal correction always targets current content/review versions and remains audited.
 
 For uncertain submissions, retry the same request reference and fixed text or check private history. Duplicate-active/stale decisions return 409: reload, inspect current evidence and decide with its latest version; never blindly retry a staff write. The dashboard prevents actions while older evidence/audit pages are shown. On access loss/session change, private details are disposed; the server independently rechecks every request. Periodic/focus checks bound cached staff display, but revocation cannot retract evidence already seen or copied by an authorized reviewer.
 

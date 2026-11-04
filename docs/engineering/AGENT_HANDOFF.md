@@ -1,5 +1,13 @@
 # Agent handoff
 
+## Current Security S1 handoff (4 November 2026)
+
+- Started main `d1dc0cff8c752a8857b43fba5f88546664cc664c`, branch `codex/community-security-s1`. Exact PR/head/CI/merge SHA will be recorded after green delivery in COMMUNITY_STATUS.md.
+- Additive 0015 fixes `community_admin_locked` and `community_medal_log` temporary-object escalation with qualified relations and trusted-schema/pg_catalog/pg_temp-last paths. Owners/OIDs/ACLs and legitimate behavior preserved; no new runtime grants. Keep 0001–0014 immutable. Down deliberately retains hardening. Separate operator installation is still required.
+- Policy v3 holds dotless-i and new bare-domain/TLD signals on create/edit, preserving hard blocks, physics/file false-positive tests and prior holds. All nine SECURITY DEFINER paths verified; actual restricted LOGIN/non-superuser-owner exploit tests reproduce before the patch and deny table/view/trigger attacks after it.
+- Full local tests 719 server pass + one inherited TODO, 43 components; typecheck/lint/isolation and browser security pass. Production build and unreachable-schema/default-off/production-lock smoke pass; exact-head CI is required before merge. No production SQL, grants, flags, Vercel/provider/deployment actions or README triggers. Production remains NO-GO and discussion lock unchanged.
+- Stop after S1. Operator/retention/privacy/staffing/provider/load readiness and an explicit separate launch decision remain prerequisites; see COMMUNITY_LAUNCH_RUNBOOK.md. Do not activate features or start another batch.
+
 ## Current Batch 5B completion handoff (4 November 2026)
 
 - **Merged after explicit user approval:** [PR #115](https://github.com/Physcratic/physcratic/pull/115), merge `4b4e0d7bd4f63f59b6078334456e7523ac6b4403`. GitHub accepted the normal merge with an expected-head guard. Main was the reviewed base `9d7a0f3c3fbcaffb60e6500fd3df715f8e9fb9fa`; the merge tree exactly matches the approved head. Exact approved head `5946de97823c139b934ffba96b1eedcf0d2f6d5b` passed [CI #197](https://github.com/Physcratic/physcratic/actions/runs/41802292821) and [browser #6](https://github.com/Physcratic/physcratic/actions/runs/41802292657). Main merge [CI #198](https://github.com/Physcratic/physcratic/actions/runs/41808175911) passed on `4b4e0d7bd4f63f59b6078334456e7523ac6b4403`, including database/release/operator guards, typecheck, lint, server/component tests and production build.

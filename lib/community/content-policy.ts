@@ -1,5 +1,5 @@
 export const contentPolicy = {
- version:'community-text-v2',
+ version:'community-text-v3',
  // Reviewed whole words, never substrings. These educational terms must stay valid.
  allowWords:new Set(['mass','class','classical','assumption','analysis','dielectric','passive','scattering','gaussian','fermion','boson','homogeneous']),
  trustedDomains:new Set(['physcratic.com','www.physcratic.com','arxiv.org','doi.org','en.wikipedia.org','physics.stackexchange.com']),
@@ -8,16 +8,21 @@ export type ContentDecision={state:'visible'|'held'|'blocked';codes:string[];pol
 const blocked=new Set(['nigger','niggers','nigga','niggas','kike','kikes','faggot','faggots']);
 const uncertain=new Set(['fuck','fucking','shit','bitch','asshole']);
 const lookalikes:Record<string,string>={'а':'a','е':'e','о':'o','р':'p','с':'c','х':'x','і':'i','ј':'j','0':'o','1':'i','3':'e','4':'a','5':'s','7':'t'};
-export function policyTokens(text:string){return (text.normalize('NFKC').normalize('NFKD').replace(/\p{M}|\p{Cf}/gu,'').replace(/(?<=\p{L})[!|](?=\p{L})/gu,'i').replace(/(?<=\p{L})@(?=\p{L})/gu,'a').replace(/(?<=\p{L})\$(?=\p{L})/gu,'s').toLowerCase().match(/[\p{L}\p{N}]+/gu)??[]).map(word=>[...word].map(c=>lookalikes[c]??c).join(''));}
+export function policyTokens(text:string,foldDotless=true){return (text.normalize('NFKC').normalize('NFKD').replace(/\p{M}|\p{Cf}/gu,'').replace(/(?<=\p{L})[!|](?=\p{L})/gu,'i').replace(/(?<=\p{L})@(?=\p{L})/gu,'a').replace(/(?<=\p{L})\$(?=\p{L})/gu,'s').toLowerCase().match(/[\p{L}\p{N}]+/gu)??[]).map(word=>[...word].map(c=>c==='ı'&&foldDotless?'i':lookalikes[c]??c).join(''));}
+const directThreat=(phrase:string)=>/(?:^| )(?:kill yourself|go kill yourself|i will kill you|i will hurt you|you should die)(?: |$)/.test(phrase);
+// Bare filenames and dotted single-letter variables are not domain signals.
+// Explicit http(s)/www addresses are always evaluated, even with these suffixes.
+const bareFile=/\.(?:pdf|tex|png|jpe?g|webp|svg|csv|json|txt)$/i;
 export function evaluateComment(text:string,config=contentPolicy):ContentDecision {
- const tokens=policyTokens(text),phrase=tokens.join(' '),codes:string[]=[];
- if(tokens.some(t=>blocked.has(t)))return {state:'blocked',codes:['targeted-slur'],policyVersion:config.version};
- if(/(?:^| )(?:kill yourself|go kill yourself|i will kill you|i will hurt you|you should die)(?: |$)/.test(phrase))return {state:'blocked',codes:['direct-threat'],policyVersion:config.version};
+ const tokens=policyTokens(text),original=policyTokens(text,false),codes:string[]=[];
+ if(original.some(t=>blocked.has(t)))return {state:'blocked',codes:['targeted-slur'],policyVersion:config.version};
+ if(directThreat(original.join(' ')))return {state:'blocked',codes:['direct-threat'],policyVersion:config.version};
+ if(tokens.some(t=>blocked.has(t))||directThreat(tokens.join(' ')))codes.push('confusable-language');
  if(tokens.some(t=>uncertain.has(t)&&!config.allowWords.has(t)))codes.push('language-review');
  for(let i=0;i<tokens.length;i++){let joined='';for(let j=i;j<Math.min(i+8,tokens.length);j++){joined+=tokens[j];if(joined.length>12)break;if(j>i&&(blocked.has(joined)||uncertain.has(joined))){codes.push('obfuscated-language');break;}}}
  const clean=text.normalize('NFKC').replace(/\p{Cf}/gu,'');
  if(/(?:javascript|vbscript)\s*:|data\s*:(?:text\/|application\/|image\/|[^\s,]*;base64,)/i.test(clean))codes.push('unsafe-link-review');
- const links=clean.match(/(?:https?:\/\/|www\.)[^\s<>]+|\b(?:[a-z0-9-]+\.)+(?:com|net|org|xyz|ru|info|io)\b/gi)??[];
+ const links=(clean.match(/(?:https?:\/\/|www\.)[^\s<>]+|(?<![\p{L}\p{N}_])(?:[\p{L}\p{N}](?:[\p{L}\p{N}-]{0,61}[\p{L}\p{N}])?\.)+(?:[\p{L}]{2,63}|xn--[a-z0-9-]{2,59})(?![\p{L}\p{N}_-])/giu)??[]).filter(link=>/^(?:https?:\/\/|www\.)/i.test(link)||!bareFile.test(link));
  if(links.length>2)codes.push('link-volume');
  for(const link of links){try{const url=new URL(/^https?:\/\//i.test(link)?link:'https://'+link);if(!config.trustedDomains.has(url.hostname.toLowerCase())||url.username||url.password)codes.push('link-review');}catch{codes.push('link-review');}}
  if(tokens.length>32&&new Set(tokens).size/tokens.length<0.15)codes.push('repetition-review');
