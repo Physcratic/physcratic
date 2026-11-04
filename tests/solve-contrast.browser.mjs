@@ -44,6 +44,8 @@ function measure() {
     if (!text || !el || el.closest("script,style,noscript,.katex-mathml,[aria-hidden='true'] svg") || !visible(el) || disabled(el)) continue;
     const style = getComputedStyle(el); const size = parseFloat(style.fontSize); const bold = Number(style.fontWeight) >= 700;
     const need = size >= 24 || (size >= 18.66 && bold) ? 3 : 4.5;
+    // Transparent text is an invisible overlay on purpose, such as the selectable text layer over a PDF page image.
+    if (parse(style.color).a === 0) continue;
     const fg = over(parse(style.color), backdrop(el)); const value = ratio(fg, backdrop(el));
     minText = Math.min(minText, need === 3 ? Math.max(value, 4.5) : value);
     if (value < need) fails.push({ kind: "text", ratio: +value.toFixed(2), need, el: label(el), text: text.slice(0, 40) });
@@ -91,7 +93,9 @@ function audit() {
     // A checkbox or radio is a target through its label, whether it wraps the control or points at it with for=.
     const label = el.closest("label") || (el.id ? document.querySelector(`label[for="${CSS.escape(el.id)}"]`) : null);
     if ((el.type === "checkbox" || el.type === "radio" || el.getAttribute("role") === "checkbox") && label) box = label.getBoundingClientRect();
-    if (box.height < 43.5 || box.width < 43.5) issues.push({ kind: "tap-target", el: name(el), text: `${Math.round(box.width)}x${Math.round(box.height)} ${(el.getAttribute("aria-label") || el.textContent || el.getAttribute("href") || "").trim().slice(0, 40)}` });
+    // A text link only needs the height: a short word cannot be 44px wide without padding that changes the layout.
+    const textLink = el.tagName === "A" && el.textContent.trim().length > 0;
+    if (box.height < 43.5 || (!textLink && box.width < 43.5)) issues.push({ kind: "tap-target", el: name(el), text: `${Math.round(box.width)}x${Math.round(box.height)} ${(el.getAttribute("aria-label") || el.textContent || el.getAttribute("href") || "").trim().slice(0, 40)}` });
   }
   return issues;
 }
