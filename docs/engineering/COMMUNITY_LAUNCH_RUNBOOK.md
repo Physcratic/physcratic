@@ -2,6 +2,8 @@
 
 Batch 5B is **code readiness only**. Deployment is **PENDING USER ACTION**. No production/shared staging SQL, grants, storage/provider changes, flags or deployment were performed. Passing tests or merging this runbook never authorizes activation.
 
+See [Phase 6A evidence and operator checklist](COMMUNITY_RELEASE_READINESS.md) for VERIFIED/BLOCKED/UNKNOWN status and the approval boundary.
+
 ## Current launch decision: NO-GO
 
 The original `communityCommentsEnabled` production lock remains unchanged. Production discussions cannot be activated by setting flags, including when every community flag is true. A separate explicit user-approved launch decision and reviewed code change are required to replace that lock. There is no activation endpoint, implicit date or automatic rollout. Keep discussion flags OFF. The UI gate below does not release the production lock.
@@ -18,7 +20,7 @@ The exact grant statements and transaction/ledger procedure for each batch are r
 | --- | --- | --- |
 | 0007 community_profile | Better Auth, opt-in profile identity | SELECT, INSERT, narrowly permitted UPDATE plus profile limiter. No auth schema mutation or public email/name copy |
 | 0008 community_profile_media | 0007, private image lifecycle | Existing metadata/quota permissions and approved private proxy. No public bucket or broad proof access |
-| 0009 community_achievements | authored 0001–0006 + 0007 | Selection/limiter and eligibility EXECUTE grants only. No private answer-key or attempt mutation grants |
+| 0009 community_achievements | authored 0001–0006 + 0007 | Selection/limiter writes, eligibility EXECUTE and existing eligibility read dependencies from COMMUNITY_STATUS.md (including authored attempts). No private answer-key or attempt mutation grants |
 | 0010 community_medals | Better Auth; audited staff and claims | Existing claim/limiter and admin-check grants. Runtime cannot assign staff roles or write immutable audit directly |
 | 0011 community_medal_showcase | 0009 + 0010 | Validation-function EXECUTE and approved-medal view SELECT must accompany installation, even for earned-only selection writes |
 | 0012 community_problem_stats | Better Auth + authored 0001–0006 | Totals SELECT, favourites SELECT/INSERT/DELETE, limiter SELECT/INSERT/UPDATE. Only trusted trigger writes totals |
@@ -43,6 +45,7 @@ All gates default OFF. No flag was changed externally by this batch.
 | Gate | Dependencies / current effect |
 | --- | --- |
 | COMMUNITY_PROFILES_ENABLED | 0007 and grants, opt-in visibility |
+| COMMUNITY_AUTHORSHIP_ENABLED | Profiles plus 0007; opt-in author attribution in `/api/arena/collection`. Independent of discussion activation |
 | COMMUNITY_PROFILE_MEDIA_ENABLED | Profiles plus 0008/private image storage |
 | COMMUNITY_ACHIEVEMENTS_ENABLED | Profiles plus 0009; optional medals below |
 | COMMUNITY_STAFF_ENABLED | 0010 audited staff authorization; required by moderation and medals |

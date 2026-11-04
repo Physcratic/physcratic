@@ -21,3 +21,5 @@ Freshly fetch main and check open PRs before a batch, before assigning migration
 Successful CI/merge does not establish deployment or authorise SQL/grants/flags. The current session authorises only Batch 5B implementation/PR/merge after green checks, followed by a stop. No deployment or production activation is authorized. PR #105 integration is complete.
 
 Batch 5B completion follows independently merged PR #112 without duplicating its UI and is now integrated through [PR #115](https://github.com/Physcratic/physcratic/pull/115). Stop after merge verification and this documentation-only handoff. Exact next milestone: a separately authorised operator readiness review. Production launch remains NO-GO with the original lock, operator prerequisites and separate approval unchanged.
+
+Phase 6A: documentation-only release audit complete. See COMMUNITY_RELEASE_READINESS.md for evidence states and approvals. Exact next phase: operator-authorised read-only inventory and isolated preproduction rehearsal (Phase 6B). Launch remains NO-GO; no Production action is authorised by this checklist.

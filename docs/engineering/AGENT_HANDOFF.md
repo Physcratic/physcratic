@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Phase 6A release readiness
+
+Audited d1dc0cf against 0007–0014, gates, grants, storage/staff/retention/rollback and CI. Documentation-only correction adds missing authorship gate and precise eligibility grant caveat. See COMMUNITY_RELEASE_READINESS.md for VERIFIED/BLOCKED/UNKNOWN and the operator checklist. No Production inspection or change. Launch remains NO-GO. Next: explicit scoped read-only inventory approval and isolated preproduction resources for Phase 6B; stop before either operation.
+
 ## Current Batch 5B completion handoff (4 November 2026)
 
 - **Merged after explicit user approval:** [PR #115](https://github.com/Physcratic/physcratic/pull/115), merge `4b4e0d7bd4f63f59b6078334456e7523ac6b4403`. GitHub accepted the normal merge with an expected-head guard. Main was the reviewed base `9d7a0f3c3fbcaffb60e6500fd3df715f8e9fb9fa`; the merge tree exactly matches the approved head. Exact approved head `5946de97823c139b934ffba96b1eedcf0d2f6d5b` passed [CI #197](https://github.com/Physcratic/physcratic/actions/runs/41802292821) and [browser #6](https://github.com/Physcratic/physcratic/actions/runs/41802292657). Main merge [CI #198](https://github.com/Physcratic/physcratic/actions/runs/41808175911) passed on `4b4e0d7bd4f63f59b6078334456e7523ac6b4403`, including database/release/operator guards, typecheck, lint, server/component tests and production build.

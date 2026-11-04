@@ -1,5 +1,9 @@
 # Community implementation status
 
+## Phase 6A release readiness
+
+Source/CI audit and actionable approval checklist: COMMUNITY_RELEASE_READINESS.md. Real installation, effective grants, flags, stores, staff, retention policy and recovery remain UNKNOWN/BLOCKED. No runtime/schema changes or Production verification. Launch remains NO-GO.
+
 ## Batch 5B completion follow-up (4 November 2026)
 
 **Merged after explicit user approval:** [PR #115](https://github.com/Physcratic/physcratic/pull/115), merge `4b4e0d7bd4f63f59b6078334456e7523ac6b4403`. Exact approved head `5946de97823c139b934ffba96b1eedcf0d2f6d5b` passed [CI #197](https://github.com/Physcratic/physcratic/actions/runs/41802292821) and [browser #6](https://github.com/Physcratic/physcratic/actions/runs/41802292657). Main merge [CI #198](https://github.com/Physcratic/physcratic/actions/runs/41808175911) passed on `4b4e0d7bd4f63f59b6078334456e7523ac6b4403`, including database/release/operator guards, typecheck, lint, server/component tests and production build. This postmerge update changes documentation only. No deployment or operator action was performed.
