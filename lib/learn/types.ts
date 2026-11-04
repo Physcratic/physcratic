@@ -34,6 +34,11 @@ export type Block =
   | { type: "guideLink"; slug: string; hash?: string; label: string; note?: string }
   /** A contextual link to an implemented route on this site. */
   | { type: "siteLink"; href: string; label: string; note?: string }
+  /**
+   * A screenshot or figure stored under public/learn/<slug>/. WebP, 1280px wide and under 200 KB, with alt text that
+   * says what the screen shows. The caption is reader-facing copy.
+   */
+  | { type: "image"; src: string; alt: string; width: number; height: number; caption?: string }
   /** Display maths. TeX is rendered on the server with KaTeX. */
   | { type: "math"; tex: string; caption?: string }
   | {

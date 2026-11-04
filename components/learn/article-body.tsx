@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import {
@@ -162,6 +163,24 @@ export function ArticleBody({
                   ) : null}
                 </span>
               </Link>
+            );
+          case "image":
+            return (
+              <figure key={index} className="flex max-w-3xl flex-col gap-2">
+                <Image
+                  src={block.src}
+                  alt={block.alt}
+                  width={block.width}
+                  height={block.height}
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  className="h-auto w-full rounded-lg border"
+                />
+                {block.caption ? (
+                  <figcaption className="text-sm text-muted-foreground">
+                    {block.caption}
+                  </figcaption>
+                ) : null}
+              </figure>
             );
           case "math":
             return (

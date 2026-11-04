@@ -90,3 +90,34 @@ test("documented tolerance, units and limited-symbolic examples agree with actua
   assert.match(studentText, /not saved attempts and do not award ELO/);
   assert.match(studentText, /subsequent new attempts on the entire revision assisted/);
 });
+
+/** Width and height from a WebP header (lossy, lossless or extended). No image library needed. */
+function webpSize(file: Buffer) {
+  assert.equal(file.toString("ascii", 0, 4), "RIFF");
+  assert.equal(file.toString("ascii", 8, 12), "WEBP");
+  const kind = file.toString("ascii", 12, 16);
+  if (kind === "VP8 ") return { width: file.readUInt16LE(26) & 0x3fff, height: file.readUInt16LE(28) & 0x3fff };
+  if (kind === "VP8L") {
+    const bits = file.readUInt32LE(21);
+    return { width: (bits & 0x3fff) + 1, height: ((bits >> 14) & 0x3fff) + 1 };
+  }
+  assert.equal(kind, "VP8X");
+  return { width: file.readUIntLE(24, 3) + 1, height: file.readUIntLE(27, 3) + 1 };
+}
+
+test("every guide image is a real WebP, 1280px wide, under 200 KB, with alt text that describes the screen", () => {
+  for (const article of articles) {
+    for (const block of article.body) {
+      if (block.type !== "image") continue;
+      assert.ok(block.src.startsWith(`/learn/${article.slug}/`) && block.src.endsWith(".webp"), block.src);
+      const path = join("public", block.src);
+      assert.ok(existsSync(path), `${block.src} is missing`);
+      const file = readFileSync(path);
+      assert.ok(file.length < 200 * 1024, `${block.src} is ${file.length} bytes`);
+      const size = webpSize(file);
+      assert.equal(size.width, 1280, block.src);
+      assert.deepEqual({ width: block.width, height: block.height }, size, `${block.src} width and height match the file`);
+      assert.ok(block.alt.split(/\s+/).length >= 6 && /^[A-Z]/.test(block.alt), `${block.src} needs alt text that says what the screen shows`);
+    }
+  }
+});
