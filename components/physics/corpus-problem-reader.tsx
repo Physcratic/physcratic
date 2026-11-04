@@ -264,7 +264,7 @@ export function CorpusProblemReader({
                 </p>
               )}
               <a
-                className="inline-flex items-center gap-1 text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
+                className="inline-flex min-h-11 items-center gap-1 text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
                 href={
                   corpusDocument(problem, "solutions", part.solutionPage).pdf
                 }

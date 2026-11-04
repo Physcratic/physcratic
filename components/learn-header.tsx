@@ -19,7 +19,7 @@ export function LearnHeader() {
       <div className="mx-auto flex h-16 w-full max-w-3xl items-center justify-between gap-3 px-4 sm:px-6">
         <Link
           href="/dashboard"
-          className="flex min-w-0 items-center gap-2.5 rounded-md font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="flex min-h-11 min-w-0 items-center gap-2.5 rounded-md font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           <BrandMark size={32} className="shrink-0" />
           <span className="truncate text-lg">Physcratic</span>
@@ -32,7 +32,7 @@ export function LearnHeader() {
           <Button
             asChild
             variant="outline"
-            className="size-11 border-accent-foreground p-0 text-accent-foreground hover:bg-accent hover:text-accent-foreground sm:h-9 sm:w-auto sm:px-3"
+            className="size-11 border-accent-foreground p-0 text-accent-foreground hover:bg-accent hover:text-accent-foreground sm:h-11 sm:w-auto sm:px-3"
           >
             <Link href="/coaching" aria-label="Coaching" {...coachingEntryHandlers("topbar")}>
               <GraduationCap aria-hidden="true" />

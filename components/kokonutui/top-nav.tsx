@@ -32,7 +32,7 @@ export default function TopNav({
 
   return (
     <header className="flex h-[72px] shrink-0 items-center justify-between border-b bg-background pl-4 pr-[68px] sm:px-8 sm:pl-16 lg:pl-8 xl:px-10">
-      <Link href="/dashboard" className="flex min-w-0 items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:hidden" aria-label="Physcratic home">
+      <Link href="/dashboard" className="flex min-h-11 min-w-0 items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:hidden" aria-label="Physcratic home">
         <BrandMark size={32} className="shrink-0 rounded-md" />
         <span className="truncate text-xl font-semibold tracking-[-0.05em]">Physcratic</span>
       </Link>
@@ -42,7 +42,7 @@ export default function TopNav({
       >
         <Link
           href="/dashboard"
-          className="hidden text-muted-foreground transition-colors hover:text-foreground sm:block"
+          className="hidden min-h-11 items-center text-muted-foreground transition-colors hover:text-foreground sm:inline-flex"
         >
           Workspace
         </Link>
@@ -56,7 +56,7 @@ export default function TopNav({
         <Button
           variant="ghost"
           size="sm"
-          className="px-2 sm:px-3"
+          className="min-w-11 px-2 sm:px-3"
           onClick={() => router.push("/dashboard?view=problems&search=1")}
           aria-label="Search problems"
         >
@@ -79,7 +79,7 @@ export default function TopNav({
           asChild
           variant="outline"
           size="sm"
-          className="size-11 border-accent-foreground p-0 text-accent-foreground hover:bg-accent hover:text-accent-foreground sm:h-9 sm:w-auto sm:px-3"
+          className="size-11 border-accent-foreground p-0 text-accent-foreground hover:bg-accent hover:text-accent-foreground sm:h-11 sm:w-auto sm:px-3"
         >
           <Link
             href="/coaching"

@@ -82,7 +82,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
                 {creating && <Field orientation="horizontal">
                   <Checkbox id="account-terms" name="termsAccepted" required checked={termsAccepted} onCheckedChange={(checked) => setTermsAccepted(checked === true)} aria-describedby="account-terms-description" />
                   <FieldContent>
-                    <FieldLabel htmlFor="account-terms">I agree to the Terms of Service.</FieldLabel>
+                    <FieldLabel htmlFor="account-terms" className="min-h-11 items-center">I agree to the Terms of Service.</FieldLabel>
                     <FieldDescription id="account-terms-description"><Link href="/terms" target="_blank" rel="noopener noreferrer">Read the Terms of Service (opens in a new tab)</Link>. We record the version and acceptance time with your account.</FieldDescription>
                   </FieldContent>
                 </Field>}
@@ -94,7 +94,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
             <Button form="account-form" type="submit" disabled={busy}>{busy && <Loader2 data-icon="inline-start" className="animate-spin" />}{creating ? "Create account" : "Sign in"}</Button>
             <p className="text-center text-sm leading-relaxed text-muted-foreground">{creating ? "Already have an account? " : "New to Physcratic? "}<Link className="text-foreground underline underline-offset-4" href={`/${creating ? "sign-in" : "sign-up"}?returnTo=${encodeURIComponent(returnTo)}`}>{creating ? "Sign in" : "Create an account"}</Link></p>
             {!creating && <Button type="button" variant="ghost" disabled={busy} onClick={() => setVerificationEmail("")}>Need a verification email?</Button>}
-            <Link href="/terms" className="text-center text-sm text-muted-foreground underline underline-offset-4">Terms of Service</Link>
+            <Link href="/terms" className="inline-flex min-h-11 items-center justify-center text-center text-sm text-muted-foreground underline underline-offset-4">Terms of Service</Link>
           </CardFooter>
         </Card>}
       </div>
