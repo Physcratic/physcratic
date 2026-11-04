@@ -23,12 +23,12 @@ export default function TermsPage() {
         <p className="text-sm leading-relaxed text-muted-foreground">Effective {TERMS_EFFECTIVE_DATE} · Version {TERMS_VERSION}</p>
       </header>
       <Alert>
-        <AlertTitle>Starter terms, pending legal review</AlertTitle>
+        <AlertTitle role="heading" aria-level={2}>Starter terms, pending legal review</AlertTitle>
         <AlertDescription>This is a provisional agreement, not legal advice. Before a public launch, the operator must have it reviewed, add its legal identity and contact details, and publish a separate privacy notice.</AlertDescription>
       </Alert>
       <nav aria-label="Terms sections" className="flex flex-col gap-2 rounded-lg border border-border bg-card p-5 text-card-foreground">
         <h2 className="font-semibold">On this page</h2>
-        {TERMS_SECTIONS.map((section) => <Link key={section.id} href={`#${section.id}`} className="w-fit text-sm leading-relaxed text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">{section.title}</Link>)}
+        {TERMS_SECTIONS.map((section) => <Link key={section.id} href={`#${section.id}`} className="inline-flex min-h-11 w-fit items-center text-sm leading-relaxed text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">{section.title}</Link>)}
       </nav>
       <article className="flex flex-col gap-8">
         {TERMS_SECTIONS.map((section) => (
@@ -40,7 +40,7 @@ export default function TermsPage() {
       </article>
       <footer className="flex flex-col gap-3 border-t border-border pt-6 text-sm leading-relaxed text-muted-foreground">
         <p>Accept these Terms using the unchecked agreement box when creating your account.</p>
-        <Link href="/sign-up" className="w-fit text-foreground underline underline-offset-4">Create an account</Link>
+        <Link href="/sign-up" className="inline-flex min-h-11 w-fit items-center text-foreground underline underline-offset-4">Create an account</Link>
       </footer>
     </main>
   );

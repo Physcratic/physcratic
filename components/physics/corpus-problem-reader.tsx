@@ -277,7 +277,7 @@ export function CorpusProblemReader({
             </CardFooter>
           </Card>
           <details className="min-w-0 rounded-lg border p-5">
-            <summary className="cursor-pointer text-sm font-medium">
+            <summary className="flex min-h-11 cursor-pointer items-center text-sm font-medium">
               Source, attribution & import review
             </summary>
             <div className="flex flex-col gap-4 pt-4">
@@ -288,7 +288,7 @@ export function CorpusProblemReader({
                 href={problem.sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-sm underline underline-offset-4"
+                className="inline-flex min-h-11 items-center gap-1 text-sm underline underline-offset-4"
               >
                 Official source archive
                 <ArrowUpRight className="size-4" />
@@ -320,7 +320,7 @@ export function CorpusProblemReader({
       </div>
       <Alert>
         <Info />
-        <AlertTitle>Learning, not a rating event</AlertTitle>
+        <AlertTitle role="heading" aria-level={3}>Learning, not a rating event</AlertTitle>
         <AlertDescription>
           Reviews are your own learning notes. This pilot has no contest
           submissions, automatic full-problem judging, or ELO changes.

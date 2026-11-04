@@ -71,12 +71,13 @@ function audit() {
   const issues = [];
   const visible = (el) => { const r = el.getBoundingClientRect(); const s = getComputedStyle(el); return r.width > 1 && r.height > 1 && s.visibility !== "hidden" && s.display !== "none" && Number(s.opacity) > 0; };
   const name = (el) => `${el.tagName.toLowerCase()}${typeof el.className === "string" && el.className ? "." + el.className.split(/\s+/).slice(0, 2).join(".") : ""}`;
-  const headings = [...document.querySelectorAll("h1,h2,h3,h4,h5,h6")].filter(visible);
-  const h1 = headings.filter((h) => h.tagName === "H1");
+  const levelOf = (h) => Number(h.getAttribute("aria-level") || h.tagName[1]);
+  const headings = [...document.querySelectorAll("h1,h2,h3,h4,h5,h6,[role=heading]")].filter(visible);
+  const h1 = headings.filter((h) => levelOf(h) === 1);
   if (h1.length !== 1) issues.push({ kind: "h1", el: "h1", text: `${h1.length} visible h1 elements` });
   let previous = 0;
   for (const heading of headings) {
-    const level = Number(heading.tagName[1]);
+    const level = levelOf(heading);
     if (previous && level > previous + 1) issues.push({ kind: "heading-order", el: name(heading), text: `h${previous} then h${level}: ${heading.textContent.trim().slice(0, 40)}` });
     previous = level;
   }
@@ -87,7 +88,9 @@ function audit() {
     const style = getComputedStyle(el);
     if (style.display === "inline" && el.tagName === "A") continue; // links inside a sentence are exempt
     let box = el.getBoundingClientRect();
-    if ((el.type === "checkbox" || el.type === "radio") && el.closest("label")) box = el.closest("label").getBoundingClientRect();
+    // A checkbox or radio is a target through its label, whether it wraps the control or points at it with for=.
+    const label = el.closest("label") || (el.id ? document.querySelector(`label[for="${CSS.escape(el.id)}"]`) : null);
+    if ((el.type === "checkbox" || el.type === "radio" || el.getAttribute("role") === "checkbox") && label) box = label.getBoundingClientRect();
     if (box.height < 43.5 || box.width < 43.5) issues.push({ kind: "tap-target", el: name(el), text: `${Math.round(box.width)}x${Math.round(box.height)} ${(el.getAttribute("aria-label") || el.textContent || el.getAttribute("href") || "").trim().slice(0, 40)}` });
   }
   return issues;
@@ -170,7 +173,7 @@ try {
         for (const issue of await focusAudit(page)) record(name, theme, width, issue);
         for (const issue of await axeAudit(page)) record(name, theme, width, issue);
         // The site name never ends in a dot, in text or in pseudo-element content.
-        const dots = await page.evaluate(() => [...document.querySelectorAll("body *")].flatMap((el) => ["::before", "::after"].map((p) => [el, getComputedStyle(el, p).content]).filter(([, c]) => c && c !== "none" && c !== "normal" && /^["']?\.["']?$/.test(c)).map(([e]) => e.tagName)).concat(document.body.innerText.match(/Physcratic\.(?=\s*$|\s*\n)/gm) ?? []));
+        const dots = await page.evaluate(() => [...document.querySelectorAll("body *")].flatMap((el) => ["::before", "::after"].map((p) => [el, getComputedStyle(el, p).content]).filter(([, c]) => c && c !== "none" && c !== "normal" && /^["']?\.["']?$/.test(c)).map(([e]) => e.tagName)).concat([...document.querySelectorAll("body *")].filter((el) => el.children.length === 0 && /^Physcratic\.$/.test(el.textContent.trim())).map((el) => el.tagName)));
         for (const dot of dots) record(name, theme, width, { kind: "site-name-dot", el: String(dot), text: "a dot after the site name" });
       }
       await page.close();

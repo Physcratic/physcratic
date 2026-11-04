@@ -20,7 +20,7 @@ export default function PdfPageViewer({ file, page, label }: { file: string; pag
     return () => observer.disconnect();
   }, []);
   const fallback = <Alert variant="destructive"><AlertTitle>Inline PDF preview unavailable</AlertTitle><AlertDescription>Use Open PDF or Download PDF above to read the complete original document.</AlertDescription></Alert>;
-  return <div ref={container} aria-label={label} className="min-w-0 overflow-hidden rounded-lg border border-border" data-pdf-rendered={rendered ? "true" : "false"}>
+  return <div ref={container} role="group" aria-label={label} className="min-w-0 overflow-hidden rounded-lg border border-border" data-pdf-rendered={rendered ? "true" : "false"}>
     {width > 0 && <Document file={file} suspense={false} loading={<p role="status" className="p-6 text-sm text-muted-foreground">Loading original PDF…</p>} error={fallback}>
       <Page key={page} pageNumber={page} width={width} renderTextLayer renderAnnotationLayer loading={<p role="status" className="p-6 text-sm text-muted-foreground">Rendering PDF page…</p>} error={fallback} onRenderSuccess={() => setRendered(true)} onLoadSuccess={() => setRendered(false)} />
     </Document>}

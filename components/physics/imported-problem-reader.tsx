@@ -160,11 +160,15 @@ export function ImportedProblemReader({
   problem,
   onBack,
   onOpenPilot,
+  asPage = false,
 }: {
   problem: CatalogProblem;
   onBack: () => void;
   onOpenPilot?: (id: string) => void;
+  /** True on the problem's own page, where the title is the page's h1. Inside the library it stays an h2. */
+  asPage?: boolean;
 }) {
+  const TitleTag = asPage ? "h1" : "h2";
   const { data, error, isLoading, mutate } = useSWRImmutable(
     problem.importPath,
     loadProblem,
@@ -218,13 +222,13 @@ export function ImportedProblemReader({
               : "English source"}
           </Badge>
         </div>
-        <h2
+        <TitleTag
           id="imported-problem-title"
           lang={problem.titleLanguage}
           className="text-balance text-2xl font-medium tracking-tight"
         >
           {problem.title}
-        </h2>
+        </TitleTag>
         <p className="text-sm leading-relaxed text-muted-foreground">
           Complete statement and original diagrams stored in this app. Solution
           content is checked separately before it can become a grading
@@ -400,7 +404,7 @@ export function ImportedProblemReader({
         </Tabs>
       )}
       <details className="rounded-lg border border-border px-4 py-3">
-        <summary className="cursor-pointer text-sm font-medium">
+        <summary className="flex min-h-11 cursor-pointer items-center text-sm font-medium">
           Source credits & import details
         </summary>
         <div className="flex flex-col gap-3 pt-4 text-sm leading-relaxed text-muted-foreground">
@@ -423,7 +427,7 @@ export function ImportedProblemReader({
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 break-all underline underline-offset-4"
+                  className="flex min-h-11 items-center gap-2 break-all underline underline-offset-4"
                 >
                   Original source <ArrowUpRight className="size-4 shrink-0" />
                   <span className="sr-only">{url}</span>
