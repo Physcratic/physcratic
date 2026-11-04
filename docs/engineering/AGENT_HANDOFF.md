@@ -3,9 +3,9 @@
 ## Current Batch 5B completion handoff (4 November 2026)
 
 - Reconciled independently merged PR #112 (`cded70fa4174acd0f79512ced7ae4d5fa73da9f8`) and main `9d7a0f3c3fbcaffb60e6500fd3df715f8e9fb9fa`. No duplicate UI was published. Focused completion adds required fixed-intent staff confirmation/cancellation and numeric audit pagination, with explicit decision feedback.
-- Expanded disposable tests cover 80 audit events/25 evidence versions, concurrent limiter refresh, actual reader reports/withdrawal, ambiguous retry, rejected appeals and in-flight account switching. Full 698 server tests: 697 pass, one inherited TODO; 43 components pass. Typecheck/lint/offline/build and built production-lock smoke pass. Final completion PR Checks tab records exact-head CI/browser results. Independent static security review found no confirmed vulnerability.
+- Expanded disposable tests cover 80 audit events/25 evidence versions, concurrent limiter refresh, actual reader reports/withdrawal, ambiguous retry, rejected appeals and in-flight account switching. Full 698 server tests: 697 pass, one inherited TODO; 43 components pass. Typecheck/lint/offline/build and built production-lock smoke pass. Final [completion PR #115](https://github.com/Physcratic/physcratic/pull/115) Checks tab records exact-head CI/browser results. Independent static security review found no confirmed vulnerability.
 - No migration, runtime grant, production lock, CSP, provider or deployment change. Keep UI/discussion flags OFF. Evidence/audit/cases are retained. See COMMUNITY_STATUS.md and COMMUNITY_LAUNCH_RUNBOOK.md for operator prerequisites and retention trade-offs. Launch remains NO-GO.
-- Exact next action: review final-head checks and obtain explicit merge approval under AGENTS.md for the security-sensitive completion PR, then stop. No automatic launch or next batch. Deployment remains PENDING USER ACTION.
+- Exact next action: review final-head checks and obtain explicit merge approval under AGENTS.md for the security-sensitive [completion PR #115](https://github.com/Physcratic/physcratic/pull/115), then stop. No automatic launch or next batch. Deployment remains PENDING USER ACTION.
 
 ## Merged Batch 5B handoff (4 November 2026)
 
