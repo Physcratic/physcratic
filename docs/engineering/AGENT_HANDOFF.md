@@ -2,10 +2,10 @@
 
 ## Current Batch 5A handoff (4 November 2026)
 
-- Integrated main `7098067f41f4030465a869de6938adf48d1732fb` / PR #105. Batch 5A branch `codex/community-batch-5a`; exact PR/tested head/merge SHA and CI will be recorded after green delivery in COMMUNITY_STATUS.md.
+- Integrated main `7098067f41f4030465a869de6938adf48d1732fb` / PR #105. Batch 5A [PR #109](https://github.com/Physcratic/physcratic/pull/109) merged as `a9bff60a1ad7ab408875d3e06b432d5a1cf21925`, tested head `a699c531bc47f5ad5ba4f93da75850b7afdba490`. CI #190 (41788950296) and browser #3 (41788950356) passed on that exact head; details in COMMUNITY_STATUS.md.
 - Added default-off moderation/report/appeal APIs, audited role-locked staff decisions, create AND edit policy, immutable private evidence, held/hidden latch, thread locks and independent admin appeal correction. Migration 0014 and exact runtime grants are documented in COMMUNITY_STATUS.md. Preserve 0001–0013.
 - Original production discussion lock remains intact even with synthetic all-on flags. Comments also require moderation/staff readiness. No production/staging SQL, grants, roles, flags, provider configuration, Vercel actions, deployment or README triggers occurred. Deployment: PENDING USER ACTION.
-- Verification: disposable PostgreSQL, full server/component suites, browser permission/XSS/desktop/mobile axe checks, typecheck, lint, isolation guards, production build and built-server disabled-schema/production-lock smoke. Exact reconciled-head CI required before merge; moderation browser now runs in existing browser workflow with portable temporary paths.
+- Verification: disposable PostgreSQL, full server/component suites, browser permission/XSS/desktop/mobile axe checks, typecheck, lint, isolation guards, production build and built-server disabled-schema/production-lock smoke. Exact reconciled-head CI passed before merge; moderation browser now runs in existing browser workflow with portable temporary paths.
 - Next task is Batch 5B only after this batch stops: dashboard/report/appeal UI, retention/operations and launch verification. No automatic launch, external moderation, profile/problem takedown or user bans were added. Local heuristics are conservative and not exhaustive; immutable evidence retention needs operational review.
 
 ## Historical PR #105 handoff
