@@ -488,6 +488,9 @@ try {
     .getByRole("button", { name: "Submit answer", exact: true })
     .dblclick();
   await saved("Correct");
+  // Optional evidence for visual reviews. Does nothing unless SHOT_DIR is set.
+  const shoot = async (name) => process.env.SHOT_DIR && (await page.screenshot({ path: join(process.env.SHOT_DIR, `${name}.png`), fullPage: true }));
+  await shoot("authored-correct-desktop");
   assert.equal(postBodies.length, 1);
   assert.equal(postBodies[0].answer.units, "");
   await page.reload();
@@ -843,6 +846,7 @@ try {
     fullPage: true,
   });
   await page.setViewportSize({ width: 375, height: 812 });
+  await shoot("authored-mobile");
   await page
     .getByRole("button", { name: "Answer part C", exact: true })
     .click();

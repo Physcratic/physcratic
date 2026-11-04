@@ -81,7 +81,7 @@ export function PublishedContestCard({
     >
       <CardHeader className="gap-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <span className="flex items-center gap-2 text-sm text-primary">
+          <span className="flex items-center gap-2 text-sm font-medium text-accent-foreground">
             <Trophy className="size-4" aria-hidden="true" />
             {featured
               ? "Featured contest"
