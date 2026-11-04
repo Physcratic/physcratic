@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { z } from "zod";
 import { StudentPageClient } from "@/components/authored/student-page-client";
 import {communityProblemStatsEnabled} from '@/lib/community/problem-stats-route';
-import {communityCommentsEnabled} from '@/lib/community/comments-route';
+import {communityDiscussionReady as communityCommentsEnabled} from '@/lib/community/comments-route';
 export const metadata: Metadata = {
   // Keep this interactive account/permission surface out of search engines.
   // Discovery is public in the library; no private or withdrawn title metadata,
