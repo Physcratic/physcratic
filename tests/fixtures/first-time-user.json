@@ -24,5 +24,83 @@
     "width": 1280,
     "height": 1000,
     "topic": "Waves"
+  },
+  "sweep": {
+    "widths": [
+      375,
+      390,
+      768,
+      1440
+    ],
+    "routes": [
+      {
+        "name": "learn hub",
+        "path": "/learn"
+      },
+      {
+        "name": "guide: how to use",
+        "path": "/learn/how-to-use-physcratic"
+      },
+      {
+        "name": "guide: how to write",
+        "path": "/learn/how-to-write-a-problem"
+      },
+      {
+        "name": "guide: start preparing",
+        "path": "/learn/start-preparing-physics-olympiad"
+      },
+      {
+        "name": "terms",
+        "path": "/terms"
+      },
+      {
+        "name": "sign in",
+        "path": "/sign-in"
+      },
+      {
+        "name": "sign up",
+        "path": "/sign-up"
+      },
+      {
+        "name": "settings",
+        "path": "/settings"
+      },
+      {
+        "name": "lobby",
+        "path": "/dashboard"
+      },
+      {
+        "name": "rankings",
+        "path": "/dashboard?view=rankings"
+      },
+      {
+        "name": "learning guide view",
+        "path": "/dashboard?view=guide"
+      },
+      {
+        "name": "coaching",
+        "path": "/coaching"
+      },
+      {
+        "name": "coaching consultation",
+        "path": "/coaching/consultation"
+      },
+      {
+        "name": "become a tutor",
+        "path": "/coaching/become-a-tutor"
+      },
+      {
+        "name": "404 page",
+        "path": "/no-such-page"
+      },
+      {
+        "name": "404 problem",
+        "path": "/dashboard/problems/no-such-problem"
+      },
+      {
+        "name": "404 profile",
+        "path": "/u/no-such-person"
+      }
+    ]
   }
 }
