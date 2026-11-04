@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { assignPartColors, contrastRatio, partColor, partPalette } from "./part-colors";
+import { assignPartColors, colorsByPartId, contrastRatio, partColor, partPalette } from "./part-colors";
 
 // Theme surfaces from app/globals.css: card and page background, light then dark, as hex.
 const surfaces = {
@@ -46,4 +46,18 @@ test("the palette repeats after six parents and empty labels count as their own 
   assert.deepEqual(assignPartColors(["", "", "A.1"]), [0, 1, 2]);
   assert.equal(partColor(7).name, partColor(1).name);
   assert.equal(partColor(-1).name, partColor(5).name);
+});
+
+test("colours by part id restart in each section and count unlabelled parts by position", () => {
+  const map = colorsByPartId([
+    { parts: [{ id: "p1", label: "a" }, { id: "p2", label: "b" }] },
+    { parts: [{ id: "p3", label: "" }, { id: "p4", label: " " }, { id: "p5", label: "c" }] },
+  ]);
+  assert.deepEqual([...map.entries()], [["p1", 0], ["p2", 1], ["p3", 0], ["p4", 1], ["p5", 2]]);
+});
+
+test("the same part gets the same colour every time", () => {
+  const sections = [{ parts: [{ id: "x", label: "A.1" }, { id: "y", label: "A.2" }, { id: "z", label: "B.1" }] }];
+  assert.deepEqual([...colorsByPartId(sections).values()], [...colorsByPartId(sections).values()]);
+  assert.deepEqual([...colorsByPartId(sections).values()], [0, 0, 1]);
 });

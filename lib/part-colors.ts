@@ -57,3 +57,17 @@ export function contrastRatio(first: string, second: string): number {
   const [high, low] = [luminance(first), luminance(second)].sort((a, b) => b - a);
   return (high + 0.05) / (low + 0.05);
 }
+
+/**
+ * Palette index for every part of a problem, by part id. Colours restart in each section, so the first part
+ * of every section is blue, and a part with no label is counted by its position. The statement, the answer
+ * box, the hint and the solution of one part all look the index up here, so they always agree.
+ */
+export function colorsByPartId(sections: readonly { parts: readonly { id: string; label: string }[] }[]): Map<string, number> {
+  const result = new Map<string, number>();
+  for (const section of sections) {
+    const indices = assignPartColors(section.parts.map((part, position) => part.label.trim() || String(position + 1)));
+    section.parts.forEach((part, position) => result.set(part.id, indices[position]));
+  }
+  return result;
+}

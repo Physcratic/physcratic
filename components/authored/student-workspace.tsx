@@ -20,6 +20,9 @@ import {
   History,
   ShieldCheck,
 } from "lucide-react";
+import { colorsByPartId } from "@/lib/part-colors";
+import { FeedbackBox, PartChip, partBorder, partStyle } from "@/components/physics/solve-ui";
+import type { FeedbackTone } from "@/lib/solve-feedback";
 import { Button } from "@/components/ui/button";
 import { Field, inputClass } from "@/components/authoring/editor-fields";
 import { numericUnitsHelp } from "@/lib/authored-grading-contracts";
@@ -40,6 +43,12 @@ import {
 } from "@/lib/authored-student";
 import type { AuthoredAttempt } from "@/lib/authored-attempt-contracts";
 import { StatementBlocks } from "./public-content";
+const feedbackTone: Record<AuthoredAttempt["status"], FeedbackTone> = {
+  correct: "success",
+  incorrect: "error",
+  "needs-review": "warning",
+  ungraded: "neutral",
+};
 const feedback = {
   correct: {
     label: "Correct",
@@ -330,6 +339,7 @@ function PublicStatement({
 }) {
   if (!revision) return null;
   const doc = revision.content;
+  const partColours = colorsByPartId(doc.sections);
   return (
     <article
       aria-label="Published problem statement"
@@ -390,11 +400,12 @@ function PublicStatement({
               <section
                 id={`part-${part.id}`}
                 key={part.id}
-                className="min-w-0 scroll-mt-6 space-y-4 border-l-2 border-primary/25 pl-4 sm:pl-5"
+                style={partStyle(partColours.get(part.id) ?? 0)}
+                className={`min-w-0 scroll-mt-6 space-y-4 rounded-r-lg py-1 pl-4 sm:pl-5 ${partBorder}`}
               >
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <h3 className="text-base font-semibold">
-                    Part {part.label || pi + 1}
+                    <PartChip index={partColours.get(part.id) ?? 0}>Part {part.label || pi + 1}</PartChip>
                   </h3>
                   {onAnswer && (
                     <button
@@ -474,6 +485,8 @@ function PrivateWorkspace({
         s.parts.map((p) => ({ ...p, sectionTitle: s.title })),
       ) ?? [],
     part = parts.find((p) => p.id === selected) ?? parts[0];
+  const partColours = colorsByPartId(revision?.content.sections ?? []);
+  const partColour = part ? (partColours.get(part.id) ?? 0) : 0;
   const cancelInfo = useCallback(() => {
     infoSerial.current++;
     infoAbort.current?.abort();
@@ -912,7 +925,7 @@ function PrivateWorkspace({
             id="answer-workspace"
             className="min-w-0 scroll-mt-4 space-y-5 xl:sticky xl:top-5"
           >
-            <section className="space-y-5 rounded-xl border bg-card p-5">
+            <section style={partStyle(partColour)} className={`space-y-5 rounded-xl border bg-card p-5 ${partBorder}`}>
               <div className="flex items-center gap-2">
                 <ShieldCheck
                   aria-hidden="true"
@@ -926,6 +939,7 @@ function PrivateWorkspace({
                   Submit an answer
                 </h2>
               </div>
+              {part && <p className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground"><PartChip index={partColour}>Part {part.label || parts.indexOf(part) + 1}</PartChip>{part.sectionTitle || "Section"}</p>}
               {availability === "ready" && revision && part && buffer ? (
                 <>
                   <Field label="Choose part">
@@ -954,19 +968,32 @@ function PrivateWorkspace({
                       ref={resultRef}
                       tabIndex={-1}
                       role="status"
-                      className={`space-y-2 rounded-lg border p-4 ${feedback[receipt.attempt.status].color}`}
+                      aria-live="polite"
+                      className="focus:outline-none"
                     >
-                      <h3 className="flex items-center gap-2 font-semibold">
-                        <CheckCircle2 aria-hidden="true" className="size-4" />
-                        {feedback[receipt.attempt.status].label} · saved attempt{" "}
-                        {receipt.attempt.attemptNumber}
-                      </h3>
-                      <p className="text-sm leading-relaxed">
-                        {feedback[receipt.attempt.status].text}
-                      </p>
-                      <p className="break-words text-xs">
-                        {receipt.attempt.assisted ? "Assisted (server record)" : "Unassisted (server record)"} · Submitted answer: {answerText(receipt.attempt.answer)}
-                      </p>
+                      <FeedbackBox
+                        titleAs="h3"
+                        tone={feedbackTone[receipt.attempt.status]}
+                        title={`${feedback[receipt.attempt.status].label} · saved attempt ${receipt.attempt.attemptNumber}`}
+                      >
+                        <p>{feedback[receipt.attempt.status].text}</p>
+                        <p className="break-words text-xs">
+                          {receipt.attempt.assisted ? "Assisted (server record)" : "Unassisted (server record)"} · Submitted answer: {answerText(receipt.attempt.answer)}
+                        </p>
+                        {receipt.attempt.status !== "correct" && (
+                          <div className="pt-2">
+                            <Button
+                              type="button"
+                              variant="outline"
+                              className="min-h-11 bg-background"
+                              disabled={state.busy || Boolean(pending) || !ready}
+                              onClick={() => session.startAnother(revision.id, part.id)}
+                            >
+                              Try again
+                            </Button>
+                          </div>
+                        )}
+                      </FeedbackBox>
                     </div>
                   )}
                   <form
@@ -1006,7 +1033,7 @@ function PrivateWorkspace({
                     </p>
                     <Button
                       type="submit"
-                      className="w-full"
+                      className="min-h-11 w-full"
                       disabled={
                         !ready ||
                         state.busy ||
@@ -1022,12 +1049,12 @@ function PrivateWorkspace({
                           : "Submit answer"}
                     </Button>
                   </form>
-                  {receipt && (
+                  {receipt && receipt.attempt.status === "correct" && (
                     <div className="border-t pt-4">
                       <Button
                         type="button"
                         variant="outline"
-                        className="w-full"
+                        className="min-h-11 w-full"
                         disabled={state.busy || Boolean(pending) || !ready}
                         onClick={() =>
                           session.startAnother(revision.id, part.id)
@@ -1084,7 +1111,7 @@ function PrivateWorkspace({
                 {state.message}
               </p>
             </section>
-            {availability === "ready" && revision && part && <WorkedSolution key={`${revision.id}:${part.id}`} problemId={problemId} revisionId={revision.id} partId={part.id} onStale={invalidate} onAuth={denyAuth} />}
+            {availability === "ready" && revision && part && <WorkedSolution key={`${revision.id}:${part.id}`} partColour={partColour} partLabel={part.label || String(parts.indexOf(part) + 1)} problemId={problemId} revisionId={revision.id} partId={part.id} onStale={invalidate} onAuth={denyAuth} />}
             <section className="space-y-2 rounded-xl border bg-muted/20 p-5">
               <h2 className="flex items-center gap-2 text-sm font-semibold">
                 <Clock3 aria-hidden="true" className="size-4" /> Practice, then

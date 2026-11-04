@@ -1,4 +1,5 @@
 "use client";
+import { PartChip, partBorder, partStyle } from "@/components/physics/solve-ui";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   solutionViewSchema,
@@ -11,12 +12,17 @@ export function WorkedSolution({
   problemId,
   revisionId,
   partId,
+  partColour = 0,
+  partLabel,
   onStale,
   onAuth,
 }: {
   problemId: string;
   revisionId: string;
   partId: string;
+  /** Palette index of this part, so the solution matches the part's statement and answer box. */
+  partColour?: number;
+  partLabel?: string;
   onStale: () => void;
   onAuth: () => void;
 }) {
@@ -188,9 +194,13 @@ export function WorkedSolution({
   return (
     <section
       aria-label="Worked solution"
-      className="min-w-0 space-y-4 rounded-xl border p-5"
+      style={partStyle(partColour)}
+      className={`min-w-0 space-y-4 rounded-xl border p-5 ${partBorder}`}
     >
-      <h2 className="text-lg font-semibold">Worked solution</h2>
+      <h2 className="flex flex-wrap items-center gap-2 text-lg font-semibold">
+        Worked solution
+        {partLabel && <PartChip index={partColour}>Part {partLabel}</PartChip>}
+      </h2>
       <p className="text-sm text-muted-foreground">
         Optional, before or after any attempt. Viewing any part assists future
         attempts on this revision. No private marking key or hints are shown.

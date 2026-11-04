@@ -27,6 +27,8 @@ import {
 import { AnswerPanel } from "./answer-panel";
 import { TagPicker, MissingTagNote } from "./tag-picker";
 import { HowItWorksLink, StatusBar, StepCard, studioTokens } from "./studio-ui";
+import { colorsByPartId } from "@/lib/part-colors";
+import { PartChip, partBorder, partStyle } from "@/components/physics/solve-ui";
 import {
   BlocksEditor,
   Field,
@@ -80,6 +82,7 @@ export function ProblemEditor({
     session.snapshot,
   );
   const { draft, phase, dirty, busy, message, recovery } = snapshot;
+  const editorColours = colorsByPartId(draft?.content.sections ?? []);
   const [tab, setTab] = useState<"edit" | "preview">("edit");
   const [latest, setLatest] = useState<EditorDraft | null>(null);
   const [uploads, setUploads] = useState(0);
@@ -191,6 +194,7 @@ export function ProblemEditor({
   const safePreview = previewCheck.success
     ? publicAuthoredContent(previewCheck.data)
     : null;
+  const previewColours = colorsByPartId(safePreview?.sections ?? []);
   return (
     <AuthorMediaProvider
       problemId={draft.problemId}
@@ -564,10 +568,11 @@ export function ProblemEditor({
                   {section.parts.map((part, pi) => (
                     <section
                       key={part.id}
-                      className="space-y-3 border-l-2 pl-4"
+                      style={partStyle(previewColours.get(part.id) ?? 0)}
+                      className={`space-y-3 rounded-r-lg py-1 pl-4 ${partBorder}`}
                     >
                       <h4 className="font-medium">
-                        Part {part.label || pi + 1}
+                        <PartChip index={previewColours.get(part.id) ?? 0}>Part {part.label || pi + 1}</PartChip>
                       </h4>
                       <ReaderBlocks blocks={part.blocks} />
                       <p className="text-xs text-muted-foreground">
@@ -740,11 +745,12 @@ export function ProblemEditor({
                         key={part.id}
                         data-order-item
                         tabIndex={-1}
-                        className="space-y-5 rounded-lg border bg-muted/30 p-4"
+                        style={partStyle(editorColours.get(part.id) ?? 0)}
+                        className={`space-y-5 rounded-lg border bg-muted/30 p-4 ${partBorder}`}
                       >
                         <div className="flex items-center justify-between">
                           <h4 className="font-semibold">
-                            Part {part.label || pi + 1}
+                            <PartChip index={editorColours.get(part.id) ?? 0}>Part {part.label || pi + 1}</PartChip>
                           </h4>
                           <OrderControls
                             label={`section ${si + 1} part ${pi + 1}`}
@@ -807,7 +813,7 @@ export function ProblemEditor({
                             })
                           }
                         />
-                        <details className="rounded-lg border bg-card p-4">
+                        <details style={partStyle(editorColours.get(part.id) ?? 0)} className={`rounded-lg border bg-card p-4 ${partBorder}`}>
                           <summary className="flex min-h-11 cursor-pointer items-center gap-2 text-sm font-medium">
                             <ShieldCheck className="size-4" />
                             Answer key, hints and solution · part{" "}

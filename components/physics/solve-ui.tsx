@@ -90,13 +90,13 @@ const toneStyles: Record<FeedbackTone, { box: string; Icon: React.ComponentType<
 };
 
 /** Result of a check: colour, an icon and words together. Put it next to the answer. */
-export function FeedbackBox({ tone, title, children, className, id }: { tone: FeedbackTone; title: string; children?: React.ReactNode; className?: string; id?: string }) {
+export function FeedbackBox({ tone, title, children, className, id, titleAs: Title = "p" }: { tone: FeedbackTone; title: string; children?: React.ReactNode; className?: string; id?: string; titleAs?: "p" | "h3" }) {
   const { box, Icon } = toneStyles[tone];
   return (
     <div id={id} className={cn("flex items-start gap-3 rounded-lg border-2 p-4", box, className)}>
       <Icon className="mt-0.5 size-5 shrink-0" aria-hidden={true} />
       <div className="min-w-0 space-y-1 text-sm leading-relaxed">
-        <p className="text-base font-semibold">{title}</p>
+        <Title className="text-base font-semibold">{title}</Title>
         {children}
       </div>
     </div>

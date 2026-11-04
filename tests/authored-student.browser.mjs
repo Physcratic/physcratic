@@ -497,7 +497,7 @@ try {
     1,
     "reload does not send acknowledged attempt",
   );
-  await page.getByRole("button", { name: "Start another attempt" }).click();
+  await page.getByRole("button", { name: /^(Try again|Start another attempt)$/ }).click();
   await page.getByLabel("Numerical answer", { exact: true }).fill("1e-9999");
   await submit();
   await page.getByRole("alert").filter({ hasText: "representable" }).waitFor();
@@ -509,7 +509,7 @@ try {
   await page.getByLabel("Expression answer", { exact: true }).fill("x*x+137");
   await submit();
   await saved("Correct");
-  await page.getByRole("button", { name: "Start another attempt" }).click();
+  await page.getByRole("button", { name: /^(Try again|Start another attempt)$/ }).click();
   await page
     .getByLabel("Expression answer", { exact: true })
     .fill("sin(x)^2+cos(x)^2");
@@ -536,7 +536,7 @@ try {
       .evaluate((e) => document.activeElement === e),
     true,
   );
-  await page.getByRole("button", { name: "Start another attempt" }).click();
+  await page.getByRole("button", { name: /^(Try again|Start another attempt)$/ }).click();
   await page.getByLabel("Numerical answer", { exact: true }).fill("-");
   await choose(1);
   await choose(0);
@@ -586,7 +586,7 @@ try {
     "1",
   );
   for (const status of [408, 429, 503]) {
-    await page.getByRole("button", { name: "Start another attempt" }).click();
+    await page.getByRole("button", { name: /^(Try again|Start another attempt)$/ }).click();
     nextFault = status;
     faultRepeats = status === 408 ? 1000 : 1;
     await submit();
@@ -654,7 +654,7 @@ try {
   );
   await page.getByRole("button", { name: "Problem", exact: true }).click();
   await choose(2);
-  await page.getByRole("button", { name: "Start another attempt" }).click();
+  await page.getByRole("button", { name: /^(Try again|Start another attempt)$/ }).click();
   await page
     .getByLabel("Manual answer", { exact: true })
     .fill("pagination-new");
@@ -745,7 +745,7 @@ try {
     .getByRole("button", { name: "Retry original submission", exact: true })
     .click();
   await saved("Correct");
-  await page.getByRole("button", { name: "Start another attempt" }).click();
+  await page.getByRole("button", { name: /^(Try again|Start another attempt)$/ }).click();
   await page.getByLabel("Numerical answer", { exact: true }).fill("2");
   delayNext = true;
   await submit();
@@ -767,7 +767,7 @@ try {
   );
   await resetRates();
   await account("A");
-  await page.getByRole("button", { name: "Start another attempt" }).click();
+  await page.getByRole("button", { name: /^(Try again|Start another attempt)$/ }).click();
   await page.getByLabel("Numerical answer", { exact: true }).fill("7");
   const oldRevision = revision.id;
   doc.content.title = "Revised harmonic trap";
@@ -1070,7 +1070,7 @@ try {
     .getByText("Unassisted (server record)", { exact: false })
     .waitFor();
   await page
-    .getByRole("button", { name: "Start another attempt", exact: true })
+    .getByRole("button", { name: /^(Try again|Start another attempt)$/ })
     .click();
   await submit();
   await saved("Correct");
