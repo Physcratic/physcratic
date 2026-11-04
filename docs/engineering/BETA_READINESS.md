@@ -428,14 +428,13 @@ Retained main's new codex Preview smoke exclusion unchanged. Manual smoke checks
 - Reproduced Zod probe and JIT sites, without attributing all eight historical reports by assumption. The isolated nonce prototype loses public prerendering/caching and does not ship.
 - Production remains report-only and NO-GO for enforcement, prohibited before 9 November and conditional thereafter. Evidence, limitations and X3C gates: [CSP X3B](CSP_X3B.md).
 
-<<<<<<< HEAD
 ## 2026-11-03 - X3C: CSP architecture and provider preparation
 
 - Merged reviewed X3B PR #93 as `c63d739`, after current-main and both-workflow checks. Production policy/collector and application interfaces remain unchanged.
 - Added isolated hybrid nonce/hash experiments, build-bound static header proposals, privacy/budget diagnostics and fail-closed offline provider preflight. The scoped prototype retains all 19 prerendered entries and public caching, with measured small JS and server-workload costs.
 - Real providers remain blocked by missing disposable resources, credentials/origin and egress. No Production/staging configuration, database/migration/grant or feature changes. No active architecture or enforcement is merged.
 - Decision, reproducible measurements and explicit next-phase gates: [CSP X3C](CSP_X3C.md). Exact provider setup and assertions: [provider handoff](CSP_PROVIDER_VERIFICATION.md).
-=======
+
 ## 2026-11-03 - Contests batch: creation and seven-day test preparation
 
 - Added organiser-owned drafts, archive selection, scheduled or launch-on-publish starts, explicit publication confirmation and immutable published settings through the API. Contest administration is a separate database-backed role and requires a verified session. There is no automatic role bootstrap or account/auth change.
@@ -499,4 +498,3 @@ Retained main's new codex Preview smoke exclusion unchanged. Manual smoke checks
 - Read-only production inspection confirmed the linked Vercel project and production database branch. The runtime still connects as `neondb_owner`, with no eligible least-privilege application role configured. The migration ledger records verified 0001 through 0006 only. Contest tables already exist, while no community tables appeared in the inspected public catalog. Do not replay existing schema or infer migration installation from merged code. Community feature flags and the explicit profile/proof-store bindings are absent. Blob integrations are connected, but production private-store delivery and upload acceptance are unverified. A current production recovery point and restore evidence must be confirmed before schema changes.
 - The feature branch is five commits ahead and nineteen commits behind current main `9367d87`. Its `0012_contest_participation` collides with main's `0012_community_problem_stats`, followed by 0013 discussions. Reconciliation requires the explicit shared-path owner approval mandated by `CONTRIBUTING.md`, including `lib/db/schema.ts` and `migrations/**`. Main's successful CI run 41663912870 does not certify this divergent release candidate. An existing verified organiser account must be nominated before granting contest administration or publishing the seven-day test event.
 - No production SQL writes, grants, account-role assignments, storage writes, environment changes, deployment or main merge were performed. Preserve main's production discussion lock until moderation/reporting is implemented and reviewed. LaTeX checking is not implemented and is not part of this rollout. Production enablement remains blocked on compatible source, confirmed build/database gates, reviewed schema/grants, recovery readiness, explicit private storage and live acceptance.
->>>>>>> v0/platform-features
