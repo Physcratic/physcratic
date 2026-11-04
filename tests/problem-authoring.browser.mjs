@@ -857,8 +857,10 @@ try {
   learner.on("dialog", (d) => d.accept());
   learner.on("pageerror", (e) => errors.push(e.message));
   await learner.goto(`${origin}/dashboard?view=problems&collection=authored`);
-  // Each library card links to the problem twice, from its title and from its Exercise button.
-  await learner.locator(`a[href="/dashboard/authored/${id}"]`).first().click();
+  // Each library card has one link to its problem.
+  const cardLinks = learner.locator(`a[href="/dashboard/authored/${id}"]`);
+  assert.equal(await cardLinks.count(), 1);
+  await cardLinks.click();
   await learner.getByLabel("Numerical answer", { exact: true }).fill("-0.5");
   await learner.getByLabel("Units", { exact: true }).fill("1");
   await learner

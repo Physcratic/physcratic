@@ -226,7 +226,7 @@ try {
     await top(page.locator(".arena-document h3 > span").first().locator("xpath=ancestor::section[1]"));
     await save("arena-parts");
     await page.goto(origin + "/dashboard?view=problems&collection=pilot");
-    await page.getByRole("button", { name: /^Exercise:/ }).first().click();
+    await page.getByRole("button", { name: /^Open problem:/ }).first().click();
     await page.getByRole("heading", { name: "Step 1: Read the problem" }).waitFor();
     await top(page.getByRole("list", { name: "Steps" }));
     await save("guided-reader");

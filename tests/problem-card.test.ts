@@ -27,7 +27,7 @@ function render(props: ProblemCardProps) {
   return renderToStaticMarkup(createElement(ProblemCard, props));
 }
 
-test("problem cards share a labelled article, header, details and exercise action", () => {
+test("problem cards share a labelled article, header, details and open action", () => {
   const html = render({ ...base, onOpen() {} });
   assert.match(html, /role="article"/);
   assert.match(html, /data-problem-card="test-problem"/);
@@ -37,12 +37,12 @@ test("problem cards share a labelled article, header, details and exercise actio
   assert.match(html, /<h3[^>]*>.*A block on an incline/);
   assert.match(html, /5 min · Hint \+ worked solution/);
   assert.match(html, /English.*Unrated/);
-  assert.match(html, /Exercise/);
-  assert.match(html, /Exercise: Quick practice, A block on an incline/);
+  assert.match(html, /Open problem/);
+  assert.match(html, /Open problem: Quick practice, A block on an incline/);
   assert.match(html, /Newton’s laws/);
 });
 
-test("cards without extra metadata retain their title, difficulty, tags and exercise action", () => {
+test("cards without extra metadata retain their title, difficulty, tags and open action", () => {
   const html = render({
     ...base,
     title: "Champagne!",
@@ -53,8 +53,20 @@ test("cards without extra metadata retain their title, difficulty, tags and exer
   assert.match(html, /Champagne!/);
   assert.match(html, /Estimated difficulty 2,500/);
   assert.match(html, /Newton’s laws/);
-  assert.match(html, /Exercise: Quick practice, Champagne!/);
+  assert.match(html, /Open problem: Quick practice, Champagne!/);
   assert.doesNotMatch(html, /border-destructive|5 min|Hint \+ worked solution|scored subparts|Official solution/);
+});
+
+test("each card has one control, so keyboard users get one tab stop per problem", () => {
+  const withLink = render({ ...base, href: "/dashboard/problems/test-problem" });
+  assert.equal((withLink.match(/<a[\s>]/g) ?? []).length, 1);
+  assert.equal((withLink.match(/<button[\s>]/g) ?? []).length, 0);
+  assert.match(withLink, /href="\/dashboard\/problems\/test-problem"/);
+  assert.match(withLink, />Open problem</);
+  const withButton = render({ ...base, onOpen() {} });
+  assert.equal((withButton.match(/<a[\s>]/g) ?? []).length, 0);
+  assert.equal((withButton.match(/<button[\s>]/g) ?? []).length, 1);
+  assert.doesNotMatch(withLink + withButton, /Exercise/);
 });
 
 test("cards without a supplied difficulty never invent an estimate", () => {
@@ -102,7 +114,7 @@ test("all olympiad competitions retain their identity, source references and tit
     assert.match(html, /Source title in Russian/);
     assert.doesNotMatch(html, /Russian statement|English statement/);
     assert.match(html, /русский.*Unrated/);
-    assert.match(html, /Exercise:/);
+    assert.match(html, /Open problem:/);
   }
 });
 

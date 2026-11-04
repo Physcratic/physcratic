@@ -60,12 +60,12 @@ export function ProblemCard({
   const titleId = React.useId();
   const Heading = headingLevel === 4 ? "h4" : "h3";
   const band = elo === undefined ? undefined : getEloBand(elo);
-  const actionLabel = `Exercise: ${[source, reference, title].filter(Boolean).join(", ")}`;
-  const titleClassName =
-    "rounded-sm text-left transition-colors hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-card";
+  // One control per card: the title is plain text and the button is the only link or button. The accessible name starts
+  // with the visible words so voice control matches, then names the problem.
+  const actionLabel = `Open problem: ${[source, reference, title].filter(Boolean).join(", ")}`;
   const actionContent = (
     <>
-      Exercise
+      Open problem
       <ArrowUpRight data-icon="inline-end" aria-hidden="true" />
     </>
   );
@@ -117,15 +117,7 @@ export function ProblemCard({
               lang={titleLanguage}
               className="text-pretty text-lg font-semibold leading-relaxed"
             >
-              {href ? (
-                <Link href={href} className={titleClassName}>
-                  {title}
-                </Link>
-              ) : (
-                <button type="button" onClick={onOpen} className={titleClassName}>
-                  {title}
-                </button>
-              )}
+              {title}
             </Heading>
           </CardTitle>
           {href ? (
