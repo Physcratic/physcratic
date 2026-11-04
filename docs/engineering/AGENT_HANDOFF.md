@@ -2,10 +2,10 @@
 
 ## Current Batch 5B handoff (4 November 2026)
 
-- Started latest main `a4a75c292fc0a9d6392e25f92818e454d6ffb4eb`, branch `codex/community-batch-5b`. PR, exact-head CI and final merge SHA are recorded after green delivery in COMMUNITY_STATUS.md.
+- Started latest main `a4a75c292fc0a9d6392e25f92818e454d6ffb4eb`, branch `codex/community-batch-5b`. [PR #112](https://github.com/Physcratic/physcratic/pull/112) merged as `cded70fa4174acd0f79512ced7ae4d5fa73da9f8`, tested head `fae43feb02544473e209af0794de9387a539fd5d`. Exact-head standard CI #193 (41800695488) and browser #4 (41800695712) passed before merge. See COMMUNITY_STATUS.md.
 - Added private `/admin/moderation`, comment/profile/problem report controls, private Settings history and restricted-comment appeals/feedback. Existing 5A APIs/SQL remain authoritative; UI roles never grant permissions. New UI flag defaults OFF and requires moderation+staff. Original production discussion lock remains unchanged.
 - No migration/runtime grant changes; preserve 0001–0014. New operator-only maintenance scans bounded keyset pages and deletes stale limiter/spam rows only. Evidence/cases/audit remain immutable and never purged. No production SQL, provider/deployment/flag action or README trigger occurred.
-- Local full suite 697 server pass + one inherited TODO, 43 components; typecheck/lint/build/isolation and disposable PostgreSQL pass. Real component/API browser flows test reports, decisions, appeals, pagination, XSS, revocation, session switches and light/dark mobile/desktop axe. Exact-head CI is required before merge.
+- Local full suite 697 server pass + one inherited TODO, 43 components; typecheck/lint/build/isolation and disposable PostgreSQL pass. Real component/API browser flows test reports, decisions, appeals, pagination, XSS, revocation, session switches and light/dark mobile/desktop axe. Exact-head standard/browser CI passed before merge.
 - See COMMUNITY_LAUNCH_RUNBOOK.md for migration 0007–0014/grants/storage/flags/staffing/maintenance/rollback. Current launch is NO-GO: separate explicit user decision, retention/privacy policy and external preproduction/provider/load/staffing evidence remain prerequisites. Do not remove the production lock or begin another batch in this session. Deployment: PENDING USER ACTION.
 
 ## Historical Batch 5A handoff (4 November 2026)
