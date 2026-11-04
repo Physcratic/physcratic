@@ -10,6 +10,9 @@ import {
   tagLabel,
 } from "@/lib/problem-tags";
 import { Input } from "@/components/ui/input";
+import { physicsTopicLabels } from "@/lib/physics-taxonomy";
+import { solveTokens } from "./solve-ui";
+import { TopicChips } from "./topic-chips";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import {
   Select,
@@ -75,7 +78,7 @@ export function ProblemLibrary({
   }
 
   return (
-    <div className="flex min-w-0 flex-col gap-7">
+    <div className={`flex min-w-0 flex-col gap-7 ${solveTokens}`}>
       <Tabs
         value={collection}
         onValueChange={changeCollection}
@@ -86,14 +89,14 @@ export function ProblemLibrary({
             aria-label="Problem collections"
             className="h-auto w-fit max-w-full flex-wrap"
           >
-            <TabsTrigger value={collection === "authored" ? "authored" : "arena"}>
+            <TabsTrigger className="min-h-11" value={collection === "authored" ? "authored" : "arena"}>
               Physcratic Arena
             </TabsTrigger>
-            <TabsTrigger value="catalog">
+            <TabsTrigger className="min-h-11" value="catalog">
               Olympiad archive ·{" "}
               {filterProblemsByTag(catalogProblems, selectedTopic).length}
             </TabsTrigger>
-            <TabsTrigger value="pilot">
+            <TabsTrigger className="min-h-11" value="pilot">
               Guided exercises ·{" "}
               {filterProblemsByTag(corpusProblems, selectedTopic).length}
             </TabsTrigger>
@@ -102,16 +105,18 @@ export function ProblemLibrary({
         <Card className="shadow-none">
           <CardHeader className="pb-4">
             <CardTitle>
-              <h2 className="text-base font-medium">Search & filters</h2>
+              <h2 className="text-lg font-medium">Search & filters</h2>
             </CardTitle>
+            <p className="text-sm text-muted-foreground">Pick a topic or type a search, then open a problem.</p>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex min-w-0 flex-col gap-5">
+            <TopicChips topics={physicsTopicLabels} value={selectedTopic} onChange={setSelectedTopic} />
             <FieldGroup className="sm:flex-row sm:flex-wrap sm:items-end">
               <Field className="flex-1">
                 <FieldLabel htmlFor="problem-search">Find a problem</FieldLabel>
                 <Input
                   id="problem-search"
-                  autoFocus
+                  className="h-11"
                   maxLength={200}
                   placeholder="Search by problem or tag…"
                   value={search}
@@ -125,6 +130,7 @@ export function ProblemLibrary({
                   </FieldLabel>
                   <Input
                     id="competition-filter"
+                    className="h-11"
                     type="search"
                     placeholder="e.g. IPhO 2025"
                     aria-controls="catalog-results"
@@ -135,7 +141,7 @@ export function ProblemLibrary({
               )}
               <Field className="sm:w-48">
                 <FieldLabel htmlFor="topic-filter">Tag</FieldLabel>
-                <Input id="topic-filter" list="problem-tag-options" maxLength={80} value={selectedTopic === "all" ? "" : selectedTopic} placeholder="All tags" onChange={e => setSelectedTopic(e.target.value || "all")} />
+                <Input id="topic-filter" className="h-11" list="problem-tag-options" maxLength={80} value={selectedTopic === "all" ? "" : selectedTopic} placeholder="All tags" onChange={e => setSelectedTopic(e.target.value || "all")} />
                 <datalist id="problem-tag-options">{tagOptions.map(tag => <option key={tag} value={tag} />)}</datalist>
               </Field>
               <Field className="sm:w-44">
@@ -143,7 +149,7 @@ export function ProblemLibrary({
                   Estimated difficulty
                 </FieldLabel>
                 <Select value={difficultyForCollection} onValueChange={setDifficulty}>
-                  <SelectTrigger id="difficulty-filter">
+                  <SelectTrigger id="difficulty-filter" className="h-11">
                     <SelectValue>
                       {difficultyForCollection === "unrated" ? "Unrated / author labels" : eloBands.find((band) => band.id === difficultyForCollection)?.range ?? "All ratings"}
                     </SelectValue>
