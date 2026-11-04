@@ -1,5 +1,21 @@
 # Community implementation status
 
+## Batch 5B completion follow-up (4 November 2026)
+
+Concurrent delivery was reconciled with main `9d7a0f3c3fbcaffb60e6500fd3df715f8e9fb9fa`, including [PR #112](https://github.com/Physcratic/physcratic/pull/112), merge `cded70fa4174acd0f79512ced7ae4d5fa73da9f8`. The overlapping local UI was not published. This focused follow-up completes two requirements on the merged implementation:
+
+- Every staff decision now stages a fixed action/target/version/reason for explicit confirmation or cancellation before any write. The confirmation receives keyboard focus. History navigation is blocked while confirmation is pending. Reasons warn staff against including reporter identities/private evidence because affected authors or case submitters may see them. Existing role, self-review, revocation and compare-and-swap checks remain authoritative.
+- Private audit pagination orders by the numeric database ID, while still serializing IDs as strings. Previously `ORDER BY id` resolved to the string projection, placing ID 9 before 10 and potentially skipping history through a numeric cursor. Disposable tests verify 80 unique descending audit events across the 50-event bound and all 25 evidence versions across the 20-version bound. The UI also displays each recorded decision.
+- Expanded real-component/API browser coverage includes cancelled and keyboard-confirmed decisions, actual Arena/authored reader report bindings, withdrawal while a report form remains open, fixed-reference retries after a committed write with an uncertain response, accepted/rejected appeals and an in-flight private read during an account switch. Maintenance additionally tests a concurrent quota UPSERT and preserves its refreshed live counter.
+- Independent static security review of all 32 original Batch 5B changed files and these integration changes found no confirmed vulnerability. It confirmed the immutable confirmation, numeric audit fix, private owner-feedback projection, default-off gates and bounded maintenance. No formal service scan or deployed-configuration certification is claimed.
+
+Verification: fresh full disposable PostgreSQL 18.6 run, **698 server tests: 697 passed, one inherited TODO, zero failures/skips; 43 component tests passed**. Six focused moderation/maintenance tests also passed, including the new audit/evidence and concurrency regressions. Typegen/tsc, zero-warning lint, offline isolation and production build passed. Real browser results and exact final-head GitHub CI are recorded in the [completion PR #115](https://github.com/Physcratic/physcratic/pull/115); its Checks tab is authoritative. Built production/unreachable-database smoke passed with flags OFF, and all synthetic flags ON still returned disabled 503 for discussions. Production lock, CSP, migrations 0001–0014, runtime grants and provider configuration are unchanged. No production operations or cleanup ran.
+
+**Release assessment: GO for review of this disabled-code completion; NO-GO for Production community launch.** The existing [launch runbook](COMMUNITY_LAUNCH_RUNBOOK.md) covers 0007–0014, existing grants, audited staff/independent admins, every flag, private stores, retention/privacy trade-offs, rollback and operator deployment verification. Evidence/history is retained. Installation/grants/storage, approved retention/privacy policy, staffing, external Preview/load/provider verification and user-owned deployment remain operator prerequisites. No automatic activation or further implementation batch is authorised.
+
+**Exact next action:** review the [completion PR #115](https://github.com/Physcratic/physcratic/pull/115)'s final-head checks and obtain explicit approval to merge this security-sensitive follow-up under AGENTS.md. Then stop. A later separately authorised operator readiness review may verify installation and protected Preview acceptance. Production discussion launch and any change to its hard lock remain separate, unapproved work.
+
+
 ## Batch 5B: moderator dashboard, reporting UI and launch readiness
 
 **Deployment: PENDING USER ACTION. NOT DEPLOYED BY CODEX. Production discussions remain locked, even with every feature flag true. No production/shared staging SQL, grants, provider/Vercel actions, README deployment commits or feature enablement.**

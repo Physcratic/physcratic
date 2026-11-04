@@ -1,6 +1,13 @@
 # Agent handoff
 
-## Current Batch 5B handoff (4 November 2026)
+## Current Batch 5B completion handoff (4 November 2026)
+
+- Reconciled independently merged PR #112 (`cded70fa4174acd0f79512ced7ae4d5fa73da9f8`) and main `9d7a0f3c3fbcaffb60e6500fd3df715f8e9fb9fa`. No duplicate UI was published. Focused completion adds required fixed-intent staff confirmation/cancellation and numeric audit pagination, with explicit decision feedback.
+- Expanded disposable tests cover 80 audit events/25 evidence versions, concurrent limiter refresh, actual reader reports/withdrawal, ambiguous retry, rejected appeals and in-flight account switching. Full 698 server tests: 697 pass, one inherited TODO; 43 components pass. Typecheck/lint/offline/build and built production-lock smoke pass. Final [completion PR #115](https://github.com/Physcratic/physcratic/pull/115) Checks tab records exact-head CI/browser results. Independent static security review found no confirmed vulnerability.
+- No migration, runtime grant, production lock, CSP, provider or deployment change. Keep UI/discussion flags OFF. Evidence/audit/cases are retained. See COMMUNITY_STATUS.md and COMMUNITY_LAUNCH_RUNBOOK.md for operator prerequisites and retention trade-offs. Launch remains NO-GO.
+- Exact next action: review final-head checks and obtain explicit merge approval under AGENTS.md for the security-sensitive [completion PR #115](https://github.com/Physcratic/physcratic/pull/115), then stop. No automatic launch or next batch. Deployment remains PENDING USER ACTION.
+
+## Merged Batch 5B handoff (4 November 2026)
 
 - Started latest main `a4a75c292fc0a9d6392e25f92818e454d6ffb4eb`, branch `codex/community-batch-5b`. [PR #112](https://github.com/Physcratic/physcratic/pull/112) merged as `cded70fa4174acd0f79512ced7ae4d5fa73da9f8`, tested head `fae43feb02544473e209af0794de9387a539fd5d`. Exact-head standard CI #193 (41800695488) and browser #4 (41800695712) passed before merge. See COMMUNITY_STATUS.md.
 - Added private `/admin/moderation`, comment/profile/problem report controls, private Settings history and restricted-comment appeals/feedback. Existing 5A APIs/SQL remain authoritative; UI roles never grant permissions. New UI flag defaults OFF and requires moderation+staff. Original production discussion lock remains unchanged.

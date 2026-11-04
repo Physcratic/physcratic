@@ -82,6 +82,14 @@ test('0014 moderation/report/appeal permissions, state, audits and races',{skip:
  // Held queue and content history are bounded with usable cursors; no rows disappear between pages.
  for(let i=0;i<22;i++)await pool.query('INSERT INTO community_comment(id,problem_key,user_id,request_id,body) VALUES($1,$2,$3,$4,$5)',[randomUUID(),key,owner,randomUUID(),'Held fixture '+i]);
  const page1=await parsed(await get(reviewer,{queue:'held'}));assert.equal(page1.cases.length,20);assert.ok(page1.nextCursor);const page2=await parsed(await get(reviewer,{queue:'held',after:page1.nextCursor}));assert.ok(page2.cases.length>0);assert.ok(!page2.cases.some((b:{id:string})=>page1.cases.some((a:{id:string})=>a.id===b.id)));
+ // Audit IDs are serialized as strings but must sort numerically before keyset pagination.
+ const history=randomUUID();await pool.query('INSERT INTO community_comment(id,problem_key,user_id,request_id,body) VALUES($1,$2,$3,$4,$5)',[history,key,owner,randomUUID(),'History fixture']);
+ for(let n=2;n<=25;n++)await pool.query('UPDATE community_comment SET body=$2,version=version+1 WHERE id=$1',[history,'History revision '+n]);
+ for(let n=0;n<55;n++){const h=await detail(history);await pool.query('SELECT community_moderation_decide($1,$2,$3,$4,$5,$6,$7,NULL)',[reviewer,'comment',history,h.version,h.contentVersion,'hidden','History decision '+n]);await reset();}
+ const history1=await parsed(await get(reviewer,{item:'comment',id:history}));assert.equal(history1.audit.length,50);assert.ok(history1.nextAudit);assert.equal(history1.evidence.length,20);assert.equal(history1.nextContent,6);
+ const history2=await parsed(await get(reviewer,{item:'comment',id:history,beforeAudit:history1.nextAudit,beforeContent:String(history1.nextContent)}));
+ const ids=[...history1.audit,...history2.audit].map((a:{id:string})=>BigInt(a.id));assert.equal(new Set(ids).size,80);assert.equal(ids.length,80);assert.ok(ids.every((id:bigint,n:number)=>n===0||ids[n-1]>id));assert.equal(history2.nextAudit,null);
+ assert.deepEqual([...history1.evidence,...history2.evidence].map((e:{contentVersion:number})=>e.contentVersion),Array.from({length:25},(_,n)=>25-n));
  // Policy runs on edits too: blocked edits preserve the prior body, uncertain edits become held.
  await reset();assert.equal((await comments(req(owner,{action:'edit',key,id:held,version:2,body:'i will kill you'}))).status,422);assert.equal((await detail(held)).contentVersion,2);
  await parsed(await comments(req(owner,{action:'edit',key,id:held,version:2,body:'https://unknown.example/private-link'})));assert.equal((await detail(held)).state,'held');

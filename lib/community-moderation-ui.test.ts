@@ -40,6 +40,9 @@ test('operator maintenance scans bounded keyset pages, preserves live quotas/his
  await c.query('BEGIN');assert.equal((await pruneModerationPage(c,'spam')).removed,1);await c.query('COMMIT');
  await c.query("INSERT INTO community_comment_limit(bucket,minute,requests,post_minute,day) VALUES('old',clock_timestamp()-interval '31 days',1,clock_timestamp()-interval '31 days',current_date-31),('live',clock_timestamp(),30,clock_timestamp(),current_date)");
  await c.query('BEGIN');assert.equal((await pruneModerationPage(c,'comments')).removed,1);await c.query('COMMIT');
+ // A concurrent quota refresh locks its row. Maintenance skips it, then preserves the refreshed window.
+ await c.query("INSERT INTO community_moderation_limit(bucket,minute,requests,day) VALUES('race',clock_timestamp()-interval '31 days',1,current_date-31)");
+ const writer=await pool.connect();try{await writer.query('BEGIN');await writer.query("INSERT INTO community_moderation_limit(bucket,minute,requests,day) VALUES('race',clock_timestamp(),60,current_date) ON CONFLICT(bucket) DO UPDATE SET minute=excluded.minute,day=excluded.day,requests=excluded.requests");await c.query('BEGIN');assert.equal((await pruneModerationPage(c,'moderation')).removed,0);await c.query('COMMIT');await writer.query('COMMIT');await c.query('BEGIN');assert.equal((await pruneModerationPage(c,'moderation')).removed,0);await c.query('COMMIT');assert.equal((await c.query("SELECT requests FROM community_moderation_limit WHERE bucket='race'")).rows[0].requests,60);}finally{await writer.query('ROLLBACK');writer.release();}
  await assert.rejects(pruneModerationPage(c,'spam',['bad']));
  assert.equal((await c.query('SELECT count(*) FROM community_moderation_audit')).rows[0].count,'0');
  }finally{c.release();await pool.end();await admin.query(`DROP SCHEMA ${schema} CASCADE`);await admin.end();}
