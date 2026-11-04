@@ -176,6 +176,20 @@ try {
     await page.waitForURL((url) => url.pathname !== here && url.pathname.startsWith("/dashboard/problems/"));
     await page.getByRole("heading", { level: 1 }).waitFor();
     await shot(page, `08-next-problem-${tag}`);
+    // 5. Contests. The contest list and the sign-in session come from database-backed APIs, so only /api/dashboard
+    // (the shape of DashboardData in lib/dashboard-data.ts) and a signed-out /api/auth/get-session are mocked here.
+    // Nothing else is stubbed.
+    await page.route("**/api/auth/get-session*", (route) => route.fulfill({ json: null }));
+    const day = 86_400_000;
+    const contest = (id, name, offset, ids) => ({ id, name, description: `${name} description.`, startsAt: new Date(Date.now() + offset).toISOString(), durationMinutes: 120, rated: false, registrationOpen: true, problemIds: ids, creators: ["Physcratic"], participants: 12, registered: false });
+    await page.route("**/api/dashboard", (route) => route.fulfill({ json: { user: null, savedAttempts: 0, practiceAttempts: 0, solvedProblems: 0, archiveReviewed: 0, ratings: [], contests: [contest("c-up", "Autumn contest", 3 * day, []), contest("c-past", "Spring contest", -30 * day, [practice.id, fixtures.arena.id])] } }));
+    await page.goto(`${origin}/dashboard?view=contests`);
+    await page.getByRole("heading", { name: "Spring contest" }).waitFor();
+    await tapTarget(page.getByRole("link", { name: "Sign in to register" }), `contest sign in ${tag}`);
+    await page.getByText("Practice 2 problems").click();
+    await tapTarget(page.getByRole("link", { name: "Problem 1" }), `contest problem link ${tag}`);
+    await noSidewaysScroll(page, `contests ${tag}`);
+    await shot(page, `09-contests-${tag}`);
     assert.deepEqual(errors, []);
     await context.close();
   }

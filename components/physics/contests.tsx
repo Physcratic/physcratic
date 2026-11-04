@@ -10,11 +10,12 @@ import {
   EmptyTitle,
 } from "@/components/ui/empty";
 import { PublishedContestCard } from "./published-contest-card";
+import { solveTokens } from "./solve-ui";
 
 export function Contests() {
   const { data, error, isLoading, mutate } = useDashboard();
   return (
-    <div className="flex flex-col gap-7">
+    <div className={`flex flex-col gap-7 ${solveTokens}`}>
       <section
         className="flex flex-col gap-4"
         aria-labelledby="published-contests-title"
@@ -34,7 +35,7 @@ export function Contests() {
             <p role="alert" className="text-sm text-destructive">
               Contests could not be loaded. Please retry.
             </p>
-            <Button variant="outline" onClick={() => mutate()}>
+            <Button variant="outline" className="min-h-11" onClick={() => mutate()}>
               Retry contests
             </Button>
           </div>
