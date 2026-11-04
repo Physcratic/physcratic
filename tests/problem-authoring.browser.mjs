@@ -859,6 +859,7 @@ try {
   await learner.goto(`${origin}/dashboard?view=problems&collection=authored`);
   // Each library card has one link to its problem.
   const cardLinks = learner.locator(`a[href="/dashboard/authored/${id}"]`);
+  await cardLinks.first().waitFor();
   assert.equal(await cardLinks.count(), 1);
   await cardLinks.click();
   await learner.getByLabel("Numerical answer", { exact: true }).fill("-0.5");

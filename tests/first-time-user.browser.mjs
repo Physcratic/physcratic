@@ -81,6 +81,22 @@ try {
       ok(rowScroll <= rowWidth + 1, `all chips fit at ${width}px (${tag})`);
     }
     await noSidewaysScroll(page, `library chips ${tag}`);
+    // Tab order: each library card is one tab stop. Show all topics, then walk from card to card with the keyboard.
+    await group.getByRole("button", { name: "All topics" }).click();
+    await page.locator("[data-problem-card]").nth(2).waitFor({ timeout: 20000 });
+    const cards = page.locator("[data-problem-card]");
+    for (let i = 0; i < 3; i++) {
+      const controls = await cards.nth(i).locator("a[href], button:not([disabled]), input, select, textarea, summary, [tabindex]:not([tabindex='-1'])").count();
+      ok(controls === 1, `library card ${i + 1} has one tab stop, found ${controls} (${tag})`);
+    }
+    await cards.nth(0).getByRole("link", { name: /^Open problem:/ }).focus();
+    await page.keyboard.press("Tab");
+    ok(await cards.nth(1).evaluate((el) => el.contains(document.activeElement)), `Tab from card 1 lands in card 2 (${tag})`);
+    ok(await page.evaluate(() => /^Open problem:/.test(document.activeElement?.getAttribute("aria-label") ?? "")), `the focused control is Open problem (${tag})`);
+    await page.keyboard.press("Tab");
+    ok(await cards.nth(2).evaluate((el) => el.contains(document.activeElement)), `Tab from card 2 lands in card 3 (${tag})`);
+    await group.getByRole("button", { name: fixtures.library.topic, exact: true }).click();
+
     await chip.click();
     ok(await chip.getAttribute("aria-pressed") === "true", `topic chip is pressed (${tag})`);
     ok(await group.getByRole("button", { name: "All topics" }).getAttribute("aria-pressed") === "false", `All topics is not pressed (${tag})`);

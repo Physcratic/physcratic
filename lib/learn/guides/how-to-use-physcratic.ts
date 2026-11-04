@@ -14,7 +14,7 @@ export const howToUsePhyscratic: ArticleDraft = {
   body: [
     { type: "heading", level: 2, text: "Find a problem" },
     { type: "paragraph", text: "Choose Problems in the sidebar. The library opens Physcratic Arena by default. It has three tabs: Physcratic Arena, Olympiad archive and Guided exercises. Arena lists problems written by Physcratic and published community problems." },
-    { type: "paragraph", text: "Pick a topic with the Topic buttons. On a phone the row scrolls sideways inside its box. You can also type in Find a problem, choose a Tag or set the Estimated difficulty. The Olympiad archive adds a Competition box. Difficulty is an estimate, not a mark you have earned. Random quick practice opens one of the short practice problems, which have no library tab." },
+    { type: "paragraph", text: "Pick a topic with the Topic buttons. On a phone the row scrolls sideways inside its box. You can also type in Find a problem, choose a Tag or set the Estimated difficulty. The Olympiad archive adds a Competition box. Difficulty is an estimate, not a mark you have earned. Choose Open problem on a card to start. Random quick practice opens one of the short practice problems, which have no library tab." },
     { type: "siteLink", href: "/dashboard?view=problems", label: "Open the problem library" },
     { type: "image", src: `${dir}/library-topic.webp`, alt: "The problem library with the Waves topic button selected and three Physcratic Arena problem cards below the search boxes.", width: 1280, height: 1000, caption: "The library with a topic chosen." },
 

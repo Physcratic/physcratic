@@ -51,7 +51,7 @@ export const howToWriteAProblem: ArticleDraft = {
     { type: "heading", level: 2, text: "What students see" },
     { type: "paragraph", text: "A published problem appears in the library under Physcratic Arena, on a card marked Community. It follows the problems written by Physcratic. A separate view lists only published community problems." },
     { type: "siteLink", href: "/dashboard?view=problems&collection=authored", label: "Browse published community problems" },
-    { type: "image", src: `${dir}/studio-library.webp`, alt: "The problem library showing the topic buttons and a single Community card titled Forces on a cart with an Exercise button.", width: 1280, height: 1000, caption: "A published problem in the library." },
+    { type: "image", src: `${dir}/studio-library.webp`, alt: "The problem library showing the topic buttons and a single Community card titled Forces on a cart with an Open problem button.", width: 1280, height: 1000, caption: "A published problem in the library." },
     { type: "paragraph", text: "Students open the card and read the statement, with each part in its colour. They answer on the same page. Reading is public. Saving an answer needs a signed-in account with a verified email. Each result is saved with an attempt number and says Correct, Incorrect, Needs review or Ungraded. Try again starts a new attempt." },
     { type: "paragraph", text: "Worked solutions stay private until you approve them. After publishing, use Student worked-solution access, choose a part and confirm. Once a student opens a solution, their later attempts on that revision count as assisted." },
 
