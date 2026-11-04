@@ -69,6 +69,11 @@ try {
       for (let i = 1; i < chipCount; i++) await page.keyboard.press("Tab");
       const last = group.getByRole("button").last();
       ok(await last.evaluate((el) => el === document.activeElement), `last chip reached with the keyboard (${tag})`);
+      await last.evaluate((el) => new Promise((resolve) => {
+        const start = Date.now();
+        const tick = () => { const a = el.getBoundingClientRect(), b = el.parentElement.getBoundingClientRect(); if ((a.right <= b.right + 1 && a.left >= b.left - 1) || Date.now() - start > 3000) resolve(); else requestAnimationFrame(tick); };
+        tick();
+      }));
       const inside = await last.evaluate((el) => { const a = el.getBoundingClientRect(), b = el.parentElement.getBoundingClientRect(); return a.right <= b.right + 1 && a.left >= b.left - 1; });
       ok(inside, `focused chip is scrolled into view (${tag})`);
       await group.getByTestId("topic-fade-start").waitFor();

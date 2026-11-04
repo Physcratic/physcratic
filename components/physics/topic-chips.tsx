@@ -39,6 +39,8 @@ export function TopicChips({ topics, value, onChange }: { topics: readonly strin
                 type="button"
                 aria-pressed={pressed}
                 onClick={() => onChange(topic)}
+                // The browser's own focus scroll can leave a chip half hidden under the edge fade, so centre it.
+                onFocus={(event) => event.currentTarget.scrollIntoView({ inline: "center", block: "nearest" })}
                 className={cn(
                   "inline-flex min-h-11 shrink-0 items-center rounded-full border px-4 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-card",
                   pressed ? "border-foreground bg-foreground text-background" : "bg-background text-foreground hover:bg-muted",
