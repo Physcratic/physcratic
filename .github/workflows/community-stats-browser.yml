@@ -55,3 +55,7 @@ jobs:
         env:
           AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/community-tools
         run: node --require ./tests/server-only-register.cjs --import tsx tests/unified-arena.browser.mjs
+      - name: Moderation permission and XSS regression
+        env:
+          AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/community-tools
+        run: node --require ./tests/server-only-register.cjs --import tsx tests/moderation.browser.mjs

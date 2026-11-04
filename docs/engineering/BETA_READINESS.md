@@ -447,3 +447,10 @@ Retained main's new codex Preview smoke exclusion unchanged. Manual smoke checks
 - Added isolated hybrid nonce/hash experiments, build-bound static header proposals, privacy/budget diagnostics and fail-closed offline provider preflight. The scoped prototype retains all 19 prerendered entries and public caching, with measured small JS and server-workload costs.
 - Real providers remain blocked by missing disposable resources, credentials/origin and egress. No Production/staging configuration, database/migration/grant or feature changes. No active architecture or enforcement is merged.
 - Decision, reproducible measurements and explicit next-phase gates: [CSP X3C](CSP_X3C.md). Exact provider setup and assertions: [provider handoff](CSP_PROVIDER_VERIFICATION.md).
+
+
+## 2026-11-04 - Community Batch 5A moderation backend
+
+- Added authenticated reports, role-locked audited staff decisions, private immutable evidence, create/edit content policy, thread locks and independent version-bound appeals. No dashboard or Batch 5B launch integration.
+- Additive 0014 and exact least-privilege grants are in COMMUNITY_STATUS.md. Existing production discussion lock is preserved; moderation/staff gates default OFF. No production SQL, deployment, provider changes or feature enablement.
+- Disposable PostgreSQL security/race/migration tests, full regressions, Chromium permission/XSS/accessibility, typecheck/lint/build and disabled-schema/production-lock smoke pass locally. Exact-head CI and merge identifiers are recorded in COMMUNITY_STATUS.md after delivery.

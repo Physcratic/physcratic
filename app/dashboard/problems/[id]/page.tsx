@@ -11,7 +11,7 @@ import arena from "@/lib/arena/index.json";
 import type { ArenaCatalogEntry } from "@/lib/arena-schema";
 
 import {communityProblemStatsEnabled} from '@/lib/community/problem-stats-route';
-import {communityCommentsEnabled} from '@/lib/community/comments-route';
+import {communityDiscussionReady as communityCommentsEnabled} from '@/lib/community/comments-route';
 type Props = { params: Promise<{ id: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

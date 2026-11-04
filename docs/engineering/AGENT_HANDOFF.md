@@ -1,5 +1,15 @@
 # Agent handoff
 
+## Current Batch 5A handoff (4 November 2026)
+
+- Integrated main `7098067f41f4030465a869de6938adf48d1732fb` / PR #105. Batch 5A branch `codex/community-batch-5a`; exact PR/tested head/merge SHA and CI will be recorded after green delivery in COMMUNITY_STATUS.md.
+- Added default-off moderation/report/appeal APIs, audited role-locked staff decisions, create AND edit policy, immutable private evidence, held/hidden latch, thread locks and independent admin appeal correction. Migration 0014 and exact runtime grants are documented in COMMUNITY_STATUS.md. Preserve 0001–0013.
+- Original production discussion lock remains intact even with synthetic all-on flags. Comments also require moderation/staff readiness. No production/staging SQL, grants, roles, flags, provider configuration, Vercel actions, deployment or README triggers occurred. Deployment: PENDING USER ACTION.
+- Verification: disposable PostgreSQL, full server/component suites, browser permission/XSS/desktop/mobile axe checks, typecheck, lint, isolation guards, production build and built-server disabled-schema/production-lock smoke. Exact reconciled-head CI required before merge; moderation browser now runs in existing browser workflow with portable temporary paths.
+- Next task is Batch 5B only after this batch stops: dashboard/report/appeal UI, retention/operations and launch verification. No automatic launch, external moderation, profile/problem takedown or user bans were added. Local heuristics are conservative and not exhaustive; immutable evidence retention needs operational review.
+
+## Historical PR #105 handoff
+
 - Last verified main: `9367d8769e474707b3aa76c2921813b14aac58b1` (4 November 2026), including Batch 4 [PR #106](https://github.com/Physcratic/physcratic/pull/106), merge `a01836e71521ffbb4686f9b360e355c47fdd2a50`.
 - Delivery: [PR #105](https://github.com/Physcratic/physcratic/pull/105), branch `codex/community-roadmap-handoff`. Its Checks tab and merge record are authoritative for the final tested head, workflow evidence and exact merge SHA. This session is explicitly authorised to reconcile and merge only after green CI, then stop. No deployment is authorised.
 - Batch 3B is already merged via PR #101. Preserve `COMMUNITY_PROBLEM_STATS_ENABLED`, JSON-array keys API, `community_favourite`/total/quota tables and immutable `0012_community_problem_stats`.
