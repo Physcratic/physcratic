@@ -2,13 +2,20 @@ name: Community statistics browser
 on:
   pull_request:
     paths:
-      - 'components/community/problem-stats.tsx'
-      - 'components/physics/unified-arena-collection.tsx'
-      - 'lib/community/problem-stats*'
-      - 'lib/community-problem-stats.test.ts'
-      - 'tests/problem-stats*'
-      - 'tests/unified-arena*'
-      - 'migrations/0012_community_problem_stats.*'
+      # Include transitive source dependencies, shared fixtures and build inputs.
+      - 'app/**'
+      - 'components/**'
+      - 'lib/**'
+      - 'tests/**'
+      - 'migrations/**'
+      - 'scripts/test-problem-authoring.sh'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+      - 'next.config.*'
+      - 'tsconfig*.json'
+      - 'tailwind.config.*'
+      - 'postcss.config.*'
       - '.github/workflows/community-stats-browser.yml'
 permissions:
   contents: read

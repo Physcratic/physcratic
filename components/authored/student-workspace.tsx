@@ -1,5 +1,6 @@
 "use client";
 import {ProblemStatsPanel} from '@/components/community/problem-stats';
+import {Discussions} from '@/components/community/discussions';
 import { SkipLink } from "@/components/skip-link";
 import { studioTokens } from "@/components/authoring/studio-ui";
 import { WorkedSolution } from "./worked-solution";
@@ -85,10 +86,12 @@ export function StudentWorkspace({
   problemId,
   viewer,
   statsEnabled=false,
+  commentsEnabled=false,
 }: {
   problemId: string;
   viewer: Viewer;
   statsEnabled?:boolean;
+  commentsEnabled?:boolean;
 }) {
   const [revision, setRevision] = useState<PublicRevision | null>(null),
     [availability, setAvailability] = useState<Availability>("loading"),
@@ -303,6 +306,7 @@ export function StudentWorkspace({
             </section>
           </>
         )}
+        {commentsEnabled && availability === "ready" && <Discussions problemKey={`authored:${problemId}`}/>}
       </main>
       <footer className="mx-auto max-w-[1440px] border-t px-5 py-6 text-xs leading-relaxed text-muted-foreground sm:px-8">
         Practice has no permanent per-part cap. Submitting or receiving a grade

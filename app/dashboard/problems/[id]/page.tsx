@@ -11,6 +11,7 @@ import arena from "@/lib/arena/index.json";
 import type { ArenaCatalogEntry } from "@/lib/arena-schema";
 
 import {communityProblemStatsEnabled} from '@/lib/community/problem-stats-route';
+import {communityCommentsEnabled} from '@/lib/community/comments-route';
 type Props = { params: Promise<{ id: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PracticeProblemPage({ params }: Props) {
   const { id } = await params;
   const arenaProblem = arena.problems.find((item) => item.id === id);
-  if (arenaProblem) return <Layout view="problems"><ArenaProblemReader statsEnabled={communityProblemStatsEnabled()} problem={arenaProblem as ArenaCatalogEntry} /></Layout>;
+  if (arenaProblem) return <Layout view="problems"><ArenaProblemReader commentsEnabled={communityCommentsEnabled()} statsEnabled={communityProblemStatsEnabled()} problem={arenaProblem as ArenaCatalogEntry} /></Layout>;
   const problem = problems.find((item) => item.id === id);
   if (!problem) {
     const imported = catalogProblems.find((item) => item.id === id);
