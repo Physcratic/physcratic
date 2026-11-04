@@ -92,13 +92,28 @@ try {
     // 3. Arena problem: open, read the steps, check a wrong answer.
     await page.goto(`${origin}/dashboard/problems/${fixtures.arena.id}`);
     await page.getByRole("heading", { level: 1 }).waitFor();
+    await page.getByRole("list", { name: "Steps" }).waitFor();
     await page.getByRole("button", { name: "Check answer" }).waitFor();
+    // The worked solution stays on its own tab until it is asked for, as before.
+    const statementTab = page.getByRole("tab", { name: "Problem statement", exact: true });
+    const solutionTab = page.getByRole("tab", { name: "Worked solution", exact: true });
+    await tapTarget(solutionTab, `arena solution tab ${tag}`);
+    ok(await page.locator('[role="tabpanel"]:visible').count() === 1, `only the statement panel is visible at first (${tag})`);
+    // Lettered parts such as (a) keep their letter as text and get a colour chip.
+    const partChips = page.locator(".arena-document h3 > span");
+    ok(await partChips.count() > 0, `lettered parts have chips (${tag})`);
+    ok(/^\([a-z]\)$/.test((await partChips.first().innerText()).trim()), `part chip keeps its letter (${tag})`);
     const arenaInput = page.locator("#step-answer input[type=text], #step-answer input:not([type])").first();
     await arenaInput.fill(fixtures.arena.wrongAnswer);
     await page.getByRole("button", { name: "Check answer" }).click();
     await page.locator('#step-answer [aria-live="polite"]').getByText(/Not correct|to revisit|Could not/).first().waitFor();
     await noSidewaysScroll(page, `arena ${tag}`);
     await shot(page, `03-arena-wrong-${tag}`);
+    await solutionTab.click();
+    await page.locator('[role="tabpanel"]:visible').getByText("Contains spoilers", { exact: false }).waitFor();
+    await noSidewaysScroll(page, `arena solution ${tag}`);
+    await shot(page, `03a-arena-solution-${tag}`);
+    await statementTab.click();
 
     // 3b. Olympiad archive reader: steps are labelled and the solution tab stays closed until asked for.
     await page.goto(`${origin}/dashboard/problems/${fixtures.archive.id}`);

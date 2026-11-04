@@ -4,6 +4,8 @@ import katex from "katex";
 import { MathFormula } from "./math-formula";
 import { ProblemImage } from "./problem-image";
 import { cn } from "@/lib/utils";
+import { assignPartColors } from "@/lib/part-colors";
+import { PartChip, partBorder, partStyle } from "./solve-ui";
 
 function MathText({ text }: { text: string }) {
   return text.split(/(\$\$[\s\S]*?\$\$)/g).map((part, index) => {
@@ -62,36 +64,57 @@ function ArenaBlocks({ blocks }: { blocks: ArenaBlock[] }) {
   );
 }
 
+const partHeading = /^(\([a-z]\))\s*([\s\S]*)$/;
+
 export function ArenaDocument({ content }: { content: string }) {
   const id = useId();
+  const sections = parseArenaDocument(content);
+  // Lettered part headings such as "(a)" get a colour by position and a chip that keeps the letter. The statement
+  // and the worked solution use the same rule, so a part has the same colour in both.
+  const partLabels = sections.flatMap((section) => (section.heading && partHeading.test(section.heading) ? [partHeading.exec(section.heading)![1]] : []));
+  const partColours = assignPartColors(partLabels);
+  let partIndex = -1;
   return (
     <article
       lang="en"
-      className="arena-document flex min-w-0 flex-col gap-5 text-base leading-relaxed"
+      className="arena-document flex min-w-0 flex-col gap-5 text-base leading-relaxed [&_p]:max-w-[70ch]"
     >
-      {parseArenaDocument(content).map((section, index) =>
-        section.heading ? (
+      {sections.map((section, index) => {
+        if (!section.heading) {
+          return (
+            <Fragment key={index}>
+              <ArenaBlocks blocks={section.blocks} />
+            </Fragment>
+          );
+        }
+        const part = partHeading.exec(section.heading);
+        const colour = part ? partColours[++partIndex] : undefined;
+        return (
           <section
             key={index}
             aria-labelledby={`${id}-${index}`}
-            className="flex min-w-0 flex-col gap-5 rounded-xl border border-border bg-muted/40 p-4 text-foreground sm:p-6"
+            style={colour === undefined ? undefined : partStyle(colour)}
+            className={cn("flex min-w-0 flex-col gap-5 rounded-xl border border-border bg-muted/40 p-4 text-foreground sm:p-6", colour !== undefined && partBorder)}
           >
             <h3
               id={`${id}-${index}`}
-              className="text-pretty text-lg font-medium"
+              className="flex flex-wrap items-center gap-2 text-pretty text-lg font-medium"
             >
-              <MathText text={section.heading} />
+              {part && colour !== undefined ? (
+                <>
+                  <PartChip index={colour}>{part[1]}</PartChip>
+                  {part[2] && <MathText text={part[2]} />}
+                </>
+              ) : (
+                <MathText text={section.heading} />
+              )}
             </h3>
             <div className={cn("flex min-w-0 flex-col gap-5", /^\d+[.)]\s/.test(section.heading) && "pl-4 sm:pl-6")}>
               <ArenaBlocks blocks={section.blocks} />
             </div>
           </section>
-        ) : (
-          <Fragment key={index}>
-            <ArenaBlocks blocks={section.blocks} />
-          </Fragment>
-        ),
-      )}
+        );
+      })}
     </article>
   );
 }

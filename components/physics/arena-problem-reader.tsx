@@ -12,6 +12,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ArenaDocument } from "./arena-document";
 import { ArchiveAnswerPanel } from "./archive-answer-panel";
+import arenaIndex from "@/lib/arena/index.json";
+import { SolveSteps, StepNumber, solveTokens } from "./solve-ui";
 
 import {ProblemStatsPanel} from '@/components/community/problem-stats';
 import {ReportControl} from '@/components/community/report-controls';
@@ -24,8 +26,11 @@ async function loadProblem(url: string) {
 
 export function ArenaProblemReader({ problem,statsEnabled=false,commentsEnabled=false,moderationEnabled=false }: { problem: ArenaCatalogEntry;statsEnabled?:boolean;commentsEnabled?:boolean;moderationEnabled?:boolean }) {
   const { data, isLoading, error, mutate } = useSWRImmutable(problem.path, loadProblem);
-  return <section className="mx-auto flex w-full max-w-4xl min-w-0 flex-col gap-6" aria-labelledby="arena-problem-title">
-    <div><Button variant="ghost" asChild><Link href="/dashboard?view=problems&collection=arena"><ArrowLeft data-icon="inline-start" />Back to Physcratic Arena</Link></Button></div>
+  // Existing order only: the next entry in the Arena index. Left out for the last problem.
+  const position = arenaIndex.problems.findIndex((item) => item.id === problem.id);
+  const nextProblem = position >= 0 ? arenaIndex.problems[position + 1] : undefined;
+  return <section className={`mx-auto flex w-full max-w-4xl min-w-0 flex-col gap-6 ${solveTokens}`} aria-labelledby="arena-problem-title">
+    <div><Button variant="ghost" className="min-h-11" asChild><Link href="/dashboard?view=problems&collection=arena"><ArrowLeft data-icon="inline-start" />Back to Physcratic Arena</Link></Button></div>
     <header className="flex flex-col gap-3">
       <div className="flex flex-wrap gap-2"><Badge>Physcratic Arena</Badge><Badge variant="outline">{problem.topic}</Badge><Badge variant="outline">Unrated</Badge></div>
       <h1 id="arena-problem-title" className="text-balance text-2xl font-medium tracking-tight sm:text-3xl">{problem.title}</h1>
@@ -34,12 +39,13 @@ export function ArenaProblemReader({ problem,statsEnabled=false,commentsEnabled=
     </header>
     {moderationEnabled&&<ReportControl subject={{kind:'problem',key:`arena:${problem.id}`}}/>}
     {statsEnabled&&<ProblemStatsPanel problemKey={`arena:${problem.id}`}/>}
+    <SolveSteps />
     {isLoading && <div role="status" className="flex flex-col gap-3"><span className="text-sm text-muted-foreground">Loading typeset problem…</span><Skeleton className="h-96 w-full" /></div>}
-    {error && <Alert variant="destructive"><AlertTitle>Could not load this problem</AlertTitle><AlertDescription><Button variant="outline" onClick={() => mutate()}><RotateCcw data-icon="inline-start" />Retry</Button></AlertDescription></Alert>}
+    {error && <Alert variant="destructive"><AlertTitle>Could not load this problem</AlertTitle><AlertDescription><Button variant="outline" className="min-h-11" onClick={() => mutate()}><RotateCcw data-icon="inline-start" />Retry</Button></AlertDescription></Alert>}
     {data && <Tabs key={problem.id} defaultValue="statement" className="flex min-w-0 flex-col gap-4">
-      <TabsList className="w-fit"><TabsTrigger value="statement">Problem statement</TabsTrigger><TabsTrigger value="solution">Worked solution</TabsTrigger></TabsList>
+      <TabsList className="h-auto w-fit max-w-full flex-wrap"><TabsTrigger className="min-h-11" value="statement"><StepNumber>1</StepNumber>Problem statement</TabsTrigger><TabsTrigger className="min-h-11" value="solution"><StepNumber>4</StepNumber>Worked solution</TabsTrigger></TabsList>
       {(["statement", "solution"] as const).map((kind) => <TabsContent key={kind} value={kind} forceMount={kind === "statement" ? true : undefined} className="min-w-0 data-[state=inactive]:hidden">
-        <div className="flex min-w-0 flex-col gap-6"><Card className="min-w-0 shadow-none"><CardHeader><CardTitle>{kind === "statement" ? "Problem statement" : "Worked solution"}</CardTitle><CardDescription>{kind === "statement" ? "Transcribed text and LaTeX, with original diagrams." : "Contains spoilers. Transcribed from the supplied worked solution, including its assumptions and qualifications."}</CardDescription></CardHeader><CardContent className="min-w-0"><ArenaDocument content={data[kind]} /></CardContent></Card>{kind === "statement" && <Card className="min-w-0 shadow-none"><CardContent className="pt-6"><ArchiveAnswerPanel key={problem.id} problemId={problem.id} /></CardContent></Card>}</div>
+        <div className="flex min-w-0 flex-col gap-6"><Card className="min-w-0 shadow-none"><CardHeader><CardTitle>{kind === "statement" ? "Problem statement" : "Worked solution"}</CardTitle><CardDescription>{kind === "statement" ? "Transcribed text and LaTeX, with original diagrams." : "Contains spoilers. Transcribed from the supplied worked solution, including its assumptions and qualifications."}</CardDescription></CardHeader><CardContent className="min-w-0"><ArenaDocument content={data[kind]} /></CardContent></Card>{kind === "statement" && <Card className="min-w-0 shadow-none"><CardContent className="pt-6"><ArchiveAnswerPanel key={problem.id} problemId={problem.id} nextHref={nextProblem ? `/dashboard/problems/${nextProblem.id}` : undefined} /></CardContent></Card>}</div>
       </TabsContent>)}
     </Tabs>}
     {commentsEnabled&&<Discussions moderationEnabled={moderationEnabled} problemKey={`arena:${problem.id}`}/>}
