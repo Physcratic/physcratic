@@ -5,14 +5,15 @@ import type { ArchiveKeyPart } from "./archive-grading/definitions";
 import { evaluateNumericAnswer } from "./authored-numeric-grading";
 import { evaluateExpressionAnswer } from "./authored-symbolic-grading";
 import { algebraExpression, constantValue, LatexAnswerError, parseLatexAnswer, structuralForm, type AnswerNode } from "./latex-answer";
+import { compareLatexExpressions } from "./latex-symbolic";
 
-const prepared = new WeakMap<ArchiveKeyPart, { forms: string[]; algebra: string | null }>();
+const prepared = new WeakMap<ArchiveKeyPart, { forms: string[]; algebra: string | null; node: AnswerNode }>();
 function prepare(part: ArchiveKeyPart) {
   let entry = prepared.get(part);
   if (entry) return entry;
   if (part.kind !== "expression") throw new Error("Expression key required");
   const nodes = [part.canonical, ...part.alternatives].map((value) => parseLatexAnswer(value, part.symbols));
-  entry = { forms: nodes.map(structuralForm), algebra: algebraExpression(nodes[0]) };
+  entry = { forms: nodes.map(structuralForm), algebra: algebraExpression(nodes[0]), node: nodes[0] };
   prepared.set(part, entry);
   return entry;
 }
@@ -53,6 +54,9 @@ export function checkArchivePart(part: ArchiveKeyPart, latex: string): Omit<Arch
       if (checked.status === "correct") return { status: "correct", message: "Correct: exact algebraic equivalence verified under the stated domain assumptions. Your derivation has not been graded." };
       if (checked.status === "incorrect") return { status: "incorrect", message: "This expression is not equivalent to the answer under the stated assumptions. Check signs and factors." };
     }
+    const symbolic = compareLatexExpressions(node, key.node, part);
+    if (symbolic === "correct") return { status: "correct", message: "Correct: exact symbolic identities verified with the original domain restrictions preserved. Your derivation has not been graded." };
+    if (symbolic === "incorrect") return { status: "incorrect", message: "This expression has a provably nonzero difference from the answer. Check signs, factors and added terms." };
   } catch { /* A catalog/parser capability gap must never fail the student's answer. */ }
   return { status: "inconclusive", message: "Could not verify automatically. This may be an equivalent form outside the checker’s proven subset; compare it with the worked solution. This is not marked incorrect." };
 }

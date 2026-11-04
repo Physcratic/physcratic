@@ -106,7 +106,7 @@ test("domain-preserving parsing and conservative inconclusive fallback", () => {
   assert.equal(checkArchivePart(key, "(x^2-1)/(x-1)").status, "inconclusive");
   for (const value of ["x/x", "0*(1/x)", "x^0", "(1/x)^0"]) assert.notEqual(structuralForm(parseLatexAnswer(value, key.symbols)), structuralForm(parseLatexAnswer("1", key.symbols)), value);
   const trig = expression("f", "f", String.raw`\sin^2(x)+\cos^2(x)`, "x", "Real x, radians");
-  assert.equal(checkArchivePart(trig, "1").status, "inconclusive");
+  assert.equal(checkArchivePart(trig, "1").status, "correct");
   assert.equal(checkArchivePart(expression("f", "f", "x", "x", "Real x"), String.raw`\sqrt{x^2}`).status, "incorrect");
 });
 test("LaTeX spacing commands preserve numeric and symbolic answer meaning", () => {
