@@ -24,3 +24,5 @@ Successful CI/merge does not establish deployment or authorise SQL/grants/flags.
 Batch 5B completion follows independently merged PR #112 without duplicating its UI and is now integrated through [PR #115](https://github.com/Physcratic/physcratic/pull/115). Stop after merge verification and this documentation-only handoff. Exact next milestone: a separately authorised operator readiness review. Production launch remains NO-GO with the original lock, operator prerequisites and separate approval unchanged.
 
 Current authorization: Security S1 remediation/PR/merge after exact-head green checks, then stop. Existing production discussion lock remains intact; installation/activation is separate user/operator work.
+
+Phase 6A: documentation-only release audit complete. See COMMUNITY_RELEASE_READINESS.md for evidence states and approvals. Exact next phase: operator-authorised read-only inventory and isolated preproduction rehearsal (Phase 6B). Launch remains NO-GO; no Production action is authorised by this checklist.

@@ -38,7 +38,7 @@ export function UnifiedArenaCollection({query,topic,difficulty,source='all',onRe
   {current?.page&&<>
    {current.page.authoredUnavailable&&<p role="alert">Community discovery is unavailable. Results are incomplete. Refresh to retry.</p>}
    {current.page.attributionUnavailable&&<p role="status">Public author details are temporarily unavailable.</p>}
-   <p role="status" className="text-sm">{current.page.problems.length} problems on this page</p>
+   <p role="status" className="text-sm">{current.page.problems.length} {current.page.problems.length===1?'problem':'problems'} on this page</p>
    {!current.page.problems.length?<div className="space-y-3 rounded-xl border p-5"><p>No matching problems found.</p><Button variant="outline" onClick={onReset}>Clear filters</Button></div>:<div className="grid min-w-0 gap-5 [overflow-wrap:anywhere]">{current.page.statsEnabled?<ProblemStatsBatch keys={current.page.problems.map(p=>p.key)}>{current.page.problems.map(p=><UnifiedProblemCard key={p.key} problem={p}/>)}</ProblemStatsBatch>:current.page.problems.map(p=><UnifiedProblemCard key={p.key} problem={p}/>)}</div>}
   </>}
   <nav aria-label="Arena collection pages" className="flex flex-wrap gap-3"><Button variant="outline" disabled={cursors.length===1} onClick={()=>{focus.current=true;setCursors(p=>p.slice(0,-1));}}>Previous page</Button><Button variant="outline" disabled={!current?.page?.nextCursor} onClick={()=>{focus.current=true;setCursors(p=>[...p,current!.page!.nextCursor!]);}}>Next page</Button></nav>

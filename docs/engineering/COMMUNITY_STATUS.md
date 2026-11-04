@@ -4,7 +4,7 @@
 
 **Deployment: PENDING USER ACTION. NOT DEPLOYED BY CODEX. No production/shared staging SQL, grants, roles, flags, provider/Vercel actions, deployment or README trigger. The production discussion lock remains unchanged.**
 
-Started latest main `d1dc0cff8c752a8857b43fba5f88546664cc664c`, branch `codex/community-security-s1`. Exact PR, tested head, CI and final merge SHA will be recorded after green delivery. This scope addresses the independent audit's two confirmed findings only; no launch or further implementation is authorized.
+Started latest main `d1dc0cff8c752a8857b43fba5f88546664cc664c`, reconciled with concurrent main `cf298c7` before delivery, branch `codex/community-security-s1`. Exact PR, tested head, CI and final merge SHA will be recorded after green delivery. This scope addresses the independent audit's two confirmed findings only; no launch or further implementation is authorized.
 
 ### Fixes and compatibility
 
@@ -42,6 +42,10 @@ Retain all unrelated existing grants. Audit inherited/default/PUBLIC rights and 
 - Production remains **NO-GO**. The SQL fix still requires separate operator installation and verification. Retention/privacy approval, actual provider/grant/storage checks, moderation staffing, external preproduction/load validation and a separate explicit launch decision remain prerequisites in COMMUNITY_LAUNCH_RUNBOOK.md. The production discussion lock and all default-off flags are preserved. This heuristic is still not exhaustive contextual/multilingual moderation.
 
 **Stop after S1. No deployment, enablement, production SQL or removal of the discussion lock.**
+
+## Phase 6A release readiness
+
+Source/CI audit and actionable approval checklist: COMMUNITY_RELEASE_READINESS.md. Real installation, effective grants, flags, stores, staff, retention policy and recovery remain UNKNOWN/BLOCKED. No runtime/schema changes or Production verification. Launch remains NO-GO.
 
 ## Batch 5B completion follow-up (4 November 2026)
 

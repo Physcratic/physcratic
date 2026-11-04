@@ -52,17 +52,41 @@ try {
     await noSidewaysScroll(page, `library ${tag}`);
     await shot(page, `01-library-${tag}`);
 
-    // 2. Library: filter by a topic (the topic chips arrive with the library change, the Tag box works before).
-    const chip = page.getByRole("button", { name: fixtures.library.topic, exact: true });
-    if (await chip.count()) {
-      await chip.first().click();
-      ok(await chip.first().getAttribute("aria-pressed") === "true", `topic chip ${tag} is pressed`);
-      await tapTarget(chip, `topic chip ${tag}`);
+    // 2. Library: filter by a topic with the chips.
+    const group = page.getByRole("group", { name: "Topic" });
+    const chip = group.getByRole("button", { name: fixtures.library.topic, exact: true });
+    await chip.waitFor();
+    await tapTarget(chip, `topic chip ${tag}`);
+    const row = group.locator("div.overflow-x-auto");
+    const [rowScroll, rowWidth] = await row.evaluate((el) => [el.scrollWidth, el.clientWidth]);
+    if (width <= 430) {
+      ok(rowScroll > rowWidth, `chip row scrolls inside its own box at ${width}px (${rowScroll} > ${rowWidth})`);
+      await group.getByTestId("topic-fade-end").waitFor();
+      ok(await group.getByTestId("topic-fade-start").count() === 0, `no start fade before scrolling (${tag})`);
+      // Keyboard: Tab from the first chip to the last one. The row scrolls to show it and a start fade appears.
+      await group.getByRole("button").first().focus();
+      const chipCount = await group.getByRole("button").count();
+      for (let i = 1; i < chipCount; i++) await page.keyboard.press("Tab");
+      const last = group.getByRole("button").last();
+      ok(await last.evaluate((el) => el === document.activeElement), `last chip reached with the keyboard (${tag})`);
+      await last.evaluate((el) => new Promise((resolve) => {
+        const start = Date.now();
+        const tick = () => { const a = el.getBoundingClientRect(), b = el.parentElement.getBoundingClientRect(); if ((a.right <= b.right + 1 && a.left >= b.left - 1) || Date.now() - start > 3000) resolve(); else requestAnimationFrame(tick); };
+        tick();
+      }));
+      const inside = await last.evaluate((el) => { const a = el.getBoundingClientRect(), b = el.parentElement.getBoundingClientRect(); return a.right <= b.right + 1 && a.left >= b.left - 1; });
+      ok(inside, `focused chip is scrolled into view (${tag})`);
+      await group.getByTestId("topic-fade-start").waitFor();
     } else {
-      await page.getByLabel("Tag").fill(fixtures.library.topic);
+      ok(rowScroll <= rowWidth + 1, `all chips fit at ${width}px (${tag})`);
     }
+    await noSidewaysScroll(page, `library chips ${tag}`);
+    await chip.click();
+    ok(await chip.getAttribute("aria-pressed") === "true", `topic chip is pressed (${tag})`);
+    ok(await group.getByRole("button", { name: "All topics" }).getAttribute("aria-pressed") === "false", `All topics is not pressed (${tag})`);
     await page.locator("#arena-results").waitFor();
-    await page.getByRole("link", { name: /Open problem|Solve|Read/i }).first().waitFor({ timeout: 20000 }).catch(() => {});
+    await page.locator("[data-problem-card]").first().waitFor({ timeout: 20000 });
+    await noSidewaysScroll(page, `library filtered ${tag}`);
     await shot(page, `02-library-filtered-${tag}`);
 
     // 3. Arena problem: open, read the steps, check a wrong answer.
