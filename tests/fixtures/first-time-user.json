@@ -19,5 +19,10 @@
   },
   "archive": {
     "id": "ipho-2025-t1"
+  },
+  "guide": {
+    "width": 1280,
+    "height": 1000,
+    "topic": "Waves"
   }
 }

@@ -193,6 +193,45 @@ try {
     assert.deepEqual(errors, []);
     await context.close();
   }
+  // Screenshots for the Learn guides. Only when GUIDE_SHOT_DIR is set. Light mode, 1280px wide, no database.
+  if (process.env.GUIDE_SHOT_DIR) {
+    mkdirSync(process.env.GUIDE_SHOT_DIR, { recursive: true });
+    const context = await browser.newContext({ viewport: { width: fixtures.guide.width, height: fixtures.guide.height }, deviceScaleFactor: 1 });
+    await context.addInitScript(() => { try { localStorage.setItem("theme", "light"); } catch {} });
+    const page = await context.newPage();
+    const save = (name) => page.screenshot({ path: join(process.env.GUIDE_SHOT_DIR, `${name}.png`) });
+    const top = (locator) => locator.evaluate((el) => { window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 16); });
+    // Without a database the collection reports that community problems are unavailable. Clear only that flag so the
+    // guide picture shows the library as readers see it. The problems themselves are the real response.
+    await page.route("**/api/arena/collection*", async (route) => {
+      const response = await route.fetch();
+      const json = await response.json();
+      json.authoredUnavailable = false;
+      await route.fulfill({ response, json });
+    });
+    await page.goto(origin + fixtures.library.path);
+    const group = page.getByRole("group", { name: "Topic" });
+    await group.getByRole("button", { name: fixtures.guide.topic, exact: true }).click();
+    await page.locator("[data-problem-card]").nth(2).waitFor({ timeout: 20000 });
+    await top(page.getByRole("heading", { name: "Search & filters" }));
+    await save("library-topic");
+    await page.goto(`${origin}/dashboard/problems/${fixtures.practice.id}`);
+    await page.getByRole("textbox", { name: /Final answer/ }).fill(fixtures.practice.wrongAnswer);
+    await page.getByRole("button", { name: "Check answer" }).click();
+    await page.getByText("Not correct yet").waitFor();
+    await top(page.locator("#step-answer"));
+    await save("practice-steps-feedback");
+    await page.goto(`${origin}/dashboard/problems/${fixtures.arena.id}`);
+    await page.locator(".arena-document h3 > span").first().waitFor();
+    await top(page.locator(".arena-document h3 > span").first().locator("xpath=ancestor::section[1]"));
+    await save("arena-parts");
+    await page.goto(origin + "/dashboard?view=problems&collection=pilot");
+    await page.getByRole("button", { name: /^Exercise:/ }).first().click();
+    await page.getByRole("heading", { name: "Step 1: Read the problem" }).waitFor();
+    await top(page.getByRole("list", { name: "Steps" }));
+    await save("guided-reader");
+    await context.close();
+  }
   console.log(`first-time-user: ${checks} checks passed`);
 } finally {
   await browser.close();

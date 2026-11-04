@@ -42,7 +42,7 @@ describe("learn articles", () => {
       });
       it("keeps the existing guide length limits and allows complete product documentation", () => {
         const words = wordCount(a.body);
-        const [min, max] = a.kind === "product" ? [900, 2000] : a.slug === "physics-olympiad-books-and-resources" ? [700, 1200] : [900, 1400];
+        const [min, max] = a.kind === "product" ? (a.slug === "how-to-write-a-problem" ? [700, 1000] : [600, 900]) : a.slug === "physics-olympiad-books-and-resources" ? [700, 1200] : [900, 1400];
         assert.ok(words >= min && words <= max, `${words} words`);
       });
       it("computes reading minutes at 220 words a minute", () => {
