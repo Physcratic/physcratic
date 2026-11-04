@@ -509,3 +509,11 @@ Reconciled the independently merged PR #112. Added explicit staff-action confirm
 - **Verified:** `tests/first-time-user.browser.mjs`, 166 checks at 375 and 1440 in light and dark, now includes the tab order: the first three library cards each have one tab stop, and Tab from card 1 lands in card 2 and then card 3. The contrast checker is unchanged (light 4.64:1 text and 4.63:1 borders, dark 5.20:1 and 3.41:1, 0 failures). The whole Problem Studio suite passes on a throwaway PostgreSQL and asserts one link per card in the real learner library.
 - **Side effect fixed:** two guide screenshots showed the old button (`library-topic.webp`, `studio-library.webp`). Both were retaken and the alt text and use guide now say Open problem.
 - **Rule:** CLAUDE.md and AGENTS.md now say, near the top, never to buy anything, change a plan, add a seat or redeploy a blocked commit on Vercel or any other service, and to stop and ask the owner. CONTRIBUTING.md no longer says to click Redeploy on a blocked deploy, because that adds a paid seat.
+
+## 2026-11-04 - Batch N1: every-page sweep, site name, copy (overnight)
+
+- **Details:** `docs/engineering/overnight-2026-11-05.md` has the per-commit list, what was skipped and why, what needs the owner or Codex, and the screenshot paths.
+- **Site name dot:** none found in source, metadata, manifest, OG images, `public/` or computed pseudo-element content. The check is part of the sweep.
+- **Sweep:** `tests/solve-contrast.browser.mjs` with `SWEEP=1` covers 27 pages and states at 375, 390, 768 and 1440 in light and dark (one h1, heading order, sideways scroll, 44px targets, visible focus, axe serious and critical, contrast). 359 distinct failures before, 32 after. Fixed: 44px buttons, inputs, selects and toggles, top bars and links, h1 on sign-in, sign-up and the archive page, heading levels, roles, keyboard access to wide equations, dark card and input borders (1.3:1 to 3.4:1), coaching label contrast. Left: 31 coaching items (inline links, card borders) for the coaching owner.
+- **Copy:** 1,179 strings read. Plainer error, 404, submissions and Learn copy, two "practise" spellings, one semicolon. Coaching content and the four reviewed guides untouched.
+- **Not checked:** pages that need a signed-in session at 390 and 768 or in dark, admin and profile pages (flag-gated), screen readers, a real phone.
