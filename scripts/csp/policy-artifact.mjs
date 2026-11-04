@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { buildCsp } from '../../lib/security/csp.ts';
+export const NONCE_MATCHERS = ['/dashboard/:path*','/sign-in','/sign-up','/u/:path*','/coaching'];
 export const digest = text => createHash('sha256').update(text).digest('base64');
 
 export function inlineScripts(html) {
@@ -65,6 +66,6 @@ export function middleware(request: NextRequest) {
  response.headers.set('Content-Security-Policy',policy);
  return response;
 }
-export const config={matcher:['/dashboard/:path*','/sign-in','/sign-up','/u/:path*','/coaching']};
+export const config={matcher:${JSON.stringify(NONCE_MATCHERS)}};
 `;
 }

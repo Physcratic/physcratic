@@ -1,5 +1,9 @@
 # Agent handoff
 
+## X3D regression coverage (4 November 2026)
+
+Test-only route inventory and expanded CSP workflow triggers. See CSP_X3D.md for classified routes, deliberate exclusions and evidence. Current prototype has five uncovered HTML documents and now fails qualification explicitly. No deployed policy/application/provider change. PR is for review only, no merge or enforcement authorised. Next step is review of regression coverage and the separately scoped readiness blockers, not automatic X3 enforcement.
+
 ## Current Security S1 handoff (4 November 2026)
 
 - Started main `d1dc0cff8c752a8857b43fba5f88546664cc664c`, branch `codex/community-security-s1`. [PR #119](https://github.com/Physcratic/physcratic/pull/119) merged as `a988056a157171db5f77e8470683fedc1cceb1e2`; exact tested head `b7112fd59168ac5d9b958a300d297b55d91d3b97` passed CI #207 (41812380330) and browser #7 (41812380259). Details/checksum/grants in COMMUNITY_STATUS.md.
