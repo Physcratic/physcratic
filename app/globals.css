@@ -65,8 +65,9 @@
     --accent-foreground: 21 82% 75%;
     --destructive: 21 82% 75%;
     --destructive-foreground: 240 6% 10%;
-    --border: 240 4% 18%;
-    --input: 240 4% 23%;
+    /* 3:1 or better against the card and page backgrounds (WCAG 1.4.11), the same values the solving screens use. */
+    --border: 240 4% 44%;
+    --input: 240 4% 50%;
     --ring: 21 82% 75%;
     --sidebar-background: 240 5% 9%;
     --sidebar-foreground: 240 4% 76%;
