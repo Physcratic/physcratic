@@ -13,6 +13,7 @@ import { Pool } from "pg";
 import { createAuthorMediaApi } from "../lib/author-media-api.ts";
 import { memoryAuthorStorage, png, pdf } from "./author-media-fixtures.ts";
 import { createAuthoredLibraryApi } from "../lib/authored-library-api.ts";
+import { createUnifiedArenaApi } from "../lib/unified-arena-api.ts";
 import { createAuthoredAttemptApi } from "../lib/authored-attempt-api.ts";
 import { createAuthoredSolutionApi } from "../lib/authored-solution-api.ts";
 import { createProblemAuthoringApi } from "../lib/problem-authoring-api.ts";
@@ -55,6 +56,8 @@ const mediaApi = createAuthorMediaApi({
   origin: (request) => isAllowedSubmissionOrigin(request, [origin]),
 });
 const libraryApi = createAuthoredLibraryApi(pool);
+// The learner library lists authored problems through /api/arena/collection since the unified Arena change.
+const collectionApi = createUnifiedArenaApi(pool);
 const attemptApi = createAuthoredAttemptApi({
   pool,
   user: sessionUser,
@@ -192,6 +195,12 @@ try {
             paths[2] === "drafts" ? paths[3] : paths[2],
           );
         }
+        res.writeHead(response.status, Object.fromEntries(response.headers));
+        res.end(Buffer.from(await response.arrayBuffer()));
+        return;
+      }
+      if (url.pathname === "/api/arena/collection") {
+        const response = await collectionApi(new Request(url));
         res.writeHead(response.status, Object.fromEntries(response.headers));
         res.end(Buffer.from(await response.arrayBuffer()));
         return;
@@ -783,7 +792,8 @@ try {
   learner.on("dialog", (d) => d.accept());
   learner.on("pageerror", (e) => errors.push(e.message));
   await learner.goto(`${origin}/dashboard?view=problems&collection=authored`);
-  await learner.locator(`a[href="/dashboard/authored/${id}"]`).click();
+  // Each library card links to the problem twice, from its title and from its Exercise button.
+  await learner.locator(`a[href="/dashboard/authored/${id}"]`).first().click();
   await learner.getByLabel("Numerical answer", { exact: true }).fill("-0.5");
   await learner.getByLabel("Units", { exact: true }).fill("1");
   await learner
