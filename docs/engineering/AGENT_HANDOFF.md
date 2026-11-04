@@ -1,6 +1,14 @@
 # Agent handoff
 
-## Current Batch 5A handoff (4 November 2026)
+## Current Batch 5B handoff (4 November 2026)
+
+- Started latest main `a4a75c292fc0a9d6392e25f92818e454d6ffb4eb`, branch `codex/community-batch-5b`. PR, exact-head CI and final merge SHA are recorded after green delivery in COMMUNITY_STATUS.md.
+- Added private `/admin/moderation`, comment/profile/problem report controls, private Settings history and restricted-comment appeals/feedback. Existing 5A APIs/SQL remain authoritative; UI roles never grant permissions. New UI flag defaults OFF and requires moderation+staff. Original production discussion lock remains unchanged.
+- No migration/runtime grant changes; preserve 0001–0014. New operator-only maintenance scans bounded keyset pages and deletes stale limiter/spam rows only. Evidence/cases/audit remain immutable and never purged. No production SQL, provider/deployment/flag action or README trigger occurred.
+- Local full suite 697 server pass + one inherited TODO, 43 components; typecheck/lint/build/isolation and disposable PostgreSQL pass. Real component/API browser flows test reports, decisions, appeals, pagination, XSS, revocation, session switches and light/dark mobile/desktop axe. Exact-head CI is required before merge.
+- See COMMUNITY_LAUNCH_RUNBOOK.md for migration 0007–0014/grants/storage/flags/staffing/maintenance/rollback. Current launch is NO-GO: separate explicit user decision, retention/privacy policy and external preproduction/provider/load/staffing evidence remain prerequisites. Do not remove the production lock or begin another batch in this session. Deployment: PENDING USER ACTION.
+
+## Historical Batch 5A handoff (4 November 2026)
 
 - Integrated main `7098067f41f4030465a869de6938adf48d1732fb` / PR #105. Batch 5A [PR #109](https://github.com/Physcratic/physcratic/pull/109) merged as `a9bff60a1ad7ab408875d3e06b432d5a1cf21925`, tested head `a699c531bc47f5ad5ba4f93da75850b7afdba490`. CI #190 (41788950296) and browser #3 (41788950356) passed on that exact head; details in COMMUNITY_STATUS.md.
 - Added default-off moderation/report/appeal APIs, audited role-locked staff decisions, create AND edit policy, immutable private evidence, held/hidden latch, thread locks and independent admin appeal correction. Migration 0014 and exact runtime grants are documented in COMMUNITY_STATUS.md. Preserve 0001–0013.

@@ -18,6 +18,8 @@ import { VerificationSettings } from "./verification-settings";
 import { AchievementSettings } from "./achievement-settings";
 import type { BadgeId, PublicMedal } from "@/lib/community/achievements";
 
+import {ModerationHistory} from "./moderation-history";
+
 type Form = PublicProfile & { publicVisibility: boolean };
 const initialForm: Form = { handle: "", displayName: "", bio: "", educationLevel: "prefer-not-to-say", favoriteTopicIds: [], publicVisibility: false };
 function fromProfile(profile: OwnProfile | null): Form {
@@ -103,8 +105,8 @@ function ProfileEditor({ userId, verified, mediaEnabled, achievementsEnabled, on
   </>;
 }
 
-export function AccountSettings({ profilesEnabled, mediaEnabled, achievementsEnabled = false, verificationEnabled = false, onboarding = false }: {
-  profilesEnabled: boolean; mediaEnabled: boolean; achievementsEnabled?: boolean; verificationEnabled?: boolean; onboarding?: boolean;
+export function AccountSettings({ moderationEnabled=false,profilesEnabled, mediaEnabled, achievementsEnabled = false, verificationEnabled = false, onboarding = false }: {
+  moderationEnabled?:boolean;profilesEnabled: boolean; mediaEnabled: boolean; achievementsEnabled?: boolean; verificationEnabled?: boolean; onboarding?: boolean;
 }) {
   const { data, isPending, error, refetch } = authClient.useSession();
   const user = data?.user;
@@ -112,7 +114,7 @@ export function AccountSettings({ profilesEnabled, mediaEnabled, achievementsEna
     <SkipLink targetId="settings-main">Skip to settings</SkipLink>
     <header className="border-b"><div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5 sm:px-8"><Link href="/dashboard" className="text-lg font-semibold tracking-tight">Physcratic</Link><Link href="/dashboard?view=problems" className="inline-flex items-center gap-2 rounded px-1 py-2 text-sm text-muted-foreground hover:text-foreground"><ArrowLeft aria-hidden="true" className="size-4" />Back to Arena</Link></div></header>
     <main id="settings-main" tabIndex={-1} className="mx-auto max-w-6xl px-5 py-8 focus:outline-none sm:px-8 sm:py-12"><div className="mb-8 space-y-2"><p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Your account</p><h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Account Settings</h1><p className="text-sm leading-6 text-muted-foreground">Manage your profile, privacy and appearance.</p></div>
-      <div className="grid items-start gap-8 lg:grid-cols-[180px_minmax(0,1fr)] lg:gap-10"><nav aria-label="Settings sections" className="flex flex-wrap gap-2 lg:sticky lg:top-6 lg:flex-col">{[...(verificationEnabled && user ? [["Verification", "#verification-settings", Check]] : []), ["Profile", "#profile-settings", UserRound], ["Appearance", "#appearance-settings", Palette], ...(profilesEnabled && user ? [["Images", "#image-settings", ImageIcon], ...(achievementsEnabled ? [["Achievements", "#achievement-settings", Check]] : [])] : [])].map(([label, href, Icon]) => {
+      <div className="grid items-start gap-8 lg:grid-cols-[180px_minmax(0,1fr)] lg:gap-10"><nav aria-label="Settings sections" className="flex flex-wrap gap-2 lg:sticky lg:top-6 lg:flex-col">{[...(moderationEnabled ? [["Reports and appeals", "#moderation-history", Check]] : []), ...(verificationEnabled && user ? [["Verification", "#verification-settings", Check]] : []), ["Profile", "#profile-settings", UserRound], ["Appearance", "#appearance-settings", Palette], ...(profilesEnabled && user ? [["Images", "#image-settings", ImageIcon], ...(achievementsEnabled ? [["Achievements", "#achievement-settings", Check]] : [])] : [])].map(([label, href, Icon]) => {
         const SectionIcon = Icon as typeof UserRound;
         return <a key={label as string} href={href as string} className="flex min-h-11 items-center gap-3 rounded-lg border border-transparent px-3 py-2 text-sm hover:border-border hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><SectionIcon aria-hidden="true" className="size-4" />{label as string}</a>;
       })}</nav>
@@ -123,6 +125,7 @@ export function AccountSettings({ profilesEnabled, mediaEnabled, achievementsEna
             : !user ? <section id="profile-settings" className="space-y-3 rounded-2xl border p-7"><h2 className="text-lg font-semibold">Profile</h2><p className="text-sm text-muted-foreground">Sign in to create or edit your profile.</p><Button asChild><Link href="/sign-in?returnTo=%2Fsettings">Sign in</Link></Button></section>
             : <ProfileEditor key={user.id} userId={user.id} verified={user.emailVerified === true} mediaEnabled={mediaEnabled} achievementsEnabled={achievementsEnabled} onboarding={onboarding} />}
           {verificationEnabled && user && <VerificationSettings key={user.id} verified={user.emailVerified === true} />}
+          {moderationEnabled && <ModerationHistory/>}
           <AppearanceSettings />
         </div>
       </div>

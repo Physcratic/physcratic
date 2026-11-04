@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { z } from "zod";
 import { StudentPageClient } from "@/components/authored/student-page-client";
+import {communityModerationUiEnabled} from '@/lib/community/moderation-route';
 import {communityProblemStatsEnabled} from '@/lib/community/problem-stats-route';
 import {communityDiscussionReady as communityCommentsEnabled} from '@/lib/community/comments-route';
 export const metadata: Metadata = {
@@ -19,5 +20,5 @@ export default async function AuthoredProblemPage({
 }) {
   const parsed = z.uuid().safeParse((await params).id);
   if (!parsed.success) notFound();
-  return <StudentPageClient commentsEnabled={communityCommentsEnabled()} statsEnabled={communityProblemStatsEnabled()} problemId={parsed.data.toLowerCase()} />;
+  return <StudentPageClient moderationEnabled={communityModerationUiEnabled()} commentsEnabled={communityCommentsEnabled()} statsEnabled={communityProblemStatsEnabled()} problemId={parsed.data.toLowerCase()} />;
 }

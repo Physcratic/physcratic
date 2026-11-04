@@ -27,10 +27,10 @@ export function createModerationApi(deps:Deps){
    if(area!=='staff'){const params=ownCasesQuery.parse(Object.fromEntries(url.searchParams)),table=area==='reports'?'community_report':'community_moderation_appeal',owner=area==='reports'?'reporter_id':'user_id',projection=area==='reports'?reportProjection:appealProjection;
     const q={text:`SELECT ${projection} FROM ${table} WHERE ${owner}=$1 AND ($2::uuid IS NULL OR id=$2) AND ($3::uuid IS NULL OR id>$3) ORDER BY id LIMIT 21`,values:[user.id,params.id??null,params.after??null],query_timeout:5000};const {rows}=await deps.pool.query(q);if(params.id&&!rows[0])throw new Fault(404,'Case not found.');return profileReply({cases:rows.slice(0,20),nextCursor:rows.length>20?rows[19].id:null});
    }
-   const params=staffQuery.parse(Object.fromEntries(url.searchParams));return await tx(async c=>{await staff(c,user.id);
+   const params=staffQuery.parse(Object.fromEntries(url.searchParams));return await tx(async c=>{const role=await staff(c,user.id);
     if(!params.item){const queue=params.queue??'reports',table=queue==='reports'?'community_report':queue==='appeals'?'community_moderation_appeal':'community_comment_review',id=queue==='held'?'comment_id':'id',filter=queue==='reports'?"state IN ('open','triaged')":queue==='appeals'?"state='open'":"state='held'";
      const projection=queue==='reports'?reportProjection:queue==='appeals'?appealProjection:'comment_id AS id,content_version AS "contentVersion",version,state,codes,policy_version AS "policyVersion",updated_at AS "updatedAt"';
-     const {rows}=await c.query(`SELECT ${projection} FROM ${table} WHERE ${filter} AND ($1::uuid IS NULL OR ${id}>$1) ORDER BY ${id} LIMIT 21`,[params.after??null]);return profileReply({cases:rows.slice(0,20),nextCursor:rows.length>20?rows[19].id:null});
+     const {rows}=await c.query(`SELECT ${projection} FROM ${table} WHERE ${filter} AND ($1::uuid IS NULL OR ${id}>$1) ORDER BY ${id} LIMIT 21`,[params.after??null]);return profileReply({role,cases:rows.slice(0,20),nextCursor:rows.length>20?rows[19].id:null});
     }
     let record;
     if(params.item==='report')record=(await c.query(`SELECT ${reportProjection} FROM community_report WHERE id=$1`,[params.id])).rows[0];
@@ -40,7 +40,7 @@ export function createModerationApi(deps:Deps){
     if(!record)throw new Fault(404,'Case not found.');const target=params.item+':'+params.id;
     const audit=(await c.query('SELECT id::text,actor_id AS "actorId",action,version,reason,data,created_at AS "createdAt" FROM community_moderation_audit WHERE target=$1 AND ($2::bigint IS NULL OR id<$2) ORDER BY id DESC LIMIT 51',[target,params.beforeAudit??null])).rows;
     const evidence=params.item==='comment'?(await c.query('SELECT content_version AS "contentVersion",body,deleted,created_at AS "createdAt" FROM community_comment_evidence WHERE comment_id=$1 AND ($2::integer IS NULL OR content_version<$2) ORDER BY content_version DESC LIMIT 21',[params.id,params.beforeContent??null])).rows:[];
-    return profileReply({record,audit:audit.slice(0,50),nextAudit:audit.length>50?audit[49].id:null,evidence:evidence.slice(0,20),nextContent:evidence.length>20?evidence[19].contentVersion:null});
+    return profileReply({role,record,audit:audit.slice(0,50),nextAudit:audit.length>50?audit[49].id:null,evidence:evidence.slice(0,20),nextContent:evidence.length>20?evidence[19].contentVersion:null});
    });
   }
   if(url.search)throw new Fault(400,'Invalid request.');if(request.headers.get('content-type')?.split(';')[0].trim().toLowerCase()!=='application/json')throw new Fault(415,'Send JSON.');const json=JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(await readRequestBytes(request,12000,5000)));
