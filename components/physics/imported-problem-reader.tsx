@@ -41,6 +41,7 @@ import translationIndex from "@/lib/corpus/translation-index.json";
 import { assessSolutionSource } from "@/lib/corpus-readiness";
 import { ImportedSourceContent } from "./imported-source-content";
 import { SolutionSubmissionForm } from "./solution-submission-form";
+import { StepHeading, StepNumber, solveTokens } from "./solve-ui";
 
 const PdfPageViewer = dynamic(() => import("./pdf-page-viewer"), {
   ssr: false,
@@ -92,6 +93,7 @@ function PdfReader({
           <Button
             variant="outline"
             size="icon"
+            className="size-11"
             aria-label={`Previous ${label} page`}
             disabled={page === 1}
             onClick={() => changePage(page - 1)}
@@ -102,7 +104,7 @@ function PdfReader({
             value={String(page)}
             onValueChange={(value) => changePage(Number(value))}
           >
-            <SelectTrigger className="w-40" aria-label={`${label} page`}>
+            <SelectTrigger className="h-11 w-40" aria-label={`${label} page`}>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -118,6 +120,7 @@ function PdfReader({
           <Button
             variant="outline"
             size="icon"
+            className="size-11"
             aria-label={`Next ${label} page`}
             disabled={page === document.sourcePages.length}
             onClick={() => changePage(page + 1)}
@@ -126,12 +129,12 @@ function PdfReader({
           </Button>
         </div>
         <div className="flex flex-wrap gap-2">
-          <Button variant="outline" size="sm" asChild>
+          <Button variant="outline" className="min-h-11" asChild>
             <a href={`${document.pdf}#page=${page}`} target="_blank" rel="noopener noreferrer">
               <ArrowUpRight data-icon="inline-start" /> Open PDF
             </a>
           </Button>
-          <Button variant="outline" size="sm" asChild>
+          <Button variant="outline" className="min-h-11" asChild>
             <a href={document.pdf} download>
               <Download data-icon="inline-start" /> Download PDF
             </a>
@@ -186,11 +189,11 @@ export function ImportedProblemReader({
   const missingSolution = readiness?.status === "missing-derivation";
   return (
     <section
-      className="flex min-w-0 flex-col gap-5"
+      className={`flex min-w-0 flex-col gap-5 ${solveTokens}`}
       aria-labelledby="imported-problem-title"
     >
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <Button variant="ghost" onClick={onBack}>
+        <Button variant="ghost" className="min-h-11" onClick={onBack}>
           <ArrowLeft data-icon="inline-start" /> Back to all 100 problems
         </Button>
         {problem.hasPilotGuide && onOpenPilot && (
@@ -240,7 +243,7 @@ export function ImportedProblemReader({
       {translationRecord ? (
         <div className="flex flex-col gap-3">
           <Select value={language} onValueChange={setLanguage}>
-            <SelectTrigger className="w-60" aria-label="Reading language">
+            <SelectTrigger className="h-11 w-60" aria-label="Reading language">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -330,12 +333,12 @@ export function ImportedProblemReader({
           onValueChange={setTab}
           className="flex min-w-0 flex-col gap-4"
         >
-          <TabsList className="h-auto w-fit max-w-full flex-wrap">
-            <TabsTrigger value="statement">Problem statement</TabsTrigger>
-            <TabsTrigger value="solution">
-              {missingSolution ? "Source solution page" : "Worked solution"}
+          <TabsList className="h-auto w-fit max-w-full flex-wrap" aria-label="Problem steps">
+            <TabsTrigger className="min-h-11" value="statement"><StepNumber>1</StepNumber>Problem statement</TabsTrigger>
+            <TabsTrigger className="min-h-11" value="submission"><StepNumber>2</StepNumber>Your solution</TabsTrigger>
+            <TabsTrigger className="min-h-11" value="solution">
+              <StepNumber>4</StepNumber>{missingSolution ? "Source solution page" : "Worked solution"}
             </TabsTrigger>
-            <TabsTrigger value="submission">Your solution</TabsTrigger>
           </TabsList>
           {(["statement", "solution"] as const).map((kind) => (
             <TabsContent key={kind} value={kind} className="min-w-0">
@@ -360,7 +363,7 @@ export function ImportedProblemReader({
                         : "Contains spoilers. Compare with your own derivation before self-assessing. Reference review is still pending."}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="min-w-0">
+                <CardContent className="min-w-0 overflow-x-auto">
                   {readingData[kind].format === "pdf" ? (
                     <PdfReader
                       key={kind}
@@ -390,6 +393,8 @@ export function ImportedProblemReader({
             </TabsContent>
           ))}
           <TabsContent value="submission" className="min-w-0">
+            <StepHeading step={2} className="pb-2">Answer</StepHeading>
+            <p className="pb-4 text-sm leading-relaxed text-muted-foreground">Write your solution below. This problem has no automatic check. Compare your work with the worked solution in step 4.</p>
             <SolutionSubmissionForm key={problem.id} problemId={problem.id} />
           </TabsContent>
         </Tabs>

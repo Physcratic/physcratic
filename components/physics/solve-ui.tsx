@@ -67,6 +67,11 @@ export function SolveSteps({ hrefs, className }: { hrefs?: Partial<Record<1 | 2 
   );
 }
 
+/** A visible step number for places where the accessible name must stay as it is, such as tab labels. */
+export function StepNumber({ children }: { children: React.ReactNode }) {
+  return <span aria-hidden="true" className="mr-2 inline-flex size-6 shrink-0 items-center justify-center rounded-full border border-current text-xs font-semibold">{children}</span>;
+}
+
 /** Heading for one numbered step. */
 export function StepHeading({ step, as: Tag = "h2", id, children, className }: { step: 1 | 2 | 3 | 4; as?: "h2" | "h3"; id?: string; children: React.ReactNode; className?: string }) {
   return (

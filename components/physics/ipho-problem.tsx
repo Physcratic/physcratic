@@ -17,6 +17,7 @@ import { Field, FieldDescription, FieldLabel } from "@/components/ui/field";
 import { Textarea } from "@/components/ui/textarea";
 import {
   iphoPdf,
+  iphoSubproblems,
   type IphoPaper,
   type IphoSubproblem,
 } from "@/lib/ipho-archive";
@@ -24,6 +25,8 @@ import { iphoTasks } from "@/lib/ipho-checks";
 import { IphoPageReader } from "./ipho-page-reader";
 import { MathFormula } from "./math-formula";
 import { SymbolicAnswer } from "./symbolic-answer";
+import { assignPartColors } from "@/lib/part-colors";
+import { PartChip, SolveSteps, StepHeading, partBorder, partStyle, proseWidth } from "./solve-ui";
 
 export function IphoProblem({
   task,
@@ -36,6 +39,7 @@ export function IphoProblem({
   onReviewToggle,
   onAnswerChange,
   onAccepted,
+  onNext,
 }: {
   task: IphoSubproblem;
   paper: IphoPaper;
@@ -47,19 +51,25 @@ export function IphoProblem({
   onReviewToggle: () => void;
   onAnswerChange: (value: string) => void;
   onAccepted: () => void;
+  /** Next subproblem in the existing order. Left out on the last one. */
+  onNext?: () => void;
 }) {
   const [sourceOpen, setSourceOpen] = useState(false);
   const [solutionOpen, setSolutionOpen] = useState(false);
   const adaptedTask = iphoTasks.find((item) => item.id === task.symbolicTaskId);
   const section = paper.sections.find((item) => item.letter === task.part[0])!;
+  // Colour by position in the paper. A.1 and A.2 share A's colour. The label text is always shown too.
+  const paperTasks = iphoSubproblems.filter((item) => item.paperId === paper.id);
+  const colour = assignPartColors(paperTasks.map((item) => item.part))[paperTasks.findIndex((item) => item.id === task.id)] ?? 0;
+  const chip = <PartChip index={colour}>{task.part}</PartChip>;
+  const box = `rounded-lg border p-4 ${partBorder}`;
 
   return (
-    <Card className="min-w-0 shadow-none">
+    <Card style={partStyle(colour)} className={`min-w-0 shadow-none ${partBorder}`}>
       <CardHeader className="gap-3">
         <div className="flex flex-wrap items-center gap-2">
-          <Badge variant="secondary">
-            {paper.code} · {task.part}
-          </Badge>
+          {chip}
+          <Badge variant="secondary">{paper.code}</Badge>
           <Badge variant="outline">
             {task.points.toFixed(1)} {task.points === 1 ? "point" : "points"}
           </Badge>
@@ -68,7 +78,7 @@ export function IphoProblem({
           )}
         </div>
         <CardTitle>
-          <h4 className="text-balance text-xl font-medium leading-snug tracking-tight">
+          <h4 id="ipho-subproblem-title" tabIndex={-1} className="text-balance text-xl font-medium leading-snug tracking-tight focus:outline-none">
             {task.title}
           </h4>
         </CardTitle>
@@ -77,14 +87,18 @@ export function IphoProblem({
         </CardDescription>
       </CardHeader>
       <CardContent className="flex min-w-0 flex-col gap-6">
-        <p className="text-pretty text-base leading-relaxed">{task.prompt}</p>
+        <SolveSteps />
+        <StepHeading step={1}>Read the problem</StepHeading>
+        <p className={`text-pretty text-base leading-relaxed ${proseWidth}`}>{task.prompt}</p>
         {task.model && <MathFormula formula={task.model} />}
 
         <details
-          className="rounded-lg border p-4"
+          style={partStyle(colour)}
+          className={box}
           onToggle={(event) => setSourceOpen(event.currentTarget.open)}
         >
-          <summary className="cursor-pointer text-sm font-medium">
+          <summary className="flex min-h-11 cursor-pointer flex-wrap items-center gap-2 text-sm font-medium">
+            {chip}
             Original statement, figures & shared setup · page {task.page}
           </summary>
           {sourceOpen && (
@@ -113,7 +127,8 @@ export function IphoProblem({
         {adaptedTask && (
           <section
             aria-label="Optional calculator-style practice"
-            className="flex min-w-0 flex-col gap-5 border-t pt-5"
+            style={partStyle(colour)}
+            className={`flex min-w-0 flex-col gap-5 ${box}`}
           >
             <div className="flex flex-col gap-2">
               <h5 className="text-base font-medium">
@@ -141,14 +156,23 @@ export function IphoProblem({
               accepted={accepted}
               onAnswerChange={onAnswerChange}
               onAccepted={onAccepted}
+              onNext={onNext}
             />
           </section>
         )}
+        {!adaptedTask && (
+          <>
+            <StepHeading step={3}>Check</StepHeading>
+            <p className="text-sm leading-relaxed text-muted-foreground">This part has no automatic check. Compare your working with the official solution in step 4, then mark it as reviewed.</p>
+          </>
+        )}
 
+        {!adaptedTask && <StepHeading step={2}>Answer</StepHeading>}
         <Field>
           <FieldLabel htmlFor="ipho-working">Your working & notes</FieldLabel>
           <Textarea
             id="ipho-working"
+            className="min-h-32"
             value={notes}
             maxLength={10000}
             rows={5}
@@ -167,11 +191,14 @@ export function IphoProblem({
           </FieldDescription>
         </Field>
 
+        <StepHeading step={4}>Solution</StepHeading>
         <details
-          className="rounded-lg border p-4"
+          style={partStyle(colour)}
+          className={box}
           onToggle={(event) => setSolutionOpen(event.currentTarget.open)}
         >
-          <summary className="cursor-pointer text-sm font-medium">
+          <summary className="flex min-h-11 cursor-pointer flex-wrap items-center gap-2 text-sm font-medium">
+            {chip}
             Reveal official solution · {paper.code} {task.part}
           </summary>
           {solutionOpen && (
@@ -189,7 +216,7 @@ export function IphoProblem({
               />
               {adaptedTask && (
                 <details className="rounded-lg border p-4">
-                  <summary className="cursor-pointer text-sm font-medium">
+                  <summary className="flex min-h-11 cursor-pointer items-center text-sm font-medium">
                     Worked summary for the adapted expression
                   </summary>
                   <div className="flex flex-col gap-5 pt-4">
@@ -217,7 +244,7 @@ export function IphoProblem({
         <div className="flex w-full flex-wrap items-center justify-between gap-3">
           <Button
             variant={reviewed ? "secondary" : "outline"}
-            size="sm"
+            className="min-h-11"
             onClick={onReviewToggle}
             aria-pressed={reviewed}
           >

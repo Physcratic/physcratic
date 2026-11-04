@@ -16,6 +16,7 @@ import {
   type IphoPaperId,
 } from "@/lib/ipho-archive";
 import { IphoPaperPicker, IphoSubproblemNavigation } from "./ipho-navigation";
+import { solveTokens } from "./solve-ui";
 import { IphoProblem } from "./ipho-problem";
 
 export function IphoContest({ onExit }: { onExit: () => void }) {
@@ -91,7 +92,7 @@ export function IphoContest({ onExit }: { onExit: () => void }) {
 
   return (
     <section
-      className="flex min-w-0 flex-col gap-6"
+      className={`flex min-w-0 flex-col gap-6 ${solveTokens}`}
       aria-labelledby="ipho-title"
     >
       <div className="flex flex-wrap items-start justify-between gap-4">
@@ -250,6 +251,14 @@ export function IphoContest({ onExit }: { onExit: () => void }) {
                 setAccepted((current) =>
                   current.includes(task.id) ? current : [...current, task.id],
                 )
+              }
+              onNext={
+                index < iphoSubproblems.length - 1
+                  ? () => {
+                      selectTask(iphoSubproblems[index + 1].id);
+                      requestAnimationFrame(() => document.getElementById("ipho-subproblem-title")?.focus());
+                    }
+                  : undefined
               }
             />
           </fieldset>

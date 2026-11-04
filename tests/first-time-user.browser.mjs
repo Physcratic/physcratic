@@ -100,6 +100,17 @@ try {
     await noSidewaysScroll(page, `arena ${tag}`);
     await shot(page, `03-arena-wrong-${tag}`);
 
+    // 3b. Olympiad archive reader: steps are labelled and the solution tab stays closed until asked for.
+    await page.goto(`${origin}/dashboard/problems/${fixtures.archive.id}`);
+    const archiveTabs = page.getByRole("tablist", { name: "Problem steps" });
+    await archiveTabs.waitFor({ timeout: 30000 });
+    const tabNames = await archiveTabs.getByRole("tab").allInnerTexts();
+    ok(tabNames.length === 3 && /^1\s*Problem statement/.test(tabNames[0].replace(/\n/g, " ")), `archive tabs follow the steps (${tag})`);
+    await tapTarget(archiveTabs.getByRole("tab").first(), `archive tab ${tag}`);
+    ok(await page.getByRole("tab", { name: "Your solution", exact: true }).count() === 1, `Your solution tab keeps its name (${tag})`);
+    await noSidewaysScroll(page, `archive ${tag}`);
+    await shot(page, `03b-archive-${tag}`);
+
     // 4. Practice problem: wrong answer, hint, right answer, solution, next problem.
     const practice = fixtures.practice;
     await page.goto(`${origin}/dashboard/problems/${practice.id}`);

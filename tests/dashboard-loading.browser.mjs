@@ -130,7 +130,7 @@ try {
     await p.getByRole('tab', { name: 'Worked solution', exact: true }).click();
     await p.getByRole('tabpanel').getByText('Worked solution', { exact: true }).waitFor();
     await p.getByRole('tab', { name: 'Problem statement', exact: true }).click();
-    await p.getByRole('heading', { name: 'Check your answers', exact: true }).waitFor();
+    await p.getByRole('heading', { name: 'Step 2: Answer', exact: true }).waitFor();
     checks += 2;
     await c.close();
   }
@@ -139,8 +139,8 @@ try {
     const c = await context(), p = await c.newPage();
     await p.goto(origin + '/dashboard/problems/incline', { waitUntil: 'networkidle' });
     await p.getByPlaceholder('Number or LaTeX expression').first().fill('4.9');
-    await p.getByRole('button', { name: 'Check answers', exact: true }).click();
-    await p.getByText('Correct within this part’s numerical tolerance.', { exact: true }).waitFor();
+    await p.getByRole('button', { name: 'Check answer', exact: true }).click();
+    await p.getByText(/Correct within this part’s numerical tolerance\./).waitFor();
     checks++;
     await c.close();
   }
