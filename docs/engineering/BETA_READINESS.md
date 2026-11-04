@@ -469,3 +469,10 @@ Retained main's new codex Preview smoke exclusion unchanged. Manual smoke checks
 ## 4 November 2026: Batch 5B completion verification
 
 Reconciled the independently merged PR #112. Added explicit staff-action confirmation/cancellation and numeric private-audit pagination, plus reader withdrawal, ambiguous retry, rejected appeal, account-switch and limiter-concurrency regressions. Full disposable verification: 697 server pass plus one inherited TODO, 43 component pass. Exact-head checks are recorded in the [completion PR #115](https://github.com/Physcratic/physcratic/pull/115). No production launch, SQL, migrations, grants, provider changes or CSP change. Launch remains NO-GO pending the runbook prerequisites and explicit operator/user approval.
+
+
+## 2026-11-04 - Community Security S1 remediation
+
+- Corrects the audited medal SECURITY DEFINER temporary-object escalation through additive 0015 without changing owners/grants or migrations 0001–0014. Actual restricted-login/non-superuser-owner table/view/trigger exploits reproduce before and fail after the fix; up/down/up retains hardening and real audits.
+- Policy v3 holds dotless-i and previously missed bare-domain/TLD signals on creation/editing, with trusted-domain/physics/file false-positive tests. Existing holds and production discussion lock remain intact.
+- Full local tests: 719 server pass, one inherited TODO, 43 components. Typecheck/lint/isolation and browser security pass; production build and built-server lock smoke pass. Exact CI/merge evidence follows in COMMUNITY_STATUS.md. Production remains NO-GO. No production SQL, deployment, flag/provider or README-trigger actions. Stop after S1.

@@ -1,5 +1,48 @@
 # Community implementation status
 
+## Security remediation S1 (production remains NO-GO)
+
+**Deployment: PENDING USER ACTION. NOT DEPLOYED BY CODEX. No production/shared staging SQL, grants, roles, flags, provider/Vercel actions, deployment or README trigger. The production discussion lock remains unchanged.**
+
+Started latest main `d1dc0cff8c752a8857b43fba5f88546664cc664c`, reconciled with concurrent main `cf298c7` before delivery, branch `codex/community-security-s1`. Exact PR, tested head, CI and final merge SHA will be recorded after green delivery. This scope addresses the independent audit's two confirmed findings only; no launch or further implementation is authorized.
+
+### Fixes and compatibility
+
+- **High: privileged medal routine temporary-object escalation.** New additive `0015_community_security_s1.up.sql` replaces only `community_admin_locked(text)` and `community_medal_log()` in place. Every privileged staff/audit table reference is schema-qualified; both routines explicitly use their trusted owning schema, pg_catalog, then pg_temp last. Existing OIDs, owners, signatures, SECURITY DEFINER behavior and ACLs are preserved. No table, identity, claim/audit history or runtime grant is changed. Missing 0010 routines fail installation before replacement. Only Better Auth + 0010 is required, independently of 0007–0009/0011–0014.
+- Restricted **actual LOGIN credentials** (not just SET ROLE), with no trusted-schema CREATE/staff write/audit insert rights, reproduce the prepatch temporary staff-table authorization forgery, temporary-view owner-context execution and temporary-audit-trigger persistent staff escalation/audit diversion. Tests use a separate **non-superuser** migration owner and deliberately grant it access to attacker-owned temporary objects, so success does not depend on superuser access. After up/down/up, those same connections/objects cannot forge staff, assign real roles or divert audits; real admin checks and normal pending/approved claim audits still work. Direct trigger-function EXECUTE remains denied to runtime.
+- Reviewed every related SECURITY DEFINER routine from 0010/0012/0013/0014: all **nine** installed routines now pin trusted schema + pg_catalog + explicit pg_temp last. The previously hardened favourite-total, comment-score and five moderation routines already use that ordering; no unrelated rewrite was needed. The broader server/session/actor boundary remains required: possession of runtime SQL credentials is not public API authorization.
+- **Medium: moderation evasions.** `community-text-v3` folds dotless-i confusables, including normalized mathematical variants, and conservatively holds newly recognized prohibited words/threats. Existing direct hard blocks remain hard blocks even when unrelated dotless-i text is present. Bare host detection now covers syntactic alphabetic/Unicode/punycode TLDs, including .shop, .dev and longer TLDs, without fetching URLs. Exact trusted-domain checks, credential/volume checks and whole-token matching remain. Bare common text/image filenames and dotted single-letter variables are excluded to minimize educational false positives; explicit http(s)/www addresses still receive link checks even with filename-like suffixes.
+- Both create/edit use the same existing server policy hook. Tests prove formerly public create/edit evasions are held and masked for guests, and that a clean user edit cannot release an earlier hold. Policy changes do not rescan or release existing held/hidden text. Existing admin review, independent appeals, private proof authorization, grading, authoring and profile behavior remain unchanged.
+- Migrations **0001–0014 are unchanged**. No Drizzle table declaration change is needed for routine replacement. Code remains compatible with older schemas while flags are OFF; the JavaScript policy does not query a new table or require 0015 on application startup. Merging code does not install the database security fix.
+
+### Exact later operator requirements
+
+**0015 up SHA-256: `2f1a465ed7aa3da8b6089a089d364e0632e4352d3b37bf3d8e8e583402ce6357`.** Verify from the reviewed source commit before a separately authorized operator installation. Existing launch runbook procedures apply: recovery point, explicitly selected direct owner connection, installed ledger/0010 verification, reviewed non-owner runtime role, bounded lock/statement timeouts and advisory migration lock. Never replay 0001–0014 or schema-push away guards.
+
+For an absent 0015, use an explicit transaction with `SET LOCAL search_path=public,pg_catalog; SET LOCAL lock_timeout='5s'; SET LOCAL statement_timeout='60s'; SELECT pg_advisory_xact_lock(hashtextextended('physcratic:authoring:migrations:v1',0));`, execute the complete reviewed up file once, verify function definitions/ownership/OIDs/ACLs and attacks with the real runtime role on approved synthetic preproduction resources, record migration ID/checksum/source commit/actor/time/result in the existing ledger, then commit only on success. Roll back on failure/drift. No operation against production/staging was performed here.
+
+**Exact grants: no new GRANT/REVOKE is required or performed by 0015.** Preserve the reviewed 0010 runtime contract:
+
+| Object | Existing runtime rights to retain |
+| --- | --- |
+| `community_admin_locked(text)` | EXECUTE |
+| `community_medal_log()` | No runtime EXECUTE; trusted trigger execution only |
+| `community_medal_claim`, `community_medal_limit` | SELECT, INSERT, UPDATE |
+| `community_medal_audit` | SELECT only, never direct INSERT/UPDATE/DELETE/TRUNCATE |
+| `community_staff`, `community_staff_audit` | No runtime mutation/ownership/operator membership; role assignment remains operator-only |
+
+Retain all unrelated existing grants. Audit inherited/default/PUBLIC rights and database TEMP permission, but do not rely on denying TEMP as the sole fix: the routine definitions themselves must be corrected. Do not grant trusted-schema CREATE or broaden staff/audit rights to make tests pass. Verify every affected function's owner/ACL against the pre-install snapshot and confirm trusted-schema + pg_catalog + pg_temp ordering. The existing immutable function/table grants and audited operator procedure remain authoritative.
+
+**Rollback:** 0015 down is intentionally a non-destructive **no-op that retains the security hardening**. Disposable up/down/up succeeds without reintroducing the vulnerable definitions or deleting history. Roll back application exposure through default-off gates/user-owned deployment if separately authorized; never restore the unsafe routine bodies. No production rollback or activation is authorized by S1.
+
+### Verification and remaining release blockers
+
+- Targeted exploit/policy/medal regressions pass on disposable PostgreSQL 18.6, including minimal 0010-only prerequisites, failed install without 0010, prepatch exploit, postpatch temporary tables/views/triggers, actual restricted login, owner/ACL/OID preservation, up/down/up, real audit retention, forged-role denial, certificate/admin/self-review/revocation/storage regressions and all nine SECURITY DEFINER search paths.
+- Full local suite: **719 server tests passed, zero failures, one inherited corpus-punctuation TODO; 43 component tests passed**. Typegen/typecheck, zero-warning lint and offline guards pass. Browser security regression passes create/edit dotless-i/.shop holds and guest masking, private evidence, appeals/roles/revocation/XSS, desktop/mobile axe. Both Chromium security suites pass (2-view create/edit masking and 10-view moderation UI). The production build passes after freeing generated disk usage. Built production with an unreachable database returns disabled 503 on default-off community routes and keeps GET/POST discussions at 503 even with all synthetic flags true; the static reader returns 200. Frozen dependency install passes with unchanged manifests. Exact-head CI is required before merge. An initial build attempt exhausted the local disk; only generated files/clean stale worktrees were removed before retrying.
+- Production remains **NO-GO**. The SQL fix still requires separate operator installation and verification. Retention/privacy approval, actual provider/grant/storage checks, moderation staffing, external preproduction/load validation and a separate explicit launch decision remain prerequisites in COMMUNITY_LAUNCH_RUNBOOK.md. The production discussion lock and all default-off flags are preserved. This heuristic is still not exhaustive contextual/multilingual moderation.
+
+**Stop after S1. No deployment, enablement, production SQL or removal of the discussion lock.**
+
 ## Phase 6A release readiness
 
 Source/CI audit and actionable approval checklist: COMMUNITY_RELEASE_READINESS.md. Real installation, effective grants, flags, stores, staff, retention policy and recovery remain UNKNOWN/BLOCKED. No runtime/schema changes or Production verification. Launch remains NO-GO.
