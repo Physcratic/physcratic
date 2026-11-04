@@ -27,7 +27,7 @@ export function MathFormula({
   useEffect(() => {
     const element = box.current;
     if (!element) return;
-    const measure = () => setScrolls(element.scrollWidth > element.clientWidth + 1);
+    const measure = () => setScrolls(element.scrollWidth > element.clientWidth);
     measure();
     if (typeof ResizeObserver === "undefined") return;
     const observer = new ResizeObserver(measure);
