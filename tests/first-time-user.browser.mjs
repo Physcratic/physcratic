@@ -60,6 +60,14 @@ try {
     await page.goto(origin + fixtures.library.path);
     await page.getByRole("heading", { level: 1 }).first().waitFor();
     await noSidewaysScroll(page, `library ${tag}`);
+    // MathLive is loaded only where there is an answer box. The library and the lobby have none.
+    ok(await page.evaluate(() => !customElements.get("math-field")), `MathLive is not loaded on the library (${tag})`);
+    await page.goto(`${origin}/dashboard`);
+    await page.getByRole("heading", { name: "Recommended problem" }).waitFor();
+    await page.waitForTimeout(1500);
+    ok(await page.evaluate(() => !customElements.get("math-field")), `MathLive is not loaded on the lobby (${tag})`);
+    await page.goto(origin + fixtures.library.path);
+    await page.getByRole("heading", { level: 1 }).first().waitFor();
     await shot(page, `01-library-${tag}`);
 
     // 2. Library: filter by a topic with the chips.
@@ -131,6 +139,7 @@ try {
     ok(/^\([a-z]\)$/.test((await partChips.first().innerText()).trim()), `part chip keeps its letter (${tag})`);
     const arenaField = page.locator("#step-answer math-field").first();
     await arenaField.waitFor({ timeout: 20000 });
+    ok(await page.evaluate(() => Boolean(customElements.get("math-field"))), `MathLive loads on a problem with an answer box (${tag})`);
     await typeMath(page, arenaField, [fixtures.arena.wrongAnswer]);
     await page.getByRole("button", { name: "Check answer" }).click();
     await page.locator('#step-answer [aria-live="polite"]').getByText(/Not correct|to revisit|Could not/).first().waitFor();

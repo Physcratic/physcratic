@@ -326,9 +326,9 @@ try {
     const rows = [];
     const closedDetails = (el) => { const d = el.parentElement?.closest("details:not([open])"); return Boolean(d) && !(el.tagName === "SUMMARY" && el.parentElement === d); };
     const visible = (el) => { const r = el.getBoundingClientRect(); const s = getComputedStyle(el); return r.width > 0 && r.height > 0 && s.visibility !== "hidden" && s.display !== "none" && !closedDetails(el); };
-    const label = (el) => (el.getAttribute("aria-label") || el.labels?.[0]?.innerText || el.innerText || el.getAttribute("placeholder") || el.id || "").replace(/\s+/g, " ").trim().slice(0, 80);
+    const label = (el) => (el.getAttribute("aria-label") || el.labels?.[0]?.innerText || (el.getAttribute("aria-labelledby") && document.getElementById(el.getAttribute("aria-labelledby"))?.innerText) || el.innerText || el.getAttribute("placeholder") || el.id || "").replace(/\s+/g, " ").trim().slice(0, 80);
     const size = (el) => { const r = el.getBoundingClientRect(); return `${Math.round(r.width)}x${Math.round(r.height)}`; };
-    const interactive = "a[href],button,input,textarea,select,summary,[role=tab]";
+    const interactive = "a[href],button,input,textarea,select,summary,math-field,[role=tab]";
     let run = null;
     const flush = () => { if (run) { rows.push(`text    ${run.paras} text blocks, ${run.chars} characters, starts "${run.start}"`); run = null; } };
     const walk = (node) => { for (const el of node.children) {
@@ -353,14 +353,15 @@ try {
     rows.forEach((r) => console.log("  " + r));
     if (width === 1440) {
       const c = { clicks: 0, keys: 0 };
-      const answer = student.getByLabel("Expression answer", { exact: true });
-      if (await answer.count()) { await answer.click(); c.clicks++; await answer.pressSequentially("m*a"); c.keys += 3; }
+      // The answer is a MathLive field once it has loaded, and a plain box before that.
+      const mathField = student.locator("math-field").first();
+      await mathField.waitFor({ timeout: 20000 }).catch(() => {});
+      const answer = (await mathField.count()) ? mathField : student.getByLabel("Expression answer", { exact: true });
+      if (await answer.count()) { await answer.click(); c.clicks++; await student.waitForTimeout(500); await student.keyboard.type("m*a"); c.keys += 3; }
       const names = await student.getByRole("button").allInnerTexts();
       console.log("buttons on the page:", JSON.stringify(names.map((n) => n.trim()).filter(Boolean)));
       const submit = student.getByRole("button", { name: "Submit answer", exact: true });
       if (await submit.count()) { await submit.click(); c.clicks++; await student.getByRole("heading", { name: /saved attempt/ }).first().waitFor({ timeout: 10000 }).catch(() => {}); await student.waitForTimeout(400); }
-      console.log("choose part value:", JSON.stringify(await student.getByLabel("Choose part", { exact: true }).inputValue()), JSON.stringify(await student.getByLabel("Choose part", { exact: true }).locator("option").allInnerTexts()));
-      console.log("form text:", JSON.stringify((await student.locator("main, body").first().innerText()).split("\n").filter((l) => /part|submit|choose|retain|required|error|could not/i.test(l)).slice(0, 14)));
       console.log("after answering and checking:", JSON.stringify(c), "| feedback:", JSON.stringify((await student.getByRole("heading", { name: /saved attempt/ }).allInnerTexts()).concat(await student.locator("[role=status]").allInnerTexts()).filter(Boolean)).slice(0, 500));
       console.log("solution controls:", JSON.stringify((await student.getByRole("button", { name: /solution/i }).allInnerTexts()).concat(await student.getByRole("link", { name: /solution/i }).allInnerTexts())));
     }
