@@ -4,8 +4,17 @@ import { findBannedWords, findCopyProblems } from "./copy-rules";
 import { articles, COACHING_LINE } from "./learn/articles";
 import { visibleStrings } from "./learn/reading";
 import { KNOWN_SEMICOLON_OFFENDERS, PROSE_SEMICOLON, scanCopy, sourceFiles, stringsIn } from "./copy-scan";
+import { archiveDefinitions } from "./archive-grading/catalog";
+import { source01 } from "./arena/source-01";
+import { source02 } from "./arena/source-02";
+import { source03 } from "./arena/source-03";
+import { source04 } from "./arena/source-04";
+import { source05 } from "./arena/source-05";
+import { source06 } from "./arena/source-06";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+
+const arenaSeeds = [...source01, ...source02, ...source03, ...source04, ...source05, ...source06];
 
 describe("findCopyProblems", () => {
   it("passes plain copy", () => {
@@ -65,6 +74,49 @@ describe("the coaching line at the end of every guide", () => {
     assert.equal(`${COACHING_LINE.lead} ${COACHING_LINE.linkLabel}`, "Want a coach who has sat these exams? Meet our medallist coaches.");
     assert.equal(COACHING_LINE.href, "/coaching");
     for (const text of [COACHING_LINE.lead, COACHING_LINE.linkLabel]) assert.deepEqual(findCopyProblems(text), []);
+  });
+});
+
+describe("Arena problem text obeys the copy rules", () => {
+  // Prose only: maths ($$...$$ and $...$), code spans and image addresses are removed first.
+  const prose = (text: string) =>
+    text
+      .replace(/\$\$[\s\S]*?\$\$/g, " ")
+      .replace(/\$[^$\n]*\$/g, " ")
+      .replace(/`[^`\n]*`/g, " ")
+      .replace(/\]\([^)\n]*\)/g, "]");
+  const arenaTexts = () => {
+    const out: { where: string; text: string }[] = [];
+    for (const seed of arenaSeeds) {
+      for (const field of ["title", "summary", "statement", "solution"] as const) out.push({ where: `${seed.id} ${field}`, text: seed[field] });
+      for (const tag of seed.tags) out.push({ where: `${seed.id} tag`, text: tag });
+    }
+    for (const definition of archiveDefinitions) {
+      if (!definition.problemId.startsWith("arena-")) continue;
+      for (const part of definition.parts) {
+        // "domain" is never shown to a student, so it is not scanned.
+        for (const field of ["label", "help"] as const) out.push({ where: `${definition.problemId} ${part.id} ${field}`, text: part[field] });
+        if (part.kind === "self-review") out.push({ where: `${definition.problemId} ${part.id} reason`, text: part.reason });
+      }
+    }
+    return out;
+  };
+  it("covers all 18 problems and their answer boxes", () => {
+    assert.equal(arenaSeeds.length, 18);
+    const parts = archiveDefinitions.filter((d) => d.problemId.startsWith("arena-")).reduce((sum, d) => sum + d.parts.length, 0);
+    assert.equal(parts, 153);
+    assert.ok(arenaTexts().length >= 18 * 4 + parts * 2);
+  });
+  it("has no dashes, semicolons, banned words or banned phrases in titles, statements, solutions, part headings, answer help or condition lines", () => {
+    const failures: string[] = [];
+    for (const { where, text } of arenaTexts()) {
+      for (const problem of [...findCopyProblems(prose(text)), ...findBannedWords(prose(text))]) failures.push(`${where}: ${problem.rule} in "${prose(text).trim().slice(0, 80)}"`);
+    }
+    assert.deepEqual(failures, []);
+  });
+  it("leaves maths alone: a semicolon or LaTeX spacing inside it is not flagged", () => {
+    assert.deepEqual(findCopyProblems(prose(String.raw`The field $$E_\theta(S;L)=0$$ and $a\;b$ vanish.`)), []);
+    assert.equal(findCopyProblems(prose("Two clauses; joined")).length, 1);
   });
 });
 
