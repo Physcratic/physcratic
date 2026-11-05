@@ -218,7 +218,25 @@ try {
     if (sessionCookie) { const [cookieName, ...cookieValue] = sessionCookie.split("="); await context.addCookies([{ name: cookieName, value: cookieValue.join("="), url: origin }]); }
     for (const [name, run] of stages) {
       const page = await context.newPage();
-      try { await run(page); } catch (error) { record(name, theme, width, { kind: "stage-failed", el: "", text: String(error.message).split("\n")[0].slice(0, 120) }); await page.close(); continue; }
+      const badResponses = [];
+      page.on("response", (response) => { if (response.status() >= 400 && !response.url().includes("/_vercel/")) badResponses.push(`${response.status()} ${new URL(response.url()).pathname}`); });
+      try {
+        // The auth endpoint answers 429 when the sweep makes many signed-in requests in a minute. That is the rate limit,
+        // not the page, so wait for it to clear and run the stage again (up to twice).
+        for (let attempt = 0; ; attempt++) {
+          try { await run(page); break; }
+          catch (error) {
+            if (attempt >= 2 || !badResponses.some((entry) => entry.startsWith("429 "))) throw error;
+            badResponses.length = 0;
+            await page.waitForTimeout(30000);
+          }
+        }
+      } catch (error) {
+        // Say what the page showed, so a timeout can be told from a refused request.
+        const shown = (await page.locator("main").first().innerText({ timeout: 2000 }).catch(() => "")).replace(/\s+/g, " ").slice(0, 100);
+        record(name, theme, width, { kind: "stage-failed", el: "", text: `${String(error.message).split("\n")[0].slice(0, 120)} | requests refused: ${badResponses.slice(0, 4).join(", ") || "none"} | page shows: ${shown || "nothing"}` });
+        await page.close(); continue;
+      }
       await page.waitForTimeout(800);
       const onCoaching = /^(coaching|become a tutor)/.test(name);
       const result = await page.evaluate(measure, onCoaching);
