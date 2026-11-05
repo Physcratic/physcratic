@@ -515,7 +515,8 @@ try {
   await page.getByRole("button", { name: /^(Try again|Start another attempt)$/ }).click();
   await page
     .getByLabel("Expression answer", { exact: true })
-    .fill("sin(x)^2+cos(x)^2");
+    // Phase 1: sin^2 + cos^2 is now checked like any expression (incorrect against x^2 + 137). A symbol the key does not use still needs review.
+    .fill("y*y+137");
   await submit();
   await saved("Needs review");
   await page

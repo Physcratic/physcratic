@@ -79,7 +79,10 @@ test("documented tolerance, units and limited-symbolic examples agree with actua
   assert.equal(evaluateNumericAnswer({ kind: "numeric", value: 10, units: "kg" }, key).status, "needs-review");
   assert.equal(evaluateNumericAnswer({ kind: "numeric", value: 10, units: "1" }, { ...key, units: "" }).status, "correct");
   const expressionKey = { kind: "expression", expected: "1", variables: [{ name: "x", domain: "real", assumptions: [] }], angleUnit: "radians", exclusions: [] };
-  assert.equal(evaluateExpressionAnswer({ kind: "expression", expression: "x/x" }, expressionKey).status, "needs-review");
+  // Phase 1: expression answers are checked with seeded test values. x/x equals 1 wherever it is defined, so it is now correct
+  // (it was needs-review under the old exact prover).
+  assert.equal(evaluateExpressionAnswer({ kind: "expression", expression: "x/x" }, expressionKey).status, "correct");
+  assert.equal(evaluateExpressionAnswer({ kind: "expression", expression: "x+1" }, expressionKey).status, "incorrect");
   const authorText = bodyText(findArticle(slugs[1])!.body).join(" ");
   assert.match(authorText, /10\.08 N/);
   assert.match(authorText, /Relative tolerance to 0\.01/);

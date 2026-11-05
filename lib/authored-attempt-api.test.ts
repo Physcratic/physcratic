@@ -340,7 +340,9 @@ test(
             input(d, r, 0, { kind: "numeric", value: 3, units: "1" }),
             input(d, r, 1, {
               kind: "expression",
-              expression: "sin(x)^2+cos(x)^2",
+              // Phase 1: sin^2 + cos^2 is now checked like any expression (it is not x^2 + 137, so incorrect). A symbol the key does not
+              // use still needs review, which is what this case stores.
+              expression: "y^2+137",
             }),
             input(d, r, 2, { kind: "manual", text: "Reasoning" }),
           ];
