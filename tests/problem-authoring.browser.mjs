@@ -92,7 +92,7 @@ async function guideShots(page) {
   const save = (name) => page.screenshot({ path: join(dir, `${name}.png`) });
   const top = (locator, offset = 16) => locator.evaluate((el, o) => window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - o), offset);
   await page.setViewportSize({ width: 1280, height: 1000 });
-  await page.getByRole("button", { name: "New problem", exact: true }).click();
+  // Problem Studio opens on a new, empty problem in the last mode used. This suite drives Advanced.
   await page.getByLabel("Problem title", { exact: true }).fill("Forces on a cart");
   await page.waitForURL((url) => url.searchParams.has("draft"));
   const id = new URL(page.url()).searchParams.get("draft");
@@ -317,6 +317,7 @@ try {
   const context = await browser.newContext({
     viewport: { width: 1440, height: 1000 },
   });
+  await context.addInitScript(() => localStorage.setItem("physcratic.studio.mode", "advanced"));
   const page = await context.newPage();
   const errors = [];
   page.on("pageerror", (e) => {
@@ -331,10 +332,11 @@ try {
     await guideShots(page);
     throw new GuideDone();
   }
-  await page.getByRole("button", { name: "New problem", exact: true }).click();
+  // Problem Studio opens on a new, empty problem in the last mode used. This suite drives Advanced.
   await page
     .getByLabel("Problem title", { exact: true })
     .fill("The pendulum experiment");
+  await page.waitForURL((url) => url.searchParams.has("draft"));
   const id = new URL(page.url()).searchParams.get("draft");
   assert.ok(id);
   await page
@@ -987,7 +989,7 @@ try {
   console.log(
     "PASS unified editor → library → numerical/symbolic/manual submissions → immutable history → explicit solution/media → assisted attempts → revoke/unpublish workflow (injected verified sessions).",
   );
-  await page.getByRole("button", { name: "← Drafts", exact: true }).click();
+  await page.getByRole("button", { name: "← My drafts", exact: true }).click();
   await page
     .getByRole("button", { name: /^Delete Keep local conflict work$/ })
     .click();

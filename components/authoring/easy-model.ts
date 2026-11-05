@@ -21,6 +21,17 @@ export type Key = EditorDraft["privateParts"][number]["key"];
 export type PrivatePart = EditorDraft["privateParts"][number];
 type Part = EditorDraft["content"]["sections"][number]["parts"][number];
 
+export const STUDIO_MODE_KEY = "physcratic.studio.mode";
+export type StudioMode = "easy" | "advanced";
+/** The author's last choice, kept in this browser only. Easy until they pick Advanced. */
+export function readStudioMode(): StudioMode {
+  try {
+    return window.localStorage.getItem(STUDIO_MODE_KEY) === "advanced" ? "advanced" : "easy";
+  } catch {
+    return "easy";
+  }
+}
+
 /** The tick box text. The saved rights declaration is exactly this. */
 export const RIGHTS_TEXT =
   "I wrote this problem and I'm happy to share it on Physcratic.";

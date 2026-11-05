@@ -185,7 +185,7 @@ async function openEasy(page) {
   await page.goto(`${origin}/dashboard/author`, { waitUntil: "networkidle" });
   await showEasy(page);
   await page.getByRole("button", { name: /^Continue your last draft/ }).click();
-  await page.getByRole("region", { name: "Part c" }).waitFor({ timeout: 20000 });
+  await page.getByRole("region", { name: "Part c", exact: true }).waitFor({ timeout: 20000 });
 }
 async function openAdvanced(page) {
   await openEasy(page);

@@ -286,7 +286,7 @@ try {
   await saved(page);
   await type(page.getByLabel("Problem text", { exact: true }), "Find the net force on a 2 kg cart that accelerates at 5 m/s2. Give F in terms of m and a.");
   await type(page.getByLabel("Question", { exact: true }), "Find F.");
-  const answer = await mathLive(page, page.getByRole("region", { name: "Part a" }));
+  const answer = await mathLive(page, page.getByRole("region", { name: "Part a", exact: true }));
   await click(answer);
   await page.waitForTimeout(300);
   await page.keyboard.type("m*a");
@@ -369,7 +369,7 @@ try {
   await m.waitForURL((url) => url.searchParams.has("draft"));
   await saved(m);
   await m.getByLabel("Question", { exact: true }).fill("What is g near the surface?");
-  const numberBox = await mathLive(m, m.getByRole("region", { name: "Part a" }));
+  const numberBox = await mathLive(m, m.getByRole("region", { name: "Part a", exact: true }));
   await numberBox.click();
   await m.waitForTimeout(300);
   await m.keyboard.type("9.8");

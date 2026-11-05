@@ -12,7 +12,7 @@ import {
   type EditorDraft,
 } from "@/lib/problem-authoring-editor";
 import { ProblemEditor } from "./problem-editor";
-import { ensureEasyShape } from "./easy-model";
+import { ensureEasyShape, readStudioMode } from "./easy-model";
 
 /** A new problem that lives only in this tab until the first edit saves it. */
 function blankDraft(): EditorDraft {
@@ -23,7 +23,8 @@ function blankDraft(): EditorDraft {
     slug: "",
     ...structuredClone(newProblem()),
   };
-  ensureEasyShape(draft);
+  // Easy starts with its one part. Advanced starts empty, as it always did.
+  if (readStudioMode() === "easy") ensureEasyShape(draft);
   return draft;
 }
 

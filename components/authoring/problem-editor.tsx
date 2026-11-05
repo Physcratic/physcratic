@@ -28,6 +28,7 @@ import { AnswerPanel } from "./answer-panel";
 import { TagPicker, MissingTagNote } from "./tag-picker";
 import { HowItWorksLink, StatusBar, StepCard, studioTokens } from "./studio-ui";
 import { EasyEditor, rememberEasyFocus } from "./easy-editor";
+import { STUDIO_MODE_KEY, readStudioMode, type StudioMode } from "./easy-model";
 import { colorsByPartId } from "@/lib/part-colors";
 import { PartChip, partBorder, partStyle } from "@/components/physics/solve-ui";
 import {
@@ -48,8 +49,6 @@ function download(draft: EditorDraft) {
   link.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
-const MODE_KEY = "physcratic.studio.mode";
-export type StudioMode = "easy" | "advanced";
 
 export function ProblemEditor({
   initial,
@@ -70,17 +69,16 @@ export function ProblemEditor({
   continueDraft?: { title: string; open: () => void } | null;
 }) {
   const [mode, setModeState] = useState<StudioMode>("easy");
+  // The saved choice is read in the browser, so nothing is drawn until it is known. No flash of the wrong mode.
+  const [modeReady, setModeReady] = useState(false);
   useEffect(() => {
-    try {
-      if (window.localStorage.getItem(MODE_KEY) === "advanced") setModeState("advanced");
-    } catch {
-      /* The choice is a convenience. Easy is the default. */
-    }
+    setModeState(readStudioMode());
+    setModeReady(true);
   }, []);
   function chooseMode(next: StudioMode) {
     setModeState(next);
     try {
-      window.localStorage.setItem(MODE_KEY, next);
+      window.localStorage.setItem(STUDIO_MODE_KEY, next);
     } catch {
       /* Ignore. */
     }
@@ -577,7 +575,7 @@ export function ProblemEditor({
             )}
           </section>
         )}
-        {mode === "easy" ? (
+        {!modeReady ? null : mode === "easy" ? (
           <>
             {continueDraft && (
               <p className="mb-6 text-sm">

@@ -20,6 +20,7 @@ import {
   applyAnswer,
   blocksText,
   easyIssues,
+  ensureEasyShape,
   privateFor,
   readAnswer,
   removeEasyPart,
@@ -86,6 +87,12 @@ export function EasyEditor(props: EasyProps) {
   const note = advancedNote(draft);
   const rights = rightsState(draft);
   const blocked = issues.length > 0 || otherIssues.length > 0;
+
+  // A draft made in Advanced can have no part yet. Easy starts it with part a.
+  const noParts = parts.length === 0;
+  useEffect(() => {
+    if (noParts && !locked) edit((d) => ensureEasyShape(d));
+  }, [noParts, locked, edit]);
 
   // Carry the cursor over when the first save replaces this editor with the saved one.
   useEffect(() => {
