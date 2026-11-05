@@ -192,8 +192,16 @@ if (sessionCookie) {
     ["signed in: submissions", async (page) => { await page.goto(`${origin}/dashboard/submissions`, { waitUntil: "domcontentloaded" }); await page.getByRole("heading", { level: 1 }).first().waitFor({ timeout: 20000 }); await page.waitForTimeout(1500); }],
     ["signed in: settings", async (page) => { await page.goto(`${origin}/settings`, { waitUntil: "networkidle" }); }],
   );
+  // INCLUDE_ADMIN=1 adds the admin pages. They stay behind their flags and belong to the moderation work, so they are
+  // opt-in. They show the state a normal signed-in user gets, with no flag enabled.
+  if (process.env.INCLUDE_ADMIN) stages.push(
+    ["signed in: admin moderation (flag off)", async (page) => { await page.goto(`${origin}/admin/moderation`, { waitUntil: "domcontentloaded" }); await page.getByRole("heading", { level: 1 }).first().waitFor({ timeout: 20000 }); }],
+    ["signed in: admin verification (flag off)", async (page) => { await page.goto(`${origin}/admin/verification`, { waitUntil: "domcontentloaded" }); await page.getByRole("heading", { level: 1 }).first().waitFor({ timeout: 20000 }); }],
+  );
   if (process.env.AUTHORED_PROBLEM_ID) stages.push(["signed in: authored student page", async (page) => { await page.goto(`${origin}/dashboard/authored/${process.env.AUTHORED_PROBLEM_ID}`, { waitUntil: "networkidle" }); await page.getByRole("heading", { name: "Submit an answer" }).waitFor({ timeout: 20000 }); }]);
 }
+// STAGE_FILTER="admin" (with INCLUDE_ADMIN=1) runs only the stages whose name matches.
+if (process.env.STAGE_FILTER) { const only = new RegExp(process.env.STAGE_FILTER, "i"); for (let i = stages.length - 1; i >= 0; i--) if (!only.test(stages[i][0])) stages.splice(i, 1); }
 let lowestText = 99, lowestBorder = 99, failures = 0;
 const perTheme = { light: { text: 99, border: 99 }, dark: { text: 99, border: 99 } };
 const grouped = new Map();
