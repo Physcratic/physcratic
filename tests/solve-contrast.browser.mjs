@@ -4,6 +4,9 @@
 // for one h1, heading order, sideways scroll, 44px tap targets, visible keyboard focus and, when
 // @axe-core/playwright can be loaded from AUTHORING_BROWSER_TOOLS, zero serious or critical axe issues.
 // AUTHORED_PROBLEM_ID adds the authored student page (needs the throwaway PostgreSQL, see C5 to C7).
+// SESSION_COOKIE ("name=value") switches to the signed-in pass: Problem Studio (draft list, editor, student preview),
+// submissions, settings and the authored student page with its answer form. Needs the throwaway PostgreSQL with a
+// verified test user and a session row. Never use a real database or a real account.
 // Text must reach 4.5:1 (3:1 for large text), inputs, cards and disclosure boxes need a 3:1 border. Disabled controls
 // are exempt (WCAG 1.4.3). Only /api/dashboard and a signed-out /api/auth/get-session are mocked, for Contests.
 // Fixtures: tests/fixtures/first-time-user.json. Not run by CI.
@@ -151,10 +154,45 @@ const stages = [
 ];
 
 const sweep = Boolean(process.env.SWEEP);
-const widths = sweep ? fixtures.sweep.widths : fixtures.widths;
-if (sweep) {
+const sessionCookie = process.env.SESSION_COOKIE;
+const widths = sweep || sessionCookie ? fixtures.sweep.widths : fixtures.widths;
+if (sweep && !sessionCookie) {
   for (const route of fixtures.sweep.routes) stages.push([route.name, async (page) => { await page.goto(origin + route.path, { waitUntil: "networkidle" }); }]);
   if (process.env.AUTHORED_PROBLEM_ID) stages.push(["authored student page", async (page) => { await page.goto(`${origin}/dashboard/authored/${process.env.AUTHORED_PROBLEM_ID}`, { waitUntil: "networkidle" }); }]);
+}
+/** A draft with three parts, so the editor and its preview show the part colours. Created once, through the real UI. */
+async function ensureDraft(page) {
+  await page.goto(`${origin}/dashboard/author`, { waitUntil: "networkidle" });
+  if (await page.getByRole("button", { name: /^Open/ }).count()) return;
+  await page.getByRole("button", { name: "New problem", exact: true }).click();
+  await page.getByLabel("Problem title", { exact: true }).fill("Forces on a cart");
+  await page.waitForURL((url) => url.searchParams.has("draft"));
+  await page.getByRole("button", { name: "Add text to common context", exact: true }).click();
+  await page.getByLabel("Common context text 1", { exact: true }).fill("A 2 kg cart accelerates at 5 m/s2 along a frictionless horizontal track.");
+  await page.getByRole("button", { name: "+ Add section", exact: true }).click();
+  await page.getByLabel("Section 1 title", { exact: true }).fill("Forces and work");
+  for (const [index, label] of ["a", "b", "c"].entries()) {
+    await page.getByRole("button", { name: "+ Add part to section 1", exact: true }).click();
+    await page.getByLabel(`Section 1 part ${index + 1} label`, { exact: true }).fill(label);
+  }
+  await page.getByText("All changes saved").first().waitFor({ timeout: 20000 });
+}
+async function openEditor(page) {
+  await ensureDraft(page);
+  await page.goto(`${origin}/dashboard/author`, { waitUntil: "networkidle" });
+  await page.getByRole("button", { name: /^Open/ }).first().click();
+  await page.getByRole("heading", { name: /Step 1: Statement/ }).waitFor({ timeout: 20000 });
+}
+if (sessionCookie) {
+  stages.length = 0;
+  stages.push(
+    ["signed in: Problem Studio draft list", async (page) => { await ensureDraft(page); await page.goto(`${origin}/dashboard/author`, { waitUntil: "networkidle" }); await page.getByRole("heading", { level: 1 }).first().waitFor(); }],
+    ["signed in: Problem Studio editor", async (page) => { await openEditor(page); }],
+    ["signed in: Problem Studio student preview", async (page) => { await openEditor(page); await page.getByRole("button", { name: "Student preview", exact: true }).click(); await page.getByRole("article", { name: "Student-facing preview" }).waitFor(); }],
+    ["signed in: submissions", async (page) => { await page.goto(`${origin}/dashboard/submissions`, { waitUntil: "domcontentloaded" }); await page.getByRole("heading", { level: 1 }).first().waitFor({ timeout: 20000 }); await page.waitForTimeout(1500); }],
+    ["signed in: settings", async (page) => { await page.goto(`${origin}/settings`, { waitUntil: "networkidle" }); }],
+  );
+  if (process.env.AUTHORED_PROBLEM_ID) stages.push(["signed in: authored student page", async (page) => { await page.goto(`${origin}/dashboard/authored/${process.env.AUTHORED_PROBLEM_ID}`, { waitUntil: "networkidle" }); await page.getByRole("heading", { name: "Submit an answer" }).waitFor({ timeout: 20000 }); }]);
 }
 let lowestText = 99, lowestBorder = 99, failures = 0;
 const perTheme = { light: { text: 99, border: 99 }, dark: { text: 99, border: 99 } };
@@ -169,6 +207,7 @@ try {
   for (const theme of ["light", "dark"]) for (const width of widths) {
     const context = await browser.newContext({ viewport: { width, height: 900 } });
     await context.addInitScript((value) => { try { localStorage.setItem("theme", value); } catch {} }, theme);
+    if (sessionCookie) { const [cookieName, ...cookieValue] = sessionCookie.split("="); await context.addCookies([{ name: cookieName, value: cookieValue.join("="), url: origin }]); }
     for (const [name, run] of stages) {
       const page = await context.newPage();
       try { await run(page); } catch (error) { record(name, theme, width, { kind: "stage-failed", el: "", text: String(error.message).split("\n")[0].slice(0, 120) }); await page.close(); continue; }
@@ -178,7 +217,7 @@ try {
       lowestText = Math.min(lowestText, result.minText); lowestBorder = Math.min(lowestBorder, result.minBorder);
       perTheme[theme].text = Math.min(perTheme[theme].text, result.minText); perTheme[theme].border = Math.min(perTheme[theme].border, result.minBorder);
       for (const fail of result.fails) record(name, theme, width, { kind: fail.kind, el: fail.el, text: `${fail.ratio}:1 needs ${fail.need} "${fail.text}"` });
-      if (sweep) {
+      if (sweep || sessionCookie) {
         for (const issue of await page.evaluate(audit, onCoaching)) record(name, theme, width, issue);
         for (const issue of await focusAudit(page)) record(name, theme, width, issue);
         for (const issue of await axeAudit(page)) record(name, theme, width, issue);
