@@ -515,3 +515,7 @@ Page, top to bottom (one column about 720px wide, the same at 375 and 1440): Wha
 
 Screenshots (light, 2x): `before-1440-filled.png`, `before-375-filled.png` (Easy) and `after-1440-filled.png`, `after-375-filled.png` (Simple), with the empty pages beside them, in `/tmp/claude-0/-home-user-physcratic/e2f71d02-1835-5abd-a0a1-5a697b1c0cf0/scratchpad/shots/`.
 
+## 10. Removed script (5 November 2026)
+
+`tests/phase0-authoring.browser.mjs` was removed. It drove the editor as it was in Phase 0 (a New problem button, Add section, Add part, the Answer type select), which no longer exists, so it could not run on `main`. Its numbers stay in sections 2 and 8. The current editor is measured by `tests/studio-simple.browser.mjs`, which also fails if the click target is missed.
+
