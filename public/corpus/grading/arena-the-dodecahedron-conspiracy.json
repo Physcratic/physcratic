@@ -12,6 +12,14 @@
         "Q",
         "\\varepsilon_0"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\varepsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Signed central charge Q; positive ε₀; outward flux."
     },
     {
@@ -24,6 +32,20 @@
         "\\sigma",
         "\\varepsilon_0"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\varepsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Field magnitude. The problem’s +σ convention takes σ > 0; absolute-value and positive-density forms are accepted."
     },
     {
@@ -35,6 +57,20 @@
       "symbols": [
         "\\sigma",
         "\\varepsilon_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\varepsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Field magnitude. Adjacent face normals have cosine 1/√5; σ and ε₀ are positive in the charge-density convention."
     }

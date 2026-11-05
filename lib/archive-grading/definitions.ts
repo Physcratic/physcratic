@@ -3,7 +3,7 @@ import type { ArchiveMetadata } from "../archive-grading-contracts";
 
 type PublicPart = ArchiveMetadata["parts"][number];
 export type ArchiveSymbol = { latex: string; assumptions: ("positive" | "nonnegative" | "nonzero")[]; aliases: string[]; min?: number; max?: number };
-export type ArchiveKeyPart = Omit<PublicPart, "symbols"> & {
+export type ArchiveKeyPart = Omit<PublicPart, "symbols" | "symbolConditions"> & {
   symbols: ArchiveSymbol[];
   sourceReference?: string;
   domain: string;

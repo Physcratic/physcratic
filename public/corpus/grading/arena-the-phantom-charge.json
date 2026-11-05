@@ -12,6 +12,14 @@
         "c",
         "d"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "d > 0; c is the signed surface-density parameter, not the speed of light."
     },
     {
@@ -25,6 +33,26 @@
         "\\varepsilon_0",
         "d",
         "z"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\varepsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "z",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "z > 0, d > 0, ε₀ > 0; c may have either sign. Supply the scalar z component, without a unit vector."
     },
@@ -40,6 +68,20 @@
         "d",
         "z"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\varepsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "z < 0; d > 0, ε₀ > 0. The normal field has no unique continuous value at z = 0."
     },
     {
@@ -52,6 +94,14 @@
         "c",
         "d"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Magnitude rather than signed charge; d > 0. One point charge cannot reproduce both halves of the axis."
     },
     {
@@ -63,6 +113,14 @@
       "symbols": [
         "d"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "x = y = 0; zP > 0, d > 0."
     },
     {
@@ -73,6 +131,14 @@
       "unit": "",
       "symbols": [
         "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "x = y = 0; zP < 0, d > 0."
     },
@@ -89,6 +155,26 @@
         "\\varepsilon_0",
         "d"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\varepsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "qc > 0; m, ε₀, d > 0. Speeds above this threshold guarantee passage; equality at the discontinuous force does not fix continuation."
     },
     {
@@ -98,6 +184,7 @@
       "kind": "numeric",
       "unit": "m/s",
       "symbols": [],
+      "symbolConditions": [],
       "help": "No positive barrier. Arbitrarily small positive speeds suffice; zero is the infimum, not a guarantee of travel from infinity at rest."
     }
   ]

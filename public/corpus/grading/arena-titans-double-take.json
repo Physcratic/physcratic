@@ -9,6 +9,7 @@
       "kind": "numeric",
       "unit": "1",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Spherical droplets; atmosphere index taken as one. Solve stationary primary deviation at an antisolar radius of 49°. Tolerance ±0.003."
     },
     {
@@ -18,6 +19,7 @@
       "kind": "numeric",
       "unit": "degrees",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Use the index inferred in part (a), not a generic terrestrial index. This branch lies inside the 49° primary bow; tolerance ±0.1°."
     },
     {
@@ -27,6 +29,7 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Review the two concentric bows around the antisolar point, secondary inside primary, with opposite colour ordering for normal dispersion."
     }
   ]

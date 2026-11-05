@@ -13,6 +13,26 @@
         "E",
         "\\hbar"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "m, E and ℏ positive; principal positive wave number."
     },
     {
@@ -24,6 +44,14 @@
       "symbols": [
         "k_0",
         "\\theta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "k_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Conserved tangential momentum; k₀ > 0; incidence angle in radians, 0 ≤ θ < π/2."
     },
@@ -40,6 +68,32 @@
         "\\theta",
         "\\hbar"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "V₀ > E > 0; m, ℏ > 0; real positive decay constant; θ in radians."
     },
     {
@@ -52,6 +106,14 @@
         "k_0",
         "\\theta"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "k_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Positive-x transmitted wave; k₀ > 0; 0 ≤ θ < π/2 in radians."
     },
     {
@@ -63,6 +125,14 @@
       "symbols": [
         "k_0",
         "\\theta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "k_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Tangential momentum is conserved; radians."
     },
@@ -77,6 +147,32 @@
         "E_x",
         "\\kappa",
         "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "V_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E_x",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\kappa",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Use E_x = E cos²θ > 0 and κ from part (c); V₀ > E_x, d > 0. This form uses the normal energy, not total E."
     },
@@ -93,6 +189,44 @@
         "V_0",
         "\\kappa_{45}",
         "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\kappa_{45}",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "a ≫ d; independent collisions and small escape probability. κ₄₅ = √(2m(V₀ − E/2))/ℏ. Count all four wall collisions; all length/energy/mass scales positive."
     }

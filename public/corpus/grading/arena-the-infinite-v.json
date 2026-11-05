@@ -9,6 +9,7 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
+      "symbolConditions": [],
       "help": "For the strictly infinite half-planes there is no finite general cutoff-independent field. Review the logarithmic divergence and finite-L regularization in the solution; do not invent a finite value."
     },
     {
@@ -18,6 +19,7 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
+      "symbolConditions": [],
       "help": "The general-point component depends on the distant-boundary regularization. Review the finite-L field and its projection; cancellation is special to symmetry, not a general finite field."
     },
     {
@@ -27,6 +29,7 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Even at S the radial field diverges logarithmically as a common cutoff L goes to infinity. A finite radius-independent field would be a false answer."
     },
     {
@@ -36,6 +39,7 @@
       "kind": "numeric",
       "unit": "N/C",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Reflection symmetry makes this component exactly zero for every common finite cutoff. This does not make the full infinite-sheet field finite."
     },
     {
@@ -45,6 +49,7 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
+      "symbolConditions": [],
       "help": "A finite cutoff and a taut string must first be specified. The regularized stability condition is QK_L < 0; the strictly infinite geometry is ill-posed."
     },
     {
@@ -54,6 +59,7 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
+      "symbolConditions": [],
       "help": "There is no finite cutoff-independent frequency. Review the regularized ω² = −QK_L/(mr); never substitute a fabricated finite infinite-limit answer."
     }
   ]

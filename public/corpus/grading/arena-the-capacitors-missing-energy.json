@@ -14,6 +14,26 @@
         "A",
         "d"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\varepsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Neglect fringing, √A ≫ d; positive dimensions and ε₀."
     },
     {
@@ -25,6 +45,7 @@
       "symbols": [
         "E_0"
       ],
+      "symbolConditions": [],
       "help": "Boost parallel to the field; capacitor moves along +x in S. Other electric components vanish."
     },
     {
@@ -34,6 +55,7 @@
       "kind": "numeric",
       "unit": "T",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Enter the result in the displayed unit, without a unit suffix."
     },
     {
@@ -45,6 +67,20 @@
       "symbols": [
         "U_0",
         "\\gamma"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "U_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "γ = 1/√(1−β²) > 0; gap contracts longitudinally."
     },
@@ -59,6 +95,26 @@
         "m_p",
         "c"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m_p",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Each plate, not both; γ > 0, mp > 0, c > 0."
     },
     {
@@ -68,6 +124,7 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
+      "symbolConditions": [],
       "help": "The field and plates alone are not a closed static system; review why stressed supports carry the missing energy."
     },
     {
@@ -79,6 +136,14 @@
       "symbols": [
         "\\gamma",
         "f_{0xx}"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension; γ = 1/√(1−β²)."
     },
@@ -92,6 +157,14 @@
         "\\gamma",
         "f_{0xy}"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension; γ = 1/√(1−β²)."
     },
     {
@@ -103,6 +176,14 @@
       "symbols": [
         "\\gamma",
         "f_{0xz}"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension; γ = 1/√(1−β²)."
     },
@@ -116,6 +197,14 @@
         "\\gamma",
         "f_{0yx}"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension; γ = 1/√(1−β²)."
     },
     {
@@ -127,6 +216,14 @@
       "symbols": [
         "\\gamma",
         "f_{0yy}"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension; γ = 1/√(1−β²)."
     },
@@ -140,6 +237,14 @@
         "\\gamma",
         "f_{0yz}"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension; γ = 1/√(1−β²)."
     },
     {
@@ -151,6 +256,14 @@
       "symbols": [
         "\\gamma",
         "f_{0zx}"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension; γ = 1/√(1−β²)."
     },
@@ -164,6 +277,14 @@
         "\\gamma",
         "f_{0zy}"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension; γ = 1/√(1−β²)."
     },
     {
@@ -175,6 +296,14 @@
       "symbols": [
         "\\gamma",
         "f_{0zz}"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension; γ = 1/√(1−β²)."
     },
@@ -190,6 +319,32 @@
         "x_0",
         "c"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "x_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Use x₀ for the positive rest-frame length Δx′. The right force disappears later; 0 < β < 1 and γ = 1/√(1−β²)."
     },
     {
@@ -204,6 +359,20 @@
         "f_{xx}",
         "V_0"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Use V₀ for rest volume Δx′Δy′Δz′. Signed Cauchy stress fxx is negative for compression; work is then negative."
     },
     {
@@ -215,6 +384,20 @@
       "symbols": [
         "\\gamma",
         "\\rho_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Rest energy density/c² is ρ₀; γ = 1/√(1−β²)."
     },
@@ -231,6 +414,26 @@
         "t_{0xx}",
         "c"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "t₀xx = f₀xx, positive for tension and negative for compression; γ = 1/√(1−β²)."
     },
     {
@@ -244,6 +447,26 @@
         "E_0",
         "A",
         "A_b"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\varepsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "A_b",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Two identical struts share the plate attraction; compressive stress is negative."
     },
@@ -263,6 +486,44 @@
         "d",
         "c"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m_{0b}",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\varepsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "γ = 1/√(1−β²); one strut, including its stress contribution. The strut area cancels."
     },
     {
@@ -277,6 +538,38 @@
         "m_p",
         "m_{0b}",
         "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "U_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m_p",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m_{0b}",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Complete closed system; U₀ is rest field energy and γ = 1/√(1−β²). Includes both plates and both supports."
     }

@@ -13,6 +13,14 @@
         "\\delta",
         "r"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\delta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Approaching mirror: r > 1, δ > 0. Include the reference camera time t₀, rather than just remaining time."
     },
     {
@@ -27,6 +35,32 @@
         "\\delta",
         "f"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\delta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "f",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Distant-object, small-angle focal-plane approximation; all quantities positive. No longitudinal contraction of the transverse height."
     },
     {
@@ -39,6 +73,26 @@
         "r",
         "c",
         "\\delta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\delta",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Small reflected angles; r > 1, c > 0, δ > 0. Use the reflected-ray back-traced image, not twice the mirror’s present distance."
     }

@@ -9,6 +9,7 @@
       "kind": "numeric",
       "unit": "m/s²",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Use the displayed unit, without a unit suffix. Tolerance: 1% relative. No unit conversion."
     }
   ]

@@ -36,5 +36,8 @@ export function publicArchiveMetadata(definition: ArchiveDefinition): ArchiveMet
   return archiveMetadataSchema.parse({ problemId: definition.problemId, version: archiveVersion(definition), parts: definition.parts.map((part) => ({
     id: part.id, sourcePart: part.sourcePart, label: part.label, kind: part.kind,
     unit: part.unit, symbols: part.symbols.map((symbol) => symbol.latex), help: part.help,
+    symbolConditions: part.symbols
+      .filter((symbol) => symbol.assumptions.length > 0 || symbol.min !== undefined || symbol.max !== undefined)
+      .map((symbol) => ({ symbol: symbol.latex, assumptions: symbol.assumptions, ...(symbol.min !== undefined ? { min: symbol.min } : {}), ...(symbol.max !== undefined ? { max: symbol.max } : {}) })),
   })) });
 }

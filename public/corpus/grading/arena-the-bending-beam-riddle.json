@@ -11,6 +11,7 @@
       "symbols": [
         "V"
       ],
+      "symbolConditions": [],
       "help": "Use V for the signed shear V(x) in the source convention."
     },
     {
@@ -24,6 +25,32 @@
         "b",
         "d",
         "g"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Uniform beam and stated shear convention; all dimensional parameters positive."
     },
@@ -41,6 +68,38 @@
         "L",
         "x"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Simply supported beam; 0 ≤ x ≤ L, positive dimensions, density and g."
     },
     {
@@ -57,6 +116,38 @@
         "L",
         "x"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Simply supported beam; M(0) = M(L) = 0 and 0 ≤ x ≤ L."
     },
     {
@@ -69,6 +160,14 @@
         "Y",
         "y",
         "R"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "Y",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Use R for the signed radius R(x), R ≠ 0. Source convention Y = −fxx/(Δl/l)."
     },
@@ -83,6 +182,26 @@
         "b",
         "d",
         "R"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "Y",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "R is the signed curvature radius R(x), R ≠ 0; rectangular section."
     },
@@ -99,6 +218,38 @@
         "Y",
         "d"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "Y",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Small slopes, simple supports, self-weight only. Enter a positive drop, not the negative upward displacement."
     },
     {
@@ -108,6 +259,7 @@
       "kind": "numeric",
       "unit": "1",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Enter the result in the displayed unit, without a unit suffix."
     },
     {
@@ -121,6 +273,26 @@
         "Y",
         "d"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "Y",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Rayleigh beam model including rotational inertia; positive physical parameters."
     },
     {
@@ -132,6 +304,20 @@
       "symbols": [
         "\\rho",
         "Y"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "Y",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Rotational inertia term on the right-hand side has positive coefficient."
     },
@@ -147,6 +333,32 @@
         "\\rho",
         "\\omega"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "Y",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Neglect rotational inertia; all parameters positive; ω is angular frequency, not ordinary frequency."
     },
     {
@@ -160,6 +372,32 @@
         "d",
         "\\rho",
         "\\omega"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "Y",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Same thin-beam limit; group velocity is twice phase velocity."
     }

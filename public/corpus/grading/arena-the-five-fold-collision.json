@@ -11,6 +11,14 @@
       "symbols": [
         "m"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Positive rest mass scale m; composite internal energy is included."
     },
     {
@@ -21,6 +29,14 @@
       "unit": "",
       "symbols": [
         "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Positive c; speed along +x."
     },
@@ -33,6 +49,14 @@
       "symbols": [
         "c"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Nontrivial elastic collision with momentum exchange; +x is the incoming direction. The unchanged-velocity no-exchange branch is not requested in this field."
     },
     {
@@ -44,6 +68,14 @@
       "symbols": [
         "c"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Nontrivial elastic collision with momentum exchange; signed velocity along +x."
     },
     {
@@ -53,6 +85,7 @@
       "kind": "numeric",
       "unit": "degrees",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Same two outgoing rest masses, elastic two-body final state; enter degrees, not radians."
     },
     {
@@ -62,6 +95,7 @@
       "kind": "numeric",
       "unit": "degrees",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Enter the result in the displayed unit, without a unit suffix."
     },
     {
@@ -71,6 +105,7 @@
       "kind": "numeric",
       "unit": "degrees",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Enter the result in the displayed unit, without a unit suffix."
     },
     {
@@ -83,6 +118,26 @@
         "m",
         "c",
         "h"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "All three photon energies are strictly positive; the other two may be collinear backwards. Constants m, c and h are positive."
     }

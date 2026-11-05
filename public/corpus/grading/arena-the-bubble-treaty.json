@@ -9,6 +9,7 @@
       "kind": "numeric",
       "unit": "Pa",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Absolute pressure, not pressure excess. Use pₐ = 101000 Pa; tolerance ±0.02 Pa."
     },
     {
@@ -18,6 +19,7 @@
       "kind": "numeric",
       "unit": "cm",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Ideal gas, separately conserved amounts, isothermal process; use absolute pressures. Enter the radius in cm."
     },
     {
@@ -27,6 +29,7 @@
       "kind": "special",
       "unit": "",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Equal pressures give a flat film. Use \\infty for an unbounded radius, not zero radius."
     },
     {
@@ -38,6 +41,14 @@
       "symbols": [
         "R_p"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "R_p",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Use R_p for the common outer radius R′ after attachment; each centre is R′/2 from the shared plane."
     },
     {
@@ -47,6 +58,7 @@
       "kind": "numeric",
       "unit": "cm",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Enter the result in the displayed unit, without a unit suffix."
     },
     {
@@ -56,6 +68,7 @@
       "kind": "numeric",
       "unit": "cm",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Enter the result in the displayed unit, without a unit suffix."
     }
   ]

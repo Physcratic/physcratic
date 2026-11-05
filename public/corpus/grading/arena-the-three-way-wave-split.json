@@ -17,6 +17,32 @@
         "t",
         "r_2"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "k_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_2",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_3",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "r₂ increases away from the junction; positive wave numbers and ω; angles in radians. T₁ = 5T₀."
     },
     {
@@ -34,6 +60,32 @@
         "t",
         "r_3"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "k_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_2",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_3",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "r₃ increases away from the junction; positive wave numbers and ω; angles in radians."
     },
     {
@@ -45,6 +97,14 @@
       "symbols": [
         "\\mu"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "μ₁ = μ > 0; zero reflection and outgoing power ratio 2:3."
     },
     {
@@ -55,6 +115,14 @@
       "unit": "",
       "symbols": [
         "\\mu"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "μ₁ = μ > 0; zero reflection and outgoing power ratio 2:3."
     }

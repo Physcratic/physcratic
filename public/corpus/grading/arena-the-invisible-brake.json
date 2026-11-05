@@ -14,6 +14,32 @@
         "T",
         "m"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "n",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Statement §1(a), solution §(a)(i). Dilute isotropic Maxwell–Boltzmann gas; all scales positive."
     },
     {
@@ -27,6 +53,20 @@
         "\\lambda",
         "G"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\lambda",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Statement §1(b), solution §(a)(ii). Use G = d⟨vx⟩/dz. Flux-weighted angular average; transfer to the faster layer is negative for G > 0."
     },
     {
@@ -36,6 +76,7 @@
       "kind": "numeric",
       "unit": "1",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Statement §1(c), solution §(a)(iii); b ≪ λ ≪ D, dilute gas."
     },
     {
@@ -48,6 +89,26 @@
         "m",
         "k_B",
         "b"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "The number density cancels; b is molecular diameter; positive scales, dilute-gas approximation."
     },
@@ -63,6 +124,26 @@
         "R",
         "r"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\eta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "nonnegative"
+          ]
+        }
+      ],
       "help": "Statement §2(a), solution §(b)(i). Use G = dp/dx, signed pressure gradient; η, R > 0, 0 ≤ r ≤ R; steady nearly incompressible Poiseuille flow."
     },
     {
@@ -76,6 +157,20 @@
         "G",
         "\\eta"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\eta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Use G = dp/dx, negative for positive flow; fully developed nearly incompressible flow."
     },
     {
@@ -88,6 +183,20 @@
         "R",
         "G",
         "\\eta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\eta",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Use G = dp/dx. Pressure-work dissipation is removed as wall heat; steady nearly incompressible flow. Isothermal compressible gas alone does not justify this formula."
     }

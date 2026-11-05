@@ -9,6 +9,7 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Complex conjugates, vector dipoles and real-part operations are outside this checker. Review the two conjugate cross terms and the sign convention."
     },
     {
@@ -25,6 +26,44 @@
         "c",
         "x"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "n",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\mu_{21}",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\varepsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "x",
+          "assumptions": [
+            "nonnegative"
+          ]
+        }
+      ],
       "help": "Use x = |a₂|², 0 ≤ x ≤ 1, and μ₂₁ for the positive norm of the transition dipole; other constants positive. Slowly varying populations, semiclassical model."
     },
     {
@@ -37,6 +76,14 @@
         "x",
         "E_1",
         "E_2"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "x",
+          "assumptions": [
+            "nonnegative"
+          ]
+        }
       ],
       "help": "Use x = |a₂|² and normalization |a₁|² = 1 − x; 0 ≤ x ≤ 1, E₂ > E₁."
     },
@@ -54,6 +101,44 @@
         "\\omega_0",
         "\\mu_{21}"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\varepsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "n",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\mu_{21}",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Nonzero transition dipole; all listed scales positive. This is the lifetime parameter of the specified semiclassical equation."
     },
     {
@@ -64,6 +149,14 @@
       "unit": "",
       "symbols": [
         "x"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "x",
+          "assumptions": [
+            "nonnegative"
+          ]
+        }
       ],
       "help": "x = |a₂|², 0 ≤ x ≤ 1; not simply x."
     },
@@ -78,6 +171,26 @@
         "t",
         "\\tau_{sp}"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "x_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "t",
+          "assumptions": [
+            "nonnegative"
+          ]
+        },
+        {
+          "symbol": "\\tau_{sp}",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "Use x₀ = |a₂(0)|², 0 < x₀ < 1, t ≥ 0, τ_sp > 0. For the sketch the initial amplitude 0.9 means x₀ = 0.81."
     },
     {
@@ -87,6 +200,7 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Review x(0) = 0.81, the half-population time about 1.45τsp, and decay towards zero."
     },
     {
@@ -96,6 +210,7 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Explain why this semiclassical model remains at x = 1 with zero radiated power, and why that is a limitation rather than a prediction of quantum spontaneous emission."
     },
     {
@@ -111,6 +226,26 @@
         "t",
         "t_0"
       ],
+      "symbolConditions": [
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\tau_{sp}",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
       "help": "τ_sp, ℏ, ω₀ > 0; t₀ = τsp ln(x₀/(1−x₀)) is the half-population time. Pulse formula within the slowly varying semiclassical treatment."
     },
     {
@@ -120,6 +255,7 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Review the initial rise, maximum at 1.45τsp, and subsequent decay; only t ≥ 0 is physical for the specified initial condition."
     }
   ]

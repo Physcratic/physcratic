@@ -67,7 +67,7 @@ test("public generator output uses an explicit allowlist and contains no structu
     const published = JSON.parse(readFileSync(join(process.cwd(), `public/corpus/grading/${definition.problemId}.json`), "utf8"));
     assert.deepEqual(archiveMetadataSchema.parse(published), metadata);
     assert.deepEqual(Object.keys(metadata).sort(), ["parts", "problemId", "version"]);
-    for (const part of metadata.parts) assert.deepEqual(Object.keys(part).sort(), ["help", "id", "kind", "label", "sourcePart", "symbols", "unit"]);
+    for (const part of metadata.parts) assert.deepEqual(Object.keys(part).sort(), ["help", "id", "kind", "label", "sourcePart", "symbolConditions", "symbols", "unit"]);
     assert.doesNotMatch(JSON.stringify(metadata), /"(?:target|canonical|alternatives|wrong|absTol|relTol|policy|exclusions)"/);
     assert.notEqual(archiveVersion({ ...definition, keyVersion: definition.keyVersion + 1 }), metadata.version);
     assert.notEqual(archiveVersion({ ...definition, content: `${definition.content} changed` }), metadata.version);
@@ -132,4 +132,25 @@ test("versioning, blank parts, mixed outcomes, and refusal of client policies", 
   assert.equal(results.find((part) => part.partId === "b.i.radius")!.status, "correct");
   assert.equal(results.find((part) => part.partId === "b.ii.distance")!.status, "unanswered");
   for (const invalid of [{ ...input, version: "0".repeat(64) }, { ...input, answers: [...input.answers, input.answers[0]] }, { ...input, answers: [{ partId: "unknown", latex: "12" }] }, { ...input, expected: 12 }, { ...input, working: "private" }, { ...input, problemId: "live-contest" }]) assert.throws(() => gradeArchiveAnswers(invalid), ArchiveGradeRequestError);
+});
+test("public part metadata carries each symbol's declared conditions and nothing else from the key", () => {
+  const grin = publicArchiveMetadata(getArchiveDefinition("arena-a-grin-and-a-wiggle")!);
+  const trajectory = grin.parts.find((part) => part.id === "a.trajectory")!;
+  assert.deepEqual(trajectory.symbolConditions, [{ symbol: "k", assumptions: ["positive"] }]);
+  const equation = publicArchiveMetadata(getArchiveDefinition("arena-the-cosmic-kitchen")!).parts.find((part) => part.id === "g.equation")!;
+  assert.deepEqual(equation.symbolConditions, [{ symbol: "u", assumptions: ["positive"], min: 50, max: 150 }]);
+  for (const definition of archiveDefinitions) {
+    for (const part of publicArchiveMetadata(definition).parts) {
+      for (const entry of part.symbolConditions) {
+        assert.deepEqual(Object.keys(entry).filter((key) => !["symbol", "assumptions", "min", "max"].includes(key)), []);
+        assert.ok(part.symbols.includes(entry.symbol), `${definition.problemId}/${part.id}`);
+      }
+    }
+    // A symbol with no declared condition is not listed.
+    const source = definition.parts.find((part) => part.kind !== "self-review" && part.symbols.some((symbol) => symbol.assumptions.length === 0 && symbol.min === undefined));
+    if (source) {
+      const listed = publicArchiveMetadata(definition).parts.find((part) => part.id === source.id)!.symbolConditions.map((entry) => entry.symbol);
+      for (const symbol of source.symbols.filter((item) => item.assumptions.length === 0 && item.min === undefined && item.max === undefined)) assert.ok(!listed.includes(symbol.latex));
+    }
+  }
 });
