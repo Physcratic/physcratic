@@ -1,6 +1,6 @@
 {
   "problemId": "echo",
-  "version": "587056f5a21c982f7b36cf78f20f6142700d963548c78f8e5341e151858276fb",
+  "version": "d94b26bfbb8db82a13d447e5f4dc6883821224da15c25d97a905ba278babbaad",
   "parts": [
     {
       "id": "answer",
@@ -10,7 +10,7 @@
       "unit": "m",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Use the displayed unit, without a unit suffix. Tolerance: 1% relative. No unit conversion."
+      "help": "Answers within 1% are accepted."
     }
   ]
 }

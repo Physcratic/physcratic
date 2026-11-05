@@ -1,6 +1,6 @@
 {
   "problemId": "resistors",
-  "version": "452e05d9e45bc1444b5921b2d0e39f9e38c1f440974f1c5c32117a448c98badc",
+  "version": "d6fa06c5bbf627931168faab0994e190420ec01e5a95c0cd4b7ae7d780207979",
   "parts": [
     {
       "id": "answer",
@@ -10,7 +10,7 @@
       "unit": "A",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Use the displayed unit, without a unit suffix. Tolerance: 1% relative. No unit conversion."
+      "help": "Answers within 1% are accepted."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "problemId": "incline",
-  "version": "2aff76bae693c2934ace30afbcddf33908640c58c741139a67e43119b67e4a18",
+  "version": "44c35a36f32b20d07317b1cf8f4019310ed35be21ffaaa11d59e1cc4644aee2f",
   "parts": [
     {
       "id": "answer",
@@ -10,7 +10,7 @@
       "unit": "m/s²",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Use the displayed unit, without a unit suffix. Tolerance: 1% relative. No unit conversion."
+      "help": "Answers within 1% are accepted."
     }
   ]
 }

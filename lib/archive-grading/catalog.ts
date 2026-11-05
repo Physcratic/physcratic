@@ -24,7 +24,7 @@ export const archiveDefinitions: ArchiveDefinition[] = [
     return { problemId: seed.id, keyVersion: 1, content: JSON.stringify(seed), parts: parts.map((part) => ({ ...part, sourceReference: `${seed.solutionFile ?? seed.statementFile.replace("_Problem.pdf", "_Solution.pdf")} § ${part.sourcePart}` })) };
   }),
   ...problems.map((problem) => ({ problemId: problem.id, keyVersion: 1, content: JSON.stringify(problem), parts: [
-    { ...numeric("answer", "Final answer", problem.answer, problem.unit, { sourcePart: "Answer", help: "Use the displayed unit, without a unit suffix. Tolerance: 1% relative. No unit conversion." }), sourceReference: `lib/physics.ts: ${problem.id}, worked solution` },
+    { ...numeric("answer", "Final answer", problem.answer, problem.unit, { sourcePart: "Answer", help: "Answers within 1% are accepted." }), sourceReference: `lib/physics.ts: ${problem.id}, worked solution` },
   ] })),
 ];
 const byId = new Map(archiveDefinitions.map((definition) => [definition.problemId, definition]));

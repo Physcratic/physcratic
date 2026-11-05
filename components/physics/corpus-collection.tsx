@@ -111,6 +111,7 @@ export function CorpusCollection({
               })
             }
             signedIn={!!saved.session.data?.user}
+            sessionPending={saved.session.isPending}
             savedTask={saved.savedTask}
             saving={saved.saving}
           />

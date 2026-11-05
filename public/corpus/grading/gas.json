@@ -1,6 +1,6 @@
 {
   "problemId": "gas",
-  "version": "e472a0c2fc03c5a6a582550e7a66bb39266e7815db269c6a4da6cdd9113e72d7",
+  "version": "6d0719f5fab80656a54439e192e0616b2f13f34f4bf6511829365219ce85f10d",
   "parts": [
     {
       "id": "answer",
@@ -10,7 +10,7 @@
       "unit": "J",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Use the displayed unit, without a unit suffix. Tolerance: 1% relative. No unit conversion."
+      "help": "Answers within 1% are accepted."
     }
   ]
 }

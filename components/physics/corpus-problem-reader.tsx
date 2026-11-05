@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/card";
 import { getProblemTags } from "@/lib/problem-tags";
 import { MathWorkingEditor } from "./math-working-editor";
+import { PlainMathCheck } from "./plain-math-check";
 import { corpusDocument, corpusPilot } from "@/lib/corpus-pilot";
 import type { CorpusProblem } from "@/lib/corpus-schema";
 import { CorpusDocumentReader } from "./corpus-document-reader";
@@ -30,6 +31,7 @@ export function CorpusProblemReader({
   onReviewToggle,
   onSaveProgress,
   signedIn,
+  sessionPending = false,
   savedTask,
   saving,
   onBack,
@@ -41,6 +43,8 @@ export function CorpusProblemReader({
   onReviewToggle: (id: string) => void;
   onSaveProgress: (id: string) => Promise<void>;
   signedIn: boolean;
+  /** True while it is still unknown whether the visitor is signed in. */
+  sessionPending?: boolean;
   savedTask: string | null;
   saving: boolean;
   onBack: () => void;
@@ -195,13 +199,22 @@ export function CorpusProblemReader({
                 initialPage={part.page}
               />
               <StepHeading step={2}>Answer</StepHeading>
-              <MathWorkingEditor
-                key={`${taskKey}:working`}
-                id="corpus-working"
-                value={notes[taskKey] ?? ""}
-                onChange={(value) => onNotesChange(taskKey, value)}
-                description="Use Save subpart progress below to keep your notes and self-review mark in your private account. Unsaved edits are lost on leaving or refresh. No marks or ELO are awarded."
-              />
+              {signedIn ? (
+                <MathWorkingEditor
+                  key={`${taskKey}:working`}
+                  id="corpus-working"
+                  value={notes[taskKey] ?? ""}
+                  onChange={(value) => onNotesChange(taskKey, value)}
+                  description="Use Save subpart progress below to keep your notes and self-review mark in your private account. Unsaved edits are lost on leaving or refresh. No marks or ELO are awarded."
+                />
+              ) : sessionPending ? (
+                <p role="status" className="text-sm text-muted-foreground">Checking whether you are signed in…</p>
+              ) : (
+                <>
+                  <p className="text-sm leading-relaxed text-muted-foreground">Sign in to keep working notes. You can read the problem and open the official solution without an account.</p>
+                  <PlainMathCheck />
+                </>
+              )}
               <StepHeading step={3}>Check</StepHeading>
               <p className="text-sm leading-relaxed text-muted-foreground">This part has no automatic check. Compare your working with the official solution in step 4, then mark it as reviewed.</p>
               <StepHeading step={4}>Solution</StepHeading>

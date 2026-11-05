@@ -63,6 +63,8 @@ export function ProblemLibrary({
     topic ? tagLabel(topic) : "all",
   );
   const [difficulty, setDifficulty] = useState("all");
+  // While a guided problem is open, the collection tabs and filters are not shown, only the problem.
+  const reading = collection === "pilot" && Boolean(pilotProblemId);
   const difficultyForCollection = (collection === "arena" || collection === "authored" || difficulty !== "unrated") ? difficulty : "all";
   const tagOptions = getTagOptions([
     ...catalogProblems,
@@ -84,6 +86,7 @@ export function ProblemLibrary({
         onValueChange={changeCollection}
         className="flex min-w-0 flex-col gap-6"
       >
+        {!reading && <>
         <div className="flex min-w-0 flex-col gap-3">
           <TabsList
             aria-label="Problem collections"
@@ -170,6 +173,7 @@ export function ProblemLibrary({
             </FieldGroup>
           </CardContent>
         </Card>
+        </>}
         <TabsContent value="authored" className="min-w-0">
           <UnifiedArenaCollection query={search} topic={selectedTopic} difficulty={difficultyForCollection} source="authored" onReset={reset} />
         </TabsContent>

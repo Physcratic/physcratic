@@ -25,6 +25,16 @@ const browser = await chromium.launch({
   ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}),
 });
 
+/** Types into a MathLive field the way a person does. MathLive needs a moment after a click before it takes keys. */
+async function typeMath(page, field, keys) {
+  await field.click();
+  await page.waitForTimeout(500);
+  for (const key of keys) {
+    if (key.length > 1 && /^(Arrow|Backspace|Enter|Tab)/.test(key)) await page.keyboard.press(key);
+    else await page.keyboard.type(key, { delay: 30 });
+  }
+}
+
 async function noSidewaysScroll(page, where) {
   const [scroll, inner] = await page.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]);
   ok(scroll <= inner, `${where}: page scrolls sideways (${scroll} > ${inner})`);
@@ -119,8 +129,9 @@ try {
     const partChips = page.locator(".arena-document h3 > span");
     ok(await partChips.count() > 0, `lettered parts have chips (${tag})`);
     ok(/^\([a-z]\)$/.test((await partChips.first().innerText()).trim()), `part chip keeps its letter (${tag})`);
-    const arenaInput = page.locator("#step-answer input[type=text], #step-answer input:not([type])").first();
-    await arenaInput.fill(fixtures.arena.wrongAnswer);
+    const arenaField = page.locator("#step-answer math-field").first();
+    await arenaField.waitFor({ timeout: 20000 });
+    await typeMath(page, arenaField, [fixtures.arena.wrongAnswer]);
     await page.getByRole("button", { name: "Check answer" }).click();
     await page.locator('#step-answer [aria-live="polite"]').getByText(/Not correct|to revisit|Could not/).first().waitFor();
     await noSidewaysScroll(page, `arena ${tag}`);
@@ -130,6 +141,70 @@ try {
     await noSidewaysScroll(page, `arena solution ${tag}`);
     await shot(page, `03a-arena-solution-${tag}`);
     await statementTab.click();
+
+    // 3a. arena-a-grin-and-a-wiggle part (a): one answer composed with the palette, one typed. Both are marked correct.
+    {
+      const partA = "a.trajectory";
+      const resultOf = () => page.locator(`[id$="${partA}-result"]`);
+      const openPartA = async () => {
+        await page.goto(`${origin}/dashboard/problems/arena-a-grin-and-a-wiggle`);
+        const field = page.locator("#step-answer math-field").first();
+        await field.waitFor({ timeout: 20000 });
+        const fieldId = await field.getAttribute("id");
+        return { field, palette: page.locator(`[data-field="${fieldId}"] [data-palette]`), fieldId };
+      };
+      const checkPartA = async () => {
+        await page.getByRole("button", { name: "Check answer" }).click();
+        await resultOf().waitFor({ timeout: 20000 });
+      };
+      // With the palette: fraction, theta0, next box, k, out of the fraction, sin, k, z, out of the brackets, +, r0, cos, k, z.
+      {
+        const { field, palette } = await openPartA();
+        await field.click();
+        await page.waitForTimeout(500);
+        const inField = (name) => palette.and(page.locator(`[aria-label="${name}"]`)).first();
+        ok(await palette.count() > 20, `the palette opens under the field being typed in (${tag})`);
+        const labels = await palette.evaluateAll((els) => els.slice(0, 4).map((el) => el.getAttribute("aria-label")));
+        assert.deepEqual(labels, ["r₀ symbol", "k symbol", "z symbol", "θ₀ symbol"]); checks++;
+        await inField("a/b fraction").click();
+        await inField("θ₀ symbol").click();
+        await page.keyboard.press("ArrowRight");
+        await inField("k symbol").click();
+        await page.keyboard.press("ArrowRight");
+        await inField("sin sine").click();
+        await inField("k symbol").click();
+        await inField("z symbol").click();
+        await page.keyboard.press("ArrowRight");
+        await page.keyboard.type("+");
+        await inField("r₀ symbol").click();
+        await inField("cos cosine").click();
+        await inField("k symbol").click();
+        await inField("z symbol").click();
+        const composed = await field.evaluate((el) => el.value);
+        ok(/\\frac\{\\theta_\{?0\}?\}\{k\}\\sin.*kz.*\+r_\{?0\}?\\cos.*kz/.test(composed.replace(/\\left|\\right/g, "")), `the palette composed the answer: ${composed} (${tag})`);
+        await checkPartA();
+        ok(/^Correct/.test((await resultOf().innerText()).trim()), `part (a) entered with the palette is marked correct (${tag})`);
+        await shot(page, `03b-arena-part-a-palette-${tag}`);
+      }
+      // By typing, as in the solution: r_0 cos(kz) + theta_0 sin(kz) / k.
+      {
+        const { field } = await openPartA();
+        await typeMath(page, field, ["r", "_", "0", "ArrowRight", "cos(kz)", "+", "theta", "_", "0", "ArrowRight", "sin(kz)", "/", "k"]);
+        const typed = await field.evaluate((el) => el.value);
+        ok(/\\theta/.test(typed) && /\\frac/.test(typed) && /\\cos/.test(typed), `typing built the answer: ${typed} (${tag})`);
+        await checkPartA();
+        ok(/^Correct/.test((await resultOf().innerText()).trim()), `part (a) entered by typing is marked correct (${tag})`);
+        await shot(page, `03c-arena-part-a-typed-${tag}`);
+      }
+      // The same part with the letter o is refused, naming the symbol, next to the answer.
+      {
+        const { field } = await openPartA();
+        await typeMath(page, field, ["r", "_", "o", "ArrowRight", "cos(kz)"]);
+        await checkPartA();
+        const text = (await resultOf().innerText()).trim();
+        ok(/r_o isn't used here\. Did you mean r₀\?/.test(text), `the checker's message about the letter o is shown next to the answer: ${text} (${tag})`);
+      }
+    }
 
     // 3b. Olympiad archive reader: steps are labelled and the solution tab stays closed until asked for.
     await page.goto(`${origin}/dashboard/problems/${fixtures.archive.id}`);
@@ -150,7 +225,10 @@ try {
     assert.equal(await steps.count(), 4); checks++;
     await shot(page, `04-practice-start-${tag}`);
     const check = page.getByRole("button", { name: "Check answer" });
-    ok(await check.isDisabled(), `Check answer is off until something is typed (${tag})`);
+    // Nothing typed: the button still works and says what to do, instead of sitting disabled with a line of explanation.
+    await check.click();
+    await page.getByRole("alert").filter({ hasText: "Type an answer first." }).waitFor();
+    ok(await page.getByRole("alert").filter({ hasText: "Type an answer first." }).count() === 1, `Check answer with nothing typed says to type an answer (${tag})`);
     const input = page.getByRole("textbox", { name: /Final answer/ });
     await tapTarget(input, `answer input ${tag}`);
     await input.fill(practice.wrongAnswer);

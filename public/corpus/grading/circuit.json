@@ -1,6 +1,6 @@
 {
   "problemId": "circuit",
-  "version": "280814558758a599cc61f6b049bdd084088f748f5b17faa069831b1cf3170aaf",
+  "version": "245ecebd89ca4fbfaaec79dcab65c833b4d78c26fc15e9a780a6b3b30cbe6992",
   "parts": [
     {
       "id": "answer",
@@ -10,7 +10,7 @@
       "unit": "A",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Use the displayed unit, without a unit suffix. Tolerance: 1% relative. No unit conversion."
+      "help": "Answers within 1% are accepted."
     }
   ]
 }

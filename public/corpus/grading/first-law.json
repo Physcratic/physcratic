@@ -1,6 +1,6 @@
 {
   "problemId": "first-law",
-  "version": "a268d6cfa6d9db39822536165bc1c47cf30977d4a14d2b134b9f58d3e51f0d91",
+  "version": "a6bdbc780fda44cf20ced8cca9767c493b9b218e9d255315ab5ac3c128f0424b",
   "parts": [
     {
       "id": "answer",
@@ -10,7 +10,7 @@
       "unit": "J",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Use the displayed unit, without a unit suffix. Tolerance: 1% relative. No unit conversion."
+      "help": "Answers within 1% are accepted."
     }
   ]
 }

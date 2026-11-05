@@ -1,6 +1,6 @@
 {
   "problemId": "string",
-  "version": "513b5a4910dac2dc71f1ca3eb2445242955fc8e6829589f422fe714deb342187",
+  "version": "941e12ff22ee5e1cf93dacd4e0294c9d1691460c3cbe1616ddddcdc41c014f29",
   "parts": [
     {
       "id": "answer",
@@ -10,7 +10,7 @@
       "unit": "Hz",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Use the displayed unit, without a unit suffix. Tolerance: 1% relative. No unit conversion."
+      "help": "Answers within 1% are accepted."
     }
   ]
 }
