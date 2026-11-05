@@ -2,7 +2,7 @@ import type { ArenaSeed } from "../arena-schema";
 
 export const source06: ArenaSeed[] = [
   {
-    id: "arena-the-bending-beam-riddle", title: "Deflection of a loaded beam", topic: "Waves", tags: ["Elasticity", "Flexural waves", "Dispersion"], summary: "Derive static beam bending, midpoint deflection and dispersive transverse waves including rotational inertia.", statementFile: "03_The_Bending_Beam_Riddle_Problem.pdf",
+    id: "arena-the-bending-beam-riddle", title: "Bending Beams", topic: "Waves", tags: ["Elasticity", "Flexural waves", "Dispersion"], summary: "Derive static beam bending, midpoint deflection and dispersive transverse waves including rotational inertia.", statementFile: "03_The_Bending_Beam_Riddle_Problem.pdf",
     statement: String.raw`This problem explores how elasticity and rotation of the medium affect transverse waves on a thin elastic beam. The beam has mass density $$\rho$$, length $$L$$, vertical width $$d$$, and thickness $$b$$ perpendicular to the plane of the drawings. Parts (a) and (b) develop the concept of a bending moment in an elastic beam.
 
 ![A simply supported static beam with shear forces V and V+dV, a bent beam with curvature R(x), and a transverse beam wave ψ(x).](/corpus/arena/figures/the-bending-beam-riddle-statement.png)
@@ -141,7 +141,7 @@ $$\boxed{v_g=\frac{d\omega}{dk}=2\left(\frac{Yd^2}{12\rho}\right)^{1/4}\sqrt\ome
 Physical meaning. Higher-frequency flexural waves travel faster than lower-frequency ones. The beam is dispersive, unlike an ideal taut string whose wave speed is independent of frequency.`,
   },
   {
-    id: "arena-the-capacitors-missing-energy", title: "Energy of a moving capacitor", topic: "Modern physics", tags: ["Special relativity", "Electromagnetic energy", "Mechanical stress"], summary: "Resolve the apparent energy-transformation paradox of a moving capacitor by including its stressed supports.", statementFile: "03_The_Capacitors_Missing_Energy_Problem.pdf",
+    id: "arena-the-capacitors-missing-energy", title: "The Moving Capacitor", topic: "Modern physics", tags: ["Special relativity", "Electromagnetic energy", "Mechanical stress"], summary: "Resolve the apparent energy-transformation paradox of a moving capacitor by including its stressed supports.", statementFile: "03_The_Capacitors_Missing_Energy_Problem.pdf",
     statement: String.raw`This problem examines an apparent failure of the Lorentz transformation of energy and momentum for a parallel-plate capacitor observed from a moving frame.
 
 In its rest frame, the capacitor has plates separated by $$d$$, each of area $$A$$, with $$\sqrt A\gg d$$. The electric field between the plates is $$E_0$$, and each plate has rest mass $$m_p$$. Neglect fringing fields.
@@ -282,7 +282,7 @@ $$\boxed{E_{\mathrm{total}}=\gamma E_{\mathrm{rest}},\qquad E_{\mathrm{rest}}=U_
 The additional energy is precisely the contribution from the stressed supports. Including the entire closed system restores the expected Lorentz transformation.`,
   },
   {
-    id: "arena-the-infinite-v", title: "Fields of two charged half-planes", topic: "Electromagnetism", tags: ["Charged sheets", "Electrostatics", "Stability"], summary: "Examine fields inside two charged half-planes, the infinite-limit divergence and regularized small oscillations.", statementFile: "03_The_Infinite_V_Problem.pdf",
+    id: "arena-the-infinite-v", title: "The Infinite V", topic: "Electromagnetism", tags: ["Charged sheets", "Electrostatics", "Stability"], summary: "Examine fields inside two charged half-planes, the infinite-limit divergence and regularized small oscillations.", statementFile: "03_The_Infinite_V_Problem.pdf",
     statement: String.raw`Two semi-infinite planes join along a line and carry a uniform surface charge density $$\sigma$$. The angle $$\alpha$$ is marked in the figure. Both planes extend from $$-\infty$$ to $$+\infty$$ in the direction perpendicular to the page.
 
 ![Two charged half-planes forming a V, with exterior angle α, general point P in polar coordinates and symmetric point S.](/corpus/arena/figures/the-infinite-v-statement.png)

@@ -56,6 +56,28 @@ For user-visible text:
 - Banned words and phrases: elegant, worth (as in "worth solving"), journey, unlock, craft, seamless, effortless, next-level, delve, elevate, game-changer, dive into, look no further.
 - `lib/copy-rules.test.ts` scans every string literal and piece of JSX text in `app/` and `components/` for all of the above, so a new one fails CI. The Learn guides and `lib/coaching/content.ts` are reviewed separately.
 
+## Problem titles
+
+Applies to Arena problems and to the title field in Problem Studio:
+
+- 2 to 5 words, in title case, IPhO style. Name the physics or the object.
+- A pun is fine when it is still about the physics.
+- No story words such as riddle, conspiracy, treaty or "that answered back". Do not hint at the answer.
+- The Studio title field shows the same rule as its placeholder.
+
+| Good | Why |
+| --- | --- |
+| Mind the Gap | Names the gap between the lens and the plate, and the pun is the physics |
+| A GRIN and a Wiggle | Graded-index (GRIN) optics, and the rays wiggle |
+| Bubbles in Contact | Names the object |
+| The Moving Capacitor | Names the object and what it does |
+
+| Not this | Why |
+| --- | --- |
+| The Bending Beam Riddle | Story word |
+| The String That Answered Back | Story phrase |
+| Deflection of a loaded beam | Too long, and reads as a sentence |
+
 Before and after:
 
 | Before | After |

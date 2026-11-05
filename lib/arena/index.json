@@ -26,7 +26,7 @@
     },
     {
       "id": "arena-the-bubble-treaty",
-      "title": "Pressure in attached soap bubbles",
+      "title": "Bubbles in Contact",
       "topic": "Thermodynamics",
       "tags": [
         "Surface tension",
@@ -41,7 +41,7 @@
     },
     {
       "id": "arena-the-cosmic-kitchen",
-      "title": "Nucleosynthesis in the early Universe",
+      "title": "Big Bang Nucleosynthesis",
       "topic": "Thermodynamics",
       "tags": [
         "Cosmology",
@@ -56,7 +56,7 @@
     },
     {
       "id": "arena-the-five-fold-collision",
-      "title": "Relativistic collisions and photon states",
+      "title": "Relativistic Collisions",
       "topic": "Modern physics",
       "tags": [
         "Special relativity",
@@ -71,7 +71,7 @@
     },
     {
       "id": "arena-the-phantom-charge",
-      "title": "Field of a charged sheet and its equivalent point charge",
+      "title": "The Equivalent Charge",
       "topic": "Electromagnetism",
       "tags": [
         "Electrostatics",
@@ -86,7 +86,7 @@
     },
     {
       "id": "arena-the-string-that-answered-back",
-      "title": "Fixed string driven at two points",
+      "title": "A String Driven Twice",
       "topic": "Waves",
       "tags": [
         "Driven oscillations",
@@ -101,7 +101,7 @@
     },
     {
       "id": "arena-the-clock-in-the-racing-mirror",
-      "title": "Image of a clock in a moving mirror",
+      "title": "Time in a Moving Mirror",
       "topic": "Modern physics",
       "tags": [
         "Special relativity",
@@ -116,7 +116,7 @@
     },
     {
       "id": "arena-the-dodecahedron-conspiracy",
-      "title": "Flux and fields of a charged dodecahedron",
+      "title": "The Charged Dodecahedron",
       "topic": "Electromagnetism",
       "tags": [
         "Gauss’s law",
@@ -131,7 +131,7 @@
     },
     {
       "id": "arena-the-gas-with-elbows",
-      "title": "Van der Waals equation from state counting",
+      "title": "Van der Waals by Counting",
       "topic": "Thermodynamics",
       "tags": [
         "Partition functions",
@@ -146,7 +146,7 @@
     },
     {
       "id": "arena-the-quantum-escape-room",
-      "title": "Tunnelling through a wall and escape from a box",
+      "title": "Quantum Escape",
       "topic": "Modern physics",
       "tags": [
         "Quantum tunnelling",
@@ -161,7 +161,7 @@
     },
     {
       "id": "arena-the-three-way-wave-split",
-      "title": "Waves at a three-string junction",
+      "title": "The Three-String Junction",
       "topic": "Waves",
       "tags": [
         "String waves",
@@ -176,7 +176,7 @@
     },
     {
       "id": "arena-titans-double-take",
-      "title": "Primary and secondary rainbows on Titan",
+      "title": "Rainbows on Titan",
       "topic": "Optics",
       "tags": [
         "Rainbows",
@@ -191,7 +191,7 @@
     },
     {
       "id": "arena-a-grin-and-a-wiggle",
-      "title": "Rays in a graded-index cylinder",
+      "title": "A GRIN and a Wiggle",
       "topic": "Optics",
       "tags": [
         "Graded-index optics",
@@ -206,7 +206,7 @@
     },
     {
       "id": "arena-an-atom-with-stage-fright",
-      "title": "Populations and radiated power of a two-level atom",
+      "title": "The Two-Level Atom",
       "topic": "Modern physics",
       "tags": [
         "Two-level systems",
@@ -221,7 +221,7 @@
     },
     {
       "id": "arena-the-invisible-brake",
-      "title": "Molecular viscosity and flow through a pipe",
+      "title": "The Invisible Brake",
       "topic": "Mechanics",
       "tags": [
         "Viscosity",
@@ -236,7 +236,7 @@
     },
     {
       "id": "arena-the-bending-beam-riddle",
-      "title": "Deflection of a loaded beam",
+      "title": "Bending Beams",
       "topic": "Waves",
       "tags": [
         "Elasticity",
@@ -251,7 +251,7 @@
     },
     {
       "id": "arena-the-capacitors-missing-energy",
-      "title": "Energy of a moving capacitor",
+      "title": "The Moving Capacitor",
       "topic": "Modern physics",
       "tags": [
         "Special relativity",
@@ -266,7 +266,7 @@
     },
     {
       "id": "arena-the-infinite-v",
-      "title": "Fields of two charged half-planes",
+      "title": "The Infinite V",
       "topic": "Electromagnetism",
       "tags": [
         "Charged sheets",

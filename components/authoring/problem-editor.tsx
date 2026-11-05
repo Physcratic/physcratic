@@ -606,7 +606,7 @@ export function ProblemEditor({
                     <input
                       id={id}
                       className={`${inputClass} py-3 text-xl font-medium sm:text-2xl`}
-                      placeholder="Give the problem a clear title"
+                      placeholder="2 to 5 words, such as Mind the Gap"
                       maxLength={200}
                       value={draft.content.title}
                       onChange={(e) =>

@@ -2,7 +2,7 @@ import type { ArenaSeed } from "../arena-schema";
 
 export const source02: ArenaSeed[] = [
   {
-    id: "arena-the-five-fold-collision", title: "Relativistic collisions and photon states", topic: "Modern physics", tags: ["Special relativity", "Collisions", "Four-momentum"], summary: "Explore relativistic collisions, maximum deflection and two- or three-photon final states.", statementFile: "01_The_Five_Fold_Collision_Problem.pdf",
+    id: "arena-the-five-fold-collision", title: "Relativistic Collisions", topic: "Modern physics", tags: ["Special relativity", "Collisions", "Four-momentum"], summary: "Explore relativistic collisions, maximum deflection and two- or three-photon final states.", statementFile: "01_The_Five_Fold_Collision_Problem.pdf",
     statement: String.raw`A particle of rest mass $$4m$$ travels at speed $$0.6c$$ and collides with another particle of rest mass $$m$$, initially at rest. The motion before the collision is along the $$x$$-axis.
 
 ![A particle of rest mass 4m moves to the right at 0.6c toward a stationary particle of rest mass m.](/corpus/arena/figures/the-five-fold-collision-statement.png)
@@ -107,7 +107,7 @@ $$e_1\leq\frac{27m^2c^4}{2(6mc^2-3mc^2\cos\psi)}\leq\frac92mc^2,\qquad\boxed{f_{
 Equality is kinematically allowed. Photon 1 travels forward with energy $$\frac92mc^2$$, while photons 2 and 3 travel together backward and share $$\frac32mc^2$$. Each can have strictly positive energy, for example $$\frac34mc^2$$ each.`,
   },
   {
-    id: "arena-the-phantom-charge", title: "Field of a charged sheet and its equivalent point charge", topic: "Electromagnetism", tags: ["Electrostatics", "Potential", "Continuous charge"], summary: "Find the axial field of a nonuniform charged sheet and the point charge that reproduces it.", statementFile: "01_The_Phantom_Charge_Problem.pdf",
+    id: "arena-the-phantom-charge", title: "The Equivalent Charge", topic: "Electromagnetism", tags: ["Electrostatics", "Potential", "Continuous charge"], summary: "Find the axial field of a nonuniform charged sheet and the point charge that reproduces it.", statementFile: "01_The_Phantom_Charge_Problem.pdf",
     statement: String.raw`An infinitely thin, infinite sheet lies in the $$xy$$-plane at $$z=0$$. Its surface charge density depends on the radial distance $$r$$ from the origin according to
 
 $$\sigma(r)=\frac{c}{(d^2+r^2)^{3/2}},$$
@@ -212,7 +212,7 @@ For $$qc<0$$, the potential is a well and there is no positive barrier. Arbitrar
 $$\boxed{\inf v_\infty=0\quad(qc\leq0).}$$`,
   },
   {
-    id: "arena-the-string-that-answered-back", title: "Fixed string driven at two points", topic: "Waves", tags: ["Driven oscillations", "String waves", "Boundary conditions"], summary: "Derive the steady periodic displacement of a fixed string driven at two different positions.", statementFile: "01_The_String_That_Answered_Back_Problem.pdf",
+    id: "arena-the-string-that-answered-back", title: "A String Driven Twice", topic: "Waves", tags: ["Driven oscillations", "String waves", "Boundary conditions"], summary: "Derive the steady periodic displacement of a fixed string driven at two different positions.", statementFile: "01_The_String_That_Answered_Back_Problem.pdf",
     statement: String.raw`A taut string is fixed at two endpoints separated by a distance $$L$$, with the first at $$x=0$$ and the second at $$x=L$$. The tension is $$T$$. Neglect gravity.
 
 ![A string fixed at 0 and L with a transverse harmonic force F_y(t) = F₀ sin(ωt) applied at x = a.](/corpus/arena/figures/the-string-that-answered-back-statement.png)
