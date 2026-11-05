@@ -478,3 +478,20 @@ MathLive (0.111.1) is two chunks of 823 kB and 36 kB (224 kB and 13 kB gzipped).
 The dashboard card "Recommended problem" now shows a random Arena problem this browser has not solved, with an "Another problem" button. A problem counts as solved when every part with an answer box is correct. The record is `physcratic.solved.v1` in localStorage, read and written inside try/catch.
 
 Not checked: a real phone (the emulation in `tests/phase2-phones.browser.mjs` uses Playwright's iPhone 13 and Pixel 7 profiles in Chromium, which does not open a phone's own keyboard), screen readers, WebKit and Firefox.
+
+## 8. Phase 4: Problem Studio Easy mode (5 November 2026)
+
+Measured by `tests/studio-easy.browser.mjs` on the real editor and API (throwaway PostgreSQL), publishing one part with one expression answer (`m*a`), as in section 2. The script fails if the count goes above the target.
+
+| Item | Phase 0 | Easy mode | Target |
+| --- | --- | --- | --- |
+| Screens | 2 | 1 | 1 |
+| Clicks | 8 | 3 (focus the answer, tick "I wrote this problem", Publish) | 4 or fewer |
+| Selects | 1 | 0 | 0 |
+| Typed fields | 6 | 4 (title, problem text, question, answer) | not set |
+| Characters typed | 146 | 123 | not set |
+| Questions the editor asked that could have defaults | 16 | 0 | 0 |
+
+Phase 0 did not count a click to focus a field, because Playwright fills a text box directly. The answer is a MathLive field and cannot be filled, so Easy counts one click for it. Like for like, Easy is 2 clicks.
+
+Easy page, top to bottom (the same column at 375 and 1440): Easy | Advanced switch, title, problem text, one block per part (question, answer, detected symbols or a unit, a collapsed hint, a collapsed solution), Add a part, topic chips, the rights tick, Publish. At 1440 the student preview sits beside it with a "Test an answer" box under each part. At 375 the preview is a tab.

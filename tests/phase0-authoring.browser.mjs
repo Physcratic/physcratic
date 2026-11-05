@@ -1,4 +1,4 @@
-// Phase 0 baseline: publish a one-part, one-expression problem in the real Problem Studio and count the work.
+// Phase 0 baseline (measures the editor before Easy mode and no longer runs on current main): publish a one-part, one-expression problem in the real Problem Studio and count the work.
 // Boilerplate (throwaway PostgreSQL, real editor and API, injected session) is copied from tests/problem-authoring.browser.mjs.
 // Run: AUTHORING_TEST_DATABASE_URL=postgresql://postgres@127.0.0.1:PORT/physcratic_authoring_test CHROMIUM_PATH=/path/to/chrome node --require ./tests/server-only-register.cjs --import tsx tests/phase0-authoring.browser.mjs
 import assert from "node:assert/strict";
