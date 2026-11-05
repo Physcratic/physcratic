@@ -472,6 +472,53 @@ try {
     log(`Student at ${width}: Correct`);
     await s.close();
   }
+  // Pictures for the Learn guide. Only when GUIDE_SHOT_DIR is set. Light mode, 1280px wide, real editor and API.
+  if (process.env.GUIDE_SHOT_DIR) {
+    const { mkdirSync } = await import("node:fs");
+    mkdirSync(process.env.GUIDE_SHOT_DIR, { recursive: true });
+    const g = await newPage(1280, 1000);
+    const gp = g.page;
+    await gp.goto(origin);
+    await gp.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
+    const gpart = gp.getByRole("region", { name: "Part a", exact: true });
+    const gq = gpart.getByRole("textbox", { name: "What's the question?" });
+    await gq.click();
+    await gp.keyboard.type("A ball is thrown straight up at ", { delay: 5 });
+    await gp.keyboard.type("$");
+    const gpanel = gp.getByRole("group", { name: "Type your equation" });
+    await gpanel.waitFor();
+    await gpanel.locator("math-field").first().waitFor({ timeout: 20000 });
+    await gp.waitForTimeout(500);
+    await gp.keyboard.type("v_0");
+    await gp.keyboard.press("ArrowRight");
+    await gp.keyboard.type("=12");
+    await gp.keyboard.press("Escape");
+    await gp.keyboard.type(" m/s from the ground. How high does it go?", { delay: 5 });
+    await gp.waitForURL((url) => url.searchParams.has("draft"));
+    await saved(gp);
+    const [gchooser] = await Promise.all([gp.waitForEvent("filechooser"), gpart.getByRole("button", { name: "Choose a picture" }).click()]);
+    await gchooser.setFiles(process.env.GUIDE_PICTURE || { name: "ball.png", mimeType: "image/png", buffer: png });
+    await gpart.getByLabel("Describe the picture").waitFor({ timeout: 20000 });
+    await gpart.getByLabel("Describe the picture").fill("A ball thrown upwards from the ground, rising along a curve");
+    const gans = await mathField(gpart.getByText("Final answer. We check students against this.").locator("xpath=ancestor::div[contains(@data-tour,'studio-answer')]"));
+    await gans.click();
+    await gp.waitForTimeout(400);
+    await gp.keyboard.type("v^2/(2g)");
+    await saved(gp);
+    // The picture should not show drafts left over from the checks above.
+    await gp.getByRole("button", { name: /Continue your last draft/ }).evaluate((el) => el.remove()).catch(() => {});
+    await gp.evaluate(() => window.scrollTo(0, 0));
+    await gp.screenshot({ path: `${process.env.GUIDE_SHOT_DIR}/studio-simple.png` });
+    // The equation panel open, with the question in view.
+    await gq.locator("[data-math-id]").click();
+    await gpanel.waitFor();
+    await gpanel.locator("math-field").first().waitFor({ timeout: 20000 });
+    await gp.waitForTimeout(700);
+    await gq.evaluate((el) => { const top = el.getBoundingClientRect().top + window.scrollY - 140; window.scrollTo(0, top); });
+    await gp.waitForTimeout(300);
+    await gp.screenshot({ path: `${process.env.GUIDE_SHOT_DIR}/studio-equation.png` });
+    await g.context.close();
+  }
   assert.deepEqual(errors, [], "no browser errors");
   await wide.close();
 

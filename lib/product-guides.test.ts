@@ -73,7 +73,8 @@ test("the documented author access is the existing owner-scoped verified-account
 });
 
 test("documented tolerance, units and limited-symbolic examples agree with actual graders", () => {
-  const key = { kind: "numeric", value: 10, units: "N", absTol: 0.05, relTol: 0.01 };
+  // The default of Simple mode: 1 percent relative, a tiny absolute floor. Advanced can change both.
+  const key = { kind: "numeric", value: 10, units: "N", absTol: 1e-9, relTol: 0.01 };
   assert.equal(evaluateNumericAnswer({ kind: "numeric", value: 10.08, units: "N" }, key).status, "correct");
   assert.equal(evaluateNumericAnswer({ kind: "numeric", value: 10.2, units: "N" }, key).status, "incorrect");
   assert.equal(evaluateNumericAnswer({ kind: "numeric", value: 10, units: "kg" }, key).status, "needs-review");
@@ -85,9 +86,9 @@ test("documented tolerance, units and limited-symbolic examples agree with actua
   assert.equal(evaluateExpressionAnswer({ kind: "expression", expression: "x+1" }, expressionKey).status, "incorrect");
   const authorText = bodyText(findArticle(slugs[1])!.body).join(" ");
   assert.match(authorText, /10\.08 N/);
-  assert.match(authorText, /Relative tolerance to 0\.01/);
+  assert.match(authorText, /within 1 percent/);
   const studentText = bodyText(findArticle(slugs[0])!.body).join(" ");
-  assert.match(studentText, /opens Physcratic Arena by default/);
+  assert.match(studentText, /library opens Physcratic Arena/);
   assert.match(studentText, /no library tab/);
   assert.match(studentText, /Checks are not saved and do not change your rating/);
   assert.match(studentText, /later attempts on that revision count as assisted/);
@@ -128,8 +129,8 @@ const text = (slug: string) => bodyText(findArticle(slug)!.body).join(" ");
 const words = (slug: string) => text(slug).split(/\s+/).filter(Boolean).length;
 
 test("the guides keep to their word counts", () => {
-  assert.ok(words("how-to-write-a-problem") >= 700 && words("how-to-write-a-problem") <= 1000, `write guide has ${words("how-to-write-a-problem")} words`);
-  assert.ok(words("how-to-use-physcratic") >= 600 && words("how-to-use-physcratic") <= 900, `use guide has ${words("how-to-use-physcratic")} words`);
+  assert.ok(words("how-to-write-a-problem") >= 400 && words("how-to-write-a-problem") <= 700, `write guide has ${words("how-to-write-a-problem")} words`);
+  assert.ok(words("how-to-use-physcratic") >= 400 && words("how-to-use-physcratic") <= 700, `use guide has ${words("how-to-use-physcratic")} words`);
   assert.equal(findArticle("how-to-write-a-problem")!.title, "How to write a problem in Problem Studio");
   assert.equal(findArticle("how-to-use-physcratic")!.title, "How to use Physcratic");
 });
@@ -151,19 +152,17 @@ test("the guides follow the copy rules and never mention a partial status no gra
 });
 
 const source = (...paths: string[]) => paths.map((path) => readFileSync(path, "utf8")).join("\n");
-const studio = source("components/authoring/problem-editor.tsx", "components/authoring/workspace.tsx", "components/authoring/studio-ui.tsx", "components/authoring/answer-panel.tsx", "components/authoring/solution-permissions.tsx", "components/authoring/tag-picker.tsx", "components/authoring/editor-fields.tsx", "lib/problem-authoring-editor.ts");
-const solving = source("components/physics/archive-answer-panel.tsx", "components/physics/problem-reader.tsx", "components/physics/problem-card.tsx", "components/physics/problem-library.tsx", "components/physics/topic-chips.tsx", "components/physics/arena-problem-reader.tsx", "components/physics/imported-problem-reader.tsx", "components/physics/corpus-problem-reader.tsx", "components/physics/solve-ui.tsx", "components/kokonutui/content.tsx", "components/kokonutui/sidebar.tsx", "lib/solve-feedback.ts", "lib/theme-setting.ts", "components/community/appearance-settings.tsx", "components/account-nav.tsx");
+const studio = source("components/authoring/problem-editor.tsx", "components/authoring/workspace.tsx", "components/authoring/studio-ui.tsx", "components/authoring/simple-editor.tsx", "components/authoring/simple-model.ts", "components/authoring/rich-math-text.tsx", "components/authoring/editor-fields.tsx", "components/tour/tours.ts", "components/tour/tour-help.tsx", "lib/problem-authoring-editor.ts");
+const solving = source("components/physics/archive-answer-panel.tsx", "components/physics/problem-reader.tsx", "components/physics/problem-card.tsx", "components/physics/problem-library.tsx", "components/physics/topic-chips.tsx", "components/physics/arena-problem-reader.tsx", "components/physics/imported-problem-reader.tsx", "components/physics/corpus-problem-reader.tsx", "components/physics/solve-ui.tsx", "components/kokonutui/content.tsx", "components/kokonutui/sidebar.tsx", "lib/solve-feedback.ts", "lib/theme-setting.ts", "components/community/appearance-settings.tsx", "components/account-nav.tsx", "components/physics/dashboard-highlights.tsx", "components/tour/tours.ts", "components/tour/tour-help.tsx");
 
 test("every button, card and tab the write guide names exists in Problem Studio", () => {
-  for (const label of ["New problem", "Save now", "Publish problem", "Publish new revision", "Unpublish problem", "Open student problem room", "Student preview", "Write", "Danger zone", "How it works", "Statement", "Parts and answers", "Tags", "Publish", "Images and PDFs", "Problem title", "Estimated difficulty", "Common context", "Answer key, hints and solution", "Manual / ungraded", "Numeric with units", "Expression", "Expected value", "Absolute tolerance", "Relative tolerance", "Units", "Hints", "Worked solution", "My original work", "Used with permission", "Rights declaration", "Source / permission reference", "All changes saved", "Ready to publish", "Student worked-solution access", "Feedback"]) {
+  for (const label of ["My drafts", "Simple", "Advanced", "Help", "Write your first problem", "Equation", "What&apos;s the question?", "Choose a picture", "Describe the picture", "Final answer. We check students against this.", "Try an answer", "Worked solution (optional)", "Add another part", "Done", "Publish", "All changes saved", "Correct", "Incorrect", "Needs review"]) {
     assert.ok(studio.includes(label), `Problem Studio has no "${label}"`);
   }
-  const guide = text("how-to-write-a-problem");
-  for (const colour of ["blue", "violet", "teal", "amber", "rose", "green"]) assert.match(guide, new RegExp(colour));
 });
 
 test("every button, tab and result the use guide names exists on the solving screens", () => {
-  for (const label of ["Random quick practice", "Open problem", "Physcratic Arena", "Olympiad archive", "Guided exercises", "Find a problem", "Estimated difficulty", "Competition", "Need a hint?", "Show solution", "Check answer", "Try again", "See hint", "Next problem", "Problem statement", "Your solution", "Worked solution", "Reading notes", "Reveal official solution", "Mark as reviewed", "Read the problem", "Light", "Dark", "System", "Sign in", "Correct so far", "Not correct yet", "Could not read this answer", "Could not be decided", "Not answered", "Check this one yourself", "Settings", "Coaching", "Problem Studio"]) {
+  for (const label of ["Random quick practice", "Open problem", "Physcratic Arena", "Olympiad archive", "Guided exercises", "Find a problem", "Recommended problem", "Another problem", "Need a hint?", "Show solution", "Check answer", "Try again", "Next problem", "Worked solution", "Reading notes", "Could not read this answer", "Could not be decided", "Not answered", "Not correct yet", "Welcome to Physcratic", "Replay tours", "Settings", "Coaching", "Problem Studio"]) {
     assert.ok(solving.includes(label) || readFileSync("components/kokonutui/layout.tsx", "utf8").includes(label) || readFileSync("components/kokonutui/top-nav.tsx", "utf8").includes(label), `no "${label}" on the solving screens`);
   }
 });

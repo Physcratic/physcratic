@@ -110,7 +110,7 @@ async function guideShots(page) {
     await page.getByRole("button", { name: "+ Add part to section 1", exact: true }).click();
     await page.getByLabel(`Section 1 part ${index + 1} label`, { exact: true }).fill(label);
     await page.getByRole("button", { name: `Add text to part ${label} statement`, exact: true }).click();
-    await page.getByLabel(new RegExp(`Part ${label} statement text 1`, "i")).fill(text);
+    await page.getByLabel(new RegExp(`^Part ${label} statement text 1$`, "i")).fill(text);
     if (!key) continue;
     const card = page.locator("section[data-order-item]").filter({ has: page.getByLabel(`Section 1 part ${index + 1} label`, { exact: true }) }).last();
     await card.getByText(`Answer key, hints and solution · part ${label}`, { exact: true }).click();
