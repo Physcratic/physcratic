@@ -40,10 +40,13 @@ import { UnifiedArenaCollection } from "./unified-arena-collection";
 export function ProblemLibrary({
   topic,
   query,
+  onReadingChange,
 }: {
   topic?: string;
   query?: string;
   onOpen: (problem: Problem) => void;
+  /** Tells the page when a guided problem is open, so its title can be the page heading. */
+  onReadingChange?: (reading: boolean) => void;
 }) {
   const params = useSearchParams();
   const requestedCollection = params.get("collection");
@@ -65,6 +68,10 @@ export function ProblemLibrary({
   const [difficulty, setDifficulty] = useState("all");
   // While a guided problem is open, the collection tabs and filters are not shown, only the problem.
   const reading = collection === "pilot" && Boolean(pilotProblemId);
+  useEffect(() => {
+    onReadingChange?.(reading);
+    return () => onReadingChange?.(false);
+  }, [reading, onReadingChange]);
   const difficultyForCollection = (collection === "arena" || collection === "authored" || difficulty !== "unrated") ? difficulty : "all";
   const tagOptions = getTagOptions([
     ...catalogProblems,
@@ -205,6 +212,7 @@ export function ProblemLibrary({
           className="min-w-0"
         >
           <CorpusCollection
+            titleAs={reading ? "h1" : "h2"}
             activeProblemId={pilotProblemId}
             onActiveProblemChange={setPilotProblemId}
             query={search}

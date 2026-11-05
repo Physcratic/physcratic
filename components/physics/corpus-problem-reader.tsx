@@ -36,6 +36,7 @@ export function CorpusProblemReader({
   savedTask,
   saving,
   onBack,
+  titleAs: Title = "h2",
 }: {
   problem: CorpusProblem;
   notes: Record<string, string>;
@@ -51,6 +52,8 @@ export function CorpusProblemReader({
   savedTask: string | null;
   saving: boolean;
   onBack: () => void;
+  /** h1 when this problem is the whole page, h2 otherwise. */
+  titleAs?: "h1" | "h2";
 }) {
   const [partId, setPartId] = useState(problem.parts[0].id);
   const [solutionOpen, setSolutionOpen] = useState(false);
@@ -85,14 +88,14 @@ export function CorpusProblemReader({
           {problem.competition} {problem.year} · {problem.code} ·{" "}
           {problem.totalPoints} points
         </p>
-        <h2
+        <Title
           id="corpus-title"
           ref={heading}
           tabIndex={-1}
           className="text-balance text-2xl font-medium tracking-tight outline-none"
         >
           {problem.title}
-        </h2>
+        </Title>
         <div className="flex flex-wrap gap-2" aria-label="Problem tags">
           {getProblemTags(problem).map((tag) => (
             <Badge key={tag} variant="secondary">

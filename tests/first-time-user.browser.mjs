@@ -299,6 +299,18 @@ try {
     assert.deepEqual(errors, []);
     await context.close();
   }
+  // An open Guided exercise is the whole page, so its title is the one h1 and "Problems" steps aside.
+  {
+    const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+    const page = await context.newPage();
+    await page.goto(origin + "/dashboard?view=problems&collection=pilot");
+    await page.getByRole("heading", { level: 1, name: "Problems" }).waitFor();
+    await page.getByRole("button", { name: /^Open problem:/ }).first().click();
+    await page.getByRole("heading", { name: "Step 1: Read the problem" }).waitFor();
+    const titles = await page.getByRole("heading", { level: 1 }).allInnerTexts();
+    ok(titles.length === 1 && titles[0].trim() !== "Problems" && titles[0].trim().length > 3, `an open Guided exercise has its title as the only h1 (${JSON.stringify(titles)})`);
+    await context.close();
+  }
   // Screenshots for the Learn guides. Only when GUIDE_SHOT_DIR is set. Light mode, 1280px wide, no database.
   if (process.env.GUIDE_SHOT_DIR) {
     mkdirSync(process.env.GUIDE_SHOT_DIR, { recursive: true });

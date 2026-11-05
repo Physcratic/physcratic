@@ -17,6 +17,7 @@ export function CorpusCollection({
   onReset,
   activeProblemId,
   onActiveProblemChange,
+  titleAs,
 }: {
   query: string;
   topic: string;
@@ -24,6 +25,8 @@ export function CorpusCollection({
   onReset: () => void;
   activeProblemId?: string;
   onActiveProblemChange: (id: string | undefined) => void;
+  /** The level of the open problem's title. It is the page heading when a problem is open. */
+  titleAs?: "h1" | "h2";
 }) {
   const active = corpusProblems.find(
     (problem) => problem.id === activeProblemId,
@@ -87,6 +90,7 @@ export function CorpusCollection({
         <div className="min-w-0">
           <CorpusProblemReader
             key={active.id}
+            titleAs={titleAs}
             problem={active}
             notes={notes}
             reviewed={reviewed}
