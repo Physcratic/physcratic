@@ -36,6 +36,16 @@ Before you create a migration, check the open PRs for the next free number. Numb
 
 The [PR template](.github/pull_request_template.md) has a checklist for all of this.
 
+## Size and contrast rules
+
+Every page follows these rules, and `SWEEP=1 node tests/solve-contrast.browser.mjs` checks them at 375, 390, 768 and 1440 in light and dark:
+
+- Text is 4.5:1 or better. Borders of inputs, buttons and other controls are 3:1 or better.
+- Standalone links, buttons, inputs and disclosure summaries are at least 44px tall. Icon-only buttons are at least 44px wide too.
+- One h1 per page, headings in order, and nothing scrolls sideways.
+
+Exemption, coaching pages only (owner decision, 5 November 2026): a link inside a sentence is exempt from the 44px rule, and a decorative border on a card or container is exempt from the 3:1 rule. Standalone coaching links and controls, such as "See all" and the header and footer links, are not exempt, and a border that is the only cue for a control still needs 3:1. The sweep applies the exemption only to the coaching routes.
+
 ## Copy rules
 
 For user-visible text:

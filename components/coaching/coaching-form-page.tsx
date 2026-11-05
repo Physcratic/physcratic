@@ -15,7 +15,7 @@ export function CoachingFormPage({ page, form, pathway }: { page: Page; form: "c
     <CoachingHeader base="/coaching" />
     <main id="coaching-main" tabIndex={-1} className="focus:outline-none coaching-container py-16 sm:py-20" aria-labelledby="coaching-form-title">
       <div className="flex max-w-2xl flex-col items-start gap-6">
-        <Link href="/coaching" className="coaching-link inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"><ArrowLeft className="size-4" aria-hidden="true" />{page.back}</Link>
+        <Link href="/coaching" className="coaching-link coaching-tap inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"><ArrowLeft className="size-4" aria-hidden="true" />{page.back}</Link>
         <h1 id="coaching-form-title" className="font-serif text-balance text-4xl leading-[1.1] sm:text-5xl">{page.title}</h1>
         <p className="text-lg leading-relaxed text-foreground/85">{page.intro}</p>
         <div className="flex flex-col items-start gap-3">

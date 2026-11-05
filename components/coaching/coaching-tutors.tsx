@@ -53,7 +53,7 @@ export function CoachingTutorSlideshow() {
         {paused ? <Play className="size-4" aria-hidden="true" /> : <Pause className="size-4" aria-hidden="true" />}
       </button>
     </div>
-    <a href="#tutors" className="coaching-link text-sm font-semibold">{hero.seeAll}</a>
+    <a href="#tutors" className="coaching-link coaching-tap text-sm font-semibold">{hero.seeAll}</a>
   </div>;
 }
 

@@ -22,7 +22,7 @@ assert.ok(["127.0.0.1", "localhost"].includes(new URL(origin).hostname));
 const browser = await chromium.launch({ headless: true, ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}) });
 
 /** Runs in the page. Returns the lowest text ratio, the lowest border ratio and every failure. */
-function measure() {
+function measure(coaching) {
   const parse = (value) => { const m = value.match(/[\d.]+/g); return m ? { r: +m[0], g: +m[1], b: +m[2], a: m[3] === undefined ? 1 : +m[3] } : { r: 0, g: 0, b: 0, a: 0 }; };
   const over = (top, under) => ({ r: top.r * top.a + under.r * (1 - top.a), g: top.g * top.a + under.g * (1 - top.a), b: top.b * top.a + under.b * (1 - top.a), a: 1 });
   const lum = ({ r, g, b }) => { const f = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b); };
@@ -60,6 +60,9 @@ function measure() {
   for (const el of document.querySelectorAll(boxes)) {
     // Tinted and outlined text badges are labels, so the text carries the meaning. Not counted as borders.
     if (!visible(el) || disabled(el) || (el.tagName === "DIV" && el.classList.contains("inline-flex"))) continue;
+    // Coaching only (owner decision, see CONTRIBUTING.md): card and container borders are decorative. A border still needs
+    // 3:1 where it is the only cue for a control, so form fields and buttons are checked.
+    if (coaching && !/^(INPUT|SELECT|TEXTAREA|BUTTON)$/.test(el.tagName) && !el.matches("[role=button],[role=checkbox],[role=radio],[role=combobox]")) continue;
     const style = getComputedStyle(el); if (parseFloat(style.borderTopWidth) < 1 || style.borderTopStyle === "none" || parse(style.borderTopColor).a === 0) continue;
     const parent = backdrop(el.parentElement ?? el); const border = over(parse(style.borderTopColor), parent);
     const value = ratio(border, parent); minBorder = Math.min(minBorder, value);
@@ -69,7 +72,7 @@ function measure() {
 }
 
 /** Runs in the page. Structure and size problems that need no colour maths. */
-function audit() {
+function audit(coaching) {
   const issues = [];
   const visible = (el) => { const r = el.getBoundingClientRect(); const s = getComputedStyle(el); return r.width > 1 && r.height > 1 && s.visibility !== "hidden" && s.display !== "none" && Number(s.opacity) > 0; };
   const name = (el) => `${el.tagName.toLowerCase()}${typeof el.className === "string" && el.className ? "." + el.className.split(/\s+/).slice(0, 2).join(".") : ""}`;
@@ -89,6 +92,8 @@ function audit() {
     if (!visible(el) || el.matches(":disabled,[aria-disabled='true']") || el.closest("[inert],[aria-hidden='true']")) continue;
     const style = getComputedStyle(el);
     if (style.display === "inline" && el.tagName === "A") continue; // links inside a sentence are exempt
+    // Coaching only (owner decision): a link inside a sentence is exempt even when it is inline-flex.
+    if (coaching && el.tagName === "A") { const sentence = el.closest("p"); if (sentence && sentence.textContent.trim() !== el.textContent.trim()) continue; }
     let box = el.getBoundingClientRect();
     // A checkbox or radio is a target through its label, whether it wraps the control or points at it with for=.
     const label = el.closest("label") || (el.id ? document.querySelector(`label[for="${CSS.escape(el.id)}"]`) : null);
@@ -168,12 +173,13 @@ try {
       const page = await context.newPage();
       try { await run(page); } catch (error) { record(name, theme, width, { kind: "stage-failed", el: "", text: String(error.message).split("\n")[0].slice(0, 120) }); await page.close(); continue; }
       await page.waitForTimeout(800);
-      const result = await page.evaluate(measure);
+      const onCoaching = /^(coaching|become a tutor)/.test(name);
+      const result = await page.evaluate(measure, onCoaching);
       lowestText = Math.min(lowestText, result.minText); lowestBorder = Math.min(lowestBorder, result.minBorder);
       perTheme[theme].text = Math.min(perTheme[theme].text, result.minText); perTheme[theme].border = Math.min(perTheme[theme].border, result.minBorder);
       for (const fail of result.fails) record(name, theme, width, { kind: fail.kind, el: fail.el, text: `${fail.ratio}:1 needs ${fail.need} "${fail.text}"` });
       if (sweep) {
-        for (const issue of await page.evaluate(audit)) record(name, theme, width, issue);
+        for (const issue of await page.evaluate(audit, onCoaching)) record(name, theme, width, issue);
         for (const issue of await focusAudit(page)) record(name, theme, width, issue);
         for (const issue of await axeAudit(page)) record(name, theme, width, issue);
         // The site name never ends in a dot, in text or in pseudo-element content.

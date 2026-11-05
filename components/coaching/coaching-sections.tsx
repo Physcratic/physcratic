@@ -23,7 +23,7 @@ export function CoachingHeader({ base = "" }: { base?: string }) {
     <div className="coaching-container flex h-16 items-center justify-between gap-3">
       <Link href="/coaching" className="flex min-h-11 shrink-0 items-center gap-2.5" aria-label={ui.homeLabel}><Image src="/logo-mark-128.png" alt="" width={44} height={44} priority className="size-10 object-contain" /><span className="text-lg font-semibold">{ui.brand}</span></Link>
       <div className="flex items-center gap-3 lg:gap-5 xl:gap-7">
-        <nav aria-label={ui.desktopNavLabel} className="hidden items-center gap-5 whitespace-nowrap text-sm font-medium text-muted-foreground lg:flex xl:gap-7">{links.map((link) => link.href.startsWith("#") ? <a key={link.href} href={link.href} className="coaching-link hover:text-foreground">{link.label}</a> : <Link key={link.href} href={link.href} className="coaching-link hover:text-foreground">{link.label}</Link>)}</nav>
+        <nav aria-label={ui.desktopNavLabel} className="hidden items-center gap-5 whitespace-nowrap text-sm font-medium text-muted-foreground lg:flex xl:gap-7">{links.map((link) => link.href.startsWith("#") ? <a key={link.href} href={link.href} className="coaching-link coaching-tap hover:text-foreground">{link.label}</a> : <Link key={link.href} href={link.href} className="coaching-link coaching-tap hover:text-foreground">{link.label}</Link>)}</nav>
         <CoachingMobileMenu menuLabel={ui.menu} navLabel={ui.mobileNavLabel} links={links} />
         <span className="hidden sm:block">{base ? <Link href={`${base}#hero-cta`} className="coaching-button whitespace-nowrap">{ui.consultationCta}</Link> : <a href="#hero-cta" className="coaching-button whitespace-nowrap">{ui.consultationCta}</a>}</span>
       </div>
@@ -44,7 +44,7 @@ function CoachingPath() {
         </li>)}
         <li className="coaching-step-end"><a href="#hero-cta" className="coaching-button">{path.startLabel}</a></li>
       </ol>
-      <p className="text-center"><a href="#tutors" className="coaching-link text-sm font-semibold text-muted-foreground hover:text-foreground">{path.coachesLabel}</a></p>
+      <p className="text-center"><a href="#tutors" className="coaching-link coaching-tap text-sm font-semibold text-muted-foreground hover:text-foreground">{path.coachesLabel}</a></p>
     </div>
   </section>;
 }
@@ -66,5 +66,5 @@ export function CoachingSections() {
 }
 
 export function CoachingFooter() {
-  return <footer className="border-t border-border pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0"><div className="coaching-container flex flex-col justify-between gap-8 py-10 text-sm text-muted-foreground md:flex-row"><div className="flex max-w-sm flex-col gap-2"><p className="text-2xl font-semibold text-foreground">Physcratic</p><p className="leading-relaxed">{footer.tagline}</p></div><nav aria-label={footer.navLabel}><ul className="flex flex-wrap items-center gap-x-10 gap-y-3">{footer.links.map((link) => <li key={link.href}><Link href={link.href} className="coaching-link coaching-footer-link hover:text-foreground">{link.label}</Link></li>)}<li><a href="https://www.instagram.com/physcratic" target="_blank" rel="noopener noreferrer" className="coaching-link coaching-footer-link inline-flex items-center gap-2 hover:text-foreground"><span className="coaching-instagram-icon" aria-hidden="true" />{footer.instagram}</a></li></ul></nav></div></footer>;
+  return <footer className="border-t border-border pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0"><div className="coaching-container flex flex-col justify-between gap-8 py-10 text-sm text-muted-foreground md:flex-row"><div className="flex max-w-sm flex-col gap-2"><p className="text-2xl font-semibold text-foreground">Physcratic</p><p className="leading-relaxed">{footer.tagline}</p></div><nav aria-label={footer.navLabel}><ul className="flex flex-wrap items-center gap-x-10 gap-y-3">{footer.links.map((link) => <li key={link.href}><Link href={link.href} className="coaching-link coaching-tap coaching-footer-link hover:text-foreground">{link.label}</Link></li>)}<li><a href="https://www.instagram.com/physcratic" target="_blank" rel="noopener noreferrer" className="coaching-link coaching-tap coaching-footer-link inline-flex items-center gap-2 hover:text-foreground"><span className="coaching-instagram-icon" aria-hidden="true" />{footer.instagram}</a></li></ul></nav></div></footer>;
 }

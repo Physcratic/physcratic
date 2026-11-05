@@ -39,6 +39,9 @@
 .page :global(.coaching-link) { position: relative; }
 .page :global(.coaching-link::after) { content: ""; position: absolute; inset: auto 0 -2px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 200ms ease-out; }
 .page :global(.coaching-hero-slideshow .coaching-link::after) { transform: scaleX(1); opacity: .5; }
+/* A standalone link is 44px tall. The underline moves up with the text, so the look stays the same. Inline links in sentences are exempt. */
+.page :global(.coaching-tap) { display: inline-flex; min-height: 2.75rem; align-items: center; }
+.page :global(.coaching-tap::after) { inset: auto 0 .625rem; }
 .page :global(.coaching-button-secondary) { border: 1px solid hsl(var(--accent)); background: transparent; color: hsl(var(--foreground)); }
 .page :global(.coaching-button:disabled), .page :global(.coaching-button[aria-disabled="true"]) { opacity: .35; cursor: not-allowed; pointer-events: none; }
 .page :global(a:focus-visible), .page :global(button:focus-visible), .page :global(summary:focus-visible), .page :global(input:focus-visible), .page :global(select:focus-visible) { outline: 2px solid hsl(var(--accent)); outline-offset: 4px; }
