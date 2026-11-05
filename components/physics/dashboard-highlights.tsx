@@ -1,7 +1,8 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Sun, Trophy } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Shuffle, Sun, Trophy } from "lucide-react";
 import { useDashboard } from "@/hooks/use-dashboard";
 import { contestStatus } from "@/lib/dashboard-data";
 import {
@@ -20,21 +21,18 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import type { Problem } from "@/lib/physics";
-import { MathFormula } from "./math-formula";
+import arena from "@/lib/arena/index.json";
+import { pickProblem, readSolved } from "./solved-problems";
 import { PublishedContestCard } from "./published-contest-card";
 
-export function DashboardHighlights({
-  dailyProblem,
-  onOpen,
-}: {
-  dailyProblem: Problem;
-  onOpen: (problem: Problem) => void;
-}) {
+const arenaProblems = arena.problems;
+const arenaIds = arenaProblems.map((item) => item.id);
+
+export function DashboardHighlights() {
   return (
     <div className="grid min-w-0 grid-cols-1 gap-5 min-[1100px]:grid-cols-[1.65fr_1fr]">
       <FeaturedContest />
-      <DailyProblem problem={dailyProblem} onOpen={onOpen} />
+      <ProblemToCheckOut />
     </div>
   );
 }
@@ -92,13 +90,13 @@ function FeaturedContest() {
   );
 }
 
-function DailyProblem({
-  problem,
-  onOpen,
-}: {
-  problem: Problem;
-  onOpen: (problem: Problem) => void;
-}) {
+function ProblemToCheckOut() {
+  const [id, setId] = useState<string | null>(null);
+  // Chosen after the page loads, because what this browser has solved is only known here. The server sends the heading.
+  useEffect(() => {
+    setId(pickProblem(arenaIds, readSolved()) ?? null);
+  }, []);
+  const problem = arenaProblems.find((item) => item.id === id);
   return (
     <Card
       className="flex min-w-0 flex-col shadow-none"
@@ -116,37 +114,49 @@ function DailyProblem({
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-1 flex-col gap-4">
-        <div className="flex flex-wrap items-center gap-2">
-          <Badge variant="secondary">{problem.topic}</Badge>
-          <span className="text-sm text-muted-foreground">
-            {problem.minutes} min
-          </span>
-        </div>
-        <div className="flex flex-col gap-2">
-          <h3 className="text-balance text-xl font-medium leading-snug tracking-tight">
-            {problem.title}
-          </h3>
-          <CardDescription className="leading-relaxed">
-            {problem.concept} ·{" "}
-            <span
-              aria-label={`Difficulty rating ${problem.elo.toLocaleString("en-US")}`}
-            >
-              {problem.elo.toLocaleString("en-US")}
-            </span>
-          </CardDescription>
-        </div>
-        <div className="rounded-lg bg-muted/60 px-4 py-1 text-muted-foreground">
-          <MathFormula formula={problem.formula} />
-        </div>
+        {problem ? (
+          <>
+            <div className="flex flex-wrap items-center gap-2">
+              <Badge variant="secondary">{problem.topic}</Badge>
+              <span className="text-sm text-muted-foreground">Physcratic Arena</span>
+            </div>
+            <div className="flex flex-col gap-2">
+              <h3 className="text-balance text-xl font-medium leading-snug tracking-tight">
+                {problem.title}
+              </h3>
+              <CardDescription className="leading-relaxed">
+                {problem.summary}
+              </CardDescription>
+            </div>
+          </>
+        ) : (
+          <p role="status" className="text-sm text-muted-foreground">
+            Choosing a problem…
+          </p>
+        )}
       </CardContent>
-      <CardFooter>
+      <CardFooter className="flex flex-wrap gap-3">
+        {problem ? (
+          <Button asChild className="min-h-11 flex-1">
+            <Link href={`/dashboard/problems/${problem.id}`}>
+              Solve problem
+              <ArrowUpRight data-icon="inline-end" />
+            </Link>
+          </Button>
+        ) : (
+          <Button className="min-h-11 flex-1" disabled>
+            Solve problem
+          </Button>
+        )}
         <Button
+          type="button"
           variant="outline"
-          className="w-full"
-          onClick={() => onOpen(problem)}
+          className="min-h-11"
+          disabled={!problem}
+          onClick={() => setId((current) => pickProblem(arenaIds, readSolved(), current ?? undefined) ?? current)}
         >
-          Solve problem
-          <ArrowUpRight data-icon="inline-end" />
+          <Shuffle data-icon="inline-start" />
+          Another problem
         </Button>
       </CardFooter>
     </Card>

@@ -25,12 +25,10 @@ export default function Content({
   view,
   topic,
   query,
-  dailyProblem,
 }: {
   view: View;
   topic?: string;
   query?: string;
-  dailyProblem: Problem;
 }) {
   const router = useRouter();
   const [rankingSearch, setRankingSearch] = useState("");
@@ -84,7 +82,7 @@ export default function Content({
         )}
       </div>
       {view === "overview" && (
-        <Overview dailyProblem={dailyProblem} onOpen={openProblem} />
+        <Overview onOpen={openProblem} />
       )}
       {view === "problems" && (
         <ProblemLibrary topic={topic} query={query} onOpen={openProblem} />
