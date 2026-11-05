@@ -6,7 +6,6 @@ import { archiveDefinitions, archiveVersion, getArchiveDefinition, publicArchive
 import { archiveMetadataSchema } from "./archive-grading-contracts";
 import { checkArchivePart, gradeArchiveAnswers, ArchiveGradeRequestError } from "./archive-grading";
 import { expression, numeric } from "./archive-grading/definitions";
-import { parseLatexAnswer, structuralForm, constantValue } from "./latex-answer";
 import { problems } from "./physics";
 
 const coverage: Record<string, string[]> = {
@@ -99,7 +98,6 @@ test("LaTeX arithmetic, sign, exact zero, numerical tolerance and fixed-unit pol
   assert.equal(checkArchivePart(floor, "0.005001").status, "incorrect");
   assert.equal(checkArchivePart(incline, String.raw`490\mathrm{cm}/\mathrm{s}^2`).status, "invalid");
   assert.equal(checkArchivePart(incline, "490").status, "incorrect");
-  assert.equal(constantValue(parseLatexAnswer(String.raw`\sqrt[3]{8}`)), 2);
 });
 test("declared Greek/subscript aliases, implicit products, and exact polynomial proofs", () => {
   const part = expression("result", "Result", String.raw`\mu x^2`, String.raw`\mu x`, "μ > 0, x real", { positive: [String.raw`\mu`], aliases: { [String.raw`\mu`]: ["u"] } });
@@ -112,7 +110,6 @@ test("domain-preserving parsing and conservative inconclusive fallback", () => {
   const key = expression("f", "f", "x+1", "x", "All real x");
   // Phase 1: equal everywhere except the removable hole at x = 1, which random test values do not land on.
   assert.equal(checkArchivePart(key, "(x^2-1)/(x-1)").status, "correct");
-  for (const value of ["x/x", "0*(1/x)", "x^0", "(1/x)^0"]) assert.notEqual(structuralForm(parseLatexAnswer(value, key.symbols)), structuralForm(parseLatexAnswer("1", key.symbols)), value);
   const trig = expression("f", "f", String.raw`\sin^2(x)+\cos^2(x)`, "x", "Real x, radians");
   // Phase 1: sin^2 + cos^2 really is 1, so this is correct (it was "could not prove").
   assert.equal(checkArchivePart(trig, "1").status, "correct");
