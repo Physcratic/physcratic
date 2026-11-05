@@ -1,6 +1,6 @@
 "use client";
 import { SolutionPermissions } from "./solution-permissions";
-import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { CircleAlert, Eye, FilePenLine, Save, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -27,7 +27,7 @@ import {
 import { AnswerPanel } from "./answer-panel";
 import { TagPicker, MissingTagNote } from "./tag-picker";
 import { HowItWorksLink, StatusBar, StepCard, studioTokens } from "./studio-ui";
-import { SimpleEditor, rememberSimpleFocus } from "./simple-editor";
+import { SimpleEditor } from "./simple-editor";
 import { GuidedTour } from "@/components/tour/guided-tour";
 import { TourHelpButton } from "@/components/tour/tour-help";
 import { STUDIO_MODE_KEY, readStudioMode, type StudioMode } from "./simple-model";
@@ -57,16 +57,13 @@ export function ProblemEditor({
   userId,
   onBack,
   provisional,
-  carry,
   continueDraft,
 }: {
   initial: EditorDraft;
   userId: string;
   onBack: () => void;
   /** A new problem that is not on the server yet. The first edit saves it, and `onCreated` swaps in the saved copy. */
-  provisional?: { onCreated: (saved: EditorDraft, latest: EditorDraft) => void };
-  /** Edits made while the first save was in flight. They are applied to the saved copy. */
-  carry?: EditorDraft | null;
+  provisional?: { onCreated: (saved: EditorDraft) => void };
   /** A link to the most recent draft, shown at the top of a new problem. */
   continueDraft?: { title: string; open: () => void } | null;
 }) {
@@ -85,7 +82,12 @@ export function ProblemEditor({
       /* Ignore. */
     }
   }
-  const [session] = useState(() => {
+  /**
+   * One save session per draft. A new problem starts with a session whose first save creates the draft on the server.
+   * When that save is done the page swaps to an ordinary session for the saved draft. The page itself is not remounted,
+   * so the cursor, an open equation and anything typed in the meantime stay where they are.
+   */
+  const make = (start: EditorDraft, creating: boolean): DraftEditorSession => {
     let storage: Storage | undefined;
     try {
       if (typeof window !== "undefined") storage = window.sessionStorage;
@@ -95,20 +97,29 @@ export function ProblemEditor({
     let created = false;
     const holder: { session?: DraftEditorSession } = {};
     holder.session = new DraftEditorSession(
-      initial,
+      start,
       async (draft) => {
-        if (provisional) {
-          // The first save creates the draft. Any later save from this copy would race the saved copy that replaces it.
+        if (creating) {
+          // Only the first save creates. A later save from this session would race the saved draft that replaces it.
           if (created) throw new Error("Your first draft was saved. Keep typing.");
           const saved = editorDraftSchema.parse(await draftRequest(editorBase, "POST", draftPayload(draft)));
           created = true;
-          rememberSimpleFocus();
           try {
-            storage?.removeItem(`physcratic:author:${userId}:${initial.problemId}`);
+            storage?.removeItem(`physcratic:author:${userId}:${start.problemId}`);
           } catch {
             /* Ignore. */
           }
-          provisional.onCreated(saved, holder.session!.snapshot().draft);
+          const next = make(saved, false);
+          const typedSince = holder.session!.snapshot().draft;
+          if (JSON.stringify(draftPayload(typedSince)) !== JSON.stringify(draftPayload(saved)))
+            next.edit((d) => {
+              d.content = typedSince.content;
+              d.privateParts = typedSince.privateParts;
+            });
+          previous.current = holder.session!;
+          setSession(next);
+          setCreating(false);
+          provisional?.onCreated(saved);
           return saved;
         }
         return editorDraftSchema.parse(
@@ -119,11 +130,14 @@ export function ProblemEditor({
         );
       },
       storage,
-      `physcratic:author:${userId}:${initial.problemId}`,
-      provisional ? 300 : undefined,
+      `physcratic:author:${userId}:${start.problemId}`,
+      creating ? 300 : undefined,
     );
     return holder.session;
-  });
+  };
+  const previous = useRef<DraftEditorSession | null>(null);
+  const [creating, setCreating] = useState(!!provisional);
+  const [session, setSession] = useState(() => make(initial, !!provisional));
   const snapshot = useSyncExternalStore(
     session.subscribe,
     session.snapshot,
@@ -158,17 +172,18 @@ export function ProblemEditor({
     session.activate();
     return () => session.dispose();
   }, [session]);
+  // Anything typed in the moment between the first save finishing and the page switching sessions is carried over.
   useEffect(() => {
-    if (!carry) return;
-    const current = session.snapshot().draft;
-    if (JSON.stringify(draftPayload(carry)) !== JSON.stringify(draftPayload(current)))
+    const old = previous.current;
+    previous.current = null;
+    if (!old) return;
+    const last = old.snapshot().draft;
+    if (JSON.stringify(draftPayload(last)) !== JSON.stringify(draftPayload(session.snapshot().draft)))
       session.edit((d) => {
-        d.content = carry.content;
-        d.privateParts = carry.privateParts;
+        d.content = last.content;
+        d.privateParts = last.privateParts;
       });
-    // Runs once, when the saved copy replaces the provisional one.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [session]);
   useEffect(() => {
     function beforeUnload(e: BeforeUnloadEvent) {
       if (
@@ -585,7 +600,7 @@ export function ProblemEditor({
         {!modeReady ? null : mode === "simple" ? (
           <>
             {continueDraft && (
-              <p className="mb-6 text-sm">
+              <p className="mx-auto mb-6 max-w-2xl text-base">
                 <button
                   type="button"
                   className="inline-flex min-h-11 items-center underline underline-offset-4"
@@ -607,7 +622,7 @@ export function ProblemEditor({
               draft={draft}
               edit={edit}
               locked={busy || uploads > 0 || !!recovery || !!snapshot.recoveryRaw}
-              provisional={!!provisional}
+              provisional={creating}
               otherIssues={otherIssues}
               publishing={busy}
               onPublish={() => {

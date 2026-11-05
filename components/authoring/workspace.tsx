@@ -42,7 +42,6 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
   /** "new": the Simple page on a blank problem that is saved at the first edit. "list": My drafts. */
   const [view, setView] = useState<"new" | "list">("new");
   const [fresh, setFresh] = useState<EditorDraft>(() => blankDraft());
-  const [carry, setCarry] = useState<EditorDraft | null>(null);
   const [busy, setBusy] = useState(true),
     [error, setError] = useState("");
   const [cleanupNotice, setCleanupNotice] = useState("");
@@ -70,7 +69,6 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
       const draft = editorDraftSchema.parse(
         await draftRequest(`${editorBase}/${encodeURIComponent(id)}`),
       );
-      setCarry(null);
       setSelected(draft);
       history.replaceState(null, "", `?draft=${draft.problemId}`);
     } catch (e) {
@@ -90,11 +88,9 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
       <ProblemEditor
         key={selected.problemId}
         initial={selected}
-        carry={carry}
         userId={userId}
         onBack={() => {
           setSelected(null);
-          setCarry(null);
           setView("list");
           history.replaceState(null, "", location.pathname);
           void list();
@@ -108,11 +104,8 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
         initial={fresh}
         userId={userId}
         provisional={{
-          onCreated: (saved, latest) => {
-            setCarry(latest);
-            setSelected(saved);
-            history.replaceState(null, "", `?draft=${saved.problemId}`);
-          },
+          // The editor swaps to the saved draft by itself. Only the address changes.
+          onCreated: (saved) => history.replaceState(null, "", `?draft=${saved.problemId}`),
         }}
         continueDraft={last ? { title: last.title, open: () => void open(last.problemId) } : null}
         onBack={() => {

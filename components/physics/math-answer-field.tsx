@@ -27,6 +27,7 @@ export function MathAnswerField({
   autoFocus,
   emptyHint,
   loadWithValue,
+  checkSymbols = true,
 }: {
   id: string;
   /** The id of the visible label. */
@@ -48,6 +49,8 @@ export function MathAnswerField({
   emptyHint?: string;
   /** Open as a maths field even when it starts with a value (editing something already written). */
   loadWithValue?: boolean;
+  /** Name a symbol the problem does not use. Off for free-form equations, where any symbol is fine. */
+  checkSymbols?: boolean;
 }) {
   const host = useRef<HTMLDivElement>(null);
   const field = useRef<MathfieldElement | null>(null);
@@ -151,7 +154,7 @@ export function MathAnswerField({
 
   const all = useMemo(() => [...paletteItems(symbols), ...(extraItems ?? [])], [symbols, extraItems]);
   const items = useMemo(() => (active ? all : all.filter((item) => item.group === "symbol")), [active, all]);
-  const hint = useSymbolHint(value, symbols);
+  const hint = useSymbolHint(value, checkSymbols ? symbols : []);
 
   return (
     <div

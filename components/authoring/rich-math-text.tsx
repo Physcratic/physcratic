@@ -368,6 +368,7 @@ export function RichMathText({
             maxLength={2000}
             autoFocus
             loadWithValue
+            checkSymbols={false}
             placeholder="Type it like you would write it, such as \frac{1}{2}mv^2"
           />
           <div className="flex flex-wrap gap-2">

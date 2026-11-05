@@ -46,14 +46,6 @@ import {
 
 export const TITLE_PLACEHOLDER = "2 to 5 words, such as Mind the Gap";
 
-/** Where the cursor was when the draft was first saved, so typing carries on in the saved copy. */
-let restoreFocus: string | null = null;
-export function rememberSimpleFocus(): void {
-  const el = document.activeElement;
-  const host = el instanceof HTMLElement ? el.closest<HTMLElement>("[data-simple-field]") : null;
-  restoreFocus = host?.dataset.simpleField ?? null;
-}
-
 const labelClass = "block text-lg font-semibold leading-snug";
 const fieldClass = `${inputClass} min-h-12 border-2 text-base focus-visible:border-ring`;
 
@@ -102,26 +94,6 @@ export function SimpleEditor(props: SimpleProps) {
   useEffect(() => {
     if (noParts && !locked) edit((d) => ensureSimpleShape(d));
   }, [noParts, locked, edit]);
-
-  // Carry the cursor over when the first save replaces this page with the saved one.
-  useEffect(() => {
-    const target = restoreFocus;
-    restoreFocus = null;
-    if (!target) return;
-    const host = document.querySelector<HTMLElement>(`[data-simple-field="${CSS.escape(target)}"]`);
-    const control = host?.matches("input,textarea") ? host : host?.querySelector<HTMLElement>("input,textarea,[contenteditable=true],math-field");
-    if (!control) return;
-    control.focus({ preventScroll: true });
-    if (control.isContentEditable) {
-      const range = document.createRange();
-      const last = control.lastChild;
-      if (last) range.setStartBefore(last);
-      else range.selectNodeContents(control);
-      range.collapse(true);
-      document.getSelection()?.removeAllRanges();
-      document.getSelection()?.addRange(range);
-    }
-  }, []);
 
   function answerChanged(partId: string, text: string) {
     setTyped((t) => ({ ...t, [partId]: text }));
