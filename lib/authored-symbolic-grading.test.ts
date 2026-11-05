@@ -146,6 +146,14 @@ test("bounds, assumptions and exclusions", () => {
   correct("x*x", "x^2", { variables: Array.from({ length: 9 }, (_, i) => variable(`x${i}`)) });
 });
 
+test("an ambiguous division needs review and is not guessed", () => {
+  const options = { variables: ["a", "b", "c"].map((n) => variable(n)) };
+  review("a/bc", "a/(b*c)", options);
+  correct("a/(bc)", "a/(b*c)", options);
+  correct("(a/b)c", "a*c/b", options);
+  correct("1/2 a b", "a*b/2", options);
+});
+
 test("a key that declares no symbols uses the symbols in its own expression", () => {
   const result = (a: string, c: string) => evaluateExpressionAnswer({ kind: "expression", expression: a }, key(c, { variables: [] }));
   assert.equal(result("a*m", "m*a").status, "correct");

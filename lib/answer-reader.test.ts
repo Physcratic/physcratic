@@ -137,3 +137,48 @@ test("the reader is fast on adversarial input", () => {
   }
   assert.ok(performance.now() - started < 500);
 });
+
+test("a / followed by symbols written next to each other is refused, with the student's own symbols in both readings", () => {
+  const names = ["a", "b", "c", "h", "m", "k_B", "T", "x", "\\theta_0", "k", "z", "y"];
+  const message = (text: string) => fails(text, names).message;
+  assert.equal(message("a/bc"), "Add brackets: a/(bc) or (a/b)c.");
+  assert.equal(message("h/mc"), "Add brackets: h/(mc) or (h/m)c.");
+  assert.equal(message("kT/mc^2"), "Add brackets: kT/(mc^2) or (kT/m)c^2.");
+  assert.equal(message("k_BT/mc^2"), "Add brackets: k_BT/(mc^2) or (k_BT/m)c^2.");
+  assert.equal(message("a/b c"), "Add brackets: a/(bc) or (a/b)c.");
+  assert.equal(message("m*a/bc"), "Add brackets: m*a/(bc) or (m*a/b)c.");
+  assert.equal(message("a/2b"), "Add brackets: a/(2b) or (a/2)b.");
+  assert.equal(message("x/y/zk"), "Add brackets: x/y/(zk) or (x/y/z)k.");
+  assert.equal(message(String.raw`\theta_0/kz`), String.raw`Add brackets: \theta_0/(kz) or (\theta_0/k)z.`);
+  assert.equal(message("a/sin(x) y"), "Add brackets: a/(sin(x)y) or (a/sin(x))y.");
+  assert.equal(fails("a/bc", names).kind, "syntax");
+});
+
+test("clear divisions are not refused", () => {
+  const names = ["a", "b", "c", "m", "v", "x", "y", "k"];
+  const v = (text: string, ...x: number[]) => value(text, names, x);
+  // a, b, c, m, v, x, y, k = 2..9 in the tests below unless given
+  const vals = [12, 3, 2, 4, 5, 1, 1, 1];
+  const at = (text: string) => value(text, names, vals);
+  assert.equal(at("a/(bc)"), 2);
+  assert.equal(at("(a/b)c"), 8);
+  assert.equal(at("a/b*c"), 8);
+  assert.equal(at("a/b"), 4);
+  assert.equal(at("a/b/c"), 2);
+  assert.equal(at("a/b+c"), 6);
+  assert.equal(at("a/(b)c"), 8);
+  assert.equal(at(String.raw`\frac{a}{b}c`), 8);
+  assert.equal(at(String.raw`\frac{a}{bc}`), 2);
+  assert.equal(at(String.raw`a/\sqrt{c}c`), (12 / Math.SQRT2) * 2);
+  assert.equal(at("tan(x)/y"), Math.tan(1));
+  // A plain number fraction before symbols is read left to right: 1/2 m v^2 is (1/2) m v^2.
+  assert.equal(at("1/2 m v^2"), 0.5 * 4 * 25);
+  assert.equal(at("1/2mv^2"), 0.5 * 4 * 25);
+  assert.equal(at("-1/2 m v^2"), -0.5 * 4 * 25);
+  assert.equal(at("3/4 m"), 3);
+  assert.equal(at("x*1/2 m"), 2);
+  assert.equal(v("a/2", 12), 6);
+  // Two literal numbers side by side are still refused.
+  fails("49/10 5", names);
+  fails("1/2 3", names);
+});

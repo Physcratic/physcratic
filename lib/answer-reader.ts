@@ -125,7 +125,8 @@ export function nearestName(typed: string, declared: readonly string[]): string 
 // ---------------------------------------------------------------------------------------------------------------------
 // Lexer
 
-type Tok =
+type Tok = TokBody & { src?: string };
+type TokBody =
   | { k: "num"; v: number; lit?: boolean }
   | { k: "word"; s: string; cmd: boolean }
   | { k: "sub"; s: string; braced: boolean }
@@ -182,7 +183,14 @@ function lex(input: string): Tok[] {
   if (/[^\x20-\x7e]/.test(text)) syntax("Use letters, digits and the symbols + - * / ^ ( ) only.");
   const out: Tok[] = [];
   let i = 0;
+  let begin = 0;
+  let last: Tok | null = null;
+  let lastBegin = 0;
   const push = (token: Tok) => {
+    // Each token keeps the text it was read from, so a message can quote the student's own symbols.
+    if (last) last.src = text.slice(lastBegin, begin).trim();
+    last = token;
+    lastBegin = begin;
     out.push(token);
     if (out.length > readerLimits.tokens) throw new AnswerReadError("That answer is too long to check. Simplify it first.", "limit");
   };
@@ -197,6 +205,7 @@ function lex(input: string): Tok[] {
   while (i < text.length) {
     const ch = text[i];
     if (/\s/.test(ch)) { i++; continue; }
+    begin = i;
     const number = /^(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?/.exec(text.slice(i));
     if (number) {
       const value = Number(number[0]);
@@ -267,6 +276,7 @@ function lex(input: string): Tok[] {
     else syntax(`The character ${ch} can't be used in an answer.`);
     i++;
   }
+  if (last) (last as Tok).src = text.slice(lastBegin).trim();
   return out;
 }
 
@@ -303,7 +313,7 @@ export class SymbolTable {
   }
 }
 
-type Piece = { t: "sym"; name: string } | { t: "fn"; s: string } | { t: "const"; v: number } | { t: "num"; v: number } | { t: "unknown"; s: string };
+type Piece = ({ t: "sym"; name: string } | { t: "fn"; s: string } | { t: "const"; v: number } | { t: "num"; v: number } | { t: "unknown"; s: string }) & { text: string };
 
 function unknownSymbol(name: string, table: SymbolTable): never {
   const shown = displayName(name);
@@ -331,19 +341,21 @@ function splitWord(word: string, table: SymbolTable, forbidFunctions = false): P
   for (let p = 0; p < n; p++) {
     if (!best[p]) continue;
     const digits = /^\d+/.exec(word.slice(p))?.[0];
-    if (digits) { relax(p, p + digits.length, { t: "num", v: Number(digits) }, 1); continue; }
-    for (const name of declared) if (word.startsWith(name, p)) relax(p, p + name.length, { t: "sym", name }, 1);
-    if (!forbidFunctions) for (const fn of FUNCTION_NAMES) if (word.startsWith(fn, p)) relax(p, p + fn.length, { t: "fn", s: FUNCTIONS[fn] }, 1.001);
-    if (word.startsWith("pi", p) && !declaredAll.has("pi")) relax(p, p + 2, { t: "const", v: Math.PI }, 1.002);
-    if (word[p] === "e" && !declaredAll.has("e")) relax(p, p + 1, { t: "const", v: Math.E }, 1.002);
+    if (digits) { relax(p, p + digits.length, { t: "num", v: Number(digits), text: digits }, 1); continue; }
+    for (const name of declared) if (word.startsWith(name, p)) relax(p, p + name.length, { t: "sym", name, text: name }, 1);
+    if (!forbidFunctions) for (const fn of FUNCTION_NAMES) if (word.startsWith(fn, p)) relax(p, p + fn.length, { t: "fn", s: FUNCTIONS[fn], text: fn }, 1.001);
+    if (word.startsWith("pi", p) && !declaredAll.has("pi")) relax(p, p + 2, { t: "const", v: Math.PI, text: "pi" }, 1.002);
+    if (word[p] === "e" && !declaredAll.has("e")) relax(p, p + 1, { t: "const", v: Math.E, text: "e" }, 1.002);
     // An unknown letter, charged heavily so a full reading is always preferred.
-    relax(p, p + 1, { t: "unknown", s: word[p] }, 100);
+    relax(p, p + 1, { t: "unknown", s: word[p], text: word[p] }, 100);
   }
   return best[n]!.pieces;
 }
 
-function resolve(tokens: Tok[], table: SymbolTable): Atom[] {
-  const out: Atom[] = [];
+function resolve(tokens: Tok[], table: SymbolTable): { atoms: Atom[]; srcs: string[] } {
+  const atoms: Atom[] = [];
+  const srcs: string[] = [];
+  const out = { push: (atom: Atom, src = "") => { atoms.push(atom); srcs.push(src); } };
   const queue = [...tokens];
   const symbolAtom = (name: string): Atom => {
     const index = table.index(name);
@@ -353,26 +365,26 @@ function resolve(tokens: Tok[], table: SymbolTable): Atom[] {
   };
   const emit = (pieces: Piece[]) => {
     for (const piece of pieces) {
-      if (piece.t === "sym") out.push(symbolAtom(piece.name));
-      else if (piece.t === "fn") out.push({ k: "fn", s: piece.s });
-      else if (piece.t === "const") out.push({ k: "num", v: piece.v });
-      else if (piece.t === "num") out.push({ k: "num", v: piece.v });
-      else out.push(symbolAtom(piece.s));
+      if (piece.t === "sym") out.push(symbolAtom(piece.name), piece.text);
+      else if (piece.t === "fn") out.push({ k: "fn", s: piece.s }, piece.text);
+      else if (piece.t === "const") out.push({ k: "num", v: piece.v }, piece.text);
+      else if (piece.t === "num") out.push({ k: "num", v: piece.v }, piece.text);
+      else out.push(symbolAtom(piece.s), piece.text);
     }
   };
   while (queue.length) {
     const token = queue.shift()!;
     if (token.k !== "word") {
       if (token.k === "sub") syntax("A subscript must follow a letter, such as r_0.");
-      out.push(token as Atom);
+      out.push(token as Atom, token.src ?? "");
       continue;
     }
     // A command or word with no subscript.
     if (queue[0]?.k !== "sub") {
       if (token.cmd) {
-        if (FUNCTIONS[token.s]) out.push({ k: "fn", s: FUNCTIONS[token.s] });
-        else if (token.s === "pi" && table.index("pi") < 0) out.push({ k: "num", v: Math.PI });
-        else out.push(symbolAtom(token.s));
+        if (FUNCTIONS[token.s]) out.push({ k: "fn", s: FUNCTIONS[token.s] }, token.src ?? token.s);
+        else if (token.s === "pi" && table.index("pi") < 0) out.push({ k: "num", v: Math.PI }, token.src ?? token.s);
+        else out.push(symbolAtom(token.s), token.src ?? token.s);
         continue;
       }
       const pieces = splitWord(token.s, table);
@@ -383,7 +395,7 @@ function resolve(tokens: Tok[], table: SymbolTable): Atom[] {
         if (GREEK_SET.has(token.s)) unknownSymbol(token.s, table);
         unknownSymbol((unknown[0] as { s: string }).s, table);
       }
-      if (unknown.length && table.open && GREEK_SET.has(token.s)) { out.push(symbolAtom(token.s)); continue; }
+      if (unknown.length && table.open && GREEK_SET.has(token.s)) { out.push(symbolAtom(token.s), token.s); continue; }
       emit(pieces);
       continue;
     }
@@ -417,7 +429,7 @@ function resolve(tokens: Tok[], table: SymbolTable): Atom[] {
     if (matched) {
       const { base, head } = matched as { base: string; head: string };
       if (head) emit(splitWord(head, table));
-      out.push({ k: "sym", i: table.index(`${base}_${subscript}`) });
+      out.push({ k: "sym", i: table.index(`${base}_${subscript}`) }, `${token.cmd ? "\\" : ""}${base}_${subscript}`);
       continue;
     }
     // No declared symbol fits. In an open table the subscripted name is created, otherwise it is named in the error.
@@ -427,12 +439,12 @@ function resolve(tokens: Tok[], table: SymbolTable): Atom[] {
     const name = `${base}_${sub.s}`;
     if (table.open) {
       if (head) emit(splitWord(head, table));
-      out.push({ k: "sym", i: table.add(name) });
+      out.push({ k: "sym", i: table.add(name) }, `${token.cmd ? "" : head}${name}`.replace(/^$/, name));
       continue;
     }
     unknownSymbol(name, table);
   }
-  return out;
+  return { atoms, srcs };
 }
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -447,7 +459,7 @@ export type ExprNode =
   | { t: "root"; a: ExprNode; n: ExprNode };
 type Node = ExprNode;
 
-function parse(atoms: Atom[]): Node {
+function parse(atoms: Atom[], srcs: string[]): Node {
   let position = 0;
   let nodes = 0;
   let depth = 0;
@@ -474,15 +486,47 @@ function parse(atoms: Atom[]): Node {
     leave();
     return left;
   }
+  const quote = (from: number, to: number) => srcs.slice(from, to).join("");
+  /** A number on its own, ignoring a leading sign. */
+  const isLiteral = (from: number, to: number) => {
+    const items = atoms.slice(from, to).filter((atom, index) => !(index === 0 && atom.k === "op" && (atom.s === "-" || atom.s === "+")));
+    return items.length === 1 && items[0].k === "num" && !!items[0].lit;
+  };
+  /**
+   * `a/bc` can mean a/(bc) or (a/b)c, so it is refused with both readings. A divisor in brackets or a fraction of plain
+   * numbers before symbols (1/2 m v^2) is clear and stays as it is read: left to right.
+   */
+  function refuseAmbiguousDivision(termStart: number, runStart: number, slash: number, divisorStart: number, divisorEnd: number) {
+    if (!startsAtom(peek())) return;
+    let first = divisorStart;
+    while (atoms[first]?.k === "op") first++;
+    const head = atoms[first];
+    if (!head || head.k === "open" || head.k === "cmd") return;
+    const dividendFrom = runStart < slash ? runStart : termStart;
+    if (isLiteral(dividendFrom, slash) && isLiteral(divisorStart, divisorEnd)) return;
+    const restStart = position;
+    while (startsAtom(peek())) power();
+    const dividend = quote(termStart, slash), divisor = quote(divisorStart, divisorEnd), rest = quote(restStart, position);
+    syntax(`Add brackets: ${dividend}/(${divisor}${rest}) or (${dividend}/${divisor})${rest}.`);
+  }
   function product(): Node {
+    const termStart = position;
+    let runStart = position;
     let left = unary();
     for (;;) {
       const a = peek();
       if (a?.k === "op" && (a.s === "*" || a.s === "/")) {
+        const slash = position;
         position++;
-        left = make({ t: "bin", op: a.s, a: left, b: unary() });
+        const divisorStart = position;
+        const right = unary();
+        if (a.s === "/") refuseAmbiguousDivision(termStart, runStart, slash, divisorStart, position);
+        left = make({ t: "bin", op: a.s, a: left, b: right });
+        // After a *, the factor that follows starts a new run. After a /, the whole left side is the dividend of the next /.
+        runStart = a.s === "*" ? divisorStart : position;
       } else if (startsAtom(a)) {
-        if (left.t === "num" && left.lit && a?.k === "num" && a.lit) syntax("Two numbers next to each other. Put a * or a full stop between them.");
+        const before = atoms[position - 1];
+        if (before?.k === "num" && before.lit && a?.k === "num" && a.lit) syntax("Two numbers next to each other. Put a * or a full stop between them.");
         left = make({ t: "bin", op: "*", a: left, b: power() });
       } else return left;
     }
@@ -667,7 +711,8 @@ export function readTree(text: string, table: SymbolTable, options: { maxCharact
   const limit = options.maxCharacters ?? readerLimits.characters;
   if (!text.trim()) syntax("Enter an answer first.");
   if (text.length > limit) throw new AnswerReadError(`Enter an answer of at most ${limit} characters.`, "limit");
-  return parse(resolve(lex(text), table));
+  const { atoms, srcs } = resolve(lex(text), table);
+  return parse(atoms, srcs);
 }
 
 /** Reads a number such as 4.9, 3e8, 3×10^8, \frac{1}{2} or \sqrt{13}. Symbols are not allowed. */

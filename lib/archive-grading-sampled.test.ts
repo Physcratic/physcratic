@@ -116,3 +116,17 @@ test("messages follow the copy rules", () => {
     assert.doesNotMatch(message, /\b(elegant|worth|journey|unlock|craft|seamless|effortless|delve|elevate|proven|subset)\b/i, message);
   }
 });
+
+test("an ambiguous division in plain typing is refused with both readings, and brackets or \\frac fix it", () => {
+  const part = getArchiveDefinition("arena-the-cosmic-kitchen")!.parts.find((p) => p.id === "b.density")!;
+  const refused = checkArchivePart(part, "k_BT/mc^2", "x");
+  assert.equal(refused.status, "invalid");
+  assert.equal(refused.message, "Add brackets: k_BT/(mc^2) or (k_BT/m)c^2.");
+  const stress = getArchiveDefinition("arena-the-bending-beam-riddle")!.parts.find((p) => p.id === "b.i.stress")!;
+  assert.equal(checkArchivePart(stress, "Yy/R", "x").status, "correct");
+  assert.equal(checkArchivePart(stress, S`\frac{Yy}{R}`, "x").status, "correct");
+  assert.equal(checkArchivePart(stress, "Y*y/R", "x").status, "correct");
+  assert.equal(checkArchivePart(stress, "Y/Ry", "x").status, "invalid");
+  assert.equal(checkArchivePart(stress, "(Y/R)y", "x").status, "correct");
+  assert.equal(checkArchivePart(stress, "Y/(R)y", "x").status, "correct");
+});

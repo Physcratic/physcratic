@@ -16,12 +16,19 @@ Phase 0 audit and Phase 1 change, 5 November 2026. The first part of this page, 
 | Numbers | `4.9`, `.5`, `5.`, `3e8`, `3E8`, `3e+8`, `3×10^8`, `3\times10^{8}`, `3*10^8`, `\frac{49}{10}`, `\sqrt{13}` |
 | Functions | `sin cos tan cot sec csc sinh cosh tanh exp ln log abs sqrt arcsin arccos arctan` (`log` is the natural logarithm) |
 | Constants | `pi` and `e`, unless the problem declares them as symbols |
-| Writing things next to each other | Multiplies: `kz`, `2x`, `\cos(zk)r_0`, `sin kz`, `m_pm_n`, `k_BT` |
+| Writing things next to each other | Multiplies: `kz`, `2x`, `\cos(zk)r_0`, `sin kz`, `m_pm_n`, `k_BT`. After a plain `/` it is refused, see the rules below |
 
 Rules that decide what an expression means:
 
 - Symbols are matched by name after the spelling is folded, so `\theta_0`, `theta_0`, `θ_0` and `θ₀` are one symbol. Zero is the subscript and the letter o is not zero. Names the problem declares with several letters (`rho`, `c0`) stay whole. An alias a key lists (`u` for `\mu`) is accepted.
-- `*`, `/` and writing things next to each other have the same precedence and go left to right. So `1/2 m v^2` is (1/2)·m·v² and `a/bc` is (a/b)·c. Use brackets for a denominator.
+- `*`, `/` and writing things next to each other have the same precedence and go left to right, with one exception that is refused. A plain `/` followed by two or more things written next to each other is ambiguous, because `a/bc` can mean a/(bc) or (a/b)c. It is not guessed. The answer comes back invalid with both readings in the student's own symbols: "Add brackets: a/(bc) or (a/b)c." This covers `h/mc`, `kT/mc^2`, `a/2b` and `a/sin(x) y`. These are not refused:
+
+  | Typed | Read as |
+  | --- | --- |
+  | `1/2 m v^2`, `-1/2 m v^2`, `3/4 x` | (1/2)·m·v², a plain number fraction before symbols, left to right |
+  | `a/(bc)`, `(a/b)c`, `a/b*c`, `a/b/c`, `a/(b)c` | Exactly what the brackets and operators say |
+  | `\frac{a}{bc}`, `\frac{a}{b}c` | MathLive's `\frac` is never ambiguous |
+  | `a/\sqrt{b}c`, `tan(x)/y`, `a/b+c` | A divisor with its own brackets or a command, or nothing written next to it |
 - `^` binds tighter than a minus sign and goes right to left: `-x^2` is -(x²), `2^3^2` is 2^9.
 - A function without brackets takes the things written next to it: `sin kz` is sin(kz) and `sin x cos x` is two functions. `sin^2(x)` is (sin x)². `sin^-1` is refused, write `arcsin`.
 - An undeclared symbol is named and the nearest declared one is suggested: "θ_o isn't used here. Did you mean θ₀?" A bare letter the problem only uses with a subscript gets the same suggestion ("r isn't used here. Did you mean r₀?").
