@@ -1,8 +1,112 @@
 # Answer input and checking
 
-Phase 0 audit, 5 November 2026. This page changes no product code. It records how an answer is typed today, why part (a) of `arena-a-grin-and-a-wiggle` fails for a correct answer, and every place an answer is checked. The base commit is `ed8c860`.
+Phase 0 audit and Phase 1 change, 5 November 2026. The first part of this page, "Current behaviour", describes how answers are read and checked after Phase 1. Sections 1 to 4 below it are the Phase 0 baseline, kept as the record of what was found. Where the two differ, "Current behaviour" is right.
 
-## 1. Every way an answer is typed today
+## Current behaviour (Phase 1, 5 November 2026)
+
+### One reader: what it accepts
+
+`lib/answer-reader.ts` turns every typed expression or number into something that can be evaluated. Practice, Arena, authored problems and the keys themselves all go through it. It has no dependency on the server, so the browser can use it for a live preview. It does not know any problem, symbol or answer form.
+
+| Kind of input | Accepted |
+| --- | --- |
+| LaTeX as MathLive writes it | `\frac{a}{b}`, `\frac12`, `\sqrt{x}`, `\sqrt[3]{x}`, `\left( \right)`, `\cdot`, `\times`, `x^{2}`, `r_{0}`, `\lvert x \rvert`, `\operatorname{abs}`, `\mathrm{k}_{B}` |
+| Plain typing | `*`, `/`, `^`, `**`, `sqrt(x)`, `sin(x)`, `theta`, `r_0`, `theta_0`, `|x|`, `abs(x)` |
+| Unicode | `θ`, `π`, `ħ`, `×`, `·`, `−`, `√`, `²`, `³`, `⁻¹`, `θ₀`, `r₀` |
+| Numbers | `4.9`, `.5`, `5.`, `3e8`, `3E8`, `3e+8`, `3×10^8`, `3\times10^{8}`, `3*10^8`, `\frac{49}{10}`, `\sqrt{13}` |
+| Functions | `sin cos tan cot sec csc sinh cosh tanh exp ln log abs sqrt arcsin arccos arctan` (`log` is the natural logarithm) |
+| Constants | `pi` and `e`, unless the problem declares them as symbols |
+| Writing things next to each other | Multiplies: `kz`, `2x`, `\cos(zk)r_0`, `sin kz`, `m_pm_n`, `k_BT` |
+
+Rules that decide what an expression means:
+
+- Symbols are matched by name after the spelling is folded, so `\theta_0`, `theta_0`, `θ_0` and `θ₀` are one symbol. Zero is the subscript and the letter o is not zero. Names the problem declares with several letters (`rho`, `c0`) stay whole. An alias a key lists (`u` for `\mu`) is accepted.
+- `*`, `/` and writing things next to each other have the same precedence and go left to right. So `1/2 m v^2` is (1/2)·m·v² and `a/bc` is (a/b)·c. Use brackets for a denominator.
+- `^` binds tighter than a minus sign and goes right to left: `-x^2` is -(x²), `2^3^2` is 2^9.
+- A function without brackets takes the things written next to it: `sin kz` is sin(kz) and `sin x cos x` is two functions. `sin^2(x)` is (sin x)². `sin^-1` is refused, write `arcsin`.
+- An undeclared symbol is named and the nearest declared one is suggested: "θ_o isn't used here. Did you mean θ₀?" A bare letter the problem only uses with a subscript gets the same suggestion ("r isn't used here. Did you mean r₀?").
+- If a key declares no symbols, or leaves some out, the symbols in the key's own expression are used.
+- Refused with a plain message: an equals sign, a comma, a semicolon, other characters, unknown LaTeX commands, `\infty` (except in the one Arena part that asks for it), more than 16 levels of brackets, more than 400 tokens or 300 nodes, a root index outside 2 to 8, a number that is too large, too small to be anything but zero, or that has more than 15 digits written out or cannot be held exactly in binary64. A result that is not finite, or `0^0`, is undefined. A product, quotient or power that underflows to zero is undefined.
+- Degrees are used for trig functions when the key says so. Units are never typed or converted.
+
+### One checker
+
+`lib/sampled-check.ts` replaces the structural match and the exact prover.
+
+1. Pick 10 sets of values for the problem's symbols. A symbol with no conditions takes a value from -5 to -0.5 or from 0.5 to 5. A symbol declared positive or nonnegative takes 0.5 to 5. A symbol with a minimum or maximum takes a value in that range. Excluded values (`x != 1`) are never drawn.
+2. Evaluate the reference and the answer for each set. A set is skipped only when the reference is undefined or not finite there, and another is drawn. If the answer is undefined or not finite where the reference is fine, that set is a mismatch.
+3. Correct when every set agrees within 1e-6 relative, with a 1e-9 absolute floor. Incorrect when any set differs. If an accepted alternative form is listed for a part, matching any one is correct.
+4. Could not be decided only when 10 valid sets cannot be found in 300 draws, the key cannot be read, or the 400 ms limit is reached. The message says so in plain words.
+5. The values are seeded by the problem and the part (`problemId:partId`), so the same answer always gets the same result.
+
+Numbers: the default is 1% relative with a 1e-9 absolute floor. A key can set its own tolerance. A part with both tolerances 0 is exact, compared to 1e-9 relative with a 1e-12 floor.
+
+Known limits of the method, by design:
+
+- A hole that random values do not land on is not seen. `(x^2-1)/(x-1)` is correct for `x+1`. The reverse is also correct.
+- A difference smaller than the tolerance is not seen. √2 and its 17-digit decimal are the same number here.
+- A key whose values are enormous or tiny over -5 to 5 can hide a small difference. Declare a realistic range in the key (`ranges` in `lib/archive-grading/definitions.ts`). `arena-the-cosmic-kitchen` part g.equation does.
+- Cancellation in binary64, such as `1e20+1-1e20`, gives 0.
+
+### Paths now
+
+| Path | Reader and checker | Notes |
+| --- | --- | --- |
+| Practice numbers and Arena numbers | `readNumber`, then the part's tolerance | Default 1% relative. Arena parts that set their own tolerance keep it |
+| Practice and Arena expressions | `checkSampled` through `lib/archive-grading.ts` | Engine name `sampled-v1`. The Olympiad archive uses the same route for the parts that have an answer box |
+| Authored expressions | `checkSampled` through `lib/authored-symbolic-grading.ts` | Stored label stays `symbolic-v1`, see below |
+| Authored numbers | `lib/authored-numeric-grading.ts`, unchanged | The student's value arrives as a number, tolerance set by the author |
+| Solution submissions | `lib/solution-grading.ts`, unchanged | Rubric marks |
+
+Paths Phase 0 found unreachable, left untouched and listed for removal later: `components/physics/symbolic-answer.tsx`, `lib/symbolic-math.ts`, `lib/symbolic-worker.ts`, `lib/ipho-checks.ts`, `components/physics/ipho-problem.tsx` and `ipho-contest.tsx`, and `lib/practice.ts` with `POST /api/progress` and `recordResult` in `hooks/use-problem-history.ts`. Phase 1 also left `lib/latex-answer.ts` and `lib/authored-expression-language.ts` with no production caller, only their own tests.
+
+### Grading versions
+
+- **Practice and Arena:** the engine name inside `archiveVersion` changed from `latex-final-v1` to `sampled-v1`, and the default number tolerance and two key ranges changed the key data. Every problem's version changed, so a page opened before the change gets a 409 and refreshes its answer fields. These results are not saved, rated or used in contests, so nothing is re-graded.
+- **Authored:** attempts keep the stored label `symbolic-v1`. The table `authored_attempt` has a check that allows only `numeric-v1` and `symbolic-v1`, and migrations are not part of this phase.
+- **Rated results:** rated results come only from rubric-marked solution submissions and were not touched. No code grades contests.
+
+### Authored attempts switched to the sampled checker
+
+Authored `symbolic-v1` attempts started using the sampled checker in commit `f9509be` on 5 November 2026. Attempts saved before that commit were graded by the old exact prover and are never re-graded. Each saved attempt is tied to its revision, so the stored result stays what the student was shown.
+
+**Migration request, for the owner or Codex.** Add `sampled-v1` to the allowed values of `authored_attempt.engine_version` (the check `authored_attempt_engine_version_check` in migration 0004 and `lib/db/schema.ts`), and to `StudentGrade["engineVersion"]` in `lib/authored-attempt-contracts.ts` and `AuthoredGradeResult["engineVersion"]` in `lib/authored-grading-contracts.ts`. Then `lib/authored-grading.ts` can write `sampled-v1` for expressions. Until then the label `symbolic-v1` means "expression attempt", and the commit and date above say which checker graded it.
+
+### Tests changed in Phase 1
+
+Tests that asserted the old behaviour were rewritten. Every rewrite has a comment saying why. None was moved from incorrect to correct unless the two expressions are equal, with the exceptions in the next list.
+
+| Test | Change |
+| --- | --- |
+| `lib/archive-grading.test.ts` | Practice key tolerance 0.005 and 0.005 became 0.01 relative and 1e-9 floor. The number edge moved from 4.9245 to 4.949 |
+| | `\sqrt{2}^2-2` and `sin^2+cos^2` against 1, and `(x^2-1)/(x-1)` against `x+1`, were "could not be decided" and are now correct, because they are equal |
+| | Long number literals (21 digits, 18 digits) are refused as invalid, where they were incorrect |
+| | The 0.005 floor test now sets its tolerance explicitly |
+| `lib/authored-symbolic-grading.test.ts` | Rewritten. Needs review became correct where the pair is equal wherever defined (`x/x`, `x^0`, `sin^2+cos^2`, `log(x^2)` against `2 log(x)`, `sqrt(2)` against `2^(1/2)`) and became incorrect where the answer is undefined while the key is fine (`0^0`, `0/(x-x)`, `0*log(x)`) |
+| | Moved to incorrect or review without loosening: `9007199254740993` and `1/3` against its 16-digit decimal |
+| | Removed: x fixed at the binary64 value of 0.1 against the decimal 0.1 was incorrect under exact arithmetic |
+| `lib/product-guides.test.ts`, `lib/authored-attempt-api.test.ts`, `lib/authored-solution-api.test.ts`, `lib/authored-grading-db.test.ts`, `tests/authored-student.browser.mjs` | An input used to show "needs review" (`sin(x)^2+cos(x)^2`, `x/x`) was replaced, because those are now graded. An undeclared symbol (`y^2+137`) still shows needs review. The DB test's second revision now changes the key to keep its point |
+
+Changes that need the owner's attention, because the test now expects correct and the two numbers are not exactly equal:
+
+1. `lib/archive-grading.test.ts`: `\sqrt{2}-1.4142135623730951` against an exact zero is now correct. They differ by about 5e-17, which is below the 1e-12 floor and the same binary64 number.
+2. The 1% default makes 4.9246 (against 4.9) correct, where it was incorrect at 0.5%. This is the new default, not an equality.
+
+### Reproducing the counts
+
+```bash
+pnpm exec tsx --conditions=react-server tests/phase1-before-after.mts dump cases.json
+```
+
+```bash
+pnpm exec tsx --conditions=react-server tests/phase1-before-after.mts run cases.json
+```
+
+Run the second command in a checkout of `b7804da` for the before numbers. Over the 30 practice and Arena problems (144 answer parts, 153 reference forms, 876 rewritten forms with terms and factors swapped, `a/b` written as `a*b^-1`, `sqrt` as a power, plain and LaTeX style): before, 15 problems and 95 parts failed on a rewritten form (422 of 876 rewrites). After, 0. Every reference form is correct against itself both before and after. No changed form (negated, doubled, 1% off, 0.01% off) was accepted before or after.
+
+## Phase 0 baseline
+
+## 1. Every way an answer was typed (Phase 0)
 
 | Where | Control | What the reader types | Syntax accepted |
 | --- | --- | --- | --- |
