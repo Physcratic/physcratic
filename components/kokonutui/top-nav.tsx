@@ -54,21 +54,24 @@ export default function TopNav({
       </nav>
       <div className="flex shrink-0 items-center gap-1 sm:gap-5">
         <div className="hidden sm:contents">
-        <Button
-          variant="ghost"
-          size="sm"
-          className="min-w-11 px-2 sm:px-3"
-          onClick={() => router.push("/dashboard?view=problems&search=1")}
-          aria-label="Search problems"
-        >
-          <Search data-icon="inline-start" />
-          <span className="hidden font-normal text-muted-foreground xl:inline">
-            Search problems...
-          </span>
-          <kbd className="hidden rounded border px-1.5 py-0.5 font-sans text-sm text-muted-foreground xl:inline">
+        {/* The name is the visible text, so a voice user can say what they see. The shortcut hint is outside the button. */}
+        <div className="flex items-center gap-2">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="min-w-11 px-2 sm:px-3"
+            onClick={() => router.push("/dashboard?view=problems&search=1")}
+            aria-label="Search problems"
+          >
+            <Search data-icon="inline-start" />
+            <span className="hidden font-normal text-muted-foreground xl:inline">
+              Search problems
+            </span>
+          </Button>
+          <kbd aria-hidden="true" className="hidden rounded border px-1.5 py-0.5 font-sans text-sm text-muted-foreground xl:inline">
             ⌘ K
           </kbd>
-        </Button>
+        </div>
         <Button asChild variant="ghost" size="sm" className="px-2 sm:px-3">
           <Link href="/learn" aria-label="Learn">
             <BookOpen aria-hidden="true" />
