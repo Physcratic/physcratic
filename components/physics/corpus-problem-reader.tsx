@@ -32,6 +32,7 @@ export function CorpusProblemReader({
   onSaveProgress,
   signedIn,
   sessionPending = false,
+  disabled = false,
   savedTask,
   saving,
   onBack,
@@ -45,6 +46,8 @@ export function CorpusProblemReader({
   signedIn: boolean;
   /** True while it is still unknown whether the visitor is signed in. */
   sessionPending?: boolean;
+  /** True while saved notes are loading or saving, or could not be loaded. Only the notes and the buttons are locked. */
+  disabled?: boolean;
   savedTask: string | null;
   saving: boolean;
   onBack: () => void;
@@ -200,13 +203,15 @@ export function CorpusProblemReader({
               />
               <StepHeading step={2}>Answer</StepHeading>
               {signedIn ? (
-                <MathWorkingEditor
-                  key={`${taskKey}:working`}
-                  id="corpus-working"
-                  value={notes[taskKey] ?? ""}
-                  onChange={(value) => onNotesChange(taskKey, value)}
-                  description="Use Save subpart progress below to keep your notes and self-review mark in your private account. Unsaved edits are lost on leaving or refresh. No marks or ELO are awarded."
-                />
+                <fieldset disabled={disabled} className="min-w-0">
+                  <MathWorkingEditor
+                    key={`${taskKey}:working`}
+                    id="corpus-working"
+                    value={notes[taskKey] ?? ""}
+                    onChange={(value) => onNotesChange(taskKey, value)}
+                    description="Use Save subpart progress below to keep your notes and self-review mark in your private account. Unsaved edits are lost on leaving or refresh. No marks or ELO are awarded."
+                  />
+                </fieldset>
               ) : sessionPending ? (
                 <p role="status" className="text-sm text-muted-foreground">Checking whether you are signed in…</p>
               ) : (
@@ -251,6 +256,7 @@ export function CorpusProblemReader({
                 variant={isReviewed ? "secondary" : "outline"}
                 className="min-h-11"
                 aria-pressed={isReviewed}
+                disabled={disabled}
                 onClick={() => onReviewToggle(taskKey)}
               >
                 {isReviewed && <Check data-icon="inline-start" />}
@@ -260,7 +266,7 @@ export function CorpusProblemReader({
                 <Button
                   className="min-h-11"
                   onClick={() => onSaveProgress(taskKey)}
-                  disabled={saving}
+                  disabled={saving || disabled}
                 >
                   {saving ? "Saving…" : "Save subpart progress"}
                 </Button>

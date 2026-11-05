@@ -84,7 +84,7 @@ export function CorpusCollection({
             </Button>
           </div>
         )}
-        <fieldset disabled={disabled} className="min-w-0">
+        <div className="min-w-0">
           <CorpusProblemReader
             key={active.id}
             problem={active}
@@ -112,10 +112,11 @@ export function CorpusCollection({
             }
             signedIn={!!saved.session.data?.user}
             sessionPending={saved.session.isPending}
+            disabled={disabled}
             savedTask={saved.savedTask}
             saving={saved.saving}
           />
-        </fieldset>
+        </div>
         {saved.saveError && (
           <p role="alert" className="text-sm text-destructive">
             {saved.saveError}
