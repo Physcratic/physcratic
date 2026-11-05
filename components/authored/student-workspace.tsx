@@ -8,6 +8,7 @@ import { WorkedSolution } from "./worked-solution";
 import {
   useCallback,
   useEffect,
+  useId,
   useRef,
   useState,
   useSyncExternalStore,
@@ -15,13 +16,13 @@ import {
 import {
   ArrowLeft,
   CheckCircle2,
-  Clock3,
   FileText,
   History,
   ShieldCheck,
 } from "lucide-react";
 import { colorsByPartId } from "@/lib/part-colors";
 import { FeedbackBox, PartChip, partBorder, partStyle } from "@/components/physics/solve-ui";
+import { MathAnswerField } from "@/components/physics/math-answer-field";
 import type { FeedbackTone } from "@/lib/solve-feedback";
 import { Button } from "@/components/ui/button";
 import { Field, inputClass } from "@/components/authoring/editor-fields";
@@ -248,12 +249,6 @@ export function StudentWorkspace({
                 ? revision?.content.title
                 : "Physics problem"}
             </h1>
-            {availability === "ready" && revision && (
-              <p className="mt-3 text-sm text-muted-foreground">
-                Published revision {revision.number} ·{" "}
-                <span className="font-mono text-xs">{short(revision.id)}</span>
-              </p>
-            )}
           </div>
           <Button
             type="button"
@@ -942,7 +937,7 @@ function PrivateWorkspace({
               {part && <p className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground"><PartChip index={partColour}>Part {part.label || parts.indexOf(part) + 1}</PartChip>{part.sectionTitle || "Section"}</p>}
               {availability === "ready" && revision && part && buffer ? (
                 <>
-                  <Field label="Choose part">
+                  {parts.length > 1 && <Field label="Choose part">
                     {(id) => (
                       <select
                         id={id}
@@ -958,11 +953,7 @@ function PrivateWorkspace({
                         ))}
                       </select>
                     )}
-                  </Field>
-                  <p className="break-words text-xs text-muted-foreground">
-                    Pinned revision {revision.number} ·{" "}
-                    <span className="font-mono">{short(revision.id)}</span>
-                  </p>
+                  </Field>}
                   {receipt && (
                     <div
                       ref={resultRef}
@@ -1021,16 +1012,13 @@ function PrivateWorkspace({
                         Answer for part {part.label}
                       </legend>
                       <AnswerFields
+                        symbols={info?.parts.find((p) => p.partId === part.id)?.symbols ?? []}
                         buffer={buffer}
                         onChange={(next) =>
                           session.edit(revision.id, part.id, next)
                         }
                       />
                     </fieldset>
-                    <p className="text-xs leading-relaxed text-muted-foreground">
-                      Unfinished input is retained locally for this account and
-                      revision. It is not a saved submission.
-                    </p>
                     <Button
                       type="submit"
                       className="min-h-11 w-full"
@@ -1093,15 +1081,10 @@ function PrivateWorkspace({
                   Checking submission access…
                 </p>
               )}
-              {info && (
-                <p className="text-xs leading-relaxed text-muted-foreground">
-                  {info.parts.find((p) => p.partId === part?.id)
-                    ?.attemptsUsed ?? "0"}{" "}
-                  saved attempts on this part/revision. No permanent per-part
-                  cap. Up to {info.limits.attemptsPerDay} new attempts in a
-                  rolling 24 hours, {info.limits.submissionsPerMinute}{" "}
-                  submission requests and {info.limits.requestsPerMinute} total
-                  requests per minute.
+              {info && Number(info.parts.find((p) => p.partId === part?.id)?.attemptsUsed ?? "0") > 0 && (
+                <p className="text-sm text-muted-foreground">
+                  {info.parts.find((p) => p.partId === part?.id)?.attemptsUsed} saved{" "}
+                  {info.parts.find((p) => p.partId === part?.id)?.attemptsUsed === "1" ? "attempt" : "attempts"} on this part.
                 </p>
               )}
               <p
@@ -1112,17 +1095,6 @@ function PrivateWorkspace({
               </p>
             </section>
             {availability === "ready" && revision && part && <WorkedSolution key={`${revision.id}:${part.id}`} partColour={partColour} partLabel={part.label || String(parts.indexOf(part) + 1)} problemId={problemId} revisionId={revision.id} partId={part.id} onStale={invalidate} onAuth={denyAuth} />}
-            <section className="space-y-2 rounded-xl border bg-muted/20 p-5">
-              <h2 className="flex items-center gap-2 text-sm font-semibold">
-                <Clock3 aria-hidden="true" className="size-4" /> Practice, then
-                reflect
-              </h2>
-              <p className="text-xs leading-relaxed text-muted-foreground">
-                A grade never reveals private answers or worked solutions.
-                “Needs review” is not a verdict that your mathematics is wrong.
-                You can keep practising within the temporary request limits.
-              </p>
-            </section>
           </aside>
         </div>
       )}
@@ -1132,10 +1104,14 @@ function PrivateWorkspace({
 function AnswerFields({
   buffer,
   onChange,
+  symbols,
 }: {
   buffer: AnswerBuffer;
   onChange: (b: AnswerBuffer) => void;
+  /** The variable names the problem declares, for the palette. Empty when the problem declares none. */
+  symbols: readonly string[];
 }) {
+  const expressionId = useId();
   if (buffer.kind === "numeric")
     return (
       <>
@@ -1171,44 +1147,22 @@ function AnswerFields({
     );
   if (buffer.kind === "expression")
     return (
-      <>
-        <Field
-          label="Expression answer"
-          help="Plain text, up to 180 characters. Use the variables and domain stated in the question."
-        >
-          {(id) => (
-            <textarea
-              id={id}
-              className={`${inputClass} font-mono`}
-              rows={3}
-              value={buffer.expression}
-              maxLength={180}
-              spellCheck={false}
-              onChange={(e) =>
-                onChange({ ...buffer, expression: e.target.value })
-              }
-            />
-          )}
-        </Field>
-        <details className="rounded-md border p-3 text-xs leading-relaxed">
-          <summary className="min-h-11 cursor-pointer font-medium">
-            Expression syntax and checker limits
-          </summary>
-          <p>
-            Use explicit + - * / ^ and parentheses: x*x, x^2, (x+1)/2. Powers
-            bind before unary minus. The ^ sign is right-associative. Integer exponents
-            are limited to -8…8. Decimals and fractions are exact rational
-            constants.
-          </p>
-          <p className="mt-2">
-            Write 3*x, not 3x. No units, equals signs, implicit multiplication,
-            pi/e constants or arbitrary function calls. sqrt and abs have
-            limited real-domain support. General trig/log identities and more
-            complex expressions can need review, even when mathematically
-            correct. No client-side equivalence check is performed.
-          </p>
-        </details>
-      </>
+      <div className="space-y-2">
+        <label id={`${expressionId}-label`} htmlFor={expressionId} className="block text-sm font-medium">
+          Expression answer
+        </label>
+        <MathAnswerField
+          id={expressionId}
+          labelId={`${expressionId}-label`}
+          value={buffer.expression}
+          onChange={(latex) => onChange({ ...buffer, expression: latex })}
+          symbols={symbols}
+          maxLength={180}
+        />
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          Type maths as you write it, with / for a fraction and ^ for a power. Use the symbols the problem gives.
+        </p>
+      </div>
     );
   return (
     <Field

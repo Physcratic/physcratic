@@ -69,6 +69,15 @@ const solutionApi = createAuthoredSolutionApi({
   origin: (request) => isAllowedSubmissionOrigin(request, [origin]),
   storage: mediaStorage.storage,
 });
+/** Sets an expression answer. The field is a MathLive field once it has loaded, and a plain box before that. */
+async function fillExpression(page, text) {
+  const field = page.locator("math-field").first();
+  await field.waitFor({ timeout: 20000 });
+  await field.evaluate((el, value) => {
+    el.value = value;
+    el.dispatchEvent(new Event("input", { bubbles: true }));
+  }, text);
+}
 async function until(check, label) {
   const start = Date.now();
   while (Date.now() - start < 20000) {
@@ -895,7 +904,7 @@ try {
   await learner
     .getByLabel("Choose part", { exact: true })
     .selectOption(symbolic.id);
-  await learner.getByLabel("Expression answer", { exact: true }).fill("x*x");
+  await fillExpression(learner, "x*x");
   await learner
     .getByRole("button", { name: "Submit answer", exact: true })
     .click();

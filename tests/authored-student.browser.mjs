@@ -132,6 +132,15 @@ async function upload(purpose) {
     201,
   );
 }
+/** Sets an expression answer. The field is a MathLive field once it has loaded, and a plain box before that. */
+async function fillExpression(page, text) {
+  const field = page.locator("math-field").first();
+  await field.waitFor({ timeout: 20000 });
+  await field.evaluate((el, value) => {
+    el.value = value;
+    el.dispatchEvent(new Event("input", { bubbles: true }));
+  }, text);
+}
 async function until(check, label) {
   const start = Date.now();
   while (Date.now() - start < 15000) {
@@ -509,14 +518,12 @@ try {
   await submit();
   await saved("Incorrect");
   await choose(1);
-  await page.getByLabel("Expression answer", { exact: true }).fill("x*x+137");
+  await fillExpression(page, "x*x+137");
   await submit();
   await saved("Correct");
   await page.getByRole("button", { name: /^(Try again|Start another attempt)$/ }).click();
-  await page
-    .getByLabel("Expression answer", { exact: true })
-    // Phase 1: sin^2 + cos^2 is now checked like any expression (incorrect against x^2 + 137). A symbol the key does not use still needs review.
-    .fill("y*y+137");
+  // Phase 1: sin^2 + cos^2 is now checked like any expression (incorrect against x^2 + 137). A symbol the key does not use still needs review.
+  await fillExpression(page, "y*y+137");
   await submit();
   await saved("Needs review");
   await page
