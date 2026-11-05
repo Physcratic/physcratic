@@ -233,6 +233,7 @@ function Palette({ items, onInsert, disabled }: { items: PaletteItem[]; onInsert
       ref={row}
       role="group"
       aria-label="Insert symbols and functions"
+      data-tour="answer-palette"
       className={`flex min-w-0 gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:overflow-visible ${overflowing ? "[mask-image:linear-gradient(to_right,black_calc(100%-2rem),transparent)]" : ""}`}
     >
       {items.map((item) => (

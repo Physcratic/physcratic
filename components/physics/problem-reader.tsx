@@ -48,7 +48,7 @@ function PracticeProblem({ problem }: { problem: Problem }) {
       <div className="flex min-w-0 flex-col gap-4">
         <Card className="min-w-0 shadow-none"><CardContent className="pt-6"><ArchiveAnswerPanel key={reset} problemId={problem.id} onCorrect={() => setShowSolution(true)} onSeeHint={seeHint} nextHref={hasNext ? `/dashboard/problems/${nextProblem.id}` : undefined} /></CardContent></Card>
         <div className="flex flex-col gap-3">
-          <Button variant="outline" className="min-h-11 justify-between" onClick={() => setShowHint(!showHint)} aria-expanded={showHint} aria-controls="problem-hint"><span className="flex items-center gap-2"><Lightbulb data-icon="inline-start" />{showHint ? "Hide hint" : "Need a hint?"}</span>{showHint ? <ChevronUp /> : <ChevronDown />}</Button>
+          <Button variant="outline" data-tour="hint-button" className="min-h-11 justify-between" onClick={() => setShowHint(!showHint)} aria-expanded={showHint} aria-controls="problem-hint"><span className="flex items-center gap-2"><Lightbulb data-icon="inline-start" />{showHint ? "Hide hint" : "Need a hint?"}</span>{showHint ? <ChevronUp /> : <ChevronDown />}</Button>
           {showHint && <p id="problem-hint" tabIndex={-1} className={`rounded-lg border bg-muted/50 p-4 text-base leading-relaxed text-foreground ${proseWidth}`}>{problem.hint}</p>}
         </div>
       </div>
@@ -56,7 +56,7 @@ function PracticeProblem({ problem }: { problem: Problem }) {
         <CardHeader className="gap-4">
           <StepHeading step={4}>Solution</StepHeading>
           <p className="text-sm text-muted-foreground">Try the problem first. The solution shows every step.</p>
-          <Button variant="outline" className="min-h-11 w-fit justify-between gap-3" onClick={() => setShowSolution(!showSolution)} aria-expanded={showSolution} aria-controls="worked-solution">{showSolution ? "Hide solution" : "Show solution"}{showSolution ? <ChevronUp /> : <ChevronDown />}</Button>
+          <Button variant="outline" data-tour="solution-tab" className="min-h-11 w-fit justify-between gap-3" onClick={() => setShowSolution(!showSolution)} aria-expanded={showSolution} aria-controls="worked-solution">{showSolution ? "Hide solution" : "Show solution"}{showSolution ? <ChevronUp /> : <ChevronDown />}</Button>
         </CardHeader>
         {showSolution && <CardContent><section id="worked-solution" aria-label="Worked solution" className={`flex flex-col gap-6 rounded-lg border p-5 ${proseWidth}`}>{problem.solution.map((step, index) => <div key={step.title} className="flex min-w-0 flex-col gap-2"><h3 className="text-base font-medium">{index + 1}. {step.title}</h3><p className="text-base leading-relaxed text-foreground">{step.text}</p>{step.formula && <MathFormula formula={step.formula} />}</div>)}</section></CardContent>}
       </Card>

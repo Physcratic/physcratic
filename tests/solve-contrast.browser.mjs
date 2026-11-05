@@ -157,6 +157,7 @@ const sweep = Boolean(process.env.SWEEP);
 const sessionCookie = process.env.SESSION_COOKIE;
 const widths = sweep || sessionCookie ? fixtures.sweep.widths : fixtures.widths;
 if (sweep && !sessionCookie) {
+  stages.push(["dashboard with the Welcome tour open", async (page) => { await page.goto(`${origin}/dashboard`, { waitUntil: "networkidle" }); await page.getByRole("button", { name: /^Help: Welcome to Physcratic/ }).click(); await page.locator("[data-tour-card]").waitFor(); await page.waitForTimeout(900); }]);
   for (const route of fixtures.sweep.routes) stages.push([route.name, async (page) => { await page.goto(origin + route.path, { waitUntil: "networkidle" }); }]);
   if (process.env.AUTHORED_PROBLEM_ID) stages.push(["authored student page", async (page) => { await page.goto(`${origin}/dashboard/authored/${process.env.AUTHORED_PROBLEM_ID}`, { waitUntil: "networkidle" }); }]);
 }
@@ -199,6 +200,7 @@ if (sessionCookie) {
     ["signed in: Problem Studio Simple, new problem", async (page) => { await ensureDraft(page); await page.goto(`${origin}/dashboard/author`, { waitUntil: "networkidle" }); await showSimple(page); await page.getByRole("textbox", { name: "What's the question?" }).waitFor(); }],
     ["signed in: Problem Studio Simple, three parts", async (page) => { await openSimple(page); }],
     ["signed in: Problem Studio Simple, equation open", async (page) => { await openSimple(page); await page.getByRole("button", { name: "Equation", exact: true }).first().click(); await page.getByRole("group", { name: "Type your equation" }).waitFor(); await page.waitForTimeout(600); }],
+    ["signed in: Problem Studio Simple with the Studio tour open", async (page) => { await openSimple(page); await page.getByRole("button", { name: /^Help: Write your first problem/ }).click(); await page.locator("[data-tour-card]").waitFor(); await page.waitForTimeout(900); }],
     ["signed in: Problem Studio draft list", async (page) => { await ensureDraft(page); await page.goto(`${origin}/dashboard/author`, { waitUntil: "networkidle" }); await showSimple(page); await page.getByRole("button", { name: /My drafts/ }).click(); await page.getByRole("button", { name: /^Open/ }).first().waitFor(); await page.getByRole("heading", { level: 1 }).first().waitFor(); }],
     ["signed in: Problem Studio Advanced editor", async (page) => { await openAdvanced(page); }],
     ["signed in: Problem Studio Advanced student preview", async (page) => { await openAdvanced(page); await page.getByRole("button", { name: "Student preview", exact: true }).click(); await page.getByRole("article", { name: "Student-facing preview" }).waitFor(); }],

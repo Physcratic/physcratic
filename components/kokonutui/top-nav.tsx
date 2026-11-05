@@ -10,6 +10,7 @@ import { FeedbackLink } from "@/components/feedback-link";
 import { AccountNav } from "@/components/account-nav";
 import { coachingEntryHandlers } from "@/lib/coaching/analytics";
 import { viewTitles, type View } from "@/lib/physics";
+import { TourHelpButton } from "@/components/tour/tour-help";
 
 export default function TopNav({
   view,
@@ -84,12 +85,14 @@ export default function TopNav({
           <Link
             href="/coaching"
             aria-label="Coaching"
+            data-tour="nav-coaching"
             {...coachingEntryHandlers("topbar")}
           >
             <GraduationCap aria-hidden="true" />
             <span className="hidden font-medium sm:inline">Coaching</span>
           </Link>
         </Button>
+        <TourHelpButton tourId="welcome" />
         <div className="hidden sm:contents">
           <FeedbackLink variant="nav" />
           <span className="h-5 border-l" />

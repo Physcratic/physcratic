@@ -103,7 +103,7 @@ export function ArchiveAnswerPanel({ problemId, onCorrect, onSeeHint, nextHref }
           const card = `min-w-0 rounded-lg border bg-card p-4 text-card-foreground ${partBorder}`;
           if (part.kind === "self-review") return <div key={part.id} style={partStyle(colors[position])} className={card}><Alert><AlertTitle className="flex flex-wrap items-center gap-2"><PartChip index={colors[position]}>{part.sourcePart}</PartChip>{part.label}</AlertTitle><AlertDescription>Check this one yourself. {part.help} Compare your reasoning with the worked solution. It is not graded.</AlertDescription></Alert></div>;
           const conditions = formatConditions(part.symbolConditions);
-          return <div key={part.id} style={partStyle(colors[position])} className={card}><Field data-invalid={invalid} data-disabled={busy}>
+          return <div key={part.id} data-tour={position === 0 ? "answer-box" : undefined} style={partStyle(colors[position])} className={card}><Field data-invalid={invalid} data-disabled={busy}>
             <FieldLabel id={`${id}-label`} htmlFor={id} className="flex-wrap items-center"><PartChip index={colors[position]}>{part.sourcePart}</PartChip><span className="text-base font-medium">{part.label}{part.unit && <span className="font-normal text-muted-foreground"> ({part.unit})</span>}</span></FieldLabel>
             {conditions.length > 0 && <p className="text-sm text-muted-foreground">Conditions: {conditions.join(", ")}.</p>}
             {part.kind === "numeric"
@@ -124,7 +124,7 @@ export function ArchiveAnswerPanel({ problemId, onCorrect, onSeeHint, nextHref }
         <StepHeading step={3} as="h3" id="step-check">Check</StepHeading>
         {error && <Alert variant="destructive"><AlertTitle>Could not check your answers</AlertTitle><AlertDescription>{error} Your input is unchanged.</AlertDescription></Alert>}
         <div className="flex flex-wrap gap-3">
-          <Button type="submit" className="min-h-11 px-6" disabled={busy}>{busy && <Loader2 className="animate-spin" data-icon="inline-start" />}{busy ? "Checking…" : "Check answer"}</Button>
+          <Button type="submit" data-tour="check-button" className="min-h-11 px-6" disabled={busy}>{busy && <Loader2 className="animate-spin" data-icon="inline-start" />}{busy ? "Checking…" : "Check answer"}</Button>
           <Button type="button" variant="outline" className="min-h-11" disabled={busy} onClick={() => { setAnswers({}); setResult(null); setError(""); }}><RotateCcw data-icon="inline-start" />Clear answers</Button>
         </div>
         <div aria-live="polite" aria-atomic="true" className="min-w-0">

@@ -28,6 +28,8 @@ import { AnswerPanel } from "./answer-panel";
 import { TagPicker, MissingTagNote } from "./tag-picker";
 import { HowItWorksLink, StatusBar, StepCard, studioTokens } from "./studio-ui";
 import { SimpleEditor, rememberSimpleFocus } from "./simple-editor";
+import { GuidedTour } from "@/components/tour/guided-tour";
+import { TourHelpButton } from "@/components/tour/tour-help";
 import { STUDIO_MODE_KEY, readStudioMode, type StudioMode } from "./simple-model";
 import { colorsByPartId } from "@/lib/part-colors";
 import { PartChip, partBorder, partStyle } from "@/components/physics/solve-ui";
@@ -279,6 +281,7 @@ export function ProblemEditor({
             <HowItWorksLink />
           </div>
           <div className="flex flex-wrap items-center gap-2">
+            {mode === "simple" && <TourHelpButton tourId="studio" />}
             <div role="group" aria-label="Editor mode" className="flex gap-1 rounded-lg border p-1">
               {(["simple", "advanced"] as const).map((m) => (
                 <Button
@@ -391,7 +394,7 @@ export function ProblemEditor({
         <p role="status" aria-live="polite" className="mb-3 text-sm">
           {notice}
         </p>
-        {snapshot.storageWarning && (
+        {modeReady && snapshot.storageWarning && (
           <p role="alert" className="mb-4 rounded-lg border p-4 text-sm">
             Tab recovery storage is unavailable. Download a private copy
             before leaving if saving fails.
@@ -578,6 +581,7 @@ export function ProblemEditor({
             )}
           </section>
         )}
+        {modeReady && mode === "simple" && <GuidedTour tourId="studio" />}
         {!modeReady ? null : mode === "simple" ? (
           <>
             {continueDraft && (

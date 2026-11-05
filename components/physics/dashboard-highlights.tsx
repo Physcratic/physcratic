@@ -101,6 +101,7 @@ function ProblemToCheckOut() {
     <Card
       className="flex min-w-0 flex-col shadow-none"
       aria-labelledby="daily-problem-heading"
+      data-tour="problem-card"
     >
       <CardHeader className="pb-4">
         <CardTitle>
