@@ -1,6 +1,7 @@
 "use client";
 import {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useId,
@@ -55,6 +56,57 @@ const fileInfo = z.object({
   mediaType: z.string(),
   bytes: z.number().positive().max(authorMediaMaxBytes),
 });
+/**
+ * The one upload used by Advanced's upload button and by Simple mode's picture box. It checks the size, sends the file
+ * to the private media route of this draft and checks the answer. `upload` returns null when it failed, and `error`
+ * says why.
+ */
+export function useAuthorMediaUpload(purpose: AuthorMediaPurpose) {
+  const ctx = useContext(context);
+  const [busy, setBusy] = useState(false),
+    [message, setMessage] = useState(""),
+    [error, setError] = useState("");
+  const upload = useCallback(
+    async (file: File): Promise<AuthorMediaInfo | null> => {
+      if (!ctx) return null;
+      setMessage("");
+      setError("");
+      if (file.size <= 0 || file.size > authorMediaMaxBytes) {
+        setError("Choose a nonempty file up to 3 MiB.");
+        return null;
+      }
+      setBusy(true);
+      ctx.pending(1);
+      try {
+        const form = new FormData();
+        form.set("file", file);
+        form.set("purpose", purpose);
+        const response = await fetch(`${editorBase}/${ctx.problemId}/media`, {
+          method: "POST",
+          credentials: "same-origin",
+          cache: "no-store",
+          body: form,
+          signal: AbortSignal.timeout(30000),
+        });
+        const body = await response.json();
+        if (!response.ok) throw new Error(body.error || "Upload failed.");
+        const result = fileInfo.parse(body);
+        if (result.problemId !== ctx.problemId || result.purpose !== purpose)
+          throw new Error("Upload response did not match this problem.");
+        setMessage(`Uploaded ${result.filename}. Save document changes to attach it.`);
+        return result;
+      } catch (e) {
+        setError(e instanceof Error ? e.message : "Upload failed. Existing files are unchanged.");
+        return null;
+      } finally {
+        ctx.pending(-1);
+        setBusy(false);
+      }
+    },
+    [ctx, purpose],
+  );
+  return { available: !!ctx, locked: !ctx || ctx.disabled || busy, busy, message, error, upload };
+}
 export function UploadControl({
   purpose,
   label,
@@ -64,12 +116,9 @@ export function UploadControl({
   label: string;
   onUploaded: (file: AuthorMediaInfo) => void;
 }) {
-  const ctx = useContext(context),
-    id = useId();
-  const [busy, setBusy] = useState(false),
-    [message, setMessage] = useState(""),
-    [error, setError] = useState("");
-  if (!ctx) return null;
+  const id = useId();
+  const { available, locked, busy, message, error, upload } = useAuthorMediaUpload(purpose);
+  if (!available) return null;
   return (
     <div className="space-y-2">
       <label htmlFor={id} className="block text-sm font-medium">
@@ -85,56 +134,14 @@ export function UploadControl({
             ? "application/pdf"
             : "image/png,image/jpeg,image/webp"
         }
-        disabled={busy || ctx.disabled}
+        disabled={locked}
         onChange={async (e) => {
           const input = e.currentTarget,
             file = input.files?.[0];
           input.value = "";
           if (!file) return;
-          setMessage("");
-          setError("");
-          if (file.size <= 0 || file.size > authorMediaMaxBytes) {
-            setError("Choose a nonempty file up to 3 MiB.");
-            return;
-          }
-          setBusy(true);
-          ctx.pending(1);
-          try {
-            const form = new FormData();
-            form.set("file", file);
-            form.set("purpose", purpose);
-            const response = await fetch(
-              `${editorBase}/${ctx.problemId}/media`,
-              {
-                method: "POST",
-                credentials: "same-origin",
-                cache: "no-store",
-                body: form,
-                signal: AbortSignal.timeout(30000),
-              },
-            );
-            const body = await response.json();
-            if (!response.ok) throw new Error(body.error || "Upload failed.");
-            const result = fileInfo.parse(body);
-            if (
-              result.problemId !== ctx.problemId ||
-              result.purpose !== purpose
-            )
-              throw new Error("Upload response did not match this problem.");
-            onUploaded(result);
-            setMessage(
-              `Uploaded ${result.filename}. Save document changes to attach it.`,
-            );
-          } catch (e) {
-            setError(
-              e instanceof Error
-                ? e.message
-                : "Upload failed. Existing files are unchanged.",
-            );
-          } finally {
-            ctx.pending(-1);
-            setBusy(false);
-          }
+          const result = await upload(file);
+          if (result) onUploaded(result);
         }}
       />
       <p id={`${id}-help`} className="text-xs text-muted-foreground">
