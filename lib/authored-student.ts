@@ -59,6 +59,7 @@ export const studentHistorySchema = z.strictObject({
   attempts: z.array(studentAttemptSchema).max(50),
   nextCursor: z.string().max(256).nullable(),
 });
+export const symbolName = z.string().regex(/^[A-Za-z][A-Za-z0-9_]{0,31}$/);
 export const submissionInfoSchema = z.object({
   problemId: id,
   revisionId: id,
@@ -67,6 +68,8 @@ export const submissionInfoSchema = z.object({
       z.strictObject({
         partId: id,
         answerMode: z.enum(["numeric", "expression", "manual"]),
+        /** Declared variable names of an expression part, in the order the author listed them. Names only. */
+        symbols: z.array(symbolName).max(20).default([]),
         attemptsUsed: z.string().regex(/^\d{1,19}$/),
         attemptsRemaining: z.null(),
       }),

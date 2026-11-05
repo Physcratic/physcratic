@@ -109,9 +109,12 @@ test(
               : {
                   kind: "expression",
                   expected: "x^2+137",
-                  variables: [{ name: "x", domain: "real", assumptions: [] }],
-                  angleUnit: "radians",
-                  exclusions: [],
+                  variables: [
+                    { name: "x", domain: "real", min: 0.25, max: 7.5, assumptions: ["positive", "nonzero"] },
+                    { name: "theta_0", domain: "real", assumptions: [] },
+                  ],
+                  angleUnit: "degrees",
+                  exclusions: ["x != 3"],
                 },
         hints: [
           {
@@ -414,8 +417,23 @@ test(
             "x^2+137",
             '"expected"',
             '"key"',
+            // Domains, bounds, assumptions, exclusions and angle units of the key are not public either.
+            "0.25",
+            "7.5",
+            "positive",
+            "nonzero",
+            "x != 3",
+            "degrees",
+            '"domain"',
+            '"exclusions"',
+            '"assumptions"',
           ])
-            assert.equal(JSON.stringify(metadata).includes(secret), false);
+            assert.equal(JSON.stringify(metadata).includes(secret), false, secret);
+          // The declared variable names are public, for the answer palette, and nothing else from the key.
+          const modes = metadata.parts.map((p: { answerMode: string; symbols: string[] }) => [p.answerMode, p.symbols]);
+          for (const [mode, symbols] of modes) assert.deepEqual(symbols, mode === "expression" ? ["x", "theta_0"] : [], mode);
+          assert.ok(modes.some(([mode]: [string]) => mode === "expression"));
+          for (const part of metadata.parts) assert.deepEqual(Object.keys(part).sort(), ["answerMode", "attemptsRemaining", "attemptsUsed", "partId", "symbols"]);
           assert.equal(
             (await author("public", req(student), d.problemId)).status,
             200,
