@@ -8,7 +8,7 @@ import {
   type ReactNode,
 } from "react";
 import katex from "katex";
-import { ArrowDown, ArrowUp, Plus, Trash2 } from "lucide-react";
+import { ArrowDown, ArrowUp, Plus, Sigma, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { equationTemplates } from "@/lib/latex-working";
 import {
@@ -305,6 +305,7 @@ export function BlocksEditor({
                       label={`${label} text ${index + 1}${block.spans.length > 1 ? ` · span ${si + 1}` : ""}`}
                     >
                       {(id) => (
+                        <div className="space-y-2">
                         <textarea
                           id={id}
                           className={inputClass}
@@ -331,6 +332,33 @@ export function BlocksEditor({
                             )
                           }
                         />
+                        <Button
+                          type="button"
+                          size="sm"
+                          variant="outline"
+                          disabled={block.spans.length >= 100}
+                          aria-label={`Insert equation in ${label} text ${index + 1}`}
+                          onClick={() => {
+                            const el = document.getElementById(id) as HTMLTextAreaElement | null;
+                            const at = el?.selectionStart ?? span.text.length;
+                            const insert = [
+                              { kind: "text" as const, text: span.text.slice(0, at) },
+                              { kind: "math" as const, latex: "" },
+                              { kind: "text" as const, text: span.text.slice(at) },
+                            ].filter((s2) => s2.kind === "math" || s2.text);
+                            onChange(
+                              blocks.map((b) =>
+                                b.id === block.id
+                                  ? { ...block, spans: [...block.spans.slice(0, si), ...insert, ...block.spans.slice(si + 1)] }
+                                  : b,
+                              ),
+                            );
+                          }}
+                        >
+                          <Sigma aria-hidden="true" className="mr-1 size-4" />
+                          Equation
+                        </Button>
+                        </div>
                       )}
                     </Field>
                   ) : (

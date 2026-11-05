@@ -24,6 +24,8 @@ export function MathAnswerField({
   describedBy,
   placeholder = "Type your answer, such as \\frac{h}{mc}",
   maxLength = 1024,
+  autoFocus,
+  emptyHint,
 }: {
   id: string;
   /** The id of the visible label. */
@@ -39,6 +41,10 @@ export function MathAnswerField({
   describedBy?: string;
   placeholder?: string;
   maxLength?: number;
+  /** Move the cursor into the field as soon as it is ready. */
+  autoFocus?: boolean;
+  /** A short example shown inside the empty maths field. */
+  emptyHint?: string;
 }) {
   const host = useRef<HTMLDivElement>(null);
   const field = useRef<MathfieldElement | null>(null);
@@ -54,6 +60,7 @@ export function MathAnswerField({
   change.current = onChange;
   const latest = useRef(value);
   latest.current = value;
+  const focusOnReady = useRef(!!autoFocus);
 
   // Load MathLive only when this field is on screen, and only if the box is still empty (never swap a typed answer).
   useEffect(() => {
@@ -89,6 +96,7 @@ export function MathAnswerField({
         host.current.appendChild(element);
         field.current = element;
         setReady(true);
+        if (focusOnReady.current) element.focus();
       })
       .catch(() => {});
     return () => {
@@ -144,7 +152,14 @@ export function MathAnswerField({
       onFocusCapture={() => setActive(true)}
       onBlurCapture={() => requestAnimationFrame(() => { if (!wrapper.current?.contains(document.activeElement)) setActive(false); })}
     >
-      <div ref={host} hidden={!ready} className="min-w-0" />
+      <div hidden={!ready} className="relative min-w-0">
+        <div ref={host} className="min-w-0" />
+        {emptyHint && value.trim() === "" && (
+          <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-base text-muted-foreground">
+            {emptyHint}
+          </span>
+        )}
+      </div>
       {!ready && (
         <>
           <Input
