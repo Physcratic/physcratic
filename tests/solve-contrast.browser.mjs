@@ -160,35 +160,47 @@ if (sweep && !sessionCookie) {
   for (const route of fixtures.sweep.routes) stages.push([route.name, async (page) => { await page.goto(origin + route.path, { waitUntil: "networkidle" }); }]);
   if (process.env.AUTHORED_PROBLEM_ID) stages.push(["authored student page", async (page) => { await page.goto(`${origin}/dashboard/authored/${process.env.AUTHORED_PROBLEM_ID}`, { waitUntil: "networkidle" }); }]);
 }
-/** A draft with three parts, so the editor and its preview show the part colours. Created once, through the real UI. */
+/** Problem Studio opens in Easy mode. A draft with three parts, so the editor and its preview show the part colours. Created once, through the real UI. */
+async function showEasy(page) {
+  const easy = page.getByRole("button", { name: "Easy", exact: true });
+  await easy.waitFor();
+  if ((await easy.getAttribute("aria-pressed")) !== "true") await easy.click();
+}
 async function ensureDraft(page) {
   await page.goto(`${origin}/dashboard/author`, { waitUntil: "networkidle" });
-  if (await page.getByRole("button", { name: /^Open/ }).count()) return;
-  await page.getByRole("button", { name: "New problem", exact: true }).click();
-  await page.getByLabel("Problem title", { exact: true }).fill("Forces on a cart");
+  await showEasy(page);
+  if (await page.getByRole("button", { name: /^Continue your last draft/ }).count()) return;
+  await page.getByLabel("Title", { exact: true }).fill("Forces on a cart");
   await page.waitForURL((url) => url.searchParams.has("draft"));
-  await page.getByRole("button", { name: "Add text to common context", exact: true }).click();
-  await page.getByLabel("Common context text 1", { exact: true }).fill("A 2 kg cart accelerates at 5 m/s2 along a frictionless horizontal track.");
-  await page.getByRole("button", { name: "+ Add section", exact: true }).click();
-  await page.getByLabel("Section 1 title", { exact: true }).fill("Forces and work");
-  for (const [index, label] of ["a", "b", "c"].entries()) {
-    await page.getByRole("button", { name: "+ Add part to section 1", exact: true }).click();
-    await page.getByLabel(`Section 1 part ${index + 1} label`, { exact: true }).fill(label);
+  await page.getByLabel("Problem text", { exact: true }).fill("A 2 kg cart accelerates at 5 m/s2 along a frictionless horizontal track.");
+  await page.getByLabel("Question", { exact: true }).first().fill("Find the net force on the cart.");
+  for (const [index, question] of ["Find the work done over 3 m.", "Find the speed after 3 m."].entries()) {
+    await page.getByRole("button", { name: "Add a part", exact: true }).click();
+    await page.getByLabel("Question", { exact: true }).nth(index + 1).fill(question);
   }
   await page.getByText("All changes saved").first().waitFor({ timeout: 20000 });
 }
-async function openEditor(page) {
+async function openEasy(page) {
   await ensureDraft(page);
   await page.goto(`${origin}/dashboard/author`, { waitUntil: "networkidle" });
-  await page.getByRole("button", { name: /^Open/ }).first().click();
+  await showEasy(page);
+  await page.getByRole("button", { name: /^Continue your last draft/ }).click();
+  await page.getByRole("region", { name: "Part c" }).waitFor({ timeout: 20000 });
+}
+async function openAdvanced(page) {
+  await openEasy(page);
+  await page.getByRole("button", { name: "Advanced", exact: true }).click();
   await page.getByRole("heading", { name: /Step 1: Statement/ }).waitFor({ timeout: 20000 });
 }
 if (sessionCookie) {
   stages.length = 0;
   stages.push(
-    ["signed in: Problem Studio draft list", async (page) => { await ensureDraft(page); await page.goto(`${origin}/dashboard/author`, { waitUntil: "networkidle" }); await page.getByRole("heading", { level: 1 }).first().waitFor(); }],
-    ["signed in: Problem Studio editor", async (page) => { await openEditor(page); }],
-    ["signed in: Problem Studio student preview", async (page) => { await openEditor(page); await page.getByRole("button", { name: "Student preview", exact: true }).click(); await page.getByRole("article", { name: "Student-facing preview" }).waitFor(); }],
+    ["signed in: Problem Studio Easy, new problem", async (page) => { await ensureDraft(page); await page.goto(`${origin}/dashboard/author`, { waitUntil: "networkidle" }); await showEasy(page); await page.getByLabel("Title", { exact: true }).waitFor(); }],
+    ["signed in: Problem Studio Easy, three parts", async (page) => { await openEasy(page); }],
+    ["signed in: Problem Studio Easy preview", async (page) => { await openEasy(page); if ((await page.viewportSize()).width < 1024) await page.getByRole("button", { name: "Preview", exact: true }).click(); await page.getByRole("article", { name: "Student-facing preview" }).waitFor(); }],
+    ["signed in: Problem Studio draft list", async (page) => { await ensureDraft(page); await page.goto(`${origin}/dashboard/author`, { waitUntil: "networkidle" }); await showEasy(page); await page.getByRole("button", { name: /My drafts/ }).click(); await page.getByRole("button", { name: /^Open/ }).first().waitFor(); await page.getByRole("heading", { level: 1 }).first().waitFor(); }],
+    ["signed in: Problem Studio Advanced editor", async (page) => { await openAdvanced(page); }],
+    ["signed in: Problem Studio Advanced student preview", async (page) => { await openAdvanced(page); await page.getByRole("button", { name: "Student preview", exact: true }).click(); await page.getByRole("article", { name: "Student-facing preview" }).waitFor(); }],
     ["signed in: submissions", async (page) => { await page.goto(`${origin}/dashboard/submissions`, { waitUntil: "domcontentloaded" }); await page.getByRole("heading", { level: 1 }).first().waitFor({ timeout: 20000 }); await page.waitForTimeout(1500); }],
     ["signed in: settings", async (page) => { await page.goto(`${origin}/settings`, { waitUntil: "networkidle" }); }],
   );
