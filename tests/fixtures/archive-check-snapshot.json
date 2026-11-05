@@ -1,0 +1,122 @@
+{
+ "arena-mind-the-gap": {
+  "cases": 43,
+  "digest": "554d5d919807ce52e05f5013fca037150d5fa696cd90ed6232c7b0890cb6a4d9"
+ },
+ "arena-the-bubble-treaty": {
+  "cases": 63,
+  "digest": "eb8003bd2f00ccf00e134ecd1e990dda773eb721083162c0cf526a599dac4d1b"
+ },
+ "arena-the-cosmic-kitchen": {
+  "cases": 233,
+  "digest": "cec5475ffc5e32a9aae657da36d6f2110db1fc08f3a28fd298654a9cfe1c1e0d"
+ },
+ "arena-the-five-fold-collision": {
+  "cases": 113,
+  "digest": "577574df665eb68e31dbf667cbb77abfcecb441a45873f03da66edd58be6877d"
+ },
+ "arena-the-phantom-charge": {
+  "cases": 139,
+  "digest": "c0e8d58bfe3d79828f8000e66b335f25a4ffbdb98718d9c674cf6563a0d5e6cd"
+ },
+ "arena-the-string-that-answered-back": {
+  "cases": 64,
+  "digest": "82517a43cc54073e601e12bf88677720a15f6a4a101dff7011d6ffc9128c5363"
+ },
+ "arena-the-clock-in-the-racing-mirror": {
+  "cases": 48,
+  "digest": "833117833f7fb4a2eddc5f94faddfa31126ee1e778f9125f6d576dcc5f211178"
+ },
+ "arena-the-dodecahedron-conspiracy": {
+  "cases": 80,
+  "digest": "d61cb56883a489695740282788a54191ee7f9183c7e3c2fe147c85f8ce7cc8b0"
+ },
+ "arena-the-gas-with-elbows": {
+  "cases": 220,
+  "digest": "096287efc43d3f1242e29ef3c92300d592df96ef0a871d1bc10f8e4357565fba"
+ },
+ "arena-the-quantum-escape-room": {
+  "cases": 128,
+  "digest": "29e25a713f10592f699c699c387c693116c0ad6fa51e34278a8ac527dfde7597"
+ },
+ "arena-the-three-way-wave-split": {
+  "cases": 64,
+  "digest": "a19177ca7a2bf4df1ace952b8c16f2c076daf802544943ce4034a4ab728be285"
+ },
+ "arena-titans-double-take": {
+  "cases": 22,
+  "digest": "6ced3deb94e685527dcec4dcffe66076b35329d7f5fa3911b8d6420a69a59329"
+ },
+ "arena-a-grin-and-a-wiggle": {
+  "cases": 128,
+  "digest": "a8a53ed5ff6ac377d75009399f71e696ca0e59ea54e7795aaee31765a131439b"
+ },
+ "arena-an-atom-with-stage-fright": {
+  "cases": 128,
+  "digest": "57c8a5e1b8217e9d7af87c9bd7d50777237dcdd3b441184dc7dd153602221ce5"
+ },
+ "arena-the-invisible-brake": {
+  "cases": 107,
+  "digest": "2343fbc13bb8c45c2fdf748135b35eb7971785d60b56f38dcf77a0b16ab56e85"
+ },
+ "arena-the-bending-beam-riddle": {
+  "cases": 187,
+  "digest": "89c839be6c0d01b65366eb0143254c10e0ddcd5dfd6f763bc9e0b1e289ab7f68"
+ },
+ "arena-the-capacitors-missing-energy": {
+  "cases": 331,
+  "digest": "6e948fb8cbf4439b8934ef01724aa23e3c398bf228082dbc10b30811b728b252"
+ },
+ "arena-the-infinite-v": {
+  "cases": 11,
+  "digest": "3397be22ff4e2ca91a6266d4066a10bb498420fc490c3184b427b54609a87653"
+ },
+ "incline": {
+  "cases": 11,
+  "digest": "b5c864fe18e7b398c72905427c8f71ee25ece6758ec1da3e796a9f8f1f8c646f"
+ },
+ "circuit": {
+  "cases": 11,
+  "digest": "88ba3cbf303577adc328e1d68cc2431de3bbee7f6717e340e8601ae26d7c6f45"
+ },
+ "string": {
+  "cases": 11,
+  "digest": "ddc8b66f79dfb9d4b2c11c46eaf4b34e7fdf7d43eac3a4666ecd5ecd017602bf"
+ },
+ "projectile": {
+  "cases": 11,
+  "digest": "8955f91d8851874d46adbc3f46dbd37c12c2709cef3e9f6f596964a5b33bf5db"
+ },
+ "spring": {
+  "cases": 11,
+  "digest": "5ca16c22bdd0ba14d110734e901c9efbbb35259156dc816c4d1d3e1dbaa7884f"
+ },
+ "resistors": {
+  "cases": 11,
+  "digest": "88ba3cbf303577adc328e1d68cc2431de3bbee7f6717e340e8601ae26d7c6f45"
+ },
+ "power": {
+  "cases": 11,
+  "digest": "c686adc3a62c8364b80844145c826c77e9aba60addade29b81b4baaf944c4b29"
+ },
+ "wave": {
+  "cases": 11,
+  "digest": "88ba3cbf303577adc328e1d68cc2431de3bbee7f6717e340e8601ae26d7c6f45"
+ },
+ "echo": {
+  "cases": 11,
+  "digest": "2621c72d5724b33a25a4f9d6a0542dba170d46dd1836db86088a9d7e7eade709"
+ },
+ "heat": {
+  "cases": 11,
+  "digest": "4351609437f958c75e909d6c14c52cbfb7ec442fd91317ccae4fe61ec93e291b"
+ },
+ "gas": {
+  "cases": 11,
+  "digest": "116a6cbce95a04a93ee68e54a304ff6cec949832ef95a7122c6878b4fabae758"
+ },
+ "first-law": {
+  "cases": 11,
+  "digest": "b6f4b9e2250dbc610afd674913e134a6ee90c48fc88743785fc3da8d381044ac"
+ }
+}
