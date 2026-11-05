@@ -50,7 +50,7 @@ export function Field({
   );
 }
 export const inputClass =
-  "min-h-11 w-full min-w-0 rounded-md border border-input bg-background px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-60";
+  "min-h-11 w-full min-w-0 rounded-md border border-input bg-background px-3 py-2 text-sm outline-none placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-60";
 export function MathPreview({
   latex,
   inline = false,

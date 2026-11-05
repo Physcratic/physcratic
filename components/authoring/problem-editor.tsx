@@ -1090,12 +1090,12 @@ export function ProblemEditor({
                 </h2>
                 <ol className="space-y-1 text-sm">
                   <li>
-                    <a href="#step-statement" className="block rounded-sm py-2 hover:underline">
+                    <a href="#step-statement" className="flex min-h-11 items-center rounded-sm hover:underline">
                       1. Statement
                     </a>
                   </li>
                   <li>
-                    <a href="#step-parts" className="block rounded-sm py-2 hover:underline">
+                    <a href="#step-parts" className="flex min-h-11 items-center rounded-sm hover:underline">
                       2. Parts and answers
                     </a>
                     <ul className="ml-4 space-y-1 border-l pl-3">
@@ -1103,7 +1103,7 @@ export function ProblemEditor({
                         <li key={section.id}>
                           <a
                             href={`#section-${section.id}`}
-                            className="block truncate rounded-sm py-1.5 text-muted-foreground hover:text-foreground hover:underline"
+                            className="flex min-h-11 items-center truncate rounded-sm text-muted-foreground hover:text-foreground hover:underline"
                           >
                             {section.title || `Section ${i + 1}`}
                           </a>
@@ -1112,17 +1112,17 @@ export function ProblemEditor({
                     </ul>
                   </li>
                   <li>
-                    <a href="#step-tags" className="block rounded-sm py-2 hover:underline">
+                    <a href="#step-tags" className="flex min-h-11 items-center rounded-sm hover:underline">
                       3. Tags
                     </a>
                   </li>
                   <li>
-                    <a href="#author-assets" className="block rounded-sm py-2 hover:underline">
+                    <a href="#author-assets" className="flex min-h-11 items-center rounded-sm hover:underline">
                       4. Images and PDFs
                     </a>
                   </li>
                   <li>
-                    <a href="#publication" className="block rounded-sm py-2 hover:underline">
+                    <a href="#publication" className="flex min-h-11 items-center rounded-sm hover:underline">
                       5. Publish
                     </a>
                   </li>
