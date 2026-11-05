@@ -8,36 +8,44 @@ import { editorDraftSchema, newProblem, draftPayload } from "../lib/problem-auth
 import {
   RIGHTS_TEXT,
   UNITS,
-  addEasyPart,
+  addPart,
+  addPicture,
+  advancedNote,
+  blocksSpans,
+  deriveTitle,
+  mathSymbols,
+  pictureOf,
+  removePicture,
+  setIntro,
+  setPictureAlt,
+  setSolution as setSolutionSpans,
+  simpleIssues,
   allParts,
   answerText,
   applyAnswer,
   blocksText,
-  easyIssues,
-  ensureEasyShape,
+  ensureSimpleShape,
   knownUnit,
   partLetter,
   privateFor,
   readAnswer,
-  setHint,
-  setProblemText,
   setQuestion,
   setRights,
-  setSolution,
   setUnits,
   spansToText,
   testAnswer,
   textToSpans,
   verdictLabel,
-} from "../components/authoring/easy-model";
+} from "../components/authoring/simple-model";
 
 // The student route imports server-only modules. The boundary is only enforced by the Next build.
 createRequire(import.meta.url)("./server-only-register.cjs");
 
 const uuid = () => crypto.randomUUID();
+const words = (text: string) => [{ kind: "text" as const, text }];
 function blank(): EditorDraft {
   const draft: EditorDraft = { problemId: uuid(), version: 1, state: "draft", slug: "", ...structuredClone(newProblem()) };
-  ensureEasyShape(draft);
+  ensureSimpleShape(draft);
   return draft;
 }
 /** Fills a draft the way Easy does: title, text, question, answer, the tick. */
@@ -45,8 +53,7 @@ function easyDraft(answer: string, units = ""): EditorDraft {
   const d = blank();
   const id = allParts(d)[0].part.id;
   d.content.title = "Block on a slope";
-  setProblemText(d, "A block of mass $m$ slides down a slope.");
-  setQuestion(d, id, "Find the acceleration.");
+  setQuestion(d, id, [{ kind: "text", text: "A block of mass " }, { kind: "math", latex: "m" }, { kind: "text", text: " slides down a slope. Find the acceleration." }]);
   applyAnswer(d, id, readAnswer(answer), answer);
   if (units) setUnits(d, id, units);
   setRights(d, true);
@@ -90,15 +97,60 @@ test("text with maths round-trips and keeps unrelated blocks", () => {
   assert.equal(spansToText(textToSpans("")), "");
   const d = blank();
   d.content.context = [{ id: uuid(), kind: "math", latex: "F=ma" }];
-  setProblemText(d, "Hello");
+  setIntro(d, words("Hello"));
   assert.equal(d.content.context.length, 2);
   assert.equal(d.content.context[1].kind, "math");
   assert.equal(blocksText(d.content.context), "Hello");
+  assert.deepEqual(blocksSpans(d.content.context), words("Hello"));
 });
 
-test("a one-part expression problem written in Easy is a valid, publishable draft", () => {
+test("the title comes from the first words of the first question until the author writes their own", () => {
+  assert.equal(deriveTitle(words("A ball is thrown up at 12 m/s. How high does it go?")), "A Ball is Thrown Up");
+  assert.equal(deriveTitle([{ kind: "math", latex: "x" }]), "");
+  assert.equal(deriveTitle(words("Find the speed of the")), "Find the Speed");
+  const d = blank();
+  const id = allParts(d)[0].part.id;
+  setQuestion(d, id, words("A pendulum swings through a small angle"));
+  assert.equal(d.content.title, "A Pendulum Swings Through");
+  setQuestion(d, id, words("A pendulum on a cart"));
+  assert.equal(d.content.title, "A Pendulum on a Cart", "the title follows the question while it is the made one");
+  d.content.title = "Pendulum on a Cart";
+  setQuestion(d, id, words("Something else entirely"));
+  assert.equal(d.content.title, "Pendulum on a Cart", "a title the author wrote is kept");
+});
+
+test("symbols written in the question's equations are offered, never saved", () => {
+  assert.deepEqual(mathSymbols([{ kind: "text", text: "A block of mass " }, { kind: "math", latex: "m" }, { kind: "math", latex: "\\frac{1}{2}gt^2" }]), ["m", "g", "t"]);
+  assert.deepEqual(mathSymbols([{ kind: "math", latex: "x+" }]), []);
+});
+
+test("a picture is one image block after the question, its alt text is required, and removing it removes the block", () => {
+  const d = easyDraft("9.8", "m/s^2");
+  const id = allParts(d)[0].part.id;
+  const media = uuid();
+  addPicture(d, id, media);
+  addPicture(d, id, uuid());
+  assert.equal(allParts(d)[0].part.blocks.filter((b) => b.kind === "image").length, 1, "only one picture");
+  assert.equal(allParts(d)[0].part.blocks[1].kind, "image");
+  assert.deepEqual(simpleIssues(d).map((i) => i.field), [`picture:${id}`]);
+  setPictureAlt(d, id, "A cart on a slope");
+  assert.deepEqual(simpleIssues(d), []);
+  assert.deepEqual(pictureOf(allParts(d)[0].part.blocks)?.mediaId, media);
+  removePicture(d, id);
+  assert.equal(pictureOf(allParts(d)[0].part.blocks), null);
+});
+
+test("Simple notes what only Advanced holds", () => {
+  assert.equal(advancedNote(blank()), "");
+  const d = advancedDraft();
+  assert.match(advancedNote(d), /2 sections/);
+  assert.match(advancedNote(d), /hints/);
+  assert.match(advancedNote(d), /method tags/);
+});
+
+test("a one-part expression problem written in Simple is a valid, publishable draft", () => {
   const d = easyDraft("\\frac{1}{2}mv^{2}");
-  assert.deepEqual(easyIssues(d), []);
+  assert.deepEqual(simpleIssues(d), []);
   const payload = { problemId: d.problemId, version: d.version, ...draftPayload(d) };
   assert.ok(authoredDraftSchema.safeParse(payload).success);
   const publishable = publishableDraftSchema.safeParse(payload);
@@ -119,26 +171,26 @@ test("a number answer uses the default tolerance of the Arena checker, and a uni
   const d = easyDraft("9.8", "m/s^2");
   const key = privateFor(d, allParts(d)[0].part.id).key;
   assert.deepEqual(key, { kind: "numeric", value: 9.8, units: "m/s^2", absTol: 1e-9, relTol: 0.01 });
-  assert.deepEqual(easyIssues(d), []);
+  assert.deepEqual(simpleIssues(d), []);
   assert.ok(publishableDraftSchema.safeParse({ problemId: d.problemId, version: 1, ...draftPayload(d) }).success);
   setUnits(d, allParts(d)[0].part.id, "furlong");
-  assert.match(easyIssues(d).find((i) => i.field.startsWith("units:"))?.message ?? "", /does not know the unit/);
+  assert.match(simpleIssues(d).find((i) => i.field.startsWith("units:"))?.message ?? "", /don't know the unit/);
 });
 
 test("each thing that blocks Publish is named next to its own field", () => {
   const d = blank();
   const id = allParts(d)[0].part.id;
   assert.deepEqual(
-    easyIssues(d).map((i) => i.field),
-    ["title", `question:${id}`, `answer:${id}`, "rights"],
+    simpleIssues(d).map((i) => i.field),
+    [`question:${id}`, `answer:${id}`, "title", "rights"],
   );
-  assert.deepEqual(easyIssues(d, { [id]: "x+" }).find((i) => i.field === `answer:${id}`)?.message.includes("stops too soon"), true);
+  assert.deepEqual(simpleIssues(d, { [id]: "x+" }).find((i) => i.field === `answer:${id}`)?.message.includes("stops too soon"), true);
 });
 
 test("letters are automatic", () => {
   const d = blank();
-  addEasyPart(d);
-  addEasyPart(d);
+  addPart(d);
+  addPart(d);
   assert.deepEqual(allParts(d).map((r) => r.part.label), ["a", "b", "c"]);
   assert.equal(partLetter(26), "a2");
 });
@@ -181,6 +233,10 @@ function advancedDraft(): EditorDraft {
     p.partId === first.id
       ? {
           ...p,
+          hints: [
+            { id: uuid(), kind: "text" as const, spans: [{ kind: "text" as const, text: "Think about x" }] },
+            { id: uuid(), kind: "math" as const, latex: "y=x^2" },
+          ],
           key: {
             kind: "expression" as const,
             expected: "x^2+y",
@@ -197,17 +253,16 @@ function advancedDraft(): EditorDraft {
   return d;
 }
 
-test("editing a draft with Advanced settings in Easy and switching back keeps every Advanced field", () => {
+test("editing a draft with Advanced settings in Simple and switching back keeps every Advanced field", () => {
   const before = advancedDraft();
   assert.ok(authoredDraftSchema.safeParse({ problemId: before.problemId, version: 1, ...draftPayload(before) }).success);
   const after = structuredClone(before);
   const first = allParts(after)[0].part;
-  // Everything Easy lets the author change.
+  // Everything Simple lets the author change.
   after.content.title = "A new title";
-  setProblemText(after, "New problem text with $y$.");
-  setQuestion(after, first.id, "What is the new question?");
-  setHint(after, first.id, "A hint");
-  setSolution(after, first.id, "A solution");
+  setIntro(after, [{ kind: "text", text: "New intro with " }, { kind: "math", latex: "y" }]);
+  setQuestion(after, first.id, words("What is the new question?"));
+  setSolutionSpans(after, first.id, words("A solution"));
   // The same answer typed again, and an equivalent one that keeps the same symbols.
   applyAnswer(after, first.id, readAnswer("x^2+y"), "x^2+y");
   applyAnswer(after, first.id, readAnswer("y+x^2"), "y+x^2");
@@ -225,18 +280,18 @@ test("editing a draft with Advanced settings in Easy and switching back keeps ev
   const second = allParts(after)[1].part;
   applyAnswer(after, second.id, readAnswer("5"), "5");
   assert.deepEqual(privateFor(after, second.id).key, { kind: "numeric", value: 5, units: "m", absTol: 0.5, relTol: 0.2 });
-  // Put the Easy-edited values back and the two drafts must be identical.
+  // Put the Simple-edited values back and the two drafts must be identical.
   applyAnswer(after, second.id, readAnswer("4.9"), "4.9");
   after.content.title = before.content.title;
   after.content.context[0] = structuredClone(before.content.context[0]);
   first.blocks = structuredClone(before.content.sections[0].parts[0].blocks);
   const entry = after.privateParts.find((p) => p.partId === first.id)!;
   const original = before.privateParts.find((p) => p.partId === first.id)!;
-  entry.hints = structuredClone(original.hints);
+  // Hints are not shown in Simple, so nothing touched them and nothing needs putting back.
   entry.solution = structuredClone(original.solution);
   after.privateParts = after.privateParts.map((p) => (p.partId === first.id ? { ...p, key: structuredClone(original.key) } : p));
   assert.deepEqual(after, before);
-  // The rights stay as Advanced set them: Easy does not overwrite permission.
+  // The rights stay as Advanced set them: Simple does not overwrite permission.
   setRights(after, true);
   assert.equal(after.content.provenance.kind, "authorized");
   assert.equal(after.content.provenance.source, "Permission email, 2 November");

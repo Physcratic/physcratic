@@ -27,8 +27,8 @@ import {
 import { AnswerPanel } from "./answer-panel";
 import { TagPicker, MissingTagNote } from "./tag-picker";
 import { HowItWorksLink, StatusBar, StepCard, studioTokens } from "./studio-ui";
-import { EasyEditor, rememberEasyFocus } from "./easy-editor";
-import { STUDIO_MODE_KEY, readStudioMode, type StudioMode } from "./easy-model";
+import { SimpleEditor, rememberSimpleFocus } from "./simple-editor";
+import { STUDIO_MODE_KEY, readStudioMode, type StudioMode } from "./simple-model";
 import { colorsByPartId } from "@/lib/part-colors";
 import { PartChip, partBorder, partStyle } from "@/components/physics/solve-ui";
 import {
@@ -68,7 +68,7 @@ export function ProblemEditor({
   /** A link to the most recent draft, shown at the top of a new problem. */
   continueDraft?: { title: string; open: () => void } | null;
 }) {
-  const [mode, setModeState] = useState<StudioMode>("easy");
+  const [mode, setModeState] = useState<StudioMode>("simple");
   // The saved choice is read in the browser, so nothing is drawn until it is known. No flash of the wrong mode.
   const [modeReady, setModeReady] = useState(false);
   useEffect(() => {
@@ -100,7 +100,7 @@ export function ProblemEditor({
           if (created) throw new Error("Your first draft was saved. Keep typing.");
           const saved = editorDraftSchema.parse(await draftRequest(editorBase, "POST", draftPayload(draft)));
           created = true;
-          rememberEasyFocus();
+          rememberSimpleFocus();
           try {
             storage?.removeItem(`physcratic:author:${userId}:${initial.problemId}`);
           } catch {
@@ -149,9 +149,9 @@ export function ProblemEditor({
     ...draftPayload(draft),
   });
   const issues = publishable.success ? [] : publishable.error.issues;
-  // Publish rules Easy shows next to its own fields. Anything else is listed by the Publish button.
-  const easyOwned = /^(Title and rights provenance required|Native statement and at least one part required|Every published part requires a key or explicit manual mode)$/;
-  const otherIssues = issues.map((i) => i.message).filter((m) => !easyOwned.test(m));
+  // Publish rules Simple shows next to its own fields. Anything else is listed by the Publish button.
+  const simpleOwned = /^(Title and rights provenance required|Native statement and at least one part required|Every published part requires a key or explicit manual mode)$/;
+  const otherIssues = issues.map((i) => i.message).filter((m) => !simpleOwned.test(m));
   useEffect(() => {
     session.activate();
     return () => session.dispose();
@@ -280,7 +280,7 @@ export function ProblemEditor({
           </div>
           <div className="flex flex-wrap items-center gap-2">
             <div role="group" aria-label="Editor mode" className="flex gap-1 rounded-lg border p-1">
-              {(["easy", "advanced"] as const).map((m) => (
+              {(["simple", "advanced"] as const).map((m) => (
                 <Button
                   key={m}
                   type="button"
@@ -289,7 +289,7 @@ export function ProblemEditor({
                   variant={mode === m ? "secondary" : "ghost"}
                   onClick={() => chooseMode(m)}
                 >
-                  {m === "easy" ? "Easy" : "Advanced"}
+                  {m === "simple" ? "Simple" : "Advanced"}
                 </Button>
               ))}
             </div>
@@ -362,16 +362,19 @@ export function ProblemEditor({
         tabIndex={-1}
         className="focus:outline-none mx-auto max-w-7xl px-4 py-8 sm:px-8 sm:py-12"
       >
-        <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+        <div className={`mb-8 flex flex-wrap items-end justify-between gap-4 ${mode === "simple" ? "mx-auto max-w-2xl" : ""}`}>
           <div>
             <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
               Problem Studio
             </h1>
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
-              Write a problem, add a solution, then publish.
-            </p>
+            {mode === "advanced" && (
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                Write a problem, add a solution, then publish.
+              </p>
+            )}
           </div>
           <StatusBar
+            compact={mode === "simple"}
             state={draft.state}
             version={draft.version}
             saveMessage={uploads > 0 ? "Uploading privately…" : message}
@@ -575,7 +578,7 @@ export function ProblemEditor({
             )}
           </section>
         )}
-        {!modeReady ? null : mode === "easy" ? (
+        {!modeReady ? null : mode === "simple" ? (
           <>
             {continueDraft && (
               <p className="mb-6 text-sm">
@@ -596,7 +599,7 @@ export function ProblemEditor({
                 </button>
               </p>
             )}
-            <EasyEditor
+            <SimpleEditor
               draft={draft}
               edit={edit}
               locked={busy || uploads > 0 || !!recovery || !!snapshot.recoveryRaw}

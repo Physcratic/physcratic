@@ -1,4 +1,4 @@
-// Easy mode in Problem Studio, against the real editor and API on the throwaway PostgreSQL (loopback only).
+// Simple mode in Problem Studio, against the real editor and API on the throwaway PostgreSQL (loopback only).
 // Publishes a one-part expression problem in Easy mode and fails if it takes more than the Phase 4 target
 // (1 screen, at most 4 clicks, 0 selects, at most 4 typed fields). Then checks switching modes, the preview,
 // Test an answer, the 375px layout, the carry-over of fast typing and the student side.
@@ -249,7 +249,7 @@ try {
     headless: true,
     args: ["--no-sandbox"],
   });
-  const TARGET = { screens: 1, clicks: 4, selects: 0, fields: 4 };
+  const TARGET = { screens: 1, clicks: 3, selects: 0 };
   const log = (...a) => console.log(...a);
   const errors = [];
   const newPage = async (width, height = 1000) => {
@@ -262,145 +262,206 @@ try {
   const saved = (page) => until(async () => (await page.getByRole("status").allTextContents()).some((t) => t.includes("All changes saved")), "autosave");
   const draftId = (page) => new URL(page.url()).searchParams.get("draft");
   const noSideways = async (page, label) => assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), `${label}: no sideways scroll`);
-  const mathLive = async (page, scope) => {
-    const field = (scope ?? page).locator("math-field").first();
-    await field.waitFor({ timeout: 20000 });
-    return field;
-  };
+  const mathField = async (scope) => { const f = scope.locator("math-field").first(); await f.waitFor({ timeout: 20000 }); return f; };
+  const savedContent = async (id) => (await pool.query("SELECT content FROM authored_draft WHERE problem_id=$1", [id])).rows[0]?.content;
+  const savedKey = async (id) => (await pool.query("SELECT data FROM authored_draft_private_part WHERE problem_id=$1", [id])).rows[0]?.data?.key;
 
   // ------------------------------------------------------------------ 1. Publish a one-part problem at 1440
   const { context: wide, page } = await newPage(1440);
   await page.goto(origin);
   await page.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
-  const counts = { screens: 1, clicks: 0, selects: 0, fields: 0, keys: 0 };
+  const counts = { screens: 1, clicks: 0, focusClicks: 0, selects: 0, typedFields: 0, keys: 0 };
   const click = async (l) => { await l.click(); counts.clicks++; };
-  const type = async (l, text) => { await l.fill(text); counts.fields++; counts.keys += text.length; };
-  assert.equal(await page.getByRole("button", { name: "Easy" }).getAttribute("aria-pressed"), "true", "Easy is the default");
-  assert.equal(await page.getByRole("button", { name: "Publish problem" }).count(), 1, "one Publish button");
-  assert.ok(await page.getByRole("complementary", { name: "Student preview" }).isVisible(), "the preview sits beside the editor at 1440");
+  const focusClick = async (l) => { await l.click(); counts.focusClicks++; };
+  const typed = async (l, text, opts) => { await l.pressSequentially(text, opts); counts.typedFields++; counts.keys += text.length; };
+  assert.equal(await page.getByRole("button", { name: "Simple" }).getAttribute("aria-pressed"), "true", "Simple is the default");
   assert.equal(await page.getByRole("button", { name: "Advanced" }).getAttribute("aria-pressed"), "false");
-  const title = "Phase 0 baseline problem";
-  await type(page.getByLabel("Title", { exact: true }), title);
+  assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).count(), 1, "one Publish button");
+  assert.equal(await page.locator("select:visible").count(), 0, "no select on the page");
+  for (const text of ["What's the question?", "Add a picture (optional)", "Final answer. We check students against this.", "Try an answer", "Worked solution (optional)"])
+    await page.getByText(text, { exact: true }).waitFor();
+  assert.equal(await page.getByText(/context|provide/i).count(), 0, "no jargon labels");
+
+  // The question, with an equation typed like in a word processor: $ opens it, Escape closes it.
+  const part = page.getByRole("region", { name: "Part a", exact: true });
+  const question = part.getByRole("textbox", { name: "What's the question?" });
+  await focusClick(question);
+  await typed(question, "A ball is thrown up at ");
+  await page.keyboard.type("$");
+  const panel = page.getByRole("group", { name: "Type your equation" });
+  await panel.waitFor();
+  const eq = await mathField(panel);
+  await page.waitForTimeout(300);
+  await page.keyboard.type("v=12");
+  counts.keys += 5;
+  await page.keyboard.press("Escape");
+  await panel.waitFor({ state: "detached" });
+  await page.keyboard.type(" m/s. How high does it go?");
+  counts.keys += 26;
+  assert.equal(await question.locator("[data-math-id]").count(), 1, "the equation is a chip inside the text");
+  assert.ok((await question.locator("[data-math-id] .katex").count()) === 1, "the chip shows rendered maths");
   await page.waitForURL((url) => url.searchParams.has("draft"));
   const id = draftId(page);
   await saved(page);
-  await type(page.getByLabel("Problem text", { exact: true }), "Find the net force on a 2 kg cart that accelerates at 5 m/s2. Give F in terms of m and a.");
-  await type(page.getByLabel("Question", { exact: true }), "Find F.");
-  const answer = await mathLive(page, page.getByRole("region", { name: "Part a", exact: true }));
-  await click(answer);
+  assert.equal(await page.getByLabel("Title", { exact: true }).inputValue(), "A Ball is Thrown Up", "the title comes from the question");
+  assert.ok(await page.getByText("We made this from your question. Change it if you like.").isVisible());
+
+  // Clicking the equation edits it.
+  await question.locator("[data-math-id]").click();
+  await panel.waitFor();
+  await mathField(panel);
+  await page.waitForTimeout(300);
+  assert.equal(await panel.locator("math-field").evaluate((e) => e.value), "v=12", "the panel opens with the equation in it");
+  await page.keyboard.press("Escape");
+  await panel.waitFor({ state: "detached" });
+
+  // The picture.
+  const [chooser] = await Promise.all([page.waitForEvent("filechooser"), click(part.getByRole("button", { name: "Choose a picture" }))]);
+  await chooser.setFiles({ name: "ball.png", mimeType: "image/png", buffer: png });
+  await part.getByLabel("Describe the picture").waitFor({ timeout: 20000 });
+  await typed(part.getByLabel("Describe the picture"), "A ball thrown upwards from the ground");
+
+  // The answer key and Try an answer.
+  const answerBox = await mathField(part.getByText("Final answer. We check students against this.").locator("xpath=ancestor::div[contains(@data-tour,'studio-answer')]"));
+  await focusClick(answerBox);
   await page.waitForTimeout(300);
   await page.keyboard.type("m*a");
-  counts.fields++; counts.keys += 3;
-  await until(async () => (await page.getByRole("list", { name: "Symbols in this answer" }).locator("li").allInnerTexts()).map((x) => x.trim()).join(",") === "m,a", "symbols detected");
-  assert.deepEqual((await page.getByRole("list", { name: "Symbols in this answer" }).locator("li").allInnerTexts()).map((t) => t.trim()), ["m", "a"], "symbols are found from the answer");
-  assert.equal(await page.locator("select:visible").count(), 0, "no select on the page");
-  await click(page.getByLabel(/I wrote this problem and I'm happy to share it on Physcratic/));
-  await saved(page);
-  const publish = page.getByRole("button", { name: "Publish problem", exact: true });
-  await click(publish);
-  await until(async () => (await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state === "published", "publish");
-  log(`EASY PUBLISH: ${JSON.stringify(counts)}  target ${JSON.stringify(TARGET)}`);
-  assert.ok(counts.screens <= TARGET.screens && counts.clicks <= TARGET.clicks && counts.selects <= TARGET.selects && counts.fields <= TARGET.fields, "within the click target");
-  const row = (await pool.query("SELECT content FROM authored_draft WHERE problem_id=$1", [id])).rows[0].content;
-  assert.equal(row.title, title);
-  assert.equal(row.provenance.kind, "original");
-  assert.equal(row.provenance.rightsDeclaration, "I wrote this problem and I'm happy to share it on Physcratic.");
-  assert.equal(row.sections.length, 1);
-  assert.equal(row.sections[0].parts[0].label, "a");
-  assert.equal(row.sections[0].parts[0].answerMode, "expression");
-  const partId = row.sections[0].parts[0].id;
-  const key = (await pool.query("SELECT data FROM authored_draft_private_part WHERE problem_id=$1", [id]).catch(() => ({ rows: [] }))).rows[0]?.data?.key;
-  if (key) { assert.equal(key.kind, "expression"); assert.deepEqual(key.variables.map((v) => v.name), ["m", "a"]); assert.equal(key.angleUnit, "radians"); }
-
-  // Preview and Test an answer at 1440
-  const part = page.getByRole("region", { name: "Part a preview" });
-  await part.waitFor();
-  const testBox = await mathLive(page, part);
-  await testBox.click();
+  counts.typedFields++; counts.keys += 3;
+  await until(async () => (await part.getByRole("list", { name: "Symbols in this answer" }).locator("li").allInnerTexts()).map((x) => x.trim()).join(",") === "m,a", "symbols detected");
+  const tryBox = await mathField(part.getByText("Try an answer", { exact: true }).locator("xpath=ancestor::div[contains(@data-tour,'studio-try')]"));
+  await focusClick(tryBox);
   await page.waitForTimeout(300);
   await page.keyboard.type("a*m");
-  await until(async () => /Correct\./.test(await part.locator("[data-test-result]").innerText()), "test answer correct");
+  const result = part.locator("[data-test-result]");
+  await until(async () => /^Correct\./.test(await result.innerText()), "try an answer: correct");
   await page.keyboard.press("Control+A"); await page.keyboard.type("m+a");
-  await until(async () => /Incorrect\./.test(await part.locator("[data-test-result]").innerText()), "test answer incorrect");
-  log("Test an answer at 1440:", JSON.stringify(await part.locator("[data-test-result]").innerText()));
+  await until(async () => /^Incorrect\./.test(await result.innerText()), "try an answer: incorrect");
+  log("Try an answer:", JSON.stringify(await result.innerText()));
 
-  // Switching to Advanced and back loses nothing and saves nothing new
+  // Rights and Publish.
+  await click(page.getByLabel(/I wrote this problem and I'm happy to share it on Physcratic/));
+  await saved(page);
+  await click(page.getByRole("button", { name: "Publish", exact: true }));
+  await until(async () => (await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state === "published", "publish");
+  log(`SIMPLE PUBLISH: ${JSON.stringify(counts)}  target ${JSON.stringify(TARGET)}`);
+  assert.ok(counts.screens <= TARGET.screens && counts.clicks <= TARGET.clicks && counts.selects <= TARGET.selects, "within the click target");
+
+  const content = await savedContent(id);
+  assert.equal(content.title, "A Ball is Thrown Up");
+  assert.equal(content.provenance.kind, "original");
+  assert.equal(content.provenance.rightsDeclaration, "I wrote this problem and I'm happy to share it on Physcratic.");
+  const partRow = content.sections[0].parts[0];
+  assert.equal(partRow.label, "a");
+  assert.equal(partRow.answerMode, "expression");
+  const spans = partRow.blocks.find((b) => b.kind === "text").spans;
+  assert.deepEqual(spans, [{ kind: "text", text: "A ball is thrown up at " }, { kind: "math", latex: "v=12" }, { kind: "text", text: " m/s. How high does it go?" }]);
+  const image = partRow.blocks.find((b) => b.kind === "image");
+  assert.equal(image?.alt, "A ball thrown upwards from the ground");
+  assert.ok(content.attachments.some((a) => a.id === image.mediaId && a.purpose === "statement-image"), "the picture is attached as a statement image");
+  const key = await savedKey(id);
+  assert.equal(key.kind, "expression");
+  assert.deepEqual(key.variables.map((v) => v.name), ["m", "a"]);
+  assert.equal(key.angleUnit, "radians");
+
+  // Switching modes loses nothing and saves nothing.
   const before = (await pool.query("SELECT version FROM authored_draft WHERE problem_id=$1", [id])).rows[0].version;
-  await click(page.getByRole("button", { name: "Advanced" }));
-  assert.equal(await page.getByLabel("Problem title", { exact: true }).inputValue(), title);
-  assert.equal(await page.getByLabel("Section 1 part 1 label", { exact: true }).inputValue(), "a");
-  await page.getByRole("button", { name: "Easy" }).click();
-  assert.equal(await page.getByLabel("Title", { exact: true }).inputValue(), title);
+  await page.getByRole("button", { name: "Advanced" }).click();
+  assert.equal(await page.getByLabel("Problem title", { exact: true }).inputValue(), "A Ball is Thrown Up");
+  assert.ok(await page.getByRole("button", { name: /Insert equation in Part a statement text 1/ }).count(), "Advanced text fields have the Equation button");
+  await page.getByRole("button", { name: "Simple" }).click();
+  assert.equal(await page.getByLabel("Title", { exact: true }).inputValue(), "A Ball is Thrown Up");
+  assert.equal(await question.locator("[data-math-id]").count(), 1);
   await page.waitForTimeout(2500);
   assert.equal((await pool.query("SELECT version FROM authored_draft WHERE problem_id=$1", [id])).rows[0].version, before, "switching modes saves nothing");
-  assert.equal((await page.evaluate(() => localStorage.getItem("physcratic.studio.mode"))), "easy");
+  assert.equal(await page.evaluate(() => localStorage.getItem("physcratic.studio.mode")), "simple");
 
-  // Continue link on a new Easy page
+  // Another part, and taking it away again.
+  await page.getByRole("button", { name: "Add another part" }).click();
+  await page.getByRole("region", { name: "Part b", exact: true }).waitFor();
+  await page.getByRole("button", { name: "Remove part b" }).click();
+  await page.getByRole("region", { name: "Part b", exact: true }).waitFor({ state: "detached" });
+
+  // ------------------------------------------------------------------ 2. Messages sit next to their field, nothing is saved too early
   const fresh = await newPage(1440);
-  await fresh.page.goto(origin);
-  await fresh.page.getByRole("button", { name: /Continue your last draft/ }).waitFor();
-  assert.equal(await fresh.page.getByRole("button", { name: "Publish problem" }).isEnabled(), true, "Publish shows what is missing instead of staying silent");
-  await fresh.page.getByRole("button", { name: "Publish problem" }).click();
-  for (const text of ["Give the problem a title.", "Write the question for this part.", "Add the answer for this part.", "Tick the box to say you wrote this problem."])
-    await fresh.page.getByText(text, { exact: true }).waitFor({ timeout: 3000 });
-  assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 1, "no draft is created before the first edit");
-  // Fast typing across the first save keeps every character.
   const f = fresh.page;
-  await f.getByLabel("Title", { exact: true }).pressSequentially("Pendulum on a cart", { delay: 15 });
-  await f.getByLabel("Problem text", { exact: true }).pressSequentially("A bob of mass $m$ hangs from a cart.", { delay: 15 });
+  await f.goto(origin);
+  await f.getByRole("button", { name: /Continue your last draft/ }).waitFor();
+  assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 1, "no draft is created before the first edit");
+  await f.getByRole("button", { name: "Publish", exact: true }).click();
+  for (const text of ["Write the question first.", "Add the final answer.", "Give it a title, or write the question and we'll make one.", "Tick the box to say you wrote this problem."])
+    await f.getByText(text, { exact: true }).waitFor({ timeout: 3000 });
+  assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 1, "still no draft");
+  // Fast typing across the first save keeps every character.
+  const fq = f.getByRole("region", { name: "Part a", exact: true }).getByRole("textbox", { name: "What's the question?" });
+  await fq.click();
+  await f.keyboard.type("A cart of mass ", { delay: 20 });
+  await f.keyboard.type("$");
+  await f.getByRole("group", { name: "Type your equation" }).waitFor();
+  await mathField(f.getByRole("group", { name: "Type your equation" }));
+  await f.waitForTimeout(300);
+  await f.keyboard.type("m", { delay: 20 });
+  await f.keyboard.press("Escape");
+  await f.keyboard.type(" rolls down a slope.", { delay: 20 });
   await f.waitForURL((url) => url.searchParams.has("draft"));
   await saved(f);
-  await f.waitForTimeout(500);
-  assert.equal(await f.getByLabel("Title", { exact: true }).inputValue(), "Pendulum on a cart");
-  assert.equal(await f.getByLabel("Problem text", { exact: true }).inputValue(), "A bob of mass $m$ hangs from a cart.");
+  await f.waitForTimeout(600);
   const second = draftId(f);
-  await until(async () => { const r = (await pool.query("SELECT content FROM authored_draft WHERE problem_id=$1", [second])).rows[0]?.content; return r?.title === "Pendulum on a cart" && r.context?.[0]?.spans?.some((s) => s.latex === "m"); }, "fast typing saved");
+  await until(async () => { const c = await savedContent(second); const sp = c?.sections?.[0]?.parts?.[0]?.blocks?.[0]?.spans; return JSON.stringify(sp) === JSON.stringify([{ kind: "text", text: "A cart of mass " }, { kind: "math", latex: "m" }, { kind: "text", text: " rolls down a slope." }]); }, "fast typing saved");
   assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 2, "exactly one draft per problem");
   log("Fast typing across the first save kept every character.");
   await fresh.context.close();
 
-  // ------------------------------------------------------------------ 2. A number answer, 375px, tabs
+  // ------------------------------------------------------------------ 3. A number answer at 375px
   const small = await newPage(375, 800);
   const m = small.page;
   await m.goto(origin);
   await m.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
   await noSideways(m, "375 empty");
-  await m.getByLabel("Title", { exact: true }).fill("Free fall");
+  const mpart = m.getByRole("region", { name: "Part a", exact: true });
+  const mq = mpart.getByRole("textbox", { name: "What's the question?" });
+  await mq.click();
+  await m.keyboard.type("What is g near the surface?", { delay: 10 });
   await m.waitForURL((url) => url.searchParams.has("draft"));
   await saved(m);
-  await m.getByLabel("Question", { exact: true }).fill("What is g near the surface?");
-  const numberBox = await mathLive(m, m.getByRole("region", { name: "Part a", exact: true }));
-  await numberBox.click();
+  await m.keyboard.press("Control+A"); // stays inside the box
+  await mq.click();
+  await m.keyboard.type("$");
+  await m.getByRole("group", { name: "Type your equation" }).waitFor();
+  await noSideways(m, "375 equation panel");
+  const panelBox = await m.getByRole("group", { name: "Type your equation" }).boundingBox();
+  assert.ok(panelBox.x >= 0 && panelBox.x + panelBox.width <= 376, "the equation panel fits the screen");
+  await m.keyboard.press("Escape");
+  const nb = await mathField(mpart.getByText("Final answer. We check students against this.").locator("xpath=ancestor::div[contains(@data-tour,'studio-answer')]"));
+  await nb.click();
   await m.waitForTimeout(300);
   await m.keyboard.type("9.8");
-  await m.getByLabel("Unit", { exact: true }).fill("m/s^2");
-  await noSideways(m, "375 write");
-  assert.equal(await m.getByRole("complementary", { name: "Student preview" }).isVisible(), false, "the preview is its own tab at 375");
-  await m.getByRole("button", { name: "Preview" }).click();
-  await noSideways(m, "375 preview");
-  const mp = m.getByRole("region", { name: "Part a preview" });
-  await mp.getByLabel("Test an answer for part a").fill("9.81");
-  await mp.getByLabel("Unit for part a").fill("m/s^2");
-  await until(async () => /Correct\./.test(await mp.locator("[data-test-result]").innerText()), "number correct");
-  await mp.getByLabel("Unit for part a").fill("m");
-  await until(async () => /Needs review\./.test(await mp.locator("[data-test-result]").innerText()), "unit mismatch");
-  await mp.getByLabel("Test an answer for part a").fill("12");
-  await mp.getByLabel("Unit for part a").fill("m/s^2");
-  await until(async () => /Incorrect\./.test(await mp.locator("[data-test-result]").innerText()), "number incorrect");
-  log("Number answer at 375:", JSON.stringify(await mp.locator("[data-test-result]").innerText()));
-  await m.getByRole("button", { name: "Write" }).click();
+  await mpart.getByLabel("Unit (optional)").fill("m/s^2");
+  await noSideways(m, "375 number answer");
+  const tn = mpart.getByLabel("Try an answer", { exact: true });
+  await tn.fill("9.81");
+  await mpart.getByLabel("Unit for part a").fill("m/s^2");
+  const mr = mpart.locator("[data-test-result]");
+  await until(async () => /^Correct\./.test(await mr.innerText()), "number correct");
+  await mpart.getByLabel("Unit for part a").fill("m");
+  await until(async () => /^Needs review\./.test(await mr.innerText()), "unit mismatch");
+  await tn.fill("12");
+  await mpart.getByLabel("Unit for part a").fill("m/s^2");
+  await until(async () => /^Incorrect\./.test(await mr.innerText()), "number incorrect");
+  log("Number answer at 375:", JSON.stringify(await mr.innerText()));
   await saved(m);
-  const k2 = (await pool.query("SELECT data FROM authored_draft_private_part WHERE problem_id=$1", [draftId(m)]).catch(() => ({ rows: [] }))).rows[0]?.data?.key;
-  if (k2) assert.deepEqual(k2, { kind: "numeric", value: 9.8, units: "m/s^2", absTol: 1e-9, relTol: 0.01 });
+  const k2 = await savedKey(draftId(m));
+  assert.deepEqual(k2, { kind: "numeric", value: 9.8, units: "m/s^2", absTol: 1e-9, relTol: 0.01 });
   await small.context.close();
 
-  // ------------------------------------------------------------------ 3. The student side of the Easy problem
+  // ------------------------------------------------------------------ 4. The student side of the Simple problem
   for (const width of [375, 1440]) {
     const s = await browser.newContext({ viewport: { width, height: 900 } });
     await s.addCookies([{ name: "viewer", value: "workflow-student", url: origin }]);
     const student = await s.newPage();
     await student.goto(`${origin}/dashboard/authored/${id}`);
     await student.locator("[id^='part-']").first().waitFor({ timeout: 20000 });
+    assert.ok(await student.locator(".katex").first().isVisible(), `the equation in the question renders at ${width}`);
+    assert.ok(await student.getByRole("img", { name: "A ball thrown upwards from the ground" }).first().isVisible(), `the picture shows at ${width}`);
     const field = student.locator("math-field").first();
     await field.waitFor({ timeout: 20000 });
     await field.click();

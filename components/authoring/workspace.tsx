@@ -12,7 +12,7 @@ import {
   type EditorDraft,
 } from "@/lib/problem-authoring-editor";
 import { ProblemEditor } from "./problem-editor";
-import { ensureEasyShape, readStudioMode } from "./easy-model";
+import { ensureSimpleShape, readStudioMode } from "./simple-model";
 
 /** A new problem that lives only in this tab until the first edit saves it. */
 function blankDraft(): EditorDraft {
@@ -23,8 +23,8 @@ function blankDraft(): EditorDraft {
     slug: "",
     ...structuredClone(newProblem()),
   };
-  // Easy starts with its one part. Advanced starts empty, as it always did.
-  if (readStudioMode() === "easy") ensureEasyShape(draft);
+  // Simple starts with its one part. Advanced starts empty, as it always did.
+  if (readStudioMode() === "simple") ensureSimpleShape(draft);
   return draft;
 }
 
@@ -39,7 +39,7 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
   const [items, setItems] = useState<DraftItem[]>([]),
     [cursor, setCursor] = useState<string | null>(null);
   const [selected, setSelected] = useState<EditorDraft | null>(null);
-  /** "new": the Easy page on a blank problem that is saved at the first edit. "list": My drafts. */
+  /** "new": the Simple page on a blank problem that is saved at the first edit. "list": My drafts. */
   const [view, setView] = useState<"new" | "list">("new");
   const [fresh, setFresh] = useState<EditorDraft>(() => blankDraft());
   const [carry, setCarry] = useState<EditorDraft | null>(null);

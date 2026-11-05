@@ -26,6 +26,7 @@ export function MathAnswerField({
   maxLength = 1024,
   autoFocus,
   emptyHint,
+  loadWithValue,
 }: {
   id: string;
   /** The id of the visible label. */
@@ -45,6 +46,8 @@ export function MathAnswerField({
   autoFocus?: boolean;
   /** A short example shown inside the empty maths field. */
   emptyHint?: string;
+  /** Open as a maths field even when it starts with a value (editing something already written). */
+  loadWithValue?: boolean;
 }) {
   const host = useRef<HTMLDivElement>(null);
   const field = useRef<MathfieldElement | null>(null);
@@ -65,12 +68,12 @@ export function MathAnswerField({
   // Load MathLive only when this field is on screen, and only if the box is still empty (never swap a typed answer).
   useEffect(() => {
     let cancelled = false;
-    const start = value.trim() === "";
+    const start = loadWithValue || value.trim() === "";
     if (!start || !host.current) return;
     import("mathlive")
       .then(({ MathfieldElement: Element }) => {
         // Slow to load: if the reader has started typing in the plain box, leave it alone.
-        if (cancelled || !host.current || latest.current.trim() !== "" || document.activeElement === plain.current) return;
+        if (cancelled || !host.current || (!loadWithValue && (latest.current.trim() !== "" || document.activeElement === plain.current))) return;
         Element.fontsDirectory = null;
         Element.soundsDirectory = null;
         const element = new Element();
@@ -96,7 +99,6 @@ export function MathAnswerField({
         host.current.appendChild(element);
         field.current = element;
         setReady(true);
-        if (focusOnReady.current) element.focus();
       })
       .catch(() => {});
     return () => {
@@ -105,6 +107,13 @@ export function MathAnswerField({
     // Runs once per mount: the field decides between MathLive and the plain box at the start.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // The field is hidden until it is ready, so it can only take the cursor after that render.
+  useEffect(() => {
+    if (!ready || !focusOnReady.current) return;
+    focusOnReady.current = false;
+    field.current?.focus();
+  }, [ready]);
 
   // Keep MathLive in step with the page: disabled, invalid, described, and a value changed from outside (Clear answers).
   useEffect(() => {

@@ -4,6 +4,7 @@ import katex from "katex";
 import { Sigma } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MathAnswerField } from "@/components/physics/math-answer-field";
+import { cleanLatex } from "@/components/physics/answer-palette";
 
 /** The same text and maths spans a text block saves. Nothing new is stored. */
 export type Span = { kind: "text"; text: string } | { kind: "math"; latex: string };
@@ -115,6 +116,7 @@ export function RichMathText({
   symbols = [],
   onPasteFile,
   minRows = 4,
+  buttonTour,
 }: {
   id: string;
   labelId: string;
@@ -129,6 +131,8 @@ export function RichMathText({
   /** Called with a picture dropped or pasted into the box. */
   onPasteFile?: (file: File) => void;
   minRows?: number;
+  /** A data-tour name for the Equation button. */
+  buttonTour?: string;
 }) {
   const box = useRef<HTMLDivElement>(null);
   const saved = useRef<Range | null>(null);
@@ -137,6 +141,7 @@ export function RichMathText({
   change.current = onChange;
   const [editing, setEditing] = useState<{ chip: string; latex: string } | null>(null);
   const editLabel = useId();
+  const panel = useRef<HTMLDivElement>(null);
   const isEmpty = spans.length === 0 || spans.every((s) => s.kind === "text" && !s.text);
 
   // Draw the spans when they change from outside (opening a draft, switching mode, restoring work).
@@ -223,6 +228,9 @@ export function RichMathText({
   function closeEditor(remove: boolean) {
     const chip = currentChip();
     const el = box.current;
+    // MathLive reports a key a moment after it is typed. Take what the field holds now, not the last report.
+    const live = panel.current?.querySelector("math-field") as (HTMLElement & { value?: string }) | null | undefined;
+    if (chip && live?.value !== undefined) fillChip(chip, cleanLatex(live.value));
     setEditing(null);
     if (!chip || !el) return;
     chip.removeAttribute("data-open");
@@ -288,6 +296,9 @@ export function RichMathText({
               const br = document.createElement("br");
               insertAtCursor([br]);
               emit();
+            } else if (e.key === "Escape" && editing) {
+              e.preventDefault();
+              closeEditor(false);
             } else if ((e.key === "Enter" || e.key === " ") && e.target instanceof HTMLElement && e.target.dataset.mathId !== undefined) {
               e.preventDefault();
               openChip(e.target);
@@ -322,6 +333,7 @@ export function RichMathText({
         className="min-h-11 border-2"
         disabled={disabled}
         aria-keyshortcuts="Alt+="
+        data-tour={buttonTour}
         onPointerDown={(e) => e.preventDefault()}
         onMouseDown={(e) => e.preventDefault()}
         onClick={insertEquation}
@@ -331,11 +343,14 @@ export function RichMathText({
       </Button>
       {editing && (
         <div
+          ref={panel}
           role="group"
           aria-labelledby={editLabel}
           className="space-y-3 rounded-lg border-2 border-ring bg-card p-4"
-          onKeyDown={(e) => {
+          onKeyDownCapture={(e) => {
+            // MathLive keeps the keys it uses, so Escape is caught on the way in.
             if (e.key === "Escape") {
+              e.preventDefault();
               e.stopPropagation();
               closeEditor(false);
             }
@@ -352,6 +367,7 @@ export function RichMathText({
             symbols={symbols}
             maxLength={2000}
             autoFocus
+            loadWithValue
             placeholder="Type it like you would write it, such as \frac{1}{2}mv^2"
           />
           <div className="flex flex-wrap gap-2">

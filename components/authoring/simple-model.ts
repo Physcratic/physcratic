@@ -1,7 +1,7 @@
 /**
- * Easy mode for Problem Studio: pure helpers that read and write the same saved draft as Advanced.
+ * Simple mode for Problem Studio: pure helpers that read and write the same saved draft as Advanced.
  * Nothing here adds a field to the draft or changes how it is validated, published or graded.
- * Every function that changes a draft only touches what Easy shows, and keeps the rest as it was.
+ * Every function that changes a draft only touches what Simple shows, and keeps the rest as it was.
  */
 import {
   AnswerReadError,
@@ -22,13 +22,13 @@ export type PrivatePart = EditorDraft["privateParts"][number];
 type Part = EditorDraft["content"]["sections"][number]["parts"][number];
 
 export const STUDIO_MODE_KEY = "physcratic.studio.mode";
-export type StudioMode = "easy" | "advanced";
-/** The author's last choice, kept in this browser only. Easy until they pick Advanced. */
+export type StudioMode = "simple" | "advanced";
+/** The author's last choice, kept in this browser only. Simple until they pick Advanced (an old "easy" value means Simple). */
 export function readStudioMode(): StudioMode {
   try {
-    return window.localStorage.getItem(STUDIO_MODE_KEY) === "advanced" ? "advanced" : "easy";
+    return window.localStorage.getItem(STUDIO_MODE_KEY) === "advanced" ? "advanced" : "simple";
   } catch {
-    return "easy";
+    return "simple";
   }
 }
 
@@ -42,7 +42,7 @@ export const DEFAULT_REL_TOL = 0.01;
 
 /**
  * The unit labels the authored-problem checker knows. A copy of the list in lib/authored-numeric-grading.ts
- * (that file is server only). tests/easy-model.test.ts checks every entry against the real checker.
+ * (that file is server only). tests/simple-model.test.ts checks every entry against the real checker.
  */
 export const UNITS = [
   "m", "cm", "mm", "km", "s", "ms", "kg", "g", "A", "K", "mol", "cd", "rad", "sr", "Hz", "N", "Pa", "J", "W", "C",
@@ -54,11 +54,12 @@ export const knownUnit = (units: string) => unitSet.has(normalizeNumericUnits(un
 const nameShape = /^[a-zA-Z][a-zA-Z0-9_]{0,31}$/;
 
 // ---------------------------------------------------------------------------------------------------------------
-// Text with maths. Easy shows one text box. Maths goes between dollar signs, as in "the mass $m$ moves".
+// Text with maths. Simple edits the first text block of a field as spans: text and inline equations.
 // ---------------------------------------------------------------------------------------------------------------
 
-type Span = { kind: "text"; text: string } | { kind: "math"; latex: string };
+export type Span = { kind: "text"; text: string } | { kind: "math"; latex: string };
 
+/** Text with each equation between dollar signs. Only for titles, tests and messages. */
 export function spansToText(spans: readonly Span[]): string {
   return spans.map((s) => (s.kind === "text" ? s.text : `$${s.latex}$`)).join("");
 }
@@ -74,25 +75,66 @@ export function textToSpans(text: string): Span[] {
   return spans;
 }
 const firstTextIndex = (blocks: readonly EditorBlock[]) => blocks.findIndex((b) => b.kind === "text");
-/** The text of the first text block. Other blocks (equations, images) belong to Advanced and are kept. */
-export function blocksText(blocks: readonly EditorBlock[]): string {
+const firstImageIndex = (blocks: readonly EditorBlock[]) => blocks.findIndex((b) => b.kind === "image");
+/** The spans of the first text block. Other blocks (equations, images) are Advanced's or Simple's picture and are kept. */
+export function blocksSpans(blocks: readonly EditorBlock[]): Span[] {
   const i = firstTextIndex(blocks);
   const block = i >= 0 ? blocks[i] : undefined;
-  return block && block.kind === "text" ? spansToText(block.spans) : "";
+  return block && block.kind === "text" ? block.spans.map((s) => ({ ...s })) : [];
 }
-/** The blocks with the first text block set to `text`. Other blocks are not touched. */
-export function withBlocksText(blocks: EditorBlock[], text: string): EditorBlock[] {
+export const blocksText = (blocks: readonly EditorBlock[]) => spansToText(blocksSpans(blocks));
+/** The blocks with the first text block set to `spans`. Other blocks are not touched. */
+export function withBlocksSpans(blocks: EditorBlock[], spans: readonly Span[]): EditorBlock[] {
   const i = firstTextIndex(blocks);
+  const next: Span[] = spans.length ? spans.map((s) => ({ ...s })) : [{ kind: "text", text: "" }];
   if (i >= 0) {
-    const next = [...blocks];
-    next[i] = { ...(blocks[i] as Extract<EditorBlock, { kind: "text" }>), spans: textToSpans(text) };
-    return next;
+    const copy = [...blocks];
+    copy[i] = { ...(blocks[i] as Extract<EditorBlock, { kind: "text" }>), spans: next };
+    return copy;
   }
-  if (!text) return blocks;
-  return [{ id: crypto.randomUUID(), kind: "text", spans: textToSpans(text) }, ...blocks];
+  if (!spans.length) return blocks;
+  return [{ id: crypto.randomUUID(), kind: "text", spans: next }, ...blocks];
 }
-/** Blocks that Easy does not show: anything except the first text block. */
-export const hiddenBlockCount = (blocks: readonly EditorBlock[]) => Math.max(0, blocks.length - (firstTextIndex(blocks) >= 0 ? 1 : 0));
+/** Blocks Simple does not show: everything except the first text block and the first picture. */
+const hiddenBlocks = (blocks: readonly EditorBlock[]) => {
+  const text = firstTextIndex(blocks) >= 0 ? 1 : 0;
+  const picture = firstImageIndex(blocks) >= 0 ? 1 : 0;
+  return Math.max(0, blocks.length - text - picture);
+};
+
+/** The first words of a question as a title: up to five words, title case, no equations. */
+export function deriveTitle(spans: readonly Span[]): string {
+  const small = new Set(["a", "an", "the", "of", "in", "on", "at", "to", "is", "are", "and", "or", "for", "by", "with"]);
+  const words = spans
+    .filter((s): s is Extract<Span, { kind: "text" }> => s.kind === "text")
+    .map((s) => s.text)
+    .join(" ")
+    .replace(/[^\p{L}\p{N}'\s-]/gu, " ")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 5);
+  while (words.length > 2 && small.has(words.at(-1)!.toLowerCase())) words.pop();
+  return words
+    .map((w, i) => (i > 0 && small.has(w.toLowerCase()) ? w.toLowerCase() : w.charAt(0).toUpperCase() + w.slice(1)))
+    .join(" ")
+    .slice(0, 200);
+}
+
+/** Symbols written in the equations of a question, offered on the answer palette. Never saved. */
+export function mathSymbols(spans: readonly Span[]): string[] {
+  const names: string[] = [];
+  for (const span of spans) {
+    if (span.kind !== "math") continue;
+    try {
+      const table = new SymbolTable([], true);
+      readExpression(span.latex, table);
+      for (const name of table.names) if (nameShape.test(name) && !names.includes(name)) names.push(name);
+    } catch {
+      /* A half-written equation offers nothing. */
+    }
+  }
+  return names.slice(0, 20);
+}
 
 // ---------------------------------------------------------------------------------------------------------------
 // Parts
@@ -123,56 +165,88 @@ function newPart(d: EditorDraft, position: number): Part {
   return part;
 }
 /** A problem has one section and one part from the start. Further sections are Advanced. */
-export function ensureEasyShape(d: EditorDraft) {
+export function ensureSimpleShape(d: EditorDraft) {
   if (d.content.sections.length === 0)
     d.content.sections.push({ id: crypto.randomUUID(), title: "", blocks: [], parts: [] });
   if (allParts(d).length === 0) d.content.sections[0].parts.push(newPart(d, 0));
 }
-export function addEasyPart(d: EditorDraft) {
-  ensureEasyShape(d);
+export function addPart(d: EditorDraft) {
+  ensureSimpleShape(d);
   const section = d.content.sections.at(-1)!;
   if (allParts(d).length >= 50) return;
   section.parts.push(newPart(d, allParts(d).length));
 }
-export function removeEasyPart(d: EditorDraft, partId: string) {
+export function removePart(d: EditorDraft, partId: string) {
   for (const section of d.content.sections) section.parts = section.parts.filter((p) => p.id !== partId);
   d.privateParts = d.privateParts.filter((p) => p.partId !== partId);
 }
-export function setQuestion(d: EditorDraft, partId: string, text: string) {
-  const part = allParts(d).find((r) => r.part.id === partId)?.part;
-  if (part) part.blocks = withBlocksText(part.blocks, text);
+/**
+ * Sets the question of a part. The title follows the first question until the author writes their own.
+ * `partId` is any part. Only the first part feeds the title.
+ */
+export function setQuestion(d: EditorDraft, partId: string, spans: readonly Span[]) {
+  const refs = allParts(d);
+  const ref = refs.find((r) => r.part.id === partId);
+  if (!ref) return;
+  const before = deriveTitle(blocksSpans(ref.part.blocks));
+  ref.part.blocks = withBlocksSpans(ref.part.blocks, spans);
+  if (refs[0].part.id === partId && (!d.content.title.trim() || d.content.title === before)) d.content.title = deriveTitle(spans);
 }
-export function setProblemText(d: EditorDraft, text: string) {
-  d.content.context = withBlocksText(d.content.context, text);
+/** The intro many Advanced drafts keep in the shared context. Simple shows it only when it has text. */
+export function setIntro(d: EditorDraft, spans: readonly Span[]) {
+  d.content.context = withBlocksSpans(d.content.context, spans);
 }
-export function setHint(d: EditorDraft, partId: string, text: string) {
+export function setSolution(d: EditorDraft, partId: string, spans: readonly Span[]) {
   const entry = structuredClone(privateFor(d, partId));
-  entry.hints = withBlocksText(entry.hints, text);
-  upsertPrivate(d, entry);
-}
-export function setSolution(d: EditorDraft, partId: string, text: string) {
-  const entry = structuredClone(privateFor(d, partId));
-  entry.solution = withBlocksText(entry.solution, text);
+  entry.solution = withBlocksSpans(entry.solution, spans);
   upsertPrivate(d, entry);
 }
 
-/** What Easy cannot show, so the author knows Advanced holds more. Plain words, or an empty string. */
+export type Picture = { blockId: string; mediaId: string; alt: string };
+/** The first picture of a part's question. More pictures belong to Advanced. */
+export function pictureOf(blocks: readonly EditorBlock[]): Picture | null {
+  const block = blocks.find((b): b is Extract<EditorBlock, { kind: "image" }> => b.kind === "image");
+  return block ? { blockId: block.id, mediaId: block.mediaId, alt: block.alt } : null;
+}
+/** Puts an uploaded picture after the question text. The statement-image reference is added by the editor's normaliser. */
+export function addPicture(d: EditorDraft, partId: string, mediaId: string) {
+  const part = allParts(d).find((r) => r.part.id === partId)?.part;
+  if (!part || part.blocks.some((b) => b.kind === "image")) return;
+  const at = firstTextIndex(part.blocks) + 1;
+  part.blocks = [...part.blocks.slice(0, at), { id: crypto.randomUUID(), kind: "image", mediaId, alt: "", caption: "" }, ...part.blocks.slice(at)];
+}
+export function setPictureAlt(d: EditorDraft, partId: string, alt: string) {
+  const part = allParts(d).find((r) => r.part.id === partId)?.part;
+  if (!part) return;
+  const i = firstImageIndex(part.blocks);
+  if (i >= 0) part.blocks = part.blocks.map((b, j) => (j === i && b.kind === "image" ? { ...b, alt } : b));
+}
+export function removePicture(d: EditorDraft, partId: string) {
+  const part = allParts(d).find((r) => r.part.id === partId)?.part;
+  if (!part) return;
+  const i = firstImageIndex(part.blocks);
+  if (i >= 0) part.blocks = part.blocks.filter((_, j) => j !== i);
+}
+
+/** What Simple cannot show, so the author knows Advanced holds more. Plain words, or an empty string. */
 export function advancedNote(d: EditorDraft): string {
   const found: string[] = [];
   const sections = d.content.sections.length;
   if (sections > 1) found.push(`${sections} sections`);
-  if (d.content.attachments.length) found.push(`${d.content.attachments.length} image or PDF files`);
+  if (allParts(d).some((r) => privateFor(d, r.part.id).hints.length)) found.push("hints");
+  const pdfs = d.content.attachments.filter((a) => a.purpose.endsWith("pdf")).length;
+  if (pdfs) found.push(pdfs === 1 ? "a PDF" : `${pdfs} PDFs`);
   if (d.content.methodTags.length) found.push("method tags");
-  let extra = hiddenBlockCount(d.content.context);
-  for (const s of d.content.sections) extra += hiddenBlockCount(s.blocks) + (s.title ? 1 : 0);
-  for (const r of allParts(d)) {
-    extra += hiddenBlockCount(r.part.blocks);
-    const p = privateFor(d, r.part.id);
-    extra += hiddenBlockCount(p.hints) + hiddenBlockCount(p.solution);
-  }
-  if (extra) found.push("extra blocks");
   if (d.content.estimatedDifficulty) found.push("a difficulty estimate");
-  return found.length ? `Advanced holds ${found.join(", ")}. They are kept and published with the rest.` : "";
+  let extra = firstTextIndex(d.content.context) >= 0 ? hiddenBlocks(d.content.context) + (firstImageIndex(d.content.context) >= 0 ? 1 : 0) : d.content.context.length;
+  for (const s of d.content.sections) extra += s.blocks.length + (s.title ? 1 : 0);
+  for (const r of allParts(d)) {
+    extra += hiddenBlocks(r.part.blocks);
+    const solution = privateFor(d, r.part.id).solution;
+    extra += Math.max(0, solution.length - (firstTextIndex(solution) >= 0 ? 1 : 0));
+  }
+  if (extra) found.push("more blocks");
+  return found.length ? `Advanced also has ${found.join(", ")}. We keep it and publish it with the rest.` : "";
 }
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -185,7 +259,7 @@ export type AnswerRead =
   | { kind: "expression"; symbols: string[] }
   | { kind: "error"; message: string };
 
-/** The text of an answer as Easy shows it, taken from the saved key. */
+/** The text of an answer as Simple shows it, taken from the saved key. */
 export function answerText(key: Key): string {
   if (!key || key.kind === "manual") return "";
   if (key.kind === "numeric") return key.value === null || key.value === "" ? "" : String(key.value);
@@ -286,7 +360,7 @@ export function setUnits(d: EditorDraft, partId: string, units: string) {
 // ---------------------------------------------------------------------------------------------------------------
 
 export type RightsState = "ticked" | "unticked" | "advanced";
-/** "advanced": the rights were set in Advanced (permission, or the author's own words). Easy leaves them. */
+/** "advanced": the rights were set in Advanced (permission, or the author's own words). Simple leaves them. */
 export function rightsState(d: EditorDraft): RightsState {
   const { kind, rightsDeclaration } = d.content.provenance;
   if (kind === "authorized") return "advanced";
@@ -302,24 +376,27 @@ export function setRights(d: EditorDraft, ticked: boolean) {
 // What stops Publish, in plain words, each one tied to a field
 // ---------------------------------------------------------------------------------------------------------------
 
-export type EasyIssue = { field: string; message: string };
+export type SimpleIssue = { field: string; message: string };
 /** `reads` holds what the author has typed for each part's answer, when it differs from the saved key. */
-export function easyIssues(d: EditorDraft, reads: Readonly<Record<string, string>> = {}): EasyIssue[] {
-  const issues: EasyIssue[] = [];
-  if (!d.content.title.trim()) issues.push({ field: "title", message: "Give the problem a title." });
+export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, string>> = {}): SimpleIssue[] {
+  const issues: SimpleIssue[] = [];
   const parts = allParts(d);
-  if (parts.length === 0) issues.push({ field: "parts", message: "Add a part with a question and an answer." });
+  if (parts.length === 0) issues.push({ field: "parts", message: "Add a question first." });
   for (const { part } of parts) {
-    if (!blocksText(part.blocks).trim()) issues.push({ field: `question:${part.id}`, message: "Write the question for this part." });
+    if (!blocksSpans(part.blocks).some((s) => (s.kind === "text" ? s.text.trim() : s.latex.trim())))
+      issues.push({ field: `question:${part.id}`, message: "Write the question first." });
+    const picture = pictureOf(part.blocks);
+    if (picture && !picture.alt.trim()) issues.push({ field: `picture:${part.id}`, message: "Describe the picture so everyone can follow it." });
     const entry = privateFor(d, part.id);
     const typed = part.id in reads ? reads[part.id] : answerText(entry.key);
     const read = readAnswer(typed);
     if (read.kind === "empty" || (read.kind !== "error" && entry.key?.kind === "manual"))
-      issues.push({ field: `answer:${part.id}`, message: "Add the answer for this part." });
+      issues.push({ field: `answer:${part.id}`, message: "Add the final answer." });
     else if (read.kind === "error") issues.push({ field: `answer:${part.id}`, message: read.message });
     else if (entry.key?.kind === "numeric" && !knownUnit(entry.key.units))
-      issues.push({ field: `units:${part.id}`, message: `The checker does not know the unit "${entry.key.units}". Pick one from the list or leave it empty.` });
+      issues.push({ field: `units:${part.id}`, message: `We don't know the unit "${entry.key.units}". Pick one from the list or leave it empty.` });
   }
+  if (!d.content.title.trim()) issues.push({ field: "title", message: "Give it a title, or write the question and we'll make one." });
   if (rightsState(d) === "unticked") issues.push({ field: "rights", message: "Tick the box to say you wrote this problem." });
   return issues;
 }
@@ -329,7 +406,7 @@ export function easyIssues(d: EditorDraft, reads: Readonly<Record<string, string
 // ---------------------------------------------------------------------------------------------------------------
 
 export type Verdict = "correct" | "incorrect" | "needs-review" | "ungraded";
-/** The labels a student sees. tests/easy-model.test.ts checks they still match the student page. */
+/** The labels a student sees. tests/simple-model.test.ts checks they still match the student page. */
 export const verdictLabel: Record<Verdict, string> = {
   correct: "Correct",
   incorrect: "Incorrect",
