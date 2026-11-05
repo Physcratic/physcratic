@@ -182,3 +182,22 @@ test("clear divisions are not refused", () => {
   fails("49/10 5", names);
   fails("1/2 3", names);
 });
+
+test("what MathLive writes is never refused as ambiguous, because its fractions are explicit", () => {
+  const names = ["h", "m", "c", "k_B", "T", "a", "b", "\\theta_0", "r_0", "k", "z"];
+  const read = (latex: string) => readExpression(latex, new SymbolTable(names)).evaluate(names.map((_, i) => i + 2));
+  for (const latex of [
+    String.raw`\frac{h}{mc}`,
+    String.raw`\frac{k_{B}T}{mc^{2}}`,
+    String.raw`\frac{a}{bc}`,
+    String.raw`\frac{a}{b}c`,
+    String.raw`c\frac{a}{b}`,
+    String.raw`\frac{\theta_{0}\sin\left(kz\right)}{k}+r_{0}\cos\left(kz\right)`,
+    String.raw`\frac{\frac{h}{m}}{c\,k}`,
+    String.raw`\frac{1}{2}mc^{2}`,
+    String.raw`\frac{1}{2\,mc}`,
+  ]) assert.doesNotThrow(() => read(latex), latex);
+  // And the same shapes typed with a plain slash are refused where they are ambiguous.
+  for (const text of ["h/mc", "kT/mc^2", "a/bc"]) assert.throws(() => read(text), /Add brackets/, text);
+  assert.equal(read(String.raw`\frac{h}{mc}`), 2 / (3 * 4));
+});
