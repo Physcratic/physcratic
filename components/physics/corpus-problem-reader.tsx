@@ -55,6 +55,8 @@ export function CorpusProblemReader({
   /** h1 when this problem is the whole page, h2 otherwise. */
   titleAs?: "h1" | "h2";
 }) {
+  // Under an h1 title the section headings are h2, so the levels never skip.
+  const Section = Title === "h1" ? "h2" : "h3";
   const [partId, setPartId] = useState(problem.parts[0].id);
   const [solutionOpen, setSolutionOpen] = useState(false);
   const heading = useRef<HTMLHeadingElement>(null);
@@ -114,9 +116,9 @@ export function CorpusProblemReader({
           </p>
           {problem.sections.map((section) => (
             <div key={section.id} className="flex flex-col gap-2">
-              <h3 className="text-sm font-medium leading-relaxed">
+              <Section className="text-sm font-medium leading-relaxed">
                 {section.id} · {section.title}
-              </h3>
+              </Section>
               <div className="flex flex-wrap gap-2 lg:flex-col">
                 {problem.parts
                   .filter((item) => item.section === section.id)
@@ -128,7 +130,6 @@ export function CorpusProblemReader({
                       size="sm"
                       className={`min-h-11 justify-start rounded-l-none border lg:h-auto lg:py-2 ${partBorder}`}
                       aria-current={item.id === partId ? "step" : undefined}
-                      aria-label={`${item.id}: ${item.title}`}
                       onClick={() => {
                         setPartId(item.id);
                         setSolutionOpen(false);
@@ -139,7 +140,8 @@ export function CorpusProblemReader({
                       )}
                       <span className="flex min-w-0 gap-2">
                         <span>{item.id}</span>
-                        <span className="hidden text-wrap text-left lg:inline">
+                        {/* Always in the page for screen readers, so the button's name is its visible text. */}
+                        <span className="sr-only text-wrap text-left lg:not-sr-only">
                           {item.title}
                         </span>
                       </span>
