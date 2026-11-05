@@ -209,6 +209,9 @@ try {
       {
         const { field } = await openPartA();
         await typeMath(page, field, ["r", "_", "o", "ArrowRight", "cos(kz)"]);
+        // A moment after typing stops, the same words appear under the field, before anything is checked.
+        await page.locator(`[data-field] [role="status"]`).filter({ hasText: "r_o isn't used here. Did you mean r₀?" }).first().waitFor({ timeout: 8000 });
+        ok(true, `the symbol hint appears under the field before checking (${tag})`);
         await checkPartA();
         const text = (await resultOf().innerText()).trim();
         ok(/r_o isn't used here\. Did you mean r₀\?/.test(text), `the checker's message about the letter o is shown next to the answer: ${text} (${tag})`);
