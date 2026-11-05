@@ -29,6 +29,15 @@ Each phase gets its plan here before the work, then the judgement calls under "J
 7. Seen flags in localStorage (`physcratic.tour.<id>.v1`), always in try/catch. First visit starts it after a short pause. Not under browser automation (`navigator.webdriver`), so existing suites keep working. A "?" Help button in the dashboard bar and the Studio bar replays it. Settings gets "Replay tours" through a small card added to `app/settings/page.tsx`.
 8. Tests: a unit test that reads every `data-tour` name in `components/**` and `app/**` and checks each tour step's names exist, and a browser script that runs both tours at 375 and 1440 in light and dark and runs the contrast and axe checks with a tour open.
 
+## Phase 5 plan: refresh the two product guides
+
+1. Edit only `lib/learn/guides/how-to-use-physcratic.ts`, `how-to-write-a-problem.ts`, `public/learn/**` and the learn tests. The four reviewed guides stay as they are.
+2. "How to use Physcratic" (about 600 words): find a problem (with the random Arena card), type your answer (the maths field, its shortcuts, the palette, numbers and units), read what the checker says (the symbol, bracket and could-not-be-decided messages), hints and solutions, other problem types in one short paragraph, the Help button and Replay tours. Cut what the screens and the tour now make obvious.
+3. "How to write a problem in Problem Studio" (about 450 words): lead with Simple mode (open, write the question and the Equation button, picture, final answer, Try an answer, solution, more parts, title, topic, publish), point to the Studio tour, and give Advanced one short section.
+4. Retake every screenshot in light mode from a local build. Library, practice and Arena shots come from `tests/first-time-user.browser.mjs` (`GUIDE_SHOT_DIR`). Studio shots come from the Studio browser scripts on the throwaway Postgres. Convert to WebP at 1280px wide under 200 KB, update the alt text, delete the pictures no guide uses.
+5. Update `lib/product-guides.test.ts`: word ranges 400 to 700 for both, the Studio and solving name checks for the new labels, the tolerance example for the Simple default (1 percent).
+6. Verify: CI, the copy-rules and SEO guard tests, and `tests/learn-guides.browser.mjs` at 375 and 1440 in light and dark.
+
 ## Judgement calls
 
 - (4b) The side preview from Easy is gone. The question box already shows rendered maths, and "Try an answer" sits under the key.
@@ -40,3 +49,5 @@ Each phase gets its plan here before the work, then the judgement calls under "J
 - (4b) Chips for equations are 44px tall, so they pass the tap-size rule without an exemption.
 - (4c) The tour engine adds `data-tour` attributes to `components/kokonutui/**` and `components/physics/**`, which CLAUDE.md lists as owned by the UI branch. The attributes change no behaviour.
 - (4c) The tour does not auto-start under browser automation, so existing browser suites are not covered by a card.
+- (5) The use guide drops the long Olympiad archive, Guided exercises and Community sections to one paragraph, and the Guided reader picture, because the guide had grown past what a first read needs.
+- (5) The write guide no longer names the six part colours or the tolerance fields, because Simple sets both by default. The 1 percent default is tested against the real grader.
