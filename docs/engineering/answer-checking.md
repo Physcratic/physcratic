@@ -79,6 +79,19 @@ Authored `symbolic-v1` attempts started using the sampled checker in commit `f95
 
 **Migration request, for the owner or Codex.** Add `sampled-v1` to the allowed values of `authored_attempt.engine_version` (the check `authored_attempt_engine_version_check` in migration 0004 and `lib/db/schema.ts`), and to `StudentGrade["engineVersion"]` in `lib/authored-attempt-contracts.ts` and `AuthoredGradeResult["engineVersion"]` in `lib/authored-grading-contracts.ts`. Then `lib/authored-grading.ts` can write `sampled-v1` for expressions. Until then the label `symbolic-v1` means "expression attempt", and the commit and date above say which checker graded it.
 
+### Answer entry (Phase 2)
+
+- **The field:** each expression answer is one MathLive field (`components/physics/math-answer-field.tsx`), loaded with `import()` when the field mounts, never with the page. `/` makes a fraction, `^` a power, `_` a subscript, `*` a dot, `sqrt` a root and Greek names become letters. MathLive's virtual keyboard is off, so a phone uses its own keyboard. The field has a visible label and `aria-labelledby`.
+- **What is sent:** MathLive's LaTeX with `\left` and `\right` and spacing commands removed. The reader accepts it as written. A MathLive fraction such as `\frac{h}{mc}` is never refused as ambiguous, because only a plain `/` is. Tested in `lib/answer-reader.test.ts`.
+- **If MathLive fails or is slow:** a plain text box takes the answer, with a KaTeX preview. It accepts LaTeX or plain typing, read by the same reader. MathLive replaces the plain box only while it is empty and not focused.
+- **The palette:** the problem's own symbols first, then fraction, power, root, subscript, Greek letters, sin, cos, tan, pi, e and ln. Each button inserts at the cursor and keeps focus in the field. The problem's symbol chips are always visible under the field. The rest opens under the field being typed in. In the plain box the same buttons insert LaTeX text.
+- **Early hint:** about 0.7 seconds after typing stops, a symbol the problem does not use is named with the nearest one ("r_o isn't used here. Did you mean r₀?"), in the checker's own words. Nothing else is checked early.
+- **Where the symbols come from:** Arena and practice use the public part metadata, which now carries `symbolConditions` (symbol, positive, nonnegative, nonzero, min, max) and nothing else from the key. The conditions line under each question is built from it. Authored problems use `symbols` in the submission-info response: the declared variable names of an expression part, and nothing else from the key (bounds, assumptions, exclusions, angle unit, the expected expression and the hints are tested to be absent). A key with no declared variables gives no chips and no early hint.
+- **Numbers:** a plain box with the unit beside it where the problem has one. Practice says "Answers within 1% are accepted."
+- **Solved in this browser:** when every part with an answer box is correct, the problem id is added to `physcratic.solved.v1` in localStorage (read and written inside try/catch, at most 500 ids). Nothing is sent to the server. The dashboard card uses it.
+- **Stale text:** the lines Phase 1 listed as stale in `components/authored/student-workspace.tsx` ("write 3*x", "trig can need review") are replaced. The Learn guide `how-to-write-a-problem.ts` still says only a limited set of identities is checked.
+- **Proof the checker did not change:** `lib/archive-grading-snapshot.test.ts` hashes every check result (status and message) for every problem, key form, rewritten form, changed form and invalid input. The fixture was committed before the metadata change, and the test passes after it.
+
 ### Tests changed in Phase 1
 
 Tests that asserted the old behaviour were rewritten. Every rewrite has a comment saying why. None was moved from incorrect to correct unless the two expressions are equal, with the exceptions in the next list.

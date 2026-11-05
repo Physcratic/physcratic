@@ -435,3 +435,46 @@ AUTHORING_TEST_DATABASE_URL=postgresql://postgres@127.0.0.1:PORT/physcratic_auth
 ```
 
 Start the server for the solving screens with `BETTER_AUTH_URL` set to the same origin the browser uses. Otherwise `/api/archive-grade` returns 403 on the origin check.
+
+## 7. Phase 2: solving screens after the change (5 November 2026)
+
+Measured with the same scripts as sections 1 and 2 (`tests/phase0-solve-audit.browser.mjs`, `tests/phase0-authoring.browser.mjs`) on a production build of each commit, signed out, with MathLive loaded. "Before" is the build of `f9b3c78`, "after" is the head of this phase. Marks use the same needed, optional and clutter rules. A symbol chip and the maths field count as needed.
+
+| Screen (1440 / 375) | Items before | Items after | Controls before | Controls after | Needed / optional / clutter before | Needed / optional / clutter after (1440) | Page height before | Page height after |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Practice | 44 / 29 | 41 / 26 | 31 / 18 | 29 / 16 | 12 / 29 / 3 | 11 / 28 / 2 | 1467 / 1934px | 1183 / 1632px |
+| Arena | 61 / 46 | 76 / 61 | 31 / 18 | 49 / 36 | 34 / 24 / 3 | 46 / 28 / 2 | 4042 / 5460px | 4215 / 5256px |
+| Guided reader | 77 / 62 | 56 / 41 | 50 / 37 | 36 / 23 | 13 / 37 / 27 | 13 / 34 / 9 | 3593 / 4219px | 2902 / 2987px |
+| Authored | 28 / 28 | 22 / 22 | | | 10 / 10 / 8 | 12 / 9 / 1 | | |
+
+What changed on each screen, through the shared components:
+
+- **Practice:** "Optional working", "How to type an answer", the long Step 2 intro and "Type an answer above to turn on the Check answer button" are gone. The number box keeps its unit beside it and one line: "Answers within 1% are accepted." Check answer is always on. With nothing typed it says "Type an answer first."
+- **Arena:** each expression part is one maths field. Under it are the problem's own symbols as chips. One short line under the question gives the conditions ("Conditions: k > 0"), built from the public part metadata. The long help is in one closed "Notes for each part" list. The full palette (fraction, power, root, subscript, Greek letters, sin, cos, tan, pi, e, ln) opens under the field being typed in. This is why Arena has more elements than before: each of its 7 fields shows its symbol chips. A reader who only wants to type sees the same number of fields.
+- **Guided reader:** the collection tabs and filters are not shown while a problem is open (21 elements fewer). Signed out, there is no disabled working box. One line says to sign in to keep notes, and the equation calculator stays.
+- **Authored:** the revision hash line, the pinned revision line, the storage notice, the limits notice and the "Practice, then reflect" section are gone. The part chooser shows only with several parts. The expression answer is the same maths field with the problem's declared variable names as chips (for the test problem: m and a). The help line no longer says to write `3*x` or that trig can need review.
+
+Clicks and keys, part (a) of `arena-a-grin-and-a-wiggle` (the same answer as the solution):
+
+| Way of entering it | Actions |
+| --- | --- |
+| Before: typing LaTeX into a text box | 1 click and 38 characters |
+| After: typing in the maths field | 1 click and 29 keys (`r_0`, right arrow, `cos(kz)`, `+`, `theta_0`, right arrow, `sin(kz)`, `/`, `k`) |
+| After: the palette | 1 click to focus, 12 palette taps, 3 right arrows and `+`, no letters typed |
+
+Both are marked correct on the real route (`tests/first-time-user.browser.mjs`), at 375 and 1440, in light and dark. The letter o (`r_o`) shows "r_o isn't used here. Did you mean r₀?" under the field a moment after typing, and the same message from the checker next to the answer after checking.
+
+First-load JS (`pnpm build`):
+
+| Route | Before | After |
+| --- | --- | --- |
+| `/dashboard` | 489 kB | 490 kB |
+| `/dashboard/problems/[id]` | 375 kB | 384 kB |
+| `/dashboard/authored/[id]` | 292 kB | 301 kB |
+| `/dashboard/author`, `/dashboard/submissions` | 270 kB, 235 kB | 270 kB, 235 kB |
+
+MathLive (0.111.1) is two chunks of 823 kB and 36 kB (224 kB and 13 kB gzipped). Neither is referenced from the HTML of any page, and the `math-field` element does not exist on the library or the lobby (checked in `first-time-user.browser.mjs`). It is requested only after a field mounts. The rise on the problem and authored pages is the field, the palette, the reader and the record of solved problems.
+
+The dashboard card "Recommended problem" now shows a random Arena problem this browser has not solved, with an "Another problem" button. A problem counts as solved when every part with an answer box is correct. The record is `physcratic.solved.v1` in localStorage, read and written inside try/catch.
+
+Not checked: a real phone (the emulation in `tests/phase2-phones.browser.mjs` uses Playwright's iPhone 13 and Pixel 7 profiles in Chromium, which does not open a phone's own keyboard), screen readers, WebKit and Firefox.
