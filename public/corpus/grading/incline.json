@@ -1,6 +1,6 @@
 {
   "problemId": "incline",
-  "version": "d417e8ce42f18339bdb15eddd5e46892c267aeec1f8d7d83cb1e1e950d13f00f",
+  "version": "2aff76bae693c2934ace30afbcddf33908640c58c741139a67e43119b67e4a18",
   "parts": [
     {
       "id": "answer",
@@ -9,7 +9,7 @@
       "kind": "numeric",
       "unit": "m/s²",
       "symbols": [],
-      "help": "Use the displayed unit, without a unit suffix. Tolerance: 0.5% relative, with a 0.005 absolute floor. No unit conversion."
+      "help": "Use the displayed unit, without a unit suffix. Tolerance: 1% relative. No unit conversion."
     }
   ]
 }

@@ -24,13 +24,13 @@ export const archiveDefinitions: ArchiveDefinition[] = [
     return { problemId: seed.id, keyVersion: 1, content: JSON.stringify(seed), parts: parts.map((part) => ({ ...part, sourceReference: `${seed.solutionFile ?? seed.statementFile.replace("_Problem.pdf", "_Solution.pdf")} § ${part.sourcePart}` })) };
   }),
   ...problems.map((problem) => ({ problemId: problem.id, keyVersion: 1, content: JSON.stringify(problem), parts: [
-    { ...numeric("answer", "Final answer", problem.answer, problem.unit, { sourcePart: "Answer", absTol: 0.005, relTol: 0.005, help: "Use the displayed unit, without a unit suffix. Tolerance: 0.5% relative, with a 0.005 absolute floor. No unit conversion." }), sourceReference: `lib/physics.ts: ${problem.id}, worked solution` },
+    { ...numeric("answer", "Final answer", problem.answer, problem.unit, { sourcePart: "Answer", help: "Use the displayed unit, without a unit suffix. Tolerance: 1% relative. No unit conversion." }), sourceReference: `lib/physics.ts: ${problem.id}, worked solution` },
   ] })),
 ];
 const byId = new Map(archiveDefinitions.map((definition) => [definition.problemId, definition]));
 export function getArchiveDefinition(problemId: string) { return byId.get(problemId); }
 export function archiveVersion(definition: ArchiveDefinition): string {
-  return createHash("sha256").update(JSON.stringify({ engine: "latex-final-v1", ...definition })).digest("hex");
+  return createHash("sha256").update(JSON.stringify({ engine: "sampled-v1", ...definition })).digest("hex");
 }
 export function publicArchiveMetadata(definition: ArchiveDefinition): ArchiveMetadata {
   return archiveMetadataSchema.parse({ problemId: definition.problemId, version: archiveVersion(definition), parts: definition.parts.map((part) => ({

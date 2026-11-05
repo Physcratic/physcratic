@@ -1,6 +1,6 @@
 {
   "problemId": "projectile",
-  "version": "feb0d42297095db1ff9494e5b3cb2d49a251d578b4a702d77d835cff7e840efe",
+  "version": "f10f587ff2a99e22c6372dbb533b04fad8fe287bf5180fc6d2bf11fc4340aa71",
   "parts": [
     {
       "id": "answer",
@@ -9,7 +9,7 @@
       "kind": "numeric",
       "unit": "m",
       "symbols": [],
-      "help": "Use the displayed unit, without a unit suffix. Tolerance: 0.5% relative, with a 0.005 absolute floor. No unit conversion."
+      "help": "Use the displayed unit, without a unit suffix. Tolerance: 1% relative. No unit conversion."
     }
   ]
 }

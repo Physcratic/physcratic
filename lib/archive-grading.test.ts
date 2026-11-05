@@ -44,7 +44,7 @@ test("explicit disposition for every requested Arena result and all 12 Quick pra
   for (const problem of problems) {
     const [key] = getArchiveDefinition(problem.id)!.parts;
     assert.equal(key.kind, "numeric");
-    if (key.kind === "numeric") { assert.equal(key.target, problem.answer); assert.equal(key.unit, problem.unit); assert.equal(key.relTol, 0.005); assert.equal(key.absTol, 0.005); }
+    if (key.kind === "numeric") { assert.equal(key.target, problem.answer); assert.equal(key.unit, problem.unit); assert.equal(key.relTol, 0.01); assert.equal(key.absTol, 1e-9); }
   }
 });
 for (const definition of archiveDefinitions) {
@@ -77,17 +77,24 @@ test("public generator output uses an explicit allowlist and contains no structu
 test("LaTeX arithmetic, sign, exact zero, numerical tolerance and fixed-unit policy", () => {
   const incline = getArchiveDefinition("incline")!.parts[0];
   for (const answer of ["4.9", String.raw`\frac{49}{10}`, "49/10", String.raw`4.9\times10^0`, "4.9e0"]) assert.equal(checkArchivePart(incline, answer).status, "correct", answer);
-  assert.equal(checkArchivePart(incline, "4.9244").status, "correct");
-  assert.equal(checkArchivePart(incline, "4.9246").status, "incorrect");
+  // Phase 1: the default number tolerance is 1% relative (it was 0.5%), so the edge moves from 4.9245 to 4.949.
+  assert.equal(checkArchivePart(incline, "4.9489").status, "correct");
+  assert.equal(checkArchivePart(incline, "4.9491").status, "incorrect");
+  for (const answer of ["3e8", String.raw`3\times10^8`, "3*10^8", String.raw`3\cdot10^{8}`, "300000000"]) assert.equal(checkArchivePart(numeric("c", "Speed", 3e8, "m/s"), answer).status, "correct", answer);
   const zero = numeric("zero", "Zero", 0, "1", { absTol: 0, relTol: 0 });
   assert.equal(checkArchivePart(zero, "-0").status, "correct");
-  assert.equal(checkArchivePart(zero, String.raw`\sqrt{2}^2-2`).status, "inconclusive");
-  assert.notEqual(checkArchivePart(zero, String.raw`\sqrt{2}-1.4142135623730951`).status, "correct");
-  assert.equal(checkArchivePart(numeric("one", "One", 1, "1", { absTol: 0, relTol: 0 }), "1.00000000000000001").status, "incorrect");
+  // Phase 1: sqrt(2)^2 - 2 is zero, so it is now correct (it was "could not prove"). An exact part is compared to 1e-9 relative
+  // with a 1e-12 floor, because numbers are binary64: sqrt(2) minus its 17-digit decimal is 0 to that precision.
+  assert.equal(checkArchivePart(zero, String.raw`\sqrt{2}^2-2`).status, "correct");
+  assert.equal(checkArchivePart(zero, String.raw`\sqrt{2}-1.4142135623730951`).status, "correct");
+  // More than 17 significant digits cannot be held exactly, so such a number is refused (it was "incorrect").
+  assert.equal(checkArchivePart(numeric("one", "One", 1, "1", { absTol: 0, relTol: 0 }), "1.00000000000000001").status, "invalid");
   assert.equal(checkArchivePart(zero, "0.0001").status, "incorrect");
-  assert.equal(checkArchivePart(zero, "100000000000000000000+1-100000000000000000000").status, "incorrect");
+  assert.equal(checkArchivePart(zero, "100000000000000000000+1-100000000000000000000").status, "invalid");
   assert.equal(checkArchivePart(zero, "1e-100*1e-100*1e-100*1e-100").status, "invalid");
-  const floor = numeric("floor", "Floor", 0, "1");
+  // The 0.005 floor is now an explicit override. The default is 1% relative with a 1e-9 floor.
+  const floor = numeric("floor", "Floor", 0, "1", { absTol: 0.005, relTol: 0.005 });
+  assert.equal(checkArchivePart(numeric("default", "Default", 0, "1"), "0.005").status, "incorrect");
   assert.equal(checkArchivePart(floor, "0.005").status, "correct");
   assert.equal(checkArchivePart(floor, "0.005001").status, "incorrect");
   assert.equal(checkArchivePart(incline, String.raw`490\mathrm{cm}/\mathrm{s}^2`).status, "invalid");
@@ -103,10 +110,12 @@ test("declared Greek/subscript aliases, implicit products, and exact polynomial 
 });
 test("domain-preserving parsing and conservative inconclusive fallback", () => {
   const key = expression("f", "f", "x+1", "x", "All real x");
-  assert.equal(checkArchivePart(key, "(x^2-1)/(x-1)").status, "inconclusive");
+  // Phase 1: equal everywhere except the removable hole at x = 1, which random test values do not land on.
+  assert.equal(checkArchivePart(key, "(x^2-1)/(x-1)").status, "correct");
   for (const value of ["x/x", "0*(1/x)", "x^0", "(1/x)^0"]) assert.notEqual(structuralForm(parseLatexAnswer(value, key.symbols)), structuralForm(parseLatexAnswer("1", key.symbols)), value);
   const trig = expression("f", "f", String.raw`\sin^2(x)+\cos^2(x)`, "x", "Real x, radians");
-  assert.equal(checkArchivePart(trig, "1").status, "inconclusive");
+  // Phase 1: sin^2 + cos^2 really is 1, so this is correct (it was "could not prove").
+  assert.equal(checkArchivePart(trig, "1").status, "correct");
   assert.equal(checkArchivePart(expression("f", "f", "x", "x", "Real x"), String.raw`\sqrt{x^2}`).status, "incorrect");
 });
 test("malformed, malicious, nonfinite and over-budget inputs are never accepted", () => {

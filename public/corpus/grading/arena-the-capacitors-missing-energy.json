@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-capacitors-missing-energy",
-  "version": "ee21259d17d0f2b92ae44ef91e66b343de7bbffaedee4fc716847319c8f1d5a6",
+  "version": "ed630351298ce823e1da140f99649ab98c5040367756e269fbdb4621892d262a",
   "parts": [
     {
       "id": "a.i.energy",

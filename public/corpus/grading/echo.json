@@ -1,6 +1,6 @@
 {
   "problemId": "echo",
-  "version": "75d20deda2eb86531b028576f2966193bed64747abe6516562b9d7a2f0d05919",
+  "version": "587056f5a21c982f7b36cf78f20f6142700d963548c78f8e5341e151858276fb",
   "parts": [
     {
       "id": "answer",
@@ -9,7 +9,7 @@
       "kind": "numeric",
       "unit": "m",
       "symbols": [],
-      "help": "Use the displayed unit, without a unit suffix. Tolerance: 0.5% relative, with a 0.005 absolute floor. No unit conversion."
+      "help": "Use the displayed unit, without a unit suffix. Tolerance: 1% relative. No unit conversion."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "problemId": "resistors",
-  "version": "1ac0d78827d248c6569f0b630c28f0d83cb29aecfcafb3ee8e7955f91a438972",
+  "version": "452e05d9e45bc1444b5921b2d0e39f9e38c1f440974f1c5c32117a448c98badc",
   "parts": [
     {
       "id": "answer",
@@ -9,7 +9,7 @@
       "kind": "numeric",
       "unit": "A",
       "symbols": [],
-      "help": "Use the displayed unit, without a unit suffix. Tolerance: 0.5% relative, with a 0.005 absolute floor. No unit conversion."
+      "help": "Use the displayed unit, without a unit suffix. Tolerance: 1% relative. No unit conversion."
     }
   ]
 }

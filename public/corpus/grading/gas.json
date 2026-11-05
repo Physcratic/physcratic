@@ -1,6 +1,6 @@
 {
   "problemId": "gas",
-  "version": "802fd17e256dbd26d9a37fa423aa33e9bf5f5f75af8392a47cce16226c281d21",
+  "version": "e472a0c2fc03c5a6a582550e7a66bb39266e7815db269c6a4da6cdd9113e72d7",
   "parts": [
     {
       "id": "answer",
@@ -9,7 +9,7 @@
       "kind": "numeric",
       "unit": "J",
       "symbols": [],
-      "help": "Use the displayed unit, without a unit suffix. Tolerance: 0.5% relative, with a 0.005 absolute floor. No unit conversion."
+      "help": "Use the displayed unit, without a unit suffix. Tolerance: 1% relative. No unit conversion."
     }
   ]
 }

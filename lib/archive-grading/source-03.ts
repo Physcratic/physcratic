@@ -3,7 +3,7 @@ import { expression as e, numeric as n, review as r, type ArchiveKeyPart } from 
 const S = String.raw;
 export const keys03: Record<string, ArchiveKeyPart[]> = {
   "arena-the-clock-in-the-racing-mirror": [
-    e("a.arrival", "Absolute mirror arrival time", S`t_0+\frac{\delta}{r-1}`, S`t_0 \delta r`, "Approaching mirror: r > 1, δ > 0. Include the reference camera time t₀, rather than just remaining time.", { positive: [S`\delta`], exclusions: ["v2 != 1"] }),
+    e("a.arrival", "Absolute mirror arrival time", S`t_0+\frac{\delta}{r-1}`, S`t_0 \delta r`, "Approaching mirror: r > 1, δ > 0. Include the reference camera time t₀, rather than just remaining time.", { positive: [S`\delta`], exclusions: ["r != 1"] }),
     e("b.height", "Actual mirror height H", S`\frac{hc\delta}{2f}`, S`h c \delta f`, "Distant-object, small-angle focal-plane approximation; all quantities positive. No longitudinal contraction of the transverse height.", { positive: ["h", "c", S`\delta`, "f"] }),
     e("c.distance", "Apparent virtual-image distance", S`\frac{(1+r)c\delta}{2}`, S`r c \delta`, "Small reflected angles; r > 1, c > 0, δ > 0. Use the reflected-ray back-traced image, not twice the mirror’s present distance.", { positive: ["r", "c", S`\delta`] }),
   ],

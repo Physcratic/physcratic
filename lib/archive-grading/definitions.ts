@@ -2,7 +2,7 @@ import "server-only";
 import type { ArchiveMetadata } from "../archive-grading-contracts";
 
 type PublicPart = ArchiveMetadata["parts"][number];
-export type ArchiveSymbol = { latex: string; assumptions: ("positive" | "nonnegative" | "nonzero")[]; aliases: string[] };
+export type ArchiveSymbol = { latex: string; assumptions: ("positive" | "nonnegative" | "nonzero")[]; aliases: string[]; min?: number; max?: number };
 export type ArchiveKeyPart = Omit<PublicPart, "symbols"> & {
   symbols: ArchiveSymbol[];
   sourceReference?: string;
@@ -19,13 +19,13 @@ export type ArchiveDefinition = { problemId: string; keyVersion: number; content
 
 export function numeric(id: string, label: string, target: number, unit: string, options: { absTol?: number; relTol?: number; canonical?: string; alternatives?: string[]; help?: string; sourcePart?: string } = {}): ArchiveKeyPart {
   return { id, sourcePart: options.sourcePart ?? (id.split(".").slice(0, -1).join(".") || "Answer"), label, kind: "numeric", unit, symbols: [], target,
-    absTol: options.absTol ?? 0.005, relTol: options.relTol ?? 0.005,
+    absTol: options.absTol ?? 1e-9, relTol: options.relTol ?? 0.01,
     canonical: options.canonical ?? String(target), alternatives: options.alternatives ?? [], wrong: [String(target + Math.max(1, Math.abs(target)) * 2)],
     help: options.help ?? "Enter the result in the displayed unit, without a unit suffix.", domain: "Finite real value in the displayed unit.", exclusions: [], angleUnit: "radians" };
 }
-export function expression(id: string, label: string, canonical: string, symbols: string, help: string, options: { alternatives?: string[]; positive?: string[]; nonnegative?: string[]; domain?: string; exclusions?: string[]; aliases?: Record<string, string[]> } = {}): ArchiveKeyPart {
+export function expression(id: string, label: string, canonical: string, symbols: string, help: string, options: { alternatives?: string[]; positive?: string[]; nonnegative?: string[]; domain?: string; exclusions?: string[]; aliases?: Record<string, string[]>; ranges?: Record<string, [number, number]> } = {}): ArchiveKeyPart {
   return { id, sourcePart: id.split(".").slice(0, -1).join("."), label, kind: "expression", unit: "", canonical, alternatives: options.alternatives ?? [], wrong: [`(${canonical})+1`],
-    symbols: symbols.split(/\s+/).filter(Boolean).map((latex) => ({ latex, assumptions: options.positive?.includes(latex) ? ["positive"] : options.nonnegative?.includes(latex) ? ["nonnegative"] : [], aliases: options.aliases?.[latex] ?? [] })),
+    symbols: symbols.split(/\s+/).filter(Boolean).map((latex) => ({ latex, assumptions: options.positive?.includes(latex) ? ["positive"] : options.nonnegative?.includes(latex) ? ["nonnegative"] : [], aliases: options.aliases?.[latex] ?? [], ...(options.ranges?.[latex] ? { min: options.ranges[latex][0], max: options.ranges[latex][1] } : {}) })),
     help, domain: options.domain ?? help, exclusions: options.exclusions ?? [], angleUnit: "radians" };
 }
 export function review(id: string, label: string, reason: string): ArchiveKeyPart {

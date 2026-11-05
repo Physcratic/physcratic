@@ -1,6 +1,6 @@
 {
   "problemId": "heat",
-  "version": "be4f1e187c454b9c78b40b48abae061cb82dce79b1c7b6bf5b601e05bee1ad4e",
+  "version": "51e753f17a5a61f896bcd23ff35ff29f440d948aef871d3f54b2cbcb0c89e14e",
   "parts": [
     {
       "id": "answer",
@@ -9,7 +9,7 @@
       "kind": "numeric",
       "unit": "J",
       "symbols": [],
-      "help": "Use the displayed unit, without a unit suffix. Tolerance: 0.5% relative, with a 0.005 absolute floor. No unit conversion."
+      "help": "Use the displayed unit, without a unit suffix. Tolerance: 1% relative. No unit conversion."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "problemId": "power",
-  "version": "9ff3a8a42569353498c955da011f364a41121d8d633c7978ee76b3474ec933d5",
+  "version": "5b3d45a51301c4de044c0cb2db85945c7d32a74eeb6b56d5d923764ff759f185",
   "parts": [
     {
       "id": "answer",
@@ -9,7 +9,7 @@
       "kind": "numeric",
       "unit": "W",
       "symbols": [],
-      "help": "Use the displayed unit, without a unit suffix. Tolerance: 0.5% relative, with a 0.005 absolute floor. No unit conversion."
+      "help": "Use the displayed unit, without a unit suffix. Tolerance: 1% relative. No unit conversion."
     }
   ]
 }
