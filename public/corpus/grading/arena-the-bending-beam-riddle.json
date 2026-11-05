@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-bending-beam-riddle",
-  "version": "e6e9a8ec1c4917ecae894a45718b6bdff992dd6a02441c873d2af97be2f3d3e0",
+  "version": "9f3ce579b6bbb518a6eb4944510f0854e4ce407a85665fa235fab46bf381f8d9",
   "parts": [
     {
       "id": "a.i.shear",
@@ -52,7 +52,7 @@
           ]
         }
       ],
-      "help": "Uniform beam and stated shear convention; all dimensional parameters positive."
+      "help": "Uniform beam and stated shear convention. All dimensional parameters positive."
     },
     {
       "id": "a.iii.shear",
@@ -100,7 +100,7 @@
           ]
         }
       ],
-      "help": "Simply supported beam; 0 ≤ x ≤ L, positive dimensions, density and g."
+      "help": "Simply supported beam, 0 ≤ x ≤ L, positive dimensions, density and g."
     },
     {
       "id": "a.iii.moment",
@@ -148,7 +148,7 @@
           ]
         }
       ],
-      "help": "Simply supported beam; M(0) = M(L) = 0 and 0 ≤ x ≤ L."
+      "help": "Simply supported beam, M(0) = M(L) = 0 and 0 ≤ x ≤ L."
     },
     {
       "id": "b.i.stress",
@@ -203,7 +203,7 @@
           ]
         }
       ],
-      "help": "R is the signed curvature radius R(x), R ≠ 0; rectangular section."
+      "help": "R is the signed curvature radius R(x), R ≠ 0. Rectangular section."
     },
     {
       "id": "b.iii.drop",
@@ -293,7 +293,7 @@
           ]
         }
       ],
-      "help": "Rayleigh beam model including rotational inertia; positive physical parameters."
+      "help": "Rayleigh beam model including rotational inertia. Positive physical parameters."
     },
     {
       "id": "c.i.b",
@@ -359,7 +359,7 @@
           ]
         }
       ],
-      "help": "Neglect rotational inertia; all parameters positive; ω is angular frequency, not ordinary frequency."
+      "help": "Neglect rotational inertia. All parameters positive. ω is angular frequency, not ordinary frequency."
     },
     {
       "id": "c.ii.group",
@@ -399,7 +399,7 @@
           ]
         }
       ],
-      "help": "Same thin-beam limit; group velocity is twice phase velocity."
+      "help": "Same thin-beam limit. Group velocity is twice phase velocity."
     }
   ]
 }

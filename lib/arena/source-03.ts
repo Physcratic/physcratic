@@ -2,7 +2,7 @@ import type { ArenaSeed } from "../arena-schema";
 
 export const source03: ArenaSeed[] = [
   {
-    id: "arena-the-clock-in-the-racing-mirror", title: "The Clock in the Racing Mirror", topic: "Modern physics", tags: ["Special relativity", "Moving mirrors", "Doppler effect"], summary: "Infer the arrival time, physical height and virtual-image distance of a relativistically approaching mirror.", statementFile: "02_The_Clock_in_the_Racing_Mirror_Problem.pdf",
+    id: "arena-the-clock-in-the-racing-mirror", title: "Image of a clock in a moving mirror", topic: "Modern physics", tags: ["Special relativity", "Moving mirrors", "Doppler effect"], summary: "Infer the arrival time, physical height and virtual-image distance of a relativistically approaching mirror.", statementFile: "02_The_Clock_in_the_Racing_Mirror_Problem.pdf",
     statement: String.raw`A camera is stationary in an inertial frame $$S$$. A plane mirror approaches the camera at relativistic speed $$v$$, starting from a very large distance. The mirror moves along the line connecting it to the camera, with its surface perpendicular to the direction of motion.
 
 ![Camera and clock at the left, approaching plane mirror at the right, and outgoing and reflected light paths along the x-axis.](/corpus/arena/figures/the-clock-in-the-racing-mirror-statement.png)
@@ -77,7 +77,7 @@ $$\boxed{D_{\mathrm{virt}}=(1+r)D_r=\frac{(1+r)c\delta}{2}}$$
 For a stationary mirror, $$r=1$$ and the familiar result $$D_{\mathrm{virt}}=2D_r$$ is recovered.`,
   },
   {
-    id: "arena-the-dodecahedron-conspiracy", title: "The Dodecahedron Conspiracy", topic: "Electromagnetism", tags: ["Gauss’s law", "Symmetry", "Solid angle"], summary: "Use symmetry and solid angle to find flux and central fields for a charged regular dodecahedron.", statementFile: "02_The_Dodecahedron_Conspiracy_Problem.pdf",
+    id: "arena-the-dodecahedron-conspiracy", title: "Flux and fields of a charged dodecahedron", topic: "Electromagnetism", tags: ["Gauss’s law", "Symmetry", "Solid angle"], summary: "Use symmetry and solid angle to find flux and central fields for a charged regular dodecahedron.", statementFile: "02_The_Dodecahedron_Conspiracy_Problem.pdf",
     statement: String.raw`A regular dodecahedron has 12 faces, 30 edges, and 20 vertices. Each face is a regular pentagon, and every edge has length $$a$$.
 
 ![A regular dodecahedron showing its pentagonal faces.](/corpus/arena/figures/the-dodecahedron-conspiracy-statement.png)
@@ -154,7 +154,7 @@ $$\boxed{E_{\mathrm{center}}=\frac{|\sigma|}{6\varepsilon_0}(1+\sqrt5).}$$
 The size of the dodecahedron drops out of all three answers. Only its symmetry and the pattern of charged faces matter.`,
   },
   {
-    id: "arena-the-gas-with-elbows", title: "The Gas with Elbows", topic: "Thermodynamics", tags: ["Partition functions", "Van der Waals gas", "Statistical mechanics"], summary: "Build the van der Waals equation from quantum state counting, excluded volume and mean-field attraction.", statementFile: "02_The_Gas_with_Elbows_Problem.pdf",
+    id: "arena-the-gas-with-elbows", title: "Van der Waals equation from state counting", topic: "Thermodynamics", tags: ["Partition functions", "Van der Waals gas", "Statistical mechanics"], summary: "Build the van der Waals equation from quantum state counting, excluded volume and mean-field attraction.", statementFile: "02_The_Gas_with_Elbows_Problem.pdf",
     statement: String.raw`## From an ideal gas to the van der Waals equation
 
 An ideal gas neglects molecular size and intermolecular attraction. In this problem, begin with an ideal gas and then introduce both effects to obtain the van der Waals equation.

@@ -1,6 +1,6 @@
 {
   "problemId": "arena-an-atom-with-stage-fright",
-  "version": "22c118d0f8501c0b861babcd5fee1b86b18efe896adbba037445e498d9463783",
+  "version": "b21dccb364a22caea53d62e207ff27cff5deaf3b24451b7d271df6a8f753b8d2",
   "parts": [
     {
       "id": "a.dipole",
@@ -64,7 +64,7 @@
           ]
         }
       ],
-      "help": "Use x = |a₂|², 0 ≤ x ≤ 1, and μ₂₁ for the positive norm of the transition dipole; other constants positive. Slowly varying populations, semiclassical model."
+      "help": "Use x = |a₂|², 0 ≤ x ≤ 1, and μ₂₁ for the positive norm of the transition dipole. Other constants positive. Slowly varying populations, semiclassical model."
     },
     {
       "id": "c.energy",
@@ -85,7 +85,7 @@
           ]
         }
       ],
-      "help": "Use x = |a₂|² and normalization |a₁|² = 1 − x; 0 ≤ x ≤ 1, E₂ > E₁."
+      "help": "Use x = |a₂|² and normalization |a₁|² = 1 − x, 0 ≤ x ≤ 1, E₂ > E₁."
     },
     {
       "id": "d.lifetime",
@@ -139,7 +139,7 @@
           ]
         }
       ],
-      "help": "Nonzero transition dipole; all listed scales positive. This is the lifetime parameter of the specified semiclassical equation."
+      "help": "Nonzero transition dipole. All listed scales positive. This is the lifetime parameter of the specified semiclassical equation."
     },
     {
       "id": "d.function",
@@ -158,7 +158,7 @@
           ]
         }
       ],
-      "help": "x = |a₂|², 0 ≤ x ≤ 1; not simply x."
+      "help": "x = |a₂|², 0 ≤ x ≤ 1. Not simply x."
     },
     {
       "id": "e.population",
@@ -246,7 +246,7 @@
           ]
         }
       ],
-      "help": "τ_sp, ℏ, ω₀ > 0; t₀ = τsp ln(x₀/(1−x₀)) is the half-population time. Pulse formula within the slowly varying semiclassical treatment."
+      "help": "τ_sp, ℏ, ω₀ > 0. t₀ = τsp ln(x₀/(1−x₀)) is the half-population time. Pulse formula within the slowly varying semiclassical treatment."
     },
     {
       "id": "g.sketch",
@@ -256,7 +256,7 @@
       "unit": "",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Review the initial rise, maximum at 1.45τsp, and subsequent decay; only t ≥ 0 is physical for the specified initial condition."
+      "help": "Review the initial rise, maximum at 1.45τsp, and subsequent decay. Only t ≥ 0 is physical for the specified initial condition."
     }
   ]
 }

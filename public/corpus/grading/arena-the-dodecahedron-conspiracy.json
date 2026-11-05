@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-dodecahedron-conspiracy",
-  "version": "ac13a9a65bf88ec904bb14537a237d5e17dd53cb0ceaaa7c87730cf6b6103b1d",
+  "version": "0bb96a589978b3b16a927332601aa06b17722317acd906911ee7aeec23e74db0",
   "parts": [
     {
       "id": "a.flux",
@@ -20,7 +20,7 @@
           ]
         }
       ],
-      "help": "Signed central charge Q; positive ε₀; outward flux."
+      "help": "Signed central charge Q, positive ε₀ and outward flux."
     },
     {
       "id": "b.field",
@@ -46,7 +46,7 @@
           ]
         }
       ],
-      "help": "Field magnitude. The problem’s +σ convention takes σ > 0; absolute-value and positive-density forms are accepted."
+      "help": "Field magnitude. The problem’s +σ convention takes σ > 0. Absolute-value and positive-density forms are accepted."
     },
     {
       "id": "c.field",
@@ -72,7 +72,7 @@
           ]
         }
       ],
-      "help": "Field magnitude. Adjacent face normals have cosine 1/√5; σ and ε₀ are positive in the charge-density convention."
+      "help": "Field magnitude. Adjacent face normals have cosine 1/√5. σ and ε₀ are positive in the charge-density convention."
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-gas-with-elbows",
-  "version": "2c73a123ad09c422decec0088c046d25aa25ee1fcf3192c813d5c1ff0a586c68",
+  "version": "4237e3087d2ac98def4d44f5eac73a8748c72615327a41f3e62aeb22d46e1341",
   "parts": [
     {
       "id": "a.i.concentration",
@@ -40,7 +40,7 @@
           ]
         }
       ],
-      "help": "Large-box continuum limit, one internal state; M, T and constants positive."
+      "help": "Large-box continuum limit, one internal state. M, T and constants positive."
     },
     {
       "id": "a.ii.exponent",
@@ -69,7 +69,7 @@
           ]
         }
       ],
-      "help": "Canonical logarithm convention; use positive Z₁. Additive constants cannot be inferred from the derivative alone and require self-review."
+      "help": "Canonical logarithm convention. Use positive Z₁. Additive constants cannot be inferred from the derivative alone and require self-review."
     },
     {
       "id": "a.ii.energy",
@@ -128,7 +128,7 @@
           ]
         }
       ],
-      "help": "N indistinguishable particles; positive N, kB and T."
+      "help": "N indistinguishable particles. Positive N, kB and T."
     },
     {
       "id": "a.iv.entropy",
@@ -178,7 +178,7 @@
       "unit": "",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Review the derivative identity from F = U − TS; matching the two exponents is not a proof."
+      "help": "Review the derivative identity from F = U − TS. Matching the two exponents is not a proof."
     },
     {
       "id": "a.vi.partition",
@@ -211,7 +211,7 @@
           ]
         }
       ],
-      "help": "Canonical partition function; T, kB and ZN positive."
+      "help": "Canonical partition function. T, kB and ZN positive."
     },
     {
       "id": "a.vi.energy",
@@ -258,7 +258,7 @@
           ]
         }
       ],
-      "help": "Positive densities, large N; n = N/V and n_Q is the quantum concentration."
+      "help": "Positive densities, large N. n = N/V and n_Q is the quantum concentration."
     },
     {
       "id": "a.vi.proof",
@@ -332,7 +332,7 @@
           ]
         }
       ],
-      "help": "Accessible volume V − Nb > 0; N, kB, T, b and nQ positive. Use full corrected F, not just its difference from ideal F."
+      "help": "Accessible volume V − Nb > 0. N, kB, T, b and nQ positive. Use full corrected F, not just its difference from ideal F."
     },
     {
       "id": "b.iii.attraction",
@@ -358,7 +358,7 @@
           ]
         }
       ],
-      "help": "Positive well depth ε and excluded volume b; uniform-density mean field."
+      "help": "Positive well depth ε and excluded volume b. Uniform-density mean field."
     },
     {
       "id": "b.iv.energy",
@@ -419,7 +419,7 @@
           ]
         }
       ],
-      "help": "V > Nb > 0; positive T, kB, nQ and a. Pair attraction is counted once."
+      "help": "V > Nb > 0. Positive T, kB, nQ and a. Pair attraction is counted once."
     },
     {
       "id": "b.v.pressure",
@@ -473,7 +473,7 @@
           ]
         }
       ],
-      "help": "Right-hand side only; V > Nb > 0, all parameters positive."
+      "help": "Right-hand side only. V > Nb > 0, all parameters positive."
     },
     {
       "id": "b.v.derivation",
@@ -483,7 +483,7 @@
       "unit": "",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Review differentiation of F at fixed T and N; only the final pressure expression is checked."
+      "help": "Review differentiation of F at fixed T and N. Only the final pressure expression is checked."
     },
     {
       "id": "b.vi.energy",
@@ -530,7 +530,7 @@
           ]
         }
       ],
-      "help": "Classical gas with temperature-independent attraction parameter a; positive quantities and V > Nb."
+      "help": "Classical gas with temperature-independent attraction parameter a. Positive quantities and V > Nb."
     }
   ]
 }

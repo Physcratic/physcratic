@@ -2,7 +2,7 @@ import type { ArenaSeed } from "../arena-schema";
 
 export const source05: ArenaSeed[] = [
   {
-    id: "arena-a-grin-and-a-wiggle", title: "A GRIN and a Wiggle", topic: "Optics", tags: ["Graded-index optics", "Aberration", "Ray trajectories"], summary: "Follow rays through a graded-index cylinder and calculate paraxial imaging and third-order aberrations.", statementFile: "03_A_GRIN_and_a_Wiggle_Problem.pdf",
+    id: "arena-a-grin-and-a-wiggle", title: "Rays in a graded-index cylinder", topic: "Optics", tags: ["Graded-index optics", "Aberration", "Ray trajectories"], summary: "Follow rays through a graded-index cylinder and calculate paraxial imaging and third-order aberrations.", statementFile: "03_A_GRIN_and_a_Wiggle_Problem.pdf",
     statement: String.raw`A cylinder is made of a material whose refractive index varies as
 
 $$n(r)=n_0\sqrt{1-k^2r^2},$$
@@ -145,7 +145,7 @@ $$\boxed{\rho_e=\frac{k^2a^3}2\left(\frac{kt}{\sin(kt)}+n_0^2\cos(kt)\sin^2(kt)\
 For a specified marginal ray, replace $$a$$ with $$|r_0|$$. The first term comes from the phase shift accumulated inside the cylinder. The second comes from the cubic correction to the outgoing slope.`,
   },
   {
-    id: "arena-an-atom-with-stage-fright", title: "An Atom with Stage Fright", topic: "Modern physics", tags: ["Two-level systems", "Dipole radiation", "Spontaneous emission"], summary: "Derive the semiclassical populations and radiated-power pulse of a nondegenerate two-level atom.", statementFile: "03_An_Atom_with_Stage_Fright_Problem.pdf",
+    id: "arena-an-atom-with-stage-fright", title: "Populations and radiated power of a two-level atom", topic: "Modern physics", tags: ["Two-level systems", "Dipole radiation", "Spontaneous emission"], summary: "Derive the semiclassical populations and radiated-power pulse of a nondegenerate two-level atom.", statementFile: "03_An_Atom_with_Stage_Fright_Problem.pdf",
     statement: String.raw`Consider an excited atom undergoing a transition from level 2, with energy $$E_2$$, to level 1, with energy $$E_1$$. Both levels are nondegenerate. Treat the atom as a two-level system and neglect all other energy levels.
 
 The normalized wavefunctions of the two levels are
@@ -320,10 +320,10 @@ $$\Delta t_{\mathrm{FWHM}}=4\tau_{\mathrm{sp}}\operatorname{arcosh}\sqrt2\simeq3
 Using $$\operatorname{arcosh}\sqrt2\simeq0.88$$ gives $$3.52\tau_{\mathrm{sp}}$$. For this initial condition the half-maximum times are $$-0.313\tau_{\mathrm{sp}}$$ and $$3.213\tau_{\mathrm{sp}}$$. The plotted physical evolution starts at $$t=0$$, so only the later crossing is shown.`,
   },
   {
-    id: "arena-the-invisible-brake", title: "The Invisible Brake", topic: "Mechanics", tags: ["Viscosity", "Kinetic theory", "Poiseuille flow"], summary: "Connect molecular momentum transport to gas viscosity, pipe flow and viscous heating.", statementFile: "03_The_Invisible_Brake_Problem.pdf", solutionFile: "03_The_ Invisible_Brake_Solution.pdf",
+    id: "arena-the-invisible-brake", title: "Molecular viscosity and flow through a pipe", topic: "Mechanics", tags: ["Viscosity", "Kinetic theory", "Poiseuille flow"], summary: "Connect molecular momentum transport to gas viscosity, pipe flow and viscous heating.", statementFile: "03_The_Invisible_Brake_Problem.pdf", solutionFile: "03_The_ Invisible_Brake_Solution.pdf",
     statement: String.raw`## Molecular viscosity and flow through a pipe
 
-Consider a gas at temperature $$T$$ confined between two parallel plates separated by a distance $$D$$. The lower plate is fixed while the upper plate moves at speed $$v$$ in the $$x$$ direction. The mean gas velocity $$\langle v_x\rangle$$ varies linearly from zero at the lower plate to $$v$$ at the upper plate. Relative to this local mean velocity, the molecular velocities follow the Maxwell–Boltzmann distribution.
+Consider a gas at temperature $$T$$ confined between two parallel plates separated by a distance $$D$$. The lower plate is fixed while the upper plate moves at speed $$v$$ in the $$x$$ direction. The mean gas velocity $$\langle v_x\rangle$$ varies linearly from zero at the lower plate to $$v$$ at the upper plate. Relative to this local mean velocity, the molecular velocities follow the Maxwell-Boltzmann distribution.
 
 The coefficient of viscosity $$\eta$$ is defined by
 
@@ -368,7 +368,7 @@ Let $$\bar v=\langle|\boldsymbol v|\rangle$$ be the mean molecular speed. In an 
 
 $$\begin{aligned}J_+&=n\bar v\int_0^{2\pi}\int_0^{\pi/2}\frac{\cos\theta\sin\theta}{4\pi}\,d\theta\,d\phi\\&=\frac{n\bar v}4.\end{aligned}$$
 
-For Maxwell–Boltzmann velocities, $$\bar v=\sqrt{8k_BT/(\pi m)}$$.
+For Maxwell-Boltzmann velocities, $$\bar v=\sqrt{8k_BT/(\pi m)}$$.
 
 $$\boxed{J_+=\frac n4\sqrt{\frac{8k_BT}{\pi m}}}$$
 

@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-bubble-treaty",
-  "version": "c63708e46010a4fe58e637c1773cff1c316e5911652739201a0635bacedf7dde",
+  "version": "a554925784dbe18d3534f2c2347ce98ecb1947cc4fc5b04a7b294a19c61b484d",
   "parts": [
     {
       "id": "a.i.pressure",
@@ -10,7 +10,7 @@
       "unit": "Pa",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Absolute pressure, not pressure excess. Use pₐ = 101000 Pa; tolerance ±0.02 Pa."
+      "help": "Absolute pressure, not pressure excess. Use pₐ = 101000 Pa. Tolerance ±0.02 Pa."
     },
     {
       "id": "a.ii.radius",
@@ -20,7 +20,7 @@
       "unit": "cm",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Ideal gas, separately conserved amounts, isothermal process; use absolute pressures. Enter the radius in cm."
+      "help": "Ideal gas, separately conserved amounts, isothermal process. Use absolute pressures. Enter the radius in cm."
     },
     {
       "id": "a.iii.interface",
@@ -49,7 +49,7 @@
           ]
         }
       ],
-      "help": "Use R_p for the common outer radius R′ after attachment; each centre is R′/2 from the shared plane."
+      "help": "Use R_p for the common outer radius R′ after attachment. Each centre is R′/2 from the shared plane."
     },
     {
       "id": "b.i.radius",

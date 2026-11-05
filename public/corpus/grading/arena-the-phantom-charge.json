@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-phantom-charge",
-  "version": "a88cd064017b3c35a57b973d6d59db13c4927edbdf56e32e1286c87af3f72abd",
+  "version": "c8b1e8af422341ee66af9ed748d5ee0e181667021e8ecc9cde477bb5431f446f",
   "parts": [
     {
       "id": "a.charge",
@@ -20,7 +20,7 @@
           ]
         }
       ],
-      "help": "d > 0; c is the signed surface-density parameter, not the speed of light."
+      "help": "d > 0. c is the signed surface-density parameter, not the speed of light."
     },
     {
       "id": "b.above",
@@ -54,7 +54,7 @@
           ]
         }
       ],
-      "help": "z > 0, d > 0, ε₀ > 0; c may have either sign. Supply the scalar z component, without a unit vector."
+      "help": "z > 0, d > 0, ε₀ > 0. c may have either sign. Supply the scalar z component, without a unit vector."
     },
     {
       "id": "b.below",
@@ -82,7 +82,7 @@
           ]
         }
       ],
-      "help": "z < 0; d > 0, ε₀ > 0. The normal field has no unique continuous value at z = 0."
+      "help": "z < 0, d > 0, ε₀ > 0. The normal field has no unique continuous value at z = 0."
     },
     {
       "id": "c.magnitude",
@@ -102,7 +102,7 @@
           ]
         }
       ],
-      "help": "Magnitude rather than signed charge; d > 0. One point charge cannot reproduce both halves of the axis."
+      "help": "Magnitude rather than signed charge, with d > 0. One point charge cannot reproduce both halves of the axis."
     },
     {
       "id": "c.above-position",
@@ -121,7 +121,7 @@
           ]
         }
       ],
-      "help": "x = y = 0; zP > 0, d > 0."
+      "help": "x = y = 0, zP > 0, d > 0."
     },
     {
       "id": "c.below-position",
@@ -140,7 +140,7 @@
           ]
         }
       ],
-      "help": "x = y = 0; zP < 0, d > 0."
+      "help": "x = y = 0, zP < 0, d > 0."
     },
     {
       "id": "d.repulsive",
@@ -175,7 +175,7 @@
           ]
         }
       ],
-      "help": "qc > 0; m, ε₀, d > 0. Speeds above this threshold guarantee passage; equality at the discontinuous force does not fix continuation."
+      "help": "qc > 0 and m, ε₀, d > 0. Speeds above this threshold guarantee passage. Equality at the discontinuous force does not fix continuation."
     },
     {
       "id": "d.attractive",
@@ -185,7 +185,7 @@
       "unit": "m/s",
       "symbols": [],
       "symbolConditions": [],
-      "help": "No positive barrier. Arbitrarily small positive speeds suffice; zero is the infimum, not a guarantee of travel from infinity at rest."
+      "help": "No positive barrier. Arbitrarily small positive speeds suffice. Zero is the infimum, not a guarantee of travel from infinity at rest."
     }
   ]
 }

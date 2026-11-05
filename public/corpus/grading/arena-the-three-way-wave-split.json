@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-three-way-wave-split",
-  "version": "fcbc4e610c1bb65eb25b157f67422328e92a64bb019b2eb932f3364828e9a8ff",
+  "version": "0cf96feee8e51e7b9ddd525ebf5f9e2b35c40f1a7173c443a4ee7c7923b5a394",
   "parts": [
     {
       "id": "a.wave-two",
@@ -43,7 +43,7 @@
           ]
         }
       ],
-      "help": "r₂ increases away from the junction; positive wave numbers and ω; angles in radians. T₁ = 5T₀."
+      "help": "r₂ increases away from the junction. Positive wave numbers and ω. Angles in radians. T₁ = 5T₀."
     },
     {
       "id": "a.wave-three",
@@ -86,7 +86,7 @@
           ]
         }
       ],
-      "help": "r₃ increases away from the junction; positive wave numbers and ω; angles in radians."
+      "help": "r₃ increases away from the junction. Positive wave numbers and ω. Angles in radians."
     },
     {
       "id": "b.density-two",
@@ -105,7 +105,7 @@
           ]
         }
       ],
-      "help": "μ₁ = μ > 0; zero reflection and outgoing power ratio 2:3."
+      "help": "μ₁ = μ > 0, with zero reflection and outgoing power ratio 2:3."
     },
     {
       "id": "b.density-three",
@@ -124,7 +124,7 @@
           ]
         }
       ],
-      "help": "μ₁ = μ > 0; zero reflection and outgoing power ratio 2:3."
+      "help": "μ₁ = μ > 0, with zero reflection and outgoing power ratio 2:3."
     }
   ]
 }

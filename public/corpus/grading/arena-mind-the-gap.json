@@ -1,6 +1,6 @@
 {
   "problemId": "arena-mind-the-gap",
-  "version": "56b13d854438842765b6d3bae5ff5c8e0829f0ef0e77652d9dc6023f6e79134d",
+  "version": "162037ce9eff5db336740e0f94a857b6ef9a4381026f9dd0981722046f4aa025",
   "parts": [
     {
       "id": "a.radius",
@@ -40,7 +40,7 @@
           ]
         }
       ],
-      "help": "Reflected light, near-normal incidence; R₀ > R₁ > 0, λ > 0, m = 0, 1, …; principal positive root."
+      "help": "Reflected light, near-normal incidence. R₀ > R₁ > 0, λ > 0, m = 0, 1, …, and the principal positive root."
     },
     {
       "id": "b.radius",

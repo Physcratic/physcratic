@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-clock-in-the-racing-mirror",
-  "version": "f1fcd78dfe9d5511332878c51e3b3ed32e2b6c2766b2742f53264086b66de4ef",
+  "version": "63cbdf7180d66cfe42bda790da19ea15fbd5f5ab471e8fe258e5b042f818abe0",
   "parts": [
     {
       "id": "a.arrival",
@@ -61,7 +61,7 @@
           ]
         }
       ],
-      "help": "Distant-object, small-angle focal-plane approximation; all quantities positive. No longitudinal contraction of the transverse height."
+      "help": "Distant-object, small-angle focal-plane approximation. All quantities positive. No longitudinal contraction of the transverse height."
     },
     {
       "id": "c.distance",
@@ -94,7 +94,7 @@
           ]
         }
       ],
-      "help": "Small reflected angles; r > 1, c > 0, δ > 0. Use the reflected-ray back-traced image, not twice the mirror’s present distance."
+      "help": "Small reflected angles with r > 1, c > 0, δ > 0. Use the reflected-ray back-traced image, not twice the mirror’s present distance."
     }
   ]
 }

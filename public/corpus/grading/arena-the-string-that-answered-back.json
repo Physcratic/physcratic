@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-string-that-answered-back",
-  "version": "3a45784e8d85481c870bc9c1013ebebdcd385cd94c1fb131674368d864d26495",
+  "version": "99b322f3127a5edca2ecdec3772b245a1500c0f5bfc11ad6a42e8f57401f10ad",
   "parts": [
     {
       "id": "a.left",
@@ -28,7 +28,7 @@
           ]
         }
       ],
-      "help": "Small slopes; L, τ > 0. Exclude free oscillations depending on initial conditions. Angles in radians."
+      "help": "Small slopes, with L, τ > 0. Exclude free oscillations depending on initial conditions. Angles in radians."
     },
     {
       "id": "a.right",
@@ -56,7 +56,7 @@
           ]
         }
       ],
-      "help": "Same periodic particular solution; L, τ > 0. Angles in radians."
+      "help": "Same periodic particular solution, with L, τ > 0. Angles in radians."
     },
     {
       "id": "a.sketches",
@@ -94,7 +94,7 @@
           ]
         }
       ],
-      "help": "Small-slope periodic response, not the full undamped initial-value solution; L, τ > 0. Radians."
+      "help": "Small-slope periodic response, not the full undamped initial-value solution, with L, τ > 0. Radians."
     },
     {
       "id": "b.right",
@@ -122,7 +122,7 @@
           ]
         }
       ],
-      "help": "Same periodic particular solution; L, τ > 0. Radians."
+      "help": "Same periodic particular solution, with L, τ > 0. Radians."
     },
     {
       "id": "b.sketches",

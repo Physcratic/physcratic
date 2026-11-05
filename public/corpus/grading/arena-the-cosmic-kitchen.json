@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-cosmic-kitchen",
-  "version": "e23dfa903b56b6774f50e95ea9349a6fbe8006f52a74056439ebb1e1e8d69d30",
+  "version": "d032e1ff29dcc614875a4744f644ef999dc9e9c9f37cd8da554b6e7035417516",
   "parts": [
     {
       "id": "a.energy",
@@ -58,7 +58,7 @@
           ]
         }
       ],
-      "help": "Dilute nonrelativistic gas; one internal state, g = 1, kBT ≪ mc². Dimensional constants and T are positive; μ is real."
+      "help": "Dilute nonrelativistic gas, one internal state, g = 1, kBT ≪ mc². Dimensional constants and T are positive. μ is real."
     },
     {
       "id": "c.ratio",
@@ -78,7 +78,7 @@
       "unit": "K",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Use kBT₁ ≈ 0.8 MeV (or 0.79 MeV threshold); not a weak-rate freeze-out calculation."
+      "help": "Use kBT₁ ≈ 0.8 MeV (or 0.79 MeV threshold). This is not a weak-rate freeze-out calculation."
     },
     {
       "id": "d.ratio",
@@ -98,7 +98,7 @@
       "unit": "K",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Use kBT₂ ≈ mₑc² = 0.51 MeV; an estimate of pair-abundance suppression, not exact loss of chemical equilibrium."
+      "help": "Use kBT₂ ≈ mₑc² = 0.51 MeV. This estimates pair-abundance suppression, not exact loss of chemical equilibrium."
     },
     {
       "id": "f.ratio",
@@ -159,7 +159,7 @@
           ]
         }
       ],
-      "help": "Single-state convention; B_D is the positive binding energy 2.24 MeV in consistent units. Spin multiplicities are not included."
+      "help": "Single-state convention. B_D is the positive binding energy 2.24 MeV in consistent units. Spin multiplicities are not included."
     },
     {
       "id": "g.equation",
@@ -180,7 +180,7 @@
           "max": 150
         }
       ],
-      "help": "u is the numerical value of kBT in keV; ηB = 6.1×10⁻¹⁰, Xp ≈ 1, XD/Xn ≈ 1. Use the coefficient precision in the solution."
+      "help": "u is the numerical value of kBT in keV. ηB = 6.1×10⁻¹⁰, Xp ≈ 1, XD/Xn ≈ 1. Use the coefficient precision in the solution."
     },
     {
       "id": "g.temperature",
@@ -209,7 +209,7 @@
           ]
         }
       ],
-      "help": "Uniform Newtonian sphere; ρ is mass-equivalent density."
+      "help": "Uniform Newtonian sphere. ρ is mass-equivalent density."
     },
     {
       "id": "h.xi",
@@ -236,7 +236,7 @@
           ]
         }
       ],
-      "help": "a is the positive scale factor; k is signed curvature, c > 0."
+      "help": "a is the positive scale factor. k is signed curvature, c > 0."
     },
     {
       "id": "i.i.exponent",
@@ -292,12 +292,12 @@
           ]
         }
       ],
-      "help": "Flat radiation-dominated Universe; Big Bang at t = 0; both times positive."
+      "help": "Flat radiation-dominated Universe with the Big Bang at t = 0. Both times are positive."
     },
     {
       "id": "l.temperature",
       "sourcePart": "l",
-      "label": "Temperature at matter–radiation equality",
+      "label": "Temperature at matter-radiation equality",
       "kind": "numeric",
       "unit": "K",
       "symbols": [],
@@ -312,7 +312,7 @@
       "unit": "1",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Enter a fraction, not percent. Rounded r₁ = 0.20, Δt ≈ 290 s, half-life 612 s; all surviving neutrons enter helium; neglect baryonic mass differences."
+      "help": "Enter a fraction, not percent. Rounded r₁ = 0.20, Δt ≈ 290 s, half-life 612 s. All surviving neutrons enter helium. Neglect baryonic mass differences."
     },
     {
       "id": "m.reasoning",
@@ -322,7 +322,7 @@
       "unit": "",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Check comoving baryon counting and the neutron-decay derivation against the solution; only the final fraction is checked automatically."
+      "help": "Check comoving baryon counting and the neutron-decay derivation against the solution. Only the final fraction is checked automatically."
     }
   ]
 }

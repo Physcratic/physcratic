@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-infinite-v",
-  "version": "cd1743cded3e4015a683ec4a36815cae39a15636ef14196b07fbbf7a5b82dafe",
+  "version": "7591abd420a106a980866d92038ec98c3fb4c17a8dd2d00fa3e6d55673ff0844",
   "parts": [
     {
       "id": "a.radial",
@@ -10,7 +10,7 @@
       "unit": "",
       "symbols": [],
       "symbolConditions": [],
-      "help": "For the strictly infinite half-planes there is no finite general cutoff-independent field. Review the logarithmic divergence and finite-L regularization in the solution; do not invent a finite value."
+      "help": "For the strictly infinite half-planes there is no finite general cutoff-independent field. Review the logarithmic divergence and finite-L regularization in the solution. Do not invent a finite value."
     },
     {
       "id": "a.tangential",
@@ -20,7 +20,7 @@
       "unit": "",
       "symbols": [],
       "symbolConditions": [],
-      "help": "The general-point component depends on the distant-boundary regularization. Review the finite-L field and its projection; cancellation is special to symmetry, not a general finite field."
+      "help": "The general-point component depends on the distant-boundary regularization. Review the finite-L field and its projection. Cancellation is special to symmetry, not a general finite field."
     },
     {
       "id": "b.radial",
@@ -50,7 +50,7 @@
       "unit": "",
       "symbols": [],
       "symbolConditions": [],
-      "help": "A finite cutoff and a taut string must first be specified. The regularized stability condition is QK_L < 0; the strictly infinite geometry is ill-posed."
+      "help": "A finite cutoff and a taut string must first be specified. The regularized stability condition is QK_L < 0. The strictly infinite geometry is ill-posed."
     },
     {
       "id": "c.frequency",
@@ -60,7 +60,7 @@
       "unit": "",
       "symbols": [],
       "symbolConditions": [],
-      "help": "There is no finite cutoff-independent frequency. Review the regularized ω² = −QK_L/(mr); never substitute a fabricated finite infinite-limit answer."
+      "help": "There is no finite cutoff-independent frequency. Review the regularized ω² = −QK_L/(mr). Never substitute a fabricated finite infinite-limit answer."
     }
   ]
 }

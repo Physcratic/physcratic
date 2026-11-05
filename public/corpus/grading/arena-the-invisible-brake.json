@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-invisible-brake",
-  "version": "cb2f47a9683258af90259aa70445e371b0c285ca97410d701f57e7d61386ed83",
+  "version": "f95f8a7eff634e6baaafc66bb304d08146726bed37148ea8da6245310d8f792f",
   "parts": [
     {
       "id": "one.a.flux",
@@ -40,7 +40,7 @@
           ]
         }
       ],
-      "help": "Statement §1(a), solution §(a)(i). Dilute isotropic Maxwell–Boltzmann gas; all scales positive."
+      "help": "Statement §1(a), solution §(a)(i). Dilute isotropic Maxwell-Boltzmann gas. All scales positive."
     },
     {
       "id": "one.b.momentum",
@@ -67,7 +67,7 @@
           ]
         }
       ],
-      "help": "Statement §1(b), solution §(a)(ii). Use G = d⟨vx⟩/dz. Flux-weighted angular average; transfer to the faster layer is negative for G > 0."
+      "help": "Statement §1(b), solution §(a)(ii). Use G = d⟨vx⟩/dz. Flux-weighted angular average. Transfer to the faster layer is negative for G > 0."
     },
     {
       "id": "one.c.exponent",
@@ -77,7 +77,7 @@
       "unit": "1",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Statement §1(c), solution §(a)(iii); b ≪ λ ≪ D, dilute gas."
+      "help": "Statement §1(c), solution §(a)(iii). b ≪ λ ≪ D, dilute gas."
     },
     {
       "id": "one.c.coefficient",
@@ -110,7 +110,7 @@
           ]
         }
       ],
-      "help": "The number density cancels; b is molecular diameter; positive scales, dilute-gas approximation."
+      "help": "The number density cancels. b is molecular diameter. Positive scales, dilute-gas approximation."
     },
     {
       "id": "two.a.velocity",
@@ -144,7 +144,7 @@
           ]
         }
       ],
-      "help": "Statement §2(a), solution §(b)(i). Use G = dp/dx, signed pressure gradient; η, R > 0, 0 ≤ r ≤ R; steady nearly incompressible Poiseuille flow."
+      "help": "Statement §2(a), solution §(b)(i). Use G = dp/dx, signed pressure gradient. η, R > 0, 0 ≤ r ≤ R. Steady nearly incompressible Poiseuille flow."
     },
     {
       "id": "two.b.flow",
@@ -171,7 +171,7 @@
           ]
         }
       ],
-      "help": "Use G = dp/dx, negative for positive flow; fully developed nearly incompressible flow."
+      "help": "Use G = dp/dx, negative for positive flow. Fully developed nearly incompressible flow."
     },
     {
       "id": "two.c.heat",
@@ -198,7 +198,7 @@
           ]
         }
       ],
-      "help": "Use G = dp/dx. Pressure-work dissipation is removed as wall heat; steady nearly incompressible flow. Isothermal compressible gas alone does not justify this formula."
+      "help": "Use G = dp/dx. Pressure-work dissipation is removed as wall heat. Steady nearly incompressible flow. Isothermal compressible gas alone does not justify this formula."
     }
   ]
 }

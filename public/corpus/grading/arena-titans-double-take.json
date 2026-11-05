@@ -1,6 +1,6 @@
 {
   "problemId": "arena-titans-double-take",
-  "version": "eaced542f675de1f2f91ee04132413b0dd3b6846979af46c3464c626a35051b5",
+  "version": "969ff37af08b5341cdec88a63a2d09a2f6eae4487fdef2cc9c1ce50bc552614b",
   "parts": [
     {
       "id": "a.index",
@@ -10,7 +10,7 @@
       "unit": "1",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Spherical droplets; atmosphere index taken as one. Solve stationary primary deviation at an antisolar radius of 49°. Tolerance ±0.003."
+      "help": "Spherical droplets. Atmosphere index taken as one. Solve stationary primary deviation at an antisolar radius of 49°. Tolerance ±0.003."
     },
     {
       "id": "b.angle",
@@ -20,7 +20,7 @@
       "unit": "degrees",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Use the index inferred in part (a), not a generic terrestrial index. This branch lies inside the 49° primary bow; tolerance ±0.1°."
+      "help": "Use the index inferred in part (a), not a generic terrestrial index. This branch lies inside the 49° primary bow. Tolerance ±0.1°."
     },
     {
       "id": "b.diagram",

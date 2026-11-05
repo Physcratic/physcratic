@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-capacitors-missing-energy",
-  "version": "ed630351298ce823e1da140f99649ab98c5040367756e269fbdb4621892d262a",
+  "version": "78e02875486c34078ab85ed614143fd755ea91115022fe7a581ffc8b16345ea9",
   "parts": [
     {
       "id": "a.i.energy",
@@ -34,7 +34,7 @@
           ]
         }
       ],
-      "help": "Neglect fringing, √A ≫ d; positive dimensions and ε₀."
+      "help": "Neglect fringing, √A ≫ d. Positive dimensions and ε₀."
     },
     {
       "id": "a.ii.electric",
@@ -46,7 +46,7 @@
         "E_0"
       ],
       "symbolConditions": [],
-      "help": "Boost parallel to the field; capacitor moves along +x in S. Other electric components vanish."
+      "help": "Boost parallel to the field. Capacitor moves along +x in S. Other electric components vanish."
     },
     {
       "id": "a.ii.magnetic",
@@ -82,7 +82,7 @@
           ]
         }
       ],
-      "help": "γ = 1/√(1−β²) > 0; gap contracts longitudinally."
+      "help": "γ = 1/√(1−β²) > 0. Gap contracts longitudinally."
     },
     {
       "id": "a.iii.plate",
@@ -115,7 +115,7 @@
           ]
         }
       ],
-      "help": "Each plate, not both; γ > 0, mp > 0, c > 0."
+      "help": "Each plate, not both. γ > 0, mp > 0, c > 0."
     },
     {
       "id": "a.iii.observation",
@@ -125,7 +125,7 @@
       "unit": "",
       "symbols": [],
       "symbolConditions": [],
-      "help": "The field and plates alone are not a closed static system; review why stressed supports carry the missing energy."
+      "help": "The field and plates alone are not a closed static system. Review why stressed supports carry the missing energy."
     },
     {
       "id": "b.i.xx",
@@ -145,7 +145,7 @@
           ]
         }
       ],
-      "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension; γ = 1/√(1−β²)."
+      "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension. γ = 1/√(1−β²)."
     },
     {
       "id": "b.i.xy",
@@ -165,7 +165,7 @@
           ]
         }
       ],
-      "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension; γ = 1/√(1−β²)."
+      "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension. γ = 1/√(1−β²)."
     },
     {
       "id": "b.i.xz",
@@ -185,7 +185,7 @@
           ]
         }
       ],
-      "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension; γ = 1/√(1−β²)."
+      "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension. γ = 1/√(1−β²)."
     },
     {
       "id": "b.i.yx",
@@ -205,7 +205,7 @@
           ]
         }
       ],
-      "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension; γ = 1/√(1−β²)."
+      "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension. γ = 1/√(1−β²)."
     },
     {
       "id": "b.i.yy",
@@ -225,7 +225,7 @@
           ]
         }
       ],
-      "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension; γ = 1/√(1−β²)."
+      "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension. γ = 1/√(1−β²)."
     },
     {
       "id": "b.i.yz",
@@ -245,7 +245,7 @@
           ]
         }
       ],
-      "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension; γ = 1/√(1−β²)."
+      "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension. γ = 1/√(1−β²)."
     },
     {
       "id": "b.i.zx",
@@ -265,7 +265,7 @@
           ]
         }
       ],
-      "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension; γ = 1/√(1−β²)."
+      "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension. γ = 1/√(1−β²)."
     },
     {
       "id": "b.i.zy",
@@ -285,7 +285,7 @@
           ]
         }
       ],
-      "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension; γ = 1/√(1−β²)."
+      "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension. γ = 1/√(1−β²)."
     },
     {
       "id": "b.i.zz",
@@ -305,7 +305,7 @@
           ]
         }
       ],
-      "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension; γ = 1/√(1−β²)."
+      "help": "Cauchy force per moving material-surface area, not a spatial stress-energy-tensor component. Positive stress means tension. γ = 1/√(1−β²)."
     },
     {
       "id": "b.ii.interval",
@@ -345,7 +345,7 @@
           ]
         }
       ],
-      "help": "Use x₀ for the positive rest-frame length Δx′. The right force disappears later; 0 < β < 1 and γ = 1/√(1−β²)."
+      "help": "Use x₀ for the positive rest-frame length Δx′. The right force disappears later. Take 0 < β < 1 and γ = 1/√(1−β²)."
     },
     {
       "id": "b.iii.work",
@@ -373,7 +373,7 @@
           ]
         }
       ],
-      "help": "Use V₀ for rest volume Δx′Δy′Δz′. Signed Cauchy stress fxx is negative for compression; work is then negative."
+      "help": "Use V₀ for rest volume Δx′Δy′Δz′. Signed Cauchy stress fxx is negative for compression. Work is then negative."
     },
     {
       "id": "b.iv.density",
@@ -399,7 +399,7 @@
           ]
         }
       ],
-      "help": "Rest energy density/c² is ρ₀; γ = 1/√(1−β²)."
+      "help": "Rest energy density/c² is ρ₀. γ = 1/√(1−β²)."
     },
     {
       "id": "b.v.density",
@@ -434,7 +434,7 @@
           ]
         }
       ],
-      "help": "t₀xx = f₀xx, positive for tension and negative for compression; γ = 1/√(1−β²)."
+      "help": "t₀xx = f₀xx, positive for tension and negative for compression. γ = 1/√(1−β²)."
     },
     {
       "id": "b.vi.stress",
@@ -468,7 +468,7 @@
           ]
         }
       ],
-      "help": "Two identical struts share the plate attraction; compressive stress is negative."
+      "help": "Two identical struts share the plate attraction. Compressive stress is negative."
     },
     {
       "id": "b.vii.mass",
@@ -524,7 +524,7 @@
           ]
         }
       ],
-      "help": "γ = 1/√(1−β²); one strut, including its stress contribution. The strut area cancels."
+      "help": "γ = 1/√(1−β²). One strut, including its stress contribution. The strut area cancels."
     },
     {
       "id": "b.viii.energy",
@@ -571,7 +571,7 @@
           ]
         }
       ],
-      "help": "Complete closed system; U₀ is rest field energy and γ = 1/√(1−β²). Includes both plates and both supports."
+      "help": "Complete closed system. U₀ is rest field energy and γ = 1/√(1−β²). Includes both plates and both supports."
     }
   ]
 }

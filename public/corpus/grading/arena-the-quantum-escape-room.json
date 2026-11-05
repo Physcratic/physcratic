@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-quantum-escape-room",
-  "version": "56b94cad44d408ce056bace84172efc1ddc3aa36cb18fee215291309beb41a1a",
+  "version": "78751b1fd35616162a1ff6f1226dcd8232d201f8f972c661b64371ba8204e145",
   "parts": [
     {
       "id": "a.wave-number",
@@ -33,7 +33,7 @@
           ]
         }
       ],
-      "help": "m, E and ℏ positive; principal positive wave number."
+      "help": "m, E and ℏ positive. Principal positive wave number."
     },
     {
       "id": "b.parallel",
@@ -53,7 +53,7 @@
           ]
         }
       ],
-      "help": "Conserved tangential momentum; k₀ > 0; incidence angle in radians, 0 ≤ θ < π/2."
+      "help": "Conserved tangential momentum. k₀ > 0. Incidence angle in radians, 0 ≤ θ < π/2."
     },
     {
       "id": "c.decay",
@@ -94,7 +94,7 @@
           ]
         }
       ],
-      "help": "V₀ > E > 0; m, ℏ > 0; real positive decay constant; θ in radians."
+      "help": "V₀ > E > 0. m, ℏ > 0. Real positive decay constant. θ in radians."
     },
     {
       "id": "d.normal",
@@ -114,7 +114,7 @@
           ]
         }
       ],
-      "help": "Positive-x transmitted wave; k₀ > 0; 0 ≤ θ < π/2 in radians."
+      "help": "Positive-x transmitted wave. k₀ > 0, and 0 ≤ θ < π/2 in radians."
     },
     {
       "id": "d.parallel",
@@ -134,7 +134,7 @@
           ]
         }
       ],
-      "help": "Tangential momentum is conserved; radians."
+      "help": "Tangential momentum is conserved. Radians."
     },
     {
       "id": "e.probability",
@@ -174,7 +174,7 @@
           ]
         }
       ],
-      "help": "Use E_x = E cos²θ > 0 and κ from part (c); V₀ > E_x, d > 0. This form uses the normal energy, not total E."
+      "help": "Use E_x = E cos²θ > 0 and κ from part (c). V₀ > E_x, d > 0. This form uses the normal energy, not total E."
     },
     {
       "id": "f.rate",
@@ -228,7 +228,7 @@
           ]
         }
       ],
-      "help": "a ≫ d; independent collisions and small escape probability. κ₄₅ = √(2m(V₀ − E/2))/ℏ. Count all four wall collisions; all length/energy/mass scales positive."
+      "help": "a ≫ d, with independent collisions and small escape probability. κ₄₅ = √(2m(V₀ − E/2))/ℏ. Count all four wall collisions. All length, energy and mass scales are positive."
     }
   ]
 }

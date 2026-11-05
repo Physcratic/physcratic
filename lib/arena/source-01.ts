@@ -53,7 +53,7 @@ $$y\simeq(1.112413\ \mathrm{m}^{-1})x-30.33661,\qquad R_1=0.89895\ \mathrm m\sim
 The spacing in $$r_m^2$$ determines the curvature without knowing the first ring’s absolute order. The precision of the radii supports the rounded answer $$0.90\ \mathrm m$$.`,
   },
   {
-    id: "arena-the-bubble-treaty", title: "The Bubble Treaty", topic: "Thermodynamics", tags: ["Surface tension", "Pressure", "Ideal gas"], summary: "Find the pressures, radii and shared-film geometry of equal and unequal attached soap bubbles.", statementFile: "01_The_Bubble_Treaty_Problem.pdf",
+    id: "arena-the-bubble-treaty", title: "Pressure in attached soap bubbles", topic: "Thermodynamics", tags: ["Surface tension", "Pressure", "Ideal gas"], summary: "Find the pressures, radii and shared-film geometry of equal and unequal attached soap bubbles.", statementFile: "01_The_Bubble_Treaty_Problem.pdf",
     statement: String.raw`## Soap films, pressure differences, and curved interfaces
 
 Two soap bubbles can join while retaining distinct volumes of gas. This problem examines how their pressures and geometries change when they touch.
@@ -93,7 +93,7 @@ $$R'_1=3.00\ \mathrm{cm},\qquad R'_2=4.00\ \mathrm{cm}.$$
 (i) Find the radius of curvature of the film separating the two bubbles.
 
 (ii) Find the distance between the centers of the two bubbles.`,
-    solution: String.raw`Treat each bubble’s gas as ideal and conserve its amount separately. The temperature is constant. Each thin soap film has two liquid–air surfaces, so its effective tension is $$2\sigma$$.
+    solution: String.raw`Treat each bubble’s gas as ideal and conserve its amount separately. The temperature is constant. Each thin soap film has two liquid-air surfaces, so its effective tension is $$2\sigma$$.
 
 ## (a.i)
 
@@ -172,7 +172,7 @@ $$\boxed{\ell=\sqrt{13}\ \mathrm{cm}\simeq3.61\ \mathrm{cm}.}$$
 Radii drawn to the upper junction show the $$60^\circ$$ triangle angle.`,
   },
   {
-    id: "arena-the-cosmic-kitchen", title: "The Cosmic Kitchen", topic: "Thermodynamics", tags: ["Cosmology", "Statistical mechanics", "Nucleosynthesis"], summary: "Use thermal distributions and cosmic expansion to estimate primordial nucleosynthesis and the helium abundance.", statementFile: "01_The_Cosmic_Kitchen_Problem.pdf",
+    id: "arena-the-cosmic-kitchen", title: "Nucleosynthesis in the early Universe", topic: "Thermodynamics", tags: ["Cosmology", "Statistical mechanics", "Nucleosynthesis"], summary: "Use thermal distributions and cosmic expansion to estimate primordial nucleosynthesis and the helium abundance.", statementFile: "01_The_Cosmic_Kitchen_Problem.pdf",
     statement: String.raw`At the earliest stages of the Universe, at times $$t<10^{-30}\ \mathrm s$$ after the Big Bang, the energy and temperature were extremely high. The physics of this period is not well understood, and particles of unknown types may have been produced. At about $$t\sim10^{-36}\ \mathrm s$$, the Universe underwent a very rapid exponential expansion called inflation. By the end of this process, large amounts of matter and radiation had also been produced. As the Universe expanded and cooled, its temperature eventually became low enough for its interactions to be described by the laws of physics known today.
 
 When the primordial plasma had a temperature of about $$T\sim10^{12}\ \mathrm K$$, it contained photons, electrons, positrons, neutrinos and antineutrinos. It also contained a small number of protons and neutrons, which could convert into one another through the reaction
@@ -281,7 +281,7 @@ Further assume a spatially flat Universe, so that $$\xi=0$$. Find the ratio of t
 
 ## (l)
 
-Matter and radiation have equal energy densities when the Universe is 60 000 years old. Recombination occurs at a temperature of 3000 K when the Universe is 360 000 years old, by which time matter dominates. Find the temperature at matter–radiation equality. Assume a flat Universe and that the scaling found in part (j) still applies.
+Matter and radiation have equal energy densities when the Universe is 60 000 years old. Recombination occurs at a temperature of 3000 K when the Universe is 360 000 years old, by which time matter dominates. Find the temperature at matter-radiation equality. Assume a flat Universe and that the scaling found in part (j) still applies.
 
 ## (m)
 
@@ -344,7 +344,7 @@ Use $$r_1\simeq0.20$$ in the final estimate. A physical freeze-out temperature w
 
 ## (e)
 
-At threshold, two oppositely directed photons must supply the rest energy of an electron–positron pair. Using the thermal-energy scale from part (a),
+At threshold, two oppositely directed photons must supply the rest energy of an electron-positron pair. Using the thermal-energy scale from part (a),
 
 $$2k_BT_2\simeq2m_ec^2.$$
 

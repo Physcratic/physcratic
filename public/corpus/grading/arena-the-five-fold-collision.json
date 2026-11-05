@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-five-fold-collision",
-  "version": "0618c87deeede88221b6e9a66236b93c93e20588056750b0fda38e15def2cabc",
+  "version": "aa400806b0d5df82e766b943e3f3a5e47daa683cddeab81af4c4456fb7f0d427",
   "parts": [
     {
       "id": "a.mass",
@@ -19,7 +19,7 @@
           ]
         }
       ],
-      "help": "Positive rest mass scale m; composite internal energy is included."
+      "help": "Positive rest mass scale m. Composite internal energy is included."
     },
     {
       "id": "a.speed",
@@ -38,7 +38,7 @@
           ]
         }
       ],
-      "help": "Positive c; speed along +x."
+      "help": "Positive c. Speed along +x."
     },
     {
       "id": "b.heavy",
@@ -57,7 +57,7 @@
           ]
         }
       ],
-      "help": "Nontrivial elastic collision with momentum exchange; +x is the incoming direction. The unchanged-velocity no-exchange branch is not requested in this field."
+      "help": "Nontrivial elastic collision with momentum exchange, and +x is the incoming direction. The unchanged-velocity no-exchange branch is not requested in this field."
     },
     {
       "id": "b.light",
@@ -76,7 +76,7 @@
           ]
         }
       ],
-      "help": "Nontrivial elastic collision with momentum exchange; signed velocity along +x."
+      "help": "Nontrivial elastic collision with momentum exchange. Signed velocity along +x."
     },
     {
       "id": "c.angle",
@@ -86,7 +86,7 @@
       "unit": "degrees",
       "symbols": [],
       "symbolConditions": [],
-      "help": "Same two outgoing rest masses, elastic two-body final state; enter degrees, not radians."
+      "help": "Same two outgoing rest masses, elastic two-body final state. Enter degrees, not radians."
     },
     {
       "id": "d.lower",
@@ -139,7 +139,7 @@
           ]
         }
       ],
-      "help": "All three photon energies are strictly positive; the other two may be collinear backwards. Constants m, c and h are positive."
+      "help": "All three photon energies are strictly positive. The other two may be collinear backwards. Constants m, c and h are positive."
     }
   ]
 }
