@@ -27,6 +27,7 @@ import {
 import { AnswerPanel } from "./answer-panel";
 import { TagPicker, MissingTagNote } from "./tag-picker";
 import { HowItWorksLink, StatusBar, StepCard, studioTokens } from "./studio-ui";
+import { EasyEditor, rememberEasyFocus } from "./easy-editor";
 import { colorsByPartId } from "@/lib/part-colors";
 import { PartChip, partBorder, partStyle } from "@/components/physics/solve-ui";
 import {
@@ -47,34 +48,81 @@ function download(draft: EditorDraft) {
   link.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
+const MODE_KEY = "physcratic.studio.mode";
+export type StudioMode = "easy" | "advanced";
+
 export function ProblemEditor({
   initial,
   userId,
   onBack,
+  provisional,
+  carry,
+  continueDraft,
 }: {
   initial: EditorDraft;
   userId: string;
   onBack: () => void;
+  /** A new problem that is not on the server yet. The first edit saves it, and `onCreated` swaps in the saved copy. */
+  provisional?: { onCreated: (saved: EditorDraft, latest: EditorDraft) => void };
+  /** Edits made while the first save was in flight. They are applied to the saved copy. */
+  carry?: EditorDraft | null;
+  /** A link to the most recent draft, shown at the top of a new problem. */
+  continueDraft?: { title: string; open: () => void } | null;
 }) {
+  const [mode, setModeState] = useState<StudioMode>("easy");
+  useEffect(() => {
+    try {
+      if (window.localStorage.getItem(MODE_KEY) === "advanced") setModeState("advanced");
+    } catch {
+      /* The choice is a convenience. Easy is the default. */
+    }
+  }, []);
+  function chooseMode(next: StudioMode) {
+    setModeState(next);
+    try {
+      window.localStorage.setItem(MODE_KEY, next);
+    } catch {
+      /* Ignore. */
+    }
+  }
   const [session] = useState(() => {
-    let storage;
+    let storage: Storage | undefined;
     try {
       if (typeof window !== "undefined") storage = window.sessionStorage;
     } catch {
       /* Recovery warning shown below. */
     }
-    return new DraftEditorSession(
+    let created = false;
+    const holder: { session?: DraftEditorSession } = {};
+    holder.session = new DraftEditorSession(
       initial,
-      async (draft) =>
-        editorDraftSchema.parse(
+      async (draft) => {
+        if (provisional) {
+          // The first save creates the draft. Any later save from this copy would race the saved copy that replaces it.
+          if (created) throw new Error("Your first draft was saved. Keep typing.");
+          const saved = editorDraftSchema.parse(await draftRequest(editorBase, "POST", draftPayload(draft)));
+          created = true;
+          rememberEasyFocus();
+          try {
+            storage?.removeItem(`physcratic:author:${userId}:${initial.problemId}`);
+          } catch {
+            /* Ignore. */
+          }
+          provisional.onCreated(saved, holder.session!.snapshot().draft);
+          return saved;
+        }
+        return editorDraftSchema.parse(
           await draftRequest(`${editorBase}/${draft.problemId}`, "PUT", {
             version: draft.version,
             ...draftPayload(draft),
           }),
-        ),
+        );
+      },
       storage,
       `physcratic:author:${userId}:${initial.problemId}`,
+      provisional ? 300 : undefined,
     );
+    return holder.session;
   });
   const snapshot = useSyncExternalStore(
     session.subscribe,
@@ -103,10 +151,24 @@ export function ProblemEditor({
     ...draftPayload(draft),
   });
   const issues = publishable.success ? [] : publishable.error.issues;
+  // Publish rules Easy shows next to its own fields. Anything else is listed by the Publish button.
+  const easyOwned = /^(Title and rights provenance required|Native statement and at least one part required|Every published part requires a key or explicit manual mode)$/;
+  const otherIssues = issues.map((i) => i.message).filter((m) => !easyOwned.test(m));
   useEffect(() => {
     session.activate();
     return () => session.dispose();
   }, [session]);
+  useEffect(() => {
+    if (!carry) return;
+    const current = session.snapshot().draft;
+    if (JSON.stringify(draftPayload(carry)) !== JSON.stringify(draftPayload(current)))
+      session.edit((d) => {
+        d.content = carry.content;
+        d.privateParts = carry.privateParts;
+      });
+    // Runs once, when the saved copy replaces the provisional one.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   useEffect(() => {
     function beforeUnload(e: BeforeUnloadEvent) {
       if (
@@ -211,7 +273,7 @@ export function ProblemEditor({
               onClick={back}
               disabled={busy || uploads > 0}
             >
-              ← Drafts
+              ← My drafts
             </Button>
             <span className="hidden text-sm text-muted-foreground sm:inline">
               Problem Studio
@@ -219,6 +281,20 @@ export function ProblemEditor({
             <HowItWorksLink />
           </div>
           <div className="flex flex-wrap items-center gap-2">
+            <div role="group" aria-label="Editor mode" className="flex gap-1 rounded-lg border p-1">
+              {(["easy", "advanced"] as const).map((m) => (
+                <Button
+                  key={m}
+                  type="button"
+                  size="sm"
+                  aria-pressed={mode === m}
+                  variant={mode === m ? "secondary" : "ghost"}
+                  onClick={() => chooseMode(m)}
+                >
+                  {m === "easy" ? "Easy" : "Advanced"}
+                </Button>
+              ))}
+            </div>
             <span
               role="status"
               aria-live="polite"
@@ -226,6 +302,8 @@ export function ProblemEditor({
             >
               {uploads > 0 ? "Uploading privately…" : message}
             </span>
+            {mode === "advanced" && (
+              <>
             <Button
               type="button"
               variant="outline"
@@ -276,6 +354,8 @@ export function ProblemEditor({
                   ? "Publish new revision"
                   : "Publish problem"}
             </Button>
+              </>
+            )}
           </div>
         </div>
       </header>
@@ -497,6 +577,44 @@ export function ProblemEditor({
             )}
           </section>
         )}
+        {mode === "easy" ? (
+          <>
+            {continueDraft && (
+              <p className="mb-6 text-sm">
+                <button
+                  type="button"
+                  className="inline-flex min-h-11 items-center underline underline-offset-4"
+                  disabled={busy || uploads > 0}
+                  onClick={() => {
+                    if (
+                      (dirty || recovery || snapshot.recoveryRaw) &&
+                      !window.confirm("Leave this problem? Unsaved work stays in this tab's recovery copy.")
+                    )
+                      return;
+                    continueDraft.open();
+                  }}
+                >
+                  Continue your last draft{continueDraft.title ? `: ${continueDraft.title}` : ""}
+                </button>
+              </p>
+            )}
+            <EasyEditor
+              draft={draft}
+              edit={edit}
+              locked={busy || uploads > 0 || !!recovery || !!snapshot.recoveryRaw}
+              provisional={!!provisional}
+              otherIssues={otherIssues}
+              publishing={busy}
+              onPublish={() => {
+                if (phase === "saving" || phase === "conflict") return;
+                void session.publish("publish", (d) =>
+                  draftRequest(`${editorBase}/${d.problemId}/publish`, "POST", { version: d.version }),
+                );
+              }}
+            />
+          </>
+        ) : (
+          <>
         <div className="mb-8 flex flex-wrap items-center justify-between gap-3 border-b pb-3">
           <div className="flex gap-2" role="group" aria-label="Editor view">
             <Button
@@ -1134,6 +1252,8 @@ export function ProblemEditor({
               </nav>
             </aside>
           </div>
+        )}
+          </>
         )}
       </main>
     </div>
