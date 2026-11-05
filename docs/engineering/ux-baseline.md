@@ -495,3 +495,23 @@ Measured by `tests/studio-easy.browser.mjs` on the real editor and API (throwawa
 Phase 0 did not count a click to focus a field, because Playwright fills a text box directly. The answer is a MathLive field and cannot be filled, so Easy counts one click for it. Like for like, Easy is 2 clicks.
 
 Easy page, top to bottom (the same column at 375 and 1440): Easy | Advanced switch, title, problem text, one block per part (question, answer, detected symbols or a unit, a collapsed hint, a collapsed solution), Add a part, topic chips, the rights tick, Publish. At 1440 the student preview sits beside it with a "Test an answer" box under each part. At 375 the preview is a tab.
+
+## 9. Phase 4b: Simple mode (5 November 2026)
+
+Owner feedback on Easy: the author could not tell where the answer goes, labels like "context" and "provide" meant nothing, some helper lines said nothing and the page was hard to see. Simple replaces Easy.
+
+Measured by `tests/studio-simple.browser.mjs` on the real editor and API (throwaway PostgreSQL). One part, an equation in the question, a picture and an expression answer key (`m*a`).
+
+| Item | Phase 0 | Easy | Simple |
+| --- | --- | --- | --- |
+| Screens | 2 | 1 | 1 |
+| Clicks besides typing | 8 | 3 | 3 (choose the picture, tick the rights box, Publish) |
+| Clicks that only put the cursor in a field | not counted | 1 | 3 (question, answer, Try an answer) |
+| Selects | 1 | 0 | 0 |
+| Typed fields | 6 | 4 | 3 (question with its equation, picture description, answer) |
+| What the page asks | 16 questions with defaults | title, problem text, question, answer, hint and solution toggles, topic search | question, picture, final answer, Try an answer, worked solution, more parts, title (filled in), topics, rights, Publish |
+
+Page, top to bottom (one column about 720px wide, the same at 375 and 1440): What's the question? (an Equation button, `$` and Alt+= drop in an equation), Add a picture (optional), Final answer (We check students against this), Try an answer, Worked solution (optional), Add another part, Title, topics, the rights tick, Publish. No side preview.
+
+Screenshots (light, 2x): `before-1440-filled.png`, `before-375-filled.png` (Easy) and `after-1440-filled.png`, `after-375-filled.png` (Simple), with the empty pages beside them, in `/tmp/claude-0/-home-user-physcratic/e2f71d02-1835-5abd-a0a1-5a697b1c0cf0/scratchpad/shots/`.
+
