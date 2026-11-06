@@ -308,7 +308,8 @@ export function readAnswer(raw: string): AnswerRead {
   }
   try {
     const table = new SymbolTable([], true);
-    readExpression(text, table);
+    // A new key is explicit: a bare log is refused here, so nobody saves one that means ln by accident.
+    readExpression(text, table, { logRole: "answer" });
     const bad = table.names.find((n) => !nameShape.test(n));
     if (bad) return { kind: "error", message: `${displayName(bad)} cannot be saved as a symbol. Use letters, digits and underscores, starting with a letter.` };
     if (table.names.length > 20) return { kind: "error", message: "An answer can use up to 20 symbols." };

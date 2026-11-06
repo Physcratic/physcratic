@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { AnswerReadError, SymbolTable, displayName, normaliseName, readExpression, readNumber, readerLimits } from "./answer-reader";
+import { AnswerReadError, SymbolTable, bareLogMessage, displayName, normaliseName, readExpression, readNumber, readerLimits } from "./answer-reader";
 
 const table = (...names: string[]) => new SymbolTable(names);
 const value = (text: string, names: string[], values: number[]) => readExpression(text, table(...names)).evaluate(values);
@@ -200,4 +200,26 @@ test("what MathLive writes is never refused as ambiguous, because its fractions 
   // And the same shapes typed with a plain slash are refused where they are ambiguous.
   for (const text of ["h/mc", "kT/mc^2", "a/bc"]) assert.throws(() => read(text), /Add brackets/, text);
   assert.equal(read(String.raw`\frac{h}{mc}`), 2 / (3 * 4));
+});
+
+test("log: a key keeps reading it as ln, a student's bare log is refused, base 10 is written out", () => {
+  const key = (text: string, x: number) => readExpression(text, table("x")).evaluate([x]);
+  const answer = (text: string) => readExpression(text, table("x"), { logRole: "answer" });
+  // 1. Saved keys keep their meaning: a bare log in a key is the natural logarithm.
+  assert.ok(near(key("log(x)", Math.E), 1));
+  assert.ok(near(key(String.raw`\log\left(x\right)`, Math.E), 1));
+  // 2. In a student's answer, and in Studio's Final Answer, a bare log is refused with one plain message.
+  for (const text of ["log(x)", String.raw`\log\left(x\right)`, "2 log x", String.raw`\operatorname{log}(x)`, "sin(x)+log(x)"]) {
+    assert.throws(() => answer(text), (error: unknown) => error instanceof AnswerReadError && error.message === bareLogMessage, text);
+  }
+  assert.equal(bareLogMessage, "Write ln for the natural log, or log₁₀ for base 10.");
+  assert.ok(near(answer("ln(x)").evaluate([Math.E]), 1), "ln is fine in an answer");
+  // 3. Base 10 in every spelling, in an answer and in a key.
+  for (const text of [String.raw`\log_{10}(x)`, String.raw`\log_{10}\left(x\right)`, String.raw`\log_10(x)`, "log10(x)", "log_10(x)", "log_{10}(x)", "log₁₀(x)", "log₁₀ x", String.raw`\operatorname{log}_{10}(x)`, "log10 x"]) {
+    assert.ok(near(answer(text).evaluate([1000]), 3), `answer ${text}`);
+    assert.ok(near(key(text, 1000), 3), `key ${text}`);
+  }
+  assert.ok(near(answer("2*log10(x)+ln(x)").evaluate([100]), 4 + Math.log(100)));
+  // Other bases are not base 10.
+  assert.throws(() => answer(String.raw`\log_{100}(x)`));
 });

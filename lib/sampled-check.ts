@@ -123,7 +123,8 @@ export function checkSampled(input: SampledInput): SampledOutcome {
   const closed = new SymbolTable(names, false, Object.fromEntries(declared.map((symbol) => [symbol.name, symbol.aliases ?? []])));
 
   let student: Evaluator;
-  try { student = readExpression(input.answer, closed, options).evaluate; }
+  // A student's answer is read strictly: a bare log is refused. Keys above keep reading log as ln.
+  try { student = readExpression(input.answer, closed, { ...options, logRole: "answer" }).evaluate; }
   catch (error) {
     if (error instanceof AnswerReadError) return { status: "invalid", message: error.message, symbol: error.symbol, suggestion: error.suggestion };
     throw error;

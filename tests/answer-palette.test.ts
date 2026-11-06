@@ -38,7 +38,7 @@ test("the pad has the six tabs, the problem's symbols first and capitals behind 
   assert.ok(items.slice(0, 4).every((item) => item.group === "problem"));
   const tabOf = (tab: string) => items.filter((item) => item.group === tab);
   assert.deepEqual(tabOf("operations").slice(0, 4).map((item) => item.label), ["+", "−", "×", "÷"]);
-  assert.deepEqual(tabOf("operations").slice(4).map((item) => item.label), ["a/b", "xⁿ", "xₙ", "√", "ⁿ√", "eˣ", "10ˣ", "ln", "log", "|x|", "!"]);
+  assert.deepEqual(tabOf("operations").slice(4).map((item) => item.label), ["a/b", "xⁿ", "xₙ", "√", "ⁿ√", "eˣ", "10ˣ", "ln", "log₁₀", "|x|", "!"]);
   assert.deepEqual(tabOf("relations").map((item) => item.label), ["=", "≠", "<", ">", "≤", "≥", "≈", "∝"]);
   assert.deepEqual(tabOf("greek").filter((item) => !item.more).slice(0, 3).map((item) => item.label), ["α", "β", "γ"]);
   assert.ok(tabOf("greek").filter((item) => item.more).every((item) => /^[Α-Ω]$/.test(item.label)));

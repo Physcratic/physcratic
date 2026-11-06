@@ -180,7 +180,11 @@ export function RichMathText({
   function insertAtCursor(nodes: Node[]) {
     const el = box.current;
     if (!el) return;
-    let range = saved.current;
+    // The cursor as it is now. The saved one trails behind by a task, so a `$` pressed straight after typing would put the
+    // equation before the last letters. The saved one is for when the cursor is not in the box (a button, another field).
+    const selection0 = document.getSelection();
+    const live = selection0 && selection0.rangeCount > 0 ? selection0.getRangeAt(0) : null;
+    let range = live && el.contains(live.commonAncestorContainer) && live.commonAncestorContainer !== el.parentNode ? live.cloneRange() : saved.current;
     if (!range || !el.contains(range.commonAncestorContainer)) {
       range = document.createRange();
       const last = el.lastChild;

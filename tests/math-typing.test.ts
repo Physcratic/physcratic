@@ -10,6 +10,7 @@ test("every name the owner listed turns into maths", () => {
     assert.ok(table[name], name);
   assert.equal(table.sin, "\\sin");
   assert.equal(table.log, "\\log", "log is the plain function, not a log with a base");
+  assert.equal(table.log10, "\\log_{10}", "typing log10 gives base 10");
   assert.equal(table.theta, "\\theta");
   assert.equal(table.infinity, "\\infty");
   assert.equal(table.sqrt, "\\sqrt{#?}");

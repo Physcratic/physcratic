@@ -122,3 +122,12 @@ test("the key's reference is never reported to the student", () => {
   const out = run("x+1", "x*y*z", real("x", "y", "z"));
   assert.deepEqual(out, { status: "incorrect" });
 });
+
+test("log: a saved key that says log still means ln, and a student has to write ln or log10", () => {
+  assert.deepEqual(checkSampled({ seed: "s", answer: "ln(x)", references: ["log(x)"], symbols: [{ name: "x", min: 1, max: 5 }] }), { status: "correct" });
+  const bare = checkSampled({ seed: "s", answer: "log(x)", references: ["log(x)"], symbols: [{ name: "x", min: 1, max: 5 }] });
+  assert.equal(bare.status, "invalid");
+  assert.equal((bare as { message: string }).message, "Write ln for the natural log, or log₁₀ for base 10.");
+  assert.deepEqual(checkSampled({ seed: "s", answer: String.raw`\log_{10}(x)`, references: ["log10(x)"], symbols: [{ name: "x", min: 1, max: 5 }] }), { status: "correct" });
+  assert.equal(checkSampled({ seed: "s", answer: "log10(x)", references: ["ln(x)"], symbols: [{ name: "x", min: 2, max: 5 }] }).status, "incorrect");
+});

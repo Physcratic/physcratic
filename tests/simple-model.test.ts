@@ -448,6 +448,16 @@ test("the verdict labels are the ones the student page shows", () => {
   for (const label of Object.values(verdictLabel)) assert.ok(source.includes(`label: "${label}"`), label);
 });
 
+test("Studio's Final Answer refuses a bare log, so a new key is explicit, and accepts ln and log10", () => {
+  const read = (text: string) => readAnswer(text);
+  const bare = read("log(x)");
+  assert.equal(bare.kind, "error");
+  assert.equal((bare as { message: string }).message, "Write ln for the natural log, or log₁₀ for base 10.");
+  assert.equal(read("ln(x)").kind, "expression");
+  assert.equal(read(String.raw`\log_{10}(x)`).kind, "expression");
+  assert.equal(read("log10(x)").kind, "expression");
+});
+
 test("the worked solution is required in Simple, and only in Simple", () => {
   const d = easyDraft("9.8", "m/s^2");
   const id = allParts(d)[0].part.id;

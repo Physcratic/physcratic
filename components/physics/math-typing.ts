@@ -21,6 +21,8 @@ export const typingShortcuts: Record<string, string> = {
   phi: "\\varphi",
   pi: "\\pi",
   infinity: "\\infty",
+  // log stays a bare \log. Only a written 10 makes it base 10.
+  log10: "\\log_{10}",
   sqrt: "\\sqrt{#?}",
 };
 

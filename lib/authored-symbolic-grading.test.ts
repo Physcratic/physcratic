@@ -102,19 +102,20 @@ test("trig, log and exp are checked like everything else", () => {
   // Changed from needs-review: sin^2 + cos^2 is 1, in radians and in degrees.
   correct("sin(x)^2+cos(x)^2", "1");
   correct("sin(x)^2+cos(x)^2", "1", { angleUnit: "degrees" });
-  correct("log(x^2)", "2*log(x)");
-  correct("log(x^2)", "2*log(x)", { variables: [variable("x", { assumptions: ["positive"] })] });
+  // The student writes ln. The key keeps reading log as ln.
+  correct("ln(x^2)", "2*log(x)");
+  correct("ln(x^2)", "2*log(x)", { variables: [variable("x", { assumptions: ["positive"] })] });
   // The key 2*log(x) is undefined for every x in [-2, -1].
-  review("log(x^2)", "2*log(x)", { variables: [variable("x", { min: -2, max: -1 })] });
+  review("ln(x^2)", "2*log(x)", { variables: [variable("x", { min: -2, max: -1 })] });
   // Changed from needs-review: each of these equals 0 wherever it is defined.
   for (const e of ["sin(x)-sin(x)", "0*tan(x)", "pi-pi"]) correct(e, "0");
   // Undefined for negative x while the key (0) is fine there, so incorrect.
-  incorrect("0*log(x)", "0");
+  incorrect("0*ln(x)", "0");
   incorrect("sqrt(sin(x)^2)", "0");
   incorrect("e^x", "0");
   incorrect("exp(x)", "0");
   review("f(x)", "0");
-  correct("sin(0)+tan(0)+log(1)", "0");
+  correct("sin(0)+tan(0)+ln(1)", "0");
   correct("cos(0)", "1");
   correct("sin(0)", "0", { angleUnit: "degrees" });
   correct("sin(x)", "sin(x+2*pi)");

@@ -33,6 +33,20 @@ export function enableTouchKeyboard(element: HasSink): boolean {
   return true;
 }
 
+type Focusable = HasSink & { focus(options?: FocusOptions): void };
+
+/**
+ * MathLive 0.111.1 focuses its keyboard sink from a 60 ms timer after a click. Keys typed in that gap go nowhere, which
+ * loses the first letter, and iOS will not open its keyboard for focus that comes from a timer. Calling this during the
+ * click puts the cursor in the sink at once. Returns false when the sink is not there.
+ */
+export function focusSink(element: Focusable): boolean {
+  const sink = element.shadowRoot?.querySelector(SINK_SELECTOR) as (Element & { focus?: (options?: FocusOptions) => void }) | null | undefined;
+  if (!sink || typeof sink.focus !== "function") return false;
+  sink.focus({ preventScroll: true });
+  return true;
+}
+
 let primed: HTMLInputElement | null = null;
 
 /**

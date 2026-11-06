@@ -7,7 +7,8 @@
 //   precedence and associate to the left, so `1/2 m v^2` is (1/2)·m·v² and `a/bc` is (a/b)·c.
 // - `^` binds tighter than unary minus and is right-associative: -x^2 = -(x^2), 2^3^2 = 2^9.
 // - A function without brackets takes the symbols written next to it: `sin kz` is sin(kz), `sin x cos x` is two functions.
-// - `ln` and `log` are the natural logarithm. `e` and `pi` are constants unless the problem declares them as symbols.
+// - `ln` is the natural logarithm. In a key, a bare `log` is also the natural logarithm. In a student's answer a bare `log` is refused,
+//   and `\log_{10}`, `log10`, `log_10` and `log₁₀` are base 10. `e` and `pi` are constants unless the problem declares them as symbols.
 // - Symbols are matched by name after folding spelling: `\theta_0`, `theta_0`, `θ_0` and `θ₀` are one symbol. The letter o
 //   is not a zero.
 // No dependency on the server, so the browser can use the same reader later.
@@ -26,6 +27,12 @@ export class AnswerReadError extends Error {
     super(message);
   }
 }
+
+/** What a student sees for a bare log, and what a new key in Studio sees too. */
+export const bareLogMessage = "Write ln for the natural log, or log₁₀ for base 10.";
+
+/** `key` reads a bare log as ln, so saved keys keep their meaning. `answer` refuses it. */
+export type LogRole = "key" | "answer";
 
 export const readerLimits = Object.freeze({ characters: 1024, tokens: 400, nodes: 300, depth: 64, brackets: 16, rootIndex: 8 });
 
@@ -49,7 +56,7 @@ const SUBSCRIPT_DIGITS = "₀₁₂₃₄₅₆₇₈₉";
 const SUPERSCRIPT_DIGITS: Record<string, string> = { "⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁵": "5", "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9", "⁻": "-" };
 const FUNCTIONS: Record<string, string> = {
   sin: "sin", cos: "cos", tan: "tan", cot: "cot", sec: "sec", csc: "csc", sinh: "sinh", cosh: "cosh", tanh: "tanh",
-  exp: "exp", ln: "ln", log: "ln", abs: "abs", sqrt: "sqrt",
+  exp: "exp", ln: "ln", log: "ln", log10: "log10", abs: "abs", sqrt: "sqrt",
   arcsin: "asin", arccos: "acos", arctan: "atan", asin: "asin", acos: "acos", atan: "atan",
 };
 const FUNCTION_NAMES = Object.keys(FUNCTIONS).sort((a, b) => b.length - a.length);
@@ -178,8 +185,13 @@ function bracketFractions(text: string): string {
   }
 }
 
+/** \log_{10}, log_10, log₁₀ and log10 all become the word log10. */
+function baseTen(text: string): string {
+  return text.replace(/(?:\\operatorname\{log\}|\\log|(?<![A-Za-z\\])log)\s*(?:_\s*\{\s*10\s*\}|_\s*10(?![0-9])|_1_0(?![0-9_]))/g, " log10 ");
+}
+
 function lex(input: string): Tok[] {
-  const text = bracketFractions(fold(input).replace(/\$/g, "").replace(SPACING, " ").replace(/\*\*/g, "^").replace(/~/g, " "));
+  const text = bracketFractions(baseTen(fold(input)).replace(/\$/g, "").replace(SPACING, " ").replace(/\*\*/g, "^").replace(/~/g, " "));
   if (/[^\x20-\x7e]/.test(text)) syntax("Use letters, digits and the symbols + - * / ^ ( ) only.");
   const out: Tok[] = [];
   let i = 0;
@@ -352,7 +364,8 @@ function splitWord(word: string, table: SymbolTable, forbidFunctions = false): P
   return best[n]!.pieces;
 }
 
-function resolve(tokens: Tok[], table: SymbolTable): { atoms: Atom[]; srcs: string[] } {
+function resolve(tokens: Tok[], table: SymbolTable, role: LogRole = "key"): { atoms: Atom[]; srcs: string[] } {
+  const bareLog = () => { if (role === "answer") throw new AnswerReadError(bareLogMessage, "syntax"); };
   const atoms: Atom[] = [];
   const srcs: string[] = [];
   const out = { push: (atom: Atom, src = "") => { atoms.push(atom); srcs.push(src); } };
@@ -366,7 +379,7 @@ function resolve(tokens: Tok[], table: SymbolTable): { atoms: Atom[]; srcs: stri
   const emit = (pieces: Piece[]) => {
     for (const piece of pieces) {
       if (piece.t === "sym") out.push(symbolAtom(piece.name), piece.text);
-      else if (piece.t === "fn") out.push({ k: "fn", s: piece.s }, piece.text);
+      else if (piece.t === "fn") { if (piece.text === "log") bareLog(); out.push({ k: "fn", s: piece.s }, piece.text); }
       else if (piece.t === "const") out.push({ k: "num", v: piece.v }, piece.text);
       else if (piece.t === "num") out.push({ k: "num", v: piece.v }, piece.text);
       else out.push(symbolAtom(piece.s), piece.text);
@@ -382,7 +395,7 @@ function resolve(tokens: Tok[], table: SymbolTable): { atoms: Atom[]; srcs: stri
     // A command or word with no subscript.
     if (queue[0]?.k !== "sub") {
       if (token.cmd) {
-        if (FUNCTIONS[token.s]) out.push({ k: "fn", s: FUNCTIONS[token.s] }, token.src ?? token.s);
+        if (FUNCTIONS[token.s]) { if (token.s === "log") bareLog(); out.push({ k: "fn", s: FUNCTIONS[token.s] }, token.src ?? token.s); }
         else if (token.s === "pi" && table.index("pi") < 0) out.push({ k: "num", v: Math.PI }, token.src ?? token.s);
         else out.push(symbolAtom(token.s), token.src ?? token.s);
         continue;
@@ -660,7 +673,7 @@ function compile(node: Node, angle: AngleUnit): Evaluator {
   const functions: Record<string, (x: number) => number> = {
     sin: (x) => Math.sin(toRadians(x)), cos: (x) => Math.cos(toRadians(x)), tan: (x) => Math.tan(toRadians(x)),
     cot: (x) => 1 / Math.tan(toRadians(x)), sec: (x) => 1 / Math.cos(toRadians(x)), csc: (x) => 1 / Math.sin(toRadians(x)),
-    sinh: Math.sinh, cosh: Math.cosh, tanh: Math.tanh, exp: Math.exp, ln: Math.log, abs: Math.abs, sqrt: Math.sqrt,
+    sinh: Math.sinh, cosh: Math.cosh, tanh: Math.tanh, exp: Math.exp, ln: Math.log, log10: Math.log10, abs: Math.abs, sqrt: Math.sqrt,
     asin: (x) => fromRadians(Math.asin(x)), acos: (x) => fromRadians(Math.acos(x)), atan: (x) => fromRadians(Math.atan(x)),
   };
   const build = (n: Node): Evaluator => {
@@ -700,18 +713,18 @@ export type Reading = { evaluate: Evaluator; symbols: readonly string[] };
 export function readExpression(
   text: string,
   table: SymbolTable,
-  options: { angleUnit?: AngleUnit; maxCharacters?: number } = {},
+  options: { angleUnit?: AngleUnit; maxCharacters?: number; logRole?: LogRole } = {},
 ): Reading {
   const tree = readTree(text, table, options);
   return { evaluate: compile(tree, options.angleUnit ?? "radians"), symbols: table.names };
 }
 
 /** The parsed expression, for tools and tests that rewrite or print it. */
-export function readTree(text: string, table: SymbolTable, options: { maxCharacters?: number } = {}): ExprNode {
+export function readTree(text: string, table: SymbolTable, options: { maxCharacters?: number; logRole?: LogRole } = {}): ExprNode {
   const limit = options.maxCharacters ?? readerLimits.characters;
   if (!text.trim()) syntax("Enter an answer first.");
   if (text.length > limit) throw new AnswerReadError(`Enter an answer of at most ${limit} characters.`, "limit");
-  const { atoms, srcs } = resolve(lex(text), table);
+  const { atoms, srcs } = resolve(lex(text), table, options.logRole);
   return parse(atoms, srcs);
 }
 

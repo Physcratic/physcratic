@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import test from "node:test";
-import { SINK_SELECTOR, enableTouchKeyboard, isTouchDevice, touchSinkAttributes } from "../components/physics/mathfield-touch";
+import { SINK_SELECTOR, enableTouchKeyboard, focusSink, isTouchDevice, touchSinkAttributes } from "../components/physics/mathfield-touch";
 
 // CI has no browser and no DOM library, so the field cannot be mounted here. These tests pin what the phone fix relies
 // on instead: the MathLive version, the sink MathLive builds, and the attributes we set on it. tests/phase2-phones.browser.mjs
@@ -57,4 +57,17 @@ test("the pad docks only when the keyboard height can be read, and only if the f
   assert.equal(scrollToClearPad({ top: 400, bottom: 460 }, viewport, 150), 118, "scroll up by the overlap and the margin");
   assert.equal(scrollToClearPad({ top: 20, bottom: 480 }, viewport, 150), null, "a field taller than the space stays inline");
   assert.equal(scrollToClearPad({ top: 100, bottom: 100.4 }, { height: 400.4 - 0, offsetTop: 0 }, 0, 0) !== null, true);
+});
+
+test("a click puts the cursor in the sink at once, because MathLive's own focus waits 60 ms", () => {
+  const calls: unknown[] = [];
+  const sink = { focus: (options?: unknown) => calls.push(options) };
+  const element = { focus() {}, shadowRoot: { querySelector: (selector: string) => (selector === SINK_SELECTOR ? (sink as unknown as Element) : null) } };
+  assert.equal(focusSink(element), true);
+  assert.deepEqual(calls, [{ preventScroll: true }]);
+  assert.equal(focusSink({ focus() {}, shadowRoot: null }), false);
+  assert.equal(focusSink({ focus() {}, shadowRoot: { querySelector: () => null } }), false);
+  // The 60 ms timer is still in MathLive 0.111.1. When an upgrade removes it, this fix can go.
+  const source = readFileSync(join(root, "mathlive.mjs"), "utf8");
+  assert.match(source, /this\.keyboardDelegate\.focus\(\);\s+this\.connectToVirtualKeyboard\(\);[\s\S]{0,200}?\}, 60\);/, "MathLive still focuses the sink from a 60 ms timer");
 });

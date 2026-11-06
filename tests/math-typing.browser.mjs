@@ -23,7 +23,7 @@ const profiles = {
 };
 // What each typed text becomes. A trailing space finishes a LaTeX command.
 const cases = [
-  ["sin", "\\sin"], ["cos", "\\cos"], ["tan", "\\tan"], ["ln", "\\ln"], ["log", "\\log"], ["theta", "\\theta"], ["pi", "\\pi"],
+  ["sin", "\\sin"], ["cos", "\\cos"], ["tan", "\\tan"], ["ln", "\\ln"], ["log", "\\log"], ["log10", "\\log_{10}"], ["theta", "\\theta"], ["pi", "\\pi"],
   ["sqrt", "\\sqrt"], ["infinity", "\\infty"], ["omega", "\\omega"], ["Delta", "\\Delta"], ["arcsin", "\\arcsin"], ["sinh", "\\sinh"],
   ["\\theta ", "\\theta"], ["\\omega ", "\\omega"], ["\\frac ", "\\frac"], ["\\sqrt ", "\\sqrt"],
 ];
@@ -51,6 +51,28 @@ for (const name of Object.keys(profiles)) {
       const value = (await field.evaluate((el) => el.value)).replace(/\\left|\\right/g, "");
       ok(value.startsWith(expected), `${name}, ${way}: ${JSON.stringify(typed)} became ${value}, expected ${expected}`);
       ok(errors.length === 0, `${name}, ${way}: page errors ${errors}`);
+      await context.close();
+    }
+  }
+}
+
+// Click and type at once: MathLive focuses its keyboard sink 60 ms after a click, so the first key used to be lost.
+// The click puts the cursor in the field now, so every key counts. Hardware keys and phone keyboard text both.
+for (const name of Object.keys(profiles)) {
+  for (const way of ["keys", "phone keyboard"]) {
+    for (const [typed, expected] of [["sin", "\\sin"], ["theta", "\\theta"], ["\\theta ", "\\theta"], ["kz", "kz"], ["ln", "\\ln"]]) {
+      const context = await browser.newContext(profiles[name]);
+      const page = await context.newPage();
+      await page.goto(`${origin}/dashboard/problems/arena-a-grin-and-a-wiggle`);
+      const field = page.locator("#step-answer math-field").first();
+      await field.waitFor({ timeout: 30000 });
+      await field.scrollIntoViewIfNeeded();
+      await (name === "desktop" ? field.click() : field.tap());
+      // No wait. The first key goes in straight after the click.
+      if (way === "keys") await page.keyboard.type(typed);
+      else for (const ch of typed) await page.keyboard.insertText(ch);
+      const value = (await field.evaluate((el) => el.value)).replace(/\\left|\\right/g, "");
+      ok(value.startsWith(expected), `${name}, ${way}, typed at once: ${JSON.stringify(typed)} became ${value}, expected ${expected}`);
       await context.close();
     }
   }

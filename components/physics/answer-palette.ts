@@ -80,7 +80,7 @@ export const standardItems: PaletteItem[] = [
   item("operations", "exp", "eˣ", "eˣ e to the power", "e^{#?}"),
   item("operations", "tenpow", "10ˣ", "10ˣ ten to the power", "10^{#?}"),
   item("operations", "ln", "ln", "ln natural logarithm", "\\ln(#?)"),
-  item("operations", "log", "log", "log, read as the natural logarithm", "\\log(#?)"),
+  item("operations", "log", "log₁₀", "log₁₀ base 10 logarithm", "\\log_{10}(#?)"),
   item("operations", "abs", "|x|", "|x| absolute value", "\\left|#?\\right|"),
   item("operations", "factorial", "!", "! factorial", "!", false),
   item("relations", "eq", "=", "= equals", "=", false),

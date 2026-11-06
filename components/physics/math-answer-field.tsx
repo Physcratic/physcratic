@@ -3,9 +3,9 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 import type { MathfieldElement } from "mathlive";
 import { Input } from "@/components/ui/input";
-import { AnswerReadError, SymbolTable, normaliseName, readExpression } from "@/lib/answer-reader";
+import { AnswerReadError, SymbolTable, bareLogMessage, normaliseName, readExpression } from "@/lib/answer-reader";
 import { cleanLatex, paletteItems, plainInsertion, type PaletteItem } from "./answer-palette";
-import { enableTouchKeyboard, isTouchDevice, releasePrimedKeyboard } from "./mathfield-touch";
+import { enableTouchKeyboard, focusSink, isTouchDevice, releasePrimedKeyboard } from "./mathfield-touch";
 import { MathPad, useKeyboardDock, type PadMode } from "./math-pad";
 import { shortcutsFor } from "./math-typing";
 import { LatexAnswerPreview } from "./latex-answer-preview";
@@ -117,6 +117,9 @@ export function MathAnswerField({
         // Names turn into maths as you type, and a declared symbol is left alone.
         baseShortcuts.current = element.inlineShortcuts as Record<string, never>;
         element.inlineShortcuts = shortcutsFor(baseShortcuts.current, declared.current) as typeof element.inlineShortcuts;
+        // MathLive focuses its sink from a timer, 60 ms after a click. Do it during the click, so the first key is not lost and
+        // a phone opens its keyboard. pointerdown is for a mouse and a pen, click is the touch gesture iOS accepts.
+        for (const type of ["pointerdown", "click"]) element.addEventListener(type, () => void focusSink(element), true);
         // A phone keyboard can send text without key presses, which skips the shortcuts and turns \\ into a backslash sign.
         // A hardware key press comes first, and MathLive reads it. Text with no key press just before it gets one made
         // for it: MathLive reads that, and if it does not use it (no shortcut), the character goes in as usual.
@@ -176,6 +179,7 @@ export function MathAnswerField({
     if (!ready || !focusOnReady.current) return;
     focusOnReady.current = false;
     field.current?.focus();
+    if (field.current) focusSink(field.current);
     // A box focused during the tap kept the phone keyboard open while this field loaded. The field has it now.
     // Removing that box takes a moment, so MathLive's focus has settled before the box goes.
     const timer = setTimeout(releasePrimedKeyboard, 250);
@@ -234,7 +238,7 @@ export function MathAnswerField({
     if (docked === null || !padBox.current) return;
     setPadHeight(padBox.current.offsetHeight);
   }, [docked, items]);
-  const hint = useSymbolHint(value, checkSymbols ? symbols : []);
+  const hint = useSymbolHint(value, checkSymbols ? symbols : [], checkSymbols);
 
   return (
     <div
@@ -293,19 +297,22 @@ export function MathAnswerField({
 }
 
 /** A symbol the problem does not use, named with the nearest one, a moment after typing stops. Same words as the checker. */
-function useSymbolHint(value: string, symbols: readonly string[]): string {
+function useSymbolHint(value: string, symbols: readonly string[], check: boolean): string {
   const [settled, setSettled] = useState(value);
   useEffect(() => {
     const timer = setTimeout(() => setSettled(value), 700);
     return () => clearTimeout(timer);
   }, [value]);
   return useMemo(() => {
-    if (!symbols.length || !settled.trim() || settled !== value) return "";
+    if (!check || !settled.trim() || settled !== value) return "";
+    // A bare log in an answer is refused, with or without declared symbols, so it is said as soon as typing stops.
+    const open = symbols.length === 0;
     try {
-      readExpression(settled, new SymbolTable(symbols.map(normaliseName)));
+      readExpression(settled, open ? new SymbolTable([], true) : new SymbolTable(symbols.map(normaliseName)), { logRole: "answer" });
       return "";
     } catch (error) {
-      return error instanceof AnswerReadError && error.kind === "symbol" ? error.message : "";
+      if (!(error instanceof AnswerReadError)) return "";
+      return error.message === bareLogMessage || (!open && error.kind === "symbol") ? error.message : "";
     }
-  }, [settled, value, symbols]);
+  }, [settled, value, symbols, check]);
 }
