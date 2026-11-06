@@ -198,7 +198,7 @@ test("the Phase 2d copy: programs intro, class tiles, guides labels and the new 
   assert.equal(content.programs.intro, "Three levels take you from your first olympiad to IPhO.");
   assert.equal(content.programs.highlight, "from your first olympiad to IPhO");
   assert.ok(splitHighlight(content.programs.intro, content.programs.highlight));
-  assert.deepEqual(content.classFormat.tiles.map((t) => `${t.value} ${t.label}`), ["6 students at most", "2 h live, usually weekly", "Every class recorded", "Notes homework and worked solutions"]);
+  assert.deepEqual(content.classFormat.tiles.map((t) => `${t.value} ${t.label}`), ["6 students at most", "2 h a week, live online", "Every class recorded", "Notes homework and worked solutions"]);
   assert.deepEqual(content.classFormat.points, [
     "Up to 6 students at your level, with similar goals",
     "2 hours a week, live online, with a coach matched to your level and language",

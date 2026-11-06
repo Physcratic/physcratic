@@ -164,7 +164,7 @@ export function buildCoachingContent(list: readonly Medallist[]) {
       tilesLabel: "Class facts",
       tiles: [
         { value: `${maxStudents}`, label: "students at most" },
-        { value: `${classHours} h`, label: "live, usually weekly" },
+        { value: `${classHours} h`, label: "a week, live online" },
         { value: "Every class", label: "recorded" },
         { value: "Notes", label: "homework and worked solutions" },
       ],
@@ -260,7 +260,7 @@ export function buildCoachingContent(list: readonly Medallist[]) {
       items: [
         { term: "Format", detail: "Live online classes" },
         { term: "Class size", detail: `Up to ${maxStudents} students` },
-        { term: "Length", detail: `${classHours} hours, usually weekly` },
+        { term: "Length", detail: `${classHours} hours a week, live online` },
         { term: "Coaches", detail: `${coachCount} IPhO, APhO and EuPhO medallists and honourable mentions from ${countryCount} countries` },
         { term: "Levels", detail: "Olympiad Beginner, Intermediate and Advanced, plus IB and A-Level" },
         { term: "Packages", detail: `Intensive (${sessions.intensive} sessions) and Mastery (${sessions.mastery} sessions)` },
