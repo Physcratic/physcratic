@@ -62,6 +62,26 @@
         "path": "/sign-up"
       },
       {
+        "name": "forgot password",
+        "path": "/forgot-password"
+      },
+      {
+        "name": "reset password form",
+        "path": "/reset-password?token=sweepfixturetoken"
+      },
+      {
+        "name": "reset password, dead link",
+        "path": "/reset-password?error=INVALID_TOKEN"
+      },
+      {
+        "name": "email change approved",
+        "path": "/email-change?step=approved"
+      },
+      {
+        "name": "email change, dead link",
+        "path": "/email-change?step=done&error=TOKEN_EXPIRED"
+      },
+      {
         "name": "settings",
         "path": "/settings"
       },
