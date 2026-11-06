@@ -490,7 +490,7 @@ function PartEditor({
           labelId={`${base}-s-label`}
           spans={blocksSpans(entry.solution)}
           onChange={(spans) => edit((d) => setSolution(d, partId, spans))}
-          placeholder="Start with energy. At the top the ball stops, so all of the kinetic energy has become potential energy."
+          placeholder="Start with energy. At the top the ball stops."
           symbols={symbols}
           minRows={3}
         />

@@ -97,6 +97,23 @@ try {
     await page.waitForTimeout(300);
     ok(await page.locator(`[data-field="${fieldId}"] [data-docked]`).count() === 0, `${name}: with the keyboard closed the pad is back under the field`);
     if (shotDir) await page.screenshot({ path: join(shotDir, `phone-${name.replace(/ /g, "-")}-field.png`) });
+    // The three-line menu button stays on top of the header and clickable after scrolling down and back up, and the menu opens above everything.
+    await page.goto(`${origin}/dashboard`);
+    const menuButton = page.getByRole("button", { name: "Open navigation" });
+    await menuButton.waitFor({ timeout: 30000 });
+    const onTop = () => menuButton.evaluate((el) => { const r = el.getBoundingClientRect(); const top = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return !!top && (top === el || el.contains(top)); });
+    ok(await onTop(), `${name}: the menu button is on top of the header at the top of the page`);
+    for (const y of [900, 2400, 0, 600, 0]) {
+      await page.evaluate((to) => { document.querySelector("main")?.scrollTo?.(0, to); window.scrollTo(0, to); }, y);
+      await page.waitForTimeout(150);
+      ok(await onTop(), `${name}: the menu button is on top after scrolling to ${y}`);
+    }
+    await menuButton.tap();
+    const menu = page.getByRole("dialog");
+    await menu.waitFor({ timeout: 5000 });
+    await page.waitForTimeout(700); // the menu slides in
+    const menuOnTop = await menu.evaluate((el) => { const r = el.getBoundingClientRect(); const top = document.elementFromPoint(r.left + r.width / 2, r.top + 40); return !!top && el.contains(top); });
+    ok(menuOnTop, `${name}: the menu opens above the header and the page`);
     assert.deepEqual(errors, []); checks++;
     await context.close();
   }

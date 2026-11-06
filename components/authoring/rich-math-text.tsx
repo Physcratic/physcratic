@@ -270,7 +270,7 @@ export function RichMathText({
 
   return (
     <div className="space-y-3">
-      <div className="relative">
+      <div className="relative grid">
         <div
           ref={box}
           id={id}
@@ -285,7 +285,7 @@ export function RichMathText({
           spellCheck
           tabIndex={0}
           style={{ minHeight: `${minRows * 1.75 + 1.5}rem` }}
-          className="w-full min-w-0 whitespace-pre-wrap break-words rounded-lg border-2 border-input bg-background px-4 py-3 text-base leading-7 outline-none focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring aria-[invalid=true]:border-destructive"
+          className="w-full min-w-0 whitespace-pre-wrap break-words [grid-area:1/1] rounded-lg border-2 border-input bg-background px-4 py-3 text-base leading-7 outline-none focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring aria-[invalid=true]:border-destructive"
           onInput={emit}
           onBlur={emit}
           // Start loading the maths field now, so tapping an equation can open it and the keyboard at once.
@@ -328,9 +328,15 @@ export function RichMathText({
           }}
         />
         {isEmpty && !editing && (
-          <span aria-hidden="true" className="pointer-events-none absolute inset-x-4 top-3 text-base leading-7 text-muted-foreground">
-            {placeholder}
-          </span>
+          <>
+            {/* The same words, invisible and in the page flow, so a placeholder that wraps on a phone makes the box taller instead of running out of it. */}
+            <span aria-hidden="true" className="invisible pointer-events-none whitespace-pre-wrap break-words border-2 border-transparent px-4 py-3 text-base leading-7 [grid-area:1/1]">
+              {placeholder}
+            </span>
+            <span aria-hidden="true" data-placeholder="" className="pointer-events-none absolute inset-x-4 top-3 text-base leading-7 text-muted-foreground">
+              {placeholder}
+            </span>
+          </>
         )}
       </div>
       <Button

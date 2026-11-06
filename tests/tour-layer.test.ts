@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import { CARD_LAYER, HEADER_LAYER, MENU_LAYER, RING_HEADER_LAYER, RING_PAGE_LAYER, ringLayer } from "../components/tour/tour-layer";
+import { CARD_LAYER, HEADER_LAYER, MENU_BUTTON_LAYER, MENU_LAYER, RING_HEADER_LAYER, RING_PAGE_LAYER, ringLayer } from "../components/tour/tour-layer";
 import { plainTourText } from "../components/tour/tour-text";
 import { tours } from "../components/tour/tours";
 
@@ -40,4 +40,11 @@ test("keys in tour text are marked as key chips, and the markers are balanced", 
   assert.ok(text("welcome", "answer").includes("[[/]]") && text("welcome", "answer").includes("[[^]]"));
   assert.equal(plainTourText(text("welcome", "answer")), "Type your answer here. A / makes a fraction and a ^ makes a power, like on paper.");
   for (const tour of Object.values(tours)) for (const step of tour.steps) assert.ok(!/\[\[|\]\]/.test(plainTourText(step.text)), `${tour.id}/${step.id}`);
+});
+
+test("the mobile menu button sits above the header and below the menu it opens, and the tour ring still clears it", () => {
+  assert.ok(MENU_BUTTON_LAYER > HEADER_LAYER && MENU_BUTTON_LAYER < MENU_LAYER);
+  assert.ok(RING_HEADER_LAYER > MENU_BUTTON_LAYER, "the ring for the menu button step shows over the button");
+  const sidebar = readFileSync("components/kokonutui/sidebar.tsx", "utf8");
+  assert.match(sidebar, new RegExp(`fixed right-3 top-3.5 z-\\[${MENU_BUTTON_LAYER}\\] `));
 });

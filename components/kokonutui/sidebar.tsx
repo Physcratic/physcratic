@@ -204,7 +204,7 @@ export default function Sidebar({
       <aside className="fixed inset-y-0 left-0 hidden w-60 border-r lg:block">
         {navigation}
       </aside>
-      <div className="fixed right-3 top-3.5 z-30 sm:left-4 sm:right-auto lg:hidden">
+      <div className="fixed right-3 top-3.5 z-[42] sm:left-4 sm:right-auto lg:hidden">
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="size-11" aria-label="Open navigation" data-tour="nav-open">

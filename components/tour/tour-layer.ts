@@ -2,6 +2,8 @@
 // header so it never covers it, unless the step points at something in the header. Then it rises just above the header,
 // still under menus and dialogs, for that step only.
 export const HEADER_LAYER = 40;
+/** The mobile menu button is fixed over the header, so it must sit above it. Its menu opens on MENU_LAYER. */
+export const MENU_BUTTON_LAYER = 42;
 export const MENU_LAYER = 50;
 export const RING_PAGE_LAYER = 25;
 export const RING_HEADER_LAYER = 45;
