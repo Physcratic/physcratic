@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import { CircleHelp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { startTour } from "./tour-storage";
@@ -23,17 +23,19 @@ export function TourHelpButton({ tourId, className }: { tourId: TourId; classNam
   );
 }
 
-/** For Settings. The tours start again by themselves the next time each page is opened. */
+/** The "Help and tours" section in Settings, styled like Appearance. The tours start again by themselves the next time each page is opened. */
 export function ReplayTours() {
   const [done, setDone] = useState(false);
   return (
-    <section aria-labelledby="replay-tours-title" className="mx-auto mt-8 w-full max-w-3xl space-y-3 rounded-xl border-2 p-5">
-      <h2 id="replay-tours-title" className="text-xl font-semibold">Tours</h2>
-      <p className="text-base text-muted-foreground">Missed something? Play the {tourIds.map((id) => tours[id].name).join(" and ")} tours again.</p>
+    <section id="tours-settings" aria-labelledby="replay-tours-title" className="scroll-mt-6 space-y-6 rounded-2xl border bg-card p-5 sm:p-7">
+      <header className="space-y-1">
+        <h2 id="replay-tours-title" className="text-lg font-semibold">Help and tours</h2>
+        <p className="text-sm text-muted-foreground">Play {tourIds.map((id) => `“${tours[id].name}”`).join(" and ")} again.</p>
+      </header>
       <Button
         type="button"
         variant="outline"
-        className="min-h-11 border-2"
+        className="min-h-11"
         onClick={() => {
           forgetSeen(tourIds);
           setDone(true);
@@ -41,7 +43,7 @@ export function ReplayTours() {
       >
         Replay tours
       </Button>
-      <p role="status" className="text-base text-muted-foreground">
+      <p role="status" className="text-xs leading-5 text-muted-foreground">
         {done ? "Done. Each tour starts again the next time you open the dashboard or Problem Studio." : ""}
       </p>
     </section>

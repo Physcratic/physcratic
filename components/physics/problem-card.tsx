@@ -81,7 +81,7 @@ export function ProblemCard({
       data-problem-card={id}
       data-competition={competition}
       data-level={band?.id}
-      className="problem-entry flex min-w-0 flex-col shadow-none"
+      className="problem-entry flex min-w-0 flex-col"
     >
       <div className="problem-entry-header flex flex-wrap items-center justify-between gap-3 px-5 py-3">
         <div className="flex min-w-0 flex-wrap items-center gap-3">

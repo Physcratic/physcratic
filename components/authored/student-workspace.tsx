@@ -44,6 +44,7 @@ import {
 } from "@/lib/authored-student";
 import type { AuthoredAttempt } from "@/lib/authored-attempt-contracts";
 import { StatementBlocks } from "./public-content";
+import { describeEstimate } from "@/lib/rating-bands";
 const feedbackTone: Record<AuthoredAttempt["status"], FeedbackTone> = {
   correct: "success",
   incorrect: "error",
@@ -351,7 +352,7 @@ function PublicStatement({
         ))}
         {doc.estimatedDifficulty && (
           <span className="rounded-full border px-3 py-1 text-xs">
-            Difficulty · {doc.estimatedDifficulty}
+            Difficulty: {describeEstimate(doc.estimatedDifficulty)}
           </span>
         )}
       </div>

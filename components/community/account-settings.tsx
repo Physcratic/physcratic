@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useRef, useState, type FormEvent } from "react";
-import { ArrowLeft, LockKeyhole, Palette, UserRound, Image as ImageIcon, Eye, Check } from "lucide-react";
+import { ArrowLeft, LockKeyhole, Palette, UserRound, Image as ImageIcon, Eye, Check, CircleHelp } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import { physicsTopics } from "@/lib/physics-taxonomy";
 import { profilePatchSchema, profileEducationLevels } from "@/lib/community/profile-contracts";
@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { SkipLink } from "@/components/skip-link";
 import { AppearanceSettings } from "./appearance-settings";
+import { ReplayTours } from "@/components/tour/tour-help";
 import { ProfileCard } from "./profile-card";
 import { ProfileMediaControls } from "./profile-media-controls";
 import { VerificationSettings } from "./verification-settings";
@@ -110,11 +111,11 @@ export function AccountSettings({ moderationEnabled=false,profilesEnabled, media
 }) {
   const { data, isPending, error, refetch } = authClient.useSession();
   const user = data?.user;
-  return <div className="min-h-dvh bg-background text-foreground [--border:240_5%_46%] [--input:240_5%_46%] dark:[--border:240_4%_44%] dark:[--input:240_4%_50%]">
+  return <div className="min-h-dvh bg-background text-foreground">
     <SkipLink targetId="settings-main">Skip to settings</SkipLink>
     <header className="border-b"><div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5 sm:px-8"><Link href="/dashboard" className="inline-flex min-h-11 items-center text-lg font-semibold tracking-tight">Physcratic</Link><Link href="/dashboard?view=problems" className="inline-flex min-h-11 items-center gap-2 rounded px-1 text-sm text-muted-foreground hover:text-foreground"><ArrowLeft aria-hidden="true" className="size-4" />Back to Arena</Link></div></header>
     <main id="settings-main" tabIndex={-1} className="mx-auto max-w-6xl px-5 py-8 focus:outline-none sm:px-8 sm:py-12"><div className="mb-8 space-y-2"><p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Your account</p><h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Account Settings</h1><p className="text-sm leading-6 text-muted-foreground">Manage your profile, privacy and appearance.</p></div>
-      <div className="grid items-start gap-8 lg:grid-cols-[180px_minmax(0,1fr)] lg:gap-10"><nav aria-label="Settings sections" className="flex flex-wrap gap-2 lg:sticky lg:top-6 lg:flex-col">{[...(moderationEnabled ? [["Reports and appeals", "#moderation-history", Check]] : []), ...(verificationEnabled && user ? [["Verification", "#verification-settings", Check]] : []), ["Profile", "#profile-settings", UserRound], ["Appearance", "#appearance-settings", Palette], ...(profilesEnabled && user ? [["Images", "#image-settings", ImageIcon], ...(achievementsEnabled ? [["Achievements", "#achievement-settings", Check]] : [])] : [])].map(([label, href, Icon]) => {
+      <div className="grid items-start gap-8 lg:grid-cols-[180px_minmax(0,1fr)] lg:gap-10"><nav aria-label="Settings sections" className="flex flex-wrap gap-2 lg:sticky lg:top-6 lg:flex-col">{[...(moderationEnabled ? [["Reports and appeals", "#moderation-history", Check]] : []), ...(verificationEnabled && user ? [["Verification", "#verification-settings", Check]] : []), ["Profile", "#profile-settings", UserRound], ["Appearance", "#appearance-settings", Palette], ["Help and tours", "#tours-settings", CircleHelp], ...(profilesEnabled && user ? [["Images", "#image-settings", ImageIcon], ...(achievementsEnabled ? [["Achievements", "#achievement-settings", Check]] : [])] : [])].map(([label, href, Icon]) => {
         const SectionIcon = Icon as typeof UserRound;
         return <a key={label as string} href={href as string} className="flex min-h-11 items-center gap-3 rounded-lg border border-transparent px-3 py-2 text-sm hover:border-border hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"><SectionIcon aria-hidden="true" className="size-4" />{label as string}</a>;
       })}</nav>
@@ -127,6 +128,7 @@ export function AccountSettings({ moderationEnabled=false,profilesEnabled, media
           {verificationEnabled && user && <VerificationSettings key={user.id} verified={user.emailVerified === true} />}
           {moderationEnabled && <ModerationHistory/>}
           <AppearanceSettings />
+          <ReplayTours />
         </div>
       </div>
     </main>
