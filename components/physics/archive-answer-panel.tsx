@@ -22,7 +22,7 @@ async function loadMetadata(url: string) {
   return archiveMetadataSchema.parse(await response.json());
 }
 
-const infinity: PaletteItem = { id: "infinity", label: "∞", name: "∞ infinity", insert: "\\infty", group: "function" };
+const infinity: PaletteItem = { id: "infinity-part", label: "∞", name: "∞ infinity", insert: "\\infty", group: "other", readable: true };
 /** A help line this short is shown under its box. Longer help goes into the notes at the end. */
 const shortHelp = 60;
 

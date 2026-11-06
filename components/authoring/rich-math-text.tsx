@@ -5,6 +5,7 @@ import { Sigma } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MathAnswerField } from "@/components/physics/math-answer-field";
 import { cleanLatex } from "@/components/physics/answer-palette";
+import { primeKeyboard } from "@/components/physics/mathfield-touch";
 
 /** The same text and maths spans a text block saves. Nothing new is stored. */
 export type Span = { kind: "text"; text: string } | { kind: "math"; latex: string };
@@ -202,6 +203,8 @@ export function RichMathText({
   }
 
   function openChip(chip: HTMLElement) {
+    // Phones open their keyboard only for focus that happens during the tap, and the maths field loads a moment later.
+    primeKeyboard();
     box.current?.querySelectorAll("[data-open]").forEach((c) => c.removeAttribute("data-open"));
     chip.dataset.open = "true";
     setEditing({ chip: chip.dataset.mathId!, latex: chip.dataset.latex ?? "" });
@@ -209,6 +212,7 @@ export function RichMathText({
   function insertEquation() {
     const el = box.current;
     if (!el || disabled) return;
+    primeKeyboard();
     const chip = makeChip("", crypto.randomUUID());
     insertAtCursor([chip]);
     emit();
@@ -284,6 +288,8 @@ export function RichMathText({
           className="w-full min-w-0 whitespace-pre-wrap break-words rounded-lg border-2 border-input bg-background px-4 py-3 text-base leading-7 outline-none focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring aria-[invalid=true]:border-destructive"
           onInput={emit}
           onBlur={emit}
+          // Start loading the maths field now, so tapping an equation can open it and the keyboard at once.
+          onFocus={() => void import("mathlive")}
           onBeforeInput={(e) => {
             if ((e.nativeEvent as InputEvent).inputType?.startsWith("format")) e.preventDefault();
           }}
@@ -369,6 +375,7 @@ export function RichMathText({
             autoFocus
             loadWithValue
             checkSymbols={false}
+            padMode="full"
             placeholder="Type it like you would write it, such as \frac{1}{2}mv^2"
           />
           <div className="flex flex-wrap gap-2">

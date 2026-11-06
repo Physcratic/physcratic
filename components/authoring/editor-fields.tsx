@@ -10,7 +10,7 @@ import {
 import katex from "katex";
 import { ArrowDown, ArrowUp, Plus, Sigma, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { equationTemplates } from "@/lib/latex-working";
+import { TextareaPad } from "@/components/physics/math-pad";
 import {
   moveItem,
   newBlock,
@@ -119,33 +119,7 @@ function EquationInput({
           />
         )}
       </Field>
-      <div
-        className="flex flex-wrap gap-1"
-        role="group"
-        aria-label={`${label} shortcuts`}
-      >
-        {equationTemplates.map((t) => (
-          <Button
-            key={t.label}
-            type="button"
-            size="sm"
-            variant="ghost"
-            onClick={() => {
-              const start = ref.current?.selectionStart ?? value.length,
-                end = ref.current?.selectionEnd ?? start;
-              const next = value.slice(0, start) + t.latex + value.slice(end);
-              if (next.length > 2000) return;
-              onChange(next);
-              requestAnimationFrame(() => {
-                ref.current?.focus();
-                ref.current?.setSelectionRange(start, start + t.latex.length);
-              });
-            }}
-          >
-            {t.label}
-          </Button>
-        ))}
-      </div>
+      <TextareaPad textarea={ref} value={value} onChange={onChange} maxLength={2000} as="latex" label={`${label} symbols`} />
       <div
         className="min-h-14 rounded-md bg-muted/40 px-3"
         role="group"

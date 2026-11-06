@@ -2,6 +2,17 @@
 // the cleaning of what MathLive writes. No browser or server code, so they can be tested directly.
 import { displayName, normaliseName } from "@/lib/answer-reader";
 
+export type PadTab = "problem" | "operations" | "relations" | "greek" | "trig" | "other";
+
+export const padTabs: { id: PadTab; label: string }[] = [
+  { id: "problem", label: "Problem" },
+  { id: "operations", label: "Operations" },
+  { id: "relations", label: "Relations" },
+  { id: "greek", label: "Greek" },
+  { id: "trig", label: "Trig" },
+  { id: "other", label: "Other" },
+];
+
 export type PaletteItem = {
   id: string;
   /** What the button shows. */
@@ -10,7 +21,12 @@ export type PaletteItem = {
   name: string;
   /** What is inserted at the cursor. #@ is the selection and #? the place to type next. */
   insert: string;
-  group: "symbol" | "structure" | "greek" | "function";
+  /** The tab the button lives on. */
+  group: PadTab;
+  /** False when the answer checker cannot read it, so answer fields hide it. Text and solution fields show everything. */
+  readable?: boolean;
+  /** Greek capitals sit behind "Show more". */
+  more?: boolean;
 };
 
 const isGreek = (base: string) => displayName(base) !== base;
@@ -31,34 +47,74 @@ export function symbolItems(symbols: readonly string[]): PaletteItem[] {
     if (!name || seen.has(name)) continue;
     seen.add(name);
     const label = displayName(name);
-    items.push({ id: `symbol-${name}`, label, name: `${label} symbol`, insert: symbolToLatex(name), group: "symbol" });
+    items.push({ id: `symbol-${name}`, label, name: `${label} symbol`, insert: symbolToLatex(name), group: "problem", readable: true });
   }
   return items;
 }
 
-const greekLetters: [string, string][] = [
-  ["α", "alpha"], ["β", "beta"], ["γ", "gamma"], ["δ", "delta"], ["ε", "varepsilon"], ["θ", "theta"], ["λ", "lambda"],
-  ["μ", "mu"], ["ρ", "rho"], ["σ", "sigma"], ["τ", "tau"], ["φ", "varphi"], ["ω", "omega"],
+const lower: [string, string][] = [
+  ["α", "alpha"], ["β", "beta"], ["γ", "gamma"], ["δ", "delta"], ["ε", "varepsilon"], ["ζ", "zeta"], ["η", "eta"], ["θ", "theta"],
+  ["ι", "iota"], ["κ", "kappa"], ["λ", "lambda"], ["μ", "mu"], ["ν", "nu"], ["ξ", "xi"], ["π", "pi"], ["ρ", "rho"], ["σ", "sigma"],
+  ["τ", "tau"], ["υ", "upsilon"], ["φ", "varphi"], ["χ", "chi"], ["ψ", "psi"], ["ω", "omega"],
+];
+const upper: [string, string][] = [
+  ["Γ", "Gamma"], ["Δ", "Delta"], ["Θ", "Theta"], ["Λ", "Lambda"], ["Ξ", "Xi"], ["Π", "Pi"], ["Σ", "Sigma"], ["Υ", "Upsilon"],
+  ["Φ", "Phi"], ["Ψ", "Psi"], ["Ω", "Omega"],
 ];
 
-/** The fixed part of the palette: structure, Greek letters, functions and constants. */
+const item = (group: PadTab, id: string, label: string, name: string, insert: string, readable = true, more = false): PaletteItem => ({
+  id, label, name, insert, group, readable, ...(more ? { more } : {}),
+});
+
+/** The fixed part of the pad. `readable` says whether the answer checker can read what the button writes. */
 export const standardItems: PaletteItem[] = [
-  { id: "fraction", label: "a/b", name: "a/b fraction", insert: "\\frac{#@}{#?}", group: "structure" },
-  { id: "power", label: "xⁿ", name: "xⁿ power", insert: "#@^{#?}", group: "structure" },
-  { id: "root", label: "√", name: "√ square root", insert: "\\sqrt{#?}", group: "structure" },
-  { id: "subscript", label: "xₙ", name: "xₙ subscript", insert: "#@_{#?}", group: "structure" },
-  ...greekLetters.map(([glyph, name]): PaletteItem => ({ id: `greek-${name}`, label: glyph, name: `${glyph} ${name}`, insert: `\\${name}`, group: "greek" })),
-  { id: "sin", label: "sin", name: "sin sine", insert: "\\sin(#?)", group: "function" },
-  { id: "cos", label: "cos", name: "cos cosine", insert: "\\cos(#?)", group: "function" },
-  { id: "tan", label: "tan", name: "tan tangent", insert: "\\tan(#?)", group: "function" },
-  { id: "pi", label: "π", name: "π pi", insert: "\\pi", group: "function" },
-  { id: "e", label: "e", name: "e, the base of natural logarithms", insert: "e", group: "function" },
-  { id: "ln", label: "ln", name: "ln natural logarithm", insert: "\\ln(#?)", group: "function" },
+  item("operations", "plus", "+", "+ plus", "+"),
+  item("operations", "minus", "−", "− minus", "-"),
+  item("operations", "times", "×", "× times", "\\times"),
+  item("operations", "divide", "÷", "÷ divide", "\\div"),
+  item("operations", "fraction", "a/b", "a/b fraction", "\\frac{#@}{#?}"),
+  item("operations", "power", "xⁿ", "xⁿ power", "#@^{#?}"),
+  item("operations", "subscript", "xₙ", "xₙ subscript", "#@_{#?}"),
+  item("operations", "root", "√", "√ square root", "\\sqrt{#?}"),
+  item("operations", "nthroot", "ⁿ√", "ⁿ√ nth root", "\\sqrt[#?]{#?}"),
+  item("operations", "exp", "eˣ", "eˣ e to the power", "e^{#?}"),
+  item("operations", "tenpow", "10ˣ", "10ˣ ten to the power", "10^{#?}"),
+  item("operations", "ln", "ln", "ln natural logarithm", "\\ln(#?)"),
+  item("operations", "log", "log", "log, read as the natural logarithm", "\\log(#?)"),
+  item("operations", "abs", "|x|", "|x| absolute value", "\\left|#?\\right|"),
+  item("operations", "factorial", "!", "! factorial", "!", false),
+  item("relations", "eq", "=", "= equals", "=", false),
+  item("relations", "ne", "≠", "≠ not equal", "\\ne", false),
+  item("relations", "lt", "<", "< less than", "<", false),
+  item("relations", "gt", ">", "> greater than", ">", false),
+  item("relations", "le", "≤", "≤ less than or equal", "\\le", false),
+  item("relations", "ge", "≥", "≥ greater than or equal", "\\ge", false),
+  item("relations", "approx", "≈", "≈ approximately", "\\approx", false),
+  item("relations", "propto", "∝", "∝ proportional to", "\\propto", false),
+  ...lower.map(([glyph, name]) => item("greek", `greek-${name}`, glyph, `${glyph} ${name}`, `\\${name}`)),
+  ...upper.map(([glyph, name]) => item("greek", `greek-${name}`, glyph, `${glyph} capital ${name.toLowerCase()}`, `\\${name}`, true, true)),
+  ...["sin", "cos", "tan"].map((f) => item("trig", f, f, `${f} ${{ sin: "sine", cos: "cosine", tan: "tangent" }[f]}`, `\\${f}(#?)`)),
+  ...["sin", "cos", "tan"].map((f) => item("trig", `arc${f}`, `${f}⁻¹`, `${f}⁻¹ inverse ${{ sin: "sine", cos: "cosine", tan: "tangent" }[f]}`, `\\arc${f}(#?)`)),
+  ...["sinh", "cosh", "tanh"].map((f) => item("trig", f, f, `${f} hyperbolic ${f.slice(0, -1)}`, `\\${f}(#?)`)),
+  item("other", "infinity", "∞", "∞ infinity", "\\infty", false),
+  item("other", "partial", "∂", "∂ partial derivative", "\\partial", false),
+  item("other", "nabla", "∇", "∇ nabla", "\\nabla", false),
+  item("other", "hbar", "ħ", "ħ h bar", "\\hbar"),
+  item("other", "degree", "°", "° degrees", "^\\circ", false),
+  item("other", "vec", "v⃗", "v⃗ vector arrow", "\\vec{#@}", false),
+  item("other", "hat", "v̂", "v̂ unit vector hat", "\\hat{#@}", false),
+  item("other", "dot", "·", "· dot product", "\\cdot"),
+  item("other", "cross", "⨯", "⨯ cross product", "\\times"),
 ];
 
-/** Problem symbols first, then fraction, power, root, subscript, Greek letters, sin, cos, tan, pi, e and ln. */
+/** The pad for the problem's own symbols plus the fixed buttons. */
 export function paletteItems(symbols: readonly string[]): PaletteItem[] {
   return [...symbolItems(symbols), ...standardItems];
+}
+
+/** The buttons an answer field may show: only what the checker can read. */
+export function answerItems(items: readonly PaletteItem[]): PaletteItem[] {
+  return items.filter((entry) => entry.readable !== false);
 }
 
 /** What to put in a plain text box when MathLive is not there: the placeholder marks are dropped. */

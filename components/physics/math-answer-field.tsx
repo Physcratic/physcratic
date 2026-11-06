@@ -5,6 +5,8 @@ import type { MathfieldElement } from "mathlive";
 import { Input } from "@/components/ui/input";
 import { AnswerReadError, SymbolTable, normaliseName, readExpression } from "@/lib/answer-reader";
 import { cleanLatex, paletteItems, plainInsertion, type PaletteItem } from "./answer-palette";
+import { enableTouchKeyboard, isTouchDevice, releasePrimedKeyboard } from "./mathfield-touch";
+import { MathPad, useKeyboardDock, type PadMode } from "./math-pad";
 import { LatexAnswerPreview } from "./latex-answer-preview";
 
 /**
@@ -28,6 +30,7 @@ export function MathAnswerField({
   emptyHint,
   loadWithValue,
   checkSymbols = true,
+  padMode = "answer",
 }: {
   id: string;
   /** The id of the visible label. */
@@ -51,6 +54,8 @@ export function MathAnswerField({
   loadWithValue?: boolean;
   /** Name a symbol the problem does not use. Off for free-form equations, where any symbol is fine. */
   checkSymbols?: boolean;
+  /** "answer" hides the buttons the checker cannot read. "full" shows them all (Studio text and solution fields). */
+  padMode?: PadMode;
 }) {
   const host = useRef<HTMLDivElement>(null);
   const field = useRef<MathfieldElement | null>(null);
@@ -101,6 +106,12 @@ export function MathAnswerField({
         );
         host.current.appendChild(element);
         field.current = element;
+        // Phones: let the phone's own keyboard open for this field. MathLive builds the sink as it connects, so try again a moment later.
+        if (isTouchDevice()) {
+          const apply = () => enableTouchKeyboard(element);
+          if (!apply()) requestAnimationFrame(apply);
+          element.addEventListener("focusin", apply);
+        }
         setReady(true);
       })
       .catch(() => {});
@@ -116,6 +127,8 @@ export function MathAnswerField({
     if (!ready || !focusOnReady.current) return;
     focusOnReady.current = false;
     field.current?.focus();
+    // A box focused during the tap kept the phone keyboard open while this field loaded. The field has it now.
+    releasePrimedKeyboard();
   }, [ready]);
 
   // Keep MathLive in step with the page: disabled, invalid, described, and a value changed from outside (Clear answers).
@@ -153,7 +166,16 @@ export function MathAnswerField({
   }, [maxLength]);
 
   const all = useMemo(() => [...paletteItems(symbols), ...(extraItems ?? [])], [symbols, extraItems]);
-  const items = useMemo(() => (active ? all : all.filter((item) => item.group === "symbol")), [active, all]);
+  // The full pad opens under the field being typed in. The other fields keep only the problem's own symbols.
+  const items = useMemo(() => (active ? all : all.filter((item) => item.group === "problem")), [active, all]);
+  const padSlot = useRef<HTMLDivElement>(null);
+  const padBox = useRef<HTMLDivElement>(null);
+  const docked = useKeyboardDock(active, host, padBox);
+  const [padHeight, setPadHeight] = useState(0);
+  useEffect(() => {
+    if (docked === null || !padBox.current) return;
+    setPadHeight(padBox.current.offsetHeight);
+  }, [docked, items]);
   const hint = useSymbolHint(value, checkSymbols ? symbols : []);
 
   return (
@@ -192,7 +214,19 @@ export function MathAnswerField({
           <LatexAnswerPreview value={value} />
         </>
       )}
-      {items.length > 0 && <Palette items={items} onInsert={insert} disabled={disabled} />}
+      {items.length > 0 && (
+        // Docked above the phone keyboard, the slot keeps the pad's height in the page so the field can scroll clear of it.
+        <div ref={padSlot} className="min-w-0" style={docked !== null ? { minHeight: padHeight } : undefined}>
+          <div
+            ref={padBox}
+            className={docked !== null ? "fixed inset-x-0 z-40 border-t bg-background px-2 pb-2 pt-2 shadow-lg" : "min-w-0"}
+            style={docked !== null ? { bottom: docked } : undefined}
+            data-docked={docked !== null ? "" : undefined}
+          >
+            <MathPad items={items} mode={padMode} onInsert={insert} disabled={disabled} />
+          </div>
+        </div>
+      )}
       <p id={hintId} role="status" aria-live="polite" className="min-h-0 text-sm text-muted-foreground empty:hidden">
         {hint}
       </p>
@@ -216,45 +250,4 @@ function useSymbolHint(value: string, symbols: readonly string[]): string {
       return error instanceof AnswerReadError && error.kind === "symbol" ? error.message : "";
     }
   }, [settled, value, symbols]);
-}
-
-function Palette({ items, onInsert, disabled }: { items: PaletteItem[]; onInsert: (item: PaletteItem) => void; disabled?: boolean }) {
-  const row = useRef<HTMLDivElement>(null);
-  const [overflowing, setOverflowing] = useState(false);
-  useEffect(() => {
-    const element = row.current;
-    if (!element) return;
-    const measure = () => setOverflowing(element.scrollWidth > element.clientWidth + 1 && window.matchMedia("(max-width: 639px)").matches);
-    measure();
-    if (typeof ResizeObserver === "undefined") return;
-    const observer = new ResizeObserver(measure);
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, [items]);
-  return (
-    <div
-      ref={row}
-      role="group"
-      aria-label="Insert symbols and functions"
-      data-tour="answer-palette"
-      className={`flex min-w-0 gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:overflow-visible ${overflowing ? "[mask-image:linear-gradient(to_right,black_calc(100%-2rem),transparent)]" : ""}`}
-    >
-      {items.map((item) => (
-        <button
-          key={item.id}
-          type="button"
-          disabled={disabled}
-          aria-label={item.name}
-          data-palette={item.group}
-          // Pressing a button must not take the cursor out of the field.
-          onPointerDown={(event) => event.preventDefault()}
-          onMouseDown={(event) => event.preventDefault()}
-          onClick={() => onInsert(item)}
-          className={`inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-md border border-input px-3 text-base font-medium hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50 ${item.group === "symbol" ? "bg-accent/60" : "bg-background"}`}
-        >
-          <span aria-hidden="true">{item.label}</span>
-        </button>
-      ))}
-    </div>
-  );
 }

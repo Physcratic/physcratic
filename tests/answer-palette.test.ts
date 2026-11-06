@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { cleanLatex, formatConditions, paletteItems, plainInsertion, symbolToLatex } from "../components/physics/answer-palette";
+import { answerItems, cleanLatex, formatConditions, padTabs, paletteItems, plainInsertion, symbolToLatex } from "../components/physics/answer-palette";
 import { SymbolTable, readExpression } from "../lib/answer-reader";
 
 test("a declared symbol is written the way MathLive writes it", () => {
@@ -14,28 +14,60 @@ test("a declared symbol is written the way MathLive writes it", () => {
   assert.equal(symbolToLatex("hbar"), "\\hbar");
 });
 
-test("the palette lists the problem's symbols first, then structure, Greek letters and functions", () => {
+const known = ["k", "r_0", "z", "\\theta_0"];
+const greekNames = "alpha beta gamma delta varepsilon zeta eta theta iota kappa lambda mu nu xi pi rho sigma tau upsilon varphi chi psi omega Gamma Delta Theta Lambda Xi Pi Sigma Upsilon Phi Psi Omega hbar".split(" ");
+// Greek letters are read like any symbol, so the problem has to declare the ones it uses.
+const symbolsFor = new SymbolTable([...known, ...greekNames]);
+
+/** Fill the placeholders the way a person would. A button that writes a lone symbol or operator gets something around it. */
+function filled(item: ReturnType<typeof paletteItems>[number]): string {
+  if (item.id === "subscript") return "r_{0}";
+  const text = item.insert.replace(/\[#?\]\{#\?\}/g, "[3]{k}").replace(/#@/g, "k").replace(/#\?/g, "k");
+  if (item.group === "relations") return `k ${text} k`;
+  if (["plus", "minus", "times", "divide", "dot", "cross"].includes(item.id)) return `k ${text} k`;
+  if (item.id === "factorial") return `k ${text}`;
+  if (item.id === "degree") return `k ${text}`;
+  if (item.group === "greek" || item.group === "other") return /\\(vec|hat)/.test(text) ? text : `k ${text}`;
+  return text;
+}
+
+test("the pad has the six tabs, the problem's symbols first and capitals behind Show more", () => {
   const items = paletteItems(["r_0", "k", "z", "\\theta_0"]);
+  assert.deepEqual(padTabs.map((tab) => tab.label), ["Problem", "Operations", "Relations", "Greek", "Trig", "Other"]);
   assert.deepEqual(items.slice(0, 4).map((item) => item.label), ["r₀", "k", "z", "θ₀"]);
-  assert.deepEqual(items.slice(4, 8).map((item) => item.name), ["a/b fraction", "xⁿ power", "√ square root", "xₙ subscript"]);
-  const groups = items.map((item) => item.group);
-  assert.deepEqual([...new Set(groups)], ["symbol", "structure", "greek", "function"]);
-  assert.deepEqual(items.slice(-6).map((item) => item.label), ["sin", "cos", "tan", "π", "e", "ln"]);
+  assert.ok(items.slice(0, 4).every((item) => item.group === "problem"));
+  const tabOf = (tab: string) => items.filter((item) => item.group === tab);
+  assert.deepEqual(tabOf("operations").slice(0, 4).map((item) => item.label), ["+", "−", "×", "÷"]);
+  assert.deepEqual(tabOf("operations").slice(4).map((item) => item.label), ["a/b", "xⁿ", "xₙ", "√", "ⁿ√", "eˣ", "10ˣ", "ln", "log", "|x|", "!"]);
+  assert.deepEqual(tabOf("relations").map((item) => item.label), ["=", "≠", "<", ">", "≤", "≥", "≈", "∝"]);
+  assert.deepEqual(tabOf("greek").filter((item) => !item.more).slice(0, 3).map((item) => item.label), ["α", "β", "γ"]);
+  assert.ok(tabOf("greek").filter((item) => item.more).every((item) => /^[Α-Ω]$/.test(item.label)));
+  assert.deepEqual(tabOf("trig").map((item) => item.label), ["sin", "cos", "tan", "sin⁻¹", "cos⁻¹", "tan⁻¹", "sinh", "cosh", "tanh"]);
+  assert.deepEqual(tabOf("other").map((item) => item.label), ["∞", "∂", "∇", "ħ", "°", "v⃗", "v̂", "·", "⨯"]);
   assert.equal(new Set(items.map((item) => item.id)).size, items.length);
   // A symbol listed twice, or in another spelling, appears once.
-  assert.equal(paletteItems(["k", "k", "\\theta_0", "theta_0"]).filter((item) => item.group === "symbol").length, 2);
+  assert.equal(paletteItems(["k", "k", "\\theta_0", "theta_0"]).filter((item) => item.group === "problem").length, 2);
   // Every button has a name that starts with what it shows, so a voice command by its label works.
-  for (const item of items) assert.ok(item.name.startsWith(item.label) || item.name.includes(item.label), item.id);
+  for (const item of items) assert.ok(item.name.includes(item.label) || item.name.startsWith(item.label), item.id);
 });
 
-test("everything the palette inserts is something the reader understands", () => {
-  const names = ["r_0", "k", "z", "\\theta_0"];
-  for (const item of paletteItems(names)) {
-    // Fill the placeholders with a symbol the way a person would, then read it.
-    const text = item.insert.replace(/#@/g, "k").replace(/#\?/g, "k").replace(/#0/g, "k");
-    const readable = item.id === "subscript" ? "r_{0}" : text;
-    assert.doesNotThrow(() => readExpression(readable, new SymbolTable(["k", "r_0", "z", "\\theta_0", "alpha", "beta", "gamma", "delta", "varepsilon", "theta", "lambda", "mu", "rho", "sigma", "tau", "varphi", "omega"])), `${item.id}: ${readable}`);
+test("answer fields show only what the checker reads, and the flag is true for every button", () => {
+  const items = paletteItems(known);
+  for (const item of items) {
+    const text = filled(item);
+    let reads = true;
+    try {
+      readExpression(text, symbolsFor);
+    } catch {
+      reads = false;
+    }
+    assert.equal(reads, item.readable !== false, `${item.id} (${text}) readable=${item.readable} but the reader says ${reads}`);
   }
+  const shown = answerItems(items);
+  assert.ok(shown.length > 40);
+  assert.ok(shown.every((item) => item.readable !== false));
+  assert.ok(!shown.some((item) => ["eq", "nabla", "partial", "vec", "hat"].includes(item.id)));
+  assert.equal(items.filter((item) => item.readable === false).length > 0, true);
 });
 
 test("without MathLive the plain box gets the same text with the cursor inside the first bracket", () => {

@@ -168,11 +168,21 @@ try {
       };
       // With the palette: fraction, theta0, next box, k, out of the fraction, sin, k, z, out of the brackets, +, r0, cos, k, z.
       {
-        const { field, palette } = await openPartA();
+        const { field, palette, fieldId } = await openPartA();
         await field.click();
         await page.waitForTimeout(500);
-        const inField = (name) => palette.and(page.locator(`[aria-label="${name}"]`)).first();
-        ok(await palette.count() > 20, `the palette opens under the field being typed in (${tag})`);
+        const pad = page.locator(`[data-field="${fieldId}"] [data-math-pad]`);
+        // The pad opens on the Problem tab. A button on another tab is found by opening the tabs one by one.
+        const inField = (name) => ({
+          click: async () => {
+            const button = pad.locator(`button[aria-label="${name}"]`);
+            if (!(await button.count())) for (const tab of await pad.getByRole("tab").all()) { await tab.click(); if (await button.count()) break; }
+            await button.first().click();
+          },
+        });
+        ok(await pad.isVisible(), `the pad opens under the field being typed in (${tag})`);
+        assert.deepEqual(await pad.getByRole("tab").allTextContents(), ["Problem", "Operations", "Greek", "Trig", "Other"]); checks++;
+        ok(await pad.getByRole("tab", { name: "Problem" }).getAttribute("aria-selected") === "true", `the Problem tab is first and open (${tag})`);
         const labels = await palette.evaluateAll((els) => els.slice(0, 4).map((el) => el.getAttribute("aria-label")));
         assert.deepEqual(labels, ["r₀ symbol", "k symbol", "z symbol", "θ₀ symbol"]); checks++;
         await inField("a/b fraction").click();

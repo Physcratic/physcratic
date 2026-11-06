@@ -40,7 +40,12 @@ try {
     ok(await focused(), `${name}: tapping the field focuses it`);
     const fieldId = await field.getAttribute("id");
     const palette = page.locator(`[data-field="${fieldId}"] [data-palette]`);
-    ok(await palette.count() > 20, `${name}: the full palette opens under the field`);
+    const pad = page.locator(`[data-field="${fieldId}"] [data-math-pad]`);
+    ok(await pad.isVisible(), `${name}: the pad opens under the field`);
+    ok(await pad.getByRole("tab").count() >= 4 && await pad.getByRole("tab").first().innerText() === "Problem", `${name}: the pad has tabs, Problem first`);
+    // The phone's own keyboard: the sink MathLive types into must allow it, with the typing helpers off.
+    const sink = await field.evaluate((el) => { const s = el.shadowRoot.querySelector(".ML__keyboard-sink"); return Object.fromEntries(["inputmode", "autocapitalize", "autocorrect", "autocomplete", "spellcheck"].map((a) => [a, s.getAttribute(a)])); });
+    assert.deepEqual(sink, { inputmode: "text", autocapitalize: "off", autocorrect: "off", autocomplete: "off", spellcheck: "false" }); checks++;
     ok(await page.evaluate(() => !(window.mathVirtualKeyboard && window.mathVirtualKeyboard.visible)), `${name}: MathLive's own keyboard is not opened`);
     ok(await page.locator(".ML__keyboard:visible, .MLK__plate:visible").count() === 0, `${name}: no MathLive keyboard is on screen`);
 
@@ -49,7 +54,10 @@ try {
     assert.equal(await value(), "kz"); checks++;
 
     // Every button is at least 44px square, and the row can be reached by touch.
-    const boxes = await palette.evaluateAll((els) => els.map((el) => { const r = el.getBoundingClientRect(); return [Math.round(r.width), Math.round(r.height)]; }));
+    await pad.getByRole("tab", { name: "Greek" }).tap();
+    ok(await pad.getByRole("button", { name: "Show more" }).isVisible(), `${name}: Greek has Show more for capitals`);
+    await pad.getByRole("tab", { name: "Problem" }).tap();
+    const boxes = await pad.locator("button").evaluateAll((els) => els.map((el) => { const r = el.getBoundingClientRect(); return [Math.round(r.width), Math.round(r.height)]; }));
     ok(boxes.every(([w, h]) => w >= 44 && h >= 44), `${name}: every palette button is at least 44px (${JSON.stringify(boxes.filter(([w, h]) => w < 44 || h < 44))})`);
 
     // The palette inserts at the cursor: put the cursor between k and z, then tap a symbol.
@@ -60,8 +68,34 @@ try {
     ok(await focused(), `${name}: tapping the palette keeps the cursor in the field`);
 
     // Structure buttons: a fraction with the typed text, then fill the box.
-    await palette.filter({ has: page.locator("xpath=self::*[@aria-label='a/b fraction']") }).first().tap();
+    await pad.getByRole("tab", { name: "Operations" }).tap();
+    await pad.locator("button[aria-label='a/b fraction']").tap();
     ok(/\\frac/.test(await value()), `${name}: the fraction button inserts a fraction`);
+    // A phone keyboard is simulated by a visualViewport 300px shorter than the window. The pad docks above it and the field stays clear.
+    await page.evaluate(() => {
+      const target = new EventTarget();
+      const fake = Object.assign(target, { height: window.innerHeight - 300, offsetTop: 0, width: window.innerWidth });
+      Object.defineProperty(window, "visualViewport", { configurable: true, get: () => fake });
+      window.__fakeViewport = fake;
+      fake.dispatchEvent(new Event("resize"));
+    });
+    // The hook reads window.visualViewport when the field gets focus, so focus it again.
+    await page.evaluate(() => document.activeElement?.blur());
+    await field.tap();
+    await page.locator(`[data-field="${fieldId}"] [data-docked]`).waitFor({ timeout: 3000 }).catch(() => {});
+    await page.waitForTimeout(300);
+    const dock = await page.evaluate((id) => {
+      const wrap = document.querySelector(`[data-field="${id}"]`);
+      const box = wrap.querySelector("[data-docked]");
+      const f = wrap.querySelector("math-field").getBoundingClientRect();
+      const p = box?.getBoundingClientRect();
+      return { docked: !!box, padTop: p?.top, padBottom: p?.bottom, fieldBottom: f.bottom, fieldTop: f.top, keyboardTop: window.visualViewport.height };
+    }, fieldId);
+    ok(dock.docked && Math.abs(dock.padBottom - dock.keyboardTop) <= 2, `${name}: the pad sits right above the keyboard (${JSON.stringify(dock)})`);
+    ok(dock.fieldBottom <= dock.padTop && dock.fieldTop >= 0, `${name}: the pad never covers the field (${JSON.stringify(dock)})`);
+    await page.evaluate(() => { window.__fakeViewport.height = window.innerHeight; window.__fakeViewport.dispatchEvent(new Event("resize")); });
+    await page.waitForTimeout(300);
+    ok(await page.locator(`[data-field="${fieldId}"] [data-docked]`).count() === 0, `${name}: with the keyboard closed the pad is back under the field`);
     if (shotDir) await page.screenshot({ path: join(shotDir, `phone-${name.replace(/ /g, "-")}-field.png`) });
     assert.deepEqual(errors, []); checks++;
     await context.close();
