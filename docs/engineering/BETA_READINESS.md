@@ -725,3 +725,11 @@ Reconciled the independently merged PR #112. Added explicit staff-action confirm
 - **Local CI, clean worktree, throwaway PostgreSQL 16:** guards, typecheck, ESLint, 685 server and 110 UI tests and the build pass. Database tests 150 of 151, and the release package test fails 9 of 17. These are the same failures as in 7d and they also fail on main in this container.
 - **Sweep with axe** (`@axe-core/playwright` 4.10.2 via `AUTHORING_BROWSER_TOOLS`, checked first on a planted page that it reports serious issues): sign in, sign up, forgot, reset (form and dead link), email change states and signed-in Settings, with and without a sender, 375, 390, 768 and 1440, both themes. 0 failures. Lowest text 6.16:1, lowest border 3.79:1.
 - **Production:** with no `RESEND_API_KEY` today, sign-up verification emails cannot be sent either, so new accounts cannot verify. That needs the owner to set up the sender.
+
+## 2026-11-06 - Coaching: new class list
+
+- **Owner request:** the list in the coaching class section is now exactly six lines: up to 6 students at your level, 2 hours a week live online, olympiad problem-solving not school physics, recordings, notes, homework and worked solutions, a WhatsApp group with the coach, and personal feedback after every 4 sessions. The section is `classFormat` ("How a class works") in `lib/coaching/content.ts`. Its list is `points`. No component or design change. The size and hours in the first two lines come from `maxStudents` and `classHours`.
+- **Tests:** `lib/coaching-content.test.ts` pins the six lines.
+- **Local CI, clean worktree, throwaway PostgreSQL 16:** guards, typecheck, ESLint, 685 server and 110 UI tests and the build pass. Database tests 150 of 151 and the release package test 8 of 17, the same failures as in 7d that also fail on main in this container.
+- **Checked at 375 and 1440:** all six lines show, no sideways scroll. Coaching sweep with axe: 0 failures, lowest text 5.16:1. One earlier sweep run, the first after the server started, threw an assertion (`diff: 'simple'`) and could not be reproduced in four later runs.
+- **Not changed:** the other coaching copy that says "usually weekly" (the tile, the glance table and the length line) now sits beside "2 hours a week". They are not in conflict, but the owner may want them to match.
