@@ -37,7 +37,8 @@ export function verificationRecipient(email: string, url: string, env: Environme
     if (allowed.length > 50 || allowed.some(value => !z.email().safeParse(value).success) ||
         !z.email().safeParse(recipient).success || !allowed.includes(recipient)) throw fail();
     const link = new URL(url);
-    if (link.origin !== auth.baseURL || link.username || link.password || link.pathname !== "/api/auth/verify-email") throw fail();
+    const accountPath = link.pathname === "/api/auth/verify-email" || /^\/api\/auth\/reset-password\/[A-Za-z0-9_-]{1,128}$/.test(link.pathname);
+    if (link.origin !== auth.baseURL || link.username || link.password || !accountPath) throw fail();
     const callback = link.searchParams.get("callbackURL");
     if (callback !== null) {
       const destination = new URL(callback, auth.baseURL);

@@ -1,0 +1,40 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+import * as React from "react";
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { AppRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { AuthForm } from "../components/auth-form";
+import { EmailChangeResult, ForgotPasswordForm, ResetPasswordForm } from "../components/account/account-pages";
+import { emailChangeOutcome } from "../lib/account-messages";
+
+(globalThis as { React?: unknown }).React = React;
+const router = { back() {}, forward() {}, refresh() {}, hmrRefresh() {}, push() {}, replace() {}, prefetch() {} };
+const render = (element: React.ReactElement) => renderToStaticMarkup(createElement(AppRouterContext.Provider, { value: router }, element));
+const copy = (html: string) => html.replace(/<[^>]+>/g, " ").replace(/&#?\w+;/g, "x");
+
+test("sign in offers Forgot password, sign up does not", () => {
+  assert.match(render(createElement(AuthForm, { mode: "sign-in", returnTo: "/dashboard" })), /href="\/forgot-password"[^>]*>Forgot password\?/);
+  assert.doesNotMatch(render(createElement(AuthForm, { mode: "sign-up", returnTo: "/dashboard" })), /forgot-password/);
+});
+
+test("account pages have one h1, labelled fields and follow the copy rules", () => {
+  const pages = [
+    render(createElement(ForgotPasswordForm)),
+    render(createElement(ResetPasswordForm, { token: "abc123", linkError: false })),
+    render(createElement(ResetPasswordForm, { token: null, linkError: false })),
+    render(createElement(ResetPasswordForm, { token: "abc123", linkError: true })),
+    render(createElement(EmailChangeResult, emailChangeOutcome("approved", undefined))),
+    render(createElement(EmailChangeResult, emailChangeOutcome("done", "TOKEN_EXPIRED"))),
+  ];
+  for (const html of pages) {
+    assert.equal(html.match(/<h1\b/g)?.length, 1);
+    for (const id of html.match(/<input[^>]*\bid="([^"]+)"/g)?.map((tag) => tag.match(/id="([^"]+)"/)![1]) ?? [])
+      assert.match(html, new RegExp(`for="${id}"`), `input ${id} has a label`);
+    assert.doesNotMatch(copy(html), /[–—;]/);
+  }
+  assert.match(pages[0], /autoComplete="email"|autocomplete="email"/i);
+  assert.match(pages[1], /new-password/);
+  assert.match(pages[2], /expired or was already used/);
+  assert.match(pages[3], /href="\/forgot-password"/);
+});
