@@ -3,13 +3,13 @@ import test from "node:test";
 import { accountErrorMessage, emailChangeOutcome } from "./account-messages";
 
 test("account errors say what to do next", () => {
-  assert.equal(accountErrorMessage("change-password", { code: "INVALID_PASSWORD", status: 400 }), "That current password didn't match. Try again or reset it.");
-  assert.equal(accountErrorMessage("change-email", { code: "INVALID_PASSWORD", status: 400 }), "That password didn't match. Try again or reset it.");
-  assert.equal(accountErrorMessage("change-email", { code: "EMAIL_BUDGET", status: 429 }), "That's a lot of emails for one hour. Try again later.");
+  assert.equal(accountErrorMessage("change-password", { code: "INVALID_PASSWORD", status: 400 }), "That current password didn’t match. Try again or reset it.");
+  assert.equal(accountErrorMessage("change-email", { code: "INVALID_PASSWORD", status: 400 }), "That password didn’t match. Try again or reset it.");
+  assert.equal(accountErrorMessage("change-email", { code: "EMAIL_BUDGET", status: 429 }), "That’s a lot of emails for one hour. Try again later.");
   assert.equal(accountErrorMessage("request-reset", { status: 429 }), "Too many tries. Wait a minute, then try again.");
   assert.equal(accountErrorMessage("change-email", { code: "PASSWORD_NOT_SET", status: 400 }), "Set a password first. Then you can change your email.");
   assert.equal(accountErrorMessage("reset-password", { code: "INVALID_TOKEN", status: 400 }), "That link has expired or was already used. Ask for a new one.");
-  assert.equal(accountErrorMessage("change-email", { status: 400, message: "Email is the same" }), "That's already your email.");
+  assert.equal(accountErrorMessage("change-email", { status: 400, message: "Email is the same" }), "That’s already your email.");
   assert.equal(accountErrorMessage("change-password", { status: 503 }), "Something went wrong on our side. Try again in a minute.");
   assert.equal(accountErrorMessage("change-password", undefined), "Something went wrong on our side. Try again in a minute.");
 });
