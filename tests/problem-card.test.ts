@@ -79,9 +79,9 @@ test("cards without a supplied difficulty never invent an estimate", () => {
 
 test("practice cards identify difficulty ratings as estimates and preserve rating bands", () => {
   for (const [elo, band, level] of [
-    [900, "Fundamentals", "fundamentals"],
-    [1300, "Beginner olympiad", "beginner-olympiad"],
-    [1700, "Intermediate olympiad", "intermediate-olympiad"],
+    [150, "Fundamentals", "fundamentals"],
+    [500, "Beginner olympiad", "beginner-olympiad"],
+    [1300, "Intermediate olympiad", "intermediate-olympiad"],
     [2250, "Advanced (IPhO level)", "advanced"],
     [2700, "Mastery", "mastery"],
   ] as const) {

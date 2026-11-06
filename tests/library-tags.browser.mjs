@@ -99,11 +99,11 @@ for (const [name, profile] of Object.entries(profiles)) {
   ok(rows.length === 5, `${name}: the popover table has five bands`);
   const text = rows.join("\n");
   for (const [band, range, like] of [
-    ["Fundamentals", "Below 1,200", "hard A Level question"],
-    ["Beginner olympiad", "1,200 to 1,599", "first round"],
-    ["Intermediate olympiad", "1,600 to 1,999", "national final"],
-    ["Advanced (IPhO level)", "2,000 to 2,499", "IPhO theory problem"],
-    ["Mastery", "2,500 and up", "hardest"],
+    ["Fundamentals", "Below 200", "A Level or school physics"],
+    ["Beginner olympiad", "200 to 799", "first round"],
+    ["Intermediate olympiad", "800 to 1,599", "national final"],
+    ["Advanced (IPhO level)", "1,600 to 2,599", "IPhO theory problem"],
+    ["Mastery", "2,600 and up", "APhO 2021"],
   ]) ok(text.includes(band) && text.includes(range) && text.includes(like), `${name}: the popover row for ${band}`);
   await page.keyboard.press("Escape");
   ok(errors.length === 0, `${name}: page errors ${errors}`);

@@ -412,7 +412,7 @@ try {
   assert.equal(await page.getByRole("radio", { name: "I wrote it" }).isChecked(), true, "I wrote it is the default");
   await page.getByRole("radio", { name: /^Advanced \(IPhO level\)/ }).click();
   assert.equal(await page.getByRole("radio", { name: /^Advanced \(IPhO level\)/ }).getAttribute("aria-checked"), "true", "the band is chosen");
-  assert.equal(await page.getByLabel("Exact rating (optional)").inputValue(), "2250", "the band fills in its middle rating");
+  assert.equal(await page.getByLabel("Exact rating (optional)").inputValue(), "2100", "the band fills in its middle rating");
   await page.getByLabel("Exact rating (optional)").fill("2310");
   assert.equal(await page.getByRole("radio", { name: /^Advanced \(IPhO level\)/ }).getAttribute("aria-checked"), "true", "an exact rating in the band keeps the band");
   await page.getByLabel("Exact rating (optional)").fill("abc");
@@ -635,7 +635,7 @@ try {
     const two = await savedContent(tid);
     assert.deepEqual(two.sections[0].parts.map((x) => x.label), ["a", "b"], "two parts, lettered a and b");
     assert.deepEqual(two.provenance, { kind: "authorized", source: "IPhO 2019, Problem 2", rightsDeclaration: "I have permission to share this adapted problem on Physcratic." });
-    assert.equal(two.estimatedDifficulty, "1800", "the band saved its middle rating");
+    assert.equal(two.estimatedDifficulty, "1200", "the band saved its middle rating");
     assert.deepEqual(two.context.find((b) => b.kind === "text")?.spans, [{ kind: "text", text: "A cart rolls down a ramp." }]);
     // Every step of the Studio tour points at something on the page, in order.
     const { tours } = await import("../components/tour/tours.ts");

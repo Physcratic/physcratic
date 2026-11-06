@@ -87,9 +87,9 @@ Before and after:
 
 ## Ratings and difficulty
 
-- The five rating bands live in `lib/rating-bands.ts` and nowhere else: Fundamentals (below 1,200), Beginner olympiad (1,200 to 1,599), Intermediate olympiad (1,600 to 1,999), Advanced (IPhO level) (2,000 to 2,499) and Mastery (2,500 and up). The library, Problem Studio and the "What do the ratings mean?" popover all read that file.
+- The five rating bands live in `lib/rating-bands.ts` and nowhere else: Fundamentals (below 200), Beginner olympiad (200 to 799), Intermediate olympiad (800 to 1,599), Advanced (IPhO level) (1,600 to 2,599) and Mastery (2,600 and up). Picking a band in Problem Studio fills in its middle value (100, 500, 1,200, 2,100, 2,800). The old library filter ids `under-1200`, `1200-1599` and `1600-plus` keep their old ranges. The library, Problem Studio and the "What do the ratings mean?" popover all read that file.
 - A problem's rating shows with its band name, such as "2,250 · Advanced (IPhO level)".
-- An author's estimate always reads as an estimate, such as "~1,850 · Intermediate olympiad (estimate)". It is saved as a plain number in the existing difficulty field. It is never used in a rating, a result or a contest.
+- An author's estimate always reads as an estimate, such as "~1,200 · Intermediate olympiad (estimate)". It is saved as a plain number in the existing difficulty field. It is never used in a rating, a result or a contest.
 - Answers: a student writes `ln` for the natural log and `\log_{10}`, `log10` or `log_10` for base 10. A bare `log` is refused with one message, "Write ln for the natural log, or log₁₀ for base 10." This applies to student answers and to a new key written in Problem Studio. A key that was saved earlier keeps reading `log` as `ln`.
 
 ## Production

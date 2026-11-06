@@ -1,6 +1,6 @@
 // The five rating bands, in one place. The library, Problem Studio and the "What do the ratings mean?" popover all read this.
-// Fitted to the site's own scale: users start at 1200, ratings run from 0 to 4000, and the archive problems sit between
-// 1350 and 2800. An author's estimate is a guess, not a measured rating, and never feeds the rating system.
+// Owner's table (6 November 2026). The scale is the site's own: ratings run from 0 to 4000 and users start at 1200, which is
+// Intermediate olympiad. An author's estimate is a guess, not a measured rating, and never feeds the rating system.
 
 export type RatingBand = {
   id: "fundamentals" | "beginner-olympiad" | "intermediate-olympiad" | "advanced" | "mastery";
@@ -20,11 +20,11 @@ export type RatingBand = {
 };
 
 export const ratingBands: readonly RatingBand[] = [
-  { id: "fundamentals", name: "Fundamentals", min: 0, max: 1200, range: "Below 1,200", example: "Like a hard A Level question", middle: 1000, variant: "elo-foundation" },
-  { id: "beginner-olympiad", name: "Beginner olympiad", min: 1200, max: 1600, range: "1,200 to 1,599", example: "Like a BPhO Round 1 or national first round problem", middle: 1400, variant: "elo-intermediate" },
-  { id: "intermediate-olympiad", name: "Intermediate olympiad", min: 1600, max: 2000, range: "1,600 to 1,999", example: "Like a national final problem", middle: 1800, variant: "elo-intermediate" },
-  { id: "advanced", name: "Advanced (IPhO level)", min: 2000, max: 2500, range: "2,000 to 2,499", example: "Like an IPhO theory problem", middle: 2250, variant: "elo-advanced" },
-  { id: "mastery", name: "Mastery", min: 2500, max: Infinity, range: "2,500 and up", example: "Like the hardest IPhO and APhO problems", middle: 2600, variant: "elo-advanced" },
+  { id: "fundamentals", name: "Fundamentals", min: 0, max: 200, range: "Below 200", example: "Like an A Level or school physics question", middle: 100, variant: "elo-foundation" },
+  { id: "beginner-olympiad", name: "Beginner olympiad", min: 200, max: 800, range: "200 to 799", example: "Like a national first round problem", middle: 500, variant: "elo-intermediate" },
+  { id: "intermediate-olympiad", name: "Intermediate olympiad", min: 800, max: 1600, range: "800 to 1,599", example: "Like a national final problem", middle: 1200, variant: "elo-intermediate" },
+  { id: "advanced", name: "Advanced (IPhO level)", min: 1600, max: 2600, range: "1,600 to 2,599", example: "Like an IPhO theory problem", middle: 2100, variant: "elo-advanced" },
+  { id: "mastery", name: "Mastery", min: 2600, max: Infinity, range: "2,600 and up", example: "Harder than IPhO, like APhO 2021 (Taiwan) or the APhO 2019 tippe top problem", middle: 2800, variant: "elo-advanced" },
 ];
 
 /** The band a rating falls in. A rating under 0 counts as the lowest band. */
