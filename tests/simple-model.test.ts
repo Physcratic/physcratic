@@ -6,6 +6,17 @@ import { publishableDraftSchema, authoredDraftSchema } from "../lib/problem-auth
 import type { EditorDraft } from "../lib/problem-authoring-editor";
 import { editorDraftSchema, newProblem, draftPayload } from "../lib/problem-authoring-editor";
 import {
+  ADAPTED_RIGHTS_TEXT,
+  addContextPicture,
+  contextPictureOf,
+  difficultyLabel,
+  difficultyRating,
+  removeContextPicture,
+  setContextPictureAlt,
+  setDifficulty,
+  setSourceChoice,
+  setSourceText,
+  sourceState,
   RIGHTS_TEXT,
   UNITS,
   addPart,
@@ -56,6 +67,8 @@ function easyDraft(answer: string, units = ""): EditorDraft {
   setQuestion(d, id, [{ kind: "text", text: "A block of mass " }, { kind: "math", latex: "m" }, { kind: "text", text: " slides down a slope. Find the acceleration." }]);
   applyAnswer(d, id, readAnswer(answer), answer);
   if (units) setUnits(d, id, units);
+  // Simple asks for a worked solution.
+  setSolutionSpans(d, id, words("Use the component of gravity along the slope."));
   setRights(d, true);
   return d;
 }
@@ -182,7 +195,7 @@ test("each thing that blocks Publish is named next to its own field", () => {
   const id = allParts(d)[0].part.id;
   assert.deepEqual(
     simpleIssues(d).map((i) => i.field),
-    [`question:${id}`, `answer:${id}`, "title", "rights"],
+    [`question:${id}`, `solution:${id}`, `answer:${id}`, "title", "rights"],
   );
   assert.deepEqual(simpleIssues(d, { [id]: "x+" }).find((i) => i.field === `answer:${id}`)?.message.includes("stops too soon"), true);
 });
@@ -433,4 +446,90 @@ test("the unit list is the one the student checker knows", async () => {
 test("the verdict labels are the ones the student page shows", () => {
   const source = readFileSync(new URL("../components/authored/student-workspace.tsx", import.meta.url), "utf8");
   for (const label of Object.values(verdictLabel)) assert.ok(source.includes(`label: "${label}"`), label);
+});
+
+test("the worked solution is required in Simple, and only in Simple", () => {
+  const d = easyDraft("9.8", "m/s^2");
+  const id = allParts(d)[0].part.id;
+  assert.deepEqual(simpleIssues(d), []);
+  setSolutionSpans(d, id, words("   "));
+  assert.deepEqual(simpleIssues(d).map((i) => [i.field, i.message]), [[`solution:${id}`, "Add the worked solution."]]);
+  // The saved draft is still valid: Advanced and older problems publish without a solution.
+  const payload = { problemId: d.problemId, version: d.version, ...draftPayload(d) };
+  assert.ok(authoredDraftSchema.safeParse(payload).success);
+});
+
+test("Where's it from: I wrote it, or Adapted from with a source and its own rights tick", () => {
+  const d = blank();
+  assert.deepEqual(sourceState(d), { choice: "wrote", ticked: false });
+  setRights(d, true);
+  assert.deepEqual(d.content.provenance, { kind: "original", source: "", rightsDeclaration: RIGHTS_TEXT });
+  // Switching clears the tick, so a rights claim never carries over.
+  setSourceChoice(d, "adapted");
+  assert.deepEqual(d.content.provenance, { kind: "authorized", source: "", rightsDeclaration: "" });
+  assert.deepEqual(simpleIssues(d).filter((i) => i.field === "source" || i.field === "rights").map((i) => [i.field, i.message]), [
+    ["source", "Say where it's from."],
+    ["rights", "Tick the box to say you have permission to share it."],
+  ]);
+  setSourceText(d, "IPhO 2019, Problem 2");
+  setRights(d, true);
+  assert.deepEqual(d.content.provenance, { kind: "authorized", source: "IPhO 2019, Problem 2", rightsDeclaration: ADAPTED_RIGHTS_TEXT });
+  assert.equal(simpleIssues(d).some((i) => i.field === "source" || i.field === "rights"), false);
+  assert.deepEqual(sourceState(d), { choice: "adapted", ticked: true, source: "IPhO 2019, Problem 2" });
+  // Back to I wrote it: the source goes, the tick goes.
+  setSourceChoice(d, "wrote");
+  assert.deepEqual(d.content.provenance, { kind: "original", source: "", rightsDeclaration: "" });
+  // A rights declaration written in Advanced is kept, not replaced by a tick.
+  d.content.provenance = { kind: "authorized", source: "A textbook", rightsDeclaration: "The publisher allows it." };
+  assert.deepEqual(sourceState(d), { choice: "advanced" });
+  setSourceChoice(d, "wrote");
+  setRights(d, true);
+  assert.deepEqual(d.content.provenance, { kind: "authorized", source: "A textbook", rightsDeclaration: "The publisher allows it." });
+  // What Simple saves is a valid provenance for the server, which is unchanged.
+  const adapted = easyDraft("9.8", "m/s^2");
+  setSourceChoice(adapted, "adapted");
+  setSourceText(adapted, "IPhO 2019, Problem 2");
+  setRights(adapted, true);
+  assert.deepEqual(simpleIssues(adapted), []);
+  assert.ok(publishableDraftSchema.safeParse({ problemId: adapted.problemId, version: adapted.version, ...draftPayload(adapted) }).success);
+});
+
+test("estimated difficulty is a rating in the existing field, and an older label is kept until it is replaced", () => {
+  const d = blank();
+  assert.equal(difficultyRating(d), null);
+  assert.equal(setDifficulty(d, "1850"), true);
+  assert.equal(d.content.estimatedDifficulty, "1850");
+  assert.equal(difficultyRating(d), 1850);
+  assert.equal(setDifficulty(d, " 1,950 "), true);
+  assert.equal(d.content.estimatedDifficulty, "1950");
+  assert.equal(setDifficulty(d, "very hard"), false, "not saved");
+  assert.equal(d.content.estimatedDifficulty, "1950");
+  assert.equal(setDifficulty(d, "4001"), false);
+  assert.equal(setDifficulty(d, ""), true);
+  assert.equal(d.content.estimatedDifficulty, null);
+  d.content.estimatedDifficulty = "Hard";
+  assert.equal(difficultyLabel(d), "Hard");
+  assert.match(advancedNote(d), /a difficulty label/);
+  d.content.estimatedDifficulty = "1850";
+  assert.equal(difficultyLabel(d), "");
+  assert.doesNotMatch(advancedNote(d), /difficulty/);
+});
+
+test("the main question can hold one image, and its alt text is required", () => {
+  const d = easyDraft("9.8", "m/s^2");
+  setIntro(d, words("Two carts roll on a track."));
+  const media = uuid();
+  addContextPicture(d, media);
+  addContextPicture(d, uuid());
+  assert.equal(d.content.context.filter((b) => b.kind === "image").length, 1);
+  assert.equal(d.content.context[0].kind, "text");
+  assert.equal(d.content.context[1].kind, "image");
+  assert.deepEqual(simpleIssues(d).map((i) => i.field), ["picture:main"]);
+  assert.doesNotMatch(advancedNote(d), /more blocks/, "Simple shows this image, so Advanced holds nothing more");
+  setContextPictureAlt(d, "Two carts on a track");
+  assert.deepEqual(simpleIssues(d), []);
+  assert.equal(contextPictureOf(d)?.mediaId, media);
+  removeContextPicture(d);
+  assert.equal(contextPictureOf(d), null);
+  assert.equal(blocksSpans(d.content.context).length > 0, true, "the text stays");
 });

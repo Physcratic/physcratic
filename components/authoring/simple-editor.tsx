@@ -8,13 +8,17 @@ import { colorsByPartId } from "@/lib/part-colors";
 import { displayName } from "@/lib/answer-reader";
 import { physicsTopics, resolvePhysicsTag } from "@/lib/physics-taxonomy";
 import { addTag, hasTag } from "@/lib/studio-tags";
+import { RatingBandsPopover } from "@/components/physics/rating-bands-popover";
+import { parseRating, ratingBands } from "@/lib/rating-bands";
 import type { EditorDraft } from "@/lib/problem-authoring-editor";
 import { inputClass } from "./editor-fields";
 import { MediaImage, useAuthorMediaUpload } from "./media-controls";
 import { RichMathText } from "./rich-math-text";
 import {
+  ADAPTED_RIGHTS_TEXT,
   RIGHTS_TEXT,
   UNITS,
+  addContextPicture,
   addPart,
   addPicture,
   advancedNote,
@@ -22,21 +26,31 @@ import {
   answerText,
   applyAnswer,
   blocksSpans,
+  contextPictureOf,
   deriveTitle,
+  difficultyLabel,
+  difficultyRating,
   ensureSimpleShape,
   mathSymbols,
+  partLetter,
   pictureOf,
   privateFor,
   readAnswer,
+  removeContextPicture,
   removePart,
   removePicture,
   rightsState,
+  setContextPictureAlt,
+  setDifficulty,
   setIntro,
   setPictureAlt,
   setQuestion,
   setRights,
   setSolution,
+  setSourceChoice,
+  setSourceText,
   setUnits,
+  sourceState,
   simpleIssues,
   testAnswer,
   verdictExplanation,
@@ -85,7 +99,6 @@ export function SimpleEditor(props: SimpleProps) {
   const note = advancedNote(draft);
   const rights = rightsState(draft);
   const blocked = issues.length > 0 || otherIssues.length > 0;
-  const introSpans = blocksSpans(draft.content.context);
   const firstQuestion = parts[0] ? blocksSpans(parts[0].part.blocks) : [];
   const titleIsMade = draft.content.title !== "" && draft.content.title === deriveTitle(firstQuestion);
 
@@ -105,7 +118,7 @@ export function SimpleEditor(props: SimpleProps) {
     if (blocked) {
       const first = issues[0]?.field ?? "";
       const [kind, id] = first.split(":");
-      const target = kind === "question" ? `q:${id}` : kind === "answer" ? `a:${id}` : kind === "units" ? `u:${id}` : kind === "picture" ? `p:${id}` : kind;
+      const target = kind === "question" ? `q:${id}` : kind === "answer" ? `a:${id}` : kind === "units" ? `u:${id}` : kind === "picture" ? `p:${id}` : kind === "solution" ? `s:${id}` : kind;
       requestAnimationFrame(() => {
         const host = document.querySelector<HTMLElement>(`[data-simple-field="${CSS.escape(target)}"]`);
         const control = host?.matches("input,textarea") ? host : host?.querySelector<HTMLElement>("input,textarea,[contenteditable=true],math-field");
@@ -122,7 +135,7 @@ export function SimpleEditor(props: SimpleProps) {
       <legend className="sr-only">Problem</legend>
       {note && <p className="rounded-lg border-2 p-4 text-base">{note}</p>}
 
-      {introSpans.length > 0 && <Intro draft={draft} edit={edit} />}
+      <MainQuestion draft={draft} edit={edit} provisional={provisional} touch={touch} issue={shown("picture:main")?.message} />
 
       {parts.map(({ part, position }) => (
         <PartEditor
@@ -136,6 +149,7 @@ export function SimpleEditor(props: SimpleProps) {
           canRemove={parts.length > 1}
           provisional={provisional}
           questionIssue={shown(`question:${part.id}`)?.message}
+          solutionIssue={shown(`solution:${part.id}`)?.message}
           answerIssue={shown(`answer:${part.id}`)?.message}
           unitIssue={shown(`units:${part.id}`)?.message}
           pictureIssue={shown(`picture:${part.id}`)?.message}
@@ -150,7 +164,7 @@ export function SimpleEditor(props: SimpleProps) {
       ))}
       <Button type="button" variant="outline" className="min-h-12 border-2 text-base" disabled={parts.length >= 50} onClick={() => edit((d) => addPart(d))}>
         <Plus aria-hidden="true" className="mr-2 size-5" />
-        Add another part
+        Add part {partLetter(parts.length)}
       </Button>
 
       <div className="space-y-3">
@@ -170,6 +184,10 @@ export function SimpleEditor(props: SimpleProps) {
         {titleIsMade && !shown("title") && <p id="simple-title-help" className="text-base text-muted-foreground">We made this from your question. Change it if you like.</p>}
         {shown("title") && <ErrorLine id="simple-title-error">{shown("title")!.message}</ErrorLine>}
       </div>
+
+      <SourceField draft={draft} edit={edit} touch={touch} issue={shown("source")?.message} />
+
+      <DifficultyField draft={draft} edit={edit} />
 
       <TopicRow values={draft.content.topicTags} change={(v) => edit((d) => void (d.content.topicTags = v))} />
 
@@ -195,7 +213,7 @@ export function SimpleEditor(props: SimpleProps) {
                   edit((d) => setRights(d, e.target.checked));
                 }}
               />
-              <span>{RIGHTS_TEXT}</span>
+              <span>{sourceState(draft).choice === "adapted" ? ADAPTED_RIGHTS_TEXT : RIGHTS_TEXT}</span>
             </label>
             {shown("rights") && <ErrorLine id="simple-rights-error">{shown("rights")!.message}</ErrorLine>}
           </div>
@@ -232,19 +250,291 @@ export function SimpleEditor(props: SimpleProps) {
   );
 }
 
-function Intro({ draft, edit }: { draft: EditorDraft; edit: SimpleProps["edit"] }) {
+/**
+ * The main question: the setup every part shares, with equations and an image. Optional.
+ * It is stored as the problem's shared context, which the student page already shows above the parts.
+ */
+function MainQuestion({ draft, edit, provisional, touch, issue }: { draft: EditorDraft; edit: SimpleProps["edit"]; provisional: boolean; touch: (field: string) => void; issue?: string }) {
   const id = useId();
+  const picture = contextPictureOf(draft);
+  const upload = useImageUpload(provisional, (mediaId) =>
+    edit((d) => {
+      removeContextPicture(d);
+      addContextPicture(d, mediaId);
+    }),
+  );
   return (
-    <div className="space-y-3">
-      <p id={`${id}-label`} className={labelClass}>Intro for every part</p>
-      <RichMathText
-        id={id}
-        labelId={`${id}-label`}
-        spans={blocksSpans(draft.content.context)}
-        onChange={(spans) => edit((d) => setIntro(d, spans))}
-        placeholder="Something every part shares"
-        minRows={3}
+    <section aria-labelledby={`${id}-label`} className="space-y-6" data-tour="studio-main">
+      <div className="space-y-3">
+        <p id={`${id}-label`} className={labelClass}>Main question (optional)</p>
+        <p className="text-base text-muted-foreground">The setup every part shares. Leave it empty if you only have one question.</p>
+        <RichMathText
+          id={id}
+          labelId={`${id}-label`}
+          spans={blocksSpans(draft.content.context)}
+          onChange={(spans) => edit((d) => setIntro(d, spans))}
+          placeholder="Two carts roll towards each other on a track."
+          minRows={3}
+          onPasteFile={(file) => void upload.addFile(file)}
+        />
+      </div>
+      <ImageField
+        base={`${id}-image`}
+        fieldKey="p:main"
+        picture={picture}
+        provisional={provisional}
+        issue={issue}
+        ariaLabel="Image for the main question"
+        upload={upload}
+        onAlt={(alt) => edit((d) => setContextPictureAlt(d, alt))}
+        onRemove={() => edit((d) => removeContextPicture(d))}
+        touch={() => touch("picture:main")}
       />
+    </section>
+  );
+}
+
+/** Uploads one image and hands its id on. A question box can also pass a pasted or dropped file to `addFile`. */
+function useImageUpload(provisional: boolean, onAdd: (mediaId: string) => void) {
+  const media = useAuthorMediaUpload("statement-image");
+  const [note, setNote] = useState("");
+  async function addFile(file: File) {
+    if (provisional) {
+      setNote("Write your question first, then add the image.");
+      return;
+    }
+    setNote("");
+    const info = await media.upload(file);
+    if (info) onAdd(info.id);
+  }
+  return { media, note, addFile };
+}
+
+/** One image with its description. Used for the main question and for each part. */
+function ImageField({
+  base,
+  fieldKey,
+  picture,
+  provisional,
+  issue,
+  ariaLabel,
+  tour,
+  upload,
+  onAlt,
+  onRemove,
+  touch,
+}: {
+  base: string;
+  fieldKey: string;
+  picture: ReturnType<typeof pictureOf>;
+  provisional: boolean;
+  issue?: string;
+  ariaLabel: string;
+  tour?: string;
+  upload: ReturnType<typeof useImageUpload>;
+  onAlt: (alt: string) => void;
+  onRemove: () => void;
+  touch: () => void;
+}) {
+  const { media, note, addFile } = upload;
+  const input = useRef<HTMLInputElement>(null);
+  const [dropping, setDropping] = useState(false);
+  return (
+    <div className="space-y-3" data-tour={tour} data-simple-field={fieldKey}>
+      <p className={labelClass}>Add an image (optional)</p>
+      {!picture ? (
+        <div
+          className={`flex flex-wrap items-center gap-3 rounded-lg border-2 border-dashed p-4 ${dropping ? "border-ring bg-accent" : "border-input"}`}
+          onDragOver={(e) => {
+            e.preventDefault();
+            setDropping(true);
+          }}
+          onDragLeave={() => setDropping(false)}
+          onDrop={(e) => {
+            e.preventDefault();
+            setDropping(false);
+            const file = e.dataTransfer.files[0];
+            if (file) void addFile(file);
+          }}
+        >
+          <Button type="button" variant="outline" className="min-h-11 border-2" disabled={media.locked || provisional} onClick={() => input.current?.click()}>
+            <ImagePlus aria-hidden="true" className="mr-2 size-4" />
+            Choose an image
+          </Button>
+          <span className="text-base text-muted-foreground">or drop one here</span>
+        </div>
+      ) : (
+        <div className="space-y-4 rounded-lg border-2 p-4">
+          <MediaImage mediaId={picture.mediaId} alt={picture.alt} />
+          <div className="space-y-2">
+            <label htmlFor={`${base}-alt`} className={labelClass}>Describe the image</label>
+            <input
+              id={`${base}-alt`}
+              className={fieldClass}
+              placeholder="A ball thrown upwards from the ground"
+              maxLength={1000}
+              value={picture.alt}
+              aria-invalid={issue ? true : undefined}
+              aria-describedby={issue ? `${base}-alt-error` : undefined}
+              onBlur={touch}
+              onChange={(e) => onAlt(e.target.value)}
+            />
+            {issue && <ErrorLine id={`${base}-alt-error`}>{issue}</ErrorLine>}
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <Button type="button" variant="outline" className="min-h-11 border-2" disabled={media.locked} onClick={() => input.current?.click()}>
+              Choose a different image
+            </Button>
+            <Button type="button" variant="ghost" className="min-h-11" onClick={onRemove}>
+              Remove image
+            </Button>
+          </div>
+        </div>
+      )}
+      <input
+        ref={input}
+        type="file"
+        hidden
+        accept="image/png,image/jpeg,image/webp"
+        aria-label={ariaLabel}
+        onChange={(e) => {
+          const file = e.currentTarget.files?.[0];
+          e.currentTarget.value = "";
+          if (file) void addFile(file);
+        }}
+      />
+      {provisional && !picture && <p className="text-base text-muted-foreground">Write your question first, then add an image.</p>}
+      <p role={media.error ? "alert" : "status"} className={`text-base ${media.error ? "text-destructive" : "text-muted-foreground"}`}>
+        {media.busy ? "Uploading…" : media.error || note}
+      </p>
+    </div>
+  );
+}
+
+/** Where's it from: I wrote it, or Adapted from with a source. The rights tick sits at the end, next to Publish. */
+function SourceField({ draft, edit, touch, issue }: { draft: EditorDraft; edit: SimpleProps["edit"]; touch: (field: string) => void; issue?: string }) {
+  const id = useId();
+  const state = sourceState(draft);
+  if (state.choice === "advanced")
+    return (
+      <div className="space-y-2" data-tour="studio-source">
+        <p className={labelClass}>Where&apos;s it from?</p>
+        <p className="text-base text-muted-foreground">
+          {draft.content.provenance.kind === "authorized"
+            ? `Adapted from ${draft.content.provenance.source || "another source"}. You can change that in Advanced.`
+            : "Your rights declaration from Advanced is kept."}
+        </p>
+      </div>
+    );
+  const options = [
+    { value: "wrote" as const, label: "I wrote it" },
+    { value: "adapted" as const, label: "Adapted from" },
+  ];
+  return (
+    <div className="space-y-3" data-tour="studio-source">
+      <p id={`${id}-label`} className={labelClass}>Where&apos;s it from?</p>
+      <div role="radiogroup" aria-labelledby={`${id}-label`} className="flex flex-wrap gap-3">
+        {options.map((option) => {
+          const on = state.choice === option.value;
+          return (
+            <label
+              key={option.value}
+              className={`flex min-h-11 cursor-pointer items-center gap-3 rounded-lg border-2 px-4 text-base font-medium has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring ${on ? "border-foreground bg-accent" : "border-input"}`}
+            >
+              <input type="radio" name={`${id}-from`} className="size-5" checked={on} onChange={() => edit((d) => setSourceChoice(d, option.value))} />
+              {option.label}
+            </label>
+          );
+        })}
+      </div>
+      {state.choice === "adapted" && (
+        <div className="space-y-2">
+          <label htmlFor={`${id}-source`} className="block text-base font-medium">Source</label>
+          <input
+            id={`${id}-source`}
+            data-simple-field="source"
+            className={fieldClass}
+            placeholder="IPhO 2019, Problem 2"
+            maxLength={2000}
+            autoComplete="off"
+            value={state.source}
+            aria-invalid={issue ? true : undefined}
+            aria-describedby={issue ? `${id}-source-error` : undefined}
+            onBlur={() => touch("source")}
+            onChange={(e) => edit((d) => setSourceText(d, e.target.value))}
+          />
+          {issue && <ErrorLine id={`${id}-source-error`}>{issue}</ErrorLine>}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/** Estimated difficulty as one of five bands, with an exact rating to type. It is saved in the existing difficulty field. */
+function DifficultyField({ draft, edit }: { draft: EditorDraft; edit: SimpleProps["edit"] }) {
+  const id = useId();
+  const rating = difficultyRating(draft);
+  const label = difficultyLabel(draft);
+  const [text, setText] = useState(rating === null ? "" : String(rating));
+  const [error, setError] = useState("");
+  // A band pressed, or a rating changed from outside, updates the box.
+  useEffect(() => {
+    setText((current) => (rating !== null && parseRating(current) === rating ? current : rating === null ? (error ? current : "") : String(rating)));
+    // The box keeps what the author is typing while it is not a rating yet.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rating]);
+  const band = rating === null ? null : ratingBands.find((b) => rating >= b.min && rating < b.max) ?? null;
+  function typeRating(value: string) {
+    setText(value);
+    let saved = false;
+    edit((d) => void (saved = setDifficulty(d, value)));
+    setError(saved ? "" : "Type a whole number from 0 to 4000, or pick a band.");
+  }
+  return (
+    <div className="space-y-3" data-tour="studio-difficulty">
+      <p id={`${id}-label`} className={labelClass}>Estimated difficulty (optional)</p>
+      <p className="text-base text-muted-foreground">Your best guess. It shows as an estimate and never changes anyone&apos;s rating.</p>
+      <div role="radiogroup" aria-labelledby={`${id}-label`} className="grid gap-2 sm:grid-cols-2">
+        {ratingBands.map((b) => {
+          const on = band?.id === b.id;
+          return (
+            <button
+              key={b.id}
+              type="button"
+              role="radio"
+              aria-checked={on}
+              onClick={() => {
+                edit((d) => void setDifficulty(d, String(b.middle)));
+                setText(String(b.middle));
+                setError("");
+              }}
+              className={`min-h-11 rounded-lg border-2 p-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${on ? "border-foreground bg-accent" : "border-input hover:bg-muted"}`}
+            >
+              <span className="block text-base font-semibold">{b.name}</span>
+              <span className="block text-sm tabular-nums text-muted-foreground">{b.range}</span>
+              <span className="block text-sm">{b.example}</span>
+            </button>
+          );
+        })}
+      </div>
+      <div className="space-y-2">
+        <label htmlFor={`${id}-rating`} className="block text-base font-medium">Exact rating (optional)</label>
+        <input
+          id={`${id}-rating`}
+          className={`${fieldClass} sm:max-w-56`}
+          inputMode="numeric"
+          autoComplete="off"
+          maxLength={6}
+          placeholder="1850"
+          value={text}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={error ? `${id}-rating-error` : undefined}
+          onChange={(e) => typeRating(e.target.value)}
+        />
+        {error && <ErrorLine id={`${id}-rating-error`}>{error}</ErrorLine>}
+        {label && !error && <p className="text-base text-muted-foreground">Your Advanced label &ldquo;{label}&rdquo; is kept until you pick a band or type a rating.</p>}
+      </div>
+      <RatingBandsPopover />
     </div>
   );
 }
@@ -276,7 +566,7 @@ function TopicRow({ values, change }: { values: string[]; change: (values: strin
 }
 
 function PartEditor({
-  draft, partId, first, letter, colour, typed, canRemove, provisional, questionIssue, answerIssue, unitIssue, pictureIssue,
+  draft, partId, first, letter, colour, typed, canRemove, provisional, questionIssue, solutionIssue, answerIssue, unitIssue, pictureIssue,
   touch, edit, onAnswer, onRemove,
 }: {
   draft: EditorDraft;
@@ -288,6 +578,7 @@ function PartEditor({
   canRemove: boolean;
   provisional: boolean;
   questionIssue?: string;
+  solutionIssue?: string;
   answerIssue?: string;
   unitIssue?: string;
   pictureIssue?: string;
@@ -305,24 +596,12 @@ function PartEditor({
   const keySymbols = key?.kind === "expression" ? key.variables.map((v) => v.name) : [];
   const symbols = useMemo(() => [...new Set([...keySymbols, ...mathSymbols(questionSpans)])], [keySymbols.join(","), JSON.stringify(questionSpans)]); // eslint-disable-line react-hooks/exhaustive-deps
   const picture = pictureOf(part.blocks);
-  const media = useAuthorMediaUpload("statement-image");
-  const pictureInput = useRef<HTMLInputElement>(null);
-  const [dropping, setDropping] = useState(false);
-  const [pictureNote, setPictureNote] = useState("");
-
-  async function addFile(file: File) {
-    if (provisional) {
-      setPictureNote("Write your question first, then add the picture.");
-      return;
-    }
-    setPictureNote("");
-    const info = await media.upload(file);
-    if (info)
-      edit((d) => {
-        removePicture(d, partId);
-        addPicture(d, partId, info.id);
-      });
-  }
+  const upload = useImageUpload(provisional, (mediaId) =>
+    edit((d) => {
+      removePicture(d, partId);
+      addPicture(d, partId, mediaId);
+    }),
+  );
 
   return (
     <section
@@ -352,84 +631,48 @@ function PartEditor({
             invalid={!!questionIssue}
             describedBy={questionIssue ? `${base}-q-error` : undefined}
             symbols={symbols}
-            onPasteFile={(file) => void addFile(file)}
+            onPasteFile={(file) => void upload.addFile(file)}
             buttonTour={first ? "studio-equation" : undefined}
           />
         </div>
         {questionIssue && <ErrorLine id={`${base}-q-error`}>{questionIssue}</ErrorLine>}
       </div>
 
-      <div className="space-y-3" data-tour={first ? "studio-image" : undefined} data-simple-field={`p:${partId}`}>
-        <p className={labelClass}>Add a picture (optional)</p>
-        {!picture ? (
-          <div
-            className={`flex flex-wrap items-center gap-3 rounded-lg border-2 border-dashed p-4 ${dropping ? "border-ring bg-accent" : "border-input"}`}
-            onDragOver={(e) => {
-              e.preventDefault();
-              setDropping(true);
-            }}
-            onDragLeave={() => setDropping(false)}
-            onDrop={(e) => {
-              e.preventDefault();
-              setDropping(false);
-              const file = e.dataTransfer.files[0];
-              if (file) void addFile(file);
-            }}
-          >
-            <Button type="button" variant="outline" className="min-h-11 border-2" disabled={media.locked || provisional} onClick={() => pictureInput.current?.click()}>
-              <ImagePlus aria-hidden="true" className="mr-2 size-4" />
-              Choose a picture
-            </Button>
-            <span className="text-base text-muted-foreground">or drop one here</span>
-          </div>
-        ) : (
-          <div className="space-y-4 rounded-lg border-2 p-4">
-            <MediaImage mediaId={picture.mediaId} alt={picture.alt} />
-            <div className="space-y-2">
-              <label htmlFor={`${base}-alt`} className={labelClass}>Describe the picture</label>
-              <input
-                id={`${base}-alt`}
-                className={fieldClass}
-                placeholder="A ball thrown upwards from the ground"
-                maxLength={1000}
-                value={picture.alt}
-                aria-invalid={pictureIssue ? true : undefined}
-                aria-describedby={pictureIssue ? `${base}-alt-error` : undefined}
-                onBlur={() => touch(`picture:${partId}`)}
-                onChange={(e) => edit((d) => setPictureAlt(d, partId, e.target.value))}
-              />
-              {pictureIssue && <ErrorLine id={`${base}-alt-error`}>{pictureIssue}</ErrorLine>}
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <Button type="button" variant="outline" className="min-h-11 border-2" disabled={media.locked} onClick={() => pictureInput.current?.click()}>
-                Choose a different picture
-              </Button>
-              <Button type="button" variant="ghost" className="min-h-11" onClick={() => edit((d) => removePicture(d, partId))}>
-                Remove picture
-              </Button>
-            </div>
-          </div>
-        )}
-        <input
-          ref={pictureInput}
-          type="file"
-          hidden
-          accept="image/png,image/jpeg,image/webp"
-          aria-label={`Picture for part ${letter}`}
-          onChange={(e) => {
-            const file = e.currentTarget.files?.[0];
-            e.currentTarget.value = "";
-            if (file) void addFile(file);
-          }}
-        />
-        {provisional && !picture && <p className="text-base text-muted-foreground">Write your question first, then add a picture.</p>}
-        <p role={media.error ? "alert" : "status"} className={`text-base ${media.error ? "text-destructive" : "text-muted-foreground"}`}>
-          {media.busy ? "Uploading…" : media.error || pictureNote}
-        </p>
+      <ImageField
+        base={`${base}-image`}
+        fieldKey={`p:${partId}`}
+        picture={picture}
+        provisional={provisional}
+        issue={pictureIssue}
+        ariaLabel={`Image for part ${letter}`}
+        tour={first ? "studio-image" : undefined}
+        upload={upload}
+        onAlt={(alt) => edit((d) => setPictureAlt(d, partId, alt))}
+        onRemove={() => edit((d) => removePicture(d, partId))}
+        touch={() => touch(`picture:${partId}`)}
+      />
+
+      <div className="space-y-3" data-tour={first ? "studio-solution" : undefined}>
+        <p id={`${base}-s-label`} className={labelClass}>Worked solution (required)</p>
+        <div data-simple-field={`s:${partId}`} onBlur={() => touch(`solution:${partId}`)}>
+          <RichMathText
+            id={`${base}-s`}
+            labelId={`${base}-s-label`}
+            spans={blocksSpans(entry.solution)}
+            onChange={(spans) => edit((d) => setSolution(d, partId, spans))}
+            placeholder="Start with energy. At the top the ball stops."
+            invalid={!!solutionIssue}
+            describedBy={solutionIssue ? `${base}-s-error` : undefined}
+            symbols={symbols}
+            minRows={3}
+          />
+        </div>
+        {solutionIssue && <ErrorLine id={`${base}-s-error`}>{solutionIssue}</ErrorLine>}
       </div>
 
       <div className="space-y-3" data-tour={first ? "studio-answer" : undefined}>
-        <label id={`${base}-a-label`} htmlFor={`${base}-a`} className={labelClass}>Final answer. We check students against this.</label>
+        <label id={`${base}-a-label`} htmlFor={`${base}-a`} className={labelClass}>Final Answer (Solution)</label>
+        <p className="text-base text-muted-foreground">We check students against this.</p>
         <div data-simple-field={`a:${partId}`}>
           <MathAnswerField
             id={`${base}-a`}
@@ -482,19 +725,6 @@ function PartEditor({
       </div>
 
       <TryAnswer draft={draft} partId={partId} label={letter} tour={first} />
-
-      <div className="space-y-3">
-        <p id={`${base}-s-label`} className={labelClass}>Worked solution (optional)</p>
-        <RichMathText
-          id={`${base}-s`}
-          labelId={`${base}-s-label`}
-          spans={blocksSpans(entry.solution)}
-          onChange={(spans) => edit((d) => setSolution(d, partId, spans))}
-          placeholder="Start with energy. At the top the ball stops."
-          symbols={symbols}
-          minRows={3}
-        />
-      </div>
     </section>
   );
 }
@@ -511,8 +741,12 @@ function TryAnswer({ draft, partId, label, tour }: { draft: EditorDraft; partId:
   const symbols = key?.kind === "expression" ? key.variables.map((v) => v.name) : [];
   const result = testAnswer({ key, seed: `${draft.problemId}:${partId}`, text, units });
   return (
-    <div className="space-y-3 rounded-lg border-2 bg-background p-4" data-tour={tour ? "studio-try" : undefined}>
-      <p id={`${base}-label`} className={labelClass}>Try an answer</p>
+    <div className="space-y-3 rounded-lg border-2 border-dashed border-muted-foreground/70 bg-muted/60 p-4" data-tour={tour ? "studio-try" : undefined} data-answer-preview="">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p id={`${base}-label`} className={labelClass}>Answer preview</p>
+        <span className="inline-flex min-h-7 items-center rounded-full border border-muted-foreground/70 bg-background px-3 text-sm font-medium">Only you see this</span>
+      </div>
+      <p className="text-base text-muted-foreground">Type an answer to see what a student would get. It is not saved.</p>
       {key?.kind === "numeric" ? (
         <div className="grid gap-2 sm:grid-cols-[minmax(0,1fr)_9rem]">
           <input

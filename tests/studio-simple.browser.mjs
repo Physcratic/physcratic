@@ -266,6 +266,48 @@ try {
   const savedContent = async (id) => (await pool.query("SELECT content FROM authored_draft WHERE problem_id=$1", [id])).rows[0]?.content;
   const savedKey = async (id) => (await pool.query("SELECT data FROM authored_draft_private_part WHERE problem_id=$1", [id])).rows[0]?.data?.key;
 
+  // ------------------------------------------------------------------ 0. Spacing around an equation chip
+  // Text typed on both sides of an equation must come back exactly as typed, in the box and in what is saved.
+  for (let attempt = 0; attempt < Number(process.env.SPACING_LOOPS || 3); attempt++) {
+    const { context: sctx, page: sp } = await newPage(1440);
+    await sp.goto(origin);
+    await sp.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
+    const sq = sp.getByRole("region", { name: "Part a", exact: true }).getByRole("textbox", { name: "What's the question?" });
+    await sq.click();
+    await sq.pressSequentially("A ball is thrown up at ");
+    await sp.keyboard.type("$");
+    const spanel = sp.getByRole("group", { name: "Type your equation" });
+    await spanel.waitFor();
+    await mathField(spanel);
+    await sp.waitForTimeout(300);
+    await sp.keyboard.type("v=12");
+    await sp.keyboard.press("Escape");
+    await spanel.waitFor({ state: "detached" });
+    await sp.keyboard.type(" m/s. How high does it go?");
+    const domSpans = await sq.evaluate((box) => {
+      const out = []; let text = "";
+      const flush = () => { if (text) out.push({ kind: "text", text }); text = ""; };
+      const walk = (parent) => Array.from(parent.childNodes).forEach((node, i, all) => {
+        if (node.nodeType === 3) text += node.nodeValue.replace(/\u00a0/g, " ").replace(/\u200b/g, "");
+        else if (node.tagName === "BR") { if (!(parent === box && i === all.length - 1)) text += "\n"; }
+        else if (node.dataset?.mathId !== undefined) { flush(); out.push({ kind: "math", latex: node.dataset.latex }); }
+        else walk(node);
+      });
+      walk(box); flush();
+      return { out, html: box.innerHTML.slice(0, 600) };
+    });
+    const wanted = [{ kind: "text", text: "A ball is thrown up at " }, { kind: "math", latex: "v=12" }, { kind: "text", text: " m/s. How high does it go?" }];
+    assert.deepEqual(domSpans.out, wanted, `the box keeps the spaces on both sides of the equation (attempt ${attempt}): ${domSpans.html}`);
+    await sp.waitForURL((url) => url.searchParams.has("draft"));
+    const sid = draftId(sp);
+    // Wait until what is saved is what is in the box. "All changes saved" can describe an earlier save.
+    await until(async () => JSON.stringify((await savedContent(sid))?.sections?.[0]?.parts?.[0]?.blocks?.find((b) => b.kind === "text")?.spans) === JSON.stringify(wanted), `the saved text matches the box (attempt ${attempt})`);
+    await sctx.close();
+  }
+  log("Spacing around an equation chip kept, in the box and when saved.");
+  /** Drafts the spacing check made, so the counts below can leave them out. */
+  const spacingDrafts = Number(process.env.SPACING_LOOPS || 3);
+
   // ------------------------------------------------------------------ 1. Publish a one-part problem at 1440
   const { context: wide, page } = await newPage(1440);
   await page.goto(origin);
@@ -278,8 +320,28 @@ try {
   assert.equal(await page.getByRole("button", { name: "Advanced" }).getAttribute("aria-pressed"), "false");
   assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).count(), 1, "one Publish button");
   assert.equal(await page.locator("select:visible").count(), 0, "no select on the page");
-  for (const text of ["What's the question?", "Add a picture (optional)", "Final answer. We check students against this.", "Try an answer", "Worked solution (optional)"])
-    await page.getByText(text, { exact: true }).waitFor();
+  for (const text of ["Main question (optional)", "What's the question?", "Add an image (optional)", "Worked solution (required)", "Final Answer (Solution)", "Answer preview", "Only you see this", "Where's it from?", "Estimated difficulty (optional)", "Pick a topic so people can find it (optional)"])
+    await page.getByText(text, { exact: true }).first().waitFor();
+  // The page runs in this order, top to bottom: main question, part a (question, worked solution, final answer, answer preview), Add part b, source, difficulty, topic, the rights tick, Publish.
+  const topOf = async (locator) => (await locator.first().boundingBox()).y;
+  const order = [
+    page.getByText("Main question (optional)", { exact: true }),
+    page.getByText("What's the question?", { exact: true }),
+    page.getByText("Worked solution (required)", { exact: true }),
+    page.getByText("Final Answer (Solution)", { exact: true }),
+    page.getByText("Answer preview", { exact: true }),
+    page.getByRole("button", { name: "Add part b" }),
+    page.getByText("Where's it from?", { exact: true }),
+    page.getByText("Estimated difficulty (optional)", { exact: true }),
+    page.getByText("Pick a topic so people can find it (optional)", { exact: true }),
+    page.getByLabel(/I wrote this problem and I'm happy to share it on Physcratic/),
+    page.getByRole("button", { name: "Publish", exact: true }),
+  ];
+  const tops = [];
+  for (const item of order) tops.push(await topOf(item));
+  assert.deepEqual(tops, [...tops].sort((a, b) => a - b), `the page is in the owner's order: ${tops.join(", ")}`);
+  assert.equal(await page.getByRole("button", { name: "Add part b" }).count(), 1, "the button names the next letter");
+  assert.equal(await page.getByText("Try an answer").count() + await page.getByText("Add a picture").count() + await page.getByText("Final answer. We check").count(), 0, "the old labels are gone");
   assert.equal(await page.getByText(/context|provide/i).count(), 0, "no jargon labels");
 
   // The question, with an equation typed like in a word processor: $ opens it, Escape closes it.
@@ -315,30 +377,47 @@ try {
   await page.keyboard.press("Escape");
   await panel.waitFor({ state: "detached" });
 
+  // The main question: the setup every part shares, written before the parts.
+  const mainBox = page.getByRole("textbox", { name: "Main question (optional)" });
+  await mainBox.click();
+  await mainBox.pressSequentially("Ignore air resistance.");
   // The picture.
-  const [chooser] = await Promise.all([page.waitForEvent("filechooser"), click(part.getByRole("button", { name: "Choose a picture" }))]);
+  const [chooser] = await Promise.all([page.waitForEvent("filechooser"), click(part.getByRole("button", { name: "Choose an image" }))]);
   await chooser.setFiles({ name: "ball.png", mimeType: "image/png", buffer: png });
-  await part.getByLabel("Describe the picture").waitFor({ timeout: 20000 });
-  await typed(part.getByLabel("Describe the picture"), "A ball thrown upwards from the ground");
+  await part.getByLabel("Describe the image").waitFor({ timeout: 20000 });
+  await typed(part.getByLabel("Describe the image"), "A ball thrown upwards from the ground");
 
-  // The answer key and Try an answer.
-  const answerBox = await mathField(part.getByText("Final answer. We check students against this.").locator("xpath=ancestor::div[contains(@data-tour,'studio-answer')]"));
+  // The worked solution comes before the final answer, and Simple needs one.
+  const solutionBox = part.getByRole("textbox", { name: "Worked solution (required)" });
+  await solutionBox.click();
+  await solutionBox.pressSequentially("At the top the speed is zero, so all the kinetic energy is potential energy.");
+  // The answer key and Answer preview.
+  const answerBox = await mathField(part.getByText("Final Answer (Solution)", { exact: true }).locator("xpath=ancestor::div[contains(@data-tour,'studio-answer')]"));
   await focusClick(answerBox);
   await page.waitForTimeout(300);
   await page.keyboard.type("m*a");
   counts.typedFields++; counts.keys += 3;
   await until(async () => (await part.getByRole("list", { name: "Symbols in this answer" }).locator("li").allInnerTexts()).map((x) => x.trim()).join(",") === "m,a", "symbols detected");
-  const tryBox = await mathField(part.getByText("Try an answer", { exact: true }).locator("xpath=ancestor::div[contains(@data-tour,'studio-try')]"));
+  const tryBox = await mathField(part.getByText("Answer preview", { exact: true }).locator("xpath=ancestor::div[contains(@data-tour,'studio-try')]"));
   await focusClick(tryBox);
   await page.waitForTimeout(300);
   await page.keyboard.type("a*m");
   const result = part.locator("[data-test-result]");
-  await until(async () => /^Correct\./.test(await result.innerText()), "try an answer: correct");
+  await until(async () => /^Correct\./.test(await result.innerText()), "answer preview: correct");
   await page.keyboard.press("Control+A"); await page.keyboard.type("m+a");
-  await until(async () => /^Incorrect\./.test(await result.innerText()), "try an answer: incorrect");
-  log("Try an answer:", JSON.stringify(await result.innerText()));
+  await until(async () => /^Incorrect\./.test(await result.innerText()), "answer preview: incorrect");
+  log("Answer preview:", JSON.stringify(await result.innerText()));
 
-  // Rights and Publish.
+  // Where it's from (I wrote it is the default), an estimated difficulty band, then the rights tick and Publish.
+  assert.equal(await page.getByRole("radio", { name: "I wrote it" }).isChecked(), true, "I wrote it is the default");
+  await page.getByRole("radio", { name: /^Advanced \(IPhO level\)/ }).click();
+  assert.equal(await page.getByRole("radio", { name: /^Advanced \(IPhO level\)/ }).getAttribute("aria-checked"), "true", "the band is chosen");
+  assert.equal(await page.getByLabel("Exact rating (optional)").inputValue(), "2250", "the band fills in its middle rating");
+  await page.getByLabel("Exact rating (optional)").fill("2310");
+  assert.equal(await page.getByRole("radio", { name: /^Advanced \(IPhO level\)/ }).getAttribute("aria-checked"), "true", "an exact rating in the band keeps the band");
+  await page.getByLabel("Exact rating (optional)").fill("abc");
+  await page.getByText("Type a whole number from 0 to 4000, or pick a band.").waitFor();
+  await page.getByLabel("Exact rating (optional)").fill("2310");
   await click(page.getByLabel(/I wrote this problem and I'm happy to share it on Physcratic/));
   await saved(page);
   await click(page.getByRole("button", { name: "Publish", exact: true }));
@@ -350,6 +429,8 @@ try {
   assert.equal(content.title, "A Ball is Thrown Up");
   assert.equal(content.provenance.kind, "original");
   assert.equal(content.provenance.rightsDeclaration, "I wrote this problem and I'm happy to share it on Physcratic.");
+  assert.equal(content.estimatedDifficulty, "2310", "the estimate is saved in the existing difficulty field as a rating");
+  assert.deepEqual(content.context.find((b) => b.kind === "text")?.spans, [{ kind: "text", text: "Ignore air resistance." }], "the main question is the shared setup");
   const partRow = content.sections[0].parts[0];
   assert.equal(partRow.label, "a");
   assert.equal(partRow.answerMode, "expression");
@@ -376,7 +457,8 @@ try {
   assert.equal(await page.evaluate(() => localStorage.getItem("physcratic.studio.mode")), "simple");
 
   // Another part, and taking it away again.
-  await page.getByRole("button", { name: "Add another part" }).click();
+  await page.getByRole("button", { name: "Add part b" }).click();
+  assert.equal(await page.getByRole("button", { name: "Add part c" }).count(), 1, "the button now names the next letter");
   await page.getByRole("region", { name: "Part b", exact: true }).waitFor();
   await page.getByRole("button", { name: "Remove part b" }).click();
   await page.getByRole("region", { name: "Part b", exact: true }).waitFor({ state: "detached" });
@@ -386,11 +468,11 @@ try {
   const f = fresh.page;
   await f.goto(origin);
   await f.getByRole("button", { name: /Continue your last draft/ }).waitFor();
-  assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 1, "no draft is created before the first edit");
+  assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 1 + spacingDrafts, "no draft is created before the first edit");
   await f.getByRole("button", { name: "Publish", exact: true }).click();
-  for (const text of ["Write the question first.", "Add the final answer.", "Give it a title, or write the question and we'll make one.", "Tick the box to say you wrote this problem."])
+  for (const text of ["Write the question first.", "Add the worked solution.", "Add the final answer.", "Give it a title, or write the question and we'll make one.", "Tick the box to say you wrote this problem."])
     await f.getByText(text, { exact: true }).waitFor({ timeout: 3000 });
-  assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 1, "still no draft");
+  assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 1 + spacingDrafts, "still no draft");
   // Fast typing across the first save keeps every character.
   const fq = f.getByRole("region", { name: "Part a", exact: true }).getByRole("textbox", { name: "What's the question?" });
   await fq.click();
@@ -407,7 +489,7 @@ try {
   await f.waitForTimeout(600);
   const second = draftId(f);
   await until(async () => { const c = await savedContent(second); const sp = c?.sections?.[0]?.parts?.[0]?.blocks?.[0]?.spans; return JSON.stringify(sp) === JSON.stringify([{ kind: "text", text: "A cart of mass " }, { kind: "math", latex: "m" }, { kind: "text", text: " rolls down a slope." }]); }, "fast typing saved");
-  assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 2, "exactly one draft per problem");
+  assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 2 + spacingDrafts, "exactly one draft per problem");
   log("Fast typing across the first save kept every character.");
   await fresh.context.close();
 
@@ -482,13 +564,13 @@ try {
   const panelBox = await m.getByRole("group", { name: "Type your equation" }).boundingBox();
   assert.ok(panelBox.x >= 0 && panelBox.x + panelBox.width <= 376, "the equation panel fits the screen");
   await m.keyboard.press("Escape");
-  const nb = await mathField(mpart.getByText("Final answer. We check students against this.").locator("xpath=ancestor::div[contains(@data-tour,'studio-answer')]"));
+  const nb = await mathField(mpart.getByText("Final Answer (Solution)", { exact: true }).locator("xpath=ancestor::div[contains(@data-tour,'studio-answer')]"));
   await nb.click();
   await m.waitForTimeout(300);
   await m.keyboard.type("9.8");
   await mpart.getByLabel("Unit (optional)").fill("m/s^2");
   await noSideways(m, "375 number answer");
-  const tn = mpart.getByLabel("Try an answer", { exact: true });
+  const tn = mpart.getByLabel("Answer preview", { exact: true });
   await tn.fill("9.81");
   await mpart.getByLabel("Unit for part a").fill("m/s^2");
   const mr = mpart.locator("[data-test-result]");
@@ -503,6 +585,67 @@ try {
   const k2 = await savedKey(draftId(m));
   assert.deepEqual(k2, { kind: "numeric", value: 9.8, units: "m/s^2", absTol: 1e-9, relTol: 0.01 });
   await small.context.close();
+
+  // ------------------------------------------------------------------ 3b. Two parts, adapted from a source, a band chosen
+  {
+    const { context: tctx, page: tp } = await newPage(1440);
+    await tp.goto(origin);
+    await tp.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
+    const mainQ = tp.getByRole("textbox", { name: "Main question (optional)" });
+    await mainQ.click();
+    await mainQ.pressSequentially("A cart rolls down a ramp.");
+    const fill = async (partName, question, solution, answer) => {
+      const region = tp.getByRole("region", { name: partName, exact: true });
+      const q = region.getByRole("textbox", { name: "What's the question?" });
+      await q.click();
+      await q.pressSequentially(question);
+      const sol = region.getByRole("textbox", { name: "Worked solution (required)" });
+      await sol.click();
+      await sol.pressSequentially(solution);
+      const ans = await mathField(region.locator("[data-simple-field^='a:']"));
+      await ans.click();
+      await tp.keyboard.type(answer, { delay: 20 });
+    };
+    await fill("Part a", "How fast is it at the bottom?", "Use energy.", "9.8");
+    await tp.getByRole("button", { name: "Add part b" }).click();
+    await fill("Part b", "How long does it take?", "Use the speed and the length.", "2.5");
+    // Adapted from needs a source, and its own rights tick.
+    await tp.getByRole("radio", { name: "Adapted from" }).click();
+    await tp.getByLabel("Source", { exact: true }).waitFor();
+    await tp.getByRole("button", { name: "Publish", exact: true }).click();
+    await tp.getByText("Say where it's from.", { exact: true }).waitFor({ timeout: 3000 });
+    await tp.getByText("Tick the box to say you have permission to share it.", { exact: true }).waitFor({ timeout: 3000 });
+    await tp.getByLabel("Source", { exact: true }).fill("IPhO 2019, Problem 2");
+    await tp.getByLabel(/I have permission to share this adapted problem on Physcratic/).check();
+    await tp.getByRole("radio", { name: /^Intermediate olympiad/ }).click();
+    await tp.waitForURL((url) => url.searchParams.has("draft"));
+    const tid = draftId(tp);
+    await saved(tp);
+    if (process.env.STUDIO_SHOT_DIR) {
+      // Full-page pictures of the whole page, for the review. Only when STUDIO_SHOT_DIR is set.
+      for (const width of [1440, 375]) {
+        await tp.setViewportSize({ width, height: 900 });
+        await tp.waitForTimeout(400);
+        await tp.screenshot({ path: join(process.env.STUDIO_SHOT_DIR, `studio-simple-${width}.png`), fullPage: true });
+      }
+      await tp.setViewportSize({ width: 1440, height: 1000 });
+    }
+    await tp.getByRole("button", { name: "Publish", exact: true }).click();
+    await until(async () => (await pool.query("SELECT state FROM authored_problem WHERE id=$1", [tid])).rows[0].state === "published", "the two-part adapted problem publishes");
+    const two = await savedContent(tid);
+    assert.deepEqual(two.sections[0].parts.map((x) => x.label), ["a", "b"], "two parts, lettered a and b");
+    assert.deepEqual(two.provenance, { kind: "authorized", source: "IPhO 2019, Problem 2", rightsDeclaration: "I have permission to share this adapted problem on Physcratic." });
+    assert.equal(two.estimatedDifficulty, "1800", "the band saved its middle rating");
+    assert.deepEqual(two.context.find((b) => b.kind === "text")?.spans, [{ kind: "text", text: "A cart rolls down a ramp." }]);
+    // Every step of the Studio tour points at something on the page, in order.
+    const { tours } = await import("../components/tour/tours.ts");
+    for (const step of tours.studio.steps) {
+      const found = await tp.evaluate((names) => names.some((name) => [...document.querySelectorAll(`[data-tour="${name}"]`)].some((el) => el.getBoundingClientRect().height > 0)), step.targets);
+      assert.ok(found, `the Studio tour step ${step.id} has something to point at`);
+    }
+    await tctx.close();
+    log("Two parts, adapted from a source, a band chosen: published and every tour target is on the page.");
+  }
 
   // ------------------------------------------------------------------ 4. The student side of the Simple problem
   for (const width of [375, 1440]) {
@@ -547,11 +690,11 @@ try {
     await gp.keyboard.type(" m/s from the ground. How high does it go?", { delay: 5 });
     await gp.waitForURL((url) => url.searchParams.has("draft"));
     await saved(gp);
-    const [gchooser] = await Promise.all([gp.waitForEvent("filechooser"), gpart.getByRole("button", { name: "Choose a picture" }).click()]);
+    const [gchooser] = await Promise.all([gp.waitForEvent("filechooser"), gpart.getByRole("button", { name: "Choose an image" }).click()]);
     await gchooser.setFiles(process.env.GUIDE_PICTURE || { name: "ball.png", mimeType: "image/png", buffer: png });
-    await gpart.getByLabel("Describe the picture").waitFor({ timeout: 20000 });
-    await gpart.getByLabel("Describe the picture").fill("A ball thrown upwards from the ground, rising along a curve");
-    const gans = await mathField(gpart.getByText("Final answer. We check students against this.").locator("xpath=ancestor::div[contains(@data-tour,'studio-answer')]"));
+    await gpart.getByLabel("Describe the image").waitFor({ timeout: 20000 });
+    await gpart.getByLabel("Describe the image").fill("A ball thrown upwards from the ground, rising along a curve");
+    const gans = await mathField(gpart.getByText("Final Answer (Solution)", { exact: true }).locator("xpath=ancestor::div[contains(@data-tour,'studio-answer')]"));
     await gans.click();
     await gp.waitForTimeout(400);
     await gp.keyboard.type("v^2/(2g)");

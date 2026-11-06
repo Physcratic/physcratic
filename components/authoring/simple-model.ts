@@ -11,6 +11,7 @@ import {
   readExpression,
   readNumber,
 } from "@/lib/answer-reader";
+import { parseRating } from "@/lib/rating-bands";
 import { checkSampled, undecidedMessage } from "@/lib/sampled-check";
 import { answerFromBuffer } from "@/lib/authored-student";
 import { normalizeNumericUnits } from "@/lib/authored-grading-contracts";
@@ -196,6 +197,21 @@ export function setQuestion(d: EditorDraft, partId: string, spans: readonly Span
 export function setIntro(d: EditorDraft, spans: readonly Span[]) {
   d.content.context = withBlocksSpans(d.content.context, spans);
 }
+/** The first image of the main question (the shared setup). More images belong to Advanced. */
+export const contextPictureOf = (d: EditorDraft): Picture | null => pictureOf(d.content.context);
+export function addContextPicture(d: EditorDraft, mediaId: string) {
+  if (d.content.context.some((b) => b.kind === "image")) return;
+  const at = firstTextIndex(d.content.context) + 1;
+  d.content.context = [...d.content.context.slice(0, at), { id: crypto.randomUUID(), kind: "image", mediaId, alt: "", caption: "" }, ...d.content.context.slice(at)];
+}
+export function setContextPictureAlt(d: EditorDraft, alt: string) {
+  const i = firstImageIndex(d.content.context);
+  if (i >= 0) d.content.context = d.content.context.map((b, j) => (j === i && b.kind === "image" ? { ...b, alt } : b));
+}
+export function removeContextPicture(d: EditorDraft) {
+  const i = firstImageIndex(d.content.context);
+  if (i >= 0) d.content.context = d.content.context.filter((_, j) => j !== i);
+}
 export function setSolution(d: EditorDraft, partId: string, spans: readonly Span[]) {
   const entry = structuredClone(privateFor(d, partId));
   entry.solution = withBlocksSpans(entry.solution, spans);
@@ -237,8 +253,9 @@ export function advancedNote(d: EditorDraft): string {
   const pdfs = d.content.attachments.filter((a) => a.purpose.endsWith("pdf")).length;
   if (pdfs) found.push(pdfs === 1 ? "a PDF" : `${pdfs} PDFs`);
   if (d.content.methodTags.length) found.push("method tags");
-  if (d.content.estimatedDifficulty) found.push("a difficulty estimate");
-  let extra = firstTextIndex(d.content.context) >= 0 ? hiddenBlocks(d.content.context) + (firstImageIndex(d.content.context) >= 0 ? 1 : 0) : d.content.context.length;
+  // A rating is shown in Simple. An older free-text label is not, so it is still named.
+  if (d.content.estimatedDifficulty && parseRating(d.content.estimatedDifficulty) === null) found.push("a difficulty label");
+  let extra = hiddenBlocks(d.content.context);
   for (const s of d.content.sections) extra += s.blocks.length + (s.title ? 1 : 0);
   for (const r of allParts(d)) {
     extra += hiddenBlocks(r.part.blocks);
@@ -361,15 +378,57 @@ export function setUnits(d: EditorDraft, partId: string, units: string) {
 
 export type RightsState = "ticked" | "unticked" | "advanced";
 /** "advanced": the rights were set in Advanced (permission, or the author's own words). Simple leaves them. */
+/** The tick box text when the problem is adapted from somewhere else. The saved rights declaration is exactly this. */
+export const ADAPTED_RIGHTS_TEXT = "I have permission to share this adapted problem on Physcratic.";
+
+export type SourceState =
+  | { choice: "wrote"; ticked: boolean }
+  | { choice: "adapted"; ticked: boolean; source: string }
+  | { choice: "advanced" };
+/** Where the problem is from, read from the saved provenance. A rights declaration written in Advanced is kept and not shown as a tick. */
+export function sourceState(d: EditorDraft): SourceState {
+  const { kind, source, rightsDeclaration } = d.content.provenance;
+  const own = kind === "original" ? RIGHTS_TEXT : ADAPTED_RIGHTS_TEXT;
+  if (rightsDeclaration !== own && rightsDeclaration.trim()) return { choice: "advanced" };
+  const ticked = rightsDeclaration === own;
+  return kind === "original" ? { choice: "wrote", ticked } : { choice: "adapted", ticked, source };
+}
 export function rightsState(d: EditorDraft): RightsState {
-  const { kind, rightsDeclaration } = d.content.provenance;
-  if (kind === "authorized") return "advanced";
-  if (rightsDeclaration === RIGHTS_TEXT) return "ticked";
-  return rightsDeclaration.trim() ? "advanced" : "unticked";
+  const state = sourceState(d);
+  return state.choice === "advanced" ? "advanced" : state.ticked ? "ticked" : "unticked";
+}
+/** "I wrote it" or "Adapted from". Switching clears the tick, so a rights claim is never carried over to the other choice. */
+export function setSourceChoice(d: EditorDraft, choice: "wrote" | "adapted") {
+  if (sourceState(d).choice === "advanced") return;
+  d.content.provenance = choice === "wrote"
+    ? { kind: "original", source: "", rightsDeclaration: "" }
+    : { kind: "authorized", source: d.content.provenance.source, rightsDeclaration: "" };
+}
+export function setSourceText(d: EditorDraft, text: string) {
+  if (d.content.provenance.kind !== "authorized") return;
+  d.content.provenance = { ...d.content.provenance, source: text.slice(0, 2000) };
 }
 export function setRights(d: EditorDraft, ticked: boolean) {
-  if (rightsState(d) === "advanced") return;
-  d.content.provenance = { ...d.content.provenance, kind: "original", rightsDeclaration: ticked ? RIGHTS_TEXT : "" };
+  const state = sourceState(d);
+  if (state.choice === "advanced") return;
+  d.content.provenance = { ...d.content.provenance, rightsDeclaration: ticked ? (state.choice === "wrote" ? RIGHTS_TEXT : ADAPTED_RIGHTS_TEXT) : "" };
+}
+
+/** The estimated difficulty as a rating, from the stored string. Null when there is none or it is an older free-text label. */
+export const difficultyRating = (d: EditorDraft): number | null => parseRating(d.content.estimatedDifficulty ?? "");
+/** An older label written in Advanced that is not a rating. It is kept until the author picks a band or types a rating. */
+export const difficultyLabel = (d: EditorDraft): string => (difficultyRating(d) === null ? (d.content.estimatedDifficulty ?? "").trim() : "");
+/** Saves a rating, or clears the estimate when the text is empty. Anything that is not a whole rating from 0 to 4000 is not saved. */
+export function setDifficulty(d: EditorDraft, text: string): boolean {
+  const trimmed = text.trim();
+  if (!trimmed) {
+    d.content.estimatedDifficulty = null;
+    return true;
+  }
+  const rating = parseRating(trimmed);
+  if (rating === null) return false;
+  d.content.estimatedDifficulty = String(rating);
+  return true;
 }
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -386,8 +445,11 @@ export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, stri
     if (!blocksSpans(part.blocks).some((s) => (s.kind === "text" ? s.text.trim() : s.latex.trim())))
       issues.push({ field: `question:${part.id}`, message: "Write the question first." });
     const picture = pictureOf(part.blocks);
-    if (picture && !picture.alt.trim()) issues.push({ field: `picture:${part.id}`, message: "Describe the picture so everyone can follow it." });
+    if (picture && !picture.alt.trim()) issues.push({ field: `picture:${part.id}`, message: "Describe the image so everyone can follow it." });
     const entry = privateFor(d, part.id);
+    // Simple asks for a worked solution. Advanced and older problems can still publish without one.
+    if (!blocksSpans(entry.solution).some((s) => (s.kind === "text" ? s.text.trim() : s.latex.trim())))
+      issues.push({ field: `solution:${part.id}`, message: "Add the worked solution." });
     const typed = part.id in reads ? reads[part.id] : answerText(entry.key);
     const read = readAnswer(typed);
     if (read.kind === "empty" || (read.kind !== "error" && entry.key?.kind === "manual"))
@@ -397,7 +459,12 @@ export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, stri
       issues.push({ field: `units:${part.id}`, message: `We don't know the unit "${entry.key.units}". Pick one from the list or leave it empty.` });
   }
   if (!d.content.title.trim()) issues.push({ field: "title", message: "Give it a title, or write the question and we'll make one." });
-  if (rightsState(d) === "unticked") issues.push({ field: "rights", message: "Tick the box to say you wrote this problem." });
+  const source = sourceState(d);
+  if (source.choice === "adapted" && !source.source.trim()) issues.push({ field: "source", message: "Say where it's from." });
+  if (rightsState(d) === "unticked")
+    issues.push({ field: "rights", message: source.choice === "adapted" ? "Tick the box to say you have permission to share it." : "Tick the box to say you wrote this problem." });
+  const contextPicture = contextPictureOf(d);
+  if (contextPicture && !contextPicture.alt.trim()) issues.push({ field: "picture:main", message: "Describe the image so everyone can follow it." });
   return issues;
 }
 
