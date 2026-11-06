@@ -108,8 +108,8 @@ function ProfileEditor({ userId, fallbackName, verified, mediaEnabled, achieveme
   </>;
 }
 
-export function AccountSettings({ moderationEnabled=false,profilesEnabled, mediaEnabled, achievementsEnabled = false, verificationEnabled = false, onboarding = false }: {
-  moderationEnabled?:boolean;profilesEnabled: boolean; mediaEnabled: boolean; achievementsEnabled?: boolean; verificationEnabled?: boolean; onboarding?: boolean;
+export function AccountSettings({ emailReady = true, moderationEnabled=false,profilesEnabled, mediaEnabled, achievementsEnabled = false, verificationEnabled = false, onboarding = false }: {
+  emailReady?: boolean; moderationEnabled?:boolean;profilesEnabled: boolean; mediaEnabled: boolean; achievementsEnabled?: boolean; verificationEnabled?: boolean; onboarding?: boolean;
 }) {
   const { data, isPending, error, refetch } = authClient.useSession();
   const user = data?.user;
@@ -127,7 +127,7 @@ export function AccountSettings({ moderationEnabled=false,profilesEnabled, media
             : error ? <section id="profile-settings" className="space-y-3 rounded-2xl border p-7"><h2 className="text-lg font-semibold">Profile</h2><p role="alert" className="text-sm">Your account could not be loaded.</p><Button variant="outline" onClick={() => refetch()}>Retry account</Button></section>
             : !user ? <section id="profile-settings" className="space-y-3 rounded-2xl border p-7"><h2 className="text-lg font-semibold">Profile</h2><p className="text-sm text-muted-foreground">Sign in to create or edit your profile.</p><Button asChild><Link href="/sign-in?returnTo=%2Fsettings">Sign in</Link></Button></section>
             : <ProfileEditor key={user.id} userId={user.id} fallbackName={user.name ?? ""} verified={user.emailVerified === true} mediaEnabled={mediaEnabled} achievementsEnabled={achievementsEnabled} onboarding={onboarding} />}
-          {user && <AccountSecurity key={user.id} email={user.email} />}
+          {user && <AccountSecurity key={user.id} email={user.email} emailReady={emailReady} />}
           {verificationEnabled && user && <VerificationSettings key={user.id} verified={user.emailVerified === true} />}
           {moderationEnabled && <ModerationHistory/>}
           <AppearanceSettings />

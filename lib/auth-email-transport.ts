@@ -17,6 +17,14 @@ export function authEmailOutbox() {
   return ((globalThis as Store)[outboxKey] ??= []);
 }
 
+const validDomain = (domain: string | undefined) => Boolean(domain && /^[a-z\d](?:[a-z\d.-]*[a-z\d])?\.[a-z]{2,}$/i.test(domain));
+
+/** True when account emails can actually be delivered. Screens and endpoints use it so nothing claims a send that cannot happen. */
+export function authEmailReady(env: Environment = process.env) {
+  if (env.AUTH_EMAIL_TRANSPORT !== undefined) return memoryTransportAllowed(env);
+  return Boolean(env.RESEND_API_KEY) && validDomain(env.RESEND_EMAIL_DOMAIN?.trim());
+}
+
 export async function deliverAuthEmail(message: AuthEmail, env: Environment = process.env) {
   if (env.AUTH_EMAIL_TRANSPORT !== undefined) {
     // A set but refused memory transport fails closed instead of falling back to real delivery.
@@ -27,7 +35,7 @@ export async function deliverAuthEmail(message: AuthEmail, env: Environment = pr
     return;
   }
   const domain = env.RESEND_EMAIL_DOMAIN?.trim();
-  if (!env.RESEND_API_KEY || !domain || !/^[a-z\d](?:[a-z\d.-]*[a-z\d])?\.[a-z]{2,}$/i.test(domain)) {
+  if (!env.RESEND_API_KEY || !domain || !validDomain(domain)) {
     throw new Error("Verification email sender is not configured.");
   }
   const resend = new Resend(env.RESEND_API_KEY);

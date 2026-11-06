@@ -3,7 +3,7 @@ import test from "node:test";
 import {
   changeEmailApprovalEmail, changeEmailVerifyEmail, escapeHtml, passwordResetEmail, plainValue, safeLink, signupVerificationEmail,
 } from "./auth-email-templates";
-import { authEmailOutbox, deliverAuthEmail, memoryTransportAllowed } from "./auth-email-transport";
+import { authEmailOutbox, authEmailReady, deliverAuthEmail, memoryTransportAllowed } from "./auth-email-transport";
 import { budgetIdentifier, normalizeAddress } from "./auth-email-budget";
 import { tokenRequestType, withCallback } from "./auth-account";
 
@@ -86,4 +86,14 @@ test("change-email helpers read the request type and replace only the callback",
   const next = new URL(withCallback("https://physcratic.com/api/auth/verify-email?token=t1&callbackURL=%2Fevil", "/email-change?step=done"));
   assert.equal(next.searchParams.get("token"), "t1");
   assert.equal(next.searchParams.get("callbackURL"), "/email-change?step=done");
+});
+
+test("email counts as set up only when a sender can really deliver", () => {
+  assert.equal(authEmailReady({ NODE_ENV: "production" }), false, "production today: no RESEND_API_KEY");
+  assert.equal(authEmailReady({ RESEND_API_KEY: "k" }), false, "a key without a domain cannot send");
+  assert.equal(authEmailReady({ RESEND_API_KEY: "k", RESEND_EMAIL_DOMAIN: "not a domain" }), false);
+  assert.equal(authEmailReady({ RESEND_API_KEY: "k", RESEND_EMAIL_DOMAIN: "mail.example.invalid" }), true);
+  assert.equal(authEmailReady({ AUTH_EMAIL_TRANSPORT: "memory", NODE_ENV: "test" }), true);
+  assert.equal(authEmailReady({ AUTH_EMAIL_TRANSPORT: "memory", NODE_ENV: "production", RESEND_API_KEY: "k", RESEND_EMAIL_DOMAIN: "mail.example.invalid" }), false,
+    "a refused memory transport is not ready, matching delivery");
 });

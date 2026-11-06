@@ -7,5 +7,6 @@ export const dynamic = "force-dynamic";
 export default async function EmailChange({ searchParams }: { searchParams: Promise<{ step?: string | string[]; error?: string | string[] }> }) {
   const query = await searchParams;
   const pick = (value: string | string[] | undefined) => (typeof value === "string" ? value : Array.isArray(value) ? value[0] : undefined);
-  return <EmailChangeResult {...emailChangeOutcome(pick(query.step), pick(query.error))} />;
+  const step = pick(query.step), error = pick(query.error);
+  return <EmailChangeResult {...emailChangeOutcome(step, error)} signIn={step === "signed-out" && !error} />;
 }

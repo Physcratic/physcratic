@@ -153,6 +153,7 @@ test("account settings flows on the throwaway PostgreSQL", { skip: !url }, async
     assert.equal(done.status, 302);
     assert.equal(done.location, "/email-change?step=done");
     assert.deepEqual(await emailOf(adaId), { email: "ada.new@example.invalid", emailVerified: true });
+    assert.equal((await sessionUser(ada.cookie))?.email, "ada.new@example.invalid", "a signed-in browser stays signed in");
     assert.equal((await signIn("ada@example.invalid", "second-password-2")).status, 401);
     ada = await signIn("ada.new@example.invalid", "second-password-2");
     assert.equal(ada.status, 200);
@@ -173,6 +174,53 @@ test("account settings flows on the throwaway PostgreSQL", { skip: !url }, async
     await flush();
     assert.equal(mailTo("taken@example.invalid").length, before);
     assert.equal((await emailOf(adaId)).email, "ada.new@example.invalid");
+  });
+
+  await t.test("opening the final link while signed out changes the email but signs nobody in", async () => {
+    await createUser("carol@example.invalid", "carol-password-1");
+    await flush();
+    const carol = await signIn("carol@example.invalid", "carol-password-1");
+    const carolId = (await sessionUser(carol.cookie)).id as string;
+    assert.equal((await call("/change-email", { body: { newEmail: "carol.new@example.invalid", currentPassword: "carol-password-1" }, cookie: carol.cookie })).status, 200);
+    await flush();
+    await call(linkIn(mailTo("carol@example.invalid").at(-1)!.text, "verify-email"), { method: "GET" });
+    await flush();
+    const sessionsBefore = (await setup.query(`SELECT token FROM "session" WHERE "userId"=$1`, [carolId])).rows.map((r) => r.token);
+    const done = await call(linkIn(mailTo("carol.new@example.invalid").at(-1)!.text, "verify-email"), { method: "GET" });
+    assert.equal(done.status, 302);
+    assert.equal(done.location, "/email-change?step=signed-out");
+    assert.deepEqual(await emailOf(carolId), { email: "carol.new@example.invalid", emailVerified: true });
+    const live = done.cookies.filter((c) => /session_token=[^;]+/.test(c) && !/max-age=0/i.test(c));
+    assert.deepEqual(live, [], "no usable session cookie is set");
+    const sessionsAfter = (await setup.query(`SELECT token FROM "session" WHERE "userId"=$1`, [carolId])).rows.map((r) => r.token);
+    assert.deepEqual(sessionsAfter.sort(), sessionsBefore.sort(), "the session Better Auth made was revoked");
+    const reused = cookieOf(done);
+    if (reused) assert.equal(await sessionUser(reused), null);
+    assert.equal((await signIn("carol.new@example.invalid", "carol-password-1")).status, 200);
+  });
+
+  await t.test("with no email sender, reset and change email refuse the same way for every address", async () => {
+    const saved = process.env.AUTH_EMAIL_TRANSPORT;
+    delete process.env.AUTH_EMAIL_TRANSPORT;
+    try {
+      const sentBefore = outbox.length;
+      const resetsBefore = (await setup.query(`SELECT count(*)::int AS n FROM "verification" WHERE identifier LIKE 'reset-password:%'`)).rows[0].n;
+      const known = await call("/request-password-reset", { body: { email: "ada.new@example.invalid", redirectTo: "/reset-password" } });
+      const unknown = await call("/request-password-reset", { body: { email: "nobody-at-all@example.invalid", redirectTo: "/reset-password" } });
+      assert.equal(known.status, 400);
+      assert.equal(known.body.code, "EMAIL_NOT_CONFIGURED");
+      assert.deepEqual(known.body, unknown.body, "the reply does not depend on whether the account exists");
+      const change = await call("/change-email", { body: { newEmail: "nope@example.invalid", currentPassword: "second-password-2" }, cookie: ada.cookie });
+      assert.equal(change.status, 400);
+      assert.equal(change.body.code, "EMAIL_NOT_CONFIGURED");
+      await flush();
+      assert.equal(outbox.length, sentBefore);
+      assert.equal((await setup.query(`SELECT count(*)::int AS n FROM "verification" WHERE identifier LIKE 'reset-password:%'`)).rows[0].n, resetsBefore, "no reset token is made")
+    } finally {
+      process.env.AUTH_EMAIL_TRANSPORT = saved;
+    }
+    const ok = await call("/request-password-reset", { body: { email: "nobody-at-all@example.invalid", redirectTo: "/reset-password" } });
+    assert.equal(ok.status, 200, "configured again, the normal reply returns");
   });
 
   await t.test("forgot password: generic reply, one-use link, every session signed out", async () => {

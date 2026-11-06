@@ -1,16 +1,19 @@
 import "server-only";
 import type { BetterAuthPlugin } from "better-auth";
 import { APIError, createAuthMiddleware, getSessionFromCtx } from "better-auth/api";
+import { deleteSessionCookie } from "better-auth/cookies";
 import type { Pool } from "pg";
 import { z } from "zod";
 import { normalizeAddress, reserveAuthEmail } from "./auth-email-budget";
+import { authEmailReady } from "./auth-email-transport";
+import { EMAIL_NOT_READY_MESSAGE } from "./account-messages";
 import { sendChangeEmailApproval, sendChangeEmailVerify, sendPasswordResetEmail, sendVerificationEmail } from "./verification-email";
 
 export type Defer = (task: () => Promise<void>) => void;
 
 // Same body Better Auth returns, so a full budget looks exactly like a normal request.
 export const RESET_REPLY = { status: true, message: "If this email exists in our system, check your email for the reset link" } as const;
-export const EMAIL_CHANGE_PATHS = { approved: "/email-change?step=approved", done: "/email-change?step=done" } as const;
+export const EMAIL_CHANGE_PATHS = { approved: "/email-change?step=approved", done: "/email-change?step=done", signedOut: "/email-change?step=signed-out" } as const;
 
 const fail = (status: "BAD_REQUEST" | "UNAUTHORIZED" | "TOO_MANY_REQUESTS", code: string, message: string) =>
   new APIError(status, { code, message });
@@ -68,8 +71,11 @@ export function accountEmailOptions({ pool, defer }: { pool: Pool; defer: Defer 
   };
 }
 
+// Same answer for every address and account, so it reveals nothing about who has an account.
+const emailNotReady = () => fail("BAD_REQUEST", "EMAIL_NOT_CONFIGURED", EMAIL_NOT_READY_MESSAGE);
+
 /** Request checks that Better Auth does not do on its own. */
-export function accountSecurity({ pool }: { pool: Pool }) {
+export function accountSecurity({ pool, emailReady = () => authEmailReady() }: { pool: Pool; emailReady?: () => boolean }) {
   return {
     id: "account-security",
     hooks: {
@@ -85,6 +91,7 @@ export function accountSecurity({ pool }: { pool: Pool }) {
         {
           matcher: (ctx) => ctx.path === "/request-password-reset",
           handler: createAuthMiddleware(async (ctx) => {
+            if (!emailReady()) throw emailNotReady();
             const email = (ctx.body as { email?: unknown } | undefined)?.email;
             if (typeof email !== "string" || !z.email().safeParse(email).success) return;
             // Counted whether or not the address has an account, so the cap reveals nothing.
@@ -96,6 +103,7 @@ export function accountSecurity({ pool }: { pool: Pool }) {
           handler: createAuthMiddleware(async (ctx) => {
             const session = await getSessionFromCtx(ctx);
             if (!session) throw fail("UNAUTHORIZED", "UNAUTHORIZED", "Sign in again, then try that.");
+            if (!emailReady()) throw emailNotReady();
             const body = (ctx.body ?? {}) as { currentPassword?: unknown; newEmail?: unknown };
             const password = body.currentPassword;
             if (typeof password !== "string" || !password)
@@ -108,6 +116,24 @@ export function accountSecurity({ pool }: { pool: Pool }) {
             if (typeof body.newEmail !== "string" || normalizeAddress(body.newEmail) === normalizeAddress(session.user.email)) return;
             if (!(await reserveAuthEmail(pool, session.user.email, "change-approval")))
               throw fail("TOO_MANY_REQUESTS", "EMAIL_BUDGET", "That's a lot of emails for one hour. Try again later.");
+          }),
+        },
+      ],
+      after: [
+        {
+          // Better Auth signs in whoever opens the final change-email link. It has no option to turn that off,
+          // so a session it just made for a browser that was not signed in is revoked and its cookie cleared.
+          matcher: (ctx) => ctx.path === "/verify-email",
+          handler: createAuthMiddleware(async (ctx) => {
+            const created = ctx.context.newSession;
+            if (!created) return;
+            const held = await ctx.getSignedCookie(ctx.context.authCookies.sessionToken.name, ctx.context.secret);
+            if (held === created.session.token) return;
+            await ctx.context.internalAdapter.deleteSession(created.session.token);
+            ctx.context.responseHeaders?.delete("set-cookie");
+            deleteSessionCookie(ctx);
+            if (ctx.query?.callbackURL) throw ctx.redirect(EMAIL_CHANGE_PATHS.signedOut);
+            return ctx.json({ status: true, user: null });
           }),
         },
       ],

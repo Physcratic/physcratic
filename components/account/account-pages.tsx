@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useState, type FormEvent, type ReactNode } from "react";
 import { ArrowLeft, Loader2 } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
-import { accountErrorMessage } from "@/lib/account-messages";
+import { accountErrorMessage, EMAIL_NOT_READY_MESSAGE } from "@/lib/account-messages";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
@@ -21,7 +21,7 @@ function Shell({ children }: { children: ReactNode }) {
 
 const footerLink = "inline-flex min-h-11 items-center justify-center text-center text-sm text-muted-foreground underline underline-offset-4";
 
-export function ForgotPasswordForm() {
+export function ForgotPasswordForm({ emailReady = true }: { emailReady?: boolean }) {
   const [busy, setBusy] = useState(false), [error, setError] = useState(""), [sent, setSent] = useState("");
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault(); if (busy) return;
@@ -37,14 +37,15 @@ export function ForgotPasswordForm() {
   return <Shell><Card>
     <CardHeader><CardTitle><h1>Forgot your password?</h1></CardTitle><CardDescription>Type your email and we’ll send you a reset link.</CardDescription></CardHeader>
     <CardContent>
-      {sent ? <Alert role="status"><AlertTitle>Check your inbox</AlertTitle><AlertDescription>If {sent} has an account, a reset link is on its way. It expires in 1 hour.</AlertDescription></Alert>
+      {!emailReady ? <Alert role="status"><AlertTitle>Can’t send links yet</AlertTitle><AlertDescription>{EMAIL_NOT_READY_MESSAGE}</AlertDescription></Alert>
+        : sent ? <Alert role="status"><AlertTitle>Check your inbox</AlertTitle><AlertDescription>If {sent} has an account, a reset link is on its way. It expires in 1 hour.</AlertDescription></Alert>
         : <form id="forgot-form" onSubmit={submit}><fieldset disabled={busy}><FieldGroup>
           <Field><FieldLabel htmlFor="forgot-email">Email</FieldLabel><Input id="forgot-email" name="email" type="email" autoComplete="email" required maxLength={254} /></Field>
           {error && <Alert variant="destructive" role="alert"><AlertTitle>Could not send</AlertTitle><AlertDescription>{error}</AlertDescription></Alert>}
         </FieldGroup></fieldset></form>}
     </CardContent>
     <CardFooter className="flex flex-col items-stretch gap-4">
-      {sent ? <Button type="button" variant="outline" onClick={() => setSent("")}>Use a different email</Button>
+      {!emailReady ? null : sent ? <Button type="button" variant="outline" onClick={() => setSent("")}>Use a different email</Button>
         : <Button form="forgot-form" type="submit" disabled={busy}>{busy && <Loader2 data-icon="inline-start" className="animate-spin" />}Send reset link</Button>}
       <Link href="/sign-in" className={footerLink}>Back to sign in</Link>
     </CardFooter>
@@ -90,9 +91,9 @@ export function ResetPasswordForm({ token, linkError }: { token: string | null; 
   </Card></Shell>;
 }
 
-export function EmailChangeResult({ title, body, ok }: { title: string; body: string; ok: boolean }) {
+export function EmailChangeResult({ title, body, ok, signIn = false }: { title: string; body: string; ok: boolean; signIn?: boolean }) {
   return <Shell><Card>
     <CardHeader><CardTitle><h1>{title}</h1></CardTitle><CardDescription role={ok ? "status" : "alert"}>{body}</CardDescription></CardHeader>
-    <CardFooter className="flex flex-col items-stretch gap-4"><Button asChild><Link href="/settings#email-settings">Go to Settings</Link></Button></CardFooter>
+    <CardFooter className="flex flex-col items-stretch gap-4"><Button asChild>{signIn ? <Link href="/sign-in">Sign in</Link> : <Link href="/settings#email-settings">Go to Settings</Link>}</Button></CardFooter>
   </Card></Shell>;
 }

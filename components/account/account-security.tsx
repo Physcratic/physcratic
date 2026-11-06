@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useState, type FormEvent } from "react";
 import { Check } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
-import { accountErrorMessage } from "@/lib/account-messages";
+import { accountErrorMessage, EMAIL_NOT_READY_MESSAGE } from "@/lib/account-messages";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -16,7 +16,11 @@ function Feedback({ error, success }: { error: string; success: string }) {
   </>;
 }
 
-function EmailSection({ email, hasPassword }: { email: string; hasPassword: boolean | null }) {
+export function EmailNotReady() {
+  return <p role="status" className="rounded-lg border p-3 text-sm">{EMAIL_NOT_READY_MESSAGE}</p>;
+}
+
+export function EmailSection({ email, hasPassword, emailReady }: { email: string; hasPassword: boolean | null; emailReady: boolean }) {
   const [busy, setBusy] = useState(false), [error, setError] = useState(""), [success, setSuccess] = useState("");
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault(); if (busy) return;
@@ -36,20 +40,20 @@ function EmailSection({ email, hasPassword }: { email: string; hasPassword: bool
   }
   return <section id="email-settings" aria-labelledby="email-heading" className={sectionClass}>
     <header className="space-y-1"><h2 id="email-heading" className="text-lg font-semibold">Email</h2><p className="text-sm leading-6 text-muted-foreground">You sign in with <span className="break-all font-medium text-foreground">{email}</span>. Your current inbox approves a change first, then the new one confirms it.</p></header>
-    {hasPassword === false && <p className="rounded-lg border p-3 text-sm">Set a password first. Then you can change your email.</p>}
+    {!emailReady ? <EmailNotReady /> : hasPassword === false && <p className="rounded-lg border p-3 text-sm">Set a password first. Then you can change your email.</p>}
     <form onSubmit={submit} className="space-y-5">
-      <fieldset disabled={busy || hasPassword !== true} className="grid min-w-0 gap-4 sm:grid-cols-2">
+      <fieldset disabled={busy || hasPassword !== true || !emailReady} className="grid min-w-0 gap-4 sm:grid-cols-2">
         <legend className="sr-only">Change email</legend>
         <div className="space-y-2"><label htmlFor="new-email" className="text-sm font-medium">New email</label><Input id="new-email" name="newEmail" type="email" autoComplete="email" required maxLength={254} /></div>
         <div className="space-y-2"><label htmlFor="email-current-password" className="text-sm font-medium">Current password</label><Input id="email-current-password" name="currentPassword" type="password" autoComplete="current-password" required maxLength={128} /></div>
       </fieldset>
       <Feedback error={error} success={success} />
-      <div className="flex flex-wrap items-center gap-3 border-t pt-5"><Button type="submit" disabled={busy || hasPassword !== true}>{busy ? "Sending…" : "Send approval link"}</Button><Link href="/forgot-password" className="inline-flex min-h-11 items-center rounded px-1 text-sm underline underline-offset-4">Forgot password?</Link></div>
+      <div className="flex flex-wrap items-center gap-3 border-t pt-5"><Button type="submit" disabled={busy || hasPassword !== true || !emailReady}>{busy ? "Sending…" : "Send approval link"}</Button><Link href="/forgot-password" className="inline-flex min-h-11 items-center rounded px-1 text-sm underline underline-offset-4">Forgot password?</Link></div>
     </form>
   </section>;
 }
 
-function PasswordSection({ email, hasPassword }: { email: string; hasPassword: boolean | null }) {
+export function PasswordSection({ email, hasPassword, emailReady }: { email: string; hasPassword: boolean | null; emailReady: boolean }) {
   const [busy, setBusy] = useState(false), [error, setError] = useState(""), [success, setSuccess] = useState("");
   async function change(event: FormEvent<HTMLFormElement>) {
     event.preventDefault(); if (busy) return;
@@ -80,8 +84,9 @@ function PasswordSection({ email, hasPassword }: { email: string; hasPassword: b
   if (hasPassword === null) return <section id="password-settings" aria-labelledby="password-heading" className={sectionClass}><h2 id="password-heading" className="text-lg font-semibold">Password</h2><p role="status" className="text-sm text-muted-foreground">Loading…</p></section>;
   if (!hasPassword) return <section id="password-settings" aria-labelledby="password-heading" className={sectionClass}>
     <header className="space-y-1"><h2 id="password-heading" className="text-lg font-semibold">Set a password</h2><p className="text-sm leading-6 text-muted-foreground">You sign in without a password right now. We’ll email you a link to set one.</p></header>
+    {!emailReady && <EmailNotReady />}
     <Feedback error={error} success={success} />
-    <div className="border-t pt-5"><Button type="button" disabled={busy} onClick={sendSetLink}>{busy ? "Sending…" : "Email me a link"}</Button></div>
+    <div className="border-t pt-5"><Button type="button" disabled={busy || !emailReady} onClick={sendSetLink}>{busy ? "Sending…" : "Email me a link"}</Button></div>
   </section>;
   return <section id="password-settings" aria-labelledby="password-heading" className={sectionClass}>
     <header className="space-y-1"><h2 id="password-heading" className="text-lg font-semibold">Password</h2><p className="text-sm leading-6 text-muted-foreground">Use at least 8 characters. Pick one you don’t use anywhere else.</p></header>
@@ -101,7 +106,7 @@ function PasswordSection({ email, hasPassword }: { email: string; hasPassword: b
   </section>;
 }
 
-export function AccountSecurity({ email }: { email: string }) {
+export function AccountSecurity({ email, emailReady = true }: { email: string; emailReady?: boolean }) {
   const [hasPassword, setHasPassword] = useState<boolean | null>(null);
   const [loadFailed, setLoadFailed] = useState(false);
   useEffect(() => {
@@ -115,7 +120,7 @@ export function AccountSecurity({ email }: { email: string }) {
   }, []);
   if (loadFailed) return <section id="email-settings" aria-labelledby="email-heading" className={sectionClass}><h2 id="email-heading" className="text-lg font-semibold">Email and password</h2><p role="alert" className="text-sm">Your sign-in details didn’t load. Reload the page to try again.</p></section>;
   return <>
-    <EmailSection email={email} hasPassword={hasPassword} />
-    <PasswordSection email={email} hasPassword={hasPassword} />
+    <EmailSection email={email} hasPassword={hasPassword} emailReady={emailReady} />
+    <PasswordSection email={email} hasPassword={hasPassword} emailReady={emailReady} />
   </>;
 }
