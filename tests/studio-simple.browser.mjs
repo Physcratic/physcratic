@@ -24,7 +24,7 @@ const require = createRequire(import.meta.url);
 const browserTools = process.env.AUTHORING_BROWSER_TOOLS
   ? createRequire(join(process.env.AUTHORING_BROWSER_TOOLS, "package.json"))
   : require;
-const { chromium } = browserTools("playwright");
+const { chromium, devices } = browserTools("playwright");
 const { build } = createRequire(require.resolve("tsx"))("esbuild");
 const target = new URL(
   process.env.AUTHORING_TEST_DATABASE_URL || "http://invalid",
@@ -252,8 +252,8 @@ try {
   const TARGET = { screens: 1, clicks: 3, selects: 0 };
   const log = (...a) => console.log(...a);
   const errors = [];
-  const newPage = async (width, height = 1000) => {
-    const context = await browser.newContext({ viewport: { width, height } });
+  const newPage = async (width, height = 1000, profile) => {
+    const context = await browser.newContext(profile ?? { viewport: { width, height } });
     const page = await context.newPage();
     page.on("pageerror", (e) => { errors.push(e.message); console.error("Browser error:", e.message); });
     page.on("dialog", (d) => d.accept());
@@ -411,12 +411,63 @@ try {
   log("Fast typing across the first save kept every character.");
   await fresh.context.close();
 
+
+  // ------------------------------------------------------------------ 3a. Typing shortcuts inside a Studio equation, on desktop and in phone emulation
+  // The names turn into maths as you type, with hardware keys and with a phone keyboard (text without key presses).
+  const typingCases = [["sin", "\\sin"], ["cos", "\\cos"], ["tan", "\\tan"], ["ln", "\\ln"], ["log", "\\log"], ["theta", "\\theta"], ["\\theta ", "\\theta"]];
+  for (const [label, profile] of [["desktop", undefined], ["iPhone 13", (({ defaultBrowserType, ...p }) => p)(devices["iPhone 13"])], ["Pixel 7", (({ defaultBrowserType, ...p }) => p)(devices["Pixel 7"])]]) {
+    for (const soft of [false, true]) {
+      for (const [typed, expected] of typingCases) {
+        const { context: tctx, page: tp } = await newPage(1440, 1000, profile);
+        await tp.goto(origin);
+        await tp.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
+        const tq = tp.getByRole("region", { name: "Part a", exact: true }).getByRole("textbox", { name: "What's the question?" });
+        await (profile ? tq.tap() : tq.click());
+        await tp.keyboard.type("$");
+        const tpanel = tp.getByRole("group", { name: "Type your equation" });
+        await tpanel.waitFor();
+        const tfield = await mathField(tpanel);
+        await tp.waitForTimeout(700);
+        if (soft) for (const ch of typed) { await tp.keyboard.insertText(ch); await tp.waitForTimeout(35); }
+        else await tp.keyboard.type(typed, { delay: 35 });
+        const got = (await tfield.evaluate((e) => e.value)).replace(/\\left|\\right/g, "");
+        const where = await tp.evaluate(() => { const a = document.activeElement; return `${a?.tagName}${a?.getAttribute?.("aria-hidden") ? "[aria-hidden]" : ""}${a?.shadowRoot ? " (shadow)" : ""}`; });
+        assert.equal(got, expected, `Studio equation, ${label}, ${soft ? "phone keyboard" : "keys"}: ${JSON.stringify(typed)} became ${got} (focus is on ${where})`);
+        await tctx.close();
+      }
+    }
+  }
+  log("Typing shortcuts in a Studio equation: desktop, iPhone and Pixel, keys and phone keyboard.");
+
   // ------------------------------------------------------------------ 3. A number answer at 375px
   const small = await newPage(375, 800);
   const m = small.page;
   await m.goto(origin);
   await m.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
   await noSideways(m, "375 empty");
+  // No placeholder runs out of its box at 375 (and 320): the written ones stay inside their box, the typed ones are not cut off.
+  const placeholdersOutside = () => m.evaluate(() => {
+    const bad = [];
+    for (const span of document.querySelectorAll("span[aria-hidden=true].absolute.pointer-events-none")) {
+      const box = span.parentElement.getBoundingClientRect();
+      const r = span.getBoundingClientRect();
+      if (r.left < box.left - 0.5 || r.right > box.right + 0.5 || r.bottom > box.bottom + 0.5) bad.push(span.textContent);
+    }
+    const canvas = document.createElement("canvas").getContext("2d");
+    for (const input of document.querySelectorAll("input[placeholder], textarea[placeholder]")) {
+      if (!input.offsetParent) continue;
+      const style = getComputedStyle(input);
+      canvas.font = `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
+      const room = input.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+      if (input.tagName === "INPUT" && canvas.measureText(input.placeholder).width > room + 1) bad.push(input.placeholder);
+    }
+    return bad;
+  });
+  assert.deepEqual(await placeholdersOutside(), [], "no placeholder overflows its box at 375");
+  await m.setViewportSize({ width: 320, height: 700 });
+  await m.waitForTimeout(200);
+  assert.deepEqual(await placeholdersOutside(), [], "no placeholder overflows its box at 320");
+  await m.setViewportSize({ width: 375, height: 800 });
   const mpart = m.getByRole("region", { name: "Part a", exact: true });
   const mq = mpart.getByRole("textbox", { name: "What's the question?" });
   await mq.click();

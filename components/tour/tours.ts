@@ -45,6 +45,7 @@ export const tours: Record<TourId, Tour> = {
         go: { label: "Open one for me", href: "/dashboard/problems/arena-mind-the-gap" },
       },
       { id: "answer", targets: ["answer-box"], path: onProblem, title: "Your answer", text: "Type your answer here. A [[/]] makes a fraction and a [[^]] makes a power, like on paper." },
+      { id: "typing", targets: ["answer-box"], path: onProblem, title: "Type it like you say it", text: "Type sin and it turns into the function. Type [[\\]]theta and press Space to get θ." },
       { id: "palette", targets: ["answer-palette"], path: onProblem, title: "Symbols", text: "These buttons drop a symbol or a function in where your cursor is." },
       { id: "check", targets: ["check-button"], path: onProblem, title: "Check", text: "Press Check to see if you got it. A wrong answer is fine, you can try again." },
       { id: "help", targets: ["hint-button", "solution-tab"], path: onProblem, title: "Hints and solutions", text: "Stuck? Take a hint or open the worked solution, but try first." },
@@ -59,6 +60,7 @@ export const tours: Record<TourId, Tour> = {
     steps: [
       { id: "question", targets: ["studio-question"], title: "The question", text: "Start by typing the question, just like you would write it." },
       { id: "equation", targets: ["studio-equation"], title: "Equations", text: "Press Equation, or type [[$]], to drop a formula into your text. Click a formula to change it." },
+      { id: "typing", targets: ["studio-equation"], title: "Type it like you say it", text: "Inside an equation, type sin and it turns into the function. Type [[\\]]theta and press Space to get θ." },
       { id: "picture", targets: ["studio-image"], title: "A picture", text: "Got a diagram? Add a picture here, or paste or drop one in." },
       { id: "answer", targets: ["studio-answer"], title: "The final answer", text: "This is the answer we check students against. We find the symbols for you." },
       { id: "try", targets: ["studio-try"], title: "Try an answer", text: "Type an answer here to see what a student would get before you publish." },

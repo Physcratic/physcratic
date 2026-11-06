@@ -48,3 +48,12 @@ test("the mobile menu button sits above the header and below the menu it opens, 
   const sidebar = readFileSync("components/kokonutui/sidebar.tsx", "utf8");
   assert.match(sidebar, new RegExp(`fixed right-3 top-3.5 z-\\[${MENU_BUTTON_LAYER}\\] `));
 });
+
+test("both tours have a typing step with a key chip for the backslash", () => {
+  for (const id of ["welcome", "studio"] as const) {
+    const step = tours[id].steps.find((s) => s.id === "typing");
+    assert.ok(step, id);
+    assert.ok(step!.text.includes("[[\\]]theta") && step!.text.includes("sin"), id);
+    assert.ok(plainTourText(step!.text).includes("\\theta"), id);
+  }
+});

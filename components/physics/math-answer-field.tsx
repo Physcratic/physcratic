@@ -7,6 +7,7 @@ import { AnswerReadError, SymbolTable, normaliseName, readExpression } from "@/l
 import { cleanLatex, paletteItems, plainInsertion, type PaletteItem } from "./answer-palette";
 import { enableTouchKeyboard, isTouchDevice, releasePrimedKeyboard } from "./mathfield-touch";
 import { MathPad, useKeyboardDock, type PadMode } from "./math-pad";
+import { shortcutsFor } from "./math-typing";
 import { LatexAnswerPreview } from "./latex-answer-preview";
 
 /**
@@ -72,6 +73,11 @@ export function MathAnswerField({
   const latest = useRef(value);
   latest.current = value;
   const focusOnReady = useRef(!!autoFocus);
+  const declared = useRef(symbols);
+  declared.current = symbols;
+  const symbolKey = symbols.join("|");
+  /** MathLive's own shortcuts, before the problem's symbols took any out. */
+  const baseShortcuts = useRef<Record<string, never> | null>(null);
 
   // Load MathLive only when this field is on screen, and only if the box is still empty (never swap a typed answer).
   useEffect(() => {
@@ -98,6 +104,8 @@ export function MathAnswerField({
           "keydown",
           (event) => {
             if (event.key !== "Enter" || event.isComposing) return;
+            // While a LaTeX command is being typed, Enter finishes it (\\theta becomes the letter). It does not send the form.
+            if (element.mode === "latex") return;
             event.preventDefault();
             event.stopPropagation();
             element.closest("form")?.requestSubmit();
@@ -106,6 +114,47 @@ export function MathAnswerField({
         );
         host.current.appendChild(element);
         field.current = element;
+        // Names turn into maths as you type, and a declared symbol is left alone.
+        baseShortcuts.current = element.inlineShortcuts as Record<string, never>;
+        element.inlineShortcuts = shortcutsFor(baseShortcuts.current, declared.current) as typeof element.inlineShortcuts;
+        // A phone keyboard can send text without key presses, which skips the shortcuts and turns \\ into a backslash sign.
+        // A hardware key press comes first, and MathLive reads it. Text with no key press just before it gets one made
+        // for it: MathLive reads that, and if it does not use it (no shortcut), the character goes in as usual.
+        let keyedAt = -Infinity;
+        let own = false;
+        element.addEventListener(
+          "keydown",
+          (event) => {
+            if (!own && event.key.length === 1 && !event.isComposing && event.keyCode !== 229) keyedAt = performance.now();
+            // In a LaTeX command Tab finishes it, like Space and Enter.
+            if (event.key === "Tab" && !event.shiftKey && element.mode === "latex") {
+              event.preventDefault();
+              event.stopPropagation();
+              element.executeCommand("complete");
+            }
+          },
+          true,
+        );
+        element.addEventListener(
+          "beforeinput",
+          (event) => {
+            const input = event as InputEvent;
+            if (input.inputType !== "insertText" || !input.data || input.data.length !== 1 || input.isComposing || performance.now() - keyedAt < 60) return;
+            const sink = input.composedPath()[0];
+            if (!(sink instanceof EventTarget)) return;
+            own = true;
+            const press = new KeyboardEvent("keydown", { key: input.data, bubbles: true, cancelable: true, composed: true });
+            sink.dispatchEvent(press);
+            own = false;
+            // MathLive used the key (a shortcut, a LaTeX command, a space that finishes one): the character must not go in again.
+            if (press.defaultPrevented) {
+              input.preventDefault();
+              input.stopImmediatePropagation();
+            }
+          },
+          true,
+        );
+
         // Phones: let the phone's own keyboard open for this field. MathLive builds the sink as it connects, so try again a moment later.
         if (isTouchDevice()) {
           const apply = () => enableTouchKeyboard(element);
@@ -128,8 +177,17 @@ export function MathAnswerField({
     focusOnReady.current = false;
     field.current?.focus();
     // A box focused during the tap kept the phone keyboard open while this field loaded. The field has it now.
-    releasePrimedKeyboard();
+    // Removing that box takes a moment, so MathLive's focus has settled before the box goes.
+    const timer = setTimeout(releasePrimedKeyboard, 250);
+    return () => clearTimeout(timer);
   }, [ready]);
+
+  // The problem's symbols can change after the field exists (a new part, a new problem). Keep the shortcuts in step.
+  useEffect(() => {
+    const element = field.current;
+    if (!element || !ready || !baseShortcuts.current) return;
+    element.inlineShortcuts = shortcutsFor(baseShortcuts.current, declared.current) as typeof element.inlineShortcuts;
+  }, [ready, symbolKey]);
 
   // Keep MathLive in step with the page: disabled, invalid, described, and a value changed from outside (Clear answers).
   useEffect(() => {
