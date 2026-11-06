@@ -29,7 +29,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { type Problem } from "@/lib/physics";
-import { eloBands } from "@/lib/problem-archive";
+import { ratingBands } from "@/lib/rating-bands";
+import { RatingBandsPopover } from "./rating-bands-popover";
+import { TagFilterContext, tagFilterHref } from "./tag-filter";
+import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CorpusCollection } from "./corpus-collection";
 import { OlympiadCatalog } from "./olympiad-catalog";
@@ -62,9 +65,27 @@ export function ProblemLibrary({
   const [competition, setCompetition] = useState("");
   const [pilotProblemId, setPilotProblemId] = useState<string | undefined>();
   const [search, setSearch] = useState(query || "");
-  const [selectedTopic, setSelectedTopic] = useState(
-    topic ? tagLabel(topic) : "all",
-  );
+  // The tag filter lives in the address (?tag= or the sidebar's ?topic=), so it can be shared and survives a reload.
+  const urlTag = params.get("tag");
+  const urlTopic = params.get("topic");
+  const fromAddress = () => {
+    const value = (urlTag ?? urlTopic ?? topic ?? "").trim().slice(0, 80);
+    return value ? tagLabel(value) : "all";
+  };
+  const [selectedTopic, setSelectedTopic] = useState(fromAddress);
+  useEffect(() => {
+    setSelectedTopic(fromAddress());
+    // fromAddress reads the same two values.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [urlTag, urlTopic]);
+  function commitTag(value: string) {
+    window.history.replaceState(null, "", tagFilterHref(window.location.href, value));
+  }
+  function chooseTag(next: string) {
+    const value = next.trim().slice(0, 80) || "all";
+    setSelectedTopic(value);
+    commitTag(value);
+  }
   const [difficulty, setDifficulty] = useState("all");
   // While a guided problem is open, the collection tabs and filters are not shown, only the problem.
   const reading = collection === "pilot" && Boolean(pilotProblemId);
@@ -81,12 +102,13 @@ export function ProblemLibrary({
 
   function reset() {
     setSearch("");
-    setSelectedTopic("all");
+    chooseTag("all");
     setDifficulty("all");
     setCompetition("");
   }
 
   return (
+    <TagFilterContext.Provider value={{ active: selectedTopic, toggle: chooseTag }}>
     <div className={`flex min-w-0 flex-col gap-7 ${solveTokens}`}>
       <Tabs
         value={collection}
@@ -120,7 +142,7 @@ export function ProblemLibrary({
             <p className="text-sm text-muted-foreground">Pick a topic or type a search, then open a problem.</p>
           </CardHeader>
           <CardContent className="flex min-w-0 flex-col gap-5">
-            <TopicChips topics={physicsTopicLabels} value={selectedTopic} onChange={setSelectedTopic} />
+            <TopicChips topics={physicsTopicLabels} value={selectedTopic} onChange={chooseTag} />
             <FieldGroup className="sm:flex-row sm:flex-wrap sm:items-end">
               <Field className="flex-1">
                 <FieldLabel htmlFor="problem-search">Find a problem</FieldLabel>
@@ -151,26 +173,26 @@ export function ProblemLibrary({
               )}
               <Field className="sm:w-48">
                 <FieldLabel htmlFor="topic-filter">Tag</FieldLabel>
-                <Input id="topic-filter" className="h-11" list="problem-tag-options" maxLength={80} value={selectedTopic === "all" ? "" : selectedTopic} placeholder="All tags" onChange={e => setSelectedTopic(e.target.value || "all")} />
+                <Input id="topic-filter" className="h-11" list="problem-tag-options" maxLength={80} value={selectedTopic === "all" ? "" : selectedTopic} placeholder="All tags" onChange={e => setSelectedTopic(e.target.value || "all")} onBlur={() => commitTag(selectedTopic)} />
                 <datalist id="problem-tag-options">{tagOptions.map(tag => <option key={tag} value={tag} />)}</datalist>
               </Field>
-              <Field className="sm:w-44">
+              <Field className="sm:w-60">
                 <FieldLabel htmlFor="difficulty-filter">
-                  Estimated difficulty
+                  Rating band
                 </FieldLabel>
                 <Select value={difficultyForCollection} onValueChange={setDifficulty}>
                   <SelectTrigger id="difficulty-filter" className="h-11">
                     <SelectValue>
-                      {difficultyForCollection === "unrated" ? "Unrated / author labels" : eloBands.find((band) => band.id === difficultyForCollection)?.range ?? "All ratings"}
+                      {difficultyForCollection === "unrated" ? "Unrated / author labels" : ratingBands.find((band) => band.id === difficultyForCollection)?.name ?? (difficultyForCollection === "all" ? "All ratings" : "Rating band")}
                     </SelectValue>
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
                       <SelectItem value="all">All ratings</SelectItem>
                       {(collection === "arena" || collection === "authored") && <SelectItem value="unrated">Unrated / author labels</SelectItem>}
-                      {eloBands.map((band) => (
+                      {ratingBands.map((band) => (
                         <SelectItem key={band.id} value={band.id}>
-                          {band.range}
+                          {band.name}, {band.range}
                         </SelectItem>
                       ))}
                     </SelectGroup>
@@ -178,6 +200,17 @@ export function ProblemLibrary({
                 </Select>
               </Field>
             </FieldGroup>
+            {selectedTopic !== "all" && (
+              <div className="mt-4 flex flex-wrap items-center gap-3">
+                <p role="status" className="text-base">Showing problems tagged <strong>{selectedTopic}</strong>.</p>
+                <Button type="button" variant="outline" className="min-h-11" onClick={() => chooseTag("all")}>
+                  Clear tag filter
+                </Button>
+              </div>
+            )}
+            <div className="mt-2">
+              <RatingBandsPopover />
+            </div>
           </CardContent>
         </Card>
         </>}
@@ -223,5 +256,6 @@ export function ProblemLibrary({
         </TabsContent>
       </Tabs>
     </div>
+    </TagFilterContext.Provider>
   );
 }

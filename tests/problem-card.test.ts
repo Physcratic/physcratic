@@ -79,14 +79,18 @@ test("cards without a supplied difficulty never invent an estimate", () => {
 
 test("practice cards identify difficulty ratings as estimates and preserve rating bands", () => {
   for (const [elo, band, level] of [
-    [900, "Foundational", "under-1200"],
-    [1300, "Intermediate", "1200-1599"],
-    [1700, "Advanced", "1600-plus"],
+    [900, "Fundamentals", "fundamentals"],
+    [1300, "Beginner olympiad", "beginner-olympiad"],
+    [1700, "Intermediate olympiad", "intermediate-olympiad"],
+    [2250, "Advanced (IPhO level)", "advanced"],
+    [2700, "Mastery", "mastery"],
   ] as const) {
     const html = render({ ...base, elo, onOpen() {} });
     const formatted = elo.toLocaleString("en-US");
     assert.ok(html.includes(`>${formatted}</span>`));
     assert.ok(html.includes(`Estimated difficulty ${formatted}, ${band}`));
+    // The band name is shown next to the rating, not only read out.
+    assert.ok(html.includes(`<span class="text-sm">${band}</span>`), `${band} is shown on the card`);
     assert.ok(html.includes("rounded-md"));
     assert.doesNotMatch(html, /~[\d,]+|\bELO\b/);
     assert.ok(html.includes(`data-level="${level}"`));

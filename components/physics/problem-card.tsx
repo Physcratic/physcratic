@@ -13,7 +13,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { getEloBand } from "@/lib/problem-archive";
+import { ratingBand } from "@/lib/rating-bands";
+import { badgeVariants } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
+import { isActiveTag, nextTagFilter, useTagFilter } from "./tag-filter";
 
 const competitionVariants = {
   IPhO: "ipho",
@@ -59,7 +62,8 @@ export function ProblemCard({
 }: ProblemCardProps) {
   const titleId = React.useId();
   const Heading = headingLevel === 4 ? "h4" : "h3";
-  const band = elo === undefined ? undefined : getEloBand(elo);
+  const band = elo === undefined ? undefined : ratingBand(elo);
+  const tagFilter = useTagFilter();
   // One control per card: the title is plain text and the button is the only link or button. The accessible name starts
   // with the visible words so voice control matches, then names the problem.
   const actionLabel = `Open problem: ${[source, reference, title].filter(Boolean).join(", ")}`;
@@ -100,6 +104,8 @@ export function ProblemCard({
             <span className="text-sm tabular-nums">
               {elo.toLocaleString("en-US")}
             </span>
+            <span aria-hidden="true" className="px-1.5 text-sm">·</span>
+            <span className="text-sm">{band.name}</span>
           </Badge>
         ) : (
           <span className="shrink-0 text-sm text-muted-foreground">
@@ -153,11 +159,28 @@ export function ProblemCard({
       ) : null}
       {attribution && <CardContent className="space-y-3 px-5 pb-5">{attribution}</CardContent>}
       <CardFooter className="problem-entry-details flex min-h-14 flex-wrap items-center gap-2 px-5 py-3">
-        {tags.map((tag) => (
-          <Badge key={tag} variant="concept">
-            {tag}
-          </Badge>
-        ))}
+        {tags.map((tag) =>
+          tagFilter ? (
+            <button
+              key={tag}
+              type="button"
+              aria-pressed={isActiveTag(tagFilter.active, tag)}
+              aria-label={`Filter by ${tag}`}
+              onClick={() => tagFilter.toggle(nextTagFilter(tagFilter.active, tag))}
+              className={cn(
+                badgeVariants({ variant: "concept" }),
+                "min-h-11 cursor-pointer px-3 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                isActiveTag(tagFilter.active, tag) && "border-foreground bg-foreground text-background hover:bg-foreground",
+              )}
+            >
+              {tag}
+            </button>
+          ) : (
+            <Badge key={tag} variant="concept">
+              {tag}
+            </Badge>
+          ),
+        )}
       </CardFooter>
     </Card>
   );

@@ -6,6 +6,7 @@ import { unifiedArenaPageSchema, problemHref, type UnifiedArenaPage, type Collec
 import { AchievementShowcase } from '@/components/community/achievement-badge';
 import {ProblemStatsBatch,ProblemStatsControl} from '@/components/community/problem-stats';
 import { ProblemCard } from './problem-card';
+import { describeEstimate } from '@/lib/rating-bands';
 
 export function UnifiedProblemCard({problem}:{problem:CollectionEntry}) {
  return <ProblemCard id={problem.key} title={problem.title} source={problem.kind==='arena'?'Physcratic':'Community'}
@@ -13,7 +14,7 @@ export function UnifiedProblemCard({problem}:{problem:CollectionEntry}) {
   attribution={<><ProblemStatsControl problemKey={problem.key}/>{problem.kind==='arena'?<p className="text-sm">Published by Physcratic</p>:<>
    <p className="text-sm">By {problem.author?<Link className="underline" href={`/u/${problem.author.handle}`}>{problem.author.displayName||'@'+problem.author.handle}</Link>:'Community author'}</p>
    {problem.author&&<AchievementShowcase ids={problem.author.selectedIds} medals={problem.author.medals}/>}
-   <p className="text-sm text-muted-foreground">Author-estimated difficulty: {problem.estimatedDifficulty||'Not specified'}</p>
+   <p className="text-sm text-muted-foreground">Difficulty: {describeEstimate(problem.estimatedDifficulty)||'Not specified'}</p>
    {problem.provenance&&<details className="text-sm"><summary className="flex min-h-11 cursor-pointer items-center">Attribution and rights</summary><p className="whitespace-pre-wrap break-words">{problem.provenance.kind==='original'?'Original':'Authorized source'}{problem.provenance.source&&` · ${problem.provenance.source}`}</p><p className="whitespace-pre-wrap break-words">{problem.provenance.rightsDeclaration}</p></details>}
   </>}</>}/>;
 }

@@ -105,12 +105,22 @@ try {
     const cards = page.locator("[data-problem-card]");
     for (let i = 0; i < 3; i++) {
       const controls = await cards.nth(i).locator("a[href], button:not([disabled]), input, select, textarea, summary, [tabindex]:not([tabindex='-1'])").count();
-      ok(controls === 1, `library card ${i + 1} has one tab stop, found ${controls} (${tag})`);
+      // One Open problem action, plus one real button for each tag, so a tag can filter the list.
+      const tagButtons = await cards.nth(i).locator("button[aria-label^='Filter by ']").count();
+      ok(controls === 1 + tagButtons, `library card ${i + 1} has one Open problem action and a button per tag (${tagButtons}), found ${controls} tab stops (${tag})`);
     }
     await cards.nth(0).getByRole("link", { name: /^Open problem:/ }).focus();
+    // Tab goes through the tags of card 1, then lands on Open problem in card 2.
+    const tagsInCard1 = await cards.nth(0).locator("button[aria-label^='Filter by ']").count();
+    for (let i = 0; i < tagsInCard1; i++) {
+      await page.keyboard.press("Tab");
+      ok(await page.evaluate(() => /^Filter by /.test(document.activeElement?.getAttribute("aria-label") ?? "")), `Tab reaches a tag button of card 1 (${tag})`);
+    }
     await page.keyboard.press("Tab");
     ok(await cards.nth(1).evaluate((el) => el.contains(document.activeElement)), `Tab from card 1 lands in card 2 (${tag})`);
     ok(await page.evaluate(() => /^Open problem:/.test(document.activeElement?.getAttribute("aria-label") ?? "")), `the focused control is Open problem (${tag})`);
+    const tagsInCard2 = await cards.nth(1).locator("button[aria-label^='Filter by ']").count();
+    for (let i = 0; i < tagsInCard2; i++) await page.keyboard.press("Tab");
     await page.keyboard.press("Tab");
     ok(await cards.nth(2).evaluate((el) => el.contains(document.activeElement)), `Tab from card 2 lands in card 3 (${tag})`);
     await group.getByRole("button", { name: fixtures.library.topic, exact: true }).click();
