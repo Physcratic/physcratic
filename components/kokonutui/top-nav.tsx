@@ -32,7 +32,7 @@ export default function TopNav({
   }, [router]);
 
   return (
-    <header className="flex h-[72px] shrink-0 items-center justify-between border-b bg-background pl-4 pr-[68px] sm:px-8 sm:pl-16 lg:pl-8 xl:px-10">
+    <header className="relative z-40 flex h-[72px] shrink-0 items-center justify-between border-b bg-background pl-4 pr-[68px] sm:px-8 sm:pl-16 lg:pl-8 xl:px-10">
       <Link href="/dashboard" className="flex min-h-11 min-w-0 items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:hidden" aria-label="Physcratic home">
         <BrandMark size={32} className="shrink-0 rounded-md" />
         <span className="truncate text-xl font-semibold tracking-[-0.05em]">Physcratic</span>

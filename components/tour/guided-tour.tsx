@@ -4,6 +4,8 @@ import { createPortal } from "react-dom";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { tours, type TourId, type TourStep } from "./tours";
+import { ringLayer } from "./tour-layer";
+import { TourText } from "./tour-text";
 import { clearRunning, hasSeen, markSeen, readRunning, TOUR_EVENT, writeRunning } from "./tour-storage";
 
 type Box = { top: number; left: number; width: number; height: number };
@@ -223,8 +225,9 @@ export function GuidedTour({ tourId }: { tourId: TourId }) {
       <div
         aria-hidden="true"
         data-tour-ring=""
-        className="pointer-events-none fixed z-[60] rounded-md ring-2 ring-primary ring-offset-2 ring-offset-background"
-        style={{ top: box.top - 2, left: box.left - 2, width: box.width + 4, height: box.height + 4 }}
+        className="pointer-events-none fixed rounded-md ring-2 ring-primary ring-offset-2 ring-offset-background"
+        data-tour-ring-layer={ringLayer(target)}
+        style={{ zIndex: ringLayer(target), top: box.top - 2, left: box.left - 2, width: box.width + 4, height: box.height + 4 }}
       />
       <div
         ref={card}
@@ -240,7 +243,7 @@ export function GuidedTour({ tourId }: { tourId: TourId }) {
         <p ref={heading} id={titleId} tabIndex={-1} className="text-lg font-semibold leading-snug outline-none">
           {step.title}
         </p>
-        <p id={textId} className="text-base leading-relaxed">{step.text}</p>
+        <p id={textId} className="text-base leading-relaxed"><TourText text={step.text} /></p>
         <div className="flex flex-wrap items-center gap-2">
           {index > 0 && (
             <Button type="button" variant="outline" className="min-h-11" disabled={previous(index) < 0} onClick={() => go(previous(index))}>
