@@ -85,6 +85,13 @@ Before and after:
 | "Create something worth solving" / "Your next physics problem." / "Build the statement in small blocks. Keep the reasoning elegant and the answer keys private." | Title "Problem Studio" and one line: "Write a problem, add a solution, then publish." |
 | "Less memorizing. More understanding." (dashboard subtitle) | "Today's problem, your rating and recommended practice." |
 
+## Ratings and difficulty
+
+- The five rating bands live in `lib/rating-bands.ts` and nowhere else: Fundamentals (below 1,200), Beginner olympiad (1,200 to 1,599), Intermediate olympiad (1,600 to 1,999), Advanced (IPhO level) (2,000 to 2,499) and Mastery (2,500 and up). The library, Problem Studio and the "What do the ratings mean?" popover all read that file.
+- A problem's rating shows with its band name, such as "2,250 · Advanced (IPhO level)".
+- An author's estimate always reads as an estimate, such as "~1,850 · Intermediate olympiad (estimate)". It is saved as a plain number in the existing difficulty field. It is never used in a rating, a result or a contest.
+- Answers: a student writes `ln` for the natural log and `\log_{10}`, `log10` or `log_10` for base 10. A bare `log` is refused with one message, "Write ln for the natural log, or log₁₀ for base 10." This applies to student answers and to a new key written in Problem Studio. A key that was saved earlier keeps reading `log` as `ln`.
+
 ## Production
 
 The Vercel Hobby plan blocks deploys of commits made by anyone but the owner. After merging:
