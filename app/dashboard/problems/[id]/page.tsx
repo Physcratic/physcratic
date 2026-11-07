@@ -80,7 +80,7 @@ export default async function PracticeProblemPage({ params }: Props) {
     return (
       <Layout view="problems">
         {crumbs}
-        <ImportedProblemRoute problem={imported} />
+        <ImportedProblemRoute problem={imported.titleOrigin === "problem-identifier" ? { ...imported, title: page.title, titleLanguage: "en" } : imported} />
         <div className="mx-auto mt-8 flex w-full max-w-4xl flex-col gap-8">
           {view && <ArchiveStatementText page={page} view={view} />}
         </div>
