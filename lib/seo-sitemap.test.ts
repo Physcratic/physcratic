@@ -3,6 +3,7 @@ import { existsSync } from "node:fs";
 import { describe, it } from "node:test";
 import nextConfig from "../next.config";
 import { GET as llms } from "../app/llms.txt/route";
+import { GET as llmsFull } from "../app/llms-full.txt/route";
 import robots, { CRAWLERS } from "../app/robots";
 import sitemap from "../app/sitemap";
 import { publishedArticles } from "./learn/articles";
@@ -47,16 +48,24 @@ describe("sitemap", () => {
   });
 });
 
-describe("llms.txt", () => {
-  it("is built from the same list as the sitemap", async () => {
+describe("llms.txt and llms-full.txt", () => {
+  const linksOf = (body: string) => [...body.matchAll(/\]\((https?:[^)]+)\)/g)].map((m) => path(m[1]));
+  it("keeps llms.txt a short index of pages that are in the sitemap", async () => {
     const body = await llms().text();
-    const linked = [...body.matchAll(/\]\((https?:[^)]+)\)/g)].map((m) => m[1]);
-    const linkedPaths = new Set(linked.map(path));
     const sitemapPaths = new Set(urls.map(path));
-    for (const p of sitemapPaths) if (p !== "/") assert.ok(linkedPaths.has(p), `llms.txt is missing ${p}`);
-    for (const p of linkedPaths) if (p !== "/terms") assert.ok(sitemapPaths.has(p), `llms.txt has ${p}, which is not in the sitemap`);
+    for (const p of linksOf(body)) if (p !== "/terms" && p !== "/llms-full.txt") assert.ok(sitemapPaths.has(p), `llms.txt has ${p}, which is not in the sitemap`);
+    assert.ok(linksOf(body).includes("/llms-full.txt"));
+    assert.ok(Buffer.byteLength(body, "utf8") < 5120, "stays under 5 KB");
     assert.doesNotMatch(body, /[?]view=|[?]topic=/);
     assert.match(body, /free physics olympiad practice with IPhO, APhO and EuPhO problems and checked answers/);
+  });
+  it("lists every page in the sitemap in llms-full.txt, and nothing else", async () => {
+    const body = await llmsFull().text();
+    const linked = new Set(linksOf(body));
+    const sitemapPaths = new Set(urls.map(path));
+    for (const p of sitemapPaths) if (p !== "/") assert.ok(linked.has(p), `llms-full.txt is missing ${p}`);
+    for (const p of linked) assert.ok(sitemapPaths.has(p), `llms-full.txt has ${p}, which is not in the sitemap`);
+    assert.doesNotMatch(body, /[?]view=|[?]topic=/);
   });
 });
 

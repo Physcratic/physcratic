@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import { generateMetadata } from "../app/dashboard/problems/[id]/page";
-import { problemDescription } from "./seo/problem-descriptions";
+import { findProblemPage } from "./seo/problem-pages";
 import { problems } from "./physics";
 import { catalogProblems } from "./corpus-catalog";
 import arena from "./arena/index.json";
@@ -13,7 +13,8 @@ test("the actual public page uses X1 descriptions, identity and canonicals for a
   const titles = [];
   for (const problem of all) {
     const metadata = await generateMetadata({ params: Promise.resolve({ id: problem.id }) });
-    assert.equal(metadata.description, problemDescription(problem));
+    assert.equal(metadata.description, findProblemPage(problem.id)!.description);
+    assert.equal(metadata.title, findProblemPage(problem.id)!.metaTitle);
     assert.deepEqual(metadata.alternates, { canonical: `/dashboard/problems/${problem.id}` });
     assert.equal(metadata.openGraph?.description, metadata.description);
     assert.equal(metadata.openGraph?.url, `/dashboard/problems/${problem.id}`);
@@ -36,7 +37,6 @@ test("unknown and authored-looking IDs cannot pull private metadata into the sta
     assert.doesNotMatch(source, /from ["']@\/lib\/(?:authored-|problem-authoring|author-media|db)/);
   }
   const image = readFileSync("app/dashboard/problems/[id]/opengraph-image.tsx", "utf8");
-  assert.match(image, /catalogProblems\.find/);
-  assert.match(image, /arena\.problems\.find/);
+  assert.match(image, /findProblemPage\(id\)/);
   assert.match(image, /if \(!problem\) notFound\(\)/);
 });

@@ -212,8 +212,11 @@ for (const article of publishedArticles) {
   });
   const llms = await get("/llms.txt");
   same(llms.status, 200, "llms.txt status");
-  const llmsPaths = new Set([...llms.body.matchAll(/\]\((https?:[^)]+)\)/g)].map((m) => new URL(m[1]).pathname));
-  for (const loc of locs) { const path = new URL(loc).pathname; if (path !== "/") ok(llmsPaths.has(path), `llms.txt lists ${path}`); }
+  ok(Buffer.byteLength(llms.body) < 5120, "llms.txt is a short index");
+  const full = await get("/llms-full.txt");
+  same(full.status, 200, "llms-full.txt status");
+  const llmsPaths = new Set([...full.body.matchAll(/\]\((https?:[^)]+)\)/g)].map((m) => new URL(m[1]).pathname));
+  for (const loc of locs) { const path = new URL(loc).pathname; if (path !== "/") ok(llmsPaths.has(path), `llms-full.txt lists ${path}`); }
   const robots = await get("/robots.txt");
   same(robots.status, 200, "robots.txt status");
   for (const bot of Object.keys(BOTS)) {
@@ -225,7 +228,7 @@ for (const article of publishedArticles) {
 
 // 7. Each crawler gets the same pages as a browser: 200, no noindex header, no challenge page.
 {
-  const samples = ["/", "/problems", "/problems/archive", "/problems/topics/mechanics", "/dashboard/problems/ipho-2025-t2", "/dashboard/problems/arena-mind-the-gap", "/dashboard/problems/incline", `/learn/${publishedArticles[0].slug}`, "/learn", "/coaching", "/sitemap.xml", "/llms.txt", "/robots.txt"];
+  const samples = ["/", "/problems", "/problems/archive", "/problems/topics/mechanics", "/dashboard/problems/ipho-2025-t2", "/dashboard/problems/arena-mind-the-gap", "/dashboard/problems/incline", `/learn/${publishedArticles[0].slug}`, "/learn", "/coaching", "/sitemap.xml", "/llms.txt", "/llms-full.txt", "/robots.txt"];
   for (const [bot, userAgent] of Object.entries(BOTS)) {
     for (const path of samples) {
       const response = await get(path, userAgent);

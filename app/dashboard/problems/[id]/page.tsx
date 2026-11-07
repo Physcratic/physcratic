@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical: page.path },
     // A page with too little statement text to be useful stays out of search results. Its links still count.
     ...(page.indexable ? {} : { robots: { index: false, follow: true } }),
-    openGraph: { ...baseOpenGraph, type: "article", title: `${page.metaTitle} | Physcratic`, description: page.description, url: page.path },
+    openGraph: { ...baseOpenGraph, type: "article", title: page.metaTitle, description: page.description, url: page.path },
   };
 }
 
