@@ -56,9 +56,12 @@ export function plainPunctuation(text: string): string {
   return text.replace(/\s*[–—]\s*/g, " - ").replace(/\s*;\s*/g, ", ");
 }
 
-/** "WATER-POWERED RICE-POUNDING MORTAR" becomes "Water-Powered Rice-Pounding Mortar". Other titles are untouched. */
+/**
+ * "WATER-POWERED RICE-POUNDING MORTAR" becomes "Water-Powered Rice-Pounding Mortar" in the <title>. The page heading keeps
+ * the official title as written. One-word titles such as "LIGO-GW150914" are acronyms and stay as they are.
+ */
 export function displayTitle(title: string): string {
-  if (title !== title.toUpperCase() || !/[A-Z]/.test(title)) return title;
+  if (title !== title.toUpperCase() || !/[A-Z]/.test(title) || !/\s/.test(title.trim())) return title;
   return title.toLowerCase().replace(/(^|[\s(-])([a-z])/g, (_, lead: string, letter: string) => lead + letter.toUpperCase());
 }
 
@@ -116,7 +119,7 @@ function fit(description: string, fallback: string): string {
 function archivePage(problem: CatalogProblem): ProblemPage {
   const number = Number(problem.code.slice(1));
   const identifierOnly = problem.titleOrigin === "problem-identifier";
-  const title = identifierOnly ? `${problem.competition} ${problem.year} Problem ${number}` : plainPunctuation(displayTitle(problem.title));
+  const title = identifierOnly ? `${problem.competition} ${problem.year} Problem ${number}` : problem.title;
   const imported = pdfStatement(problem);
   const text = imported.text;
   const body = statementParagraphs(text, problem.title).join(" ");
@@ -131,7 +134,7 @@ function archivePage(problem: CatalogProblem): ProblemPage {
     kind: "archive",
     path: problemPath(problem.id),
     title,
-    metaTitle: archiveMetaTitle(title, problem.competition, problem.year, number, identifierOnly),
+    metaTitle: archiveMetaTitle(plainPunctuation(displayTitle(title)), problem.competition, problem.year, number, identifierOnly),
     description,
     topic: problem.primaryTopic,
     topicSlug: topicSlug(problem.primaryTopic),

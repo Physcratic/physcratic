@@ -43,12 +43,16 @@ describe("problem pages", () => {
     assert.equal(archiveMetaTitle("IPhO 2019 Problem 1", "IPhO", 2019, 1, true), "IPhO 2019 Problem 1");
     assert.equal(displayTitle("WATER-POWERED RICE-POUNDING MORTAR"), "Water-Powered Rice-Pounding Mortar");
     assert.equal(displayTitle("Cox's Timepiece"), "Cox's Timepiece");
+    assert.equal(displayTitle("LIGO-GW150914"), "LIGO-GW150914", "one-word acronyms stay as they are");
+    assert.equal(findProblemPage("ipho-2018-t1")!.title, "LIGO-GW150914");
+    assert.equal(findProblemPage("eupho-2024-t3")!.title, "Fabry–Pérot interferometer", "the heading keeps the official title");
+    assert.doesNotMatch(findProblemPage("eupho-2024-t3")!.metaTitle, /[–—]/);
   });
   it("gives every page its own 70 to 160 character description that follows the copy rules", () => {
     for (const p of pages) {
       assert.ok(p.description.length >= 70 && p.description.length <= 160, `${p.id}: ${p.description.length} "${p.description}"`);
       assert.deepEqual(findCopyProblems(p.description).map((x) => x.rule), [], p.id);
-      assert.deepEqual(findCopyProblems(p.title).map((x) => x.rule), [], p.id);
+      assert.deepEqual(findCopyProblems(p.metaTitle).map((x) => x.rule), [], p.id);
     }
     assert.equal(new Set(pages.map((p) => p.description)).size, pages.length, "no two pages share a description");
   });

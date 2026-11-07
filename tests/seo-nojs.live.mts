@@ -93,7 +93,9 @@ const pages = allProblemPages();
   const library = await get("/problems");
   same(library.status, 200, "library status");
   const links = hrefs(library.body);
-  for (const page of pages) ok(links.includes(page.path), `library links to ${page.path}`);
+  // The library lists practice and Arena problems and points to the archive and topic pages, which list the rest.
+  for (const page of pages.filter((p) => p.kind !== "archive")) ok(links.includes(page.path), `library links to ${page.path}`);
+  for (const link of ["/problems/archive", ...topicsWithProblems().map((t) => `/problems/topics/${t.slug}`)]) ok(links.includes(link), `library links to ${link}`);
   ok(jsonLd(library.body).flat().some((n: any) => n["@type"] === "CollectionPage"), "library JSON-LD");
   const archive = await get("/problems/archive");
   same(archive.status, 200, "archive status");
