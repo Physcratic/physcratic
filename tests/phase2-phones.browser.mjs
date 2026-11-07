@@ -99,7 +99,7 @@ try {
     if (shotDir) await page.screenshot({ path: join(shotDir, `phone-${name.replace(/ /g, "-")}-field.png`) });
     // The three-line menu button stays on top of the header and clickable after scrolling down and back up, and the menu opens above everything.
     await page.goto(`${origin}/dashboard`);
-    const menuButton = page.getByRole("button", { name: "Open navigation" });
+    const menuButton = page.getByRole("button", { name: "Menu", exact: true });
     await menuButton.waitFor({ timeout: 30000 });
     const onTop = () => menuButton.evaluate((el) => { const r = el.getBoundingClientRect(); const top = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return !!top && (top === el || el.contains(top)); });
     ok(await onTop(), `${name}: the menu button is on top of the header at the top of the page`);

@@ -12,13 +12,13 @@ export function TourHelpButton({ tourId, className }: { tourId: TourId; classNam
     <Button
       type="button"
       variant="ghost"
-      size="icon"
-      className={className ?? "size-11"}
+      className={className ?? "h-12 min-w-12 w-auto flex-col gap-0.5 px-2 py-1 text-xs font-medium leading-none sm:h-11 sm:flex-row sm:gap-2 sm:px-3 sm:text-sm"}
       aria-label={`Help: ${tours[tourId].name}`}
       title={tours[tourId].name}
       onClick={() => startTour(tourId)}
     >
       <CircleHelp aria-hidden="true" className="size-5" />
+      <span>Help</span>
     </Button>
   );
 }

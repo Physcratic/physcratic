@@ -48,7 +48,7 @@ try {
       await p.screenshot({ path: join(process.env.P1_SCREENSHOTS, `overview-${width}-${theme}.png`), fullPage: true, animations: 'disabled' });
     }
     const navigate = async (view, heading) => {
-      if (width < 1024) await p.getByRole('button', { name: 'Open navigation', exact: true }).click();
+      if (width < 1024) await p.getByRole('button', { name: 'Menu', exact: true }).click();
       await p.locator(`nav[aria-label="Main navigation"] a[href="/dashboard?view=${view}"]:visible`).click();
       await p.getByRole('heading', { name: heading, level: 1, exact: true }).waitFor();
     };

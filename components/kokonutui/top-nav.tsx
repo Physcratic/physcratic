@@ -83,7 +83,7 @@ export default function TopNav({
           asChild
           variant="outline"
           size="sm"
-          className="size-11 border-accent-foreground p-0 text-accent-foreground hover:bg-accent hover:text-accent-foreground sm:h-11 sm:w-auto sm:px-3"
+          className="h-12 min-w-12 w-auto flex-col gap-0.5 px-2 py-1 text-xs font-medium leading-none sm:h-11 sm:flex-row sm:gap-2 sm:px-3 sm:text-sm border-accent-foreground text-accent-foreground hover:bg-accent hover:text-accent-foreground"
         >
           <Link
             href="/coaching"
@@ -92,7 +92,7 @@ export default function TopNav({
             {...coachingEntryHandlers("topbar")}
           >
             <GraduationCap aria-hidden="true" />
-            <span className="hidden font-medium sm:inline">Coaching</span>
+            <span>Coaching</span>
           </Link>
         </Button>
         <TourHelpButton tourId="welcome" />

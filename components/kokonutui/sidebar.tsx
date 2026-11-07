@@ -207,8 +207,9 @@ export default function Sidebar({
       <div className="fixed right-3 top-3.5 z-[42] sm:left-4 sm:right-auto lg:hidden">
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="size-11" aria-label="Open navigation" data-tour="nav-open">
-              <Menu />
+            <Button variant="ghost" className="h-12 min-w-12 w-auto flex-col gap-0.5 px-2 py-1 text-xs font-medium leading-none sm:h-11 sm:flex-row sm:gap-2 sm:px-3 sm:text-sm" data-tour="nav-open">
+              <Menu aria-hidden="true" />
+              <span>Menu</span>
             </Button>
           </SheetTrigger>
           <SheetContent side={phone ? "right" : "left"} className="w-72 p-0">

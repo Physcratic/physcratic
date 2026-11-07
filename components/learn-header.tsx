@@ -35,11 +35,11 @@ export function LearnHeader() {
           <Button
             asChild
             variant="outline"
-            className="size-11 border-accent-foreground p-0 text-accent-foreground hover:bg-accent hover:text-accent-foreground sm:h-11 sm:w-auto sm:px-3"
+            className="h-12 min-w-12 w-auto flex-col gap-0.5 px-2 py-1 text-xs font-medium leading-none sm:h-11 sm:flex-row sm:gap-2 sm:px-3 sm:text-sm border-accent-foreground text-accent-foreground hover:bg-accent hover:text-accent-foreground"
           >
             <Link href="/coaching" aria-label="Coaching" {...coachingEntryHandlers("topbar")}>
               <GraduationCap aria-hidden="true" />
-              <span className="hidden font-medium sm:inline">Coaching</span>
+              <span>Coaching</span>
             </Link>
           </Button>
           <div className="hidden sm:block">
@@ -52,8 +52,9 @@ export function LearnHeader() {
           <div className="sm:hidden">
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="size-11" aria-label="Open menu">
+                <Button variant="ghost" className="h-12 min-w-12 w-auto flex-col gap-0.5 px-2 py-1 text-xs font-medium leading-none sm:h-11 sm:flex-row sm:gap-2 sm:px-3 sm:text-sm">
                   <Menu aria-hidden="true" />
+                  <span>Menu</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-72">
