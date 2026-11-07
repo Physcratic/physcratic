@@ -6,7 +6,9 @@
 // AUTHORED_PROBLEM_ID adds the authored student page (needs the throwaway PostgreSQL, see C5 to C7).
 // SESSION_COOKIE ("name=value") switches to the signed-in pass: Problem Studio (draft list, editor, student preview),
 // submissions, settings and the authored student page with its answer form. Needs the throwaway PostgreSQL with a
-// verified test user and a session row. Never use a real database or a real account.
+// verified test user and a session row. Apply every migrations/*.up.sql AND migrations/20261031_auth_rate_limit.sql (no
+// number prefix): without the rateLimit table Better Auth throws SCHEMA_MISMATCH and every signed-in page answers 500.
+// Never use a real database or a real account.
 // Text must reach 4.5:1 (3:1 for large text), inputs, cards and disclosure boxes need a 3:1 border. Disabled controls
 // are exempt (WCAG 1.4.3). Only /api/dashboard and a signed-out /api/auth/get-session are mocked, for Contests.
 // Fixtures: tests/fixtures/first-time-user.json. Not run by CI.
@@ -176,8 +178,9 @@ async function ensureDraft(page) {
   await questions.first().click();
   await page.keyboard.type("A 2 kg cart accelerates at 5 m/s2 along a frictionless horizontal track. Find the net force.", { delay: 5 });
   await page.waitForURL((url) => url.searchParams.has("draft"));
+  // The button names the next letter ("Add part b", then "Add part c"), so match it by its pattern.
   for (const [index, question] of ["Find the work done over 3 m.", "Find the speed after 3 m."].entries()) {
-    await page.getByRole("button", { name: "Add another part", exact: true }).click();
+    await page.getByRole("button", { name: /^Add part [b-z]$/ }).click();
     await questions.nth(index + 1).click();
     await page.keyboard.type(question, { delay: 5 });
   }
