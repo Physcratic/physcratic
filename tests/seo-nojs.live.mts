@@ -3,7 +3,7 @@
 // against the visible text, the related links, the sitemap, llms.txt and robots.txt, and that each search and AI
 // crawler user agent gets a normal 200.
 //
-//   pnpm build && VERCEL_ENV=production pnpm exec next start -p 3100
+//   VERCEL_ENV=production pnpm build && VERCEL_ENV=production pnpm exec next start -p 3100
 //   BROWSER_TEST_ORIGIN=http://127.0.0.1:3100 pnpm exec tsx --conditions=react-server tests/seo-nojs.live.mts
 //
 // Run the server from a clean worktree with no .env.local. Not run by CI (it needs a running server).
@@ -223,7 +223,7 @@ for (const article of publishedArticles) {
   same(robots.status, 200, "robots.txt status");
   for (const bot of Object.keys(BOTS)) {
     const group = robots.body.match(new RegExp(`User-Agent: ${bot}\\n([\\s\\S]*?)(?:\\n\\n|$)`, "i"));
-    ok(group && /Allow: \//.test(group[1]) && !/Disallow: \/\n/.test(group[1]), `robots.txt allows ${bot}. Start the server with VERCEL_ENV=production. Got: ${robots.body.slice(0, 200)}`);
+    ok(group && /Allow: \//.test(group[1]) && !/Disallow: \/\n/.test(group[1]), `robots.txt allows ${bot}. Build and start with VERCEL_ENV=production (robots.txt is built at build time). Got: ${robots.body.slice(0, 200)}`);
   }
   ok(/Sitemap: .*\/sitemap\.xml/.test(robots.body), "robots.txt names the sitemap");
 }
