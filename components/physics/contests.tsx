@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/empty";
 import { PublishedContestCard } from "./published-contest-card";
 import { solveTokens } from "./solve-ui";
+import { LoadingLines } from "@/components/loading-lines";
 
 export function Contests() {
   const { data, error, isLoading, mutate } = useDashboard();
@@ -27,9 +28,7 @@ export function Contests() {
           Published contests
         </h2>
         {isLoading ? (
-          <p role="status" className="text-sm text-muted-foreground">
-            Loading published contests…
-          </p>
+          <LoadingLines label="Loading published contests…" />
         ) : error ? (
           <div className="flex flex-col items-start gap-3">
             <p role="alert" className="text-sm text-destructive">

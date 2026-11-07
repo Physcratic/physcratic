@@ -18,7 +18,10 @@ import { VerificationNotice } from "@/components/verification-notice";
 export function AuthForm({ mode, returnTo, verified = false, verificationError = false }: { mode: "sign-in" | "sign-up"; returnTo: string; verified?: boolean; verificationError?: boolean }) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setErrorText] = useState("");
+  // What the button under an error does: sign in instead, reset a password, jump to the Terms box, or try the same thing again.
+  const [fix, setFix] = useState<"sign-in" | "reset" | "terms" | "retry" | "reload" | null>(null);
+  const setError = (text: string, next: typeof fix = null) => { setErrorText(text); setFix(next); };
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [verificationEmail, setVerificationEmail] = useState<string | null>(null);
   const creating = mode === "sign-up";
@@ -26,7 +29,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
     event.preventDefault();
     if (busy) return;
     if (creating && !termsAccepted) {
-      setError("Please read and accept the Terms of Service to create an account.");
+      setError("The Terms of Service box is not ticked yet. Tick it, then tap Create account again.", "terms");
       return;
     }
     setBusy(true);
@@ -41,14 +44,14 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
         : await authClient.signIn.email({ ...credentials, callbackURL });
       if (result.error) {
         if (creating && result.error.code === "TERMS_ACCEPTANCE_REQUIRED") {
-          setError("Please reload this page, review the current Terms of Service, and accept them before continuing.");
+          setError("The Terms of Service have changed since this page opened. Reload the page, read them and tick the box again.", "reload");
           return;
         }
         if (!creating && result.error.code === "EMAIL_NOT_VERIFIED") {
           setVerificationEmail(credentials.email);
           return;
         }
-        setError(creating ? "We could not create your account. Check your details or try signing in." : "Sign-in failed. Check your details and try again.");
+        setError(creating ? "We could not create your account. Check that your email is spelled right and your password has at least 8 characters. If you already have an account, sign in instead." : "That email and password did not match. Check them and try again, or reset your password.", creating ? "sign-in" : "reset");
         return;
       }
       if (creating) {
@@ -58,7 +61,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
       router.push(returnTo);
       router.refresh();
     } catch {
-      setError("The account service is temporarily unavailable. Please try again.");
+      setError("We could not reach the account service. Check your connection and try again. What you typed is still here.", "retry");
     } finally {
       setBusy(false);
     }
@@ -86,7 +89,11 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
                     <FieldDescription id="account-terms-description"><Link href="/terms" target="_blank" rel="noopener noreferrer">Read the Terms of Service (opens in a new tab)</Link>. We record the version and acceptance time with your account.</FieldDescription>
                   </FieldContent>
                 </Field>}
-                {error && <Alert variant="destructive" role="alert"><AlertTitle>Could not continue</AlertTitle><AlertDescription>{error}</AlertDescription></Alert>}
+                {error && <Alert variant="destructive" role="alert"><AlertTitle>Could not continue</AlertTitle><AlertDescription>{error}
+                  {fix && <span className="mt-3 block"><Button type="button" variant="outline" className="min-h-11 bg-background" asChild={fix === "sign-in" || fix === "reset"} onClick={fix === "terms" ? () => document.getElementById("account-terms")?.focus() : fix === "reload" ? () => window.location.reload() : fix === "retry" ? () => { setError(""); (document.getElementById("account-form") as HTMLFormElement | null)?.requestSubmit(); } : undefined}>
+                    {fix === "sign-in" ? <Link href={`/sign-in?returnTo=${encodeURIComponent(returnTo)}`}>Sign in instead</Link> : fix === "reset" ? <Link href="/forgot-password">Reset your password</Link> : fix === "terms" ? "Go to the Terms box" : fix === "reload" ? "Reload the page" : "Try again"}
+                  </Button></span>}
+                </AlertDescription></Alert>}
               </FieldGroup></fieldset>
             </form>
           </CardContent>

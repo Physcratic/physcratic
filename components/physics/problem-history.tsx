@@ -20,6 +20,7 @@ import { useProblemHistory } from "@/hooks/use-problem-history";
 import { useDashboard } from "@/hooks/use-dashboard";
 import { problems, type Problem } from "@/lib/physics";
 import { ProblemList } from "./problem-list";
+import { LoadingLines } from "@/components/loading-lines";
 
 export function ProblemHistory({
   onOpen,
@@ -55,9 +56,7 @@ export function ProblemHistory({
         </Card>
       )}
       {isLoading ? (
-        <p role="status" className="text-sm text-muted-foreground">
-          Loading your saved progress…
-        </p>
+        <LoadingLines label="Loading your saved progress…" />
       ) : error ? (
         <div className="flex flex-col items-start gap-3">
           <p role="alert" className="text-sm text-destructive">
