@@ -32,14 +32,18 @@ describe("coaching conversion events", () => {
   it("is wired to the consultation and tutor links", () => {
     const form = readFileSync(new URL("../components/coaching/coaching-form-link.tsx", import.meta.url), "utf8");
     const hero = readFileSync(new URL("../components/coaching/coaching-hero.tsx", import.meta.url), "utf8");
+    const button = readFileSync(new URL("../components/coaching/booking-button.tsx", import.meta.url), "utf8");
     assert.match(form, /trackTutorClick\(\)/);
     assert.match(form, /trackConsultationClick\(pathway \?\? "none"\)/);
-    assert.match(form, /onClick=\{onClick\}/);
-    assert.match(hero, /onClick: \(\) => trackConsultationClick\(pathway\)/);
-    // A middle-click sends auxclick, not click, so both links handle it too.
-    assert.match(form, /onAuxClick=\{onAuxClick\}/);
-    assert.match(form, /event\.button === 1/);
-    assert.match(hero, /onAuxClick: \(event: React\.MouseEvent\) => \{ if \(event\.button === 1\) trackConsultationClick\(pathway\)/);
+    assert.match(form, /onOpen=\{onClick\}/);
+    assert.match(hero, /onOpen=\{\(\) => trackConsultationClick\(pathway \|\| "none"\)\}/);
+    // Both pages use the one booking button. It reports a normal click first, whether the tab then opens or not.
+    assert.match(form, /<BookingButton /);
+    assert.match(hero, /<BookingButton /);
+    assert.match(button, /const open = [^\n]*\n\s*onOpen\?\.\(\);/);
+    // A middle-click sends auxclick, not click, so the button handles it too. The fallback link reports its own click.
+    assert.match(button, /onAuxClick=\{\(event\) => \{ if \(event\.button === 1\) onOpen\?\.\(\); \}\}/);
+    assert.match(button, /className=\{className\} onClick=\{onOpen\}>Open the booking form in a new tab/);
   });
 });
 
