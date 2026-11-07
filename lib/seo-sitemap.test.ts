@@ -53,8 +53,9 @@ describe("llms.txt and llms-full.txt", () => {
   it("keeps llms.txt a short index of pages that are in the sitemap", async () => {
     const body = await llms().text();
     const sitemapPaths = new Set(urls.map(path));
-    for (const p of linksOf(body)) if (p !== "/terms" && p !== "/llms-full.txt") assert.ok(sitemapPaths.has(p), `llms.txt has ${p}, which is not in the sitemap`);
-    assert.ok(linksOf(body).includes("/llms-full.txt"));
+    for (const p of linksOf(body)) if (p !== "/terms") assert.ok(sitemapPaths.has(p), `llms.txt has ${p}, which is not in the sitemap`);
+    // A plain URL, not a markdown link, because scripts/check-seo.mjs loads every linked page as HTML.
+    assert.match(body, /Every problem page, one line each: https?:\/\/\S+\/llms-full\.txt/);
     assert.ok(Buffer.byteLength(body, "utf8") < 5120, "stays under 5 KB");
     assert.doesNotMatch(body, /[?]view=|[?]topic=/);
     assert.match(body, /free physics olympiad practice with IPhO, APhO and EuPhO problems and checked answers/);

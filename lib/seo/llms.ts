@@ -38,7 +38,7 @@ export function llmsIndex(base: string): string {
     "## Example problems",
     "",
     ...examples.map((route) => `- [${route.title}](${abs(route.path)}): ${route.topic}`),
-    `- [Every problem page](${abs("/llms-full.txt")}): the full list, one line each`,
+    `- Every problem page, one line each: ${abs("/llms-full.txt")}`,
     "",
     ...(guides.length > 0
       ? ["## Guides", "", ...(hub ? [`- [All guides](${abs(hub.path)}): plain guides with cited sources`] : []), ...guides.map((route) => `- [${route.title}](${abs(route.path)})`), ""]
