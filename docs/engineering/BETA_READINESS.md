@@ -1,5 +1,16 @@
 # Beta readiness log
 
+## 2026-11-07: Phase 8, search and AI visibility
+
+- **What:** every problem statement is in the server HTML, each archive problem has a titled, described, linked page, the sitemap and `llms.txt` come from one list, and the home page is a plain landing page for crawlers. Full write-up: [SEARCH_AND_AI_VISIBILITY.md](SEARCH_AND_AI_VISIBILITY.md).
+- **URLs added:** `/problems`, `/problems/archive` and six `/problems/topics/<slug>` pages, plus `/llms-full.txt`. The 130 problem pages keep their `/dashboard/problems/<id>` URLs and are now built at build time.
+- **Home page:** `/` shows signed-out visitors and crawlers an h1, one sentence about what Physcratic is and links to the library, archive, Learn and Coaching. Signed-in users get the Lobby. The response is `private, no-store`. `/dashboard` is `noindex, follow` and out of the sitemap.
+- **Sitemap:** 33 URLs before (10 of them `?view=` or `?topic=`), 146 after, no query strings, `lastmod` from the data on 122 of them.
+- **Not indexed, on purpose:** published authored problems (statement in the HTML, `noindex`, indexing to wait for a quality bar) and three archive papers with almost no extractable text.
+- **Tests added:** statement cleaning, the problem model, structured data, sitemap and `llms` files, crawl access, the home audience rule, a server-HTML render test for every kind of statement (all in CI), and `tests/seo-nojs.live.mts`, `tests/home-session.live.mts` and `tests/authored-ssr.live.mts` against a running build.
+- **Changed tests:** `lib/public-problem-metadata.test.ts` now reads the problem model, because it pinned the old title and description scheme. `lib/public-discovery.test.ts` is unchanged and is why `llms.txt` stays under 5 KB.
+- **Open:** the archive statements are the organisers' problems and `rightsStatus` is still `permission-review-required`. The text is now indexable HTML, so that review matters more.
+
 ## 4 November 2026: Phase 6A
 
 Documentation-only source/CI audit, corrected runbook flag inventory and explicit operator approval boundary. See COMMUNITY_RELEASE_READINESS.md. No Production evidence inferred from tests; no completed community features rebuilt.
