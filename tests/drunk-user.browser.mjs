@@ -16,9 +16,9 @@ assert.ok(["127.0.0.1", "localhost"].includes(new URL(origin).hostname));
 const sessionCookie = process.env.SESSION_COOKIE;
 
 /** Taps before Phase 9, measured on 6b6abab. */
-const BEFORE = { understand: 3, topic: 3, solve: 4, hint: 1, signUp: 6, publish: 8, coaching: 3 };
+const BEFORE = { understand: 3, topic: 2, solve: 4, hint: 1, signUp: 6, publish: 8, coaching: 3 };
 /** Taps allowed now. A task over its budget fails the run. */
-const BUDGET = { understand: 3, topic: 3, solve: 4, hint: 1, signUp: 6, publish: 8, coaching: 2 };
+const BUDGET = { understand: 1, topic: 2, solve: 4, hint: 1, signUp: 6, publish: 8, coaching: 2 };
 
 const browser = await chromium.launch({ headless: true, ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : { executablePath: "/opt/pw-browsers/chromium" }) });
 const results = [];
@@ -55,28 +55,19 @@ const home = async (page) => { await page.goto(origin + "/", { waitUntil: "netwo
 await task("understand", "Arrive at / and open a problem to try", async ({ page, tap }) => {
   await home(page);
   assert.equal(await page.getByRole("heading", { level: 1 }).count(), 1);
-  await tap(page.getByRole("link", { name: /^(Try a problem|Problem library)$/ }), "home primary");
-  for (let guard = 0; guard < 4 && !/\/dashboard\/problems\//.test(page.url()); guard++) {
-    await page.waitForLoadState("networkidle");
-    const open = page.getByRole("link", { name: /^Open the interactive library/ });
-    if (await open.count()) { await tap(open, "interactive library"); await page.waitForLoadState("networkidle"); }
-    await tap(page.getByRole("link", { name: /^Open problem:/ }), "first problem card");
-    await page.waitForURL(/\/dashboard\/problems\//);
-  }
-  await page.getByRole("heading", { level: 1 }).waitFor();
+  await tap(page.getByRole("link", { name: "Try a problem", exact: true }), "Try a problem");
+  await page.waitForURL(/\/dashboard\/problems\//);
+  await page.getByRole("button", { name: "Check answer" }).waitFor();
 });
 
 await task("topic", "Arrive at / and open a Waves problem", async ({ page, tap }) => {
   await home(page);
-  await tap(page.getByRole("link", { name: /^(Try a problem|Problem library)$/ }), "home primary");
-  await page.waitForLoadState("networkidle");
-  const wavesLink = page.getByRole("link", { name: /^Waves \(\d+\)$/ });
-  if (await wavesLink.count()) { await tap(wavesLink, "Waves link"); await page.waitForLoadState("networkidle"); await tap(page.locator("main a[href*='/problems/']").first(), "first Waves problem"); }
-  else {
-    await tap(page.getByRole("group", { name: "Topic" }).getByRole("button", { name: "Waves", exact: true }), "Waves chip");
-    await tap(page.getByRole("link", { name: /^Open problem:/ }), "first Waves problem");
-  }
-  await page.waitForURL(/\/problems\//);
+  const waves = page.getByRole("link", { name: /^Waves \(\d+\)$/ });
+  const box = await waves.boundingBox();
+  assert.ok(box && box.y + box.height <= 667, `the topic links are below the fold at 375x667 (Waves bottom at ${box && Math.round(box.y + box.height)}px)`);
+  await tap(waves, "Waves link");
+  await tap(page.locator("main a[href*='/dashboard/problems/']").first(), "first Waves problem");
+  await page.waitForURL(/\/dashboard\/problems\//);
   await page.getByRole("heading", { level: 1 }).waitFor();
 });
 
@@ -121,7 +112,7 @@ await task("signUp", "Create an account (up to the Create account tap)", async (
 
 await task("publish", "From the dashboard, write a problem and publish it", async ({ page, tap }) => {
   await page.goto(`${origin}/dashboard`, { waitUntil: "networkidle" });
-  const menu = page.getByRole("button", { name: /^(Open navigation|Menu)/ });
+  const menu = page.getByRole("button", { name: "Menu" });
   await tap(menu, "menu");
   await tap(page.getByRole("link", { name: /^Problem Studio/ }), "Problem Studio");
   await page.waitForURL(/\/dashboard\/author/);

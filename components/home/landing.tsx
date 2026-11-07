@@ -4,6 +4,7 @@ import { SkipLink } from "@/components/skip-link";
 import { Button } from "@/components/ui/button";
 import { publishedArticles, learnPath } from "@/lib/learn/articles";
 import { allProblemPages, topicsWithProblems } from "@/lib/seo/problem-pages";
+import { problems } from "@/lib/physics";
 
 const linkClass =
   "inline-flex min-h-11 items-center rounded-md underline underline-offset-4 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring";
@@ -26,7 +27,10 @@ export function HomeLanding() {
           Physcratic is free physics olympiad practice with IPhO, APhO and EuPhO problems and checked answers.
         </p>
         <nav aria-label="Start here" className="mt-8 flex flex-wrap gap-3">
-          <Button asChild className="min-h-11">
+          <Button asChild className="min-h-11 w-full sm:w-auto">
+            <Link href={`/dashboard/problems/${problems[0].id}`}>Try a problem</Link>
+          </Button>
+          <Button asChild variant="outline" className="min-h-11">
             <Link href="/problems">Problem library</Link>
           </Button>
           <Button asChild variant="outline" className="min-h-11">
@@ -40,7 +44,20 @@ export function HomeLanding() {
           </Button>
         </nav>
 
-        <section aria-labelledby="what-heading" className="mt-12">
+        <section aria-labelledby="topics-heading" className="mt-8">
+          <h2 id="topics-heading" className="text-xl font-semibold tracking-tight">Problems by topic</h2>
+          <ul className="mt-2 flex flex-wrap gap-x-4">
+            {topics.map((topic) => (
+              <li key={topic.slug}>
+                <Link href={`/problems/topics/${topic.slug}`} className={linkClass}>
+                  {topic.name} ({topic.count})
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section aria-labelledby="what-heading" className="mt-10">
           <h2 id="what-heading" className="text-xl font-semibold tracking-tight">What you can do here</h2>
           <ul className="mt-3 flex max-w-prose list-disc flex-col gap-2 pl-5 leading-relaxed">
             <li>Read {archive} theory problems from IPhO, APhO and EuPhO, each on its own page with a link to the official PDF.</li>
@@ -54,18 +71,6 @@ export function HomeLanding() {
           </p>
         </section>
 
-        <section aria-labelledby="topics-heading" className="mt-10">
-          <h2 id="topics-heading" className="text-xl font-semibold tracking-tight">Problems by topic</h2>
-          <ul className="mt-2 flex flex-wrap gap-x-4">
-            {topics.map((topic) => (
-              <li key={topic.slug}>
-                <Link href={`/problems/topics/${topic.slug}`} className={linkClass}>
-                  {topic.name} ({topic.count})
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
 
         <section aria-labelledby="learn-heading" className="mt-10">
           <h2 id="learn-heading" className="text-xl font-semibold tracking-tight">Guides</h2>
