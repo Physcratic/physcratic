@@ -18,7 +18,7 @@ const sessionCookie = process.env.SESSION_COOKIE;
 /** Taps before Phase 9, measured on 6b6abab. */
 const BEFORE = { understand: 3, topic: 3, solve: 4, hint: 1, signUp: 6, publish: 8, coaching: 3 };
 /** Taps allowed now. A task over its budget fails the run. */
-const BUDGET = { understand: 3, topic: 3, solve: 4, hint: 1, signUp: 6, publish: 8, coaching: 3 };
+const BUDGET = { understand: 3, topic: 3, solve: 4, hint: 1, signUp: 6, publish: 8, coaching: 2 };
 
 const browser = await chromium.launch({ headless: true, ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : { executablePath: "/opt/pw-browsers/chromium" }) });
 const results = [];
@@ -133,12 +133,23 @@ await task("coaching", "Book a consultation", async ({ page, tap, context }) => 
   await tap(page.getByRole("link", { name: "Coaching" }).first(), "Coaching");
   await page.waitForURL(/\/coaching/);
   await page.waitForLoadState("networkidle");
-  const book = page.getByRole("link", { name: /^(Book a free consultation)$/ });
+  const book = page.getByRole("link", { name: /^Book a consultation$/ });
   if (!(await book.count())) await tap(page.getByRole("radio").first(), "choose where you are");
   const popup = context.waitForEvent("page", { timeout: 8000 }).catch(() => null);
   await tap((await book.count()) ? book : page.getByRole("link", { name: /^Continue/ }), "booking button");
   const tab = await popup;
   assert.ok(tab, "the booking button opened no tab");
+  // The booking button is above the fold at 375x667 (an iPhone SE), before any scrolling.
+  await page.setViewportSize({ width: 375, height: 667 }); await page.reload({ waitUntil: "networkidle" });
+  const box = await page.getByRole("link", { name: /^Book a consultation$/ }).first().boundingBox();
+  assert.ok(box && box.y + box.height <= 667, `the booking button is below the fold (bottom at ${box && Math.round(box.y + box.height)}px)`);
+  // A blocked tab shows the message and a button that opens the form.
+  await page.evaluate(() => { window.open = () => null; });
+  await page.getByRole("link", { name: /^Book a consultation$/ }).first().tap();
+  await page.getByText("The booking form didn't load. Open it in a new tab.").waitFor({ timeout: 4000 });
+  const again = context.waitForEvent("page", { timeout: 4000 }).catch(() => null);
+  await page.getByRole("link", { name: "Open the booking form in a new tab" }).tap();
+  assert.ok(await again, "the fallback button opened no tab");
   assert.match(tab.url(), /^https:\/\/tally\.so\/r\/XxZBr4|^about:blank|^chrome-error/);
 });
 

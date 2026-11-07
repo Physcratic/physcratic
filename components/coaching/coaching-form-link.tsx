@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { BookingButton } from "./booking-button";
 import { trackConsultationClick, trackTutorClick } from "@/lib/coaching/analytics";
 import { consultationHref, consultationSource, tutorFormHref, type CoachingPathway } from "@/lib/coaching/consultation";
 
@@ -15,7 +16,5 @@ export function CoachingFormLink({ form, pathway, label }: { form: "consultation
   }, []);
   const href = form === "tutor" ? tutorFormHref({ source }) : consultationHref({ pathway, source });
   const onClick = () => (form === "tutor" ? trackTutorClick() : trackConsultationClick(pathway ?? "none"));
-  // A middle-click opens the link in a new tab and sends auxclick, not click, so it needs its own handler.
-  const onAuxClick = (event: React.MouseEvent) => { if (event.button === 1) onClick(); };
-  return <a href={href} target="_blank" rel="noopener noreferrer" className="coaching-button" onClick={onClick} onAuxClick={onAuxClick}>{label}</a>;
+  return <BookingButton href={href} label={label} onOpen={onClick} />;
 }
