@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { problems, type Problem } from "@/lib/physics";
 import { MathFormula } from "./math-formula";
 import { ArchiveAnswerPanel } from "./archive-answer-panel";
+import { clearSavedAnswers } from "./saved-answers";
 import { SolveSteps, StepHeading, proseWidth, solveTokens } from "./solve-ui";
 
 export function ProblemReader({ problem }: { problem: Problem }) {
@@ -62,7 +63,7 @@ function PracticeProblem({ problem }: { problem: Problem }) {
       </Card>
     </div>
     <div className="flex flex-wrap items-center justify-between gap-3 border-t pt-5">
-      <Button variant="ghost" className="min-h-11" onClick={() => { setReset((value) => value + 1); setShowSolution(false); setShowHint(false); }}><RotateCcw data-icon="inline-start" />Start over</Button>
+      <Button variant="ghost" className="min-h-11" onClick={() => { clearSavedAnswers(problem.id); setReset((value) => value + 1); setShowSolution(false); setShowHint(false); }}><RotateCcw data-icon="inline-start" />Start over</Button>
       {hasNext && <Button variant="outline" className="min-h-11" asChild><Link href={`/dashboard/problems/${nextProblem.id}`}>Next problem<ArrowRight data-icon="inline-end" /></Link></Button>}
     </div>
   </section>;
