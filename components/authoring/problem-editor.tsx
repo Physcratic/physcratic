@@ -224,16 +224,47 @@ export function ProblemEditor({
       setFetchingLatest(false);
     }
   }
-  function back() {
-    if (busy || uploads > 0) return;
-    if (
-      (dirty || recovery || snapshot.recoveryRaw) &&
-      !window.confirm(
-        "Leave this editor? Unsaved work stays in this tab's recovery copy. You can also download a private copy first.",
-      )
-    )
+  // Back saves first. It never does nothing: while a save or an upload is running it says so, and it never drops typed text.
+  const sessionRef = useRef(session);
+  sessionRef.current = session;
+  const leaving = useRef(false);
+  async function back() {
+    if (leaving.current) return;
+    if (uploads > 0) {
+      setNotice("An image is still uploading. Tap Back again in a moment. Nothing is lost.");
       return;
-    onBack();
+    }
+    const unsaved = dirty || busy || recovery || snapshot.recoveryRaw;
+    if (!unsaved) {
+      onBack();
+      return;
+    }
+    leaving.current = true;
+    try {
+      if (!recovery && !snapshot.recoveryRaw) {
+        setNotice("Saving your changes, then going back…");
+        // A new problem swaps to its saved draft while this runs, so the check below reads the current session.
+        await session.flush().catch(() => false);
+        await new Promise((resolve) => setTimeout(resolve, 0));
+        const now = sessionRef.current.snapshot();
+        if (!now.dirty && !now.recovery && !now.recoveryRaw && !now.busy && now.phase !== "error" && now.phase !== "conflict") {
+          setNotice("");
+          onBack();
+          return;
+        }
+      }
+      if (
+        window.confirm(
+          "Your latest changes are not saved yet. Leave anyway? A copy stays in this tab's recovery copy. You can also download a private copy first.",
+        )
+      ) {
+        onBack();
+        return;
+      }
+      setNotice("Your changes are still here. Check your connection and tap Back again, or download a private copy.");
+    } finally {
+      leaving.current = false;
+    }
   }
   function addSection() {
     edit((d) => {
@@ -285,8 +316,7 @@ export function ProblemEditor({
             <Button
               type="button"
               variant="ghost"
-              onClick={back}
-              disabled={busy || uploads > 0}
+              onClick={() => void back()}
             >
               ← My drafts
             </Button>

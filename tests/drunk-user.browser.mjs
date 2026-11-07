@@ -89,6 +89,17 @@ await task("solve", "Wrong answer, then the right one", async ({ page, tap }) =>
   await tap(field, "answer field again"); await page.keyboard.press("Control+A"); await page.keyboard.type("4.9");
   await tap(page.getByRole("button", { name: "Check answer" }), "Check answer");
   await page.getByRole("link", { name: "Next problem" }).first().waitFor();
+  // Nothing typed is lost by tapping away (these taps are not counted). A correct part forgets its saved answer.
+  await page.reload({ waitUntil: "networkidle" });
+  assert.equal(await field.inputValue(), "", "a part checked correct is not restored");
+  await field.fill("7");
+  await page.reload({ waitUntil: "networkidle" });
+  assert.equal(await field.inputValue(), "7", "a typed answer survives a reload");
+  await page.goBack(); await page.goForward(); await page.waitForLoadState("networkidle");
+  assert.equal(await page.getByRole("textbox", { name: /Final answer/ }).inputValue(), "7", "a typed answer survives Back and Forward");
+  await page.getByRole("button", { name: "Start over" }).tap();
+  await page.reload({ waitUntil: "networkidle" });
+  assert.equal(await field.inputValue(), "", "Start over forgets the saved answer");
 });
 
 await task("hint", "Stuck on a problem, read the hint", async ({ page, tap }) => {
@@ -126,6 +137,20 @@ await task("publish", "From the dashboard, write a problem and publish it", asyn
   await page.getByText("All changes saved").first().waitFor({ timeout: 20000 });
   await tap(page.getByRole("button", { name: "Publish", exact: true }), "Publish");
   await page.getByText(/published|Published/).first().waitFor({ timeout: 20000 });
+}, { signedIn: true });
+
+await task("studioBack", "Studio: type, tap Back at once, reopen, the text is still there", async ({ page, tap }) => {
+  await page.goto(`${origin}/dashboard/author`, { waitUntil: "networkidle" });
+  const question = page.getByRole("textbox", { name: "What's the question?" }).first();
+  await question.tap();
+  await page.keyboard.type("Back test: a 3 kg block slides down a 30 degree ramp. Find its acceleration.", { delay: 2 });
+  // Straight away, before the autosave timer fires. Back saves first, then leaves.
+  await page.getByRole("button", { name: "← My drafts", exact: true }).tap();
+  await page.getByRole("button", { name: /^Open/ }).first().waitFor({ timeout: 20000 });
+  await page.getByRole("button", { name: /^Open/ }).first().tap();
+  const again = page.getByRole("textbox", { name: "What's the question?" }).first();
+  await again.waitFor({ timeout: 20000 });
+  assert.match(await again.innerText(), /Back test: a 3 kg block slides down a 30 degree ramp/);
 }, { signedIn: true });
 
 await task("coaching", "Book a consultation", async ({ page, tap, context }) => {
