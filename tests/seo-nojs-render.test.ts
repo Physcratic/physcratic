@@ -42,7 +42,7 @@ describe("statements are in the server HTML", () => {
       const html = renderToStaticMarkup(createElement(ArchiveStatementText, { page, view }));
       const text = decode(html);
       const first = sentences(view.paragraphs[0] ?? "")[0] ?? "";
-      assert.ok(text.includes(first.replace(/\s+/g, " ")) && first.length > 20 || !page.indexable, `${page.id}: first sentence "${first.slice(0, 60)}"`);
+      assert.ok(text.includes(first.replace(/\s+/g, " ")) && first.length > 20 || page.thin, `${page.id}: first sentence "${first.slice(0, 60)}"`);
       assert.ok(text.includes(`${page.competition} ${page.year}, Problem ${page.number}. Official problem (PDF)`), `${page.id}: source line`);
       assert.ok(html.includes(`href="${page.source!.officialUrl}"`), `${page.id}: official link`);
       for (const image of view.pageImages) assert.ok(html.includes(`alt="${image.alt.replace(/'/g, "&#x27;")}"`), `${page.id}: figure alt`);

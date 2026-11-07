@@ -37,10 +37,12 @@ describe("public route registry", () => {
     assert.deepEqual(listed, topicsWithProblems().map((t) => `/problems/topics/${t.slug}`));
     for (const t of topics) assert.equal(topicHasProblems(t.name), topicsWithProblems().some((x) => x.name === t.name || (t.name === "Modern" && x.slug === "modern-physics")), t.name);
   });
-  it("keeps pages with too little statement text out of the sitemap, and nothing else", () => {
-    const thin = allProblemPages().filter((p) => !p.indexable).map((p) => p.path);
-    for (const path of thin) assert.ok(!indexableRoutes.some((r) => r.path === path), path);
-    assert.ok(thin.length < 10, `only a few thin pages, got ${thin.length}`);
+  it("keeps every archive page out of the sitemap while archive indexing is off, and nothing else", () => {
+    const archive = allProblemPages().filter((p) => p.kind === "archive");
+    assert.equal(archive.length, 100);
+    for (const p of archive) assert.ok(!indexableRoutes.some((r) => r.path === p.path), p.path);
+    for (const p of allProblemPages().filter((x) => x.kind !== "archive")) assert.ok(indexableRoutes.some((r) => r.path === p.path), p.path);
+    assert.equal(publicRoutes.filter((r) => r.group === "archive").length, 100, "the pages stay in the registry");
   });
   it("excludes noindex pages from the indexable list", () => {
     assert.ok(publicRoutes.some((r) => r.path === "/terms"));

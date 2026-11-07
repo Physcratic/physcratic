@@ -7,7 +7,7 @@ import { GET as llmsFull } from "../app/llms-full.txt/route";
 import robots, { CRAWLERS } from "../app/robots";
 import sitemap from "../app/sitemap";
 import { publishedArticles } from "./learn/articles";
-import { allProblemPages } from "./seo/problem-pages";
+import { allProblemPages, findProblemPage } from "./seo/problem-pages";
 import { indexableRoutes } from "./seo/public-routes";
 
 const entries = sitemap();
@@ -40,11 +40,13 @@ describe("sitemap", () => {
       assert.match(String(entry.lastModified), /^\d{4}-\d{2}-\d{2}$/, entry.url);
     }
     const byPath = new Map(entries.map((e) => [path(e.url), e.lastModified]));
-    assert.equal(byPath.get("/dashboard/problems/ipho-2025-t2"), "2026-10-31");
+    assert.equal(byPath.get("/dashboard/problems/arena-mind-the-gap"), findProblemPage("arena-mind-the-gap")!.lastmod);
+    assert.ok(findProblemPage("arena-mind-the-gap")!.lastmod);
+    assert.equal(byPath.has("/dashboard/problems/ipho-2025-t2"), false, "archive pages are out while ARCHIVE_INDEXABLE is false");
     assert.equal(byPath.get("/coaching"), undefined);
     for (const article of publishedArticles) assert.equal(byPath.get(`/learn/${article.slug}`), article.updated);
     const dated = entries.filter((e) => e.lastModified).length;
-    assert.ok(dated > 100, `${dated} dated entries`);
+    assert.ok(dated >= 24, `${dated} dated entries`);
   });
 });
 

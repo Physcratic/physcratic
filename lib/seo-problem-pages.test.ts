@@ -7,6 +7,7 @@ import { catalogProblems } from "./corpus-catalog";
 import arena from "./arena/index.json";
 import { problems } from "./physics";
 import {
+  ARCHIVE_INDEXABLE,
   META_TITLE_BUDGET,
   allProblemPages,
   archiveMetaTitle,
@@ -65,21 +66,28 @@ describe("problem pages", () => {
       for (const image of view.pageImages) assert.ok(image.alt.length > 20 && image.src.endsWith(".webp"), p.id);
     }
   });
-  it("marks only pages with too little text as not indexable, and there are few of them", () => {
-    const thin = pages.filter((p) => !p.indexable);
+  it("keeps every archive page noindex while ARCHIVE_INDEXABLE is false, and every other page indexable", () => {
+    assert.equal(ARCHIVE_INDEXABLE, false);
+    for (const p of pages) assert.equal(p.indexable, p.kind !== "archive" || (ARCHIVE_INDEXABLE && !p.thin), p.id);
+    assert.equal(pages.filter((p) => p.kind === "archive" && p.indexable).length, 0);
+    assert.equal(pages.filter((p) => p.kind !== "archive" && !p.indexable).length, 0);
+  });
+  it("marks only pages with too little text as thin, and there are few of them", () => {
+    const thin = pages.filter((p) => p.thin);
     assert.ok(thin.length >= 1 && thin.length <= 5, thin.map((p) => p.id).join());
     for (const p of thin) assert.equal(p.kind, "archive");
+    assert.ok(thin.every((p) => !p.indexable));
   });
-  it("links each problem to 3 to 5 other indexable problems, and every page links somewhere new", () => {
+  it("links each problem to 3 to 5 other public problems, and every page links somewhere new", () => {
     const inbound = new Map<string, number>();
     for (const p of pages) {
       const related = relatedProblems(p);
       assert.ok(related.length >= 3 && related.length <= 5, `${p.id}: ${related.length}`);
       assert.ok(!related.some((r) => r.id === p.id));
       assert.equal(new Set(related.map((r) => r.id)).size, related.length);
-      for (const r of related) { assert.ok(r.indexable, `${p.id} links a noindex page ${r.id}`); inbound.set(r.id, (inbound.get(r.id) ?? 0) + 1); }
+      for (const r of related) { assert.ok(!r.thin, `${p.id} links a page with no text ${r.id}`); inbound.set(r.id, (inbound.get(r.id) ?? 0) + 1); }
     }
-    const orphans = pages.filter((p) => p.indexable && !inbound.has(p.id));
+    const orphans = pages.filter((p) => !p.thin && !inbound.has(p.id));
     assert.ok(orphans.length < pages.length * 0.1, `${orphans.length} problems have no related-problem link in: ${orphans.slice(0, 5).map((p) => p.id)}`);
   });
   it("puts same-olympiad-and-year problems first for archive problems", () => {
@@ -95,8 +103,25 @@ describe("problem pages", () => {
     for (const article of articles.filter((a) => a.published)) {
       const ids = practiceProblemIds[article.slug] ?? [];
       assert.ok(ids.length >= 2, article.slug);
-      for (const id of ids) assert.ok(findProblemPage(id)?.indexable, `${article.slug}: ${id}`);
+      for (const id of ids) assert.ok(findProblemPage(id) && !findProblemPage(id)!.thin, `${article.slug}: ${id}`);
     }
     assert.deepEqual(Object.keys(practiceProblemIds).filter((slug) => !articles.some((a) => a.slug === slug)), []);
+  });
+  it("never gives two pages the same statement text, so flipping ARCHIVE_INDEXABLE cannot create duplicates", () => {
+    const seen = new Map<string, string>();
+    const starts = new Map<string, string>();
+    for (const p of pages.filter((x) => x.kind === "archive" && !x.thin)) {
+      const view = archiveStatementView(p)!;
+      const text = view.paragraphs.join(" ").replace(/\s+/g, " ").trim();
+      assert.ok(text.length >= 400, `${p.id} has a statement`);
+      assert.equal(seen.get(text), undefined, `${p.id} has the same statement text as ${seen.get(text)}`);
+      seen.set(text, p.id);
+      // Two problems cut from one shared document must not start the same way either.
+      const start = text.slice(0, 160);
+      assert.equal(starts.get(start), undefined, `${p.id} starts like ${starts.get(start)}`);
+      starts.set(start, p.id);
+    }
+    // A shared PDF that could not be split would repeat on every page. It must be thin, not indexable.
+    for (const p of pages.filter((x) => x.kind === "archive" && x.indexable)) assert.ok(!p.thin, p.id);
   });
 });

@@ -18,6 +18,14 @@ How Physcratic's public pages are built so that search engines and AI crawlers c
 
 Archive problems keep the URL they already had (`/dashboard/problems/ipho-2025-t2`). It already holds the olympiad, year and problem number, so no slug URLs were added.
 
+## Archive pages are noindex until the rights review (owner decision, 7 November 2026)
+
+`ARCHIVE_INDEXABLE` in `lib/seo/problem-pages.ts` is `false`. While it is, every one of the 100 archive problem pages sends `noindex, follow` and is left out of `sitemap.xml`, `llms.txt` and `llms-full.txt`. The pages stay public, linked from the library, the archive page, the topic pages and related-problem lists, and keep their structured data. Practice, Arena, library, topic, home and Learn pages stay indexable.
+
+Flipping it to `true` needs the team's confirmation that the rights review of the organisers' problems is done (`rightsStatus` in the catalogue is still `permission-review-required`). Then run the checks below and redeploy. Pages with almost no statement text (`thin`) stay noindex even then.
+
+`lib/seo-problem-pages.test.ts` fails if two archive pages share statement text or start the same way, so flipping the switch cannot create duplicate indexable pages.
+
 ## One model for every problem
 
 `lib/seo/problem-pages.ts` builds a `ProblemPage` for each of the 130 problems (12 practice, 18 Arena, 100 archive). The sitemap, `llms.txt`, `llms-full.txt`, the library pages, the metadata and the structured data all read it, so a problem cannot be in one place and missing from another. `lib/seo/public-routes.ts` adds the other pages and is the single list behind the sitemap.
@@ -33,7 +41,7 @@ Every problem page: breadcrumb, the h1 (the official title as written), the stat
 | Archive | A "Statement as text" section: the text taken from the official PDF, plus the source line "IPhO 2025, Problem 2. Official problem (PDF)" with a link to the official file | The PDF pages as `<img>` with alt text, in a closed `<details>`, lazy |
 | Published authored | The published revision, read on the server through the same public read the API uses | As in the workspace |
 
-Archive statements come from PDFs, so the text is the PDF's extracted text, cleaned by `lib/seo/statement-text.ts` (header block, page numbers, wrapped lines, soft hyphens, ligatures). It is not KaTeX, because there is no TeX source. Equations and figures read better in the PDF pages, and the page says so. EuPhO papers hold a whole day on shared pages, so the text is split per problem. Two IPhO 2017 papers (problems 2 and 3) have almost no extractable text, because the statements are mostly images. They stay in the library and are `noindex` and out of the sitemap. `lib/seo-problem-pages.test.ts` limits that to 5 pages.
+Archive statements come from PDFs, so the text is the PDF's extracted text, cleaned by `lib/seo/statement-text.ts` (header block, page numbers, wrapped lines, soft hyphens, ligatures). It is not KaTeX, because there is no TeX source. Equations and figures read better in the PDF pages, and the page says so. EuPhO papers hold a whole day on shared pages, so the text is split per problem. Two IPhO 2017 papers (problems 2 and 3) have almost no extractable text, because the statements are mostly images. They are marked `thin`: noindex even when `ARCHIVE_INDEXABLE` is on. `lib/seo-problem-pages.test.ts` limits that to 5 pages.
 
 Titles: `Cox's Timepiece, IPhO 2025 Problem 2 | Physcratic`. When that is over 60 characters the year label shortens to `P2`, and then the title is cut at a word. Papers with no descriptive title use `IPhO 2007 Problem 2`. All-caps multi-word titles are set in title case in the `<title>` only. Descriptions are 70 to 160 characters, built from the opening of the statement, and unique.
 
@@ -51,8 +59,8 @@ Built in `lib/seo/json-ld.ts` from the same strings the page shows, and validate
 
 ## Sitemap, llms.txt, robots.txt
 
-- `/sitemap.xml`: every indexable page, no query strings, `lastmod` from the data (a problem's import date, a guide's updated date). Practice problems, library pages and coaching pages have no date in the data, so they have no `lastmod`.
-- `/llms.txt`: a short index under 5 KB (a test in `lib/public-discovery.test.ts` keeps it there). `/llms-full.txt` lists every page in the sitemap, one line each.
+- `/sitemap.xml`: every indexable page (49 while the archive is noindex), no query strings, `lastmod` from the data (a problem's import date, a guide's updated date). Practice problems, library pages and coaching pages have no date in the data, so they have no `lastmod`.
+- `/llms.txt`: a short index under 5 KB, with example problems that are indexable (a test in `lib/public-discovery.test.ts` keeps it there). `/llms-full.txt` lists every page in the sitemap, one line each.
 - `/robots.txt`: explicit groups for Googlebot, Bingbot, OAI-SearchBot, GPTBot, ClaudeBot and PerplexityBot with the same rules as `*`. It is built at build time, so it needs `VERCEL_ENV=production` during `pnpm build`. There is no middleware, and the CSP is report-only.
 
 ## The home page and caching

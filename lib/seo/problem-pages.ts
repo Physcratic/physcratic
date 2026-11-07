@@ -37,9 +37,18 @@ export interface ProblemPage {
   lastmod?: string;
   /** Archive only. Plain-text source line and the link to the official file. */
   source?: { line: string; officialUrl: string; officialLabel: string };
-  /** False when the page has too little statement text to index. */
+  /** False when the page is kept out of search results and the sitemap. */
   indexable: boolean;
+  /** True when the page has too little statement text to be worth indexing even when archive indexing is on. */
+  thin: boolean;
 }
+
+/**
+ * Owner decision, 7 November 2026: every archive problem page is noindex and out of the sitemap and llms-full.txt until
+ * the team confirms the rights review of the organisers' problems. The pages stay public and linked. Flip this to
+ * true only with that confirmation (see docs/engineering/SEARCH_AND_AI_VISIBILITY.md).
+ */
+export const ARCHIVE_INDEXABLE = false;
 
 export const META_TITLE_BUDGET = 60 - " | Physcratic".length;
 
@@ -149,7 +158,8 @@ function archivePage(problem: CatalogProblem): ProblemPage {
       officialUrl: problem.statementUrl,
       officialLabel: "Official problem (PDF)",
     },
-    indexable: !thin,
+    indexable: ARCHIVE_INDEXABLE && !thin,
+    thin,
   };
 }
 
@@ -166,6 +176,7 @@ function arenaPage(entry: (typeof arena.problems)[number]): ProblemPage {
     tags: [...entry.tags],
     lastmod: entry.importedOn,
     indexable: true,
+    thin: false,
   };
 }
 
@@ -183,6 +194,7 @@ function practicePage(problem: (typeof practiceProblems)[number]): ProblemPage {
     tags: [problem.concept],
     lastmod: problem.addedAt,
     indexable: true,
+    thin: false,
   };
 }
 
@@ -215,7 +227,8 @@ export function topicsWithProblems(): { slug: string; name: string; count: numbe
  * links to different neighbours and no page is left out.
  */
 export function relatedProblems(page: ProblemPage, limit = 5): ProblemPage[] {
-  const all = allProblemPages().filter((other) => other.id !== page.id && other.indexable);
+  // Every page is public, so related links include archive pages even while they are noindex. Pages with no text are skipped.
+  const all = allProblemPages().filter((other) => other.id !== page.id && !other.thin);
   const sameExam = page.competition
     ? all.filter((other) => other.competition === page.competition && other.year === page.year)
     : [];
