@@ -68,7 +68,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
       <div className="flex w-full max-w-md flex-col gap-6">
         <Button variant="ghost" className="w-fit" asChild><Link href="/dashboard"><ArrowLeft data-icon="inline-start" /> Back to Physcratic</Link></Button>
         {verificationEmail !== null ? <VerificationNotice email={verificationEmail} returnTo={returnTo} onBack={() => setVerificationEmail(null)} /> : <Card>
-          <CardHeader><CardTitle>{creating ? "Create an account" : "Sign in"}</CardTitle><CardDescription>{creating ? "Save your olympiad solutions privately." : "Sign in to see your saved attempts."}</CardDescription></CardHeader>
+          <CardHeader><CardTitle><h1>{creating ? "Create an account" : "Sign in"}</h1></CardTitle><CardDescription>{creating ? "Save your olympiad solutions privately." : "Sign in to see your saved attempts."}</CardDescription></CardHeader>
           <CardContent>
             <form id="account-form" method="post" onSubmit={submit} onKeyDown={(event) => {
               if (event.key === "Enter" && (event.nativeEvent.isComposing || event.keyCode === 229)) event.preventDefault();
@@ -78,11 +78,11 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
                 {!creating && verificationError && <Alert variant="destructive" role="alert"><AlertTitle>Link unavailable</AlertTitle><AlertDescription>This verification link is invalid or has expired. Request a new email below.</AlertDescription></Alert>}
                 {creating && <Field><FieldLabel htmlFor="account-name">Name</FieldLabel><Input id="account-name" name="name" autoComplete="name" required minLength={1} maxLength={80} /></Field>}
                 <Field><FieldLabel htmlFor="account-email">Email</FieldLabel><Input id="account-email" name="email" type="email" autoComplete="email" required maxLength={254} /></Field>
-                <Field><FieldLabel htmlFor="account-password">Password</FieldLabel><Input id="account-password" name="password" type="password" autoComplete={creating ? "new-password" : "current-password"} required minLength={8} maxLength={128} />{creating && <p className="text-sm leading-relaxed text-muted-foreground">Use at least 8 characters. Choose a password you do not use elsewhere.</p>}</Field>
+                <Field><FieldLabel htmlFor="account-password">Password</FieldLabel><Input id="account-password" name="password" type="password" autoComplete={creating ? "new-password" : "current-password"} required minLength={8} maxLength={128} />{creating && <p className="text-sm leading-relaxed text-muted-foreground">Use at least 8 characters. Choose a password you do not use elsewhere.</p>}{!creating && <Link href="/forgot-password" className="inline-flex min-h-11 w-fit items-center text-sm text-foreground underline underline-offset-4">Forgot password?</Link>}</Field>
                 {creating && <Field orientation="horizontal">
                   <Checkbox id="account-terms" name="termsAccepted" required checked={termsAccepted} onCheckedChange={(checked) => setTermsAccepted(checked === true)} aria-describedby="account-terms-description" />
                   <FieldContent>
-                    <FieldLabel htmlFor="account-terms">I agree to the Terms of Service.</FieldLabel>
+                    <FieldLabel htmlFor="account-terms" className="min-h-11 items-center">I agree to the Terms of Service.</FieldLabel>
                     <FieldDescription id="account-terms-description"><Link href="/terms" target="_blank" rel="noopener noreferrer">Read the Terms of Service (opens in a new tab)</Link>. We record the version and acceptance time with your account.</FieldDescription>
                   </FieldContent>
                 </Field>}
@@ -94,7 +94,7 @@ export function AuthForm({ mode, returnTo, verified = false, verificationError =
             <Button form="account-form" type="submit" disabled={busy}>{busy && <Loader2 data-icon="inline-start" className="animate-spin" />}{creating ? "Create account" : "Sign in"}</Button>
             <p className="text-center text-sm leading-relaxed text-muted-foreground">{creating ? "Already have an account? " : "New to Physcratic? "}<Link className="text-foreground underline underline-offset-4" href={`/${creating ? "sign-in" : "sign-up"}?returnTo=${encodeURIComponent(returnTo)}`}>{creating ? "Sign in" : "Create an account"}</Link></p>
             {!creating && <Button type="button" variant="ghost" disabled={busy} onClick={() => setVerificationEmail("")}>Need a verification email?</Button>}
-            <Link href="/terms" className="text-center text-sm text-muted-foreground underline underline-offset-4">Terms of Service</Link>
+            <Link href="/terms" className="inline-flex min-h-11 items-center justify-center text-center text-sm text-muted-foreground underline underline-offset-4">Terms of Service</Link>
           </CardFooter>
         </Card>}
       </div>

@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-dodecahedron-conspiracy",
-  "version": "e9451a910434ad9668cc6654626794ad8478d278f2cef94a122326b7a92c2538",
+  "version": "695c81807670f7159bc5df9d0d59451c47435d127cc7c779ba7b19745f5fc55a",
   "parts": [
     {
       "id": "a.flux",
@@ -12,7 +12,15 @@
         "Q",
         "\\varepsilon_0"
       ],
-      "help": "Signed central charge Q; positive ε₀; outward flux."
+      "symbolConditions": [
+        {
+          "symbol": "\\varepsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Signed central charge Q, positive ε₀ and outward flux."
     },
     {
       "id": "b.field",
@@ -24,7 +32,21 @@
         "\\sigma",
         "\\varepsilon_0"
       ],
-      "help": "Field magnitude. The problem’s +σ convention takes σ > 0; absolute-value and positive-density forms are accepted."
+      "symbolConditions": [
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\varepsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Field magnitude. The problem’s +σ convention takes σ > 0. Absolute-value and positive-density forms are accepted."
     },
     {
       "id": "c.field",
@@ -36,7 +58,21 @@
         "\\sigma",
         "\\varepsilon_0"
       ],
-      "help": "Field magnitude. Adjacent face normals have cosine 1/√5; σ and ε₀ are positive in the charge-density convention."
+      "symbolConditions": [
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\varepsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Field magnitude. Adjacent face normals have cosine 1/√5. σ and ε₀ are positive in the charge-density convention."
     }
   ]
 }

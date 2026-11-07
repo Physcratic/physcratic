@@ -5,13 +5,10 @@ import { partColor } from "@/lib/part-colors";
 import { describePartResult, type FeedbackStatus, type FeedbackTone } from "@/lib/solve-feedback";
 
 /**
- * Stronger borders for every solving screen. The site-wide dark border is a quiet hairline, so inside these
- * screens `--border` and `--input` are raised to at least 3:1 (WCAG 1.4.11). Promoted from the Problem Studio
- * (C2) so the practice, archive, Arena and authored screens share one definition. Light already uses the
- * 3.7:1 token from C4, this keeps light at 3.7:1 or better and raises dark.
+ * The solving screens used to raise `--border` and `--input` locally. The site-wide tokens in app/globals.css are now 3:1 or
+ * better on the page, cards and fills in both themes, so nothing is overridden here. The name stays so callers need no change.
  */
-export const solveTokens =
-  "[--border:240_5%_46%] [--input:240_5%_46%] dark:[--border:240_4%_44%] dark:[--input:240_4%_50%]";
+export const solveTokens = "";
 
 /** Line length for problem text: about 70 characters. */
 export const proseWidth = "max-w-[70ch]";

@@ -26,8 +26,8 @@ export default function NotFound() {
             Page not found
           </h1>
           <CardDescription>
-            This page doesn&apos;t exist or has moved. Check the address, or head
-            back to the problems.
+            We could not find this page. Check the address, or go to the
+            problem library.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-wrap gap-3">

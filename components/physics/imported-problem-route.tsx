@@ -6,5 +6,5 @@ import { ImportedProblemReader } from "./imported-problem-reader";
 
 export function ImportedProblemRoute({ problem }: { problem: CatalogProblem }) {
   const router = useRouter();
-  return <ImportedProblemReader problem={problem} onBack={() => router.push("/dashboard?view=problems")} />;
+  return <ImportedProblemReader asPage problem={problem} onBack={() => router.push("/dashboard?view=problems")} />;
 }

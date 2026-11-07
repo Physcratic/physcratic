@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-gas-with-elbows",
-  "version": "ba387f746f499fd96e21a6bb932f6da35eca8eab5f0ef2c6ae0d45dd714990b9",
+  "version": "8ce8ecc7f750153ef25b8b4e0bfc883a6f6e9cc22ba340107faa19f7359fc831",
   "parts": [
     {
       "id": "a.i.concentration",
@@ -14,7 +14,33 @@
         "T",
         "\\hbar"
       ],
-      "help": "Large-box continuum limit, one internal state; M, T and constants positive."
+      "symbolConditions": [
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Large-box continuum limit, one internal state. M, T and constants positive."
     },
     {
       "id": "a.ii.exponent",
@@ -23,6 +49,7 @@
       "kind": "numeric",
       "unit": "1",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Enter the result in the displayed unit, without a unit suffix."
     },
     {
@@ -34,7 +61,15 @@
       "symbols": [
         "Z_1"
       ],
-      "help": "Canonical logarithm convention; use positive Z₁. Additive constants cannot be inferred from the derivative alone and require self-review."
+      "symbolConditions": [
+        {
+          "symbol": "Z_1",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Canonical logarithm convention. Use positive Z₁. Additive constants cannot be inferred from the derivative alone and require self-review."
     },
     {
       "id": "a.ii.energy",
@@ -45,6 +80,20 @@
       "symbols": [
         "k_B",
         "T"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Fixed volume, classical translational degrees of freedom."
     },
@@ -59,7 +108,27 @@
         "k_B",
         "T"
       ],
-      "help": "N indistinguishable particles; positive N, kB and T."
+      "symbolConditions": [
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "N indistinguishable particles. Positive N, kB and T."
     },
     {
       "id": "a.iv.entropy",
@@ -68,6 +137,7 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Check the negative T derivative at fixed V and N. Partial-derivative notation is outside the checker’s expression language."
     },
     {
@@ -77,6 +147,7 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Check the negative V derivative at fixed T and N. Partial derivatives and the first-law argument require self-review."
     },
     {
@@ -86,6 +157,7 @@
       "kind": "numeric",
       "unit": "1",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Enter the result in the displayed unit, without a unit suffix."
     },
     {
@@ -95,6 +167,7 @@
       "kind": "numeric",
       "unit": "1",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Enter the result in the displayed unit, without a unit suffix."
     },
     {
@@ -104,7 +177,8 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
-      "help": "Review the derivative identity from F = U − TS; matching the two exponents is not a proof."
+      "symbolConditions": [],
+      "help": "Review the derivative identity from F = U − TS. Matching the two exponents is not a proof."
     },
     {
       "id": "a.vi.partition",
@@ -117,7 +191,27 @@
         "T",
         "Z_N"
       ],
-      "help": "Canonical partition function; T, kB and ZN positive."
+      "symbolConditions": [
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "Z_N",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Canonical partition function. T, kB and ZN positive."
     },
     {
       "id": "a.vi.energy",
@@ -132,7 +226,39 @@
         "n",
         "n_Q"
       ],
-      "help": "Positive densities, large N; n = N/V and n_Q is the quantum concentration."
+      "symbolConditions": [
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "n",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "n_Q",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Positive densities, large N. n = N/V and n_Q is the quantum concentration."
     },
     {
       "id": "a.vi.proof",
@@ -141,6 +267,7 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
+      "symbolConditions": [],
       "help": "The result can be matched, but the state-counting and Stirling derivation are not graded."
     },
     {
@@ -150,6 +277,7 @@
       "kind": "numeric",
       "unit": "1",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Enter the result in the displayed unit, without a unit suffix."
     },
     {
@@ -166,7 +294,45 @@
         "b",
         "n_Q"
       ],
-      "help": "Accessible volume V − Nb > 0; N, kB, T, b and nQ positive. Use full corrected F, not just its difference from ideal F."
+      "symbolConditions": [
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "n_Q",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Accessible volume V − Nb > 0. N, kB, T, b and nQ positive. Use full corrected F, not just its difference from ideal F."
     },
     {
       "id": "b.iii.attraction",
@@ -178,7 +344,21 @@
         "\\varepsilon",
         "b"
       ],
-      "help": "Positive well depth ε and excluded volume b; uniform-density mean field."
+      "symbolConditions": [
+        {
+          "symbol": "\\varepsilon",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Positive well depth ε and excluded volume b. Uniform-density mean field."
     },
     {
       "id": "b.iv.energy",
@@ -195,7 +375,51 @@
         "n_Q",
         "a"
       ],
-      "help": "V > Nb > 0; positive T, kB, nQ and a. Pair attraction is counted once."
+      "symbolConditions": [
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "n_Q",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "V > Nb > 0. Positive T, kB, nQ and a. Pair attraction is counted once."
     },
     {
       "id": "b.v.pressure",
@@ -211,7 +435,45 @@
         "b",
         "a"
       ],
-      "help": "Right-hand side only; V > Nb > 0, all parameters positive."
+      "symbolConditions": [
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Right-hand side only. V > Nb > 0, all parameters positive."
     },
     {
       "id": "b.v.derivation",
@@ -220,7 +482,8 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
-      "help": "Review differentiation of F at fixed T and N; only the final pressure expression is checked."
+      "symbolConditions": [],
+      "help": "Review differentiation of F at fixed T and N. Only the final pressure expression is checked."
     },
     {
       "id": "b.vi.energy",
@@ -235,7 +498,39 @@
         "a",
         "V"
       ],
-      "help": "Classical gas with temperature-independent attraction parameter a; positive quantities and V > Nb."
+      "symbolConditions": [
+        {
+          "symbol": "N",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Classical gas with temperature-independent attraction parameter a. Positive quantities and V > Nb."
     }
   ]
 }

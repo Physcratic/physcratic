@@ -86,6 +86,7 @@ export function StatusBar({
   saveMessage,
   saveTone,
   checksLeft,
+  compact,
   className,
 }: {
   state: string;
@@ -93,9 +94,23 @@ export function StatusBar({
   saveMessage: string;
   saveTone: "ok" | "busy" | "error";
   checksLeft: number;
+  /** Only the save message. Simple mode has no use for the version or the check count. */
+  compact?: boolean;
   className?: string;
 }) {
   const SaveIcon = saveTone === "error" ? CircleAlert : saveTone === "ok" ? CircleCheck : CircleDot;
+  if (compact)
+    return (
+      <p
+        role="status"
+        aria-live="polite"
+        aria-label="Problem status"
+        className={cn("flex items-center gap-2 text-base", saveTone === "error" ? "text-destructive" : "text-muted-foreground", className)}
+      >
+        <SaveIcon aria-hidden="true" className="size-4 shrink-0" />
+        {saveMessage}
+      </p>
+    );
   return (
     <dl
       aria-label="Problem status"

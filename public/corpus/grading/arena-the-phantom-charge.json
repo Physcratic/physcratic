@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-phantom-charge",
-  "version": "0fb68e8773e1cad5bd74fdbbeb381acce72322036b076679b2174b2ba1df5803",
+  "version": "00e4f9d282e2ec9616fe35413fffd110e120ea9da3172b4f12c9e9eaf619dc71",
   "parts": [
     {
       "id": "a.charge",
@@ -12,7 +12,15 @@
         "c",
         "d"
       ],
-      "help": "d > 0; c is the signed surface-density parameter, not the speed of light."
+      "symbolConditions": [
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "d > 0. c is the signed surface-density parameter, not the speed of light."
     },
     {
       "id": "b.above",
@@ -26,7 +34,27 @@
         "d",
         "z"
       ],
-      "help": "z > 0, d > 0, ε₀ > 0; c may have either sign. Supply the scalar z component, without a unit vector."
+      "symbolConditions": [
+        {
+          "symbol": "\\varepsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "z",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "z > 0, d > 0, ε₀ > 0. c may have either sign. Supply the scalar z component, without a unit vector."
     },
     {
       "id": "b.below",
@@ -40,7 +68,21 @@
         "d",
         "z"
       ],
-      "help": "z < 0; d > 0, ε₀ > 0. The normal field has no unique continuous value at z = 0."
+      "symbolConditions": [
+        {
+          "symbol": "\\varepsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "z < 0, d > 0, ε₀ > 0. The normal field has no unique continuous value at z = 0."
     },
     {
       "id": "c.magnitude",
@@ -52,7 +94,15 @@
         "c",
         "d"
       ],
-      "help": "Magnitude rather than signed charge; d > 0. One point charge cannot reproduce both halves of the axis."
+      "symbolConditions": [
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Magnitude rather than signed charge, with d > 0. One point charge cannot reproduce both halves of the axis."
     },
     {
       "id": "c.above-position",
@@ -63,7 +113,15 @@
       "symbols": [
         "d"
       ],
-      "help": "x = y = 0; zP > 0, d > 0."
+      "symbolConditions": [
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "x = y = 0, zP > 0, d > 0."
     },
     {
       "id": "c.below-position",
@@ -74,7 +132,15 @@
       "symbols": [
         "d"
       ],
-      "help": "x = y = 0; zP < 0, d > 0."
+      "symbolConditions": [
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "x = y = 0, zP < 0, d > 0."
     },
     {
       "id": "d.repulsive",
@@ -89,7 +155,27 @@
         "\\varepsilon_0",
         "d"
       ],
-      "help": "qc > 0; m, ε₀, d > 0. Speeds above this threshold guarantee passage; equality at the discontinuous force does not fix continuation."
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\varepsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "qc > 0 and m, ε₀, d > 0. Speeds above this threshold guarantee passage. Equality at the discontinuous force does not fix continuation."
     },
     {
       "id": "d.attractive",
@@ -98,7 +184,8 @@
       "kind": "numeric",
       "unit": "m/s",
       "symbols": [],
-      "help": "No positive barrier. Arbitrarily small positive speeds suffice; zero is the infimum, not a guarantee of travel from infinity at rest."
+      "symbolConditions": [],
+      "help": "No positive barrier. Arbitrarily small positive speeds suffice. Zero is the infimum, not a guarantee of travel from infinity at rest."
     }
   ]
 }

@@ -62,7 +62,7 @@ export default async function LearnArticlePage({ params }: Props) {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink asChild>
+              <BreadcrumbLink asChild className="inline-flex min-h-11 items-center">
                 <Link href={learnPath()}>Learn</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
@@ -136,8 +136,8 @@ export default async function LearnArticlePage({ params }: Props) {
                 Practise what you have read
               </h2>
               <CardDescription className="max-w-prose">
-                Work through physics problems on Physcratic and see where to
-                improve next.
+                Open the problem library and try a problem on the topic you have
+                just read about.
               </CardDescription>
             </CardHeader>
             <CardContent>

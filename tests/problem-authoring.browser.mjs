@@ -69,6 +69,15 @@ const solutionApi = createAuthoredSolutionApi({
   origin: (request) => isAllowedSubmissionOrigin(request, [origin]),
   storage: mediaStorage.storage,
 });
+/** Sets an expression answer. The field is a MathLive field once it has loaded, and a plain box before that. */
+async function fillExpression(page, text) {
+  const field = page.locator("math-field").first();
+  await field.waitFor({ timeout: 20000 });
+  await field.evaluate((el, value) => {
+    el.value = value;
+    el.dispatchEvent(new Event("input", { bubbles: true }));
+  }, text);
+}
 async function until(check, label) {
   const start = Date.now();
   while (Date.now() - start < 20000) {
@@ -77,6 +86,65 @@ async function until(check, label) {
   }
   throw Error(`Timed out: ${label}`);
 }
+class GuideDone extends Error {}
+async function guideShots(page) {
+  const dir = process.env.GUIDE_SHOT_DIR;
+  const save = (name) => page.screenshot({ path: join(dir, `${name}.png`) });
+  const top = (locator, offset = 16) => locator.evaluate((el, o) => window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - o), offset);
+  await page.setViewportSize({ width: 1280, height: 1000 });
+  // Problem Studio opens on a new, empty problem in the last mode used. This suite drives Advanced.
+  await page.getByLabel("Problem title", { exact: true }).fill("Forces on a cart");
+  await page.waitForURL((url) => url.searchParams.has("draft"));
+  const id = new URL(page.url()).searchParams.get("draft");
+  assert.ok(id);
+  await page.getByRole("button", { name: "Add text to common context", exact: true }).click();
+  await page.getByLabel("Common context text 1", { exact: true }).fill("A 2 kg cart accelerates at 5 m/s2 along a frictionless horizontal track.");
+  await page.getByRole("button", { name: "+ Add section", exact: true }).click();
+  await page.getByLabel("Section 1 title", { exact: true }).fill("Forces and work");
+  const parts = [
+    ["a", "Find the net force on the cart, in newtons.", ["10", "N"]],
+    ["b", "Find the work done on the cart over 4 m, in joules.", ["40", "J"]],
+    ["c", "Explain why the track does no work on the cart.", null],
+  ];
+  for (const [index, [label, text, key]] of parts.entries()) {
+    await page.getByRole("button", { name: "+ Add part to section 1", exact: true }).click();
+    await page.getByLabel(`Section 1 part ${index + 1} label`, { exact: true }).fill(label);
+    await page.getByRole("button", { name: `Add text to part ${label} statement`, exact: true }).click();
+    await page.getByLabel(new RegExp(`^Part ${label} statement text 1$`, "i")).fill(text);
+    if (!key) continue;
+    const card = page.locator("section[data-order-item]").filter({ has: page.getByLabel(`Section 1 part ${index + 1} label`, { exact: true }) }).last();
+    await card.getByText(`Answer key, hints and solution · part ${label}`, { exact: true }).click();
+    await card.getByLabel("Answer type", { exact: true }).selectOption("numeric");
+    await card.getByLabel("Expected value", { exact: true }).fill(key[0]);
+    await card.getByLabel("Units", { exact: true }).fill(key[1]);
+  }
+  await page.getByLabel("Rights declaration", { exact: true }).fill("I wrote this problem myself.");
+  await until(async () => (await page.getByRole("status").allTextContents()).some((t) => t.includes("All changes saved")), "autosave");
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await save("studio-editor");
+  await top(page.getByText("Answer key, hints and solution · part a", { exact: true }), 140);
+  await save("studio-parts");
+  await page.getByRole("button", { name: "Student preview", exact: true }).click();
+  await page.getByRole("article", { name: "Student-facing preview" }).waitFor();
+  await top(page.getByRole("article", { name: "Student-facing preview" }), 24);
+  await save("studio-preview");
+  await page.getByRole("button", { name: "Write", exact: true }).click();
+  await page.getByRole("button", { name: "Publish problem", exact: true }).click();
+  await until(async () => (await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state === "published", "publish");
+  const learnerContext = await browser.newContext({ viewport: { width: 1280, height: 1000 } });
+  await learnerContext.addCookies([{ name: "viewer", value: "workflow-student", url: origin }]);
+  const learner = await learnerContext.newPage();
+  await learner.goto(`${origin}/dashboard?view=problems&collection=authored`);
+  await learner.locator("[data-problem-card]").first().waitFor({ timeout: 20000 });
+  await learner.evaluate(() => window.scrollTo(0, 0));
+  await learner.screenshot({ path: join(dir, "studio-library.png") });
+  await learner.goto(`${origin}/dashboard/authored/${id}`);
+  await learner.locator("[id^='part-']").first().waitFor({ timeout: 20000 });
+  await learner.screenshot({ path: join(dir, "student-view.png") });
+  await learnerContext.close();
+  console.log("guide screenshots saved to", dir);
+}
+
 try {
   await pool.query(
     "CREATE TABLE \"user\" (id text PRIMARY KEY); INSERT INTO \"user\" VALUES ('browser-author'),('workflow-student')",
@@ -249,6 +317,7 @@ try {
   const context = await browser.newContext({
     viewport: { width: 1440, height: 1000 },
   });
+  await context.addInitScript(() => localStorage.setItem("physcratic.studio.mode", "advanced"));
   const page = await context.newPage();
   const errors = [];
   page.on("pageerror", (e) => {
@@ -257,10 +326,17 @@ try {
   });
   page.on("dialog", (d) => d.accept());
   await page.goto(origin);
-  await page.getByRole("button", { name: "New problem", exact: true }).click();
+  if (process.env.GUIDE_SHOT_DIR) {
+    // Screenshots for the Learn guide "How to write a problem in Problem Studio". Real editor and API on the
+    // disposable PostgreSQL, 1280px wide, light mode. Stops here, so the rest of the suite is not run.
+    await guideShots(page);
+    throw new GuideDone();
+  }
+  // Problem Studio opens on a new, empty problem in the last mode used. This suite drives Advanced.
   await page
     .getByLabel("Problem title", { exact: true })
     .fill("The pendulum experiment");
+  await page.waitForURL((url) => url.searchParams.has("draft"));
   const id = new URL(page.url()).searchParams.get("draft");
   assert.ok(id);
   await page
@@ -792,8 +868,11 @@ try {
   learner.on("dialog", (d) => d.accept());
   learner.on("pageerror", (e) => errors.push(e.message));
   await learner.goto(`${origin}/dashboard?view=problems&collection=authored`);
-  // Each library card links to the problem twice, from its title and from its Exercise button.
-  await learner.locator(`a[href="/dashboard/authored/${id}"]`).first().click();
+  // Each library card has one link to its problem.
+  const cardLinks = learner.locator(`a[href="/dashboard/authored/${id}"]`);
+  await cardLinks.first().waitFor();
+  assert.equal(await cardLinks.count(), 1);
+  await cardLinks.click();
   await learner.getByLabel("Numerical answer", { exact: true }).fill("-0.5");
   await learner.getByLabel("Units", { exact: true }).fill("1");
   await learner
@@ -827,7 +906,7 @@ try {
   await learner
     .getByLabel("Choose part", { exact: true })
     .selectOption(symbolic.id);
-  await learner.getByLabel("Expression answer", { exact: true }).fill("x*x");
+  await fillExpression(learner, "x*x");
   await learner
     .getByRole("button", { name: "Submit answer", exact: true })
     .click();
@@ -910,7 +989,7 @@ try {
   console.log(
     "PASS unified editor → library → numerical/symbolic/manual submissions → immutable history → explicit solution/media → assisted attempts → revoke/unpublish workflow (injected verified sessions).",
   );
-  await page.getByRole("button", { name: "← Drafts", exact: true }).click();
+  await page.getByRole("button", { name: "← My drafts", exact: true }).click();
   await page
     .getByRole("button", { name: /^Delete Keep local conflict work$/ })
     .click();
@@ -928,6 +1007,8 @@ try {
   console.log(
     "PASS: real editor/browser + PostgreSQL CRUD, inline math, keyboard reorder/delete, negative numbers, autosave, recovery, 409 resolution, publication/privacy, mobile overflow and axe accessibility",
   );
+} catch (error) {
+  if (!(error instanceof GuideDone)) throw error;
 } finally {
   await browser?.close();
   if (server) await new Promise((resolve) => server.close(resolve));

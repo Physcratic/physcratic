@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-five-fold-collision",
-  "version": "28f3c94a55df2ce860852fb8d5d2e1c8a58f4313c3821ccbe904f607be018b8e",
+  "version": "fca44625caff89a4531b78b0c9ebb1816f59e1c63ff848384cdfcd1ae9aed149",
   "parts": [
     {
       "id": "a.mass",
@@ -11,7 +11,15 @@
       "symbols": [
         "m"
       ],
-      "help": "Positive rest mass scale m; composite internal energy is included."
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Positive rest mass scale m. Composite internal energy is included."
     },
     {
       "id": "a.speed",
@@ -22,7 +30,15 @@
       "symbols": [
         "c"
       ],
-      "help": "Positive c; speed along +x."
+      "symbolConditions": [
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Positive c. Speed along +x."
     },
     {
       "id": "b.heavy",
@@ -33,7 +49,15 @@
       "symbols": [
         "c"
       ],
-      "help": "Nontrivial elastic collision with momentum exchange; +x is the incoming direction. The unchanged-velocity no-exchange branch is not requested in this field."
+      "symbolConditions": [
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Nontrivial elastic collision with momentum exchange, and +x is the incoming direction. The unchanged-velocity no-exchange branch is not requested in this field."
     },
     {
       "id": "b.light",
@@ -44,7 +68,15 @@
       "symbols": [
         "c"
       ],
-      "help": "Nontrivial elastic collision with momentum exchange; signed velocity along +x."
+      "symbolConditions": [
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Nontrivial elastic collision with momentum exchange. Signed velocity along +x."
     },
     {
       "id": "c.angle",
@@ -53,7 +85,8 @@
       "kind": "numeric",
       "unit": "degrees",
       "symbols": [],
-      "help": "Same two outgoing rest masses, elastic two-body final state; enter degrees, not radians."
+      "symbolConditions": [],
+      "help": "Same two outgoing rest masses, elastic two-body final state. Enter degrees, not radians."
     },
     {
       "id": "d.lower",
@@ -62,6 +95,7 @@
       "kind": "numeric",
       "unit": "degrees",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Enter the result in the displayed unit, without a unit suffix."
     },
     {
@@ -71,6 +105,7 @@
       "kind": "numeric",
       "unit": "degrees",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Enter the result in the displayed unit, without a unit suffix."
     },
     {
@@ -84,7 +119,27 @@
         "c",
         "h"
       ],
-      "help": "All three photon energies are strictly positive; the other two may be collinear backwards. Constants m, c and h are positive."
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "All three photon energies are strictly positive. The other two may be collinear backwards. Constants m, c and h are positive."
     }
   ]
 }

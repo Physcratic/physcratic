@@ -30,11 +30,10 @@ export default function Error({
       <Card className="w-full max-w-md" role="alert">
         <CardHeader>
           <h1 className="text-2xl font-semibold leading-none tracking-tight">
-            Something went wrong
+            This page could not be shown
           </h1>
           <CardDescription>
-            An unexpected error occurred. You can try again, or go back to the
-            dashboard.
+            Try again. If the error keeps happening, go back to the dashboard.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">

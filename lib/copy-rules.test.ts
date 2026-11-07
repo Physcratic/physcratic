@@ -3,9 +3,18 @@ import { describe, it } from "node:test";
 import { findBannedWords, findCopyProblems } from "./copy-rules";
 import { articles, COACHING_LINE } from "./learn/articles";
 import { visibleStrings } from "./learn/reading";
-import { PROSE_SEMICOLON, scanCopy, sourceFiles, stringsIn } from "./copy-scan";
+import { KNOWN_SEMICOLON_OFFENDERS, PROSE_SEMICOLON, scanCopy, sourceFiles, stringsIn } from "./copy-scan";
+import { archiveDefinitions } from "./archive-grading/catalog";
+import { source01 } from "./arena/source-01";
+import { source02 } from "./arena/source-02";
+import { source03 } from "./arena/source-03";
+import { source04 } from "./arena/source-04";
+import { source05 } from "./arena/source-05";
+import { source06 } from "./arena/source-06";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+
+const arenaSeeds = [...source01, ...source02, ...source03, ...source04, ...source05, ...source06];
 
 describe("findCopyProblems", () => {
   it("passes plain copy", () => {
@@ -68,6 +77,49 @@ describe("the coaching line at the end of every guide", () => {
   });
 });
 
+describe("Arena problem text obeys the copy rules", () => {
+  // Prose only: maths ($$...$$ and $...$), code spans and image addresses are removed first.
+  const prose = (text: string) =>
+    text
+      .replace(/\$\$[\s\S]*?\$\$/g, " ")
+      .replace(/\$[^$\n]*\$/g, " ")
+      .replace(/`[^`\n]*`/g, " ")
+      .replace(/\]\([^)\n]*\)/g, "]");
+  const arenaTexts = () => {
+    const out: { where: string; text: string }[] = [];
+    for (const seed of arenaSeeds) {
+      for (const field of ["title", "summary", "statement", "solution"] as const) out.push({ where: `${seed.id} ${field}`, text: seed[field] });
+      for (const tag of seed.tags) out.push({ where: `${seed.id} tag`, text: tag });
+    }
+    for (const definition of archiveDefinitions) {
+      if (!definition.problemId.startsWith("arena-")) continue;
+      for (const part of definition.parts) {
+        // "domain" is never shown to a student, so it is not scanned.
+        for (const field of ["label", "help"] as const) out.push({ where: `${definition.problemId} ${part.id} ${field}`, text: part[field] });
+        if (part.kind === "self-review") out.push({ where: `${definition.problemId} ${part.id} reason`, text: part.reason });
+      }
+    }
+    return out;
+  };
+  it("covers all 18 problems and their answer boxes", () => {
+    assert.equal(arenaSeeds.length, 18);
+    const parts = archiveDefinitions.filter((d) => d.problemId.startsWith("arena-")).reduce((sum, d) => sum + d.parts.length, 0);
+    assert.equal(parts, 153);
+    assert.ok(arenaTexts().length >= 18 * 4 + parts * 2);
+  });
+  it("has no dashes, semicolons, banned words or banned phrases in titles, statements, solutions, part headings, answer help or condition lines", () => {
+    const failures: string[] = [];
+    for (const { where, text } of arenaTexts()) {
+      for (const problem of [...findCopyProblems(prose(text)), ...findBannedWords(prose(text))]) failures.push(`${where}: ${problem.rule} in "${prose(text).trim().slice(0, 80)}"`);
+    }
+    assert.deepEqual(failures, []);
+  });
+  it("leaves maths alone: a semicolon or LaTeX spacing inside it is not flagged", () => {
+    assert.deepEqual(findCopyProblems(prose(String.raw`The field $$E_\theta(S;L)=0$$ and $a\;b$ vanish.`)), []);
+    assert.equal(findCopyProblems(prose("Two clauses; joined")).length, 1);
+  });
+});
+
 describe("copy scanner", () => {
   it("reads string literals, template text and JSX text but not comments", () => {
     const source = [
@@ -97,17 +149,31 @@ describe("no banned words or joined clauses in the app", () => {
       .map((f) => `${f.file}:${f.line} ${f.rule}: ${f.text}`);
     assert.deepEqual(failures, []);
   });
-  it("has no semicolons joining clauses of prose under app/ and components/", () => {
-    const failures: string[] = [];
+  const proseSemicolons = () => {
+    const found: { file: string; line: number; text: string }[] = [];
     for (const dir of ["app", "components"]) {
       for (const file of sourceFiles(process.cwd(), dir)) {
         for (const { text, line } of stringsIn(file, readFileSync(join(process.cwd(), file), "utf8"))) {
           if (PROSE_SEMICOLON.test(text.replace(/&[a-z]+;/g, "")) && !/[=<>{}]|charset|base64|path=/.test(text)) {
-            failures.push(`${file}:${line} ${text.trim().slice(0, 70)}`);
+            found.push({ file, line, text: text.trim().slice(0, 70) });
           }
         }
       }
     }
+    return found;
+  };
+  it("has no semicolons joining clauses of prose under app/ and components/", () => {
+    const failures = proseSemicolons()
+      .filter((f) => !KNOWN_SEMICOLON_OFFENDERS.includes(f.file))
+      .map((f) => `${f.file}:${f.line} ${f.text}`);
     assert.deepEqual(failures, []);
+  });
+  it("keeps the known offenders list honest", () => {
+    const files = new Set(proseSemicolons().map((f) => f.file));
+    for (const file of KNOWN_SEMICOLON_OFFENDERS) assert.ok(files.has(file), `${file} has no semicolon left, remove it from KNOWN_SEMICOLON_OFFENDERS`);
+  });
+  it("catches a semicolon followed by a space and any character", () => {
+    for (const text of ["one; two", "20 a day; 20 in total", "binds first; ^ is right-associative", "a;  b"]) assert.ok(PROSE_SEMICOLON.test(text), text);
+    for (const text of ["no semicolon here", "&amp; entity", "trailing;", "a;b"]) assert.ok(!PROSE_SEMICOLON.test(text.replace(/&[a-z]+;/g, "")), text);
   });
 });

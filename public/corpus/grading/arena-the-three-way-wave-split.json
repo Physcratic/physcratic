@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-three-way-wave-split",
-  "version": "44e2c7acce2f9cc4551da63a795463f8d7d91fa64c66adf5dc3fc0d0e37c4199",
+  "version": "254d93cfec67be9359579adc03f6015ab63d4d0c0ef1a85e52f9023b1a7e1ca5",
   "parts": [
     {
       "id": "a.wave-two",
@@ -17,7 +17,33 @@
         "t",
         "r_2"
       ],
-      "help": "r₂ increases away from the junction; positive wave numbers and ω; angles in radians. T₁ = 5T₀."
+      "symbolConditions": [
+        {
+          "symbol": "k_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_2",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_3",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "r₂ increases away from the junction. Positive wave numbers and ω. Angles in radians. T₁ = 5T₀."
     },
     {
       "id": "a.wave-three",
@@ -34,7 +60,33 @@
         "t",
         "r_3"
       ],
-      "help": "r₃ increases away from the junction; positive wave numbers and ω; angles in radians."
+      "symbolConditions": [
+        {
+          "symbol": "k_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_2",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_3",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "r₃ increases away from the junction. Positive wave numbers and ω. Angles in radians."
     },
     {
       "id": "b.density-two",
@@ -45,7 +97,15 @@
       "symbols": [
         "\\mu"
       ],
-      "help": "μ₁ = μ > 0; zero reflection and outgoing power ratio 2:3."
+      "symbolConditions": [
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "μ₁ = μ > 0, with zero reflection and outgoing power ratio 2:3."
     },
     {
       "id": "b.density-three",
@@ -56,7 +116,15 @@
       "symbols": [
         "\\mu"
       ],
-      "help": "μ₁ = μ > 0; zero reflection and outgoing power ratio 2:3."
+      "symbolConditions": [
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "μ₁ = μ > 0, with zero reflection and outgoing power ratio 2:3."
     }
   ]
 }

@@ -25,15 +25,16 @@ export default function Content({
   view,
   topic,
   query,
-  dailyProblem,
 }: {
   view: View;
   topic?: string;
   query?: string;
-  dailyProblem: Problem;
 }) {
   const router = useRouter();
   const [rankingSearch, setRankingSearch] = useState("");
+  // A guided problem open in the library is the page, so its title is the h1 and this heading steps aside.
+  const [reading, setReading] = useState(false);
+  const PageTitle = reading ? "p" : "h1";
   function openProblem(problem: Problem) {
     router.push(`/dashboard/problems/${problem.id}`);
   }
@@ -49,9 +50,9 @@ export default function Content({
     <div className="workspace-enter flex flex-col gap-7">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex flex-col gap-2">
-          <h1 className="text-2xl font-medium tracking-[-0.04em] sm:text-[27px]">
+          <PageTitle className="text-2xl font-medium tracking-[-0.04em] sm:text-[27px]">
             {topic || viewTitles[view]}
-          </h1>
+          </PageTitle>
           <p className="text-sm leading-relaxed text-muted-foreground">
             {subtitles[view]}
           </p>
@@ -84,10 +85,10 @@ export default function Content({
         )}
       </div>
       {view === "overview" && (
-        <Overview dailyProblem={dailyProblem} onOpen={openProblem} />
+        <Overview onOpen={openProblem} />
       )}
       {view === "problems" && (
-        <ProblemLibrary topic={topic} query={query} onOpen={openProblem} />
+        <ProblemLibrary topic={topic} query={query} onOpen={openProblem} onReadingChange={setReading} />
       )}
       {view === "contests" && <Contests />}
       {view === "rankings" && (

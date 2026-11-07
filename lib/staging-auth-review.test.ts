@@ -53,6 +53,11 @@ test("actual Better Auth configuration on the candidate stable Preview origin, d
     "/sign-in/email": { window: 60, max: 5 },
     "/sign-up/email": { window: 60, max: 3 },
     "/send-verification-email": { window: 60, max: 3 },
+    "/change-email": { window: 60, max: 3 },
+    "/change-password": { window: 60, max: 3 },
+    "/request-password-reset": { window: 60, max: 3 },
+    "/reset-password": { window: 60, max: 5 },
+    "/verify-email": { window: 60, max: 10 },
   });
   const originalSender = context.options.emailVerification!.sendVerificationEmail;
   const outgoing: string[] = [];

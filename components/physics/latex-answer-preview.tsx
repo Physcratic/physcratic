@@ -14,7 +14,7 @@ export function LatexAnswerPreview({ value }: { value: string }) {
     } catch { return null; }
   }, [value]);
   if (!value.trim()) return null;
-  return <div className="min-w-0 overflow-x-auto rounded-md bg-muted/30 px-3 py-2 text-foreground" aria-label="Answer preview">
+  return <div role="group" className="min-w-0 overflow-x-auto rounded-md bg-muted/30 px-3 py-2 text-foreground" aria-label="Answer preview">
     {html ? <span dangerouslySetInnerHTML={{ __html: html }} /> : <span className="text-sm text-muted-foreground">Preview unavailable. Check the LaTeX syntax before submitting.</span>}
   </div>;
 }

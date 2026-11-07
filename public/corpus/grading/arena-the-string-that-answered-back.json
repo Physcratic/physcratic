@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-string-that-answered-back",
-  "version": "83649400606709ce41afb25595c1d186520292d34ac490be9dc8504f7dda3800",
+  "version": "3093be623501bea4a9ae21f0fd532e63ab141e7009a1a57c09d88d7bac24ff1c",
   "parts": [
     {
       "id": "a.left",
@@ -14,7 +14,21 @@
         "\\tau",
         "x"
       ],
-      "help": "Small slopes; L, τ > 0. Exclude free oscillations depending on initial conditions. Angles in radians."
+      "symbolConditions": [
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\tau",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Small slopes, with L, τ > 0. Exclude free oscillations depending on initial conditions. Angles in radians."
     },
     {
       "id": "a.right",
@@ -28,7 +42,21 @@
         "\\tau",
         "x"
       ],
-      "help": "Same periodic particular solution; L, τ > 0. Angles in radians."
+      "symbolConditions": [
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\tau",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Same periodic particular solution, with L, τ > 0. Angles in radians."
     },
     {
       "id": "a.sketches",
@@ -37,6 +65,7 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Review the profiles at t = 0, τ/4, τ/2 and 3τ/4, including zero-displacement instants and opposite extrema."
     },
     {
@@ -51,7 +80,21 @@
         "\\tau",
         "x"
       ],
-      "help": "Small-slope periodic response, not the full undamped initial-value solution; L, τ > 0. Radians."
+      "symbolConditions": [
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\tau",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Small-slope periodic response, not the full undamped initial-value solution, with L, τ > 0. Radians."
     },
     {
       "id": "b.right",
@@ -65,7 +108,21 @@
         "\\tau",
         "x"
       ],
-      "help": "Same periodic particular solution; L, τ > 0. Radians."
+      "symbolConditions": [
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\tau",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Same periodic particular solution, with L, τ > 0. Radians."
     },
     {
       "id": "b.sketches",
@@ -74,6 +131,7 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Review all four times t = 0, τ/4, τ/2 and 3τ/4 and the derivative jump at the driving point."
     }
   ]

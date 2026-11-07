@@ -65,6 +65,7 @@
     "katex": "^0.19.1",
     "lucide-react": "^0.454.0",
     "mathjs": "^15.2.0",
+    "mathlive": "0.111.1",
     "next": "15.5.28",
     "next-themes": "latest",
     "pdfjs-dist": "6.3.289",

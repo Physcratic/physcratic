@@ -1,5 +1,8 @@
 # Restricted symbolic grading policy (symbolic-v1)
 
+> **Superseded on 5 November 2026 (Phase 1).** Expression answers are no longer checked by this exact prover. Practice, Arena, archive and authored expressions use the seeded test-value checker described in `answer-checking.md`. This page records the earlier `symbolic-v1` policy. Authored attempts keep the stored label `symbolic-v1`, and attempts saved before commit `f9509be` were graded by the policy below.
+
+
 This is a small exact prover, not a general computer algebra equivalence checker. It extends the Phase 5A private, immutable revision-bound server service. It adds no public grading endpoint, student UI or result persistence. Expected expressions, variable declarations, exclusions, proof internals and counterexamples remain server-only.
 
 ## Results and proof obligation

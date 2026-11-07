@@ -6,6 +6,7 @@ import { unifiedArenaPageSchema, problemHref, type UnifiedArenaPage, type Collec
 import { AchievementShowcase } from '@/components/community/achievement-badge';
 import {ProblemStatsBatch,ProblemStatsControl} from '@/components/community/problem-stats';
 import { ProblemCard } from './problem-card';
+import { describeEstimate } from '@/lib/rating-bands';
 
 export function UnifiedProblemCard({problem}:{problem:CollectionEntry}) {
  return <ProblemCard id={problem.key} title={problem.title} source={problem.kind==='arena'?'Physcratic':'Community'}
@@ -13,8 +14,8 @@ export function UnifiedProblemCard({problem}:{problem:CollectionEntry}) {
   attribution={<><ProblemStatsControl problemKey={problem.key}/>{problem.kind==='arena'?<p className="text-sm">Published by Physcratic</p>:<>
    <p className="text-sm">By {problem.author?<Link className="underline" href={`/u/${problem.author.handle}`}>{problem.author.displayName||'@'+problem.author.handle}</Link>:'Community author'}</p>
    {problem.author&&<AchievementShowcase ids={problem.author.selectedIds} medals={problem.author.medals}/>}
-   <p className="text-sm text-muted-foreground">Author-estimated difficulty: {problem.estimatedDifficulty||'Not specified'}</p>
-   {problem.provenance&&<details className="text-sm"><summary className="cursor-pointer py-2">Attribution and rights</summary><p className="whitespace-pre-wrap break-words">{problem.provenance.kind==='original'?'Original':'Authorized source'}{problem.provenance.source&&` · ${problem.provenance.source}`}</p><p className="whitespace-pre-wrap break-words">{problem.provenance.rightsDeclaration}</p></details>}
+   <p className="text-sm text-muted-foreground">Difficulty: {describeEstimate(problem.estimatedDifficulty)||'Not specified'}</p>
+   {problem.provenance&&<details className="text-sm"><summary className="flex min-h-11 cursor-pointer items-center">Attribution and rights</summary><p className="whitespace-pre-wrap break-words">{problem.provenance.kind==='original'?'Original':'Authorized source'}{problem.provenance.source&&` · ${problem.provenance.source}`}</p><p className="whitespace-pre-wrap break-words">{problem.provenance.rightsDeclaration}</p></details>}
   </>}</>}/>;
 }
 export function UnifiedArenaCollection({query,topic,difficulty,source='all',onReset}:{query:string;topic:string;difficulty:string;source?:'all'|'authored';onReset:()=>void}) {
@@ -39,7 +40,7 @@ export function UnifiedArenaCollection({query,topic,difficulty,source='all',onRe
    {current.page.authoredUnavailable&&<p role="alert">Community discovery is unavailable. Results are incomplete. Refresh to retry.</p>}
    {current.page.attributionUnavailable&&<p role="status">Public author details are temporarily unavailable.</p>}
    <p role="status" className="text-sm">{current.page.problems.length} {current.page.problems.length===1?'problem':'problems'} on this page</p>
-   {!current.page.problems.length?<div className="space-y-3 rounded-xl border p-5"><p>No matching problems found.</p><Button variant="outline" onClick={onReset}>Clear filters</Button></div>:<div className="grid min-w-0 gap-5 [overflow-wrap:anywhere]">{current.page.statsEnabled?<ProblemStatsBatch keys={current.page.problems.map(p=>p.key)}>{current.page.problems.map(p=><UnifiedProblemCard key={p.key} problem={p}/>)}</ProblemStatsBatch>:current.page.problems.map(p=><UnifiedProblemCard key={p.key} problem={p}/>)}</div>}
+   {!current.page.problems.length?<div className="space-y-3 rounded-xl border p-5"><p>No matching problems found.</p><Button variant="outline" onClick={onReset}>Clear filters</Button></div>:<div className="grid min-w-0 gap-6 [overflow-wrap:anywhere]">{current.page.statsEnabled?<ProblemStatsBatch keys={current.page.problems.map(p=>p.key)}>{current.page.problems.map(p=><UnifiedProblemCard key={p.key} problem={p}/>)}</ProblemStatsBatch>:current.page.problems.map(p=><UnifiedProblemCard key={p.key} problem={p}/>)}</div>}
   </>}
   <nav aria-label="Arena collection pages" className="flex flex-wrap gap-3"><Button variant="outline" disabled={cursors.length===1} onClick={()=>{focus.current=true;setCursors(p=>p.slice(0,-1));}}>Previous page</Button><Button variant="outline" disabled={!current?.page?.nextCursor} onClick={()=>{focus.current=true;setCursors(p=>[...p,current!.page!.nextCursor!]);}}>Next page</Button></nav>
  </section>;

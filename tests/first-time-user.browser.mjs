@@ -25,6 +25,16 @@ const browser = await chromium.launch({
   ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}),
 });
 
+/** Types into a MathLive field the way a person does. MathLive needs a moment after a click before it takes keys. */
+async function typeMath(page, field, keys) {
+  await field.click();
+  await page.waitForTimeout(500);
+  for (const key of keys) {
+    if (key.length > 1 && /^(Arrow|Backspace|Enter|Tab)/.test(key)) await page.keyboard.press(key);
+    else await page.keyboard.type(key, { delay: 30 });
+  }
+}
+
 async function noSidewaysScroll(page, where) {
   const [scroll, inner] = await page.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]);
   ok(scroll <= inner, `${where}: page scrolls sideways (${scroll} > ${inner})`);
@@ -50,6 +60,14 @@ try {
     await page.goto(origin + fixtures.library.path);
     await page.getByRole("heading", { level: 1 }).first().waitFor();
     await noSidewaysScroll(page, `library ${tag}`);
+    // MathLive is loaded only where there is an answer box. The library and the lobby have none.
+    ok(await page.evaluate(() => !customElements.get("math-field")), `MathLive is not loaded on the library (${tag})`);
+    await page.goto(`${origin}/dashboard`);
+    await page.getByRole("heading", { name: "Recommended problem" }).waitFor();
+    await page.waitForTimeout(1500);
+    ok(await page.evaluate(() => !customElements.get("math-field")), `MathLive is not loaded on the lobby (${tag})`);
+    await page.goto(origin + fixtures.library.path);
+    await page.getByRole("heading", { level: 1 }).first().waitFor();
     await shot(page, `01-library-${tag}`);
 
     // 2. Library: filter by a topic with the chips.
@@ -81,6 +99,32 @@ try {
       ok(rowScroll <= rowWidth + 1, `all chips fit at ${width}px (${tag})`);
     }
     await noSidewaysScroll(page, `library chips ${tag}`);
+    // Tab order: each library card is one tab stop. Show all topics, then walk from card to card with the keyboard.
+    await group.getByRole("button", { name: "All topics" }).click();
+    await page.locator("[data-problem-card]").nth(2).waitFor({ timeout: 20000 });
+    const cards = page.locator("[data-problem-card]");
+    for (let i = 0; i < 3; i++) {
+      const controls = await cards.nth(i).locator("a[href], button:not([disabled]), input, select, textarea, summary, [tabindex]:not([tabindex='-1'])").count();
+      // One Open problem action, plus one real button for each tag, so a tag can filter the list.
+      const tagButtons = await cards.nth(i).locator("button[aria-label^='Filter by ']").count();
+      ok(controls === 1 + tagButtons, `library card ${i + 1} has one Open problem action and a button per tag (${tagButtons}), found ${controls} tab stops (${tag})`);
+    }
+    await cards.nth(0).getByRole("link", { name: /^Open problem:/ }).focus();
+    // Tab goes through the tags of card 1, then lands on Open problem in card 2.
+    const tagsInCard1 = await cards.nth(0).locator("button[aria-label^='Filter by ']").count();
+    for (let i = 0; i < tagsInCard1; i++) {
+      await page.keyboard.press("Tab");
+      ok(await page.evaluate(() => /^Filter by /.test(document.activeElement?.getAttribute("aria-label") ?? "")), `Tab reaches a tag button of card 1 (${tag})`);
+    }
+    await page.keyboard.press("Tab");
+    ok(await cards.nth(1).evaluate((el) => el.contains(document.activeElement)), `Tab from card 1 lands in card 2 (${tag})`);
+    ok(await page.evaluate(() => /^Open problem:/.test(document.activeElement?.getAttribute("aria-label") ?? "")), `the focused control is Open problem (${tag})`);
+    const tagsInCard2 = await cards.nth(1).locator("button[aria-label^='Filter by ']").count();
+    for (let i = 0; i < tagsInCard2; i++) await page.keyboard.press("Tab");
+    await page.keyboard.press("Tab");
+    ok(await cards.nth(2).evaluate((el) => el.contains(document.activeElement)), `Tab from card 2 lands in card 3 (${tag})`);
+    await group.getByRole("button", { name: fixtures.library.topic, exact: true }).click();
+
     await chip.click();
     ok(await chip.getAttribute("aria-pressed") === "true", `topic chip is pressed (${tag})`);
     ok(await group.getByRole("button", { name: "All topics" }).getAttribute("aria-pressed") === "false", `All topics is not pressed (${tag})`);
@@ -103,8 +147,10 @@ try {
     const partChips = page.locator(".arena-document h3 > span");
     ok(await partChips.count() > 0, `lettered parts have chips (${tag})`);
     ok(/^\([a-z]\)$/.test((await partChips.first().innerText()).trim()), `part chip keeps its letter (${tag})`);
-    const arenaInput = page.locator("#step-answer input[type=text], #step-answer input:not([type])").first();
-    await arenaInput.fill(fixtures.arena.wrongAnswer);
+    const arenaField = page.locator("#step-answer math-field").first();
+    await arenaField.waitFor({ timeout: 20000 });
+    ok(await page.evaluate(() => Boolean(customElements.get("math-field"))), `MathLive loads on a problem with an answer box (${tag})`);
+    await typeMath(page, arenaField, [fixtures.arena.wrongAnswer]);
     await page.getByRole("button", { name: "Check answer" }).click();
     await page.locator('#step-answer [aria-live="polite"]').getByText(/Not correct|to revisit|Could not/).first().waitFor();
     await noSidewaysScroll(page, `arena ${tag}`);
@@ -114,6 +160,83 @@ try {
     await noSidewaysScroll(page, `arena solution ${tag}`);
     await shot(page, `03a-arena-solution-${tag}`);
     await statementTab.click();
+
+    // 3a. arena-a-grin-and-a-wiggle part (a): one answer composed with the palette, one typed. Both are marked correct.
+    {
+      const partA = "a.trajectory";
+      const resultOf = () => page.locator(`[id$="${partA}-result"]`);
+      const openPartA = async () => {
+        await page.goto(`${origin}/dashboard/problems/arena-a-grin-and-a-wiggle`);
+        const field = page.locator("#step-answer math-field").first();
+        await field.waitFor({ timeout: 20000 });
+        const fieldId = await field.getAttribute("id");
+        return { field, palette: page.locator(`[data-field="${fieldId}"] [data-palette]`), fieldId };
+      };
+      const checkPartA = async () => {
+        await page.getByRole("button", { name: "Check answer" }).click();
+        await resultOf().waitFor({ timeout: 20000 });
+      };
+      // With the palette: fraction, theta0, next box, k, out of the fraction, sin, k, z, out of the brackets, +, r0, cos, k, z.
+      {
+        const { field, palette, fieldId } = await openPartA();
+        await field.click();
+        await page.waitForTimeout(500);
+        const pad = page.locator(`[data-field="${fieldId}"] [data-math-pad]`);
+        // The pad opens on the Problem tab. A button on another tab is found by opening the tabs one by one.
+        const inField = (name) => ({
+          click: async () => {
+            const button = pad.locator(`button[aria-label="${name}"]`);
+            if (!(await button.count())) for (const tab of await pad.getByRole("tab").all()) { await tab.click(); if (await button.count()) break; }
+            await button.first().click();
+          },
+        });
+        ok(await pad.isVisible(), `the pad opens under the field being typed in (${tag})`);
+        assert.deepEqual(await pad.getByRole("tab").allTextContents(), ["Problem", "Operations", "Greek", "Trig", "Other"]); checks++;
+        ok(await pad.getByRole("tab", { name: "Problem" }).getAttribute("aria-selected") === "true", `the Problem tab is first and open (${tag})`);
+        const labels = await palette.evaluateAll((els) => els.slice(0, 4).map((el) => el.getAttribute("aria-label")));
+        assert.deepEqual(labels, ["r₀ symbol", "k symbol", "z symbol", "θ₀ symbol"]); checks++;
+        await inField("a/b fraction").click();
+        await inField("θ₀ symbol").click();
+        await page.keyboard.press("ArrowRight");
+        await inField("k symbol").click();
+        await page.keyboard.press("ArrowRight");
+        await inField("sin sine").click();
+        await inField("k symbol").click();
+        await inField("z symbol").click();
+        await page.keyboard.press("ArrowRight");
+        await page.keyboard.type("+");
+        await inField("r₀ symbol").click();
+        await inField("cos cosine").click();
+        await inField("k symbol").click();
+        await inField("z symbol").click();
+        const composed = await field.evaluate((el) => el.value);
+        ok(/\\frac\{\\theta_\{?0\}?\}\{k\}\\sin.*kz.*\+r_\{?0\}?\\cos.*kz/.test(composed.replace(/\\left|\\right/g, "")), `the palette composed the answer: ${composed} (${tag})`);
+        await checkPartA();
+        ok(/^Correct/.test((await resultOf().innerText()).trim()), `part (a) entered with the palette is marked correct (${tag})`);
+        await shot(page, `03b-arena-part-a-palette-${tag}`);
+      }
+      // By typing, as in the solution: r_0 cos(kz) + theta_0 sin(kz) / k.
+      {
+        const { field } = await openPartA();
+        await typeMath(page, field, ["r", "_", "0", "ArrowRight", "cos(kz)", "+", "theta", "_", "0", "ArrowRight", "sin(kz)", "/", "k"]);
+        const typed = await field.evaluate((el) => el.value);
+        ok(/\\theta/.test(typed) && /\\frac/.test(typed) && /\\cos/.test(typed), `typing built the answer: ${typed} (${tag})`);
+        await checkPartA();
+        ok(/^Correct/.test((await resultOf().innerText()).trim()), `part (a) entered by typing is marked correct (${tag})`);
+        await shot(page, `03c-arena-part-a-typed-${tag}`);
+      }
+      // The same part with the letter o is refused, naming the symbol, next to the answer.
+      {
+        const { field } = await openPartA();
+        await typeMath(page, field, ["r", "_", "o", "ArrowRight", "cos(kz)"]);
+        // A moment after typing stops, the same words appear under the field, before anything is checked.
+        await page.locator(`[data-field] [role="status"]`).filter({ hasText: "r_o isn't used here. Did you mean r₀?" }).first().waitFor({ timeout: 8000 });
+        ok(true, `the symbol hint appears under the field before checking (${tag})`);
+        await checkPartA();
+        const text = (await resultOf().innerText()).trim();
+        ok(/r_o isn't used here\. Did you mean r₀\?/.test(text), `the checker's message about the letter o is shown next to the answer: ${text} (${tag})`);
+      }
+    }
 
     // 3b. Olympiad archive reader: steps are labelled and the solution tab stays closed until asked for.
     await page.goto(`${origin}/dashboard/problems/${fixtures.archive.id}`);
@@ -134,7 +257,10 @@ try {
     assert.equal(await steps.count(), 4); checks++;
     await shot(page, `04-practice-start-${tag}`);
     const check = page.getByRole("button", { name: "Check answer" });
-    ok(await check.isDisabled(), `Check answer is off until something is typed (${tag})`);
+    // Nothing typed: the button still works and says what to do, instead of sitting disabled with a line of explanation.
+    await check.click();
+    await page.getByRole("alert").filter({ hasText: "Type an answer first." }).waitFor();
+    ok(await page.getByRole("alert").filter({ hasText: "Type an answer first." }).count() === 1, `Check answer with nothing typed says to type an answer (${tag})`);
     const input = page.getByRole("textbox", { name: /Final answer/ });
     await tapTarget(input, `answer input ${tag}`);
     await input.fill(practice.wrongAnswer);
@@ -191,6 +317,57 @@ try {
     await noSidewaysScroll(page, `contests ${tag}`);
     await shot(page, `09-contests-${tag}`);
     assert.deepEqual(errors, []);
+    await context.close();
+  }
+  // An open Guided exercise is the whole page, so its title is the one h1 and "Problems" steps aside.
+  {
+    const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+    const page = await context.newPage();
+    await page.goto(origin + "/dashboard?view=problems&collection=pilot");
+    await page.getByRole("heading", { level: 1, name: "Problems" }).waitFor();
+    await page.getByRole("button", { name: /^Open problem:/ }).first().click();
+    await page.getByRole("heading", { name: "Step 1: Read the problem" }).waitFor();
+    const titles = await page.getByRole("heading", { level: 1 }).allInnerTexts();
+    ok(titles.length === 1 && titles[0].trim() !== "Problems" && titles[0].trim().length > 3, `an open Guided exercise has its title as the only h1 (${JSON.stringify(titles)})`);
+    await context.close();
+  }
+  // Screenshots for the Learn guides. Only when GUIDE_SHOT_DIR is set. Light mode, 1280px wide, no database.
+  if (process.env.GUIDE_SHOT_DIR) {
+    mkdirSync(process.env.GUIDE_SHOT_DIR, { recursive: true });
+    const context = await browser.newContext({ viewport: { width: fixtures.guide.width, height: fixtures.guide.height }, deviceScaleFactor: 1 });
+    await context.addInitScript(() => { try { localStorage.setItem("theme", "light"); } catch {} });
+    const page = await context.newPage();
+    const save = (name) => page.screenshot({ path: join(process.env.GUIDE_SHOT_DIR, `${name}.png`) });
+    const top = (locator) => locator.evaluate((el) => { window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 16); });
+    // Without a database the collection reports that community problems are unavailable. Clear only that flag so the
+    // guide picture shows the library as readers see it. The problems themselves are the real response.
+    await page.route("**/api/arena/collection*", async (route) => {
+      const response = await route.fetch();
+      const json = await response.json();
+      json.authoredUnavailable = false;
+      await route.fulfill({ response, json });
+    });
+    await page.goto(origin + fixtures.library.path);
+    const group = page.getByRole("group", { name: "Topic" });
+    await group.getByRole("button", { name: fixtures.guide.topic, exact: true }).click();
+    await page.locator("[data-problem-card]").nth(2).waitFor({ timeout: 20000 });
+    await top(page.getByRole("heading", { name: "Search & filters" }));
+    await save("library-topic");
+    await page.goto(`${origin}/dashboard/problems/${fixtures.practice.id}`);
+    await page.getByRole("textbox", { name: /Final answer/ }).fill(fixtures.practice.wrongAnswer);
+    await page.getByRole("button", { name: "Check answer" }).click();
+    await page.getByText("Not correct yet").waitFor();
+    await top(page.locator("#step-answer"));
+    await save("practice-steps-feedback");
+    await page.goto(`${origin}/dashboard/problems/${fixtures.arena.id}`);
+    await page.locator(".arena-document h3 > span").first().waitFor();
+    await top(page.locator(".arena-document h3 > span").first().locator("xpath=ancestor::section[1]"));
+    await save("arena-parts");
+    await page.goto(origin + "/dashboard?view=problems&collection=pilot");
+    await page.getByRole("button", { name: /^Open problem:/ }).first().click();
+    await page.getByRole("heading", { name: "Step 1: Read the problem" }).waitFor();
+    await top(page.getByRole("list", { name: "Steps" }));
+    await save("guided-reader");
     await context.close();
   }
   console.log(`first-time-user: ${checks} checks passed`);

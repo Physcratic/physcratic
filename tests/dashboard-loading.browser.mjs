@@ -84,7 +84,7 @@ try {
     await search.fill('');
     await p.getByLabel('Competition', { exact: true }).fill('');
     await p.getByRole('tab', { name: /Guided exercises/ }).click();
-    await p.locator('#guided-results').getByRole('button', { name: /^Exercise:/ }).first().click();
+    await p.locator('#guided-results').getByRole('button', { name: /^Open problem:/ }).first().click();
     await p.locator('#corpus-title').waitFor();
     const working = p.getByLabel('Your working', { exact: true });
     await working.fill('Unsaved local working stays in the guided reader.');

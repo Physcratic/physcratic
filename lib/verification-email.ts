@@ -1,29 +1,31 @@
 import "server-only";
 import { createHash } from "node:crypto";
-import { Resend } from "resend";
 import { verificationRecipient } from "./authoring-staging";
+import { deliverAuthEmail } from "./auth-email-transport";
+import {
+  changeEmailApprovalEmail, changeEmailVerifyEmail, passwordResetEmail, signupVerificationEmail, type AuthEmailContent,
+} from "./auth-email-templates";
+
+const key = (kind: string, token: string) => `${kind}/${createHash("sha256").update(token).digest("hex")}`;
+
+async function send(email: string, url: string, content: AuthEmailContent, idempotencyKey: string) {
+  await deliverAuthEmail({ ...content, to: verificationRecipient(email, url), idempotencyKey });
+}
 
 export async function sendVerificationEmail({ email, url, token }: { email: string; url: string; token: string }) {
-  const recipient = verificationRecipient(email, url);
-  const domain = process.env.RESEND_EMAIL_DOMAIN?.trim();
-  if (!process.env.RESEND_API_KEY || !domain || !/^[a-z\d](?:[a-z\d.-]*[a-z\d])?\.[a-z]{2,}$/i.test(domain)) {
-    throw new Error("Verification email sender is not configured.");
-  }
-  const resend = new Resend(process.env.RESEND_API_KEY);
-  const { error } = await resend.emails.send({
-    from: `Physcratic <accounts@${domain}>`,
-    to: [recipient],
-    subject: "Verify your Physcratic email address",
-    text: [
-      "Welcome to Physcratic.",
-      "",
-      "Verify your email address to start saving your physics practice and solutions.",
-      "",
-      url,
-      "",
-      "This link expires in 1 hour. After verifying, sign in with your email and password.",
-      "If you did not request this email, you can safely ignore it.",
-    ].join("\n"),
-  }, { idempotencyKey: `verify-email/${createHash("sha256").update(token).digest("hex")}` });
-  if (error) throw new Error(`Resend delivery failed (${error.name}).`);
+  await send(email, url, signupVerificationEmail({ url }), key("verify-email", token));
+}
+
+export async function sendPasswordResetEmail({ email, url, token, setPassword }: { email: string; url: string; token: string; setPassword: boolean }) {
+  await send(email, url, passwordResetEmail({ url, setPassword }), key("reset-password", token));
+}
+
+/** Goes to the current address. It must approve before the new address gets its link. */
+export async function sendChangeEmailApproval({ email, newEmail, url, token }: { email: string; newEmail: string; url: string; token: string }) {
+  const resetUrl = new URL("/forgot-password", url).toString();
+  await send(email, url, changeEmailApprovalEmail({ newEmail, url, resetUrl }), key("change-email-approval", token));
+}
+
+export async function sendChangeEmailVerify({ newEmail, url, token }: { newEmail: string; url: string; token: string }) {
+  await send(newEmail, url, changeEmailVerifyEmail({ newEmail, url }), key("change-email-verify", token));
 }

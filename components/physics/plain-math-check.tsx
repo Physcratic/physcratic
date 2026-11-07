@@ -89,7 +89,7 @@ export function PlainMathCheck() {
         <div className="flex flex-col gap-3 text-sm leading-relaxed text-muted-foreground">
           <p><strong className="font-medium text-foreground">Calculator only.</strong> Results do not check your physics or units and are not graded.</p>
           <details>
-            <summary className="cursor-pointer rounded-sm font-medium underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">Supported notation</summary>
+            <summary className="flex min-h-11 cursor-pointer items-center rounded-sm font-medium underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">Supported notation</summary>
             <p className="pt-2">Use <code className="font-mono text-foreground">+ - * / ^</code>, sqrt, sin, cos, tan, log / ln, exp, abs, pi and Greek letter names. Parentheses control grouping.</p>
           </details>
         </div>

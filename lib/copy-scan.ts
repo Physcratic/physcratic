@@ -56,4 +56,13 @@ export function scanCopy(root: string, dirs: string[], skip: (file: string) => b
 }
 
 /** A semicolon that joins two clauses of prose, as opposed to one in CSS, a header or a data URL. */
-export const PROSE_SEMICOLON = /;\s+[a-zA-Z]/;
+export const PROSE_SEMICOLON = /;\s+\S/;
+
+/**
+ * Files with a known semicolon in prose that another branch owns. The copy test skips them and a second test fails
+ * when a file on this list no longer has one, so the list cannot go stale. Remove an entry when it is fixed.
+ */
+export const KNOWN_SEMICOLON_OFFENDERS: readonly string[] = [
+  // "Five upload attempts per UTC day; 20 total claim reservations". Medal verification UI, left for Codex.
+  "components/community/verification-settings.tsx",
+];

@@ -1,5 +1,12 @@
-// Contrast check for the solving screens in both themes at 375 and 1440. Run against a local build with no database:
+// Contrast and structure check for the solving screens in both themes at 375 and 1440. Run against a local build:
 //   BROWSER_TEST_ORIGIN=http://127.0.0.1:3100 node tests/solve-contrast.browser.mjs
+// SWEEP=1 adds every route in fixtures.sweep.routes and the widths 375, 390, 768 and 1440. Each page is also checked
+// for one h1, heading order, sideways scroll, 44px tap targets, visible keyboard focus and, when
+// @axe-core/playwright can be loaded from AUTHORING_BROWSER_TOOLS, zero serious or critical axe issues.
+// AUTHORED_PROBLEM_ID adds the authored student page (needs the throwaway PostgreSQL, see C5 to C7).
+// SESSION_COOKIE ("name=value") switches to the signed-in pass: Problem Studio (draft list, editor, student preview),
+// submissions, settings and the authored student page with its answer form. Needs the throwaway PostgreSQL with a
+// verified test user and a session row. Never use a real database or a real account.
 // Text must reach 4.5:1 (3:1 for large text), inputs, cards and disclosure boxes need a 3:1 border. Disabled controls
 // are exempt (WCAG 1.4.3). Only /api/dashboard and a signed-out /api/auth/get-session are mocked, for Contests.
 // Fixtures: tests/fixtures/first-time-user.json. Not run by CI.
@@ -18,7 +25,7 @@ assert.ok(["127.0.0.1", "localhost"].includes(new URL(origin).hostname));
 const browser = await chromium.launch({ headless: true, ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}) });
 
 /** Runs in the page. Returns the lowest text ratio, the lowest border ratio and every failure. */
-function measure() {
+function measure(coaching) {
   const parse = (value) => { const m = value.match(/[\d.]+/g); return m ? { r: +m[0], g: +m[1], b: +m[2], a: m[3] === undefined ? 1 : +m[3] } : { r: 0, g: 0, b: 0, a: 0 }; };
   const over = (top, under) => ({ r: top.r * top.a + under.r * (1 - top.a), g: top.g * top.a + under.g * (1 - top.a), b: top.b * top.a + under.b * (1 - top.a), a: 1 });
   const lum = ({ r, g, b }) => { const f = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b); };
@@ -40,6 +47,8 @@ function measure() {
     if (!text || !el || el.closest("script,style,noscript,.katex-mathml,[aria-hidden='true'] svg") || !visible(el) || disabled(el)) continue;
     const style = getComputedStyle(el); const size = parseFloat(style.fontSize); const bold = Number(style.fontWeight) >= 700;
     const need = size >= 24 || (size >= 18.66 && bold) ? 3 : 4.5;
+    // Transparent text is an invisible overlay on purpose, such as the selectable text layer over a PDF page image.
+    if (parse(style.color).a === 0) continue;
     const fg = over(parse(style.color), backdrop(el)); const value = ratio(fg, backdrop(el));
     minText = Math.min(minText, need === 3 ? Math.max(value, 4.5) : value);
     if (value < need) fails.push({ kind: "text", ratio: +value.toFixed(2), need, el: label(el), text: text.slice(0, 40) });
@@ -54,7 +63,10 @@ function measure() {
   for (const el of document.querySelectorAll(boxes)) {
     // Tinted and outlined text badges are labels, so the text carries the meaning. Not counted as borders.
     if (!visible(el) || disabled(el) || (el.tagName === "DIV" && el.classList.contains("inline-flex"))) continue;
-    const style = getComputedStyle(el); if (parseFloat(style.borderTopWidth) < 1 || style.borderTopStyle === "none") continue;
+    // Coaching only (owner decision, see CONTRIBUTING.md): card and container borders are decorative. A border still needs
+    // 3:1 where it is the only cue for a control, so form fields and buttons are checked.
+    if (coaching && !/^(INPUT|SELECT|TEXTAREA|BUTTON)$/.test(el.tagName) && !el.matches("[role=button],[role=checkbox],[role=radio],[role=combobox]")) continue;
+    const style = getComputedStyle(el); if (parseFloat(style.borderTopWidth) < 1 || style.borderTopStyle === "none" || parse(style.borderTopColor).a === 0) continue;
     const parent = backdrop(el.parentElement ?? el); const border = over(parse(style.borderTopColor), parent);
     const value = ratio(border, parent); minBorder = Math.min(minBorder, value);
     if (value < 3) fails.push({ kind: "border", ratio: +value.toFixed(2), need: 3, el: label(el), text: "" });
@@ -62,15 +74,78 @@ function measure() {
   return { minText, minBorder, fails };
 }
 
+/** Runs in the page. Structure and size problems that need no colour maths. */
+function audit(coaching) {
+  const issues = [];
+  const visible = (el) => { const r = el.getBoundingClientRect(); const s = getComputedStyle(el); return r.width > 1 && r.height > 1 && s.visibility !== "hidden" && s.display !== "none" && Number(s.opacity) > 0; };
+  const name = (el) => `${el.tagName.toLowerCase()}${typeof el.className === "string" && el.className ? "." + el.className.split(/\s+/).slice(0, 2).join(".") : ""}`;
+  const levelOf = (h) => Number(h.getAttribute("aria-level") || h.tagName[1]);
+  const headings = [...document.querySelectorAll("h1,h2,h3,h4,h5,h6,[role=heading]")].filter(visible);
+  const h1 = headings.filter((h) => levelOf(h) === 1);
+  if (h1.length !== 1) issues.push({ kind: "h1", el: "h1", text: `${h1.length} visible h1 elements` });
+  let previous = 0;
+  for (const heading of headings) {
+    const level = levelOf(heading);
+    if (previous && level > previous + 1) issues.push({ kind: "heading-order", el: name(heading), text: `h${previous} then h${level}: ${heading.textContent.trim().slice(0, 40)}` });
+    previous = level;
+  }
+  if (document.documentElement.scrollWidth > window.innerWidth) issues.push({ kind: "sideways-scroll", el: "html", text: `${document.documentElement.scrollWidth} > ${window.innerWidth}` });
+  const targets = 'a[href],button,input:not([type=hidden]),select,textarea,summary,[role=button],[role=tab],[role=checkbox],[role=radio],[role=combobox],[role=switch],[role=menuitem]';
+  for (const el of document.querySelectorAll(targets)) {
+    if (!visible(el) || el.matches(":disabled,[aria-disabled='true']") || el.closest("[inert],[aria-hidden='true']")) continue;
+    const style = getComputedStyle(el);
+    if (style.display === "inline" && el.tagName === "A") continue; // links inside a sentence are exempt
+    // Coaching only (owner decision): a link inside a sentence is exempt even when it is inline-flex.
+    if (coaching && el.tagName === "A") { const sentence = el.closest("p"); if (sentence && sentence.textContent.trim() !== el.textContent.trim()) continue; }
+    let box = el.getBoundingClientRect();
+    // A checkbox or radio is a target through its label, whether it wraps the control or points at it with for=.
+    const label = el.closest("label") || (el.id ? document.querySelector(`label[for="${CSS.escape(el.id)}"]`) : null);
+    if ((el.type === "checkbox" || el.type === "radio" || el.getAttribute("role") === "checkbox") && label) box = label.getBoundingClientRect();
+    // A text link only needs the height: a short word cannot be 44px wide without padding that changes the layout.
+    const textLink = el.tagName === "A" && el.textContent.trim().length > 0;
+    if (box.height < 43.5 || (!textLink && box.width < 43.5)) issues.push({ kind: "tap-target", el: name(el), text: `${Math.round(box.width)}x${Math.round(box.height)} ${(el.getAttribute("aria-label") || el.textContent || el.getAttribute("href") || "").trim().slice(0, 40)}` });
+  }
+  return issues;
+}
+
+/** Tab through the first controls and report any that show no outline and no ring. */
+async function focusAudit(page) {
+  const issues = [];
+  await page.evaluate(() => { document.activeElement?.blur?.(); window.scrollTo(0, 0); });
+  for (let i = 0; i < 14; i++) {
+    await page.keyboard.press("Tab");
+    const info = await page.evaluate(() => {
+      const el = document.activeElement;
+      if (!el || el === document.body) return null;
+      const s = getComputedStyle(el);
+      const outline = s.outlineStyle !== "none" && parseFloat(s.outlineWidth) > 0;
+      const ring = s.boxShadow && s.boxShadow !== "none";
+      const label = (el.getAttribute("aria-label") || el.textContent || el.getAttribute("href") || "").trim().slice(0, 40);
+      return { shown: outline || ring, el: `${el.tagName.toLowerCase()} ${label}` };
+    });
+    if (info && !info.shown) issues.push({ kind: "focus-visible", el: info.el, text: "no outline or ring when focused" });
+  }
+  return issues;
+}
+
+let axeBuilder;
+try { axeBuilder = require("@axe-core/playwright").default ?? require("@axe-core/playwright").AxeBuilder; } catch { axeBuilder = null; }
+async function axeAudit(page) {
+  if (!axeBuilder) return [];
+  const result = await new axeBuilder({ page }).analyze();
+  return result.violations.filter((v) => v.impact === "serious" || v.impact === "critical").map((v) => ({ kind: `axe:${v.id}`, el: v.nodes[0]?.target?.join(" ") ?? "", text: `${v.impact}, ${v.nodes.length} nodes` }));
+}
+
 const stages = [
   ["library", async (page) => { await page.goto(origin + fixtures.library.path); await page.getByRole("group", { name: "Topic" }).waitFor(); await page.getByRole("button", { name: fixtures.library.topic, exact: true }).click(); await page.locator("[data-problem-card]").first().waitFor({ timeout: 20000 }); }],
   ["practice, start", async (page) => { await page.goto(`${origin}/dashboard/problems/${fixtures.practice.id}`); await page.getByRole("list", { name: "Steps" }).waitFor(); }],
   ["practice, wrong answer and hint", async (page) => { await page.goto(`${origin}/dashboard/problems/${fixtures.practice.id}`); await page.getByRole("textbox", { name: /Final answer/ }).fill(fixtures.practice.wrongAnswer); await page.getByRole("button", { name: "Check answer" }).click(); await page.getByText("Not correct yet").waitFor(); await page.getByRole("button", { name: "See hint" }).click(); await page.locator("#problem-hint").waitFor(); }],
   ["practice, correct and solution", async (page) => { await page.goto(`${origin}/dashboard/problems/${fixtures.practice.id}`); await page.getByRole("textbox", { name: /Final answer/ }).fill(fixtures.practice.rightAnswer); await page.getByRole("button", { name: "Check answer" }).click(); await page.locator("#worked-solution").waitFor(); }],
-  ["arena statement and wrong answer", async (page) => { await page.goto(`${origin}/dashboard/problems/${fixtures.arena.id}`); await page.getByRole("button", { name: "Check answer" }).waitFor(); await page.locator("#step-answer input").first().fill(fixtures.arena.wrongAnswer); await page.getByRole("button", { name: "Check answer" }).click(); await page.getByText(/to revisit|Not correct/).first().waitFor(); }],
+  ["arena statement and wrong answer", async (page) => { await page.goto(`${origin}/dashboard/problems/${fixtures.arena.id}`); await page.getByRole("button", { name: "Check answer" }).waitFor(); const field = page.locator("#step-answer math-field").first(); await field.waitFor({ timeout: 20000 }); await field.click(); await page.waitForTimeout(500); await page.keyboard.type(fixtures.arena.wrongAnswer); await page.getByRole("button", { name: "Check answer" }).click(); await page.getByText(/to revisit|Not correct/).first().waitFor(); }],
+  ["arena pad, Greek tab with capitals", async (page) => { await page.goto(`${origin}/dashboard/problems/${fixtures.arena.id}`); const field = page.locator("#step-answer math-field").first(); await field.waitFor({ timeout: 20000 }); await field.click(); await page.waitForTimeout(500); const pad = page.locator("[data-math-pad]").first(); await pad.getByRole("tab", { name: "Greek" }).click(); await pad.getByRole("button", { name: "Show more" }).click(); await page.waitForTimeout(200); }],
   ["arena worked solution", async (page) => { await page.goto(`${origin}/dashboard/problems/${fixtures.arena.id}`); await page.getByRole("tab", { name: "Worked solution", exact: true }).click(); await page.getByText("Contains spoilers", { exact: false }).waitFor(); }],
   ["archive reader", async (page) => { await page.goto(`${origin}/dashboard/problems/${fixtures.archive.id}`); await page.getByRole("tablist", { name: "Problem steps" }).waitFor({ timeout: 30000 }); }],
-  ["guided reader", async (page) => { await page.goto(origin + "/dashboard?view=problems&collection=pilot"); await page.getByRole("button", { name: /^Exercise:/ }).first().click(); await page.getByRole("heading", { name: "Step 1: Read the problem" }).waitFor(); }],
+  ["guided reader", async (page) => { await page.goto(origin + "/dashboard?view=problems&collection=pilot"); await page.getByRole("button", { name: /^Open problem:/ }).first().click(); await page.getByRole("heading", { name: "Step 1: Read the problem" }).waitFor(); }],
   ["contests", async (page) => {
     const contest = (id, name, offset, ids) => ({ id, name, description: `${name} description.`, startsAt: new Date(Date.now() + offset).toISOString(), durationMinutes: 120, rated: false, registrationOpen: true, problemIds: ids, creators: ["Physcratic"], participants: 12, registered: false });
     await page.route("**/api/auth/get-session*", (route) => route.fulfill({ json: null }));
@@ -79,25 +154,125 @@ const stages = [
   }],
 ];
 
+const sweep = Boolean(process.env.SWEEP);
+const sessionCookie = process.env.SESSION_COOKIE;
+const widths = sweep || sessionCookie ? fixtures.sweep.widths : fixtures.widths;
+if (sweep && !sessionCookie) {
+  stages.push(["dashboard with the Welcome tour open", async (page) => { await page.goto(`${origin}/dashboard`, { waitUntil: "networkidle" }); await page.getByRole("button", { name: /^Help: Welcome to Physcratic/ }).click(); await page.locator("[data-tour-card]").waitFor(); await page.waitForTimeout(900); }]);
+  for (const route of fixtures.sweep.routes) stages.push([route.name, async (page) => { await page.goto(origin + route.path, { waitUntil: "networkidle" }); }]);
+  if (process.env.AUTHORED_PROBLEM_ID) stages.push(["authored student page", async (page) => { await page.goto(`${origin}/dashboard/authored/${process.env.AUTHORED_PROBLEM_ID}`, { waitUntil: "networkidle" }); }]);
+}
+/** Problem Studio opens in Simple mode. A draft with three parts, so the editor shows the part colours. Created once, through the real UI. */
+async function showSimple(page) {
+  const simple = page.getByRole("button", { name: "Simple", exact: true });
+  await simple.waitFor();
+  if ((await simple.getAttribute("aria-pressed")) !== "true") await simple.click();
+}
+async function ensureDraft(page) {
+  await page.goto(`${origin}/dashboard/author`, { waitUntil: "networkidle" });
+  await showSimple(page);
+  if (await page.getByRole("button", { name: /^Continue your last draft/ }).count()) return;
+  const questions = page.getByRole("textbox", { name: "What's the question?" });
+  await questions.first().click();
+  await page.keyboard.type("A 2 kg cart accelerates at 5 m/s2 along a frictionless horizontal track. Find the net force.", { delay: 5 });
+  await page.waitForURL((url) => url.searchParams.has("draft"));
+  for (const [index, question] of ["Find the work done over 3 m.", "Find the speed after 3 m."].entries()) {
+    await page.getByRole("button", { name: "Add another part", exact: true }).click();
+    await questions.nth(index + 1).click();
+    await page.keyboard.type(question, { delay: 5 });
+  }
+  await page.getByText("All changes saved").first().waitFor({ timeout: 20000 });
+}
+async function openSimple(page) {
+  await ensureDraft(page);
+  await page.goto(`${origin}/dashboard/author`, { waitUntil: "networkidle" });
+  await showSimple(page);
+  await page.getByRole("button", { name: /^Continue your last draft/ }).click();
+  await page.getByRole("region", { name: "Part c", exact: true }).waitFor({ timeout: 20000 });
+}
+async function openAdvanced(page) {
+  await openSimple(page);
+  await page.getByRole("button", { name: "Advanced", exact: true }).click();
+  await page.getByRole("heading", { name: /Step 1: Statement/ }).waitFor({ timeout: 20000 });
+}
+if (sessionCookie) {
+  stages.length = 0;
+  stages.push(
+    ["signed in: Problem Studio Simple, new problem", async (page) => { await ensureDraft(page); await page.goto(`${origin}/dashboard/author`, { waitUntil: "networkidle" }); await showSimple(page); await page.getByRole("textbox", { name: "What's the question?" }).waitFor(); }],
+    ["signed in: Problem Studio Simple, three parts", async (page) => { await openSimple(page); }],
+    ["signed in: Problem Studio Simple, equation open", async (page) => { await openSimple(page); await page.getByRole("button", { name: "Equation", exact: true }).first().click(); await page.getByRole("group", { name: "Type your equation" }).waitFor(); await page.waitForTimeout(600); }],
+    ["signed in: Problem Studio Simple with the Studio tour open", async (page) => { await openSimple(page); await page.getByRole("button", { name: /^Help: Write your first problem/ }).click(); await page.locator("[data-tour-card]").waitFor(); await page.waitForTimeout(900); }],
+    ["signed in: Problem Studio draft list", async (page) => { await ensureDraft(page); await page.goto(`${origin}/dashboard/author`, { waitUntil: "networkidle" }); await showSimple(page); await page.getByRole("button", { name: /My drafts/ }).click(); await page.getByRole("button", { name: /^Open/ }).first().waitFor(); await page.getByRole("heading", { level: 1 }).first().waitFor(); }],
+    ["signed in: Problem Studio Advanced editor", async (page) => { await openAdvanced(page); }],
+    ["signed in: Problem Studio Advanced student preview", async (page) => { await openAdvanced(page); await page.getByRole("button", { name: "Student preview", exact: true }).click(); await page.getByRole("article", { name: "Student-facing preview" }).waitFor(); }],
+    ["signed in: submissions", async (page) => { await page.goto(`${origin}/dashboard/submissions`, { waitUntil: "domcontentloaded" }); await page.getByRole("heading", { level: 1 }).first().waitFor({ timeout: 20000 }); await page.waitForTimeout(1500); }],
+    ["signed in: settings", async (page) => { await page.goto(`${origin}/settings`, { waitUntil: "networkidle" }); }],
+  );
+  // INCLUDE_ADMIN=1 adds the admin pages. They stay behind their flags and belong to the moderation work, so they are
+  // opt-in. They show the state a normal signed-in user gets, with no flag enabled.
+  if (process.env.INCLUDE_ADMIN) stages.push(
+    ["signed in: admin moderation (flag off)", async (page) => { await page.goto(`${origin}/admin/moderation`, { waitUntil: "domcontentloaded" }); await page.getByRole("heading", { level: 1 }).first().waitFor({ timeout: 20000 }); }],
+    ["signed in: admin verification (flag off)", async (page) => { await page.goto(`${origin}/admin/verification`, { waitUntil: "domcontentloaded" }); await page.getByRole("heading", { level: 1 }).first().waitFor({ timeout: 20000 }); }],
+  );
+  if (process.env.AUTHORED_PROBLEM_ID) stages.push(["signed in: authored student page", async (page) => { await page.goto(`${origin}/dashboard/authored/${process.env.AUTHORED_PROBLEM_ID}`, { waitUntil: "networkidle" }); await page.getByRole("heading", { name: "Submit an answer" }).waitFor({ timeout: 20000 }); }]);
+}
+// STAGE_FILTER="admin" (with INCLUDE_ADMIN=1) runs only the stages whose name matches.
+if (process.env.STAGE_FILTER) { const only = new RegExp(process.env.STAGE_FILTER, "i"); for (let i = stages.length - 1; i >= 0; i--) if (!only.test(stages[i][0])) stages.splice(i, 1); }
 let lowestText = 99, lowestBorder = 99, failures = 0;
 const perTheme = { light: { text: 99, border: 99 }, dark: { text: 99, border: 99 } };
+const grouped = new Map();
+function record(stage, theme, width, fail, text) {
+  const key = `${stage}|${fail.kind}|${fail.el}|${fail.text ?? text ?? ""}`;
+  const entry = grouped.get(key) ?? { stage, fail, text, where: new Set() };
+  entry.where.add(`${theme[0]}${width}`);
+  grouped.set(key, entry);
+}
 try {
-  for (const theme of ["light", "dark"]) for (const width of fixtures.widths) {
+  for (const theme of ["light", "dark"]) for (const width of widths) {
     const context = await browser.newContext({ viewport: { width, height: 900 } });
     await context.addInitScript((value) => { try { localStorage.setItem("theme", value); } catch {} }, theme);
+    if (sessionCookie) { const [cookieName, ...cookieValue] = sessionCookie.split("="); await context.addCookies([{ name: cookieName, value: cookieValue.join("="), url: origin }]); }
     for (const [name, run] of stages) {
       const page = await context.newPage();
-      await run(page);
-      await page.waitForTimeout(400);
-      const result = await page.evaluate(measure);
+      const badResponses = [];
+      page.on("response", (response) => { if (response.status() >= 400 && !response.url().includes("/_vercel/")) badResponses.push(`${response.status()} ${new URL(response.url()).pathname}`); });
+      try {
+        // The auth endpoint answers 429 when the sweep makes many signed-in requests in a minute. That is the rate limit,
+        // not the page, so wait for it to clear and run the stage again (up to twice).
+        for (let attempt = 0; ; attempt++) {
+          try { await run(page); break; }
+          catch (error) {
+            if (attempt >= 2 || !badResponses.some((entry) => entry.startsWith("429 "))) throw error;
+            badResponses.length = 0;
+            await page.waitForTimeout(30000);
+          }
+        }
+      } catch (error) {
+        // Say what the page showed, so a timeout can be told from a refused request.
+        const shown = (await page.locator("main").first().innerText({ timeout: 2000 }).catch(() => "")).replace(/\s+/g, " ").slice(0, 100);
+        record(name, theme, width, { kind: "stage-failed", el: "", text: `${String(error.message).split("\n")[0].slice(0, 120)} | requests refused: ${badResponses.slice(0, 4).join(", ") || "none"} | page shows: ${shown || "nothing"}` });
+        await page.close(); continue;
+      }
+      await page.waitForTimeout(800);
+      const onCoaching = /^(coaching|become a tutor)/.test(name);
+      const result = await page.evaluate(measure, onCoaching);
       lowestText = Math.min(lowestText, result.minText); lowestBorder = Math.min(lowestBorder, result.minBorder);
       perTheme[theme].text = Math.min(perTheme[theme].text, result.minText); perTheme[theme].border = Math.min(perTheme[theme].border, result.minBorder);
-      for (const fail of result.fails) { failures++; console.log(`FAIL ${theme} ${width} ${name}: ${fail.kind} ${fail.ratio}:1 (needs ${fail.need}) ${fail.el} "${fail.text}"`); }
+      for (const fail of result.fails) record(name, theme, width, { kind: fail.kind, el: fail.el, text: `${fail.ratio}:1 needs ${fail.need} "${fail.text}"` });
+      if (sweep || sessionCookie) {
+        for (const issue of await page.evaluate(audit, onCoaching)) record(name, theme, width, issue);
+        for (const issue of await focusAudit(page)) record(name, theme, width, issue);
+        for (const issue of await axeAudit(page)) record(name, theme, width, issue);
+        // The site name never ends in a dot, in text or in pseudo-element content.
+        const dots = await page.evaluate(() => [...document.querySelectorAll("body *")].flatMap((el) => ["::before", "::after"].map((p) => [el, getComputedStyle(el, p).content]).filter(([, c]) => c && c !== "none" && c !== "normal" && /^["']?\.["']?$/.test(c)).map(([e]) => e.tagName)).concat([...document.querySelectorAll("body *")].filter((el) => el.children.length === 0 && /^Physcratic\.$/.test(el.textContent.trim())).map((el) => el.tagName)));
+        for (const dot of dots) record(name, theme, width, { kind: "site-name-dot", el: String(dot), text: "a dot after the site name" });
+      }
       await page.close();
     }
     await context.close();
   }
+  for (const { stage, fail, where } of grouped.values()) { failures++; console.log(`FAIL [${[...where].join(" ")}] ${stage}: ${fail.kind} ${fail.el} ${fail.text}`); }
   for (const theme of ["light", "dark"]) console.log(`${theme}: lowest text ${perTheme[theme].text.toFixed(2)}:1, lowest border ${perTheme[theme].border.toFixed(2)}:1`);
-  console.log(`contrast: lowest text ${lowestText.toFixed(2)}:1, lowest border ${lowestBorder.toFixed(2)}:1, ${failures} failures`);
+  console.log(`contrast${sweep ? " and sweep" : ""}: lowest text ${lowestText.toFixed(2)}:1, lowest border ${lowestBorder.toFixed(2)}:1, ${failures} distinct failures`);
   assert.equal(failures, 0);
 } finally { await browser.close(); }

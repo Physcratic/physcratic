@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-cosmic-kitchen",
-  "version": "1443e8bdd69fcb9f11f5177de3cdaa93a10f1d7fae4bf64d551b84a7d236da2d",
+  "version": "0398070db0d9c3329321119e4f4b64089059c02bdaae716c1007f88e6bf78d63",
   "parts": [
     {
       "id": "a.energy",
@@ -9,6 +9,7 @@
       "kind": "numeric",
       "unit": "MeV",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Use the question’s kBT scale at 10¹² K, not the blackbody mean 2.701kBT. Polarization counting does not derive the photon mean energy."
     },
     {
@@ -25,7 +26,39 @@
         "\\mu",
         "c"
       ],
-      "help": "Dilute nonrelativistic gas; one internal state, g = 1, kBT ≪ mc². Dimensional constants and T are positive; μ is real."
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Dilute nonrelativistic gas, one internal state, g = 1, kBT ≪ mc². Dimensional constants and T are positive. μ is real."
     },
     {
       "id": "c.ratio",
@@ -34,6 +67,7 @@
       "kind": "numeric",
       "unit": "1",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Neglect electron/neutrino chemical potentials and use the kBT energy scale. A ratio near one is an intended estimate."
     },
     {
@@ -43,7 +77,8 @@
       "kind": "numeric",
       "unit": "K",
       "symbols": [],
-      "help": "Use kBT₁ ≈ 0.8 MeV (or 0.79 MeV threshold); not a weak-rate freeze-out calculation."
+      "symbolConditions": [],
+      "help": "Use kBT₁ ≈ 0.8 MeV (or 0.79 MeV threshold). This is not a weak-rate freeze-out calculation."
     },
     {
       "id": "d.ratio",
@@ -52,6 +87,7 @@
       "kind": "numeric",
       "unit": "1",
       "symbols": [],
+      "symbolConditions": [],
       "help": "The worked estimate rounds this ratio to 0.20."
     },
     {
@@ -61,7 +97,8 @@
       "kind": "numeric",
       "unit": "K",
       "symbols": [],
-      "help": "Use kBT₂ ≈ mₑc² = 0.51 MeV; an estimate of pair-abundance suppression, not exact loss of chemical equilibrium."
+      "symbolConditions": [],
+      "help": "Use kBT₂ ≈ mₑc² = 0.51 MeV. This estimates pair-abundance suppression, not exact loss of chemical equilibrium."
     },
     {
       "id": "f.ratio",
@@ -78,7 +115,51 @@
         "T",
         "B_D"
       ],
-      "help": "Single-state convention; B_D is the positive binding energy 2.24 MeV in consistent units. Spin multiplicities are not included."
+      "symbolConditions": [
+        {
+          "symbol": "m_D",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m_p",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m_n",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B_D",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Single-state convention. B_D is the positive binding energy 2.24 MeV in consistent units. Spin multiplicities are not included."
     },
     {
       "id": "g.equation",
@@ -89,7 +170,17 @@
       "symbols": [
         "u"
       ],
-      "help": "u is the numerical value of kBT in keV; ηB = 6.1×10⁻¹⁰, Xp ≈ 1, XD/Xn ≈ 1. Use the coefficient precision in the solution."
+      "symbolConditions": [
+        {
+          "symbol": "u",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 50,
+          "max": 150
+        }
+      ],
+      "help": "u is the numerical value of kBT in keV. ηB = 6.1×10⁻¹⁰, Xp ≈ 1, XD/Xn ≈ 1. Use the coefficient precision in the solution."
     },
     {
       "id": "g.temperature",
@@ -98,6 +189,7 @@
       "kind": "numeric",
       "unit": "K",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Select the low-temperature root near kBT₃ = 69.1 keV, not the unrelated high-temperature root."
     },
     {
@@ -109,7 +201,15 @@
       "symbols": [
         "G"
       ],
-      "help": "Uniform Newtonian sphere; ρ is mass-equivalent density."
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Uniform Newtonian sphere. ρ is mass-equivalent density."
     },
     {
       "id": "h.xi",
@@ -122,7 +222,21 @@
         "c",
         "a"
       ],
-      "help": "a is the positive scale factor; k is signed curvature, c > 0."
+      "symbolConditions": [
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "a is the positive scale factor. k is signed curvature, c > 0."
     },
     {
       "id": "i.i.exponent",
@@ -131,6 +245,7 @@
       "kind": "numeric",
       "unit": "1",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Enter the result in the displayed unit, without a unit suffix."
     },
     {
@@ -140,6 +255,7 @@
       "kind": "numeric",
       "unit": "1",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Enter the result in the displayed unit, without a unit suffix."
     },
     {
@@ -149,6 +265,7 @@
       "kind": "numeric",
       "unit": "1",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Radiation domination with fixed relativistic particle content."
     },
     {
@@ -161,15 +278,30 @@
         "t_1",
         "t_2"
       ],
-      "help": "Flat radiation-dominated Universe; Big Bang at t = 0; both times positive."
+      "symbolConditions": [
+        {
+          "symbol": "t_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "t_2",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Flat radiation-dominated Universe with the Big Bang at t = 0. Both times are positive."
     },
     {
       "id": "l.temperature",
       "sourcePart": "l",
-      "label": "Temperature at matter–radiation equality",
+      "label": "Temperature at matter-radiation equality",
       "kind": "numeric",
       "unit": "K",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Separate matter-dominated power law from equality to recombination."
     },
     {
@@ -179,7 +311,8 @@
       "kind": "numeric",
       "unit": "1",
       "symbols": [],
-      "help": "Enter a fraction, not percent. Rounded r₁ = 0.20, Δt ≈ 290 s, half-life 612 s; all surviving neutrons enter helium; neglect baryonic mass differences."
+      "symbolConditions": [],
+      "help": "Enter a fraction, not percent. Rounded r₁ = 0.20, Δt ≈ 290 s, half-life 612 s. All surviving neutrons enter helium. Neglect baryonic mass differences."
     },
     {
       "id": "m.reasoning",
@@ -188,7 +321,8 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
-      "help": "Check comoving baryon counting and the neutron-decay derivation against the solution; only the final fraction is checked automatically."
+      "symbolConditions": [],
+      "help": "Check comoving baryon counting and the neutron-decay derivation against the solution. Only the final fraction is checked automatically."
     }
   ]
 }

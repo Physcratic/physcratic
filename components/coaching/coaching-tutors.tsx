@@ -53,7 +53,7 @@ export function CoachingTutorSlideshow() {
         {paused ? <Play className="size-4" aria-hidden="true" /> : <Pause className="size-4" aria-hidden="true" />}
       </button>
     </div>
-    <a href="#tutors" className="coaching-link text-sm font-semibold">{hero.seeAll}</a>
+    <a href="#tutors" className="coaching-link coaching-tap text-sm font-semibold">{hero.seeAll}</a>
   </div>;
 }
 
@@ -192,7 +192,7 @@ export function CoachingTutors() {
           <div><dt className="text-sm text-muted-foreground">{coaches.coachesLabel}</dt><dd className="text-2xl font-semibold">{coaches.coachCount}</dd></div>
           <div><dt className="text-sm text-muted-foreground">{coaches.countriesLabel}</dt><dd className="text-2xl font-semibold">{coaches.countryCount}</dd></div>
         </dl>
-        {!grid && <button type="button" aria-controls="coaching-tutor-gallery" aria-pressed={paused} onClick={() => setPaused(!paused)} className="coaching-gallery-toggle inline-flex min-h-10 items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+        {!grid && <button type="button" aria-controls="coaching-tutor-gallery" aria-pressed={paused} onClick={() => setPaused(!paused)} className="coaching-gallery-toggle inline-flex min-h-11 items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
           {paused ? <Play className="size-4" aria-hidden="true" /> : <Pause className="size-4" aria-hidden="true" />}
           {paused ? coaches.play : coaches.pause}
         </button>}

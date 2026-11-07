@@ -13,6 +13,13 @@ export const archiveMetadataSchema = z.strictObject({
     kind: z.enum(["numeric", "expression", "special", "self-review"]),
     unit: z.string(),
     symbols: z.array(z.string()),
+    /** Declared conditions of the symbols that have any (positive, at most 5, and so on). Nothing from the key. */
+    symbolConditions: z.array(z.strictObject({
+      symbol: z.string(),
+      assumptions: z.array(z.enum(["positive", "nonnegative", "nonzero"])).max(3),
+      min: z.number().finite().optional(),
+      max: z.number().finite().optional(),
+    })).max(20),
     help: z.string(),
   })).min(1).max(64),
 });

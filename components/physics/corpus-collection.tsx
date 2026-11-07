@@ -17,6 +17,7 @@ export function CorpusCollection({
   onReset,
   activeProblemId,
   onActiveProblemChange,
+  titleAs,
 }: {
   query: string;
   topic: string;
@@ -24,6 +25,8 @@ export function CorpusCollection({
   onReset: () => void;
   activeProblemId?: string;
   onActiveProblemChange: (id: string | undefined) => void;
+  /** The level of the open problem's title. It is the page heading when a problem is open. */
+  titleAs?: "h1" | "h2";
 }) {
   const active = corpusProblems.find(
     (problem) => problem.id === activeProblemId,
@@ -84,9 +87,10 @@ export function CorpusCollection({
             </Button>
           </div>
         )}
-        <fieldset disabled={disabled} className="min-w-0">
+        <div className="min-w-0">
           <CorpusProblemReader
             key={active.id}
+            titleAs={titleAs}
             problem={active}
             notes={notes}
             reviewed={reviewed}
@@ -111,10 +115,12 @@ export function CorpusCollection({
               })
             }
             signedIn={!!saved.session.data?.user}
+            sessionPending={saved.session.isPending}
+            disabled={disabled}
             savedTask={saved.savedTask}
             saving={saved.saving}
           />
-        </fieldset>
+        </div>
         {saved.saveError && (
           <p role="alert" className="text-sm text-destructive">
             {saved.saveError}

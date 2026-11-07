@@ -1,5 +1,7 @@
 import type { Problem } from "./physics";
+import { matchesBand } from "./rating-bands";
 
+/** The three colour groups the older filter used. New code reads lib/rating-bands.ts. */
 export const eloBands = [
   { id: "under-1200", name: "Foundational", range: "Below 1,200", min: 0, max: 1200, variant: "elo-foundation" },
   { id: "1200-1599", name: "Intermediate", range: "1,200 to 1,599", min: 1200, max: 1600, variant: "elo-intermediate" },
@@ -142,7 +144,8 @@ export function getEstimatedProblemElo(problemId: string): number {
 }
 
 export function matchesEstimatedDifficulty(problemId: string, difficulty: string) {
-  return difficulty === "all" || getEloBand(getEstimatedProblemElo(problemId)).id === difficulty;
+  // Takes the five band ids from lib/rating-bands.ts and the three older ids that saved links may still carry.
+  return matchesBand(getEstimatedProblemElo(problemId), difficulty);
 }
 
 export function getArchiveStats(

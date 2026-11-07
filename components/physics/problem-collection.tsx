@@ -125,7 +125,7 @@ export function ProblemCollection<T extends { id: string }>({
 
   return (
     <section
-      className="flex min-w-0 flex-col gap-5"
+      className="flex min-w-0 flex-col gap-6"
       aria-labelledby={headingId}
     >
       <Card
