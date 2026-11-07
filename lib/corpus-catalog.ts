@@ -36,6 +36,9 @@ const catalogSourceSchema = z.object({
   discoveryUrl: httpsUrl,
 });
 
+/** Owner decision. The IPhO, APhO and EuPhO problems are openly published and other sites reuse them. */
+export const RIGHTS_NOTE = "The owner confirmed on 7 November 2026 that reuse of the IPhO, APhO and EuPhO problems is allowed." as const;
+
 export const catalogProblemSchema = catalogSourceSchema
   .extend({
     competition: z.enum(["IPhO", "APhO", "EuPhO"]),
@@ -61,7 +64,8 @@ export const catalogProblemSchema = catalogSourceSchema
     importLanguage: z.enum(["en", "ru"]),
     attribution: z.string().min(20),
     reviewStatus: z.literal("independent-review-pending"),
-    rightsStatus: z.literal("permission-review-required"),
+    rightsStatus: z.literal("reuse-allowed"),
+    rightsNote: z.literal(RIGHTS_NOTE),
     rating: z.object({ status: z.literal("unrated"), elo: z.null() }),
   })
   .superRefine((problem, context) => {
@@ -152,7 +156,8 @@ export const catalogProblems: CatalogProblem[] = (
       importLanguage: document.language,
       attribution: `${competition} ${year}, theoretical problem ${code}. Original problem credited to the competition organisers. ${source.sourceKind === "english-archive" ? "Original English Problem and Solution PDFs collected by Olimpicos from competition sources. See the PDFs for contributor credits. No public-domain license is inferred." : source.sourceKind === "mirror" ? "Russian statement and solution hosted by pho.rs. Translation and solution authorship require review." : "Linked from the competition’s source archive. See the original documents for contributor credits."}`,
       reviewStatus: "independent-review-pending",
-      rightsStatus: "permission-review-required",
+      rightsStatus: "reuse-allowed",
+      rightsNote: RIGHTS_NOTE,
       rating: { status: "unrated", elo: null },
     });
   }),
@@ -232,10 +237,11 @@ export const catalogExport = {
   checkedOn: sources.checkedOn,
   verification: sources.verification,
   notes:
-    "100 distinct imported theory statements: 40 IPhO, 35 APhO, 25 EuPhO. IPhO and APhO use the original English Problem and Solution PDFs linked by Olimpicos, not LaTeX transcriptions or Russian mirrors. Legacy mirror sources and translation drafts are retained only for historical provenance. Includes the original five structured pilot guides. No imported PDF is automatically an approved grading rubric. Independent physics and rights reviews remain pending.",
+    "100 distinct imported theory statements: 40 IPhO, 35 APhO, 25 EuPhO. IPhO and APhO use the original English Problem and Solution PDFs linked by Olimpicos, not LaTeX transcriptions or Russian mirrors. Legacy mirror sources and translation drafts are retained only for historical provenance. Includes the original five structured pilot guides. No imported PDF is automatically an approved grading rubric. Independent physics review remains pending. Reuse of the problems is allowed, as the owner confirmed on 7 November 2026.",
   publication: {
     mode: "imported-local-corpus",
-    rightsStatus: "permission-review-required",
+    rightsStatus: "reuse-allowed",
+    rightsNote: RIGHTS_NOTE,
     license: null,
   },
   grading: { mode: "self-review", rated: false, elo: null },

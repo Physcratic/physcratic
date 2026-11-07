@@ -1,5 +1,11 @@
 # Beta readiness log
 
+## 2026-11-07: Archive indexing on
+
+- **Decision:** the owner confirmed that reuse of the IPhO, APhO and EuPhO problems is allowed, because they are openly published and other sites such as Olimpicos reuse them.
+- **Changed:** `ARCHIVE_INDEXABLE` is `true`. The archive `rightsStatus` is `reuse-allowed` with a `rightsNote` dated 7 November 2026, in `lib/corpus-catalog.ts` and its export. The import details box on each archive page shows the note instead of "rights review pending". No other problem data changed.
+- **Result:** 98 archive pages are in the sitemap, `llms.txt` examples and `llms-full.txt`. IPhO 2017 problems 2 and 3 stay noindex (too little text). The source line and official PDF link are on every archive page. Details: [SEARCH_AND_AI_VISIBILITY.md](SEARCH_AND_AI_VISIBILITY.md).
+
 ## 2026-11-07: Phase 8, search and AI visibility
 
 - **What:** every problem statement is in the server HTML, each archive problem has a titled, described, linked page, the sitemap and `llms.txt` come from one list, and the home page is a plain landing page for crawlers. Full write-up: [SEARCH_AND_AI_VISIBILITY.md](SEARCH_AND_AI_VISIBILITY.md).
@@ -10,7 +16,6 @@
 - **Shared documents:** EuPhO papers are split per problem and a test fails if two archive pages share statement text.
 - **Tests added:** statement cleaning, the problem model, structured data, sitemap and `llms` files, crawl access, the home audience rule, a server-HTML render test for every kind of statement (all in CI), and `tests/seo-nojs.live.mts`, `tests/home-session.live.mts` and `tests/authored-ssr.live.mts` against a running build.
 - **Changed tests:** `lib/public-problem-metadata.test.ts` now reads the problem model, because it pinned the old title and description scheme. `lib/public-discovery.test.ts` is unchanged and is why `llms.txt` stays under 5 KB.
-- **Open:** the archive statements are the organisers' problems and `rightsStatus` is still `permission-review-required`. The text is now indexable HTML, so that review matters more.
 
 ## 4 November 2026: Phase 6A
 

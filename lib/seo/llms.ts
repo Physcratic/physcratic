@@ -19,8 +19,8 @@ const header = (base: string) => [
   "",
 ];
 
-/** A few indexable problems, so an agent can see what a problem page looks like. Archive pages are noindex for now. */
-const EXAMPLES = ["incline", "projectile", "arena-mind-the-gap", "arena-the-bubble-treaty"];
+/** Latest paper of each olympiad plus one practice problem, so an agent can see what a problem page looks like. */
+const EXAMPLES = ["ipho-2025-t2", "apho-2025-t1", "eupho-2025-t1", "incline"];
 
 export function llmsIndex(base: string): string {
   const abs = (path: string) => `${base}${path}`;

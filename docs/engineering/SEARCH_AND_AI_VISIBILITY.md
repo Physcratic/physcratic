@@ -18,13 +18,15 @@ How Physcratic's public pages are built so that search engines and AI crawlers c
 
 Archive problems keep the URL they already had (`/dashboard/problems/ipho-2025-t2`). It already holds the olympiad, year and problem number, so no slug URLs were added.
 
-## Archive pages are noindex until the rights review (owner decision, 7 November 2026)
+## Archive pages are indexable (owner decision, 7 November 2026)
 
-`ARCHIVE_INDEXABLE` in `lib/seo/problem-pages.ts` is `false`. While it is, every one of the 100 archive problem pages sends `noindex, follow` and is left out of `sitemap.xml`, `llms.txt` and `llms-full.txt`. The pages stay public, linked from the library, the archive page, the topic pages and related-problem lists, and keep their structured data. Practice, Arena, library, topic, home and Learn pages stay indexable.
+The owner confirmed on 7 November 2026 that reuse of the IPhO, APhO and EuPhO problems is allowed, because they are openly published and other sites such as Olimpicos reuse them. The catalogue records it: `rightsStatus` is `reuse-allowed` on every archive problem, with a `rightsNote` that says so, and the page's "Source credits and import details" box shows that note. No other problem data changed.
 
-Flipping it to `true` needs the team's confirmation that the rights review of the organisers' problems is done (`rightsStatus` in the catalogue is still `permission-review-required`). Then run the checks below and redeploy. Pages with almost no statement text (`thin`) stay noindex even then.
+`ARCHIVE_INDEXABLE` in `lib/seo/problem-pages.ts` is `true`. 98 of the 100 archive pages are indexable and in the sitemap, `llms.txt` examples and `llms-full.txt`. IPhO 2017 problems 2 and 3 stay noindex because their text is too thin (`thin`). Setting the switch to `false` puts every archive page back to noindex and out of all three files, which is the fast way to undo this.
 
-`lib/seo-problem-pages.test.ts` fails if two archive pages share statement text or start the same way, so flipping the switch cannot create duplicate indexable pages.
+Every archive page keeps its source line ("IPhO 2025, Problem 2. Official problem (PDF)") with the link to the official file, in the page and in the LearningResource data. The "Unofficial English translation" label applies to English drafts of Russian sources. No archive problem is a Russian source now (all 100 are English PDFs), so no page carries it. If a translated problem is added, label it that way in the page and in `LearningResource.translator` or `inLanguage`.
+
+`lib/seo-problem-pages.test.ts` fails if two archive pages share statement text or start the same way.
 
 ## One model for every problem
 
@@ -59,7 +61,7 @@ Built in `lib/seo/json-ld.ts` from the same strings the page shows, and validate
 
 ## Sitemap, llms.txt, robots.txt
 
-- `/sitemap.xml`: every indexable page (49 while the archive is noindex), no query strings, `lastmod` from the data (a problem's import date, a guide's updated date). Practice problems, library pages and coaching pages have no date in the data, so they have no `lastmod`.
+- `/sitemap.xml`: every indexable page (147 with the archive), no query strings, `lastmod` from the data (a problem's import date, a guide's updated date). Practice problems, library pages and coaching pages have no date in the data, so they have no `lastmod`.
 - `/llms.txt`: a short index under 5 KB, with example problems that are indexable (a test in `lib/public-discovery.test.ts` keeps it there). `/llms-full.txt` lists every page in the sitemap, one line each.
 - `/robots.txt`: explicit groups for Googlebot, Bingbot, OAI-SearchBot, GPTBot, ClaudeBot and PerplexityBot with the same rules as `*`. It is built at build time, so it needs `VERCEL_ENV=production` during `pnpm build`. There is no middleware, and the CSP is report-only.
 
@@ -74,7 +76,7 @@ The statement is in the HTML, but the page stays `noindex` and out of the sitema
 ## Things to know
 
 - The problem pages are built at build time, so the community feature flags they read (`COMMUNITY_*`) are fixed for a deployment. They were already environment variables, so a redeploy was already needed to change them.
-- The archive statements are the competition organisers' problems. `rightsStatus` in the catalogue is still `permission-review-required`, and the pages say where each problem comes from and link to the official file. Rendering the text as indexable HTML makes that review more pressing.
+- The archive statements are the competition organisers' problems. The owner has confirmed reuse (see above), and the pages say where each problem comes from and link to the official file.
 - `lib/public-problem-metadata.test.ts` and `lib/public-discovery.test.ts` pinned the old title, description and `llms.txt` size. The first now reads the problem model. The second is unchanged.
 
 ## How to check

@@ -44,11 +44,12 @@ export interface ProblemPage {
 }
 
 /**
- * Owner decision, 7 November 2026: every archive problem page is noindex and out of the sitemap and llms-full.txt until
- * the team confirms the rights review of the organisers' problems. The pages stay public and linked. Flip this to
- * true only with that confirmation (see docs/engineering/SEARCH_AND_AI_VISIBILITY.md).
+ * Owner decision, 7 November 2026: archive problem pages are indexable. The owner confirmed that reuse of the IPhO,
+ * APhO and EuPhO problems is allowed (see rightsStatus in lib/corpus-catalog.ts). Set this to false to put every
+ * archive page back to noindex and out of the sitemap, llms.txt and llms-full.txt. Pages with almost no statement
+ * text (`thin`) stay noindex either way.
  */
-export const ARCHIVE_INDEXABLE = false;
+export const ARCHIVE_INDEXABLE = true;
 
 export const META_TITLE_BUDGET = 60 - " | Physcratic".length;
 

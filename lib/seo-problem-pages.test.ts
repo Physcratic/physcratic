@@ -66,11 +66,11 @@ describe("problem pages", () => {
       for (const image of view.pageImages) assert.ok(image.alt.length > 20 && image.src.endsWith(".webp"), p.id);
     }
   });
-  it("keeps every archive page noindex while ARCHIVE_INDEXABLE is false, and every other page indexable", () => {
-    assert.equal(ARCHIVE_INDEXABLE, false);
+  it("indexes every archive page except those with too little text, and every other page", () => {
+    assert.equal(ARCHIVE_INDEXABLE, true);
     for (const p of pages) assert.equal(p.indexable, p.kind !== "archive" || (ARCHIVE_INDEXABLE && !p.thin), p.id);
-    assert.equal(pages.filter((p) => p.kind === "archive" && p.indexable).length, 0);
-    assert.equal(pages.filter((p) => p.kind !== "archive" && !p.indexable).length, 0);
+    assert.deepEqual(pages.filter((p) => !p.indexable).map((p) => p.id), ["ipho-2017-t2", "ipho-2017-t3"]);
+    assert.equal(pages.filter((p) => p.kind === "archive" && p.indexable).length, 98);
   });
   it("marks only pages with too little text as thin, and there are few of them", () => {
     const thin = pages.filter((p) => p.thin);
