@@ -1,50 +1,20 @@
-import type { Metadata } from "next";
-import { baseOpenGraph } from "@/lib/site";
-import {
-  jsonLdScript,
-  problemGraph,
-  problemSummary,
-} from "@/lib/seo/json-ld";
-import { findPublicProblem } from "@/lib/seo/public-routes";
+import { jsonLdScript, problemPageGraph } from "@/lib/seo/json-ld";
+import { findProblemPage } from "@/lib/seo/problem-pages";
 
 type Props = {
   children: React.ReactNode;
   params: Promise<{ id: string }>;
 };
 
-// Title and description stay with page.tsx. Next replaces openGraph wholesale,
-// so og:title/og:description are set here too.
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}): Promise<Metadata> {
-  const { id } = await params;
-  const problem = findPublicProblem(id);
-  if (!problem) return {};
-  const path = `/dashboard/problems/${problem.id}`;
-  return {
-    alternates: { canonical: path },
-    openGraph: {
-      ...baseOpenGraph,
-      type: "article",
-      title: problem.title,
-      description: problemSummary(problem),
-      url: path,
-    },
-  };
-}
-
+// Title, description, canonical and robots come from page.tsx. This layout only adds the structured data
+// (BreadcrumbList and LearningResource), built from the same problem model as the page.
 export default async function ProblemLayout({ children, params }: Props) {
   const { id } = await params;
-  const problem = findPublicProblem(id);
+  const page = findProblemPage(id);
   return (
     <>
-      {problem ? (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: jsonLdScript(problemGraph(problem)) }}
-        />
+      {page ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(problemPageGraph(page)) }} />
       ) : null}
       {children}
     </>

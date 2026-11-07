@@ -1,13 +1,12 @@
-import { problemPageMetadata } from "./seo/problem-descriptions";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { describe, it } from "node:test";
-import type { Metadata } from "next";
 import { content as coaching } from "./coaching/content";
 import { findCopyProblems } from "./copy-rules";
-import { dashboardMetadata, parseDashboardParams } from "./dashboard-route";
 import { articles, learnPath } from "./learn/articles";
-import { findPublicProblem, publicRoutes, type PublicRoute } from "./seo/public-routes";
+import { practiceProblemDescription } from "./problem-meta";
+import { findProblemPage, problemsInTopic, topicName, topicPageCopy } from "./seo/problem-pages";
+import { publicRoutes, type PublicRoute } from "./seo/public-routes";
 import { SITE } from "./site";
 
 /**
@@ -27,14 +26,6 @@ interface Resolved {
   canonical?: string;
 }
 
-function dashboardResolved(route: PublicRoute): Resolved {
-  const url = new URL(route.path, "http://x");
-  const params = Object.fromEntries(url.searchParams);
-  const m: Metadata = dashboardMetadata(parseDashboardParams(params), params);
-  const title = typeof m.title === "string" ? m.title + TEMPLATE : m.title && "absolute" in m.title ? String(m.title.absolute) : String(m.title);
-  return { title, description: m.description ?? undefined, canonical: typeof m.alternates?.canonical === "string" ? m.alternates.canonical : undefined };
-}
-
 /** The canonical a page file declares: a string literal, `path`, or learnPath(). */
 function declaredCanonical(file: string, path: string): string | undefined {
   const match = read(file).match(/canonical:\s*(?:"([^"]+)"|(path)\b|(learnPath\(\)))/);
@@ -43,12 +34,22 @@ function declaredCanonical(file: string, path: string): string | undefined {
 }
 
 function resolve(route: PublicRoute): Resolved {
-  if (route.kind === "overview" || route.kind === "view" || route.kind === "topic") return dashboardResolved(route);
+  if (route.kind === "home") {
+    return { title: SITE.defaultTitle, description: SITE.description, canonical: declaredCanonical("app/page.tsx", route.path) };
+  }
+  if (route.kind === "library") {
+    const file = route.path === "/problems" ? "app/problems/page.tsx" : "app/problems/archive/page.tsx";
+    const source = read(file);
+    return { title: source.match(/const TITLE = "([^"]+)"/)![1] + TEMPLATE, description: source.match(/const DESCRIPTION =\s*"([^"]+)"/)![1], canonical: declaredCanonical(file, route.path) };
+  }
+  if (route.kind === "topic") {
+    const slug = route.path.split("/").pop()!;
+    const copy = topicPageCopy(topicName(slug)!, problemsInTopic(slug).length);
+    return { title: copy.title + TEMPLATE, description: copy.description, canonical: declaredCanonical("app/problems/topics/[slug]/page.tsx", route.path) };
+  }
   if (route.kind === "problem") {
-    const problem = findPublicProblem(route.path.split("/").pop()!)!;
-    // Title and description come from the page, the canonical from the problem layout.
-    const metadata = problemPageMetadata(problem);
-    return { title: route.title + TEMPLATE, description: metadata.description ?? undefined, canonical: metadata.alternates?.canonical as string };
+    const page = findProblemPage(route.path.split("/").pop()!)!;
+    return { title: page.metaTitle + TEMPLATE, description: page.description, canonical: page.path };
   }
   if (route.kind === "learn") {
     if (route.path === "/learn") {
@@ -73,8 +74,9 @@ const indexable = resolved.filter((r) => r.route.indexable);
 describe("public route metadata", () => {
   it("covers every route in the registry", () => {
     assert.equal(resolved.length, publicRoutes.length);
-    assert.ok(resolved.length > 30);
+    assert.ok(resolved.length > 140);
     assert.ok(resolved.some((r) => r.route.kind === "coaching") && resolved.some((r) => r.route.kind === "learn") && resolved.some((r) => r.route.kind === "problem"));
+    assert.ok(resolved.some((r) => r.route.kind === "home") && resolved.some((r) => r.route.kind === "library") && resolved.some((r) => r.route.kind === "topic"));
   });
 
   it("keeps every title at 60 characters or fewer, with the site template", () => {
@@ -113,9 +115,9 @@ describe("public route metadata", () => {
   });
 
   it("uses the written problem descriptions on the page itself", () => {
-    assert.match(read("app/dashboard/problems/[id]/page.tsx"), /problemPageMetadata\(selected\)/);
+    assert.match(read("app/dashboard/problems/[id]/page.tsx"), /canonical: page\.path/);
     for (const id of ["first-law", "heat", "incline", "projectile", "spring"]) {
-      assert.ok(problemPageMetadata(findPublicProblem(id)!).description, id);
+      assert.equal(findProblemPage(id)!.description, practiceProblemDescription(id), id);
     }
   });
 });

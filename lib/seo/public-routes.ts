@@ -1,20 +1,13 @@
-// After PR #2 merges, add catalog + Arena problems and /coaching here (Batch 3b).
-//
-// Single registry of URLs that resolve with 200 on main today. The sitemap,
-// llms.txt and the dashboard metadata all derive from it.
+// Single registry of URLs that resolve with 200 today. The sitemap, llms.txt and the metadata guard test all
+// derive from it. Every problem comes from lib/seo/problem-pages.ts. There are no query-string URLs here: topics
+// have their own paths (/problems/topics/<slug>) and /dashboard is the signed-in app, which is noindex.
 import { content as coachingContent } from "../coaching/content";
 import { filterCatalog } from "../corpus-catalog";
 import { learnPath, publishedArticles } from "../learn/articles";
-import { problems, topics, type Problem } from "../physics";
+import { problems, type Problem } from "../physics";
+import { allProblemPages, topicsWithProblems } from "./problem-pages";
 
-export type PublicRouteKind =
-  | "overview"
-  | "view"
-  | "topic"
-  | "problem"
-  | "learn"
-  | "coaching"
-  | "legal";
+export type PublicRouteKind = "home" | "library" | "topic" | "problem" | "learn" | "coaching" | "legal";
 
 export interface PublicRoute {
   path: string;
@@ -22,20 +15,22 @@ export interface PublicRoute {
   title: string;
   /** Topic name (problem and topic entries). */
   topic?: string;
-  /** false → listed for humans/llms.txt but never in the sitemap (noindex page). */
+  /** Problem entries: practice, arena or archive. */
+  group?: "practice" | "arena" | "archive";
+  /** Short line for llms.txt. */
+  summary?: string;
+  /** YYYY-MM-DD from the data. Absent when the data has no date, and then the sitemap leaves lastmod out. */
+  lastmod?: string;
+  /** false → listed for humans but never in the sitemap or llms.txt (noindex page). */
   indexable: boolean;
 }
 
 /**
- * True when /dashboard?view=problems&topic=<name> shows something: either
- * lib/physics practice problems, or catalog problems via the same filter (and
- * tagLabel mapping, e.g. "Modern" → "Modern physics") the UI uses.
+ * True when a topic has problems: either lib/physics practice problems, or catalog problems via the same
+ * filter (and tagLabel mapping, e.g. "Modern" → "Modern physics") the interactive library uses.
  */
 export function topicHasProblems(topic: string): boolean {
-  return (
-    problems.some((problem) => problem.topic === topic) ||
-    filterCatalog({ topic }).length > 0
-  );
+  return problems.some((problem) => problem.topic === topic) || filterCatalog({ topic }).length > 0;
 }
 
 export function findPublicProblem(id: string): Problem | null {
@@ -43,54 +38,38 @@ export function findPublicProblem(id: string): Problem | null {
 }
 
 export const publicRoutes: PublicRoute[] = [
-  { path: "/dashboard", kind: "overview", title: "Physcratic", indexable: true },
-  ...(
-    [
-      ["problems", "Physics Olympiad problems"],
-      ["contests", "Physics contests"],
-      ["rankings", "Rankings"],
-      ["guide", "Learning guide"],
-    ] as const
-  ).map(([view, title]) => ({
-    path: `/dashboard?view=${view}`,
-    kind: "view" as const,
-    title,
+  { path: "/", kind: "home", title: "Physcratic", summary: "Free physics olympiad practice", indexable: true },
+  { path: "/problems", kind: "library", title: "Problem library", summary: "Every problem in one list", indexable: true },
+  { path: "/problems/archive", kind: "library", title: "Olympiad problem archive", summary: "IPhO, APhO and EuPhO problems by year", indexable: true },
+  ...topicsWithProblems().map((topic) => ({
+    path: `/problems/topics/${topic.slug}`,
+    kind: "topic" as const,
+    title: `${topic.name} problems`,
+    topic: topic.name,
     indexable: true,
   })),
-  ...topics
-    .filter((topic) => topicHasProblems(topic.name))
-    .map((topic) => ({
-      path: `/dashboard?view=problems&topic=${encodeURIComponent(topic.name)}`,
-      kind: "topic" as const,
-      title: `${topic.name} physics problems`,
-      topic: topic.name,
-      indexable: true,
-    })),
-  ...problems.map((problem) => ({
-    path: `/dashboard/problems/${problem.id}`,
+  ...allProblemPages().map((page) => ({
+    path: page.path,
     kind: "problem" as const,
-    title: problem.title,
-    topic: problem.topic,
-    indexable: true,
+    title: page.competition ? `${page.title}, ${page.competition} ${page.year} Problem ${page.number}` : page.title,
+    topic: page.topic,
+    group: page.kind,
+    summary: page.description,
+    lastmod: page.lastmod,
+    indexable: page.indexable,
   })),
   // Published guides only. An unpublished guide has no route, so it stays out of the sitemap.
   ...(publishedArticles.length > 0
-    ? [
-        {
-          path: learnPath(),
-          kind: "learn" as const,
-          title: "Physics Olympiad guides",
-          indexable: true,
-        },
-      ]
+    ? [{ path: learnPath(), kind: "learn" as const, title: "Physics Olympiad guides", indexable: true, lastmod: publishedArticles.map((a) => a.updated).sort().at(-1) }]
     : []),
   ...publishedArticles.map((article) => ({
     path: learnPath(article.slug),
     kind: "learn" as const,
     title: article.title,
+    lastmod: article.updated,
     indexable: true,
   })),
-  // Coaching pages: the main page and the two Tally form pages.
+  // Coaching pages: the main page and the two Tally form pages. The coaching content carries no dates, so no lastmod.
   { path: "/coaching", kind: "coaching", title: coachingContent.meta.title, indexable: true },
   { path: "/coaching/consultation", kind: "coaching", title: coachingContent.consultationPage.meta.title, indexable: true },
   { path: "/coaching/become-a-tutor", kind: "coaching", title: coachingContent.tutorPage.meta.title, indexable: true },

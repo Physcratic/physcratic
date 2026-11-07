@@ -22,6 +22,7 @@ export function PracticeProblemCard({
       details={[`${problem.minutes} min`, "Hint + worked solution", "Practice only"]}
       tags={getProblemTags(problem)}
       elo={problem.elo}
+      href={`/dashboard/problems/${problem.id}`}
       onOpen={() => onOpen(problem)}
     />
   );

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { BookOpen, GraduationCap, LayoutGrid, Menu, Settings } from "lucide-react";
+import { BookOpen, GraduationCap, LayoutGrid, Library, Menu, Settings } from "lucide-react";
 import { BrandMark } from "@/components/brand-mark";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -26,6 +26,9 @@ export function LearnHeader() {
           <span className="sr-only">, back to the dashboard</span>
         </Link>
         <nav aria-label="Site" className="flex shrink-0 items-center gap-2">
+          <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
+            <Link href="/problems">Problems</Link>
+          </Button>
           <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
             <Link href="/learn">Learn</Link>
           </Button>
@@ -57,6 +60,10 @@ export function LearnHeader() {
                 <SheetTitle>Menu</SheetTitle>
                 <SheetDescription className="sr-only">Site links and settings.</SheetDescription>
                 <div className="mt-4 flex flex-col gap-1">
+                  <Link href="/problems" onClick={() => setOpen(false)} className={rowClass}>
+                    <Library className="size-[18px]" aria-hidden="true" />
+                    Problems
+                  </Link>
                   <Link href="/learn" onClick={() => setOpen(false)} className={rowClass}>
                     <BookOpen className="size-[18px]" aria-hidden="true" />
                     Learn

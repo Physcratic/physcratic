@@ -3,11 +3,15 @@ import type { Article } from "../learn/types";
 import type { Problem } from "../physics";
 import { SITE, siteUrl } from "../site";
 import { problemDescription } from "./problem-descriptions";
+import type { ProblemPage } from "./problem-pages";
 
 /** Largest raster icon in public/ (512×512). */
 const LOGO_PATH = "/icon-512.png";
 
 const orgId = () => `${siteUrl()}/#organization`;
+
+/** The publisher reference used on pages that do not carry the full Organization, with its name so it never dangles. */
+const orgRef = () => ({ "@type": "Organization", "@id": orgId(), name: SITE.name, url: siteUrl() });
 
 /** Physcratic's Instagram profile, the same link as in the coaching footer. */
 export const INSTAGRAM_URL = "https://www.instagram.com/physcratic";
@@ -81,6 +85,112 @@ export function problemGraph(problem: Problem) {
   ];
 }
 
+export interface Crumb {
+  name: string;
+  /** Path on this site, for example "/problems". */
+  path: string;
+}
+
+/** Breadcrumb trail. The same list renders the visible breadcrumb, so the markup and the text cannot drift apart. */
+export function problemCrumbs(page: Pick<ProblemPage, "title" | "topic" | "topicSlug" | "path">): Crumb[] {
+  return [
+    { name: SITE.name, path: "/" },
+    { name: "Problems", path: "/problems" },
+    { name: page.topic, path: `/problems/topics/${page.topicSlug}` },
+    { name: page.title, path: page.path },
+  ];
+}
+
+export function breadcrumbList(crumbs: readonly Crumb[]) {
+  const base = siteUrl();
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: crumbs.map((crumb, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: crumb.name,
+      item: crumb.path === "/" ? `${base}/` : `${base}${crumb.path}`,
+    })),
+  };
+}
+
+/** The collection a problem belongs to, as shown on the page ("IPhO 2025 theory problems"). */
+export function problemCollection(page: Pick<ProblemPage, "kind" | "competition" | "year">): { name: string; path: string } | undefined {
+  if (page.kind === "archive") {
+    return { name: `${page.competition} ${page.year} theory problems`, path: `/problems/archive#${page.competition!.toLowerCase()}-${page.year}` };
+  }
+  if (page.kind === "arena") return { name: "Physcratic Arena", path: "/problems#arena" };
+  return undefined;
+}
+
+/**
+ * BreadcrumbList and LearningResource for one problem page, any kind. Everything in it is also on the page: the
+ * name is the h1, the trail is the visible breadcrumb, and for archive problems the source line and the official
+ * file are the visible "IPhO 2025, Problem 2. Official problem (PDF)" line.
+ */
+export function problemPageGraph(page: ProblemPage) {
+  const base = siteUrl();
+  const url = `${base}${page.path}`;
+  const collection = problemCollection(page);
+  return [
+    breadcrumbList(problemCrumbs(page)),
+    {
+      "@context": "https://schema.org",
+      "@type": "LearningResource",
+      name: page.title,
+      description: page.description,
+      url,
+      inLanguage: "en",
+      isAccessibleForFree: true,
+      learningResourceType: "Problem",
+      educationalLevel: "Physics Olympiad",
+      educationalUse: "practice",
+      about: { "@type": "Thing", name: page.topic },
+      keywords: page.tags.join(", "),
+      publisher: orgRef(),
+      ...(page.lastmod ? { dateModified: page.lastmod } : {}),
+      ...(collection ? { isPartOf: { "@type": "Collection", name: collection.name, url: `${base}${collection.path}` } } : {}),
+      ...(page.source
+        ? {
+            isBasedOn: {
+              "@type": "CreativeWork",
+              name: `${page.source.line} ${page.source.officialLabel}`,
+              url: page.source.officialUrl,
+              encodingFormat: "application/pdf",
+            },
+          }
+        : {}),
+    },
+  ];
+}
+
+/** BreadcrumbList and an ItemList for a page that lists problems (the library, the archive, a topic). */
+export function problemListGraph({ crumbs, name, description, path, items }: { crumbs: readonly Crumb[]; name: string; description: string; path: string; items: readonly { title: string; path: string }[] }) {
+  const base = siteUrl();
+  return [
+    breadcrumbList(crumbs),
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name,
+      description,
+      url: `${base}${path}`,
+      inLanguage: "en",
+      isAccessibleForFree: true,
+      publisher: orgRef(),
+      mainEntity: {
+        "@type": "ItemList",
+        numberOfItems: items.length,
+        itemListElement: items.map((item, index) => ({ "@type": "ListItem", position: index + 1, name: item.title, url: `${base}${item.path}` })),
+      },
+    },
+  ];
+}
+
+/** WebSite and Organization for the home page. */
+export const homeGraph = () => [organization(), website()];
+
 /**
  * BreadcrumbList (Learn, then the guide), a WebPage that carries the reviewer
  * (schema.org defines reviewedBy on WebPage), and the Article it points to.
@@ -122,8 +232,8 @@ export function articleGraph(article: Article) {
       isAccessibleForFree: true,
       datePublished: article.updated,
       dateModified: article.updated,
-      author: { "@id": orgId() },
-      publisher: { "@id": orgId() },
+      author: orgRef(),
+      publisher: orgRef(),
       citation: article.sources.map((source) => ({
         "@type": "CreativeWork",
         name: source.title,
