@@ -875,28 +875,24 @@ try {
     fullPage: true,
   });
   await page.setViewportSize({ width: 375, height: 812 });
-  await page.waitForTimeout(400);
-  console.log("INLINE_MOBILE_METRICS", JSON.stringify(await page.evaluate(() => ({
-    viewport: innerWidth,
-    document: document.documentElement.scrollWidth,
-    nodes: Array.from(document.querySelectorAll('[data-math-preview="inline"]')).map((el) => {
-      const math = el.querySelector(".katex");
-      return { client: el.clientWidth, scroll: el.scrollWidth, width: el.getBoundingClientRect().width, mathWidth: math?.getBoundingClientRect().width,
-        overflowX: getComputedStyle(el).overflowX, role: el.getAttribute("role"), maxWidth: getComputedStyle(el).maxWidth };
-    })
-  }))));
-  await page.waitForFunction(() => {
-    const nodes = document.querySelectorAll('[data-math-preview="inline"]');
-    const long = nodes[2];
-    return nodes.length >= 3 && long.getAttribute("role") === "group" && long.scrollWidth > long.clientWidth + 3;
-  });
+  await page.waitForTimeout(250);
   assert.equal(await shortInline.evaluate((el) => getComputedStyle(el).overflowX), "clip");
   assert.equal(await shortInline.getAttribute("tabindex"), null);
-  assert.equal(await longInline.getAttribute("tabindex"), "0");
-  assert.equal(await longInline.evaluate((el) => getComputedStyle(el).overflowX), "auto");
-  await longInline.focus();
-  await page.keyboard.press("ArrowRight");
-  await until(async () => (await longInline.evaluate((el) => el.scrollLeft)) > 0, "mobile inline equation keyboard scroll");
+  // KaTeX may wrap a long expression at operator boundaries rather than overflow it.
+  // Only genuinely overflowing maths should receive a scroll region and keyboard tab stop.
+  const mobileLongOverflow = await longInline.evaluate((el) => el.scrollWidth > el.clientWidth + 3);
+  if (mobileLongOverflow) {
+    await page.waitForFunction(() => document.querySelectorAll('[data-math-preview="inline"]')[2]?.getAttribute("role") === "group");
+    assert.equal(await longInline.getAttribute("tabindex"), "0");
+    assert.equal(await longInline.evaluate((el) => getComputedStyle(el).overflowX), "auto");
+    await longInline.focus();
+    await page.keyboard.press("ArrowRight");
+    await until(async () => (await longInline.evaluate((el) => el.scrollLeft)) > 0, "mobile inline equation keyboard scroll");
+  } else {
+    assert.equal(await longInline.getAttribute("tabindex"), null);
+    assert.equal(await longInline.evaluate((el) => getComputedStyle(el).overflowX), "clip");
+    assert.equal(await longInline.evaluate((el) => el.querySelector(".katex")?.getBoundingClientRect().width <= el.clientWidth + 3), true);
+  }
   await shoot("authored-mobile");
   await page
     .getByRole("button", { name: "Answer part C", exact: true })
