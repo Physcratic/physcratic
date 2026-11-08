@@ -475,30 +475,14 @@ try {
   assert.ok((await page.locator(".katex").count()) >= 3);
   // Short inline maths must not become tiny scrollbars. Long inline maths keep a keyboard-accessible scroller.
   const inlineMath = page.locator('[data-math-preview="inline"]');
-  console.log("INLINE_METRICS", JSON.stringify(await page.evaluate(() => Array.from(document.querySelectorAll('[data-math-preview="inline"]')).map((el) => {
-    const math = el.querySelector(".katex");
-    return {
-      latex: math?.textContent?.slice(0, 40),
-      client: el.clientWidth,
-      scroll: el.scrollWidth,
-      width: el.getBoundingClientRect().width,
-      mathWidth: math?.getBoundingClientRect().width,
-      mathScroll: math?.scrollWidth,
-      overflowX: getComputedStyle(el).overflowX,
-      role: el.getAttribute("role"),
-      inView: el.getBoundingClientRect().top,
-    };
-  }))));
-  await page.waitForFunction(() => {
-    const nodes = document.querySelectorAll('[data-math-preview="inline"]');
-    return nodes.length >= 3 && nodes[2].getAttribute("role") === "group";
-  });
+  await page.waitForFunction(() => document.querySelectorAll('[data-math-preview="inline"]').length >= 3);
   const shortInline = inlineMath.nth(1);
   assert.equal(await shortInline.getAttribute("tabindex"), null);
   assert.equal(await shortInline.evaluate((el) => getComputedStyle(el).overflowX), "clip");
   const longInline = inlineMath.nth(2);
-  assert.equal(await longInline.getAttribute("tabindex"), "0");
-  assert.equal(await longInline.evaluate((el) => el.scrollWidth > el.clientWidth), true);
+  // On a wide desktop the long equation can actually fit. A scrollbar is only needed when it does not.
+  const longOverflowsDesktop = await longInline.evaluate((el) => el.scrollWidth > el.clientWidth + 3);
+  assert.equal((await longInline.getAttribute("tabindex")) === "0", longOverflowsDesktop);
   assert.equal(
     await page
       .getByRole("img", { name: "Oscillator displacement diagram" })
@@ -893,10 +877,16 @@ try {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.waitForFunction(() => {
     const nodes = document.querySelectorAll('[data-math-preview="inline"]');
-    return nodes.length >= 3 && nodes[2].getAttribute("role") === "group";
+    const long = nodes[2];
+    return nodes.length >= 3 && long.getAttribute("role") === "group" && long.scrollWidth > long.clientWidth + 3;
   });
   assert.equal(await shortInline.evaluate((el) => getComputedStyle(el).overflowX), "clip");
-  assert.equal(await longInline.evaluate((el) => el.scrollWidth > el.clientWidth), true);
+  assert.equal(await shortInline.getAttribute("tabindex"), null);
+  assert.equal(await longInline.getAttribute("tabindex"), "0");
+  assert.equal(await longInline.evaluate((el) => getComputedStyle(el).overflowX), "auto");
+  await longInline.focus();
+  await page.keyboard.press("ArrowRight");
+  await until(async () => (await longInline.evaluate((el) => el.scrollLeft)) > 0, "mobile inline equation keyboard scroll");
   await shoot("authored-mobile");
   await page
     .getByRole("button", { name: "Answer part C", exact: true })
