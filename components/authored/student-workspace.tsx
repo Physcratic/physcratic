@@ -1094,12 +1094,14 @@ function PrivateWorkspace({
                   {info.parts.find((p) => p.partId === part?.id)?.attemptsUsed === "1" ? "attempt" : "attempts"} on this part.
                 </p>
               )}
-              <p
-                role="status"
-                className="text-xs leading-relaxed text-muted-foreground"
-              >
-                {state.message}
-              </p>
+              {state.message && (
+                <p
+                  role="status"
+                  className="text-xs leading-relaxed text-muted-foreground"
+                >
+                  {state.message}
+                </p>
+              )}
             </section>
             {availability === "ready" && revision && part && <WorkedSolution key={`${revision.id}:${part.id}`} partColour={partColour} partLabel={part.label || String(parts.indexOf(part) + 1)} problemId={problemId} revisionId={revision.id} partId={part.id} onStale={invalidate} onAuth={denyAuth} />}
           </aside>
@@ -1167,7 +1169,7 @@ function AnswerFields({
           maxLength={180}
         />
         <p className="text-sm leading-relaxed text-muted-foreground">
-          Type maths as you write it, with / for a fraction and ^ for a power. Use the symbols the problem gives.
+          Note: Type as you usually write it. E.g. [ / ] for a fraction, [ ^ ] for a power [ int ] for an integral, etc
         </p>
       </div>
     );
