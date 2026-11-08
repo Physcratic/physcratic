@@ -108,7 +108,7 @@ export function MathPreview({
       aria-label={keyboardScrollable && scrollable ? "Mathematical expression" : undefined}
       className={
         inline
-          ? `inline-block max-w-full align-middle focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring ${inlineOverflow ? "overflow-x-auto" : "overflow-x-clip"}`
+          ? `inline-block max-w-full align-middle focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring ${inlineOverflow ? "overflow-x-auto" : "overflow-x-clip [overflow-clip-margin:0.2em]"}`
           : "block max-w-full overflow-x-auto py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
       }
       dangerouslySetInnerHTML={{ __html: html }}
