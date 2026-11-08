@@ -1,5 +1,14 @@
 # Beta readiness log
 
+## 2026-11-08 - Owner-approved contest migration 0016 adoption
+
+- The user explicitly approved completing migration 0016. Read-only inspection identified production Neon project `divine-mode-82940461`, branch `br-quiet-dawn-b7m2zrt3`, database `neondb`. The contest schema was already present, so the fresh-install procedure was not run.
+- Recovered the original successful contest DDL calls from this chat. Historical source is `migrations/0012_contest_participation.up.sql` at `8ab1f551ab721c8b269c1fff0d76662dbd92dd54`. Its SHA-256 and the renamed `migrations/0016_contest_participation.up.sql` at approved main `07d998b020817e067473fd981a0c62cbdfa60bc5` are both `fcfffcae2881a5b3d27dfadbefe78df0c868f571df30e138fda0c8e6941e3cb5`. This preserves the former filename and source rather than inventing a fresh schema installation.
+- Recorded an adoption, not a replay, in `public.physcratic_production_migrations`. The single atomic statement used the established `physcratic:authoring:migrations:v1` advisory lock, an exclusive ledger lock, access-share contest table locks and bounded lock settings. It rechecked 27 column definitions including defaults/nullability, exact new-table column counts, eight required constraints and their backing indexes, and the exact valid attempt-history index. Drift, an unexpected ledger trigger, a conflicting 0016 entry or any historical ledger change would abort.
+- A fresh post-commit read confirmed `0016_contest_participation`, result `verified`, the exact SHA-256 above, source commit `07d998b020817e067473fd981a0c62cbdfa60bc5`, actor `neondb_owner`, and adoption timestamp `2026-11-08T12:36:38.496Z`. The ledger now has seven entries. All six historical entries were preserved unchanged. Contest constraints remain validated and indexes valid/ready.
+- The only production write was the new adoption ledger row. No contest DDL, user/contest/attempt data changes, administrator assignments, grants, flags, provider settings, storage or deployment operations occurred. No new backup or restore readiness is claimed. Separate schema/grant/launch work retains its existing prerequisites. No application code changed or browser acceptance was rerun.
+- This supersedes the earlier statement that 0016 remained unrecorded. The full guest and signed-in browser sweeps remain incomplete. Community migrations 0007 through 0015 were not installed or marked installed, and production discussion/CSP locks remain unchanged.
+
 ## 2026-11-08 - Main-first platform feature integration
 
 - Reconciled the user-approved feature-branch merge against main `613624d3ef10224a8bcf36c2155747a4b4c90b30`, treating main as the baseline, and incorporated main's later `03af01e` submission-hint update (#129) during verification. Preserved main's solving UI, MathLive input, shared answer reader, sampled default grading, catalogue, metadata, moderation, security fixes, settings and existing feature gates.

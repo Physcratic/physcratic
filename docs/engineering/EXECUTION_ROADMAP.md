@@ -5,6 +5,7 @@ Baseline: main `a4a75c292fc0a9d6392e25f92818e454d6ffb4eb`, verified 4 November 2
 | Priority | Workstream | State / acceptance |
 | --- | --- | --- |
 | Complete | Authoring/revisions, student reading/submissions/grading, taxonomy, Learn, P1 | Preserve contracts and regressions |
+| Complete, narrowly owner-approved | Contest migration 0016 adoption (8 November 2026) | Existing production contest schema verified against main `07d998b020817e067473fd981a0c62cbdfa60bc5`. One verified adoption ledger row appended at `2026-11-08T12:36:38.496Z`, preserving six historical entries and former contest 0012 provenance. No contest DDL, data, grant, flag or deployment changes. See BETA_READINESS.md and current handoff. This is not community installation or launch approval |
 | Complete | Community 2A/2B1/2B2/3A/3B | PRs #90/#95/#98/#101; code merged, operator deployment/enablement remains unverified |
 | Complete, production locked | Threaded discussion (Batch 4) | [PR #106](https://github.com/Physcratic/physcratic/pull/106), merge `a01836e71521ffbb4686f9b360e355c47fdd2a50`. Threads, reactions, owned edits, soft deletion and abuse controls. Default OFF and production-locked until Batch 5 |
 | Complete | Persistent agent memory and browser/CSP regression infrastructure | [PR #105](https://github.com/Physcratic/physcratic/pull/105), reconciled with Batch 4 without runtime/schema changes. CI triggers include shared source/fixtures, migrations, dependency manifests and build configuration. Merge authorised after exact-head workflows pass, then stop |

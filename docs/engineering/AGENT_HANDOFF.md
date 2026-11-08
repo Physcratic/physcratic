@@ -1,5 +1,11 @@
 # Agent handoff
 
+## Contest migration 0016 adoption (8 November 2026)
+
+- User-approved production operation completed at `2026-11-08T12:36:38.496Z` on Neon `divine-mode-82940461` / `br-quiet-dawn-b7m2zrt3` / `neondb`. Existing contest tables matched 0016, so no contest DDL was replayed. Only a verified adoption ledger row was appended atomically after locked schema/index/constraint checks. A fresh read confirmed seven ledger entries and all six historical rows unchanged.
+- Adopted source: `migrations/0016_contest_participation.up.sql` at main `07d998b020817e067473fd981a0c62cbdfa60bc5`, SHA-256 `fcfffcae2881a5b3d27dfadbefe78df0c868f571df30e138fda0c8e6941e3cb5`. Preserve original source `migrations/0012_contest_participation.up.sql` at `8ab1f551ab721c8b269c1fff0d76662dbd92dd54`, whose bytes/checksum are identical. Earlier successful DDL calls were recovered from the chat. Full evidence is in BETA_READINESS.md.
+- No application code, contest/user data, roles, grants, flags, provider settings or deployment changed. Community 0007 through 0015 remain unrecorded in the inspected production ledger. No new recovery readiness, community activation or full-site browser acceptance is implied. Stop after this scoped adoption and audit documentation. Any further schema/grant/launch work requires its own approved prerequisites.
+
 ## Current Security S1 handoff (4 November 2026)
 
 - Started main `d1dc0cff8c752a8857b43fba5f88546664cc664c`, branch `codex/community-security-s1`. [PR #119](https://github.com/Physcratic/physcratic/pull/119) merged as `a988056a157171db5f77e8470683fedc1cceb1e2`; exact tested head `b7112fd59168ac5d9b958a300d297b55d91d3b97` passed CI #207 (41812380330) and browser #7 (41812380259). Details/checksum/grants in COMMUNITY_STATUS.md.
