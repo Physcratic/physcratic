@@ -197,6 +197,17 @@ try {
         },
         {
           id: randomUUID(),
+          kind: "text",
+          spans: [
+            { kind: "text", text: "The initial energy is " },
+            { kind: "math", latex: "U_i" },
+            { kind: "text", text: ". A long example is " },
+            { kind: "math", latex: Array(40).fill("x^2+v^2").join("+") },
+            { kind: "text", text: "." },
+          ],
+        },
+        {
+          id: randomUUID(),
           kind: "math",
           latex: "\\frac{d^2 x}{dt^2}+\\omega^2x=0",
         },
@@ -462,6 +473,16 @@ try {
     false,
   );
   assert.ok((await page.locator(".katex").count()) >= 3);
+  // Short inline maths must not become tiny scrollbars. Long inline maths keep a keyboard-accessible scroller.
+  const inlineMath = page.locator('[data-math-preview="inline"]');
+  await page.waitForFunction(() => document.querySelectorAll('[data-math-preview="inline"]').length >= 3);
+  const shortInline = inlineMath.nth(1);
+  assert.equal(await shortInline.getAttribute("tabindex"), null);
+  assert.equal(await shortInline.evaluate((el) => getComputedStyle(el).overflowX), "clip");
+  const longInline = inlineMath.nth(2);
+  // On a wide desktop the long equation can actually fit. A scrollbar is only needed when it does not.
+  const longOverflowsDesktop = await longInline.evaluate((el) => el.scrollWidth > el.clientWidth + 3);
+  assert.equal((await longInline.getAttribute("tabindex")) === "0", longOverflowsDesktop);
   assert.equal(
     await page
       .getByRole("img", { name: "Oscillator displacement diagram" })
@@ -854,6 +875,24 @@ try {
     fullPage: true,
   });
   await page.setViewportSize({ width: 375, height: 812 });
+  await page.waitForTimeout(250);
+  assert.equal(await shortInline.evaluate((el) => getComputedStyle(el).overflowX), "clip");
+  assert.equal(await shortInline.getAttribute("tabindex"), null);
+  // KaTeX may wrap a long expression at operator boundaries rather than overflow it.
+  // Only genuinely overflowing maths should receive a scroll region and keyboard tab stop.
+  const mobileLongOverflow = await longInline.evaluate((el) => el.scrollWidth > el.clientWidth + 3);
+  if (mobileLongOverflow) {
+    await page.waitForFunction(() => document.querySelectorAll('[data-math-preview="inline"]')[2]?.getAttribute("role") === "group");
+    assert.equal(await longInline.getAttribute("tabindex"), "0");
+    assert.equal(await longInline.evaluate((el) => getComputedStyle(el).overflowX), "auto");
+    await longInline.focus();
+    await page.keyboard.press("ArrowRight");
+    await until(async () => (await longInline.evaluate((el) => el.scrollLeft)) > 0, "mobile inline equation keyboard scroll");
+  } else {
+    assert.equal(await longInline.getAttribute("tabindex"), null);
+    assert.equal(await longInline.evaluate((el) => getComputedStyle(el).overflowX), "clip");
+    assert.equal(await longInline.evaluate((el) => el.querySelector(".katex")?.getBoundingClientRect().width <= el.clientWidth + 3), true);
+  }
   await shoot("authored-mobile");
   await page
     .getByRole("button", { name: "Answer part C", exact: true })
