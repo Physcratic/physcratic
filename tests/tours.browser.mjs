@@ -167,7 +167,7 @@ for (const theme of ["light", "dark"]) {
       await card(page).waitFor({ timeout: 8000 });
       const titles = await walk(page, `${tag} studio`);
       log(`${tag} studio:`, titles.join(" > "));
-      ok(titles.join("|") === "The question|Equations|A picture|The final answer|Try an answer|Publish", `${tag} studio: all six steps (${titles.join(", ")})`);
+      ok(titles.join("|") === "The main question|Part a|Equations|Type it like you say it|An image|The worked solution|Final Answer (Solution)|Answer preview|Where it's from|Estimated difficulty|Publish", `${tag} studio: all eleven steps (${titles.join(", ")})`);
       ok((await page.evaluate(() => localStorage.getItem("physcratic.tour.studio.v1"))) === "seen", `${tag} studio: remembered as seen`);
       await page.getByRole("button", { name: /^Help: Write your first problem/ }).click();
       await card(page).waitFor({ timeout: 5000 });
