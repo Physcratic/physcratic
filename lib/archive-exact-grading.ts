@@ -2,16 +2,17 @@ import "server-only";
 import type { ArchivePartResult } from "./archive-grading-contracts";
 import type { ArchiveKeyPart } from "./archive-grading/definitions";
 import { evaluateNumericAnswer } from "./authored-numeric-grading";
-import { constantValue, LatexAnswerError, parseLatexAnswer, structuralForm, type AnswerNode } from "./exact-latex-answer";
+import { algebraExpression, constantValue, LatexAnswerError, parseLatexAnswer, structuralForm, type AnswerNode } from "./exact-latex-answer";
+import { evaluateExactExpressionAnswer } from "./exact-polynomial-grading";
 import { compareLatexExpressions } from "./latex-symbolic";
 
-const prepared = new WeakMap<ArchiveKeyPart, { forms: string[]; node: AnswerNode }>();
+const prepared = new WeakMap<ArchiveKeyPart, { forms: string[]; algebra: string | null; node: AnswerNode }>();
 function prepare(part: ArchiveKeyPart) {
   let entry = prepared.get(part);
   if (entry) return entry;
   if (part.kind !== "expression") throw new Error("Expression key required");
   const nodes = [part.canonical, ...part.alternatives].map((value) => parseLatexAnswer(value, part.symbols));
-  entry = { forms: nodes.map(structuralForm), node: nodes[0] };
+  entry = { forms: nodes.map(structuralForm), algebra: algebraExpression(nodes[0]), node: nodes[0] };
   prepared.set(part, entry);
   return entry;
 }
@@ -38,8 +39,17 @@ export function checkArchivePartExactly(part: ArchiveKeyPart, latex: string): Om
     return { status: "invalid", message: reason instanceof LatexAnswerError ? reason.message : "The expression could not be parsed safely. Simplify it and retry." };
   }
   try {
-    const key = part.kind === "expression" ? prepare(part) : { forms: [], node: parseLatexAnswer(String(part.target)) };
+    const key = part.kind === "expression" ? prepare(part) : { forms: [], algebra: String(part.target), node: parseLatexAnswer(String(part.target)) };
     if (key.forms.includes(structuralForm(node))) return { status: "correct", message: "Correct. Your answer matches a reviewed exact form. Your derivation has not been graded." };
+    const actual = algebraExpression(node);
+    if (actual && key.algebra) {
+      const checked = evaluateExactExpressionAnswer({ kind: "expression", expression: actual }, {
+        kind: "expression", expected: key.algebra, angleUnit: part.angleUnit, exclusions: part.exclusions,
+        variables: part.symbols.map((symbol, index) => ({ name: `v${index}`, domain: "real", assumptions: symbol.assumptions, min: symbol.min, max: symbol.max })),
+      });
+      if (checked.status === "correct") return { status: "correct", message: "Correct. Exact algebraic equivalence verified under the stated domain assumptions. Your derivation has not been graded." };
+      if (checked.status === "incorrect") return { status: "incorrect", message: "This expression is not equivalent to the answer under the stated assumptions. Check signs and factors." };
+    }
     const symbolic = compareLatexExpressions(node, key.node, part.kind === "expression" ? part : { ...part, kind: "expression", canonical: String(part.target) });
     if (symbolic === "correct") return { status: "correct", message: "Correct. Exact symbolic equivalence verified with the original domain restrictions preserved. Your derivation has not been graded." };
     if (symbolic === "incorrect") return { status: "incorrect", message: "This expression has a nonzero exact difference from the answer. Check signs, factors and added terms." };

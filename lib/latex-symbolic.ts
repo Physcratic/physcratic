@@ -1,5 +1,5 @@
 import "server-only";
-import { Budget, rational, integer, plus, times, divide, neg, compare, power, type Q } from "./exact-expression-arithmetic";
+import { Budget, rational, integer, plus, times, divide, neg, compare, power, type Q } from "./exact-expression-language";
 import type { ArchiveKeyPart } from "./archive-grading/definitions";
 import { structuralForm, type AnswerNode } from "./exact-latex-answer";
 
