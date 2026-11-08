@@ -161,8 +161,13 @@ test("every button, card and tab the write guide names exists in Problem Studio"
   }
 });
 
+test("removed quick practice shortcut stays absent from the solving screens and guide", () => {
+  assert.doesNotMatch(solving, /Random quick practice/);
+  assert.doesNotMatch(text("how-to-use-physcratic"), /Random quick practice/i);
+});
+
 test("every button, tab and result the use guide names exists on the solving screens", () => {
-  for (const label of ["Random quick practice", "Open problem", "Physcratic Arena", "Olympiad archive", "Guided exercises", "Find a problem", "Recommended problem", "Another problem", "Need a hint?", "Show solution", "Check answer", "Try again", "Next problem", "Worked solution", "Reading notes", "Could not read this answer", "Could not be decided", "Not answered", "Not correct yet", "Welcome to Physcratic", "Replay tours", "Settings", "Coaching", "Problem Studio"]) {
+  for (const label of ["Open problem", "Physcratic Arena", "Olympiad archive", "Guided exercises", "Find a problem", "Recommended problem", "Another problem", "Need a hint?", "Show solution", "Check answer", "Try again", "Next problem", "Worked solution", "Reading notes", "Could not read this answer", "Could not be decided", "Not answered", "Not correct yet", "Welcome to Physcratic", "Replay tours", "Settings", "Coaching", "Problem Studio"]) {
     assert.ok(solving.includes(label) || readFileSync("components/kokonutui/layout.tsx", "utf8").includes(label) || readFileSync("components/kokonutui/top-nav.tsx", "utf8").includes(label), `no "${label}" on the solving screens`);
   }
 });
