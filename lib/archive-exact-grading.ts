@@ -4,6 +4,7 @@ import type { ArchiveKeyPart } from "./archive-grading/definitions";
 import { evaluateNumericAnswer } from "./authored-numeric-grading";
 import { algebraExpression, constantValue, LatexAnswerError, parseLatexAnswer, structuralForm, type AnswerNode } from "./exact-latex-answer";
 import { evaluateExactExpressionAnswer } from "./exact-polynomial-grading";
+import { normaliseName } from "./answer-reader";
 import { compareLatexExpressions } from "./latex-symbolic";
 
 const prepared = new WeakMap<ArchiveKeyPart, { forms: string[]; algebra: string | null; node: AnswerNode }>();
@@ -15,6 +16,16 @@ function prepare(part: ArchiveKeyPart) {
   entry = { forms: nodes.map(structuralForm), algebra: algebraExpression(nodes[0]), node: nodes[0] };
   prepared.set(part, entry);
   return entry;
+}
+
+function exactExclusions(part: ArchiveKeyPart) {
+  return part.exclusions.map((exclusion) => {
+    const match = /^\s*(.+?)\s*!=\s*(.+?)\s*$/.exec(exclusion);
+    if (!match) return exclusion;
+    const name = normaliseName(match[1]);
+    const index = part.symbols.findIndex((symbol) => [symbol.latex, ...symbol.aliases].some((alias) => normaliseName(alias) === name));
+    return index < 0 ? exclusion : `v${index} != ${match[2]}`;
+  });
 }
 
 // Explicit exact verification is independent of the site's default sampled checker and its input conventions.
@@ -44,7 +55,7 @@ export function checkArchivePartExactly(part: ArchiveKeyPart, latex: string): Om
     const actual = algebraExpression(node);
     if (actual && key.algebra) {
       const checked = evaluateExactExpressionAnswer({ kind: "expression", expression: actual }, {
-        kind: "expression", expected: key.algebra, angleUnit: part.angleUnit, exclusions: part.exclusions,
+        kind: "expression", expected: key.algebra, angleUnit: part.angleUnit, exclusions: exactExclusions(part),
         variables: part.symbols.map((symbol, index) => ({ name: `v${index}`, domain: "real", assumptions: symbol.assumptions, min: symbol.min, max: symbol.max })),
       });
       if (checked.status === "correct") return { status: "correct", message: "Correct. Exact algebraic equivalence verified under the stated domain assumptions. Your derivation has not been graded." };

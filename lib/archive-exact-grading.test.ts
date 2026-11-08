@@ -15,6 +15,15 @@ test("every canonical and curated symbolic form still passes the independent exa
   }
 });
 
+test("main's declared symbol exclusions and ranges are retained by the exact capability", () => {
+  const excluded = expression("r", "Result", "x+1", "x", "Real x other than one", { exclusions: ["x != 1"] });
+  assert.equal(checkArchivePart(excluded, "(x^2-1)/(x-1)").status, "correct");
+  const greek = expression("r", "Result", String.raw`\mu+1`, String.raw`\mu`, "Real mu other than one", { exclusions: [String.raw`\mu != 1`] });
+  assert.equal(checkArchivePart(greek, String.raw`(\mu^2-1)/(\mu-1)`).status, "correct");
+  const bounded = expression("r", "Result", "x", "x", "Two to three", { ranges: { x: [2, 3] } });
+  assert.equal(checkArchivePart(bounded, String.raw`\sqrt{x^2}`).status, "correct");
+});
+
 test("LaTeX spacing commands preserve numeric and symbolic answer meaning", () => {
   const key = numeric("r", "Result", 4.9, "1");
   const polynomial = expression("p", "Polynomial", "x^2", "x", "All real x");
