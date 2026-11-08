@@ -475,6 +475,20 @@ try {
   assert.ok((await page.locator(".katex").count()) >= 3);
   // Short inline maths must not become tiny scrollbars. Long inline maths keep a keyboard-accessible scroller.
   const inlineMath = page.locator('[data-math-preview="inline"]');
+  console.log("INLINE_METRICS", JSON.stringify(await page.evaluate(() => Array.from(document.querySelectorAll('[data-math-preview="inline"]')).map((el) => {
+    const math = el.querySelector(".katex");
+    return {
+      latex: math?.textContent?.slice(0, 40),
+      client: el.clientWidth,
+      scroll: el.scrollWidth,
+      width: el.getBoundingClientRect().width,
+      mathWidth: math?.getBoundingClientRect().width,
+      mathScroll: math?.scrollWidth,
+      overflowX: getComputedStyle(el).overflowX,
+      role: el.getAttribute("role"),
+      inView: el.getBoundingClientRect().top,
+    };
+  }))));
   await page.waitForFunction(() => {
     const nodes = document.querySelectorAll('[data-math-preview="inline"]');
     return nodes.length >= 3 && nodes[2].getAttribute("role") === "group";
