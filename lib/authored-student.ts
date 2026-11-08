@@ -356,7 +356,7 @@ export class StudentSolverSession {
     this.update({
       book,
       error: "",
-      message: "Local input retained; not submitted.",
+      message: "",
     });
   }
   startAnother(revisionId: string, partId: string) {
