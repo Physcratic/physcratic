@@ -875,6 +875,16 @@ try {
     fullPage: true,
   });
   await page.setViewportSize({ width: 375, height: 812 });
+  await page.waitForTimeout(400);
+  console.log("INLINE_MOBILE_METRICS", JSON.stringify(await page.evaluate(() => ({
+    viewport: innerWidth,
+    document: document.documentElement.scrollWidth,
+    nodes: Array.from(document.querySelectorAll('[data-math-preview="inline"]')).map((el) => {
+      const math = el.querySelector(".katex");
+      return { client: el.clientWidth, scroll: el.scrollWidth, width: el.getBoundingClientRect().width, mathWidth: math?.getBoundingClientRect().width,
+        overflowX: getComputedStyle(el).overflowX, role: el.getAttribute("role"), maxWidth: getComputedStyle(el).maxWidth };
+    })
+  }))));
   await page.waitForFunction(() => {
     const nodes = document.querySelectorAll('[data-math-preview="inline"]');
     const long = nodes[2];
