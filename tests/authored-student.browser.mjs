@@ -197,6 +197,17 @@ try {
         },
         {
           id: randomUUID(),
+          kind: "text",
+          spans: [
+            { kind: "text", text: "The initial energy is " },
+            { kind: "math", latex: "U_i" },
+            { kind: "text", text: ". A long example is " },
+            { kind: "math", latex: Array(40).fill("x^2+v^2").join("+") },
+            { kind: "text", text: "." },
+          ],
+        },
+        {
+          id: randomUUID(),
           kind: "math",
           latex: "\\frac{d^2 x}{dt^2}+\\omega^2x=0",
         },
@@ -462,6 +473,18 @@ try {
     false,
   );
   assert.ok((await page.locator(".katex").count()) >= 3);
+  // Short inline maths must not become tiny scrollbars. Long inline maths keep a keyboard-accessible scroller.
+  const inlineMath = page.locator('[data-math-preview="inline"]');
+  await page.waitForFunction(() => {
+    const nodes = document.querySelectorAll('[data-math-preview="inline"]');
+    return nodes.length >= 3 && nodes[2].getAttribute("role") === "group";
+  });
+  const shortInline = inlineMath.nth(1);
+  assert.equal(await shortInline.getAttribute("tabindex"), null);
+  assert.equal(await shortInline.evaluate((el) => getComputedStyle(el).overflowX), "clip");
+  const longInline = inlineMath.nth(2);
+  assert.equal(await longInline.getAttribute("tabindex"), "0");
+  assert.equal(await longInline.evaluate((el) => el.scrollWidth > el.clientWidth), true);
   assert.equal(
     await page
       .getByRole("img", { name: "Oscillator displacement diagram" })
@@ -854,6 +877,12 @@ try {
     fullPage: true,
   });
   await page.setViewportSize({ width: 375, height: 812 });
+  await page.waitForFunction(() => {
+    const nodes = document.querySelectorAll('[data-math-preview="inline"]');
+    return nodes.length >= 3 && nodes[2].getAttribute("role") === "group";
+  });
+  assert.equal(await shortInline.evaluate((el) => getComputedStyle(el).overflowX), "clip");
+  assert.equal(await longInline.evaluate((el) => el.scrollWidth > el.clientWidth), true);
   await shoot("authored-mobile");
   await page
     .getByRole("button", { name: "Answer part C", exact: true })
