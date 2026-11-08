@@ -2,7 +2,7 @@ import "server-only";
 import { ComputeEngine } from "@cortex-js/compute-engine";
 import { archiveAnswerLimit } from "./archive-grading-contracts";
 import type { ArchiveSymbol } from "./archive-grading/definitions";
-import { Budget, rational, integer, plus, times, divide, neg, power, binaryRational, type Q } from "./authored-expression-language";
+import { Budget, rational, integer, plus, times, divide, neg, power, binaryRational, type Q } from "./exact-expression-arithmetic";
 
 export type AnswerNode =
   | { type: "number"; value: string }

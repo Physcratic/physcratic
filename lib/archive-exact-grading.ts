@@ -40,7 +40,7 @@ export function checkArchivePartExactly(part: ArchiveKeyPart, latex: string): Om
   try {
     const key = part.kind === "expression" ? prepare(part) : { forms: [], node: parseLatexAnswer(String(part.target)) };
     if (key.forms.includes(structuralForm(node))) return { status: "correct", message: "Correct. Your answer matches a reviewed exact form. Your derivation has not been graded." };
-    const symbolic = compareLatexExpressions(node, key.node, part);
+    const symbolic = compareLatexExpressions(node, key.node, part.kind === "expression" ? part : { ...part, kind: "expression", canonical: String(part.target) });
     if (symbolic === "correct") return { status: "correct", message: "Correct. Exact symbolic equivalence verified with the original domain restrictions preserved. Your derivation has not been graded." };
     if (symbolic === "incorrect") return { status: "incorrect", message: "This expression has a nonzero exact difference from the answer. Check signs, factors and added terms." };
   } catch { /* An unsupported exact proof must not turn into an incorrect grade. */ }
