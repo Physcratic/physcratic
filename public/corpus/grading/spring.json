@@ -1,6 +1,6 @@
 {
   "problemId": "spring",
-  "version": "1963af5e6d39b4b05a359cd1977bdd39ab0ac2e4a29eb3370ca12dbda94c6d9d",
+  "version": "444ab9ac7074efcdbe60d8acf371954aa3173b9ef0da68fc58f0d7c00a06f647",
   "parts": [
     {
       "id": "answer",
@@ -9,7 +9,8 @@
       "kind": "numeric",
       "unit": "J",
       "symbols": [],
-      "help": "Use the displayed unit, without a unit suffix. Tolerance: 0.5% relative, with a 0.005 absolute floor. No unit conversion."
+      "symbolConditions": [],
+      "help": "Answers within 1% are accepted."
     }
   ]
 }

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { checkArchivePart } from "./archive-grading";
+import { checkArchivePartExactly as checkArchivePart } from "./archive-exact-grading";
 import { expression } from "./archive-grading/definitions";
 
 const key = (canonical: string) => expression("result", "Result", canonical, "x y", "Positive real x and y", { positive: ["x", "y"] });

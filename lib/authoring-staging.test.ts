@@ -88,6 +88,10 @@ test("staging verification links and callbacks cannot point at Production or ano
     `${authoringStagingOrigin}/api/auth/verify-email?callbackURL=%2F%2Fproduction.invalid`,
     `${authoringStagingOrigin.replace("https://", "https://u:p@")}/api/auth/verify-email`])
     assert.throws(() => verificationRecipient("allowed@example.invalid", url, preview()), /email is unavailable/);
+  assert.equal(verificationRecipient("allowed@example.invalid", `${authoringStagingOrigin}/api/auth/reset-password/tok_123?callbackURL=%2Freset-password`, preview()), "allowed@example.invalid");
+  for (const url of [`${authoringStagingOrigin}/api/auth/reset-password/`, `${authoringStagingOrigin}/api/auth/reset-password/a/b`,
+    `${authoringStagingOrigin}/api/auth/reset-password/tok?callbackURL=https%3A%2F%2Fproduction.invalid`])
+    assert.throws(() => verificationRecipient("allowed@example.invalid", url, preview()), /email is unavailable/);
 });
 
 test("staging DB diagnostics contain only fixed reason codes and generic messages", () => {

@@ -2,7 +2,7 @@ import type { ArenaSeed } from "../arena-schema";
 
 export const source06: ArenaSeed[] = [
   {
-    id: "arena-the-bending-beam-riddle", title: "The Bending Beam Riddle", topic: "Waves", tags: ["Elasticity", "Flexural waves", "Dispersion"], summary: "Derive static beam bending, midpoint deflection and dispersive transverse waves including rotational inertia.", statementFile: "03_The_Bending_Beam_Riddle_Problem.pdf",
+    id: "arena-the-bending-beam-riddle", title: "Bending Beams", topic: "Waves", tags: ["Elasticity", "Flexural waves", "Dispersion"], summary: "Derive static beam bending, midpoint deflection and dispersive transverse waves including rotational inertia.", statementFile: "03_The_Bending_Beam_Riddle_Problem.pdf",
     statement: String.raw`This problem explores how elasticity and rotation of the medium affect transverse waves on a thin elastic beam. The beam has mass density $$\rho$$, length $$L$$, vertical width $$d$$, and thickness $$b$$ perpendicular to the plane of the drawings. Parts (a) and (b) develop the concept of a bending moment in an elastic beam.
 
 ![A simply supported static beam with shear forces V and V+dV, a bent beam with curvature R(x), and a transverse beam wave ψ(x).](/corpus/arena/figures/the-bending-beam-riddle-statement.png)
@@ -141,7 +141,7 @@ $$\boxed{v_g=\frac{d\omega}{dk}=2\left(\frac{Yd^2}{12\rho}\right)^{1/4}\sqrt\ome
 Physical meaning. Higher-frequency flexural waves travel faster than lower-frequency ones. The beam is dispersive, unlike an ideal taut string whose wave speed is independent of frequency.`,
   },
   {
-    id: "arena-the-capacitors-missing-energy", title: "The Capacitor’s Missing Energy", topic: "Modern physics", tags: ["Special relativity", "Electromagnetic energy", "Mechanical stress"], summary: "Resolve the apparent energy-transformation paradox of a moving capacitor by including its stressed supports.", statementFile: "03_The_Capacitors_Missing_Energy_Problem.pdf",
+    id: "arena-the-capacitors-missing-energy", title: "The Moving Capacitor", topic: "Modern physics", tags: ["Special relativity", "Electromagnetic energy", "Mechanical stress"], summary: "Resolve the apparent energy-transformation paradox of a moving capacitor by including its stressed supports.", statementFile: "03_The_Capacitors_Missing_Energy_Problem.pdf",
     statement: String.raw`This problem examines an apparent failure of the Lorentz transformation of energy and momentum for a parallel-plate capacitor observed from a moving frame.
 
 In its rest frame, the capacitor has plates separated by $$d$$, each of area $$A$$, with $$\sqrt A\gg d$$. The electric field between the plates is $$E_0$$, and each plate has rest mass $$m_p$$. Neglect fringing fields.
@@ -209,7 +209,7 @@ There is no paradox: the plates cannot remain separated without a supporting mec
 
 ## (b) The supporting struts
 
-(i) How the mechanical stresses transform. A force parallel to the boost is unchanged, whereas a transverse force is divided by $$\gamma$$. At the same time, areas containing the $$x$$ direction undergo Lorentz contraction by $$1/\gamma$$; areas perpendicular to $$x$$ do not. Applied to forces on moving material surfaces, these rules yield
+(i) How the mechanical stresses transform. A force parallel to the boost is unchanged, whereas a transverse force is divided by $$\gamma$$. At the same time, areas containing the $$x$$ direction undergo Lorentz contraction by $$1/\gamma$$. Areas perpendicular to $$x$$ do not. Applied to forces on moving material surfaces, these rules yield
 
 $$\begin{pmatrix}f_{xx}&f_{xy}&f_{xz}\\f_{yx}&f_{yy}&f_{yz}\\f_{zx}&f_{zy}&f_{zz}\end{pmatrix}=\begin{pmatrix}f_{0xx}&\gamma f_{0xy}&\gamma f_{0xz}\\f_{0yx}/\gamma&f_{0yy}&f_{0yz}\\f_{0zx}/\gamma&f_{0zy}&f_{0zz}\end{pmatrix}.$$
 

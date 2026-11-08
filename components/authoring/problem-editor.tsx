@@ -1,6 +1,6 @@
 "use client";
 import { SolutionPermissions } from "./solution-permissions";
-import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { CircleAlert, Eye, FilePenLine, Save, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -27,6 +27,12 @@ import {
 import { AnswerPanel } from "./answer-panel";
 import { TagPicker, MissingTagNote } from "./tag-picker";
 import { HowItWorksLink, StatusBar, StepCard, studioTokens } from "./studio-ui";
+import { SimpleEditor } from "./simple-editor";
+import { GuidedTour } from "@/components/tour/guided-tour";
+import { TourHelpButton } from "@/components/tour/tour-help";
+import { STUDIO_MODE_KEY, readStudioMode, type StudioMode } from "./simple-model";
+import { colorsByPartId } from "@/lib/part-colors";
+import { PartChip, partBorder, partStyle } from "@/components/physics/solve-ui";
 import {
   BlocksEditor,
   Field,
@@ -45,41 +51,100 @@ function download(draft: EditorDraft) {
   link.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
+
 export function ProblemEditor({
   initial,
   userId,
   onBack,
+  provisional,
+  continueDraft,
 }: {
   initial: EditorDraft;
   userId: string;
   onBack: () => void;
+  /** A new problem that is not on the server yet. The first edit saves it, and `onCreated` swaps in the saved copy. */
+  provisional?: { onCreated: (saved: EditorDraft) => void };
+  /** A link to the most recent draft, shown at the top of a new problem. */
+  continueDraft?: { title: string; open: () => void } | null;
 }) {
-  const [session] = useState(() => {
-    let storage;
+  const [mode, setModeState] = useState<StudioMode>("simple");
+  // The saved choice is read in the browser, so nothing is drawn until it is known. No flash of the wrong mode.
+  const [modeReady, setModeReady] = useState(false);
+  useEffect(() => {
+    setModeState(readStudioMode());
+    setModeReady(true);
+  }, []);
+  function chooseMode(next: StudioMode) {
+    setModeState(next);
+    try {
+      window.localStorage.setItem(STUDIO_MODE_KEY, next);
+    } catch {
+      /* Ignore. */
+    }
+  }
+  /**
+   * One save session per draft. A new problem starts with a session whose first save creates the draft on the server.
+   * When that save is done the page swaps to an ordinary session for the saved draft. The page itself is not remounted,
+   * so the cursor, an open equation and anything typed in the meantime stay where they are.
+   */
+  const make = (start: EditorDraft, creating: boolean): DraftEditorSession => {
+    let storage: Storage | undefined;
     try {
       if (typeof window !== "undefined") storage = window.sessionStorage;
     } catch {
       /* Recovery warning shown below. */
     }
-    return new DraftEditorSession(
-      initial,
-      async (draft) =>
-        editorDraftSchema.parse(
+    let created = false;
+    const holder: { session?: DraftEditorSession } = {};
+    holder.session = new DraftEditorSession(
+      start,
+      async (draft) => {
+        if (creating) {
+          // Only the first save creates. A later save from this session would race the saved draft that replaces it.
+          if (created) throw new Error("Your first draft was saved. Keep typing.");
+          const saved = editorDraftSchema.parse(await draftRequest(editorBase, "POST", draftPayload(draft)));
+          created = true;
+          try {
+            storage?.removeItem(`physcratic:author:${userId}:${start.problemId}`);
+          } catch {
+            /* Ignore. */
+          }
+          const next = make(saved, false);
+          const typedSince = holder.session!.snapshot().draft;
+          if (JSON.stringify(draftPayload(typedSince)) !== JSON.stringify(draftPayload(saved)))
+            next.edit((d) => {
+              d.content = typedSince.content;
+              d.privateParts = typedSince.privateParts;
+            });
+          previous.current = holder.session!;
+          setSession(next);
+          setCreating(false);
+          provisional?.onCreated(saved);
+          return saved;
+        }
+        return editorDraftSchema.parse(
           await draftRequest(`${editorBase}/${draft.problemId}`, "PUT", {
             version: draft.version,
             ...draftPayload(draft),
           }),
-        ),
+        );
+      },
       storage,
-      `physcratic:author:${userId}:${initial.problemId}`,
+      `physcratic:author:${userId}:${start.problemId}`,
+      creating ? 300 : undefined,
     );
-  });
+    return holder.session;
+  };
+  const previous = useRef<DraftEditorSession | null>(null);
+  const [creating, setCreating] = useState(!!provisional);
+  const [session, setSession] = useState(() => make(initial, !!provisional));
   const snapshot = useSyncExternalStore(
     session.subscribe,
     session.snapshot,
     session.snapshot,
   );
   const { draft, phase, dirty, busy, message, recovery } = snapshot;
+  const editorColours = colorsByPartId(draft?.content.sections ?? []);
   const [tab, setTab] = useState<"edit" | "preview">("edit");
   const [latest, setLatest] = useState<EditorDraft | null>(null);
   const [uploads, setUploads] = useState(0);
@@ -100,9 +165,24 @@ export function ProblemEditor({
     ...draftPayload(draft),
   });
   const issues = publishable.success ? [] : publishable.error.issues;
+  // Publish rules Simple shows next to its own fields. Anything else is listed by the Publish button.
+  const simpleOwned = /^(Title and rights provenance required|Native statement and at least one part required|Every published part requires a key or explicit manual mode)$/;
+  const otherIssues = issues.map((i) => i.message).filter((m) => !simpleOwned.test(m));
   useEffect(() => {
     session.activate();
     return () => session.dispose();
+  }, [session]);
+  // Anything typed in the moment between the first save finishing and the page switching sessions is carried over.
+  useEffect(() => {
+    const old = previous.current;
+    previous.current = null;
+    if (!old) return;
+    const last = old.snapshot().draft;
+    if (JSON.stringify(draftPayload(last)) !== JSON.stringify(draftPayload(session.snapshot().draft)))
+      session.edit((d) => {
+        d.content = last.content;
+        d.privateParts = last.privateParts;
+      });
   }, [session]);
   useEffect(() => {
     function beforeUnload(e: BeforeUnloadEvent) {
@@ -144,16 +224,47 @@ export function ProblemEditor({
       setFetchingLatest(false);
     }
   }
-  function back() {
-    if (busy || uploads > 0) return;
-    if (
-      (dirty || recovery || snapshot.recoveryRaw) &&
-      !window.confirm(
-        "Leave this editor? Unsaved work stays in this tab's recovery copy. You can also download a private copy first.",
-      )
-    )
+  // Back saves first. It never does nothing: while a save or an upload is running it says so, and it never drops typed text.
+  const sessionRef = useRef(session);
+  sessionRef.current = session;
+  const leaving = useRef(false);
+  async function back() {
+    if (leaving.current) return;
+    if (uploads > 0) {
+      setNotice("An image is still uploading. Tap Back again in a moment. Nothing is lost.");
       return;
-    onBack();
+    }
+    const unsaved = dirty || busy || recovery || snapshot.recoveryRaw;
+    if (!unsaved) {
+      onBack();
+      return;
+    }
+    leaving.current = true;
+    try {
+      if (!recovery && !snapshot.recoveryRaw) {
+        setNotice("Saving your changes, then going back…");
+        // A new problem swaps to its saved draft while this runs, so the check below reads the current session.
+        await session.flush().catch(() => false);
+        await new Promise((resolve) => setTimeout(resolve, 0));
+        const now = sessionRef.current.snapshot();
+        if (!now.dirty && !now.recovery && !now.recoveryRaw && !now.busy && now.phase !== "error" && now.phase !== "conflict") {
+          setNotice("");
+          onBack();
+          return;
+        }
+      }
+      if (
+        window.confirm(
+          "Your latest changes are not saved yet. Leave anyway? A copy stays in this tab's recovery copy. You can also download a private copy first.",
+        )
+      ) {
+        onBack();
+        return;
+      }
+      setNotice("Your changes are still here. Check your connection and tap Back again, or download a private copy.");
+    } finally {
+      leaving.current = false;
+    }
   }
   function addSection() {
     edit((d) => {
@@ -191,6 +302,7 @@ export function ProblemEditor({
   const safePreview = previewCheck.success
     ? publicAuthoredContent(previewCheck.data)
     : null;
+  const previewColours = colorsByPartId(safePreview?.sections ?? []);
   return (
     <AuthorMediaProvider
       problemId={draft.problemId}
@@ -204,10 +316,9 @@ export function ProblemEditor({
             <Button
               type="button"
               variant="ghost"
-              onClick={back}
-              disabled={busy || uploads > 0}
+              onClick={() => void back()}
             >
-              ← Drafts
+              ← My drafts
             </Button>
             <span className="hidden text-sm text-muted-foreground sm:inline">
               Problem Studio
@@ -215,6 +326,21 @@ export function ProblemEditor({
             <HowItWorksLink />
           </div>
           <div className="flex flex-wrap items-center gap-2">
+            {mode === "simple" && <TourHelpButton tourId="studio" />}
+            <div role="group" aria-label="Editor mode" className="flex gap-1 rounded-lg border p-1">
+              {(["simple", "advanced"] as const).map((m) => (
+                <Button
+                  key={m}
+                  type="button"
+                  size="sm"
+                  aria-pressed={mode === m}
+                  variant={mode === m ? "secondary" : "ghost"}
+                  onClick={() => chooseMode(m)}
+                >
+                  {m === "simple" ? "Simple" : "Advanced"}
+                </Button>
+              ))}
+            </div>
             <span
               role="status"
               aria-live="polite"
@@ -222,6 +348,8 @@ export function ProblemEditor({
             >
               {uploads > 0 ? "Uploading privately…" : message}
             </span>
+            {mode === "advanced" && (
+              <>
             <Button
               type="button"
               variant="outline"
@@ -272,6 +400,8 @@ export function ProblemEditor({
                   ? "Publish new revision"
                   : "Publish problem"}
             </Button>
+              </>
+            )}
           </div>
         </div>
       </header>
@@ -280,16 +410,19 @@ export function ProblemEditor({
         tabIndex={-1}
         className="focus:outline-none mx-auto max-w-7xl px-4 py-8 sm:px-8 sm:py-12"
       >
-        <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+        <div className={`mb-8 flex flex-wrap items-end justify-between gap-4 ${mode === "simple" ? "mx-auto max-w-2xl" : ""}`}>
           <div>
             <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
               Problem Studio
             </h1>
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
-              Write a problem, add a solution, then publish.
-            </p>
+            {mode === "advanced" && (
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                Write a problem, add a solution, then publish.
+              </p>
+            )}
           </div>
           <StatusBar
+            compact={mode === "simple"}
             state={draft.state}
             version={draft.version}
             saveMessage={uploads > 0 ? "Uploading privately…" : message}
@@ -306,7 +439,7 @@ export function ProblemEditor({
         <p role="status" aria-live="polite" className="mb-3 text-sm">
           {notice}
         </p>
-        {snapshot.storageWarning && (
+        {modeReady && snapshot.storageWarning && (
           <p role="alert" className="mb-4 rounded-lg border p-4 text-sm">
             Tab recovery storage is unavailable. Download a private copy
             before leaving if saving fails.
@@ -493,6 +626,45 @@ export function ProblemEditor({
             )}
           </section>
         )}
+        {modeReady && mode === "simple" && <GuidedTour tourId="studio" />}
+        {!modeReady ? null : mode === "simple" ? (
+          <>
+            {continueDraft && (
+              <p className="mx-auto mb-6 max-w-2xl text-base">
+                <button
+                  type="button"
+                  className="inline-flex min-h-11 items-center underline underline-offset-4"
+                  disabled={busy || uploads > 0}
+                  onClick={() => {
+                    if (
+                      (dirty || recovery || snapshot.recoveryRaw) &&
+                      !window.confirm("Leave this problem? Unsaved work stays in this tab's recovery copy.")
+                    )
+                      return;
+                    continueDraft.open();
+                  }}
+                >
+                  Continue your last draft{continueDraft.title ? `: ${continueDraft.title}` : ""}
+                </button>
+              </p>
+            )}
+            <SimpleEditor
+              draft={draft}
+              edit={edit}
+              locked={busy || uploads > 0 || !!recovery || !!snapshot.recoveryRaw}
+              provisional={creating}
+              otherIssues={otherIssues}
+              publishing={busy}
+              onPublish={() => {
+                if (phase === "saving" || phase === "conflict") return;
+                void session.publish("publish", (d) =>
+                  draftRequest(`${editorBase}/${d.problemId}/publish`, "POST", { version: d.version }),
+                );
+              }}
+            />
+          </>
+        ) : (
+          <>
         <div className="mb-8 flex flex-wrap items-center justify-between gap-3 border-b pb-3">
           <div className="flex gap-2" role="group" aria-label="Editor view">
             <Button
@@ -564,10 +736,11 @@ export function ProblemEditor({
                   {section.parts.map((part, pi) => (
                     <section
                       key={part.id}
-                      className="space-y-3 border-l-2 pl-4"
+                      style={partStyle(previewColours.get(part.id) ?? 0)}
+                      className={`space-y-3 rounded-r-lg py-1 pl-4 ${partBorder}`}
                     >
                       <h4 className="font-medium">
-                        Part {part.label || pi + 1}
+                        <PartChip index={previewColours.get(part.id) ?? 0}>Part {part.label || pi + 1}</PartChip>
                       </h4>
                       <ReaderBlocks blocks={part.blocks} />
                       <p className="text-xs text-muted-foreground">
@@ -601,7 +774,7 @@ export function ProblemEditor({
                     <input
                       id={id}
                       className={`${inputClass} py-3 text-xl font-medium sm:text-2xl`}
-                      placeholder="Give the problem a clear title"
+                      placeholder="2 to 5 words, such as Mind the Gap"
                       maxLength={200}
                       value={draft.content.title}
                       onChange={(e) =>
@@ -740,11 +913,12 @@ export function ProblemEditor({
                         key={part.id}
                         data-order-item
                         tabIndex={-1}
-                        className="space-y-5 rounded-lg border bg-muted/30 p-4"
+                        style={partStyle(editorColours.get(part.id) ?? 0)}
+                        className={`space-y-5 rounded-lg border bg-muted/30 p-4 ${partBorder}`}
                       >
                         <div className="flex items-center justify-between">
                           <h4 className="font-semibold">
-                            Part {part.label || pi + 1}
+                            <PartChip index={editorColours.get(part.id) ?? 0}>Part {part.label || pi + 1}</PartChip>
                           </h4>
                           <OrderControls
                             label={`section ${si + 1} part ${pi + 1}`}
@@ -807,7 +981,7 @@ export function ProblemEditor({
                             })
                           }
                         />
-                        <details className="rounded-lg border bg-card p-4">
+                        <details style={partStyle(editorColours.get(part.id) ?? 0)} className={`rounded-lg border bg-card p-4 ${partBorder}`}>
                           <summary className="flex min-h-11 cursor-pointer items-center gap-2 text-sm font-medium">
                             <ShieldCheck className="size-4" />
                             Answer key, hints and solution · part{" "}
@@ -1084,12 +1258,12 @@ export function ProblemEditor({
                 </h2>
                 <ol className="space-y-1 text-sm">
                   <li>
-                    <a href="#step-statement" className="block rounded-sm py-2 hover:underline">
+                    <a href="#step-statement" className="flex min-h-11 items-center rounded-sm hover:underline">
                       1. Statement
                     </a>
                   </li>
                   <li>
-                    <a href="#step-parts" className="block rounded-sm py-2 hover:underline">
+                    <a href="#step-parts" className="flex min-h-11 items-center rounded-sm hover:underline">
                       2. Parts and answers
                     </a>
                     <ul className="ml-4 space-y-1 border-l pl-3">
@@ -1097,7 +1271,7 @@ export function ProblemEditor({
                         <li key={section.id}>
                           <a
                             href={`#section-${section.id}`}
-                            className="block truncate rounded-sm py-1.5 text-muted-foreground hover:text-foreground hover:underline"
+                            className="flex min-h-11 items-center truncate rounded-sm text-muted-foreground hover:text-foreground hover:underline"
                           >
                             {section.title || `Section ${i + 1}`}
                           </a>
@@ -1106,17 +1280,17 @@ export function ProblemEditor({
                     </ul>
                   </li>
                   <li>
-                    <a href="#step-tags" className="block rounded-sm py-2 hover:underline">
+                    <a href="#step-tags" className="flex min-h-11 items-center rounded-sm hover:underline">
                       3. Tags
                     </a>
                   </li>
                   <li>
-                    <a href="#author-assets" className="block rounded-sm py-2 hover:underline">
+                    <a href="#author-assets" className="flex min-h-11 items-center rounded-sm hover:underline">
                       4. Images and PDFs
                     </a>
                   </li>
                   <li>
-                    <a href="#publication" className="block rounded-sm py-2 hover:underline">
+                    <a href="#publication" className="flex min-h-11 items-center rounded-sm hover:underline">
                       5. Publish
                     </a>
                   </li>
@@ -1128,6 +1302,8 @@ export function ProblemEditor({
               </nav>
             </aside>
           </div>
+        )}
+          </>
         )}
       </main>
     </div>

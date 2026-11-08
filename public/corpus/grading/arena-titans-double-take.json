@@ -1,6 +1,6 @@
 {
   "problemId": "arena-titans-double-take",
-  "version": "45fa82bd064175f46226272400877830c7bc1d94b6506590c8e730f07e4503f1",
+  "version": "0c46eb27309eb4ebe6856d29f65a72b4a1844c5839f16c467020ed2cbfc12aa1",
   "parts": [
     {
       "id": "a.index",
@@ -9,7 +9,8 @@
       "kind": "numeric",
       "unit": "1",
       "symbols": [],
-      "help": "Spherical droplets; atmosphere index taken as one. Solve stationary primary deviation at an antisolar radius of 49°. Tolerance ±0.003."
+      "symbolConditions": [],
+      "help": "Spherical droplets. Atmosphere index taken as one. Solve stationary primary deviation at an antisolar radius of 49°. Tolerance ±0.003."
     },
     {
       "id": "b.angle",
@@ -18,7 +19,8 @@
       "kind": "numeric",
       "unit": "degrees",
       "symbols": [],
-      "help": "Use the index inferred in part (a), not a generic terrestrial index. This branch lies inside the 49° primary bow; tolerance ±0.1°."
+      "symbolConditions": [],
+      "help": "Use the index inferred in part (a), not a generic terrestrial index. This branch lies inside the 49° primary bow. Tolerance ±0.1°."
     },
     {
       "id": "b.diagram",
@@ -27,6 +29,7 @@
       "kind": "self-review",
       "unit": "",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Review the two concentric bows around the antisolar point, secondary inside primary, with opposite colour ordering for normal dispersion."
     }
   ]

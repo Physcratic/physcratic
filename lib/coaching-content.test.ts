@@ -198,8 +198,15 @@ test("the Phase 2d copy: programs intro, class tiles, guides labels and the new 
   assert.equal(content.programs.intro, "Three levels take you from your first olympiad to IPhO.");
   assert.equal(content.programs.highlight, "from your first olympiad to IPhO");
   assert.ok(splitHighlight(content.programs.intro, content.programs.highlight));
-  assert.deepEqual(content.classFormat.tiles.map((t) => `${t.value} ${t.label}`), ["6 students at most", "2 h live, usually weekly", "Every class recorded", "Notes homework and worked solutions"]);
-  assert.deepEqual(content.classFormat.points, ["A coach matched to your level and preferred language", "Mostly solving olympiad problems together", "Classmates from different countries"]);
+  assert.deepEqual(content.classFormat.tiles.map((t) => `${t.value} ${t.label}`), ["6 students at most", "2 h a week, live online", "Every class recorded", "Notes homework and worked solutions"]);
+  assert.deepEqual(content.classFormat.points, [
+    "Up to 6 students at your level, with similar goals",
+    "2 hours a week, live online, with a coach matched to your level and language",
+    "Olympiad problem-solving, not school physics",
+    "Recordings, notes, homework and worked solutions for every class",
+    "A WhatsApp group with your coach for questions between classes",
+    "Personal feedback after every 4 sessions",
+  ]);
   assert.ok(content.classFormat.sources.includes("China") && content.classFormat.sources.includes("IPhO") && content.classFormat.sources.length === 9);
   assert.equal(content.classFormat.topics.length, 10);
   assert.deepEqual([content.guides.title, content.guides.seeAll, content.guides.minutes], ["Free guides", "See all guides", "min read"]);

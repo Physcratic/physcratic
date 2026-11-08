@@ -1,0 +1,162 @@
+{
+  "note": "Inputs for tests/first-time-user.browser.mjs. No database. Grading is the real /api/archive-grade route, which is a pure function. The practice problem is lib/physics.ts incline: a = g sin 30 = 4.9 m/s2.",
+  "widths": [
+    375,
+    1440
+  ],
+  "library": {
+    "path": "/dashboard?view=problems&collection=arena",
+    "topic": "Mechanics"
+  },
+  "arena": {
+    "id": "arena-mind-the-gap",
+    "wrongAnswer": "1"
+  },
+  "practice": {
+    "id": "incline",
+    "wrongAnswer": "1",
+    "rightAnswer": "4.9"
+  },
+  "archive": {
+    "id": "ipho-2025-t1"
+  },
+  "guide": {
+    "width": 1280,
+    "height": 1000,
+    "topic": "Waves"
+  },
+  "sweep": {
+    "widths": [
+      375,
+      390,
+      768,
+      1440
+    ],
+    "routes": [
+      {
+        "name": "learn hub",
+        "path": "/learn"
+      },
+      {
+        "name": "guide: how to use",
+        "path": "/learn/how-to-use-physcratic"
+      },
+      {
+        "name": "guide: how to write",
+        "path": "/learn/how-to-write-a-problem"
+      },
+      {
+        "name": "guide: start preparing",
+        "path": "/learn/start-preparing-physics-olympiad"
+      },
+      {
+        "name": "home, signed out",
+        "path": "/"
+      },
+      {
+        "name": "problem library",
+        "path": "/problems"
+      },
+      {
+        "name": "problem archive",
+        "path": "/problems/archive"
+      },
+      {
+        "name": "topic page",
+        "path": "/problems/topics/mechanics"
+      },
+      {
+        "name": "archive problem page",
+        "path": "/dashboard/problems/ipho-2025-t2"
+      },
+      {
+        "name": "archive problem page, no statement text",
+        "path": "/dashboard/problems/ipho-2017-t2"
+      },
+      {
+        "name": "arena problem page",
+        "path": "/dashboard/problems/arena-mind-the-gap"
+      },
+      {
+        "name": "practice problem page",
+        "path": "/dashboard/problems/incline"
+      },
+      {
+        "name": "terms",
+        "path": "/terms"
+      },
+      {
+        "name": "sign in",
+        "path": "/sign-in"
+      },
+      {
+        "name": "sign up",
+        "path": "/sign-up"
+      },
+      {
+        "name": "forgot password",
+        "path": "/forgot-password"
+      },
+      {
+        "name": "reset password form",
+        "path": "/reset-password?token=sweepfixturetoken"
+      },
+      {
+        "name": "reset password, dead link",
+        "path": "/reset-password?error=INVALID_TOKEN"
+      },
+      {
+        "name": "email change approved",
+        "path": "/email-change?step=approved"
+      },
+      {
+        "name": "email change, dead link",
+        "path": "/email-change?step=done&error=TOKEN_EXPIRED"
+      },
+      {
+        "name": "settings",
+        "path": "/settings"
+      },
+      {
+        "name": "lobby",
+        "path": "/dashboard"
+      },
+      {
+        "name": "rankings",
+        "path": "/dashboard?view=rankings"
+      },
+      {
+        "name": "learning guide view",
+        "path": "/dashboard?view=guide"
+      },
+      {
+        "name": "coaching",
+        "path": "/coaching"
+      },
+      {
+        "name": "coaching consultation",
+        "path": "/coaching/consultation"
+      },
+      {
+        "name": "become a tutor",
+        "path": "/coaching/become-a-tutor"
+      },
+      {
+        "name": "404 page",
+        "path": "/no-such-page"
+      },
+      {
+        "name": "404 problem",
+        "path": "/dashboard/problems/no-such-problem"
+      },
+      {
+        "name": "404 profile",
+        "path": "/u/no-such-person"
+      },
+      {
+        "name": "404 topic",
+        "path": "/problems/topics/no-such-topic"
+      }
+    ]
+  }
+}

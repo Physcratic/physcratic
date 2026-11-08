@@ -41,6 +41,7 @@ import translationIndex from "@/lib/corpus/translation-index.json";
 import { assessSolutionSource } from "@/lib/corpus-readiness";
 import { ImportedSourceContent } from "./imported-source-content";
 import { SolutionSubmissionForm } from "./solution-submission-form";
+import { StepHeading, StepNumber, solveTokens } from "./solve-ui";
 
 const PdfPageViewer = dynamic(() => import("./pdf-page-viewer"), {
   ssr: false,
@@ -92,6 +93,7 @@ function PdfReader({
           <Button
             variant="outline"
             size="icon"
+            className="size-11"
             aria-label={`Previous ${label} page`}
             disabled={page === 1}
             onClick={() => changePage(page - 1)}
@@ -102,7 +104,7 @@ function PdfReader({
             value={String(page)}
             onValueChange={(value) => changePage(Number(value))}
           >
-            <SelectTrigger className="w-40" aria-label={`${label} page`}>
+            <SelectTrigger className="h-11 w-40" aria-label={`${label} page`}>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -118,6 +120,7 @@ function PdfReader({
           <Button
             variant="outline"
             size="icon"
+            className="size-11"
             aria-label={`Next ${label} page`}
             disabled={page === document.sourcePages.length}
             onClick={() => changePage(page + 1)}
@@ -126,12 +129,12 @@ function PdfReader({
           </Button>
         </div>
         <div className="flex flex-wrap gap-2">
-          <Button variant="outline" size="sm" asChild>
+          <Button variant="outline" className="min-h-11" asChild>
             <a href={`${document.pdf}#page=${page}`} target="_blank" rel="noopener noreferrer">
               <ArrowUpRight data-icon="inline-start" /> Open PDF
             </a>
           </Button>
-          <Button variant="outline" size="sm" asChild>
+          <Button variant="outline" className="min-h-11" asChild>
             <a href={document.pdf} download>
               <Download data-icon="inline-start" /> Download PDF
             </a>
@@ -157,11 +160,15 @@ export function ImportedProblemReader({
   problem,
   onBack,
   onOpenPilot,
+  asPage = false,
 }: {
   problem: CatalogProblem;
   onBack: () => void;
   onOpenPilot?: (id: string) => void;
+  /** True on the problem's own page, where the title is the page's h1. Inside the library it stays an h2. */
+  asPage?: boolean;
 }) {
+  const TitleTag = asPage ? "h1" : "h2";
   const { data, error, isLoading, mutate } = useSWRImmutable(
     problem.importPath,
     loadProblem,
@@ -186,11 +193,11 @@ export function ImportedProblemReader({
   const missingSolution = readiness?.status === "missing-derivation";
   return (
     <section
-      className="flex min-w-0 flex-col gap-5"
+      className={`flex min-w-0 flex-col gap-5 ${solveTokens}`}
       aria-labelledby="imported-problem-title"
     >
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <Button variant="ghost" onClick={onBack}>
+        <Button variant="ghost" className="min-h-11" onClick={onBack}>
           <ArrowLeft data-icon="inline-start" /> Back to all 100 problems
         </Button>
         {problem.hasPilotGuide && onOpenPilot && (
@@ -215,13 +222,13 @@ export function ImportedProblemReader({
               : "English source"}
           </Badge>
         </div>
-        <h2
+        <TitleTag
           id="imported-problem-title"
           lang={problem.titleLanguage}
           className="text-balance text-2xl font-medium tracking-tight"
         >
           {problem.title}
-        </h2>
+        </TitleTag>
         <p className="text-sm leading-relaxed text-muted-foreground">
           Complete statement and original diagrams stored in this app. Solution
           content is checked separately before it can become a grading
@@ -231,7 +238,7 @@ export function ImportedProblemReader({
           href={problem.titleSourceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-fit text-sm text-accent-foreground underline underline-offset-4"
+          className="inline-flex min-h-11 w-fit items-center text-sm text-accent-foreground underline underline-offset-4"
         >
           Original title source{" "}
           <span className="sr-only">(opens in a new tab)</span>
@@ -240,7 +247,7 @@ export function ImportedProblemReader({
       {translationRecord ? (
         <div className="flex flex-col gap-3">
           <Select value={language} onValueChange={setLanguage}>
-            <SelectTrigger className="w-60" aria-label="Reading language">
+            <SelectTrigger className="h-11 w-60" aria-label="Reading language">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -330,12 +337,12 @@ export function ImportedProblemReader({
           onValueChange={setTab}
           className="flex min-w-0 flex-col gap-4"
         >
-          <TabsList className="h-auto w-fit max-w-full flex-wrap">
-            <TabsTrigger value="statement">Problem statement</TabsTrigger>
-            <TabsTrigger value="solution">
-              {missingSolution ? "Source solution page" : "Worked solution"}
+          <TabsList className="h-auto w-fit max-w-full flex-wrap" aria-label="Problem steps">
+            <TabsTrigger className="min-h-11" value="statement"><StepNumber>1</StepNumber>Problem statement</TabsTrigger>
+            <TabsTrigger className="min-h-11" value="submission"><StepNumber>2</StepNumber>Your solution</TabsTrigger>
+            <TabsTrigger className="min-h-11" value="solution">
+              <StepNumber>4</StepNumber>{missingSolution ? "Source solution page" : "Worked solution"}
             </TabsTrigger>
-            <TabsTrigger value="submission">Your solution</TabsTrigger>
           </TabsList>
           {(["statement", "solution"] as const).map((kind) => (
             <TabsContent key={kind} value={kind} className="min-w-0">
@@ -360,7 +367,7 @@ export function ImportedProblemReader({
                         : "Contains spoilers. Compare with your own derivation before self-assessing. Reference review is still pending."}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="min-w-0">
+                <CardContent className="min-w-0 overflow-x-auto">
                   {readingData[kind].format === "pdf" ? (
                     <PdfReader
                       key={kind}
@@ -390,20 +397,21 @@ export function ImportedProblemReader({
             </TabsContent>
           ))}
           <TabsContent value="submission" className="min-w-0">
+            <StepHeading step={2} className="pb-2">Answer</StepHeading>
+            <p className="pb-4 text-sm leading-relaxed text-muted-foreground">Write your solution below. This problem has no automatic check. Compare your work with the worked solution in step 4.</p>
             <SolutionSubmissionForm key={problem.id} problemId={problem.id} />
           </TabsContent>
         </Tabs>
       )}
       <details className="rounded-lg border border-border px-4 py-3">
-        <summary className="cursor-pointer text-sm font-medium">
+        <summary className="flex min-h-11 cursor-pointer items-center text-sm font-medium">
           Source credits & import details
         </summary>
         <div className="flex flex-col gap-3 pt-4 text-sm leading-relaxed text-muted-foreground">
           <p>{problem.attribution}</p>
           <p>
-            Imported {data?.importedOn ?? "2026-10-31"}. Source credits are retained. Importing
-            does not establish republication permission. Rights review and
-            independent physics review are pending.
+            Imported {data?.importedOn ?? "2026-10-31"}. Source credits are retained.{" "}
+            {problem.rightsNote} Independent physics review is pending.
           </p>
           {data?.sources.map((source) => (
             <div key={source.kind} className="flex flex-col gap-2">
@@ -418,7 +426,7 @@ export function ImportedProblemReader({
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 break-all underline underline-offset-4"
+                  className="flex min-h-11 items-center gap-2 break-all underline underline-offset-4"
                 >
                   Original source <ArrowUpRight className="size-4 shrink-0" />
                   <span className="sr-only">{url}</span>

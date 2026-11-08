@@ -34,11 +34,14 @@
 .page :global(.coaching-container) { width: 100%; max-width: 72rem; margin-inline: auto; padding-inline: 1.5rem; }
 .page :global(.coaching-header) { position: sticky; top: 0; z-index: 40; border-bottom: 1px solid hsl(var(--border)); background: hsl(var(--background) / .94); backdrop-filter: blur(12px); }
 .page :global(.coaching-button) { display: inline-flex; min-height: 3rem; align-items: center; justify-content: center; gap: .5rem; border-radius: .5rem; padding: .75rem 1.5rem; background: hsl(var(--accent)); color: hsl(var(--accent-foreground)); font-size: 1rem; font-weight: 700; text-align: center; transition: opacity 180ms ease-out, transform 180ms ease-out; }
-.page :global(.coaching-header .coaching-button) { min-height: 2.5rem; padding: .5rem 1rem; font-size: .875rem; }
-.page :global(.coaching-icon-button) { display: flex; width: 2.5rem; height: 2.5rem; align-items: center; justify-content: center; border: 1px solid hsl(var(--border)); border-radius: 999px; background: hsl(var(--background) / .85); color: hsl(var(--foreground)); transition: opacity 180ms ease-out, transform 180ms ease-out; }
+.page :global(.coaching-header .coaching-button) { min-height: 2.75rem; padding: .5rem 1rem; font-size: .875rem; }
+.page :global(.coaching-icon-button) { display: flex; min-width: 2.75rem; height: 2.75rem; padding-inline: .75rem; gap: .375rem; align-items: center; justify-content: center; font-size: .875rem; font-weight: 600; border: 1px solid hsl(var(--border)); border-radius: 999px; background: hsl(var(--background) / .85); color: hsl(var(--foreground)); transition: opacity 180ms ease-out, transform 180ms ease-out; }
 .page :global(.coaching-link) { position: relative; }
 .page :global(.coaching-link::after) { content: ""; position: absolute; inset: auto 0 -2px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 200ms ease-out; }
 .page :global(.coaching-hero-slideshow .coaching-link::after) { transform: scaleX(1); opacity: .5; }
+/* A standalone link is 44px tall. The underline moves up with the text, so the look stays the same. Inline links in sentences are exempt. */
+.page :global(.coaching-tap) { display: inline-flex; min-height: 2.75rem; align-items: center; }
+.page :global(.coaching-tap::after) { inset: auto 0 .625rem; }
 .page :global(.coaching-button-secondary) { border: 1px solid hsl(var(--accent)); background: transparent; color: hsl(var(--foreground)); }
 .page :global(.coaching-button:disabled), .page :global(.coaching-button[aria-disabled="true"]) { opacity: .35; cursor: not-allowed; pointer-events: none; }
 .page :global(a:focus-visible), .page :global(button:focus-visible), .page :global(summary:focus-visible), .page :global(input:focus-visible), .page :global(select:focus-visible) { outline: 2px solid hsl(var(--accent)); outline-offset: 4px; }
@@ -62,7 +65,7 @@
 .page :global(.coaching-portrait[data-country-backdrop] .coaching-portrait-copy) { position: static; padding: 12px 0 0; background: none; }
 .page :global(.coaching-card-head) { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; }
 .page :global(.coaching-card-head > :first-child) { min-width: 0; overflow-wrap: anywhere; }
-.page :global(.coaching-card-country) { display: inline-flex; align-items: center; gap: 6px; color: hsl(var(--muted-foreground)); font-size: .8125rem; line-height: 1.2; white-space: nowrap; }
+.page :global(.coaching-card-country) { display: inline-flex; align-items: center; gap: 6px; color: #D9DCE3; font-size: .8125rem; line-height: 1.2; white-space: nowrap; }
 .page :global(.coaching-chips) { display: flex; flex-wrap: wrap; gap: 6px; }
 .page :global(.coaching-chips > li) { max-width: 100%; }
 .page :global(.coaching-chip) { position: relative; display: inline-flex; max-width: 100%; align-items: center; gap: 6px; border: 1px solid; border-radius: 12px; padding: 2px 10px; font-size: 13px; font-weight: 600; line-height: 1.35; }
@@ -72,9 +75,9 @@
 .page :global(.coaching-chip-gold::after) { box-shadow: 0 0 12px rgba(227, 179, 65, .06); }
 .page :global(.coaching-chip-silver) { border-color: rgba(199, 205, 214, .30); background: rgba(199, 205, 214, .10); color: #E1E6EC; box-shadow: 0 0 10px rgba(199, 205, 214, .10); }
 .page :global(.coaching-chip-silver::after) { box-shadow: 0 0 10px rgba(199, 205, 214, .04); }
-.page :global(.coaching-chip-bronze) { border-color: rgba(200, 131, 75, .35); background: rgba(200, 131, 75, .12); color: #E8AE7E; box-shadow: 0 0 10px rgba(200, 131, 75, .12); }
+.page :global(.coaching-chip-bronze) { border-color: rgba(200, 131, 75, .35); background: rgba(200, 131, 75, .12); color: #F4CBA8; box-shadow: 0 0 10px rgba(200, 131, 75, .12); }
 .page :global(.coaching-chip-bronze::after) { box-shadow: 0 0 10px rgba(200, 131, 75, .05); }
-.page :global(.coaching-chip-hm) { border-color: hsl(var(--border)); background: transparent; color: hsl(var(--muted-foreground)); box-shadow: none; }
+.page :global(.coaching-chip-hm) { border-color: hsl(var(--border)); background: transparent; color: #D9DCE3; box-shadow: none; }
 .page :global(.coaching-chip-hm::after) { display: none; }
 .page :global(.coaching-flag-chip) { width: 20px; height: 14px; flex-shrink: 0; border: 1px solid hsl(var(--border) / .4); border-radius: 2px; object-fit: cover; }
 .page :global(.coaching-medal) { display: inline-block; width: 10px; height: 10px; flex-shrink: 0; border-radius: 50%; }

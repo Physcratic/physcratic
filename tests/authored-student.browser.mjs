@@ -132,6 +132,15 @@ async function upload(purpose) {
     201,
   );
 }
+/** Sets an expression answer. The field is a MathLive field once it has loaded, and a plain box before that. */
+async function fillExpression(page, text) {
+  const field = page.locator("math-field").first();
+  await field.waitFor({ timeout: 20000 });
+  await field.evaluate((el, value) => {
+    el.value = value;
+    el.dispatchEvent(new Event("input", { bubbles: true }));
+  }, text);
+}
 async function until(check, label) {
   const start = Date.now();
   while (Date.now() - start < 15000) {
@@ -488,6 +497,9 @@ try {
     .getByRole("button", { name: "Submit answer", exact: true })
     .dblclick();
   await saved("Correct");
+  // Optional evidence for visual reviews. Does nothing unless SHOT_DIR is set.
+  const shoot = async (name) => process.env.SHOT_DIR && (await page.screenshot({ path: join(process.env.SHOT_DIR, `${name}.png`), fullPage: true }));
+  await shoot("authored-correct-desktop");
   assert.equal(postBodies.length, 1);
   assert.equal(postBodies[0].answer.units, "");
   await page.reload();
@@ -497,7 +509,7 @@ try {
     1,
     "reload does not send acknowledged attempt",
   );
-  await page.getByRole("button", { name: "Start another attempt" }).click();
+  await page.getByRole("button", { name: /^(Try again|Start another attempt)$/ }).click();
   await page.getByLabel("Numerical answer", { exact: true }).fill("1e-9999");
   await submit();
   await page.getByRole("alert").filter({ hasText: "representable" }).waitFor();
@@ -506,13 +518,12 @@ try {
   await submit();
   await saved("Incorrect");
   await choose(1);
-  await page.getByLabel("Expression answer", { exact: true }).fill("x*x+137");
+  await fillExpression(page, "x*x+137");
   await submit();
   await saved("Correct");
-  await page.getByRole("button", { name: "Start another attempt" }).click();
-  await page
-    .getByLabel("Expression answer", { exact: true })
-    .fill("sin(x)^2+cos(x)^2");
+  await page.getByRole("button", { name: /^(Try again|Start another attempt)$/ }).click();
+  // Phase 1: sin^2 + cos^2 is now checked like any expression (incorrect against x^2 + 137). A symbol the key does not use still needs review.
+  await fillExpression(page, "y*y+137");
   await submit();
   await saved("Needs review");
   await page
@@ -536,7 +547,7 @@ try {
       .evaluate((e) => document.activeElement === e),
     true,
   );
-  await page.getByRole("button", { name: "Start another attempt" }).click();
+  await page.getByRole("button", { name: /^(Try again|Start another attempt)$/ }).click();
   await page.getByLabel("Numerical answer", { exact: true }).fill("-");
   await choose(1);
   await choose(0);
@@ -586,7 +597,7 @@ try {
     "1",
   );
   for (const status of [408, 429, 503]) {
-    await page.getByRole("button", { name: "Start another attempt" }).click();
+    await page.getByRole("button", { name: /^(Try again|Start another attempt)$/ }).click();
     nextFault = status;
     faultRepeats = status === 408 ? 1000 : 1;
     await submit();
@@ -654,7 +665,7 @@ try {
   );
   await page.getByRole("button", { name: "Problem", exact: true }).click();
   await choose(2);
-  await page.getByRole("button", { name: "Start another attempt" }).click();
+  await page.getByRole("button", { name: /^(Try again|Start another attempt)$/ }).click();
   await page
     .getByLabel("Manual answer", { exact: true })
     .fill("pagination-new");
@@ -745,7 +756,7 @@ try {
     .getByRole("button", { name: "Retry original submission", exact: true })
     .click();
   await saved("Correct");
-  await page.getByRole("button", { name: "Start another attempt" }).click();
+  await page.getByRole("button", { name: /^(Try again|Start another attempt)$/ }).click();
   await page.getByLabel("Numerical answer", { exact: true }).fill("2");
   delayNext = true;
   await submit();
@@ -767,7 +778,7 @@ try {
   );
   await resetRates();
   await account("A");
-  await page.getByRole("button", { name: "Start another attempt" }).click();
+  await page.getByRole("button", { name: /^(Try again|Start another attempt)$/ }).click();
   await page.getByLabel("Numerical answer", { exact: true }).fill("7");
   const oldRevision = revision.id;
   doc.content.title = "Revised harmonic trap";
@@ -843,6 +854,7 @@ try {
     fullPage: true,
   });
   await page.setViewportSize({ width: 375, height: 812 });
+  await shoot("authored-mobile");
   await page
     .getByRole("button", { name: "Answer part C", exact: true })
     .click();
@@ -1070,7 +1082,7 @@ try {
     .getByText("Unassisted (server record)", { exact: false })
     .waitFor();
   await page
-    .getByRole("button", { name: "Start another attempt", exact: true })
+    .getByRole("button", { name: /^(Try again|Start another attempt)$/ })
     .click();
   await submit();
   await saved("Correct");

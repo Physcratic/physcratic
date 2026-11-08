@@ -1,6 +1,6 @@
 {
   "problemId": "wave",
-  "version": "c9d69554effce7dbf56d7b3c8de8631a7cffd571244f123e11b3bfe1c63cb1b3",
+  "version": "607de974f939e5fbf383c096c4f99f15eca0cfb5d79944a18450612dd4e5cd23",
   "parts": [
     {
       "id": "answer",
@@ -9,7 +9,8 @@
       "kind": "numeric",
       "unit": "m/s",
       "symbols": [],
-      "help": "Use the displayed unit, without a unit suffix. Tolerance: 0.5% relative, with a 0.005 absolute floor. No unit conversion."
+      "symbolConditions": [],
+      "help": "Answers within 1% are accepted."
     }
   ]
 }

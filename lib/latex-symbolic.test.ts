@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { checkArchivePart } from "./archive-grading";
+import { checkArchivePartExactly as checkArchivePart } from "./archive-exact-grading";
 import { archiveDefinitions } from "./archive-grading/catalog";
 import { expression } from "./archive-grading/definitions";
 

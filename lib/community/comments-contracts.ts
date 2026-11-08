@@ -13,7 +13,7 @@ export const commentWriteSchema=z.discriminatedUnion('action',[
 export const commentCursorSchema=z.strictObject({key:commentKeySchema,parent:uuid.nullable(),sort:z.enum(['newest','top']),score:z.string().regex(/^\d{1,19}$/).refine(s=>BigInt(s)<=BigInt(Number.MAX_SAFE_INTEGER)),created:z.string().datetime({offset:true}),id:uuid});
 export const commentListSchema=z.strictObject({...base,parent:uuid.optional(),sort:z.enum(['newest','top']).default('newest'),after:z.string().max(1200).optional()});
 const authorSchema=z.strictObject({handle:z.string(),displayName:z.string()}).nullable();
-export const commentSchema=z.strictObject({id:z.uuid(),parentId:z.uuid().nullable(),body:z.string(),version:z.number().int(),score:z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER),depth:z.number().int().min(0).max(64),createdAt:z.string(),editedAt:z.string().nullable(),deleted:z.boolean(),owned:z.boolean(),liked:z.boolean(),hasReplies:z.boolean(),author:authorSchema,replyAuthor:authorSchema});
+export const commentSchema=z.strictObject({moderationReason:z.string().max(1000).nullable().optional(),moderationState:z.enum(['visible','held','hidden']).optional(),id:z.uuid(),parentId:z.uuid().nullable(),body:z.string(),version:z.number().int(),score:z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER),depth:z.number().int().min(0).max(64),createdAt:z.string(),editedAt:z.string().nullable(),deleted:z.boolean(),owned:z.boolean(),liked:z.boolean(),hasReplies:z.boolean(),author:authorSchema,replyAuthor:authorSchema});
 export const commentsPageSchema=z.strictObject({comments:z.array(commentSchema).max(20),nextCursor:z.string().nullable()});
 export type DiscussionComment=z.infer<typeof commentSchema>;
 

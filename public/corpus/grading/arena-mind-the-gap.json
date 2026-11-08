@@ -1,6 +1,6 @@
 {
   "problemId": "arena-mind-the-gap",
-  "version": "9e1d6ff639093dbd0fad75a37f78776c01b77db28846dd190e5c838d6511ae50",
+  "version": "162037ce9eff5db336740e0f94a857b6ef9a4381026f9dd0981722046f4aa025",
   "parts": [
     {
       "id": "a.radius",
@@ -14,7 +14,33 @@
         "R_0",
         "R_1"
       ],
-      "help": "Reflected light, near-normal incidence; R₀ > R₁ > 0, λ > 0, m = 0, 1, …; principal positive root."
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "nonnegative"
+          ]
+        },
+        {
+          "symbol": "\\lambda",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R_1",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Reflected light, near-normal incidence. R₀ > R₁ > 0, λ > 0, m = 0, 1, …, and the principal positive root."
     },
     {
       "id": "b.radius",
@@ -23,6 +49,7 @@
       "kind": "numeric",
       "unit": "m",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Use the least-squares fit to consecutive squared ring radii. Measurement precision supports rounding to two significant figures."
     }
   ]

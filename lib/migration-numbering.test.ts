@@ -17,5 +17,7 @@ test("each migration number belongs to one migration across up and down files", 
   }
   assert.equal(owners.get("0012"), "community_problem_stats");
   assert.equal(owners.get("0013"), "community_comments");
-  assert.equal(owners.get("0014"), "contest_participation");
+  assert.equal(owners.get("0014"), "community_moderation");
+  assert.equal(owners.get("0015"), "community_security_s1");
+  assert.equal(owners.get("0016"), "contest_participation");
 });

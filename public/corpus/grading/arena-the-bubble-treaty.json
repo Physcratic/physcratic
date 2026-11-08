@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-bubble-treaty",
-  "version": "b0848624bdff50685737a6a40bbb6495df922e5a956f2d6ba685134a8f249093",
+  "version": "c19d861ec030f637c273e2e172d84ce601276c6e4c7e3e4a71b27d71e0ea83f9",
   "parts": [
     {
       "id": "a.i.pressure",
@@ -9,7 +9,8 @@
       "kind": "numeric",
       "unit": "Pa",
       "symbols": [],
-      "help": "Absolute pressure, not pressure excess. Use pₐ = 101000 Pa; tolerance ±0.02 Pa."
+      "symbolConditions": [],
+      "help": "Absolute pressure, not pressure excess. Use pₐ = 101000 Pa. Tolerance ±0.02 Pa."
     },
     {
       "id": "a.ii.radius",
@@ -18,7 +19,8 @@
       "kind": "numeric",
       "unit": "cm",
       "symbols": [],
-      "help": "Ideal gas, separately conserved amounts, isothermal process; use absolute pressures. Enter the radius in cm."
+      "symbolConditions": [],
+      "help": "Ideal gas, separately conserved amounts, isothermal process. Use absolute pressures. Enter the radius in cm."
     },
     {
       "id": "a.iii.interface",
@@ -27,6 +29,7 @@
       "kind": "special",
       "unit": "",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Equal pressures give a flat film. Use \\infty for an unbounded radius, not zero radius."
     },
     {
@@ -38,7 +41,15 @@
       "symbols": [
         "R_p"
       ],
-      "help": "Use R_p for the common outer radius R′ after attachment; each centre is R′/2 from the shared plane."
+      "symbolConditions": [
+        {
+          "symbol": "R_p",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use R_p for the common outer radius R′ after attachment. Each centre is R′/2 from the shared plane."
     },
     {
       "id": "b.i.radius",
@@ -47,6 +58,7 @@
       "kind": "numeric",
       "unit": "cm",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Enter the result in the displayed unit, without a unit suffix."
     },
     {
@@ -56,6 +68,7 @@
       "kind": "numeric",
       "unit": "cm",
       "symbols": [],
+      "symbolConditions": [],
       "help": "Enter the result in the displayed unit, without a unit suffix."
     }
   ]

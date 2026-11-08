@@ -65,7 +65,7 @@ export function createAuthoredGrader(deps: Dependencies) {
         return result({ status: "ungraded", reason: "manual" });
       if (key.data.kind === "expression" && answer.kind === "expression") {
         engineVersion = "symbolic-v1";
-        return result(evaluateExpressionAnswer(answer, key.data));
+        return result(evaluateExpressionAnswer(answer, key.data, `${ids.problemId}:${ids.partId}`));
       }
       if (key.data.kind !== "numeric" || answer.kind !== "numeric")
         return result({

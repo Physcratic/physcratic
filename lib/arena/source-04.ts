@@ -2,7 +2,7 @@ import type { ArenaSeed } from "../arena-schema";
 
 export const source04: ArenaSeed[] = [
   {
-    id: "arena-the-quantum-escape-room", title: "The Quantum Escape Room", topic: "Modern physics", tags: ["Quantum tunnelling", "Potential barriers", "Boundary conditions"], summary: "Calculate oblique-incidence tunnelling through a wall and escape from a square quantum box.", statementFile: "02_The_Quantum_Escape_Room_Problem.pdf",
+    id: "arena-the-quantum-escape-room", title: "Quantum Escape", topic: "Modern physics", tags: ["Quantum tunnelling", "Potential barriers", "Boundary conditions"], summary: "Calculate oblique-incidence tunnelling through a wall and escape from a square quantum box.", statementFile: "02_The_Quantum_Escape_Room_Problem.pdf",
     statement: String.raw`A particle of mass $$m$$ approaches a wall of thickness $$d$$. Its velocity makes an angle $$\theta$$ with the normal to the wall. The particle has total energy $$E$$. The potential is zero everywhere except inside the wall, where it is $$V_0>E$$ for $$0\leq x\leq d$$.
 
 The incident and reflected wavefunctions are
@@ -131,12 +131,12 @@ $$\boxed{\lambda\simeq\frac2a\sqrt{\frac Em}\left[1+\frac{V_0^2}{E(2V_0-E)}\sinh
 The factor of four counts collisions with all four walls. The time spent traversing the thin wall is neglected.`,
   },
   {
-    id: "arena-the-three-way-wave-split", title: "The Three-Way Wave Split", topic: "Waves", tags: ["String waves", "Impedance matching", "Energy transmission"], summary: "Find the transmitted waves at a three-string junction and tune the densities for zero reflection.", statementFile: "02_The_Three_Way_Wave_Split_Problem.pdf",
+    id: "arena-the-three-way-wave-split", title: "The Three-String Junction", topic: "Waves", tags: ["String waves", "Impedance matching", "Energy transmission"], summary: "Find the transmitted waves at a three-string junction and tune the densities for zero reflection.", statementFile: "02_The_Three_Way_Wave_Split_Problem.pdf",
     statement: String.raw`Three strings, with linear mass densities $$\mu_1$$, $$\mu_2$$, and $$\mu_3$$, meet at a single junction as shown. The tensions in strings 2 and 3 are $$T_2=4T_0$$ and $$T_3=3T_0$$. A transverse wave travels along string 1 toward the junction, with displacement perpendicular to the plane of the three strings:
 
 $$\Psi_i=A\sin(\omega t-k_1r_1).$$
 
-![String 1 carries the incident wave into a junction; strings 2 and 3 leave at a right angle to each other with tensions 4T₀ and 3T₀.](/corpus/arena/figures/the-three-way-wave-split-statement.png)
+![String 1 carries the incident wave into a junction. Strings 2 and 3 leave at a right angle to each other with tensions 4T₀ and 3T₀.](/corpus/arena/figures/the-three-way-wave-split-statement.png)
 
 Figure 1: Three strings joined at an equilibrium junction.
 
@@ -216,7 +216,7 @@ $$\boxed{\mu_2=\frac\mu5,\qquad\mu_3=\frac{3\mu}5}$$
 Check. The outgoing power shares are $$2/5$$ and $$3/5$$ of the incident power. They add to the full incident power, as required when reflection vanishes.`,
   },
   {
-    id: "arena-titans-double-take", title: "Titan’s Double Take", topic: "Optics", tags: ["Rainbows", "Refraction", "Stationary deviation"], summary: "Infer Titan’s droplet refractive index and locate its secondary rainbow relative to the primary.", statementFile: "02_Titans_Double_Take_Problem.pdf",
+    id: "arena-titans-double-take", title: "Rainbows on Titan", topic: "Optics", tags: ["Rainbows", "Refraction", "Stationary deviation"], summary: "Infer Titan’s droplet refractive index and locate its secondary rainbow relative to the primary.", statementFile: "02_Titans_Double_Take_Problem.pdf",
     statement: String.raw`Scientists predict that rainbows may occur on Titan, one of Saturn’s moons, but with a different angular size from those on Earth. A rainbow on Earth forms part of a cone with a half-angle of about $$42^\circ$$. On Titan, this angle is $$49^\circ$$, as shown below.
 
 ![Sunlight, observer and rainbow cone with a half-angle of 49 degrees measured from the antisolar direction.](/corpus/arena/figures/titans-double-take-statement.png)

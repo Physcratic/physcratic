@@ -841,7 +841,8 @@ test(
             [0, { kind: "numeric", value: 4, units: "" }, "incorrect"],
             [
               1,
-              { kind: "expression", expression: "sin(x)^2+cos(x)^2" },
+              // Phase 1: an undeclared symbol still needs review. sin^2 + cos^2 is now simply incorrect against x^2 + 137.
+              { kind: "expression", expression: "y^2+137" },
               "needs-review",
             ],
             [2, { kind: "manual", text: "My own reasoning" }, "ungraded"],

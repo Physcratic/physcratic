@@ -44,6 +44,8 @@ export function bodyText(body: Block[]): string[] {
         return [block.label, block.note ?? ""];
       case "math":
         return [block.caption ?? ""];
+      case "image":
+        return [block.caption ?? ""];
       case "table":
         return [
           block.caption,

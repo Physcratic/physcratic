@@ -23,6 +23,9 @@ test("disabled profile settings preserve accessible appearance choices and never
   for (const value of ["light", "dark", "system"]) assert.ok(html.includes(`value="${value}"`));
   assert.doesNotMatch(html, /id="profile-handle"|id="avatar-file"|Create profile/);
   assert.match(html, /Settings sections/); assert.match(html, /Appearance/);
+  // Tours are their own settings section, linked from the nav and placed after Appearance.
+  assert.match(html, /href="#tours-settings"/); assert.match(html, /id="tours-settings"/);
+  assert.ok(html.indexOf('id="appearance-settings"') < html.indexOf('id="tours-settings"'));
 });
 test("onboarding dismissal keys are versioned and separated by stable account ID", () => {
   assert.notEqual(onboardingKey("owner"), onboardingKey("other"));

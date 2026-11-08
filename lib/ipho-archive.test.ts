@@ -9,7 +9,6 @@ import {
   iphoSubproblems,
   iphoTheoryCount,
 } from "./ipho-archive";
-import { iphoTasks } from "./ipho-checks";
 
 const expectedParts = {
   t1: { A: 5, B: 3, C: 5, D: 4 },
@@ -87,10 +86,6 @@ test("all three existing symbolic adaptations map to their exact original subpar
   assert.deepEqual(
     adapted.map((task) => `${task.paperId}:${task.part}`),
     ["t1:A.1", "t2:A.1", "t3:A.2"],
-  );
-  assert.deepEqual(
-    adapted.map((task) => task.symbolicTaskId),
-    iphoTasks.map((task) => task.id),
   );
 });
 

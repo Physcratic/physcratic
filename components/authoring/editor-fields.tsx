@@ -8,9 +8,9 @@ import {
   type ReactNode,
 } from "react";
 import katex from "katex";
-import { ArrowDown, ArrowUp, Plus, Trash2 } from "lucide-react";
+import { ArrowDown, ArrowUp, Plus, Sigma, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { equationTemplates } from "@/lib/latex-working";
+import { TextareaPad } from "@/components/physics/math-pad";
 import {
   moveItem,
   newBlock,
@@ -50,7 +50,7 @@ export function Field({
   );
 }
 export const inputClass =
-  "min-h-11 w-full min-w-0 rounded-md border border-input bg-background px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-60";
+  "min-h-11 w-full min-w-0 rounded-md border border-input bg-background px-3 py-2 text-sm outline-none placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-60";
 export function MathPreview({
   latex,
   inline = false,
@@ -119,33 +119,7 @@ function EquationInput({
           />
         )}
       </Field>
-      <div
-        className="flex flex-wrap gap-1"
-        role="group"
-        aria-label={`${label} shortcuts`}
-      >
-        {equationTemplates.map((t) => (
-          <Button
-            key={t.label}
-            type="button"
-            size="sm"
-            variant="ghost"
-            onClick={() => {
-              const start = ref.current?.selectionStart ?? value.length,
-                end = ref.current?.selectionEnd ?? start;
-              const next = value.slice(0, start) + t.latex + value.slice(end);
-              if (next.length > 2000) return;
-              onChange(next);
-              requestAnimationFrame(() => {
-                ref.current?.focus();
-                ref.current?.setSelectionRange(start, start + t.latex.length);
-              });
-            }}
-          >
-            {t.label}
-          </Button>
-        ))}
-      </div>
+      <TextareaPad textarea={ref} value={value} onChange={onChange} maxLength={2000} as="latex" label={`${label} symbols`} />
       <div
         className="min-h-14 rounded-md bg-muted/40 px-3"
         role="group"
@@ -305,6 +279,7 @@ export function BlocksEditor({
                       label={`${label} text ${index + 1}${block.spans.length > 1 ? ` · span ${si + 1}` : ""}`}
                     >
                       {(id) => (
+                        <div className="space-y-2">
                         <textarea
                           id={id}
                           className={inputClass}
@@ -331,6 +306,33 @@ export function BlocksEditor({
                             )
                           }
                         />
+                        <Button
+                          type="button"
+                          size="sm"
+                          variant="outline"
+                          disabled={block.spans.length >= 100}
+                          aria-label={`Insert equation in ${label} text ${index + 1}`}
+                          onClick={() => {
+                            const el = document.getElementById(id) as HTMLTextAreaElement | null;
+                            const at = el?.selectionStart ?? span.text.length;
+                            const insert = [
+                              { kind: "text" as const, text: span.text.slice(0, at) },
+                              { kind: "math" as const, latex: "" },
+                              { kind: "text" as const, text: span.text.slice(at) },
+                            ].filter((s2) => s2.kind === "math" || s2.text);
+                            onChange(
+                              blocks.map((b) =>
+                                b.id === block.id
+                                  ? { ...block, spans: [...block.spans.slice(0, si), ...insert, ...block.spans.slice(si + 1)] }
+                                  : b,
+                              ),
+                            );
+                          }}
+                        >
+                          <Sigma aria-hidden="true" className="mr-1 size-4" />
+                          Equation
+                        </Button>
+                        </div>
                       )}
                     </Field>
                   ) : (

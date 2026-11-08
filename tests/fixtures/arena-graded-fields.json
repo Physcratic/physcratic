@@ -1,0 +1,4919 @@
+{
+ "arena-mind-the-gap": {
+  "id": "arena-mind-the-gap",
+  "topic": "Optics",
+  "tags": [
+   "Interference",
+   "Newton’s rings",
+   "Curvature"
+  ],
+  "statementFile": "01_Mind_the_Gap_Problem.pdf",
+  "solutionFile": null,
+  "keyVersion": 1,
+  "parts": [
+   {
+    "id": "a.radius",
+    "sourcePart": "a",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\sqrt{\\frac{m\\lambda}{1/R_1-1/R_0}}",
+    "alternatives": [
+     "\\sqrt{\\frac{m\\lambda R_0R_1}{R_0-R_1}}"
+    ],
+    "wrong": [
+     "(\\sqrt{\\frac{m\\lambda}{1/R_1-1/R_0}})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "m",
+      "assumptions": [
+       "nonnegative"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\lambda",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "R_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "R_1",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_Mind_the_Gap_Solution.pdf § a"
+   },
+   {
+    "id": "b.radius",
+    "sourcePart": "b",
+    "kind": "numeric",
+    "unit": "m",
+    "symbols": [],
+    "target": 0.89895,
+    "absTol": 0.005,
+    "relTol": 0.005,
+    "canonical": "0.89895",
+    "alternatives": [
+     "0.90"
+    ],
+    "wrong": [
+     "2.89895"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_Mind_the_Gap_Solution.pdf § b"
+   }
+  ],
+  "maths": "3b923aa3ae9592865e206e65a40cd57ba322a7c9f5b31310af4ac5d240bf7881",
+  "numbers": "f5388b9dad1ca3db6787244f5ce49711a7f47f24a84a35250bb336a1f67edbc0"
+ },
+ "arena-the-bubble-treaty": {
+  "id": "arena-the-bubble-treaty",
+  "topic": "Thermodynamics",
+  "tags": [
+   "Surface tension",
+   "Pressure",
+   "Ideal gas"
+  ],
+  "statementFile": "01_The_Bubble_Treaty_Problem.pdf",
+  "solutionFile": null,
+  "keyVersion": 1,
+  "parts": [
+   {
+    "id": "a.i.pressure",
+    "sourcePart": "a.i",
+    "kind": "numeric",
+    "unit": "Pa",
+    "symbols": [],
+    "target": 101003.33,
+    "absTol": 0.02,
+    "relTol": 0,
+    "canonical": "101003.33",
+    "alternatives": [
+     "1.01\\times10^5+\\frac{4(0.025)}{0.03}"
+    ],
+    "wrong": [
+     "303009.99"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Bubble_Treaty_Solution.pdf § a.i"
+   },
+   {
+    "id": "a.ii.radius",
+    "sourcePart": "a.ii",
+    "kind": "numeric",
+    "unit": "cm",
+    "symbols": [],
+    "target": 3.174804,
+    "absTol": 1e-9,
+    "relTol": 0.01,
+    "canonical": "3.174804",
+    "alternatives": [
+     "3.17"
+    ],
+    "wrong": [
+     "9.524412"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Bubble_Treaty_Solution.pdf § a.ii"
+   },
+   {
+    "id": "a.iii.interface",
+    "sourcePart": "a.iii",
+    "kind": "special",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "policy": "positive-infinity",
+    "canonical": "\\infty",
+    "alternatives": [
+     "+\\infty"
+    ],
+    "wrong": [
+     "0",
+     "1000000"
+    ],
+    "sourceReference": "01_The_Bubble_Treaty_Solution.pdf § a.iii"
+   },
+   {
+    "id": "a.iv.distance",
+    "sourcePart": "a.iv",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "R_p",
+    "alternatives": [],
+    "wrong": [
+     "(R_p)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "R_p",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Bubble_Treaty_Solution.pdf § a.iv"
+   },
+   {
+    "id": "b.i.radius",
+    "sourcePart": "b.i",
+    "kind": "numeric",
+    "unit": "cm",
+    "symbols": [],
+    "target": 12,
+    "absTol": 1e-9,
+    "relTol": 0.01,
+    "canonical": "12",
+    "alternatives": [
+     "\\frac{1}{1/3-1/4}"
+    ],
+    "wrong": [
+     "36"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Bubble_Treaty_Solution.pdf § b.i"
+   },
+   {
+    "id": "b.ii.distance",
+    "sourcePart": "b.ii",
+    "kind": "numeric",
+    "unit": "cm",
+    "symbols": [],
+    "target": 3.605551275463989,
+    "absTol": 1e-9,
+    "relTol": 0.01,
+    "canonical": "\\sqrt{13}",
+    "alternatives": [
+     "3.61"
+    ],
+    "wrong": [
+     "10.816653826391967"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Bubble_Treaty_Solution.pdf § b.ii"
+   }
+  ],
+  "maths": "bd866ae4d81075482f8ef263599aaa8eb124edb8a09cf70450bdc0f2b6bcd6b8",
+  "numbers": "0c1f01bfcee03721d9fbad76d1174e17b8f0a727b006fde98bd0e4627b2f6269"
+ },
+ "arena-the-cosmic-kitchen": {
+  "id": "arena-the-cosmic-kitchen",
+  "topic": "Thermodynamics",
+  "tags": [
+   "Cosmology",
+   "Statistical mechanics",
+   "Nucleosynthesis"
+  ],
+  "statementFile": "01_The_Cosmic_Kitchen_Problem.pdf",
+  "solutionFile": null,
+  "keyVersion": 1,
+  "parts": [
+   {
+    "id": "a.energy",
+    "sourcePart": "a",
+    "kind": "numeric",
+    "unit": "MeV",
+    "symbols": [],
+    "target": 86.25,
+    "absTol": 1e-9,
+    "relTol": 0.01,
+    "canonical": "86.25",
+    "alternatives": [],
+    "wrong": [
+     "258.75"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Cosmic_Kitchen_Solution.pdf § a"
+   },
+   {
+    "id": "b.density",
+    "sourcePart": "b",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "(\\frac{mk_BT}{2\\pi\\hbar^2})^{3/2}\\exp(\\frac{\\mu-mc^2}{k_BT})",
+    "alternatives": [],
+    "wrong": [
+     "((\\frac{mk_BT}{2\\pi\\hbar^2})^{3/2}\\exp(\\frac{\\mu-mc^2}{k_BT}))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "m",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "k_B",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "T",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\hbar",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\mu",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "c",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Cosmic_Kitchen_Solution.pdf § b"
+   },
+   {
+    "id": "c.ratio",
+    "sourcePart": "c",
+    "kind": "numeric",
+    "unit": "1",
+    "symbols": [],
+    "target": 0.985,
+    "absTol": 1e-9,
+    "relTol": 0.02,
+    "canonical": "0.985",
+    "alternatives": [
+     "1"
+    ],
+    "wrong": [
+     "2.985"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Cosmic_Kitchen_Solution.pdf § c"
+   },
+   {
+    "id": "d.temperature",
+    "sourcePart": "d",
+    "kind": "numeric",
+    "unit": "K",
+    "symbols": [],
+    "target": 9300000000,
+    "absTol": 0,
+    "relTol": 0.02,
+    "canonical": "9300000000",
+    "alternatives": [],
+    "wrong": [
+     "27900000000"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Cosmic_Kitchen_Solution.pdf § d"
+   },
+   {
+    "id": "d.ratio",
+    "sourcePart": "d",
+    "kind": "numeric",
+    "unit": "1",
+    "symbols": [],
+    "target": 0.2,
+    "absTol": 0.006,
+    "relTol": 0.03,
+    "canonical": "0.2",
+    "alternatives": [
+     "0.197"
+    ],
+    "wrong": [
+     "2.2"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Cosmic_Kitchen_Solution.pdf § d"
+   },
+   {
+    "id": "e.temperature",
+    "sourcePart": "e",
+    "kind": "numeric",
+    "unit": "K",
+    "symbols": [],
+    "target": 5900000000,
+    "absTol": 0,
+    "relTol": 0.02,
+    "canonical": "5900000000",
+    "alternatives": [],
+    "wrong": [
+     "17700000000"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Cosmic_Kitchen_Solution.pdf § e"
+   },
+   {
+    "id": "f.ratio",
+    "sourcePart": "f",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "(\\frac{m_D}{m_pm_n})^{3/2}(\\frac{2\\pi\\hbar^2}{k_BT})^{3/2}\\exp(\\frac{B_D}{k_BT})",
+    "alternatives": [],
+    "wrong": [
+     "((\\frac{m_D}{m_pm_n})^{3/2}(\\frac{2\\pi\\hbar^2}{k_BT})^{3/2}\\exp(\\frac{B_D}{k_BT}))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "m_D",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "m_p",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "m_n",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\hbar",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "k_B",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "T",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "B_D",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Cosmic_Kitchen_Solution.pdf § f"
+   },
+   {
+    "id": "g.equation",
+    "sourcePart": "g",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "5.95305\\times10^{-12}u^{3/2}\\exp(2240/u)",
+    "alternatives": [],
+    "wrong": [
+     "(5.95305\\times10^{-12}u^{3/2}\\exp(2240/u))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "u",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": [],
+      "min": 50,
+      "max": 150
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Cosmic_Kitchen_Solution.pdf § g"
+   },
+   {
+    "id": "g.temperature",
+    "sourcePart": "g",
+    "kind": "numeric",
+    "unit": "K",
+    "symbols": [],
+    "target": 800000000,
+    "absTol": 0,
+    "relTol": 0.02,
+    "canonical": "800000000",
+    "alternatives": [],
+    "wrong": [
+     "2400000000"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Cosmic_Kitchen_Solution.pdf § g"
+   },
+   {
+    "id": "h.zeta",
+    "sourcePart": "h",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{8\\pi G}{3}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{8\\pi G}{3})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "G",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Cosmic_Kitchen_Solution.pdf § h"
+   },
+   {
+    "id": "h.xi",
+    "sourcePart": "h",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "-\\frac{kc^2}{a^2}",
+    "alternatives": [],
+    "wrong": [
+     "(-\\frac{kc^2}{a^2})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "k",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "c",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "a",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Cosmic_Kitchen_Solution.pdf § h"
+   },
+   {
+    "id": "i.i.exponent",
+    "sourcePart": "i.i",
+    "kind": "numeric",
+    "unit": "1",
+    "symbols": [],
+    "target": -3,
+    "absTol": 0,
+    "relTol": 0,
+    "canonical": "-3",
+    "alternatives": [],
+    "wrong": [
+     "3"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Cosmic_Kitchen_Solution.pdf § i.i"
+   },
+   {
+    "id": "i.ii.exponent",
+    "sourcePart": "i.ii",
+    "kind": "numeric",
+    "unit": "1",
+    "symbols": [],
+    "target": -4,
+    "absTol": 0,
+    "relTol": 0,
+    "canonical": "-4",
+    "alternatives": [],
+    "wrong": [
+     "4"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Cosmic_Kitchen_Solution.pdf § i.ii"
+   },
+   {
+    "id": "j.exponent",
+    "sourcePart": "j",
+    "kind": "numeric",
+    "unit": "1",
+    "symbols": [],
+    "target": -1,
+    "absTol": 0,
+    "relTol": 0,
+    "canonical": "-1",
+    "alternatives": [],
+    "wrong": [
+     "1"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Cosmic_Kitchen_Solution.pdf § j"
+   },
+   {
+    "id": "k.ratio",
+    "sourcePart": "k",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\sqrt{\\frac{t_2}{t_1}}",
+    "alternatives": [
+     "(t_2/t_1)^{1/2}"
+    ],
+    "wrong": [
+     "(\\sqrt{\\frac{t_2}{t_1}})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "t_1",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "t_2",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Cosmic_Kitchen_Solution.pdf § k"
+   },
+   {
+    "id": "l.temperature",
+    "sourcePart": "l",
+    "kind": "numeric",
+    "unit": "K",
+    "symbols": [],
+    "target": 9900,
+    "absTol": 0,
+    "relTol": 0.01,
+    "canonical": "9900",
+    "alternatives": [
+     "9899.78"
+    ],
+    "wrong": [
+     "29700"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Cosmic_Kitchen_Solution.pdf § l"
+   },
+   {
+    "id": "m.fraction",
+    "sourcePart": "m",
+    "kind": "numeric",
+    "unit": "1",
+    "symbols": [],
+    "target": 0.24,
+    "absTol": 0.005,
+    "relTol": 0.02,
+    "canonical": "0.24",
+    "alternatives": [],
+    "wrong": [
+     "2.24"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Cosmic_Kitchen_Solution.pdf § m"
+   },
+   {
+    "id": "m.reasoning",
+    "sourcePart": "m",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Cosmic_Kitchen_Solution.pdf § m"
+   }
+  ],
+  "maths": "681aa44284620600343707c7a0cdbea81c523819ed3e8fdb085d8e1207b1203d",
+  "numbers": "1cc395413b66fe0113419f30838bbe04cf733fc87edbc38dfa5744f0e51bfa6f"
+ },
+ "arena-the-five-fold-collision": {
+  "id": "arena-the-five-fold-collision",
+  "topic": "Modern physics",
+  "tags": [
+   "Special relativity",
+   "Collisions",
+   "Four-momentum"
+  ],
+  "statementFile": "01_The_Five_Fold_Collision_Problem.pdf",
+  "solutionFile": null,
+  "keyVersion": 1,
+  "parts": [
+   {
+    "id": "a.mass",
+    "sourcePart": "a",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "3\\sqrt{3}m",
+    "alternatives": [],
+    "wrong": [
+     "(3\\sqrt{3}m)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "m",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Five_Fold_Collision_Solution.pdf § a"
+   },
+   {
+    "id": "a.speed",
+    "sourcePart": "a",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "c/2",
+    "alternatives": [],
+    "wrong": [
+     "(c/2)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "c",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Five_Fold_Collision_Solution.pdf § a"
+   },
+   {
+    "id": "b.heavy",
+    "sourcePart": "b",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "5c/13",
+    "alternatives": [],
+    "wrong": [
+     "(5c/13)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "c",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Five_Fold_Collision_Solution.pdf § b"
+   },
+   {
+    "id": "b.light",
+    "sourcePart": "b",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "4c/5",
+    "alternatives": [],
+    "wrong": [
+     "(4c/5)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "c",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Five_Fold_Collision_Solution.pdf § b"
+   },
+   {
+    "id": "c.angle",
+    "sourcePart": "c",
+    "kind": "numeric",
+    "unit": "degrees",
+    "symbols": [],
+    "target": 14.4775,
+    "absTol": 0.02,
+    "relTol": 0,
+    "canonical": "14.4775",
+    "alternatives": [
+     "14.48"
+    ],
+    "wrong": [
+     "43.4325"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Five_Fold_Collision_Solution.pdf § c"
+   },
+   {
+    "id": "d.lower",
+    "sourcePart": "d",
+    "kind": "numeric",
+    "unit": "degrees",
+    "symbols": [],
+    "target": 120,
+    "absTol": 0,
+    "relTol": 0,
+    "canonical": "120",
+    "alternatives": [],
+    "wrong": [
+     "360"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Five_Fold_Collision_Solution.pdf § d"
+   },
+   {
+    "id": "d.upper",
+    "sourcePart": "d",
+    "kind": "numeric",
+    "unit": "degrees",
+    "symbols": [],
+    "target": 180,
+    "absTol": 0,
+    "relTol": 0,
+    "canonical": "180",
+    "alternatives": [],
+    "wrong": [
+     "540"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Five_Fold_Collision_Solution.pdf § d"
+   },
+   {
+    "id": "e.frequency",
+    "sourcePart": "e",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{9mc^2}{2h}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{9mc^2}{2h})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "m",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "c",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "h",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Five_Fold_Collision_Solution.pdf § e"
+   }
+  ],
+  "maths": "06ef81faf01607b56364865a4037331e820b130c2cd385cc29e8faec83caa570",
+  "numbers": "0ae6fa51d58a4c632b8586dbe75bbc8aa3687158ccdc193e5b3627b17dc7b1bd"
+ },
+ "arena-the-phantom-charge": {
+  "id": "arena-the-phantom-charge",
+  "topic": "Electromagnetism",
+  "tags": [
+   "Electrostatics",
+   "Potential",
+   "Continuous charge"
+  ],
+  "statementFile": "01_The_Phantom_Charge_Problem.pdf",
+  "solutionFile": null,
+  "keyVersion": 1,
+  "parts": [
+   {
+    "id": "a.charge",
+    "sourcePart": "a",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{2\\pi c}{d}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{2\\pi c}{d})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "c",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "d",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Phantom_Charge_Solution.pdf § a"
+   },
+   {
+    "id": "b.above",
+    "sourcePart": "b",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{c}{2\\varepsilon_0d(d+z)^2}",
+    "alternatives": [
+     "\\frac{2\\pi c/d}{4\\pi\\varepsilon_0(z+d)^2}"
+    ],
+    "wrong": [
+     "(\\frac{c}{2\\varepsilon_0d(d+z)^2})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "c",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "\\varepsilon_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "d",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "z",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Phantom_Charge_Solution.pdf § b"
+   },
+   {
+    "id": "b.below",
+    "sourcePart": "b",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "-\\frac{c}{2\\varepsilon_0d(d-z)^2}",
+    "alternatives": [],
+    "wrong": [
+     "(-\\frac{c}{2\\varepsilon_0d(d-z)^2})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "c",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "\\varepsilon_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "d",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "z",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Phantom_Charge_Solution.pdf § b"
+   },
+   {
+    "id": "c.magnitude",
+    "sourcePart": "c",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{2\\pi|c|}{d}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{2\\pi|c|}{d})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "c",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "d",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Phantom_Charge_Solution.pdf § c"
+   },
+   {
+    "id": "c.above-position",
+    "sourcePart": "c",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "-d",
+    "alternatives": [],
+    "wrong": [
+     "(-d)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "d",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Phantom_Charge_Solution.pdf § c"
+   },
+   {
+    "id": "c.below-position",
+    "sourcePart": "c",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "d",
+    "alternatives": [],
+    "wrong": [
+     "(d)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "d",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Phantom_Charge_Solution.pdf § c"
+   },
+   {
+    "id": "d.repulsive",
+    "sourcePart": "d",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\sqrt{\\frac{qc}{m\\varepsilon_0d^2}}",
+    "alternatives": [],
+    "wrong": [
+     "(\\sqrt{\\frac{qc}{m\\varepsilon_0d^2}})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "q",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "c",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "m",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\varepsilon_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "d",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Phantom_Charge_Solution.pdf § d"
+   },
+   {
+    "id": "d.attractive",
+    "sourcePart": "d",
+    "kind": "numeric",
+    "unit": "m/s",
+    "symbols": [],
+    "target": 0,
+    "absTol": 0,
+    "relTol": 0,
+    "canonical": "0",
+    "alternatives": [],
+    "wrong": [
+     "2"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_Phantom_Charge_Solution.pdf § d"
+   }
+  ],
+  "maths": "a2eaa8758503ff570c6d3b82557079b80dad203a7101d93458f260f6477b9483",
+  "numbers": "dd89552832711808f480ada8f5d5c43305ea7b52b6e30ca85a02ed3f623416de"
+ },
+ "arena-the-string-that-answered-back": {
+  "id": "arena-the-string-that-answered-back",
+  "topic": "Waves",
+  "tags": [
+   "Driven oscillations",
+   "String waves",
+   "Boundary conditions"
+  ],
+  "statementFile": "01_The_String_That_Answered_Back_Problem.pdf",
+  "solutionFile": null,
+  "keyVersion": 1,
+  "parts": [
+   {
+    "id": "a.left",
+    "sourcePart": "a",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "-\\frac{\\sqrt{2}L}{50\\pi}\\sin(\\frac{2\\pi t}{\\tau})\\sin(\\frac{5\\pi x}{2L})",
+    "alternatives": [],
+    "wrong": [
+     "(-\\frac{\\sqrt{2}L}{50\\pi}\\sin(\\frac{2\\pi t}{\\tau})\\sin(\\frac{5\\pi x}{2L}))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "L",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "t",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "\\tau",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "x",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_String_That_Answered_Back_Solution.pdf § a"
+   },
+   {
+    "id": "a.right",
+    "sourcePart": "a",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "-\\frac{\\sqrt{2}L}{50\\pi}\\sin(\\frac{2\\pi t}{\\tau})\\sin(\\frac{5\\pi(L-x)}{2L})",
+    "alternatives": [],
+    "wrong": [
+     "(-\\frac{\\sqrt{2}L}{50\\pi}\\sin(\\frac{2\\pi t}{\\tau})\\sin(\\frac{5\\pi(L-x)}{2L}))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "L",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "t",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "\\tau",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "x",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_String_That_Answered_Back_Solution.pdf § a"
+   },
+   {
+    "id": "a.sketches",
+    "sourcePart": "a",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_String_That_Answered_Back_Solution.pdf § a"
+   },
+   {
+    "id": "b.left",
+    "sourcePart": "b",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{L}{50\\pi}\\sin(\\frac{2\\pi t}{\\tau})\\sin(\\frac{5\\pi x}{2L})",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{L}{50\\pi}\\sin(\\frac{2\\pi t}{\\tau})\\sin(\\frac{5\\pi x}{2L}))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "L",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "t",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "\\tau",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "x",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_String_That_Answered_Back_Solution.pdf § b"
+   },
+   {
+    "id": "b.right",
+    "sourcePart": "b",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "-\\frac{\\sqrt{3}L}{50\\pi}\\sin(\\frac{2\\pi t}{\\tau})\\sin(\\frac{5\\pi(L-x)}{2L})",
+    "alternatives": [],
+    "wrong": [
+     "(-\\frac{\\sqrt{3}L}{50\\pi}\\sin(\\frac{2\\pi t}{\\tau})\\sin(\\frac{5\\pi(L-x)}{2L}))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "L",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "t",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "\\tau",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "x",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_String_That_Answered_Back_Solution.pdf § b"
+   },
+   {
+    "id": "b.sketches",
+    "sourcePart": "b",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "01_The_String_That_Answered_Back_Solution.pdf § b"
+   }
+  ],
+  "maths": "640751e21ca6f60f07fbd71c0f26e155193a23cc378d6389cac2af2f8bcf28f7",
+  "numbers": "3fff03e9a30b774b130733f6dcf08ba973b7e5327bba66a2c7dc85acb703612e"
+ },
+ "arena-the-clock-in-the-racing-mirror": {
+  "id": "arena-the-clock-in-the-racing-mirror",
+  "topic": "Modern physics",
+  "tags": [
+   "Special relativity",
+   "Moving mirrors",
+   "Doppler effect"
+  ],
+  "statementFile": "02_The_Clock_in_the_Racing_Mirror_Problem.pdf",
+  "solutionFile": null,
+  "keyVersion": 1,
+  "parts": [
+   {
+    "id": "a.arrival",
+    "sourcePart": "a",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "t_0+\\frac{\\delta}{r-1}",
+    "alternatives": [],
+    "wrong": [
+     "(t_0+\\frac{\\delta}{r-1})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "t_0",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "\\delta",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "r",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [
+     "r != 1"
+    ],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Clock_in_the_Racing_Mirror_Solution.pdf § a"
+   },
+   {
+    "id": "b.height",
+    "sourcePart": "b",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{hc\\delta}{2f}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{hc\\delta}{2f})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "h",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "c",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\delta",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "f",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Clock_in_the_Racing_Mirror_Solution.pdf § b"
+   },
+   {
+    "id": "c.distance",
+    "sourcePart": "c",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{(1+r)c\\delta}{2}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{(1+r)c\\delta}{2})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "r",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "c",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\delta",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Clock_in_the_Racing_Mirror_Solution.pdf § c"
+   }
+  ],
+  "maths": "ffb1339159451a50b522238d7f144a21d6bf40e245e73ca97e5cf76095de54b7",
+  "numbers": "d7cdcdb2a6bce417be113af6a498ba59d4e36410096b5433812a0c7066744144"
+ },
+ "arena-the-dodecahedron-conspiracy": {
+  "id": "arena-the-dodecahedron-conspiracy",
+  "topic": "Electromagnetism",
+  "tags": [
+   "Gauss’s law",
+   "Symmetry",
+   "Solid angle"
+  ],
+  "statementFile": "02_The_Dodecahedron_Conspiracy_Problem.pdf",
+  "solutionFile": null,
+  "keyVersion": 1,
+  "parts": [
+   {
+    "id": "a.flux",
+    "sourcePart": "a",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{Q}{12\\varepsilon_0}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{Q}{12\\varepsilon_0})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "Q",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "\\varepsilon_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Dodecahedron_Conspiracy_Solution.pdf § a"
+   },
+   {
+    "id": "b.field",
+    "sourcePart": "b",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{|\\sigma|}{6\\varepsilon_0}",
+    "alternatives": [
+     "\\frac{\\sigma}{6\\varepsilon_0}"
+    ],
+    "wrong": [
+     "(\\frac{|\\sigma|}{6\\varepsilon_0})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\sigma",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\varepsilon_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Dodecahedron_Conspiracy_Solution.pdf § b"
+   },
+   {
+    "id": "c.field",
+    "sourcePart": "c",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{|\\sigma|}{6\\varepsilon_0}(1+\\sqrt{5})",
+    "alternatives": [
+     "\\frac{\\sigma(1+\\sqrt{5})}{6\\varepsilon_0}"
+    ],
+    "wrong": [
+     "(\\frac{|\\sigma|}{6\\varepsilon_0}(1+\\sqrt{5}))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\sigma",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\varepsilon_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Dodecahedron_Conspiracy_Solution.pdf § c"
+   }
+  ],
+  "maths": "d53ee96b6f551a763f1f9a0d7220d8f274f1274b88ba14b2c747a4cfd818a658",
+  "numbers": "3759e670a910d7a3035f10002bcd53eaca2656fd2611ce4732fc053de713f2d9"
+ },
+ "arena-the-gas-with-elbows": {
+  "id": "arena-the-gas-with-elbows",
+  "topic": "Thermodynamics",
+  "tags": [
+   "Partition functions",
+   "Van der Waals gas",
+   "Statistical mechanics"
+  ],
+  "statementFile": "02_The_Gas_with_Elbows_Problem.pdf",
+  "solutionFile": null,
+  "keyVersion": 1,
+  "parts": [
+   {
+    "id": "a.i.concentration",
+    "sourcePart": "a.i",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "(\\frac{Mk_BT}{2\\pi\\hbar^2})^{3/2}",
+    "alternatives": [],
+    "wrong": [
+     "((\\frac{Mk_BT}{2\\pi\\hbar^2})^{3/2})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "M",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "k_B",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "T",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\hbar",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § a.i"
+   },
+   {
+    "id": "a.ii.exponent",
+    "sourcePart": "a.ii",
+    "kind": "numeric",
+    "unit": "1",
+    "symbols": [],
+    "target": 2,
+    "absTol": 0,
+    "relTol": 0,
+    "canonical": "2",
+    "alternatives": [],
+    "wrong": [
+     "6"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § a.ii"
+   },
+   {
+    "id": "a.ii.function",
+    "sourcePart": "a.ii",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\ln Z_1",
+    "alternatives": [],
+    "wrong": [
+     "(\\ln Z_1)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "Z_1",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § a.ii"
+   },
+   {
+    "id": "a.ii.energy",
+    "sourcePart": "a.ii",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac32k_BT",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac32k_BT)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "k_B",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "T",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § a.ii"
+   },
+   {
+    "id": "a.iii.energy",
+    "sourcePart": "a.iii",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac32Nk_BT",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac32Nk_BT)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "N",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "k_B",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "T",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § a.iii"
+   },
+   {
+    "id": "a.iv.entropy",
+    "sourcePart": "a.iv",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § a.iv"
+   },
+   {
+    "id": "a.iv.pressure",
+    "sourcePart": "a.iv",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § a.iv"
+   },
+   {
+    "id": "a.v.b",
+    "sourcePart": "a.v",
+    "kind": "numeric",
+    "unit": "1",
+    "symbols": [],
+    "target": 2,
+    "absTol": 0,
+    "relTol": 0,
+    "canonical": "2",
+    "alternatives": [],
+    "wrong": [
+     "6"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § a.v"
+   },
+   {
+    "id": "a.v.c",
+    "sourcePart": "a.v",
+    "kind": "numeric",
+    "unit": "1",
+    "symbols": [],
+    "target": -1,
+    "absTol": 0,
+    "relTol": 0,
+    "canonical": "-1",
+    "alternatives": [],
+    "wrong": [
+     "1"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § a.v"
+   },
+   {
+    "id": "a.v.proof",
+    "sourcePart": "a.v",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § a.v"
+   },
+   {
+    "id": "a.vi.partition",
+    "sourcePart": "a.vi",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "-k_BT\\ln Z_N",
+    "alternatives": [],
+    "wrong": [
+     "(-k_BT\\ln Z_N)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "k_B",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "T",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "Z_N",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § a.vi"
+   },
+   {
+    "id": "a.vi.energy",
+    "sourcePart": "a.vi",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "Nk_BT(\\ln(n/n_Q)-1)",
+    "alternatives": [],
+    "wrong": [
+     "(Nk_BT(\\ln(n/n_Q)-1))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "N",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "k_B",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "T",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "n",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "n_Q",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § a.vi"
+   },
+   {
+    "id": "a.vi.proof",
+    "sourcePart": "a.vi",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § a.vi"
+   },
+   {
+    "id": "b.i.factor",
+    "sourcePart": "b.i",
+    "kind": "numeric",
+    "unit": "1",
+    "symbols": [],
+    "target": 4,
+    "absTol": 0,
+    "relTol": 0,
+    "canonical": "4",
+    "alternatives": [],
+    "wrong": [
+     "12"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § b.i"
+   },
+   {
+    "id": "b.ii.energy",
+    "sourcePart": "b.ii",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "Nk_BT(\\ln(\\frac{N}{(V-Nb)n_Q})-1)",
+    "alternatives": [],
+    "wrong": [
+     "(Nk_BT(\\ln(\\frac{N}{(V-Nb)n_Q})-1))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "N",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "k_B",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "T",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "V",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "b",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "n_Q",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § b.ii"
+   },
+   {
+    "id": "b.iii.attraction",
+    "sourcePart": "b.iii",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\varepsilon b",
+    "alternatives": [],
+    "wrong": [
+     "(\\varepsilon b)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\varepsilon",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "b",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § b.iii"
+   },
+   {
+    "id": "b.iv.energy",
+    "sourcePart": "b.iv",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "Nk_BT(\\ln(\\frac{N}{(V-Nb)n_Q})-1)-\\frac{aN^2}{V}",
+    "alternatives": [],
+    "wrong": [
+     "(Nk_BT(\\ln(\\frac{N}{(V-Nb)n_Q})-1)-\\frac{aN^2}{V})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "N",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "k_B",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "T",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "V",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "b",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "n_Q",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "a",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § b.iv"
+   },
+   {
+    "id": "b.v.pressure",
+    "sourcePart": "b.v",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{Nk_BT}{V-Nb}-\\frac{aN^2}{V^2}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{Nk_BT}{V-Nb}-\\frac{aN^2}{V^2})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "N",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "k_B",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "T",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "V",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "b",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "a",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § b.v"
+   },
+   {
+    "id": "b.v.derivation",
+    "sourcePart": "b.v",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § b.v"
+   },
+   {
+    "id": "b.vi.energy",
+    "sourcePart": "b.vi",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac32Nk_BT-\\frac{aN^2}{V}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac32Nk_BT-\\frac{aN^2}{V})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "N",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "k_B",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "T",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "a",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "V",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Gas_with_Elbows_Solution.pdf § b.vi"
+   }
+  ],
+  "maths": "618706fa885444cb7c91c3e993044e963f00fdca28c9c1317574aece1bbdd27b",
+  "numbers": "8462963cd509903a127298960d56f1ef3c100e3b521fb2509add9cf6e7692f83"
+ },
+ "arena-the-quantum-escape-room": {
+  "id": "arena-the-quantum-escape-room",
+  "topic": "Modern physics",
+  "tags": [
+   "Quantum tunnelling",
+   "Potential barriers",
+   "Boundary conditions"
+  ],
+  "statementFile": "02_The_Quantum_Escape_Room_Problem.pdf",
+  "solutionFile": null,
+  "keyVersion": 1,
+  "parts": [
+   {
+    "id": "a.wave-number",
+    "sourcePart": "a",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{\\sqrt{2mE}}{\\hbar}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{\\sqrt{2mE}}{\\hbar})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "m",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "E",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\hbar",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Quantum_Escape_Room_Solution.pdf § a"
+   },
+   {
+    "id": "b.parallel",
+    "sourcePart": "b",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "k_0\\sin\\theta",
+    "alternatives": [],
+    "wrong": [
+     "(k_0\\sin\\theta)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "k_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\theta",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Quantum_Escape_Room_Solution.pdf § b"
+   },
+   {
+    "id": "c.decay",
+    "sourcePart": "c",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{\\sqrt{2m(V_0-E\\cos^2\\theta)}}{\\hbar}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{\\sqrt{2m(V_0-E\\cos^2\\theta)}}{\\hbar})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "m",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "V_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "E",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\theta",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "\\hbar",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Quantum_Escape_Room_Solution.pdf § c"
+   },
+   {
+    "id": "d.normal",
+    "sourcePart": "d",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "k_0\\cos\\theta",
+    "alternatives": [],
+    "wrong": [
+     "(k_0\\cos\\theta)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "k_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\theta",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Quantum_Escape_Room_Solution.pdf § d"
+   },
+   {
+    "id": "d.parallel",
+    "sourcePart": "d",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "k_0\\sin\\theta",
+    "alternatives": [],
+    "wrong": [
+     "(k_0\\sin\\theta)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "k_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\theta",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Quantum_Escape_Room_Solution.pdf § d"
+   },
+   {
+    "id": "e.probability",
+    "sourcePart": "e",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "(1+\\frac{V_0^2}{4E_x(V_0-E_x)}\\sinh^2(\\kappa d))^{-1}",
+    "alternatives": [
+     "\\frac{1}{1+\\frac{V_0^2}{4E_x(V_0-E_x)}\\sinh^2(\\kappa d)}"
+    ],
+    "wrong": [
+     "((1+\\frac{V_0^2}{4E_x(V_0-E_x)}\\sinh^2(\\kappa d))^{-1})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "V_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "E_x",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\kappa",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "d",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Quantum_Escape_Room_Solution.pdf § e"
+   },
+   {
+    "id": "f.rate",
+    "sourcePart": "f",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac2a\\sqrt{\\frac Em}(1+\\frac{V_0^2}{E(2V_0-E)}\\sinh^2(\\kappa_{45}d))^{-1}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac2a\\sqrt{\\frac Em}(1+\\frac{V_0^2}{E(2V_0-E)}\\sinh^2(\\kappa_{45}d))^{-1})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "a",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "E",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "m",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "V_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\kappa_{45}",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "d",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Quantum_Escape_Room_Solution.pdf § f"
+   }
+  ],
+  "maths": "0e7b98b7fbcfea226c7ef42c138df688c2de688064e9fd8e0bcf0caca37dadc7",
+  "numbers": "ee82e30187d362960802479c5f64ce7004be14b53aee6fbf004ab185581bed74"
+ },
+ "arena-the-three-way-wave-split": {
+  "id": "arena-the-three-way-wave-split",
+  "topic": "Waves",
+  "tags": [
+   "String waves",
+   "Impedance matching",
+   "Energy transmission"
+  ],
+  "statementFile": "02_The_Three_Way_Wave_Split_Problem.pdf",
+  "solutionFile": null,
+  "keyVersion": 1,
+  "parts": [
+   {
+    "id": "a.wave-two",
+    "sourcePart": "a",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{10k_1A}{5k_1+4k_2+3k_3}\\sin(\\omega t-k_2r_2)",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{10k_1A}{5k_1+4k_2+3k_3}\\sin(\\omega t-k_2r_2))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "k_1",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "k_2",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "k_3",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "A",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "\\omega",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "t",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "r_2",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Three_Way_Wave_Split_Solution.pdf § a"
+   },
+   {
+    "id": "a.wave-three",
+    "sourcePart": "a",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{10k_1A}{5k_1+4k_2+3k_3}\\sin(\\omega t-k_3r_3)",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{10k_1A}{5k_1+4k_2+3k_3}\\sin(\\omega t-k_3r_3))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "k_1",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "k_2",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "k_3",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "A",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "\\omega",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "t",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "r_3",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Three_Way_Wave_Split_Solution.pdf § a"
+   },
+   {
+    "id": "b.density-two",
+    "sourcePart": "b",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\mu/5",
+    "alternatives": [],
+    "wrong": [
+     "(\\mu/5)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\mu",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Three_Way_Wave_Split_Solution.pdf § b"
+   },
+   {
+    "id": "b.density-three",
+    "sourcePart": "b",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "3\\mu/5",
+    "alternatives": [],
+    "wrong": [
+     "(3\\mu/5)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\mu",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_The_Three_Way_Wave_Split_Solution.pdf § b"
+   }
+  ],
+  "maths": "16c62e2558821f1c7c228d2545c3adac531b9b72b846f5e9c8dcbb28e6282338",
+  "numbers": "38c49760dff8ff13240ab18e7d4b66120d32e1ef126628c56bb80f93e12980f3"
+ },
+ "arena-titans-double-take": {
+  "id": "arena-titans-double-take",
+  "topic": "Optics",
+  "tags": [
+   "Rainbows",
+   "Refraction",
+   "Stationary deviation"
+  ],
+  "statementFile": "02_Titans_Double_Take_Problem.pdf",
+  "solutionFile": null,
+  "keyVersion": 1,
+  "parts": [
+   {
+    "id": "a.index",
+    "sourcePart": "a",
+    "kind": "numeric",
+    "unit": "1",
+    "symbols": [],
+    "target": 1.28863,
+    "absTol": 0.003,
+    "relTol": 0,
+    "canonical": "1.28863",
+    "alternatives": [
+     "1.29"
+    ],
+    "wrong": [
+     "3.86589"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_Titans_Double_Take_Solution.pdf § a"
+   },
+   {
+    "id": "b.angle",
+    "sourcePart": "b",
+    "kind": "numeric",
+    "unit": "degrees",
+    "symbols": [],
+    "target": 38.5268,
+    "absTol": 0.1,
+    "relTol": 0,
+    "canonical": "38.5268",
+    "alternatives": [
+     "38.53"
+    ],
+    "wrong": [
+     "115.5804"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_Titans_Double_Take_Solution.pdf § b"
+   },
+   {
+    "id": "b.diagram",
+    "sourcePart": "b",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "02_Titans_Double_Take_Solution.pdf § b"
+   }
+  ],
+  "maths": "6d2fbafcda1c30acfbe95093577ce569730e01546a98a49c7cf4c51f082a4534",
+  "numbers": "7ccc83d791c1c3f6ea914f5d63ffd283b11fa76d94a57b2edc418e73ff0c66a7"
+ },
+ "arena-a-grin-and-a-wiggle": {
+  "id": "arena-a-grin-and-a-wiggle",
+  "topic": "Optics",
+  "tags": [
+   "Graded-index optics",
+   "Aberration",
+   "Ray trajectories"
+  ],
+  "statementFile": "03_A_GRIN_and_a_Wiggle_Problem.pdf",
+  "solutionFile": null,
+  "keyVersion": 1,
+  "parts": [
+   {
+    "id": "a.trajectory",
+    "sourcePart": "a",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "r_0\\cos(kz)+\\frac{\\theta_0}{k}\\sin(kz)",
+    "alternatives": [],
+    "wrong": [
+     "(r_0\\cos(kz)+\\frac{\\theta_0}{k}\\sin(kz))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "r_0",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "k",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "z",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "\\theta_0",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_A_GRIN_and_a_Wiggle_Solution.pdf § a"
+   },
+   {
+    "id": "b.axial",
+    "sourcePart": "b",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\pi/k",
+    "alternatives": [],
+    "wrong": [
+     "(\\pi/k)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "k",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_A_GRIN_and_a_Wiggle_Solution.pdf § b"
+   },
+   {
+    "id": "b.transverse",
+    "sourcePart": "b",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "-r_0",
+    "alternatives": [],
+    "wrong": [
+     "(-r_0)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "r_0",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_A_GRIN_and_a_Wiggle_Solution.pdf § b"
+   },
+   {
+    "id": "b.description",
+    "sourcePart": "b",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_A_GRIN_and_a_Wiggle_Solution.pdf § b"
+   },
+   {
+    "id": "c.radius",
+    "sourcePart": "c",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{\\pi\\theta_m}{2k}(\\theta_m^2+k^2r_0^2)",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{\\pi\\theta_m}{2k}(\\theta_m^2+k^2r_0^2))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\theta_m",
+      "assumptions": [
+       "nonnegative"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "k",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "r_0",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_A_GRIN_and_a_Wiggle_Solution.pdf § c"
+   },
+   {
+    "id": "d.focal",
+    "sourcePart": "d",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{1}{n_0k\\sin(kt)}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{1}{n_0k\\sin(kt)})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "n_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "k",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "t",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_A_GRIN_and_a_Wiggle_Solution.pdf § d"
+   },
+   {
+    "id": "d.back",
+    "sourcePart": "d",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{\\cos(kt)}{n_0k\\sin(kt)}",
+    "alternatives": [
+     "\\frac{\\cot(kt)}{n_0k}"
+    ],
+    "wrong": [
+     "(\\frac{\\cos(kt)}{n_0k\\sin(kt)})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "n_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "k",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "t",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_A_GRIN_and_a_Wiggle_Solution.pdf § d"
+   },
+   {
+    "id": "e.radius",
+    "sourcePart": "e",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{k^2a^3}{2}(\\frac{kt}{\\sin(kt)}+n_0^2\\cos(kt)\\sin^2(kt))",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{k^2a^3}{2}(\\frac{kt}{\\sin(kt)}+n_0^2\\cos(kt)\\sin^2(kt)))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "k",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "a",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "t",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "n_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_A_GRIN_and_a_Wiggle_Solution.pdf § e"
+   }
+  ],
+  "maths": "21d6c0ce98ba0c185ae26406646e35792fd13797a2cc4aaebd9ead88fe36c69c",
+  "numbers": "cb45c4e35d7facf671f8aaddf966b4a8b260b632fa4f88b8ff9deea56d991494"
+ },
+ "arena-an-atom-with-stage-fright": {
+  "id": "arena-an-atom-with-stage-fright",
+  "topic": "Modern physics",
+  "tags": [
+   "Two-level systems",
+   "Dipole radiation",
+   "Spontaneous emission"
+  ],
+  "statementFile": "03_An_Atom_with_Stage_Fright_Problem.pdf",
+  "solutionFile": null,
+  "keyVersion": 1,
+  "parts": [
+   {
+    "id": "a.dipole",
+    "sourcePart": "a",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_An_Atom_with_Stage_Fright_Solution.pdf § a"
+   },
+   {
+    "id": "b.power",
+    "sourcePart": "b",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{n\\omega_0^4\\mu_{21}^2}{3\\pi\\varepsilon_0c^3}x(1-x)",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{n\\omega_0^4\\mu_{21}^2}{3\\pi\\varepsilon_0c^3}x(1-x))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "n",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\omega_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\mu_{21}",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\varepsilon_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "c",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "x",
+      "assumptions": [
+       "nonnegative"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_An_Atom_with_Stage_Fright_Solution.pdf § b"
+   },
+   {
+    "id": "c.energy",
+    "sourcePart": "c",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "(1-x)E_1+xE_2",
+    "alternatives": [
+     "E_1+(E_2-E_1)x"
+    ],
+    "wrong": [
+     "((1-x)E_1+xE_2)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "x",
+      "assumptions": [
+       "nonnegative"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "E_1",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "E_2",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_An_Atom_with_Stage_Fright_Solution.pdf § c"
+   },
+   {
+    "id": "d.lifetime",
+    "sourcePart": "d",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{3\\pi\\varepsilon_0\\hbar c^3}{n\\omega_0^3\\mu_{21}^2}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{3\\pi\\varepsilon_0\\hbar c^3}{n\\omega_0^3\\mu_{21}^2})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\varepsilon_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\hbar",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "c",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "n",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\omega_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\mu_{21}",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_An_Atom_with_Stage_Fright_Solution.pdf § d"
+   },
+   {
+    "id": "d.function",
+    "sourcePart": "d",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "x(1-x)",
+    "alternatives": [
+     "x-x^2"
+    ],
+    "wrong": [
+     "(x(1-x))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "x",
+      "assumptions": [
+       "nonnegative"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_An_Atom_with_Stage_Fright_Solution.pdf § d"
+   },
+   {
+    "id": "e.population",
+    "sourcePart": "e",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{x_0}{x_0+(1-x_0)\\exp(t/\\tau_{sp})}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{x_0}{x_0+(1-x_0)\\exp(t/\\tau_{sp})})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "x_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "t",
+      "assumptions": [
+       "nonnegative"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\tau_{sp}",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_An_Atom_with_Stage_Fright_Solution.pdf § e"
+   },
+   {
+    "id": "e.sketch",
+    "sourcePart": "e",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_An_Atom_with_Stage_Fright_Solution.pdf § e"
+   },
+   {
+    "id": "f.explanation",
+    "sourcePart": "f",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_An_Atom_with_Stage_Fright_Solution.pdf § f"
+   },
+   {
+    "id": "g.power",
+    "sourcePart": "g",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{\\hbar\\omega_0}{4\\tau_{sp}}\\frac{1}{\\cosh^2(\\frac{t-t_0}{2\\tau_{sp}})}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{\\hbar\\omega_0}{4\\tau_{sp}}\\frac{1}{\\cosh^2(\\frac{t-t_0}{2\\tau_{sp}})})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\hbar",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\omega_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\tau_{sp}",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "t",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "t_0",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_An_Atom_with_Stage_Fright_Solution.pdf § g"
+   },
+   {
+    "id": "g.sketch",
+    "sourcePart": "g",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_An_Atom_with_Stage_Fright_Solution.pdf § g"
+   }
+  ],
+  "maths": "9c4f0d2108e226995b628571f53ca6f1ac80a1153fae2497a5605cb6a02b4e27",
+  "numbers": "f8414aa21ace01fd526c3f1d4b520e145570d87500ca9aa967fa9f0b00c8165f"
+ },
+ "arena-the-invisible-brake": {
+  "id": "arena-the-invisible-brake",
+  "topic": "Mechanics",
+  "tags": [
+   "Viscosity",
+   "Kinetic theory",
+   "Poiseuille flow"
+  ],
+  "statementFile": "03_The_Invisible_Brake_Problem.pdf",
+  "solutionFile": "03_The_ Invisible_Brake_Solution.pdf",
+  "keyVersion": 1,
+  "parts": [
+   {
+    "id": "one.a.flux",
+    "sourcePart": "one.a",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{n}{4}\\sqrt{\\frac{8k_BT}{\\pi m}}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{n}{4}\\sqrt{\\frac{8k_BT}{\\pi m}})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "n",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "k_B",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "T",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "m",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_ Invisible_Brake_Solution.pdf § one.a"
+   },
+   {
+    "id": "one.b.momentum",
+    "sourcePart": "one.b",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "-\\frac23m\\lambda G",
+    "alternatives": [],
+    "wrong": [
+     "(-\\frac23m\\lambda G)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "m",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\lambda",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "G",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_ Invisible_Brake_Solution.pdf § one.b"
+   },
+   {
+    "id": "one.c.exponent",
+    "sourcePart": "one.c",
+    "kind": "numeric",
+    "unit": "1",
+    "symbols": [],
+    "target": 0.5,
+    "absTol": 0,
+    "relTol": 0,
+    "canonical": "\\frac12",
+    "alternatives": [],
+    "wrong": [
+     "2.5"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_ Invisible_Brake_Solution.pdf § one.c"
+   },
+   {
+    "id": "one.c.coefficient",
+    "sourcePart": "one.c",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{2\\sqrt{mk_B}}{3\\pi^{3/2}b^2}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{2\\sqrt{mk_B}}{3\\pi^{3/2}b^2})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "m",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "k_B",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "b",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_ Invisible_Brake_Solution.pdf § one.c"
+   },
+   {
+    "id": "two.a.velocity",
+    "sourcePart": "two.a",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "-\\frac{G}{4\\eta}(R^2-r^2)",
+    "alternatives": [],
+    "wrong": [
+     "(-\\frac{G}{4\\eta}(R^2-r^2))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "G",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "\\eta",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "R",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "r",
+      "assumptions": [
+       "nonnegative"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_ Invisible_Brake_Solution.pdf § two.a"
+   },
+   {
+    "id": "two.b.flow",
+    "sourcePart": "two.b",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "-\\frac{\\pi R^4G}{8\\eta}",
+    "alternatives": [],
+    "wrong": [
+     "(-\\frac{\\pi R^4G}{8\\eta})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "R",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "G",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "\\eta",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_ Invisible_Brake_Solution.pdf § two.b"
+   },
+   {
+    "id": "two.c.heat",
+    "sourcePart": "two.c",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{\\pi R^4G^2}{8\\eta}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{\\pi R^4G^2}{8\\eta})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "R",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "G",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "\\eta",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_ Invisible_Brake_Solution.pdf § two.c"
+   }
+  ],
+  "maths": "fdbc1db01d42c441e10872f3fa5f3a827644417ec7bc5fcfed9603a9c9d5a1a0",
+  "numbers": "553abf86f68c99d10c945da31b75a20da30c6bf844e3bbfe1e650647d5b18e8e"
+ },
+ "arena-the-bending-beam-riddle": {
+  "id": "arena-the-bending-beam-riddle",
+  "topic": "Waves",
+  "tags": [
+   "Elasticity",
+   "Flexural waves",
+   "Dispersion"
+  ],
+  "statementFile": "03_The_Bending_Beam_Riddle_Problem.pdf",
+  "solutionFile": null,
+  "keyVersion": 1,
+  "parts": [
+   {
+    "id": "a.i.shear",
+    "sourcePart": "a.i",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "V",
+    "alternatives": [],
+    "wrong": [
+     "(V)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "V",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Bending_Beam_Riddle_Solution.pdf § a.i"
+   },
+   {
+    "id": "a.ii.curvature",
+    "sourcePart": "a.ii",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "-\\rho bdg",
+    "alternatives": [],
+    "wrong": [
+     "(-\\rho bdg)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\rho",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "b",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "d",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "g",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Bending_Beam_Riddle_Solution.pdf § a.ii"
+   },
+   {
+    "id": "a.iii.shear",
+    "sourcePart": "a.iii",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\rho bdg(L/2-x)",
+    "alternatives": [],
+    "wrong": [
+     "(\\rho bdg(L/2-x))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\rho",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "b",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "d",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "g",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "L",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "x",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Bending_Beam_Riddle_Solution.pdf § a.iii"
+   },
+   {
+    "id": "a.iii.moment",
+    "sourcePart": "a.iii",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{\\rho bdg}{2}x(L-x)",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{\\rho bdg}{2}x(L-x))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\rho",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "b",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "d",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "g",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "L",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "x",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Bending_Beam_Riddle_Solution.pdf § a.iii"
+   },
+   {
+    "id": "b.i.stress",
+    "sourcePart": "b.i",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "Yy/R",
+    "alternatives": [],
+    "wrong": [
+     "(Yy/R)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "Y",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "y",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "R",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [
+     "R != 0"
+    ],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Bending_Beam_Riddle_Solution.pdf § b.i"
+   },
+   {
+    "id": "b.ii.moment",
+    "sourcePart": "b.ii",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{Ybd^3}{12R}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{Ybd^3}{12R})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "Y",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "b",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "d",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "R",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [
+     "R != 0"
+    ],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Bending_Beam_Riddle_Solution.pdf § b.ii"
+   },
+   {
+    "id": "b.iii.drop",
+    "sourcePart": "b.iii",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{5\\rho gL^4}{32Yd^2}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{5\\rho gL^4}{32Yd^2})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\rho",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "g",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "L",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "Y",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "d",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Bending_Beam_Riddle_Solution.pdf § b.iii"
+   },
+   {
+    "id": "c.i.order",
+    "sourcePart": "c.i",
+    "kind": "numeric",
+    "unit": "1",
+    "symbols": [],
+    "target": 4,
+    "absTol": 0,
+    "relTol": 0,
+    "canonical": "4",
+    "alternatives": [],
+    "wrong": [
+     "12"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Bending_Beam_Riddle_Solution.pdf § c.i"
+   },
+   {
+    "id": "c.i.a",
+    "sourcePart": "c.i",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "-\\frac{12\\rho}{Yd^2}",
+    "alternatives": [],
+    "wrong": [
+     "(-\\frac{12\\rho}{Yd^2})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\rho",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "Y",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "d",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Bending_Beam_Riddle_Solution.pdf § c.i"
+   },
+   {
+    "id": "c.i.b",
+    "sourcePart": "c.i",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\rho/Y",
+    "alternatives": [],
+    "wrong": [
+     "(\\rho/Y)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\rho",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "Y",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Bending_Beam_Riddle_Solution.pdf § c.i"
+   },
+   {
+    "id": "c.ii.phase",
+    "sourcePart": "c.ii",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "(\\frac{Yd^2}{12\\rho})^{1/4}\\sqrt{\\omega}",
+    "alternatives": [],
+    "wrong": [
+     "((\\frac{Yd^2}{12\\rho})^{1/4}\\sqrt{\\omega})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "Y",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "d",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\rho",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\omega",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Bending_Beam_Riddle_Solution.pdf § c.ii"
+   },
+   {
+    "id": "c.ii.group",
+    "sourcePart": "c.ii",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "2(\\frac{Yd^2}{12\\rho})^{1/4}\\sqrt{\\omega}",
+    "alternatives": [],
+    "wrong": [
+     "(2(\\frac{Yd^2}{12\\rho})^{1/4}\\sqrt{\\omega})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "Y",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "d",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\rho",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\omega",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Bending_Beam_Riddle_Solution.pdf § c.ii"
+   }
+  ],
+  "maths": "2a66b82e53f2ef961f9bb4ae3537fcf1a762cfdfae64be08a3b4a495ba3e6e88",
+  "numbers": "f0da8c3f9b3ef44f81871a9af711bb48673130b20dad7439cc27bdc10d681603"
+ },
+ "arena-the-capacitors-missing-energy": {
+  "id": "arena-the-capacitors-missing-energy",
+  "topic": "Modern physics",
+  "tags": [
+   "Special relativity",
+   "Electromagnetic energy",
+   "Mechanical stress"
+  ],
+  "statementFile": "03_The_Capacitors_Missing_Energy_Problem.pdf",
+  "solutionFile": null,
+  "keyVersion": 1,
+  "parts": [
+   {
+    "id": "a.i.energy",
+    "sourcePart": "a.i",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac12\\varepsilon_0E_0^2Ad",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac12\\varepsilon_0E_0^2Ad)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\varepsilon_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "E_0",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "A",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "d",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § a.i"
+   },
+   {
+    "id": "a.ii.electric",
+    "sourcePart": "a.ii",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "E_0",
+    "alternatives": [],
+    "wrong": [
+     "(E_0)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "E_0",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § a.ii"
+   },
+   {
+    "id": "a.ii.magnetic",
+    "sourcePart": "a.ii",
+    "kind": "numeric",
+    "unit": "T",
+    "symbols": [],
+    "target": 0,
+    "absTol": 0,
+    "relTol": 0,
+    "canonical": "0",
+    "alternatives": [],
+    "wrong": [
+     "2"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § a.ii"
+   },
+   {
+    "id": "a.iii.field",
+    "sourcePart": "a.iii",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "U_0/\\gamma",
+    "alternatives": [],
+    "wrong": [
+     "(U_0/\\gamma)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "U_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\gamma",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § a.iii"
+   },
+   {
+    "id": "a.iii.plate",
+    "sourcePart": "a.iii",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\gamma m_pc^2",
+    "alternatives": [],
+    "wrong": [
+     "(\\gamma m_pc^2)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\gamma",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "m_p",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "c",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § a.iii"
+   },
+   {
+    "id": "a.iii.observation",
+    "sourcePart": "a.iii",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § a.iii"
+   },
+   {
+    "id": "b.i.xx",
+    "sourcePart": "b.i",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "f_{0xx}",
+    "alternatives": [],
+    "wrong": [
+     "(f_{0xx})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\gamma",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "f_{0xx}",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § b.i"
+   },
+   {
+    "id": "b.i.xy",
+    "sourcePart": "b.i",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\gamma f_{0xy}",
+    "alternatives": [],
+    "wrong": [
+     "(\\gamma f_{0xy})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\gamma",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "f_{0xy}",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § b.i"
+   },
+   {
+    "id": "b.i.xz",
+    "sourcePart": "b.i",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\gamma f_{0xz}",
+    "alternatives": [],
+    "wrong": [
+     "(\\gamma f_{0xz})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\gamma",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "f_{0xz}",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § b.i"
+   },
+   {
+    "id": "b.i.yx",
+    "sourcePart": "b.i",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "f_{0yx}/\\gamma",
+    "alternatives": [],
+    "wrong": [
+     "(f_{0yx}/\\gamma)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\gamma",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "f_{0yx}",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § b.i"
+   },
+   {
+    "id": "b.i.yy",
+    "sourcePart": "b.i",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "f_{0yy}",
+    "alternatives": [],
+    "wrong": [
+     "(f_{0yy})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\gamma",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "f_{0yy}",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § b.i"
+   },
+   {
+    "id": "b.i.yz",
+    "sourcePart": "b.i",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "f_{0yz}",
+    "alternatives": [],
+    "wrong": [
+     "(f_{0yz})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\gamma",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "f_{0yz}",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § b.i"
+   },
+   {
+    "id": "b.i.zx",
+    "sourcePart": "b.i",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "f_{0zx}/\\gamma",
+    "alternatives": [],
+    "wrong": [
+     "(f_{0zx}/\\gamma)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\gamma",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "f_{0zx}",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § b.i"
+   },
+   {
+    "id": "b.i.zy",
+    "sourcePart": "b.i",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "f_{0zy}",
+    "alternatives": [],
+    "wrong": [
+     "(f_{0zy})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\gamma",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "f_{0zy}",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § b.i"
+   },
+   {
+    "id": "b.i.zz",
+    "sourcePart": "b.i",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "f_{0zz}",
+    "alternatives": [],
+    "wrong": [
+     "(f_{0zz})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\gamma",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "f_{0zz}",
+      "assumptions": [],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § b.i"
+   },
+   {
+    "id": "b.ii.interval",
+    "sourcePart": "b.ii",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\frac{\\gamma\\beta x_0}{c}",
+    "alternatives": [],
+    "wrong": [
+     "(\\frac{\\gamma\\beta x_0}{c})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\gamma",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\beta",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "x_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "c",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § b.ii"
+   },
+   {
+    "id": "b.iii.work",
+    "sourcePart": "b.iii",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\gamma\\beta^2f_{xx}V_0",
+    "alternatives": [],
+    "wrong": [
+     "(\\gamma\\beta^2f_{xx}V_0)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\gamma",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\beta",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "f_{xx}",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "V_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § b.iii"
+   },
+   {
+    "id": "b.iv.density",
+    "sourcePart": "b.iv",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\gamma^2\\rho_0",
+    "alternatives": [],
+    "wrong": [
+     "(\\gamma^2\\rho_0)+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\gamma",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\rho_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § b.iv"
+   },
+   {
+    "id": "b.v.density",
+    "sourcePart": "b.v",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\gamma^2(\\rho_0-\\beta^2t_{0xx}/c^2)",
+    "alternatives": [],
+    "wrong": [
+     "(\\gamma^2(\\rho_0-\\beta^2t_{0xx}/c^2))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\gamma",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\rho_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\beta",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "t_{0xx}",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "c",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § b.v"
+   },
+   {
+    "id": "b.vi.stress",
+    "sourcePart": "b.vi",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "-\\frac{\\varepsilon_0E_0^2A}{4A_b}",
+    "alternatives": [],
+    "wrong": [
+     "(-\\frac{\\varepsilon_0E_0^2A}{4A_b})+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\varepsilon_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "E_0",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "A",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "A_b",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § b.vi"
+   },
+   {
+    "id": "b.vii.mass",
+    "sourcePart": "b.vii",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\gamma(m_{0b}+\\frac{\\beta^2\\varepsilon_0E_0^2Ad}{4c^2})",
+    "alternatives": [],
+    "wrong": [
+     "(\\gamma(m_{0b}+\\frac{\\beta^2\\varepsilon_0E_0^2Ad}{4c^2}))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\gamma",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "m_{0b}",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "\\beta",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "\\varepsilon_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "E_0",
+      "assumptions": [],
+      "aliases": []
+     },
+     {
+      "latex": "A",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "d",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "c",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § b.vii"
+   },
+   {
+    "id": "b.viii.energy",
+    "sourcePart": "b.viii",
+    "kind": "expression",
+    "unit": "",
+    "canonical": "\\gamma(U_0+2(m_p+m_{0b})c^2)",
+    "alternatives": [],
+    "wrong": [
+     "(\\gamma(U_0+2(m_p+m_{0b})c^2))+1"
+    ],
+    "symbols": [
+     {
+      "latex": "\\gamma",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "U_0",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "m_p",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "m_{0b}",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     },
+     {
+      "latex": "c",
+      "assumptions": [
+       "positive"
+      ],
+      "aliases": []
+     }
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Capacitors_Missing_Energy_Solution.pdf § b.viii"
+   }
+  ],
+  "maths": "9434f897c886c3dab2f2a0d4287b8c8add1bc1298f06fb24f41149ced22f69ca",
+  "numbers": "3dce8e7fbe6fe0b94c10ff169e8ae7b59542d50e590c6acc6d8d0441e8768b75"
+ },
+ "arena-the-infinite-v": {
+  "id": "arena-the-infinite-v",
+  "topic": "Electromagnetism",
+  "tags": [
+   "Charged sheets",
+   "Electrostatics",
+   "Stability"
+  ],
+  "statementFile": "03_The_Infinite_V_Problem.pdf",
+  "solutionFile": null,
+  "keyVersion": 1,
+  "parts": [
+   {
+    "id": "a.radial",
+    "sourcePart": "a",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Infinite_V_Solution.pdf § a"
+   },
+   {
+    "id": "a.tangential",
+    "sourcePart": "a",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Infinite_V_Solution.pdf § a"
+   },
+   {
+    "id": "b.radial",
+    "sourcePart": "b",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Infinite_V_Solution.pdf § b"
+   },
+   {
+    "id": "b.tangential",
+    "sourcePart": "b",
+    "kind": "numeric",
+    "unit": "N/C",
+    "symbols": [],
+    "target": 0,
+    "absTol": 0,
+    "relTol": 0,
+    "canonical": "0",
+    "alternatives": [],
+    "wrong": [
+     "2"
+    ],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Infinite_V_Solution.pdf § b"
+   },
+   {
+    "id": "c.stability",
+    "sourcePart": "c",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Infinite_V_Solution.pdf § c"
+   },
+   {
+    "id": "c.frequency",
+    "sourcePart": "c",
+    "kind": "self-review",
+    "unit": "",
+    "symbols": [],
+    "exclusions": [],
+    "angleUnit": "radians",
+    "sourceReference": "03_The_Infinite_V_Solution.pdf § c"
+   }
+  ],
+  "maths": "fb73786aebc88dd3e46c9cac2e656eb32e6edebb0ff6eb71d5f65b9f4ea3c522",
+  "numbers": "451dc6bf478604f500a4355a259d76de495b602303838e8b180621dee75826e5"
+ }
+}

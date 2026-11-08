@@ -1,5 +1,6 @@
 "use client";
 import {ProblemStatsPanel} from '@/components/community/problem-stats';
+import {ReportControl} from '@/components/community/report-controls';
 import {Discussions} from '@/components/community/discussions';
 import { SkipLink } from "@/components/skip-link";
 import { studioTokens } from "@/components/authoring/studio-ui";
@@ -7,6 +8,7 @@ import { WorkedSolution } from "./worked-solution";
 import {
   useCallback,
   useEffect,
+  useId,
   useRef,
   useState,
   useSyncExternalStore,
@@ -14,11 +16,14 @@ import {
 import {
   ArrowLeft,
   CheckCircle2,
-  Clock3,
   FileText,
   History,
   ShieldCheck,
 } from "lucide-react";
+import { colorsByPartId } from "@/lib/part-colors";
+import { FeedbackBox, PartChip, partBorder, partStyle } from "@/components/physics/solve-ui";
+import { MathAnswerField } from "@/components/physics/math-answer-field";
+import type { FeedbackTone } from "@/lib/solve-feedback";
 import { Button } from "@/components/ui/button";
 import { Field, inputClass } from "@/components/authoring/editor-fields";
 import { numericUnitsHelp } from "@/lib/authored-grading-contracts";
@@ -39,6 +44,13 @@ import {
 } from "@/lib/authored-student";
 import type { AuthoredAttempt } from "@/lib/authored-attempt-contracts";
 import { StatementBlocks } from "./public-content";
+import { describeEstimate } from "@/lib/rating-bands";
+const feedbackTone: Record<AuthoredAttempt["status"], FeedbackTone> = {
+  correct: "success",
+  incorrect: "error",
+  "needs-review": "warning",
+  ungraded: "neutral",
+};
 const feedback = {
   correct: {
     label: "Correct",
@@ -87,16 +99,22 @@ export function StudentWorkspace({
   viewer,
   statsEnabled=false,
   commentsEnabled=false,
+  moderationEnabled=false,
+  initialRevision,
 }: {
   problemId: string;
   viewer: Viewer;
   statsEnabled?:boolean;
   commentsEnabled?:boolean;
+  moderationEnabled?:boolean;
+  /** The published revision read on the server, so the statement is in the HTML before any script runs. */
+  initialRevision?: PublicRevision | null;
 }) {
-  const [revision, setRevision] = useState<PublicRevision | null>(null),
-    [availability, setAvailability] = useState<Availability>("loading"),
+  const [revision, setRevision] = useState<PublicRevision | null>(initialRevision ?? null),
+    [availability, setAvailability] = useState<Availability>(initialRevision ? "ready" : "loading"),
     [publicMessage, setPublicMessage] = useState(""),
     [authDenied, setAuthDenied] = useState(false);
+  const hadInitial = useRef(Boolean(initialRevision));
   const revisionRef = useRef(revision),
     requestId = useRef(0),
     needsReload = useRef(false),
@@ -165,7 +183,9 @@ export function StudentWorkspace({
   );
   useEffect(() => {
     alive.current = true;
-    void load(true);
+    // With a server-rendered revision, check it quietly: a newer publication shows the existing "stale" notice.
+    void load(!hadInitial.current);
+    hadInitial.current = false;
     const focus = () => {
       if (document.visibilityState === "visible") void load();
     };
@@ -236,12 +256,6 @@ export function StudentWorkspace({
                 ? revision?.content.title
                 : "Physics problem"}
             </h1>
-            {availability === "ready" && revision && (
-              <p className="mt-3 text-sm text-muted-foreground">
-                Published revision {revision.number} ·{" "}
-                <span className="font-mono text-xs">{short(revision.id)}</span>
-              </p>
-            )}
           </div>
           <Button
             type="button"
@@ -254,6 +268,7 @@ export function StudentWorkspace({
               : "Recheck publication"}
           </Button>
         </div>
+        {moderationEnabled && availability === "ready" && <ReportControl subject={{kind:'problem',key:`authored:${problemId}`}}/>}
         {statsEnabled && availability === "ready" && <ProblemStatsPanel problemKey={`authored:${problemId}`}/>}
         {availability === "loading" && (
           <p role="status">Loading the current published problem…</p>
@@ -286,7 +301,7 @@ export function StudentWorkspace({
               <h2 className="text-xl font-semibold">
                 {viewer.state === "unverified"
                   ? "Verify your email to submit"
-                  : "Read freely. Sign in to practice."}
+                  : "Read freely. Sign in to practise."}
               </h2>
               <p className="text-sm leading-relaxed text-muted-foreground">
                 {viewer.state === "loading"
@@ -306,7 +321,7 @@ export function StudentWorkspace({
             </section>
           </>
         )}
-        {commentsEnabled && availability === "ready" && <Discussions problemKey={`authored:${problemId}`}/>}
+        {commentsEnabled && availability === "ready" && <Discussions moderationEnabled={moderationEnabled} problemKey={`authored:${problemId}`}/>}
       </main>
       <footer className="mx-auto max-w-[1440px] border-t px-5 py-6 text-xs leading-relaxed text-muted-foreground sm:px-8">
         Practice has no permanent per-part cap. Submitting or receiving a grade
@@ -326,6 +341,7 @@ function PublicStatement({
 }) {
   if (!revision) return null;
   const doc = revision.content;
+  const partColours = colorsByPartId(doc.sections);
   return (
     <article
       aria-label="Published problem statement"
@@ -342,7 +358,7 @@ function PublicStatement({
         ))}
         {doc.estimatedDifficulty && (
           <span className="rounded-full border px-3 py-1 text-xs">
-            Difficulty · {doc.estimatedDifficulty}
+            Difficulty: {describeEstimate(doc.estimatedDifficulty)}
           </span>
         )}
       </div>
@@ -386,11 +402,12 @@ function PublicStatement({
               <section
                 id={`part-${part.id}`}
                 key={part.id}
-                className="min-w-0 scroll-mt-6 space-y-4 border-l-2 border-primary/25 pl-4 sm:pl-5"
+                style={partStyle(partColours.get(part.id) ?? 0)}
+                className={`min-w-0 scroll-mt-6 space-y-4 rounded-r-lg py-1 pl-4 sm:pl-5 ${partBorder}`}
               >
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <h3 className="text-base font-semibold">
-                    Part {part.label || pi + 1}
+                    <PartChip index={partColours.get(part.id) ?? 0}>Part {part.label || pi + 1}</PartChip>
                   </h3>
                   {onAnswer && (
                     <button
@@ -470,6 +487,8 @@ function PrivateWorkspace({
         s.parts.map((p) => ({ ...p, sectionTitle: s.title })),
       ) ?? [],
     part = parts.find((p) => p.id === selected) ?? parts[0];
+  const partColours = colorsByPartId(revision?.content.sections ?? []);
+  const partColour = part ? (partColours.get(part.id) ?? 0) : 0;
   const cancelInfo = useCallback(() => {
     infoSerial.current++;
     infoAbort.current?.abort();
@@ -908,7 +927,7 @@ function PrivateWorkspace({
             id="answer-workspace"
             className="min-w-0 scroll-mt-4 space-y-5 xl:sticky xl:top-5"
           >
-            <section className="space-y-5 rounded-xl border bg-card p-5">
+            <section style={partStyle(partColour)} className={`space-y-5 rounded-xl border bg-card p-5 ${partBorder}`}>
               <div className="flex items-center gap-2">
                 <ShieldCheck
                   aria-hidden="true"
@@ -922,9 +941,10 @@ function PrivateWorkspace({
                   Submit an answer
                 </h2>
               </div>
+              {part && <p className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground"><PartChip index={partColour}>Part {part.label || parts.indexOf(part) + 1}</PartChip>{part.sectionTitle || "Section"}</p>}
               {availability === "ready" && revision && part && buffer ? (
                 <>
-                  <Field label="Choose part">
+                  {parts.length > 1 && <Field label="Choose part">
                     {(id) => (
                       <select
                         id={id}
@@ -940,29 +960,38 @@ function PrivateWorkspace({
                         ))}
                       </select>
                     )}
-                  </Field>
-                  <p className="break-words text-xs text-muted-foreground">
-                    Pinned revision {revision.number} ·{" "}
-                    <span className="font-mono">{short(revision.id)}</span>
-                  </p>
+                  </Field>}
                   {receipt && (
                     <div
                       ref={resultRef}
                       tabIndex={-1}
                       role="status"
-                      className={`space-y-2 rounded-lg border p-4 ${feedback[receipt.attempt.status].color}`}
+                      aria-live="polite"
+                      className="focus:outline-none"
                     >
-                      <h3 className="flex items-center gap-2 font-semibold">
-                        <CheckCircle2 aria-hidden="true" className="size-4" />
-                        {feedback[receipt.attempt.status].label} · saved attempt{" "}
-                        {receipt.attempt.attemptNumber}
-                      </h3>
-                      <p className="text-sm leading-relaxed">
-                        {feedback[receipt.attempt.status].text}
-                      </p>
-                      <p className="break-words text-xs">
-                        {receipt.attempt.assisted ? "Assisted (server record)" : "Unassisted (server record)"} · Submitted answer: {answerText(receipt.attempt.answer)}
-                      </p>
+                      <FeedbackBox
+                        titleAs="h3"
+                        tone={feedbackTone[receipt.attempt.status]}
+                        title={`${feedback[receipt.attempt.status].label} · saved attempt ${receipt.attempt.attemptNumber}`}
+                      >
+                        <p>{feedback[receipt.attempt.status].text}</p>
+                        <p className="break-words text-xs">
+                          {receipt.attempt.assisted ? "Assisted (server record)" : "Unassisted (server record)"} · Submitted answer: {answerText(receipt.attempt.answer)}
+                        </p>
+                        {receipt.attempt.status !== "correct" && (
+                          <div className="pt-2">
+                            <Button
+                              type="button"
+                              variant="outline"
+                              className="min-h-11 bg-background"
+                              disabled={state.busy || Boolean(pending) || !ready}
+                              onClick={() => session.startAnother(revision.id, part.id)}
+                            >
+                              Try again
+                            </Button>
+                          </div>
+                        )}
+                      </FeedbackBox>
                     </div>
                   )}
                   <form
@@ -990,19 +1019,16 @@ function PrivateWorkspace({
                         Answer for part {part.label}
                       </legend>
                       <AnswerFields
+                        symbols={info?.parts.find((p) => p.partId === part.id)?.symbols ?? []}
                         buffer={buffer}
                         onChange={(next) =>
                           session.edit(revision.id, part.id, next)
                         }
                       />
                     </fieldset>
-                    <p className="text-xs leading-relaxed text-muted-foreground">
-                      Unfinished input is retained locally for this account and
-                      revision. It is not a saved submission.
-                    </p>
                     <Button
                       type="submit"
-                      className="w-full"
+                      className="min-h-11 w-full"
                       disabled={
                         !ready ||
                         state.busy ||
@@ -1018,12 +1044,12 @@ function PrivateWorkspace({
                           : "Submit answer"}
                     </Button>
                   </form>
-                  {receipt && (
+                  {receipt && receipt.attempt.status === "correct" && (
                     <div className="border-t pt-4">
                       <Button
                         type="button"
                         variant="outline"
-                        className="w-full"
+                        className="min-h-11 w-full"
                         disabled={state.busy || Boolean(pending) || !ready}
                         onClick={() =>
                           session.startAnother(revision.id, part.id)
@@ -1062,15 +1088,10 @@ function PrivateWorkspace({
                   Checking submission access…
                 </p>
               )}
-              {info && (
-                <p className="text-xs leading-relaxed text-muted-foreground">
-                  {info.parts.find((p) => p.partId === part?.id)
-                    ?.attemptsUsed ?? "0"}{" "}
-                  saved attempts on this part/revision. No permanent per-part
-                  cap. Up to {info.limits.attemptsPerDay} new attempts in a
-                  rolling 24 hours, {info.limits.submissionsPerMinute}{" "}
-                  submission requests and {info.limits.requestsPerMinute} total
-                  requests per minute.
+              {info && Number(info.parts.find((p) => p.partId === part?.id)?.attemptsUsed ?? "0") > 0 && (
+                <p className="text-sm text-muted-foreground">
+                  {info.parts.find((p) => p.partId === part?.id)?.attemptsUsed} saved{" "}
+                  {info.parts.find((p) => p.partId === part?.id)?.attemptsUsed === "1" ? "attempt" : "attempts"} on this part.
                 </p>
               )}
               <p
@@ -1080,18 +1101,7 @@ function PrivateWorkspace({
                 {state.message}
               </p>
             </section>
-            {availability === "ready" && revision && part && <WorkedSolution key={`${revision.id}:${part.id}`} problemId={problemId} revisionId={revision.id} partId={part.id} onStale={invalidate} onAuth={denyAuth} />}
-            <section className="space-y-2 rounded-xl border bg-muted/20 p-5">
-              <h2 className="flex items-center gap-2 text-sm font-semibold">
-                <Clock3 aria-hidden="true" className="size-4" /> Practice, then
-                reflect
-              </h2>
-              <p className="text-xs leading-relaxed text-muted-foreground">
-                A grade never reveals private answers or worked solutions.
-                “Needs review” is not a verdict that your mathematics is wrong.
-                You can keep practicing within the temporary request limits.
-              </p>
-            </section>
+            {availability === "ready" && revision && part && <WorkedSolution key={`${revision.id}:${part.id}`} partColour={partColour} partLabel={part.label || String(parts.indexOf(part) + 1)} problemId={problemId} revisionId={revision.id} partId={part.id} onStale={invalidate} onAuth={denyAuth} />}
           </aside>
         </div>
       )}
@@ -1101,10 +1111,14 @@ function PrivateWorkspace({
 function AnswerFields({
   buffer,
   onChange,
+  symbols,
 }: {
   buffer: AnswerBuffer;
   onChange: (b: AnswerBuffer) => void;
+  /** The variable names the problem declares, for the palette. Empty when the problem declares none. */
+  symbols: readonly string[];
 }) {
+  const expressionId = useId();
   if (buffer.kind === "numeric")
     return (
       <>
@@ -1140,44 +1154,22 @@ function AnswerFields({
     );
   if (buffer.kind === "expression")
     return (
-      <>
-        <Field
-          label="Expression answer"
-          help="Plain text, up to 180 characters. Use the variables and domain stated in the question."
-        >
-          {(id) => (
-            <textarea
-              id={id}
-              className={`${inputClass} font-mono`}
-              rows={3}
-              value={buffer.expression}
-              maxLength={180}
-              spellCheck={false}
-              onChange={(e) =>
-                onChange({ ...buffer, expression: e.target.value })
-              }
-            />
-          )}
-        </Field>
-        <details className="rounded-md border p-3 text-xs leading-relaxed">
-          <summary className="min-h-11 cursor-pointer font-medium">
-            Expression syntax and checker limits
-          </summary>
-          <p>
-            Use explicit + - * / ^ and parentheses: x*x, x^2, (x+1)/2. Powers
-            bind before unary minus; ^ is right-associative. Integer exponents
-            are limited to -8…8. Decimals and fractions are exact rational
-            constants.
-          </p>
-          <p className="mt-2">
-            Write 3*x, not 3x. No units, equals signs, implicit multiplication,
-            pi/e constants or arbitrary function calls. sqrt and abs have
-            limited real-domain support. General trig/log identities and more
-            complex expressions can need review, even when mathematically
-            correct. No client-side equivalence check is performed.
-          </p>
-        </details>
-      </>
+      <div className="space-y-2">
+        <label id={`${expressionId}-label`} htmlFor={expressionId} className="block text-sm font-medium">
+          Expression answer
+        </label>
+        <MathAnswerField
+          id={expressionId}
+          labelId={`${expressionId}-label`}
+          value={buffer.expression}
+          onChange={(latex) => onChange({ ...buffer, expression: latex })}
+          symbols={symbols}
+          maxLength={180}
+        />
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          Type maths as you write it, with / for a fraction and ^ for a power. Use the symbols the problem gives.
+        </p>
+      </div>
     );
   return (
     <Field

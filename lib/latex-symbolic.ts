@@ -1,7 +1,7 @@
 import "server-only";
 import { Budget, rational, integer, plus, times, divide, neg, compare, power, type Q } from "./authored-expression-language";
 import type { ArchiveKeyPart } from "./archive-grading/definitions";
-import { structuralForm, type AnswerNode } from "./latex-answer";
+import { structuralForm, type AnswerNode } from "./exact-latex-answer";
 
 type ExpressionPart = Extract<ArchiveKeyPart, { kind: "expression" }>;
 type Term = { coefficient: Q; powers: Map<number, number> };

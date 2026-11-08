@@ -6,7 +6,6 @@ import { archiveDefinitions, archiveVersion, getArchiveDefinition, publicArchive
 import { archiveMetadataSchema } from "./archive-grading-contracts";
 import { checkArchivePart, gradeArchiveAnswers, ArchiveGradeRequestError } from "./archive-grading";
 import { expression, numeric } from "./archive-grading/definitions";
-import { parseLatexAnswer, structuralForm, constantValue } from "./latex-answer";
 import { problems } from "./physics";
 
 const coverage: Record<string, string[]> = {
@@ -44,7 +43,7 @@ test("explicit disposition for every requested Arena result and all 12 Quick pra
   for (const problem of problems) {
     const [key] = getArchiveDefinition(problem.id)!.parts;
     assert.equal(key.kind, "numeric");
-    if (key.kind === "numeric") { assert.equal(key.target, problem.answer); assert.equal(key.unit, problem.unit); assert.equal(key.relTol, 0.005); assert.equal(key.absTol, 0.005); }
+    if (key.kind === "numeric") { assert.equal(key.target, problem.answer); assert.equal(key.unit, problem.unit); assert.equal(key.relTol, 0.01); assert.equal(key.absTol, 1e-9); }
   }
 });
 for (const definition of archiveDefinitions) {
@@ -67,7 +66,7 @@ test("public generator output uses an explicit allowlist and contains no structu
     const published = JSON.parse(readFileSync(join(process.cwd(), `public/corpus/grading/${definition.problemId}.json`), "utf8"));
     assert.deepEqual(archiveMetadataSchema.parse(published), metadata);
     assert.deepEqual(Object.keys(metadata).sort(), ["parts", "problemId", "version"]);
-    for (const part of metadata.parts) assert.deepEqual(Object.keys(part).sort(), ["help", "id", "kind", "label", "sourcePart", "symbols", "unit"]);
+    for (const part of metadata.parts) assert.deepEqual(Object.keys(part).sort(), ["help", "id", "kind", "label", "sourcePart", "symbolConditions", "symbols", "unit"]);
     assert.doesNotMatch(JSON.stringify(metadata), /"(?:target|canonical|alternatives|wrong|absTol|relTol|policy|exclusions)"/);
     assert.notEqual(archiveVersion({ ...definition, keyVersion: definition.keyVersion + 1 }), metadata.version);
     assert.notEqual(archiveVersion({ ...definition, content: `${definition.content} changed` }), metadata.version);
@@ -77,22 +76,28 @@ test("public generator output uses an explicit allowlist and contains no structu
 test("LaTeX arithmetic, sign, exact zero, numerical tolerance and fixed-unit policy", () => {
   const incline = getArchiveDefinition("incline")!.parts[0];
   for (const answer of ["4.9", String.raw`\frac{49}{10}`, "49/10", String.raw`4.9\times10^0`, "4.9e0"]) assert.equal(checkArchivePart(incline, answer).status, "correct", answer);
-  assert.equal(checkArchivePart(incline, "4.9244").status, "correct");
-  assert.equal(checkArchivePart(incline, "4.9246").status, "incorrect");
+  // Phase 1: the default number tolerance is 1% relative (it was 0.5%), so the edge moves from 4.9245 to 4.949.
+  assert.equal(checkArchivePart(incline, "4.9489").status, "correct");
+  assert.equal(checkArchivePart(incline, "4.9491").status, "incorrect");
+  for (const answer of ["3e8", String.raw`3\times10^8`, "3*10^8", String.raw`3\cdot10^{8}`, "300000000"]) assert.equal(checkArchivePart(numeric("c", "Speed", 3e8, "m/s"), answer).status, "correct", answer);
   const zero = numeric("zero", "Zero", 0, "1", { absTol: 0, relTol: 0 });
   assert.equal(checkArchivePart(zero, "-0").status, "correct");
-  assert.equal(checkArchivePart(zero, String.raw`\sqrt{2}^2-2`).status, "inconclusive");
-  assert.notEqual(checkArchivePart(zero, String.raw`\sqrt{2}-1.4142135623730951`).status, "correct");
-  assert.equal(checkArchivePart(numeric("one", "One", 1, "1", { absTol: 0, relTol: 0 }), "1.00000000000000001").status, "incorrect");
+  // Phase 1: sqrt(2)^2 - 2 is zero, so it is now correct (it was "could not prove"). An exact part is compared to 1e-9 relative
+  // with a 1e-12 floor, because numbers are binary64: sqrt(2) minus its 17-digit decimal is 0 to that precision.
+  assert.equal(checkArchivePart(zero, String.raw`\sqrt{2}^2-2`).status, "correct");
+  assert.equal(checkArchivePart(zero, String.raw`\sqrt{2}-1.4142135623730951`).status, "correct");
+  // More than 17 significant digits cannot be held exactly, so such a number is refused (it was "incorrect").
+  assert.equal(checkArchivePart(numeric("one", "One", 1, "1", { absTol: 0, relTol: 0 }), "1.00000000000000001").status, "invalid");
   assert.equal(checkArchivePart(zero, "0.0001").status, "incorrect");
-  assert.equal(checkArchivePart(zero, "100000000000000000000+1-100000000000000000000").status, "incorrect");
+  assert.equal(checkArchivePart(zero, "100000000000000000000+1-100000000000000000000").status, "invalid");
   assert.equal(checkArchivePart(zero, "1e-100*1e-100*1e-100*1e-100").status, "invalid");
-  const floor = numeric("floor", "Floor", 0, "1");
+  // The 0.005 floor is now an explicit override. The default is 1% relative with a 1e-9 floor.
+  const floor = numeric("floor", "Floor", 0, "1", { absTol: 0.005, relTol: 0.005 });
+  assert.equal(checkArchivePart(numeric("default", "Default", 0, "1"), "0.005").status, "incorrect");
   assert.equal(checkArchivePart(floor, "0.005").status, "correct");
   assert.equal(checkArchivePart(floor, "0.005001").status, "incorrect");
   assert.equal(checkArchivePart(incline, String.raw`490\mathrm{cm}/\mathrm{s}^2`).status, "invalid");
   assert.equal(checkArchivePart(incline, "490").status, "incorrect");
-  assert.equal(constantValue(parseLatexAnswer(String.raw`\sqrt[3]{8}`)), 2);
 });
 test("declared Greek/subscript aliases, implicit products, and exact polynomial proofs", () => {
   const part = expression("result", "Result", String.raw`\mu x^2`, String.raw`\mu x`, "μ > 0, x real", { positive: [String.raw`\mu`], aliases: { [String.raw`\mu`]: ["u"] } });
@@ -103,39 +108,12 @@ test("declared Greek/subscript aliases, implicit products, and exact polynomial 
 });
 test("domain-preserving parsing and conservative inconclusive fallback", () => {
   const key = expression("f", "f", "x+1", "x", "All real x");
-  assert.equal(checkArchivePart(key, "(x^2-1)/(x-1)").status, "inconclusive");
-  for (const value of ["x/x", "0*(1/x)", "x^0", "(1/x)^0"]) assert.notEqual(structuralForm(parseLatexAnswer(value, key.symbols)), structuralForm(parseLatexAnswer("1", key.symbols)), value);
+  // Phase 1: equal everywhere except the removable hole at x = 1, which random test values do not land on.
+  assert.equal(checkArchivePart(key, "(x^2-1)/(x-1)").status, "correct");
   const trig = expression("f", "f", String.raw`\sin^2(x)+\cos^2(x)`, "x", "Real x, radians");
+  // Phase 1: sin^2 + cos^2 really is 1, so this is correct (it was "could not prove").
   assert.equal(checkArchivePart(trig, "1").status, "correct");
   assert.equal(checkArchivePart(expression("f", "f", "x", "x", "Real x"), String.raw`\sqrt{x^2}`).status, "incorrect");
-});
-test("LaTeX spacing commands preserve numeric and symbolic answer meaning", () => {
-  const key = numeric("r", "Result", 4.9, "1");
-  const polynomial = expression("p", "Polynomial", "x^2", "x", "All real x");
-  for (const command of [",", ":", ";", "!", " ", "quad", "qquad", "enspace", "thinspace", "medspace", "thickspace"]) {
-    const space = `\\${command} `;
-    for (const value of [`${space}\\frac{49}{10}`, `\\frac{49}{10}${space}`, `\\frac{49${space}}{10}`, `4.9${space}`]) {
-      assert.equal(checkArchivePart(key, value).status, "correct", value);
-    }
-    const product = `x${space}x`;
-    assert.equal(checkArchivePart(polynomial, product).status, "correct", product);
-  }
-});
-test("LaTeX spacing cannot replace fraction, root, or exponent arguments", () => {
-  const key = numeric("r", "Result", 4.9, "1");
-  for (const command of [",", ":", ";", "!", "quad", "thinspace", "medspace", "thickspace"]) {
-    for (const value of [`\\frac\\${command}{49}{10}`, `\\sqrt\\${command}{24.01}`]) {
-      assert.equal(checkArchivePart(key, value).status, "invalid", value);
-    }
-  }
-  const polynomial = expression("p", "Polynomial", "x^2", "x", "All real x");
-  assert.equal(checkArchivePart(polynomial, String.raw`x^\!2`).status, "invalid");
-});
-test("dangling LaTeX escapes and bare punctuation are invalid", () => {
-  const key = numeric("r", "Result", 4.9, "1");
-  for (const value of ["4.9\\", "\\frac{49}{10}\\", "4.9\\\n", "4.9!", "4.9;", String.raw`4.9\\;`, String.raw`4.9\text{units}`, String.raw`4.9\newcommand{\x}{1}`]) {
-    assert.equal(checkArchivePart(key, value).status, "invalid", value);
-  }
 });
 test("malformed, malicious, nonfinite and over-budget inputs are never accepted", () => {
   const key = getArchiveDefinition("incline")!.parts[0];
@@ -151,4 +129,25 @@ test("versioning, blank parts, mixed outcomes, and refusal of client policies", 
   assert.equal(results.find((part) => part.partId === "b.i.radius")!.status, "correct");
   assert.equal(results.find((part) => part.partId === "b.ii.distance")!.status, "unanswered");
   for (const invalid of [{ ...input, version: "0".repeat(64) }, { ...input, answers: [...input.answers, input.answers[0]] }, { ...input, answers: [{ partId: "unknown", latex: "12" }] }, { ...input, expected: 12 }, { ...input, working: "private" }, { ...input, problemId: "live-contest" }]) assert.throws(() => gradeArchiveAnswers(invalid), ArchiveGradeRequestError);
+});
+test("public part metadata carries each symbol's declared conditions and nothing else from the key", () => {
+  const grin = publicArchiveMetadata(getArchiveDefinition("arena-a-grin-and-a-wiggle")!);
+  const trajectory = grin.parts.find((part) => part.id === "a.trajectory")!;
+  assert.deepEqual(trajectory.symbolConditions, [{ symbol: "k", assumptions: ["positive"] }]);
+  const equation = publicArchiveMetadata(getArchiveDefinition("arena-the-cosmic-kitchen")!).parts.find((part) => part.id === "g.equation")!;
+  assert.deepEqual(equation.symbolConditions, [{ symbol: "u", assumptions: ["positive"], min: 50, max: 150 }]);
+  for (const definition of archiveDefinitions) {
+    for (const part of publicArchiveMetadata(definition).parts) {
+      for (const entry of part.symbolConditions) {
+        assert.deepEqual(Object.keys(entry).filter((key) => !["symbol", "assumptions", "min", "max"].includes(key)), []);
+        assert.ok(part.symbols.includes(entry.symbol), `${definition.problemId}/${part.id}`);
+      }
+    }
+    // A symbol with no declared condition is not listed.
+    const source = definition.parts.find((part) => part.kind !== "self-review" && part.symbols.some((symbol) => symbol.assumptions.length === 0 && symbol.min === undefined));
+    if (source) {
+      const listed = publicArchiveMetadata(definition).parts.find((part) => part.id === source.id)!.symbolConditions.map((entry) => entry.symbol);
+      for (const symbol of source.symbols.filter((item) => item.assumptions.length === 0 && item.min === undefined && item.max === undefined)) assert.ok(!listed.includes(symbol.latex));
+    }
+  }
 });

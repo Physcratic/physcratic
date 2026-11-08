@@ -13,7 +13,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { getEloBand } from "@/lib/problem-archive";
+import { ratingBand } from "@/lib/rating-bands";
+import { badgeVariants } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
+import { isActiveTag, nextTagFilter, useTagFilter } from "./tag-filter";
 
 const competitionVariants = {
   IPhO: "ipho",
@@ -36,7 +39,8 @@ export type ProblemCardProps = {
   elo?: number;
   attribution?: React.ReactNode;
 } & (
-  | { href: string; onOpen?: never }
+  // With both, the link is a real <a href> for crawlers and no-JS visitors, and a plain left click calls onOpen instead.
+  | { href: string; onOpen?: () => void }
   | { href?: never; onOpen: () => void }
 );
 
@@ -59,13 +63,14 @@ export function ProblemCard({
 }: ProblemCardProps) {
   const titleId = React.useId();
   const Heading = headingLevel === 4 ? "h4" : "h3";
-  const band = elo === undefined ? undefined : getEloBand(elo);
-  const actionLabel = `Exercise: ${[source, reference, title].filter(Boolean).join(", ")}`;
-  const titleClassName =
-    "rounded-sm text-left transition-colors hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-card";
+  const band = elo === undefined ? undefined : ratingBand(elo);
+  const tagFilter = useTagFilter();
+  // One control per card: the title is plain text and the button is the only link or button. The accessible name starts
+  // with the visible words so voice control matches, then names the problem.
+  const actionLabel = `Open problem: ${[source, reference, title].filter(Boolean).join(", ")}`;
   const actionContent = (
     <>
-      Exercise
+      Open problem
       <ArrowUpRight data-icon="inline-end" aria-hidden="true" />
     </>
   );
@@ -77,7 +82,7 @@ export function ProblemCard({
       data-problem-card={id}
       data-competition={competition}
       data-level={band?.id}
-      className="problem-entry flex min-w-0 flex-col shadow-none"
+      className="problem-entry flex min-w-0 flex-col"
     >
       <div className="problem-entry-header flex flex-wrap items-center justify-between gap-3 px-5 py-3">
         <div className="flex min-w-0 flex-wrap items-center gap-3">
@@ -100,6 +105,8 @@ export function ProblemCard({
             <span className="text-sm tabular-nums">
               {elo.toLocaleString("en-US")}
             </span>
+            <span aria-hidden="true" className="px-1.5 text-sm">·</span>
+            <span className="text-sm">{band.name}</span>
           </Badge>
         ) : (
           <span className="shrink-0 text-sm text-muted-foreground">
@@ -117,20 +124,20 @@ export function ProblemCard({
               lang={titleLanguage}
               className="text-pretty text-lg font-semibold leading-relaxed"
             >
-              {href ? (
-                <Link href={href} className={titleClassName}>
-                  {title}
-                </Link>
-              ) : (
-                <button type="button" onClick={onOpen} className={titleClassName}>
-                  {title}
-                </button>
-              )}
+              {title}
             </Heading>
           </CardTitle>
           {href ? (
             <Button variant="outline-transparent" className="min-h-11 shrink-0" asChild>
-              <Link href={href} aria-label={actionLabel}>
+              <Link
+                href={href}
+                aria-label={actionLabel}
+                onClick={onOpen ? (event) => {
+                  if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+                  event.preventDefault();
+                  onOpen();
+                } : undefined}
+              >
                 {actionContent}
               </Link>
             </Button>
@@ -161,11 +168,28 @@ export function ProblemCard({
       ) : null}
       {attribution && <CardContent className="space-y-3 px-5 pb-5">{attribution}</CardContent>}
       <CardFooter className="problem-entry-details flex min-h-14 flex-wrap items-center gap-2 px-5 py-3">
-        {tags.map((tag) => (
-          <Badge key={tag} variant="concept">
-            {tag}
-          </Badge>
-        ))}
+        {tags.map((tag) =>
+          tagFilter ? (
+            <button
+              key={tag}
+              type="button"
+              aria-pressed={isActiveTag(tagFilter.active, tag)}
+              aria-label={`Filter by ${tag}`}
+              onClick={() => tagFilter.toggle(nextTagFilter(tagFilter.active, tag))}
+              className={cn(
+                badgeVariants({ variant: "concept" }),
+                "min-h-11 cursor-pointer px-3 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                isActiveTag(tagFilter.active, tag) && "border-foreground bg-foreground text-background hover:bg-foreground",
+              )}
+            >
+              {tag}
+            </button>
+          ) : (
+            <Badge key={tag} variant="concept">
+              {tag}
+            </Badge>
+          ),
+        )}
       </CardFooter>
     </Card>
   );

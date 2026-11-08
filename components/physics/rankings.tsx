@@ -27,6 +27,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { RankTitle } from "./rank-title";
+import { LoadingLines } from "@/components/loading-lines";
 
 export function Rankings({
   search,
@@ -81,9 +82,7 @@ function RankingsPage({
       >
         <CardContent className="p-0">
           {busy ? (
-            <p role="status" className="p-6 text-sm text-muted-foreground">
-              {searching ? "Searching contestants…" : "Loading rankings…"}
-            </p>
+            <LoadingLines label={searching ? "Searching contestants…" : "Loading rankings…"} />
           ) : error ? (
             <Empty>
               <EmptyHeader>

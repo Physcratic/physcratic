@@ -1,11 +1,8 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
-import { findPublicProblem } from "@/lib/seo/public-routes";
 import { notFound } from "next/navigation";
-import { catalogProblems } from "@/lib/corpus-catalog";
-import arena from "@/lib/arena/index.json";
-import { problemPageMetadata } from "@/lib/seo/problem-descriptions";
+import { findProblemPage } from "@/lib/seo/problem-pages";
 
 export const alt = "Physcratic physics olympiad problem";
 export const size = { width: 1200, height: 630 };
@@ -24,14 +21,11 @@ export default async function Image({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const problem = findPublicProblem(id)
-    ?? catalogProblems.find((item) => item.id === id)
-    ?? arena.problems.find((item) => item.id === id);
+  const problem = findProblemPage(id);
   if (!problem) notFound();
   const mark = await markDataUrl();
-  const metadata = problemPageMetadata(problem);
-  const title = typeof metadata.title === "string" ? metadata.title : problem.title;
-  const topic = "topic" in problem ? problem.topic : problem.primaryTopic;
+  const title = problem.metaTitle;
+  const topic = problem.topic;
   return new ImageResponse(
     (
       <div

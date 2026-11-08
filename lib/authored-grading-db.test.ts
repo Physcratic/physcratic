@@ -279,13 +279,16 @@ test(
             first = await publish(owner, problem.problemId, 1),
             ids = selection({ ...problem, ...d }, first.id),
             answer = { kind: "expression", expression: "(x^2-1)/(x-1)" };
+          // Phase 1: (x^2-1)/(x-1) equals x+1 wherever it is defined, so revision 1 is now correct (it needed review).
           assert.equal(
             (await grader(student)({ ...ids, answer })).reason,
-            "symbolic-domain",
+            "symbolic-equivalent",
           );
           if (d.privateParts[0].key?.kind !== "expression")
             throw Error("fixture");
+          // Revision 2 changes the key, so the same answer is judged differently for each pinned revision.
           d.privateParts[0].key.exclusions = ["x != 1"];
+          d.privateParts[0].key.expected = "x+2";
           assert.equal(
             (
               await api(
@@ -300,11 +303,11 @@ test(
           assert.equal(
             (await grader(student)({ ...ids, revisionId: second.id, answer }))
               .status,
-            "correct",
+            "incorrect",
           );
           assert.equal(
             (await grader(student)({ ...ids, answer })).reason,
-            "symbolic-domain",
+            "symbolic-equivalent",
           );
           d.privateParts[0].key.expected = "x";
           d.privateParts[0].key.variables[0].min = 0;

@@ -2,6 +2,7 @@ import { z } from 'zod';
 import arena from './arena/index.json';
 import { filterArena, type ArenaCatalogEntry } from './arena-schema';
 import { getEstimatedProblemElo } from './problem-archive';
+import { bandFilterIds } from './rating-bands';
 import { getProblemTags } from './problem-tags';
 import { authoredLibraryPageSchema } from './authored-library-contracts';
 import { publicShowcaseSchema } from './community/achievements';
@@ -16,7 +17,7 @@ export const problemKeySchema = z.string().refine(value => {
 });
 export const arenaFiltersSchema = z.strictObject({
   q: z.string().trim().max(200).default(''), tag: z.string().trim().max(80).default(''),
-  difficulty: z.enum(['all','unrated','under-1200','1200-1599','1600-plus']).default('all'),
+  difficulty: z.enum(['all','unrated',...bandFilterIds]).default('all'),
   source: z.enum(['all','arena','authored']).default('all'), after: problemKeySchema.optional(),
 });
 export const publicAuthorSchema = z.strictObject({handle:z.string(),displayName:z.string(),...publicShowcaseSchema.shape});

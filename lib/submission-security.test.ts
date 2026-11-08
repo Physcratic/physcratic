@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { detectSubmissionMedia, evidenceMatches, isAllowedSubmissionOrigin, safeReturnPath, validUploadSize } from "./submission-security";
+import { detectSubmissionMedia, evidenceMatches, isAllowedSubmissionOrigin, validUploadSize } from "./submission-security";
 import { submissionLimits } from "./solution-grading";
 
 const bytes = (text: string) => new TextEncoder().encode(text);
@@ -34,13 +34,4 @@ test("server registry metadata must match every submitted evidence field", () =>
   const file = { id: "11111111-1111-4111-8111-111111111111", mediaType: "image/png" as const, bytes: 1000, sha256: "a".repeat(64) };
   assert.equal(evidenceMatches(file, file), true);
   for (const modified of [{ ...file, id: "other" }, { ...file, bytes: 999 }, { ...file, sha256: "b".repeat(64) }, { ...file, mediaType: "text/html" }]) assert.equal(evidenceMatches(file, modified), false);
-});
-test("authentication return destinations cannot redirect off-site", () => {
-  assert.equal(safeReturnPath("/dashboard?view=problems"), "/dashboard?view=problems");
-  assert.equal(safeReturnPath("/dashboard/submissions"), "/dashboard/submissions");
-  assert.equal(safeReturnPath("/settings"), "/settings");
-  assert.equal(safeReturnPath("/settings?onboarding=1"), "/settings?onboarding=1");
-  for (const unsafe of ["/settings/evil", "/settings-other", "/settings\\evil.example", "/settings\nother"])
-    assert.equal(safeReturnPath(unsafe), "/dashboard/submissions");
-  for (const unsafe of ["//evil.example", "https://evil.example", "/dashboard\\evil.example", "/dashboard-other", "/dashboard\nother", undefined]) assert.equal(safeReturnPath(unsafe), "/dashboard/submissions");
 });

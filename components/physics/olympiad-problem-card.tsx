@@ -34,6 +34,7 @@ export function OlympiadProblemCard({
       elo={getEstimatedProblemElo(problem.id)}
       description={description}
       tags={getProblemTags(problem)}
+      href={`/dashboard/problems/${problem.id}`}
       onOpen={() => onOpen(problem.id)}
     />
   );

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowLeft, FilePlus2, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { ErrorText, HowItWorksLink, studioTokens } from "./studio-ui";
 import {
   draftRequest,
@@ -12,6 +13,21 @@ import {
   type EditorDraft,
 } from "@/lib/problem-authoring-editor";
 import { ProblemEditor } from "./problem-editor";
+import { ensureSimpleShape, readStudioMode } from "./simple-model";
+
+/** A new problem that lives only in this tab until the first edit saves it. */
+function blankDraft(): EditorDraft {
+  const draft: EditorDraft = {
+    problemId: crypto.randomUUID(),
+    version: 1,
+    state: "draft",
+    slug: "",
+    ...structuredClone(newProblem()),
+  };
+  // Simple starts with its one part. Advanced starts empty, as it always did.
+  if (readStudioMode() === "simple") ensureSimpleShape(draft);
+  return draft;
+}
 
 type DraftItem = {
   problemId: string;
@@ -24,6 +40,9 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
   const [items, setItems] = useState<DraftItem[]>([]),
     [cursor, setCursor] = useState<string | null>(null);
   const [selected, setSelected] = useState<EditorDraft | null>(null);
+  /** "new": the Simple page on a blank problem that is saved at the first edit. "list": My drafts. */
+  const [view, setView] = useState<"new" | "list">("new");
+  const [fresh, setFresh] = useState<EditorDraft>(() => blankDraft());
   const [busy, setBusy] = useState(true),
     [error, setError] = useState("");
   const [cleanupNotice, setCleanupNotice] = useState("");
@@ -64,6 +83,7 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
     if (id) void open(id);
     else void list();
   }, []);
+  const last = items[0];
   if (selected)
     return (
       <ProblemEditor
@@ -72,7 +92,25 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
         userId={userId}
         onBack={() => {
           setSelected(null);
+          setView("list");
           history.replaceState(null, "", location.pathname);
+          void list();
+        }}
+      />
+    );
+  if (view === "new")
+    return (
+      <ProblemEditor
+        key={fresh.problemId}
+        initial={fresh}
+        userId={userId}
+        provisional={{
+          // The editor swaps to the saved draft by itself. Only the address changes.
+          onCreated: (saved) => history.replaceState(null, "", `?draft=${saved.problemId}`),
+        }}
+        continueDraft={last ? { title: last.title, open: () => void open(last.problemId) } : null}
+        onBack={() => {
+          setView("list");
           void list();
         }}
       />
@@ -113,22 +151,9 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
           <Button
             type="button"
             disabled={busy}
-            onClick={async () => {
-              setBusy(true);
-              setError("");
-              try {
-                const draft = editorDraftSchema.parse(
-                  await draftRequest(editorBase, "POST", newProblem()),
-                );
-                setSelected(draft);
-                history.replaceState(null, "", `?draft=${draft.problemId}`);
-              } catch (e) {
-                setError(
-                  e instanceof Error ? e.message : "Could not create a draft.",
-                );
-              } finally {
-                setBusy(false);
-              }
+            onClick={() => {
+              setFresh(blankDraft());
+              setView("new");
             }}
           >
             <FilePlus2 className="mr-2 size-4" />
@@ -189,10 +214,18 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
           </div>
         )}
         <p role="status" className="my-6 text-sm text-muted-foreground">
-          {busy ? "Loading…" : `${items.length} drafts loaded`}
+          {busy && !items.length ? "Loading your drafts…" : busy ? "Working…" : `${items.length} drafts loaded`}
         </p>
         <div className="divide-y rounded-xl border bg-card">
-          {items.length
+          {busy && !items.length ? (
+            // The page already has its headings and buttons. The list shows the shape of what is coming.
+            [0, 1, 2].map((row) => (
+              <div key={row} aria-hidden="true" className="flex flex-wrap items-center justify-between gap-3 px-4 py-5 sm:px-6">
+                <div className="flex min-w-0 items-center gap-4"><Skeleton className="size-5 shrink-0" /><div className="space-y-2"><Skeleton className="h-4 w-48" /><Skeleton className="h-3 w-32" /></div></div>
+                <Skeleton className="h-11 w-20" />
+              </div>
+            ))
+          ) : items.length
             ? items.map((item) => (
                 <article
                   key={item.problemId}

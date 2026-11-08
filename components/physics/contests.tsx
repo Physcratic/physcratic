@@ -13,12 +13,14 @@ import {
   EmptyTitle,
 } from "@/components/ui/empty";
 import { PublishedContestCard } from "./published-contest-card";
+import { solveTokens } from "./solve-ui";
+import { LoadingLines } from "@/components/loading-lines";
 
 export function Contests() {
   const { data, error, isLoading, mutate } = useDashboard();
   const { data: access } = useSWR<{ canManage: boolean }>("/api/contests/access", fetchJson);
   return (
-    <div className="flex flex-col gap-7">
+    <div className={`flex flex-col gap-7 ${solveTokens}`}>
       <section
         className="flex flex-col gap-4"
         aria-labelledby="published-contests-title"
@@ -28,15 +30,13 @@ export function Contests() {
           {access?.canManage && <Button asChild variant="outline"><Link href="/dashboard/contests/manage">Manage contests</Link></Button>}
         </div>
         {isLoading ? (
-          <p role="status" className="text-sm text-muted-foreground">
-            Loading published contests…
-          </p>
+          <LoadingLines label="Loading published contests…" />
         ) : error ? (
           <div className="flex flex-col items-start gap-3">
             <p role="alert" className="text-sm text-destructive">
               Contests could not be loaded. Please retry.
             </p>
-            <Button variant="outline" onClick={() => mutate()}>
+            <Button variant="outline" className="min-h-11" onClick={() => mutate()}>
               Retry contests
             </Button>
           </div>

@@ -167,7 +167,8 @@ test("all 100 records are imported while pilot guides, review and rights status 
   });
   assert.equal(catalogExport.publication.license, null);
   for (const problem of catalogProblems) {
-    assert.equal(problem.rightsStatus, "permission-review-required");
+    assert.equal(problem.rightsStatus, "reuse-allowed");
+    assert.match(problem.rightsNote, /confirmed on 7 November 2026/);
     assert.equal(problem.reviewStatus, "independent-review-pending");
     assert.equal(problem.rating.elo, null);
     assert.equal(problem.rating.status, "unrated");

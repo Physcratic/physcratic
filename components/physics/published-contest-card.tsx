@@ -25,6 +25,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ContestCountdown } from "./contest-countdown";
+import { solveTokens } from "./solve-ui";
 
 export function PublishedContestCard({
   contest,
@@ -75,13 +76,13 @@ export function PublishedContestCard({
     <Card
       className={
         featured
-          ? "featured-contest-card flex min-w-0 flex-col shadow-none"
-          : "flex min-w-0 flex-col shadow-none"
+          ? `featured-contest-card flex min-w-0 flex-col shadow-none ${solveTokens}`
+          : `flex min-w-0 flex-col shadow-none ${solveTokens}`
       }
     >
       <CardHeader className="gap-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <span className="flex items-center gap-2 text-sm text-primary">
+          <span className="flex items-center gap-2 text-sm font-medium text-accent-foreground">
             <Trophy className="size-4" aria-hidden="true" />
             {featured
               ? "Featured contest"
@@ -136,7 +137,7 @@ export function PublishedContestCard({
         )}
         {status === "past" && contest.problemIds.length > 0 && (
           <details>
-            <summary className="cursor-pointer text-sm font-medium">
+            <summary className="flex min-h-11 cursor-pointer items-center text-sm font-medium">
               Practice {contest.problemIds.length} problems
             </summary>
             <ul className="flex flex-col gap-2 pt-3">
@@ -144,7 +145,7 @@ export function PublishedContestCard({
                 <li key={id}>
                   <Link
                     href={`/dashboard/problems/${encodeURIComponent(id)}`}
-                    className="text-sm underline underline-offset-4"
+                    className="inline-flex min-h-11 items-center text-sm underline underline-offset-4"
                   >
                     Problem {index + 1}
                   </Link>
@@ -159,6 +160,7 @@ export function PublishedContestCard({
         {registrationOpen ? (
           data?.user ? (
             <Button
+              className="min-h-11"
               onClick={register}
               disabled={busy}
               variant={contest.registered ? "outline" : "default"}
@@ -171,7 +173,7 @@ export function PublishedContestCard({
               {contest.registered ? "Cancel registration" : "Sign up"}
             </Button>
           ) : (
-            <Button asChild>
+            <Button className="min-h-11" asChild>
               <Link href="/sign-in?returnTo=%2Fdashboard%3Fview%3Dcontests">
                 Sign in to register
               </Link>

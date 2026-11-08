@@ -17,7 +17,7 @@ export function CoachingGuides() {
           <h2 id="guides-title" className="text-2xl font-semibold tracking-tight">{guides.title}</h2>
           <p className="text-muted-foreground">{guides.intro}</p>
         </div>
-        <Link href={learnPath()} className="coaching-link text-sm font-semibold text-muted-foreground hover:text-foreground">{guides.seeAll}</Link>
+        <Link href={learnPath()} className="coaching-link coaching-tap text-sm font-semibold text-muted-foreground hover:text-foreground">{guides.seeAll}</Link>
       </div>
       <ul aria-label={guides.listLabel} className="coaching-guide-row -mx-6 flex scroll-px-6 snap-x gap-3 overflow-x-auto sm:scroll-px-8 md:scroll-px-0 px-6 pb-3 pt-2 sm:-mx-8 sm:px-8 md:mx-0 md:grid md:grid-cols-2 md:gap-4 md:overflow-visible md:p-0">
         {publishedArticles.map((article) => <li key={article.slug} className="w-64 shrink-0 snap-start md:w-auto">

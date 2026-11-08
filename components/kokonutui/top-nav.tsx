@@ -10,6 +10,7 @@ import { FeedbackLink } from "@/components/feedback-link";
 import { AccountNav } from "@/components/account-nav";
 import { coachingEntryHandlers } from "@/lib/coaching/analytics";
 import { viewTitles, type View } from "@/lib/physics";
+import { TourHelpButton } from "@/components/tour/tour-help";
 
 export default function TopNav({
   view,
@@ -31,8 +32,8 @@ export default function TopNav({
   }, [router]);
 
   return (
-    <header className="flex h-[72px] shrink-0 items-center justify-between border-b bg-background pl-4 pr-[68px] sm:px-8 sm:pl-16 lg:pl-8 xl:px-10">
-      <Link href="/dashboard" className="flex min-w-0 items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:hidden" aria-label="Physcratic home">
+    <header className="relative z-40 flex h-[72px] shrink-0 items-center justify-between border-b bg-background pl-4 pr-[68px] sm:px-8 sm:pl-16 lg:pl-8 xl:px-10">
+      <Link href="/dashboard" className="flex min-h-11 min-w-0 items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:hidden" aria-label="Physcratic home">
         <BrandMark size={32} className="shrink-0 rounded-md" />
         <span className="truncate text-xl font-semibold tracking-[-0.05em]">Physcratic</span>
       </Link>
@@ -42,7 +43,7 @@ export default function TopNav({
       >
         <Link
           href="/dashboard"
-          className="hidden text-muted-foreground transition-colors hover:text-foreground sm:block"
+          className="hidden min-h-11 items-center text-muted-foreground transition-colors hover:text-foreground sm:inline-flex"
         >
           Workspace
         </Link>
@@ -53,21 +54,24 @@ export default function TopNav({
       </nav>
       <div className="flex shrink-0 items-center gap-1 sm:gap-5">
         <div className="hidden sm:contents">
-        <Button
-          variant="ghost"
-          size="sm"
-          className="px-2 sm:px-3"
-          onClick={() => router.push("/dashboard?view=problems&search=1")}
-          aria-label="Search problems"
-        >
-          <Search data-icon="inline-start" />
-          <span className="hidden font-normal text-muted-foreground xl:inline">
-            Search problems...
-          </span>
-          <kbd className="hidden rounded border px-1.5 py-0.5 font-sans text-sm text-muted-foreground xl:inline">
+        {/* The name is the visible text, so a voice user can say what they see. The shortcut hint is outside the button. */}
+        <div className="flex items-center gap-2">
+          <Button
+            variant="ghost"
+            size="sm"
+            className="min-w-11 px-2 sm:px-3"
+            onClick={() => router.push("/dashboard?view=problems&search=1")}
+            aria-label="Search problems"
+          >
+            <Search data-icon="inline-start" />
+            <span className="hidden font-normal text-muted-foreground xl:inline">
+              Search problems
+            </span>
+          </Button>
+          <kbd aria-hidden="true" className="hidden rounded border px-1.5 py-0.5 font-sans text-sm text-muted-foreground xl:inline">
             ⌘ K
           </kbd>
-        </Button>
+        </div>
         <Button asChild variant="ghost" size="sm" className="px-2 sm:px-3">
           <Link href="/learn" aria-label="Learn">
             <BookOpen aria-hidden="true" />
@@ -79,17 +83,19 @@ export default function TopNav({
           asChild
           variant="outline"
           size="sm"
-          className="size-11 border-accent-foreground p-0 text-accent-foreground hover:bg-accent hover:text-accent-foreground sm:h-9 sm:w-auto sm:px-3"
+          className="h-12 min-w-12 w-auto flex-col gap-0.5 px-2 py-1 text-xs font-medium leading-none sm:h-11 sm:flex-row sm:gap-2 sm:px-3 sm:text-sm border-accent-foreground text-accent-foreground hover:bg-accent hover:text-accent-foreground"
         >
           <Link
             href="/coaching"
             aria-label="Coaching"
+            data-tour="nav-coaching"
             {...coachingEntryHandlers("topbar")}
           >
             <GraduationCap aria-hidden="true" />
-            <span className="hidden font-medium sm:inline">Coaching</span>
+            <span>Coaching</span>
           </Link>
         </Button>
+        <TourHelpButton tourId="welcome" />
         <div className="hidden sm:contents">
           <FeedbackLink variant="nav" />
           <span className="h-5 border-l" />

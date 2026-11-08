@@ -13,7 +13,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { COACHING_LINE, findArticle, formatDate, learnPath, publishedArticles } from "@/lib/learn/articles";
+import { practiceProblemIds } from "@/lib/learn/practice-links";
 import { articleGraph, jsonLdScript } from "@/lib/seo/json-ld";
+import { findProblemPage } from "@/lib/seo/problem-pages";
 import { baseOpenGraph } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -51,6 +53,7 @@ export default async function LearnArticlePage({ params }: Props) {
   const { slug } = await params;
   const article = findArticle(slug);
   if (!article) notFound();
+  const practice = (practiceProblemIds[article.slug] ?? []).flatMap((id) => findProblemPage(id) ?? []);
 
   return (
     <>
@@ -62,7 +65,7 @@ export default async function LearnArticlePage({ params }: Props) {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink asChild>
+              <BreadcrumbLink asChild className="inline-flex min-h-11 items-center">
                 <Link href={learnPath()}>Learn</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
@@ -136,13 +139,28 @@ export default async function LearnArticlePage({ params }: Props) {
                 Practise what you have read
               </h2>
               <CardDescription className="max-w-prose">
-                Work through physics problems on Physcratic and see where to
-                improve next.
+                {practice.length > 0
+                  ? "Start with one of these problems, or open the library and pick your own."
+                  : "Open the problem library and try a problem on the topic you have just read about."}
               </CardDescription>
             </CardHeader>
             <CardContent>
+              {practice.length > 0 ? (
+                <ul className="mb-4 flex flex-col">
+                  {practice.map((page) => (
+                    <li key={page.id}>
+                      <Link
+                        href={page.path}
+                        className="inline-flex min-h-11 items-center rounded-md underline underline-offset-4 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      >
+                        {page.competition ? `${page.title}, ${page.competition} ${page.year} Problem ${page.number}` : page.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
               <Button asChild>
-                <Link href="/dashboard?view=problems">Browse practice problems</Link>
+                <Link href="/problems">Browse the problem library</Link>
               </Button>
             </CardContent>
           </Card>

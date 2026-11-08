@@ -12,36 +12,39 @@
     --elo-foundation: 155 62% 27%;
     --elo-intermediate: 205 75% 34%;
     --elo-advanced: 22 75% 35%;
-    --background: 240 7% 97%;
-    --foreground: 240 5% 12%;
+    /* Bone white page, white cards. Text on every surface is 5.8:1 or better, borders 3.4:1 or better (measured in BETA_READINESS.md). */
+    --background: 43 28% 95%;
+    --foreground: 45 7% 12%;
     --card: 0 0% 100%;
-    --card-foreground: 240 5% 12%;
+    --card-foreground: 45 7% 12%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 5% 12%;
+    --popover-foreground: 45 7% 12%;
     --primary: 21 82% 72%;
     --primary-foreground: 240 6% 10%;
-    --secondary: 240 5% 94%;
-    --secondary-foreground: 240 5% 35%;
-    --muted: 240 5% 94%;
-    --muted-foreground: 240 3% 43%;
+    --secondary: 44 22% 90%;
+    --secondary-foreground: 42 6% 30%;
+    --muted: 44 22% 90%;
+    --muted-foreground: 42 6% 34%;
     --accent: 21 55% 94%;
     --accent-foreground: 22 45% 32%;
     --destructive: 22 62% 38%;
     --destructive-foreground: 0 0% 100%;
     /* Borders and input outlines are 3:1 or better on the page and card backgrounds (WCAG 1.4.11). */
-    --border: 240 5% 52%;
-    --input: 240 5% 52%;
+    --border: 44 4.5% 47.6%;
+    --input: 44 4.5% 47.6%;
+    /* Cards lift off the page with a soft shadow as well as the border. */
+    --card-shadow: 0 1px 2px hsl(44 12% 20% / 0.1), 0 10px 20px -12px hsl(44 12% 20% / 0.28);
     --ring: 22 65% 58%;
     --radius: 0.75rem;
-    --hero: 240 5% 10%;
+    --hero: 228 6% 11%;
     --hero-foreground: 240 6% 96%;
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 240 5% 35%;
+    --sidebar-foreground: 42 6% 30%;
     --sidebar-primary: 21 82% 72%;
     --sidebar-primary-foreground: 240 6% 10%;
     --sidebar-accent: 21 55% 94%;
     --sidebar-accent-foreground: 22 45% 32%;
-    --sidebar-border: 240 5% 52%;
+    --sidebar-border: 44 4.5% 47.6%;
     --sidebar-ring: 22 65% 58%;
   }
   .dark {
@@ -49,32 +52,35 @@
     --elo-foundation: 155 51% 65%;
     --elo-intermediate: 205 80% 74%;
     --elo-advanced: var(--primary);
-    --background: 240 5% 8%;
-    --foreground: 240 6% 94%;
-    --card: 240 5% 10%;
-    --card-foreground: 240 6% 94%;
-    --popover: 240 5% 11%;
-    --popover-foreground: 240 6% 94%;
+    /* Grey page (#1e1f22) and a step lighter cards (#27282c). */
+    --background: 225 6% 12.5%;
+    --foreground: 240 9% 93%;
+    --card: 228 6% 16.3%;
+    --card-foreground: 240 9% 93%;
+    --popover: 228 5.4% 18.2%;
+    --popover-foreground: 240 9% 93%;
     --primary: 21 82% 75%;
     --primary-foreground: 240 6% 10%;
-    --secondary: 240 4% 15%;
-    --secondary-foreground: 240 4% 76%;
-    --muted: 240 4% 14%;
-    --muted-foreground: 240 3% 59%;
-    --accent: 21 18% 16%;
+    --secondary: 230 6.3% 18.8%;
+    --secondary-foreground: 228 5% 78%;
+    --muted: 230 6.3% 18.8%;
+    --muted-foreground: 227 5.5% 68%;
+    --accent: 21 12% 21%;
     --accent-foreground: 21 82% 75%;
     --destructive: 21 82% 75%;
     --destructive-foreground: 240 6% 10%;
-    --border: 240 4% 18%;
-    --input: 240 4% 23%;
+    /* 3:1 or better against the card and page backgrounds (WCAG 1.4.11), the same values the solving screens use. */
+    --border: 228 4.1% 52.2%;
+    --input: 227 3.8% 53.9%;
+    --card-shadow: 0 1px 2px rgb(0 0 0 / 0.35), 0 12px 22px -14px rgb(0 0 0 / 0.6);
     --ring: 21 82% 75%;
-    --sidebar-background: 240 5% 9%;
-    --sidebar-foreground: 240 4% 76%;
+    --sidebar-background: 228 6% 10%;
+    --sidebar-foreground: 228 5% 78%;
     --sidebar-primary: 21 82% 75%;
     --sidebar-primary-foreground: 240 6% 10%;
-    --sidebar-accent: 21 18% 16%;
+    --sidebar-accent: 21 12% 21%;
     --sidebar-accent-foreground: 21 82% 75%;
-    --sidebar-border: 240 4% 18%;
+    --sidebar-border: 228 4.1% 52.2%;
     --sidebar-ring: 21 82% 75%;
   }
   * {
@@ -90,6 +96,13 @@
   }
   ::selection {
     background: hsl(var(--primary) / 0.3);
+  }
+}
+
+@layer components {
+  /* Every plain card on a page gets the same lift, so cards read as separate from the page in both themes. */
+  .bg-card.border {
+    box-shadow: var(--card-shadow);
   }
 }
 
@@ -109,6 +122,7 @@
   border: 1px solid hsl(var(--problem-color));
   border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--card-shadow);
 }
 .problem-entry[data-competition="APhO"],
 .problem-entry[data-level="1200-1599"] {

@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-quantum-escape-room",
-  "version": "fb0b6a09be3d773fe3bc9356e0c1497ac68db0a28877197a9c64d558d39b8617",
+  "version": "7424e68f1af16ab706f0df82d7eb6efb88af2bc24a862feefd768b10d3f06c32",
   "parts": [
     {
       "id": "a.wave-number",
@@ -13,7 +13,27 @@
         "E",
         "\\hbar"
       ],
-      "help": "m, E and ℏ positive; principal positive wave number."
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "m, E and ℏ positive. Principal positive wave number."
     },
     {
       "id": "b.parallel",
@@ -25,7 +45,15 @@
         "k_0",
         "\\theta"
       ],
-      "help": "Conserved tangential momentum; k₀ > 0; incidence angle in radians, 0 ≤ θ < π/2."
+      "symbolConditions": [
+        {
+          "symbol": "k_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Conserved tangential momentum. k₀ > 0. Incidence angle in radians, 0 ≤ θ < π/2."
     },
     {
       "id": "c.decay",
@@ -40,7 +68,33 @@
         "\\theta",
         "\\hbar"
       ],
-      "help": "V₀ > E > 0; m, ℏ > 0; real positive decay constant; θ in radians."
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "V₀ > E > 0. m, ℏ > 0. Real positive decay constant. θ in radians."
     },
     {
       "id": "d.normal",
@@ -52,7 +106,15 @@
         "k_0",
         "\\theta"
       ],
-      "help": "Positive-x transmitted wave; k₀ > 0; 0 ≤ θ < π/2 in radians."
+      "symbolConditions": [
+        {
+          "symbol": "k_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Positive-x transmitted wave. k₀ > 0, and 0 ≤ θ < π/2 in radians."
     },
     {
       "id": "d.parallel",
@@ -64,7 +126,15 @@
         "k_0",
         "\\theta"
       ],
-      "help": "Tangential momentum is conserved; radians."
+      "symbolConditions": [
+        {
+          "symbol": "k_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Tangential momentum is conserved. Radians."
     },
     {
       "id": "e.probability",
@@ -78,7 +148,33 @@
         "\\kappa",
         "d"
       ],
-      "help": "Use E_x = E cos²θ > 0 and κ from part (c); V₀ > E_x, d > 0. This form uses the normal energy, not total E."
+      "symbolConditions": [
+        {
+          "symbol": "V_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E_x",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\kappa",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use E_x = E cos²θ > 0 and κ from part (c). V₀ > E_x, d > 0. This form uses the normal energy, not total E."
     },
     {
       "id": "f.rate",
@@ -94,7 +190,45 @@
         "\\kappa_{45}",
         "d"
       ],
-      "help": "a ≫ d; independent collisions and small escape probability. κ₄₅ = √(2m(V₀ − E/2))/ℏ. Count all four wall collisions; all length/energy/mass scales positive."
+      "symbolConditions": [
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\kappa_{45}",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "a ≫ d, with independent collisions and small escape probability. κ₄₅ = √(2m(V₀ − E/2))/ℏ. Count all four wall collisions. All length, energy and mass scales are positive."
     }
   ]
 }

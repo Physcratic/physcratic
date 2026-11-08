@@ -107,6 +107,13 @@ function same(row: Row, problem: string, input: StudentSubmission) {
     JSON.stringify(storedAnswer(row.answer)) === JSON.stringify(input.answer)
   );
 }
+/** Declared variable names from a stored key, and only valid names. Never anything else from the key. */
+export function publicSymbolNames(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  const names = value.filter((name): name is string => typeof name === "string" && /^[A-Za-z][A-Za-z0-9_]{0,31}$/.test(name));
+  return [...new Set(names)].slice(0, 20);
+}
+
 export function createAuthoredAttemptApi(deps: Deps) {
   return async function handle(
     action: "submit" | "list" | "read" | "info",
@@ -178,15 +185,16 @@ export function createAuthoredAttemptApi(deps: Deps) {
         });
       }
       if (action === "info") {
-        // One snapshot of the same published pointer used by the public reader. No
-        // private key/content/solution join; indexed ordinal usage is student-scoped.
+        // One snapshot of the same published pointer used by the public reader. No private
+        // content/solution join. The only key field read is the list of declared variable names.
         const { rows } = await deps.pool.query<{
           revision_id: string;
           part_id: string;
           answer_mode: string;
           used: string;
+          symbols: unknown;
         }>(
-          `SELECT p.published_revision_id AS revision_id,rp.part_id,rp.answer_mode,coalesce((SELECT a.attempt_number FROM authored_attempt a WHERE a.user_id=$2 AND a.revision_id=rp.revision_id AND a.part_id=rp.part_id ORDER BY a.attempt_number DESC LIMIT 1),0)::text AS used
+          `SELECT p.published_revision_id AS revision_id,rp.part_id,rp.answer_mode,coalesce((SELECT a.attempt_number FROM authored_attempt a WHERE a.user_id=$2 AND a.revision_id=rp.revision_id AND a.part_id=rp.part_id ORDER BY a.attempt_number DESC LIMIT 1),0)::text AS used,coalesce((SELECT jsonb_agg(v.name) FROM authored_revision_private_part pp, jsonb_to_recordset(CASE WHEN jsonb_typeof(pp.data->'key'->'variables')='array' THEN pp.data->'key'->'variables' ELSE '[]'::jsonb END) AS v(name text) WHERE pp.revision_id=rp.revision_id AND pp.part_id=rp.part_id AND pp.data->'key'->>'kind'='expression'),'[]'::jsonb) AS symbols
      FROM authored_problem p JOIN authored_revision r ON r.problem_id=p.id AND r.id=p.published_revision_id JOIN authored_revision_part rp ON rp.revision_id=r.id WHERE p.id=$1 AND p.state='published' ORDER BY rp.part_id`,
           [id, user.id],
         );
@@ -198,6 +206,8 @@ export function createAuthoredAttemptApi(deps: Deps) {
           parts: rows.map((r) => ({
             partId: r.part_id,
             answerMode: r.answer_mode,
+            // Declared variable names only, for the answer palette. Never the expected expression, domains or exclusions.
+            symbols: publicSymbolNames(r.symbols),
             attemptsUsed: r.used,
             attemptsRemaining: null, // No per-part lifetime cap.
           })),

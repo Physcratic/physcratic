@@ -1,6 +1,6 @@
 {
   "problemId": "arena-the-clock-in-the-racing-mirror",
-  "version": "b27ae3aed048747e1b0bc9ccc02225cca78041557fcc150414ec353347108514",
+  "version": "b46b57afded0a9ae417a481c04d6a7cf8b8241c6dea0f24eb25f893c77a41d7a",
   "parts": [
     {
       "id": "a.arrival",
@@ -12,6 +12,14 @@
         "t_0",
         "\\delta",
         "r"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\delta",
+          "assumptions": [
+            "positive"
+          ]
+        }
       ],
       "help": "Approaching mirror: r > 1, δ > 0. Include the reference camera time t₀, rather than just remaining time."
     },
@@ -27,7 +35,33 @@
         "\\delta",
         "f"
       ],
-      "help": "Distant-object, small-angle focal-plane approximation; all quantities positive. No longitudinal contraction of the transverse height."
+      "symbolConditions": [
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\delta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "f",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Distant-object, small-angle focal-plane approximation. All quantities positive. No longitudinal contraction of the transverse height."
     },
     {
       "id": "c.distance",
@@ -40,7 +74,27 @@
         "c",
         "\\delta"
       ],
-      "help": "Small reflected angles; r > 1, c > 0, δ > 0. Use the reflected-ray back-traced image, not twice the mirror’s present distance."
+      "symbolConditions": [
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\delta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Small reflected angles with r > 1, c > 0, δ > 0. Use the reflected-ray back-traced image, not twice the mirror’s present distance."
     }
   ]
 }

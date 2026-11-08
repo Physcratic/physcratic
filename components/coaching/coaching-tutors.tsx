@@ -51,9 +51,10 @@ export function CoachingTutorSlideshow() {
       </div>
       <button type="button" onClick={() => setPaused(!paused)} aria-pressed={paused} aria-label={paused ? hero.slideshowPlay : hero.slideshowPause} className="coaching-icon-button absolute bottom-2 right-2">
         {paused ? <Play className="size-4" aria-hidden="true" /> : <Pause className="size-4" aria-hidden="true" />}
+        <span>{paused ? "Play" : "Pause"}</span>
       </button>
     </div>
-    <a href="#tutors" className="coaching-link text-sm font-semibold">{hero.seeAll}</a>
+    <a href="#tutors" className="coaching-link coaching-tap text-sm font-semibold">{hero.seeAll}</a>
   </div>;
 }
 
@@ -192,8 +193,9 @@ export function CoachingTutors() {
           <div><dt className="text-sm text-muted-foreground">{coaches.coachesLabel}</dt><dd className="text-2xl font-semibold">{coaches.coachCount}</dd></div>
           <div><dt className="text-sm text-muted-foreground">{coaches.countriesLabel}</dt><dd className="text-2xl font-semibold">{coaches.countryCount}</dd></div>
         </dl>
-        {!grid && <button type="button" aria-controls="coaching-tutor-gallery" aria-pressed={paused} onClick={() => setPaused(!paused)} className="coaching-gallery-toggle inline-flex min-h-10 items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+        {!grid && <button type="button" aria-controls="coaching-tutor-gallery" aria-pressed={paused} onClick={() => setPaused(!paused)} className="coaching-gallery-toggle inline-flex min-h-11 items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
           {paused ? <Play className="size-4" aria-hidden="true" /> : <Pause className="size-4" aria-hidden="true" />}
+        <span>{paused ? "Play" : "Pause"}</span>
           {paused ? coaches.play : coaches.pause}
         </button>}
       </div>
@@ -212,7 +214,7 @@ export function CoachingTutors() {
             onTouchEnd={() => { hold.current.touch = false; release(); }}
             onTouchCancel={() => { hold.current.touch = false; release(); }}
           >
-            <button type="button" className="coaching-icon-button coaching-gallery-arrow" data-side="start" aria-label={coaches.previous} aria-controls="coaching-tutor-viewport" onClick={() => go(-1)}><ChevronLeft className="size-5" aria-hidden="true" /></button>
+            <button type="button" className="coaching-icon-button coaching-gallery-arrow" data-side="start" aria-label={coaches.previous} aria-controls="coaching-tutor-viewport" onClick={() => go(-1)}><ChevronLeft className="size-5" aria-hidden="true" /><span>Previous</span></button>
             <div id="coaching-tutor-viewport" ref={viewportRef} className="coaching-gallery-viewport" data-snap="false" role="region" aria-label={coaches.galleryLabel} tabIndex={0}>
               <div className="coaching-gallery-track">
                 {[0, 1].map((copy) => <ul key={copy} ref={copy === 0 ? listRef : undefined} className="coaching-gallery" aria-label={copy === 0 ? coaches.listLabel : undefined} aria-hidden={copy === 1 ? true : undefined}>
@@ -220,7 +222,7 @@ export function CoachingTutors() {
                 </ul>)}
               </div>
             </div>
-            <button type="button" className="coaching-icon-button coaching-gallery-arrow" data-side="end" aria-label={coaches.next} aria-controls="coaching-tutor-viewport" onClick={() => go(1)}><ChevronRight className="size-5" aria-hidden="true" /></button>
+            <button type="button" className="coaching-icon-button coaching-gallery-arrow" data-side="end" aria-label={coaches.next} aria-controls="coaching-tutor-viewport" onClick={() => go(1)}><span>Next</span><ChevronRight className="size-5" aria-hidden="true" /></button>
           </div>}
       </div>
       <button type="button" aria-expanded={grid} aria-controls="coaching-tutor-gallery" onClick={() => setGrid(!grid)} className="coaching-button coaching-button-secondary self-center">{grid ? coaches.backToSlider : coaches.seeAll}</button>

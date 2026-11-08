@@ -1,5 +1,7 @@
 # Phase 7 authored problem discovery
 
+> Removed on 5 November 2026: `tests/authored-library.browser.mjs` and its harness. They drove `components/authored/library-collection.tsx`, which nothing imports since the unified Arena change (commit `32283e0`), so the first assertion ("24 published problems on this page") could never be found. The library now lists community problems through `/api/arena/collection`, covered by the Arena tests and the sweep. The commands below are kept as the record of Phase 7.
+
 Phase8A follow-up: exact difficulty input now preserves the published label's
 edge whitespace; SQL/index semantics remain unchanged. Long titles wrap in both
 cards and the reader. Independent review/follow-up completed, with33/33 PG and

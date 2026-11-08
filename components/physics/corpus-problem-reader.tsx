@@ -15,10 +15,13 @@ import {
 } from "@/components/ui/card";
 import { getProblemTags } from "@/lib/problem-tags";
 import { MathWorkingEditor } from "./math-working-editor";
+import { PlainMathCheck } from "./plain-math-check";
 import { corpusDocument, corpusPilot } from "@/lib/corpus-pilot";
 import type { CorpusProblem } from "@/lib/corpus-schema";
 import { CorpusDocumentReader } from "./corpus-document-reader";
 import { MathFormula } from "./math-formula";
+import { assignPartColors } from "@/lib/part-colors";
+import { PartChip, SolveSteps, StepHeading, partBorder, partStyle, proseWidth, solveTokens } from "./solve-ui";
 
 export function CorpusProblemReader({
   problem,
@@ -28,9 +31,12 @@ export function CorpusProblemReader({
   onReviewToggle,
   onSaveProgress,
   signedIn,
+  sessionPending = false,
+  disabled = false,
   savedTask,
   saving,
   onBack,
+  titleAs: Title = "h2",
 }: {
   problem: CorpusProblem;
   notes: Record<string, string>;
@@ -39,14 +45,26 @@ export function CorpusProblemReader({
   onReviewToggle: (id: string) => void;
   onSaveProgress: (id: string) => Promise<void>;
   signedIn: boolean;
+  /** True while it is still unknown whether the visitor is signed in. */
+  sessionPending?: boolean;
+  /** True while saved notes are loading or saving, or could not be loaded. Only the notes and the buttons are locked. */
+  disabled?: boolean;
   savedTask: string | null;
   saving: boolean;
   onBack: () => void;
+  /** h1 when this problem is the whole page, h2 otherwise. */
+  titleAs?: "h1" | "h2";
 }) {
+  // Under an h1 title the section headings are h2, so the levels never skip.
+  const Section = Title === "h1" ? "h2" : "h3";
   const [partId, setPartId] = useState(problem.parts[0].id);
   const [solutionOpen, setSolutionOpen] = useState(false);
   const heading = useRef<HTMLHeadingElement>(null);
   const part = problem.parts.find((item) => item.id === partId)!;
+  // Colour by position, so A.1 and A.2 share A's colour. The label text is always shown too.
+  const colours = assignPartColors(problem.parts.map((item) => item.id));
+  const colour = colours[problem.parts.findIndex((item) => item.id === partId)] ?? 0;
+  const box = `min-w-0 rounded-lg border p-4 ${partBorder}`;
   const taskKey = `${problem.id}:${part.id}`;
   const isReviewed = reviewed.has(taskKey);
   const completeCount = problem.parts.filter((item) =>
@@ -58,11 +76,11 @@ export function CorpusProblemReader({
 
   return (
     <section
-      className="flex min-w-0 flex-col gap-6"
+      className={`flex min-w-0 flex-col gap-6 ${solveTokens}`}
       aria-labelledby="corpus-title"
     >
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <Button variant="ghost" size="sm" onClick={onBack}>
+        <Button variant="ghost" size="sm" className="min-h-11" onClick={onBack}>
           <ArrowLeft data-icon="inline-start" />
           Back to collection
         </Button>
@@ -72,14 +90,14 @@ export function CorpusProblemReader({
           {problem.competition} {problem.year} · {problem.code} ·{" "}
           {problem.totalPoints} points
         </p>
-        <h2
+        <Title
           id="corpus-title"
           ref={heading}
           tabIndex={-1}
           className="text-balance text-2xl font-medium tracking-tight outline-none"
         >
           {problem.title}
-        </h2>
+        </Title>
         <div className="flex flex-wrap gap-2" aria-label="Problem tags">
           {getProblemTags(problem).map((tag) => (
             <Badge key={tag} variant="secondary">
@@ -98,20 +116,20 @@ export function CorpusProblemReader({
           </p>
           {problem.sections.map((section) => (
             <div key={section.id} className="flex flex-col gap-2">
-              <h3 className="text-sm font-medium leading-relaxed">
+              <Section className="text-sm font-medium leading-relaxed">
                 {section.id} · {section.title}
-              </h3>
+              </Section>
               <div className="flex flex-wrap gap-2 lg:flex-col">
                 {problem.parts
                   .filter((item) => item.section === section.id)
                   .map((item) => (
                     <Button
                       key={item.id}
+                      style={partStyle(colours[problem.parts.indexOf(item)] ?? 0)}
                       variant={item.id === partId ? "secondary" : "ghost"}
                       size="sm"
-                      className="justify-start lg:h-auto lg:py-2"
+                      className={`min-h-11 justify-start rounded-l-none border lg:h-auto lg:py-2 ${partBorder}`}
                       aria-current={item.id === partId ? "step" : undefined}
-                      aria-label={`${item.id}: ${item.title}`}
                       onClick={() => {
                         setPartId(item.id);
                         setSolutionOpen(false);
@@ -122,7 +140,8 @@ export function CorpusProblemReader({
                       )}
                       <span className="flex min-w-0 gap-2">
                         <span>{item.id}</span>
-                        <span className="hidden text-wrap text-left lg:inline">
+                        {/* Always in the page for screen readers, so the button's name is its visible text. */}
+                        <span className="sr-only text-wrap text-left lg:not-sr-only">
                           {item.title}
                         </span>
                       </span>
@@ -133,10 +152,10 @@ export function CorpusProblemReader({
           ))}
         </nav>
         <div className="flex min-w-0 flex-1 flex-col gap-5">
-          <Card className="min-w-0 shadow-none">
+          <Card style={partStyle(colour)} className={`min-w-0 shadow-none ${partBorder}`}>
             <CardHeader className="gap-3">
               <div className="flex flex-wrap items-center gap-2">
-                <Badge variant="secondary">{part.id}</Badge>
+                <PartChip index={colour}>{part.id}</PartChip>
                 <Badge variant="outline">{part.points.toFixed(1)} points</Badge>
                 {isReviewed && (
                   <Badge variant="outline">Reviewed · self-assessed</Badge>
@@ -149,7 +168,9 @@ export function CorpusProblemReader({
               </CardTitle>
             </CardHeader>
             <CardContent className="flex min-w-0 flex-col gap-5">
-              <p className="text-pretty text-base leading-relaxed">
+              <SolveSteps />
+              <StepHeading step={1}>Read the problem</StepHeading>
+              <p className={`text-pretty text-base leading-relaxed ${proseWidth}`}>
                 {part.prompt}
               </p>
               {part.items && (
@@ -160,8 +181,9 @@ export function CorpusProblemReader({
                 </ul>
               )}
               {part.model && <MathFormula formula={part.model} />}
-              <details className="min-w-0 rounded-lg border p-4">
-                <summary className="cursor-pointer text-sm font-medium">
+              <details style={partStyle(colour)} className={box}>
+                <summary className="flex min-h-11 cursor-pointer flex-wrap items-center gap-2 text-sm font-medium">
+                  <PartChip index={colour}>{part.id}</PartChip>
                   Reading notes & shared constants
                 </summary>
                 <div className="flex min-w-0 flex-col gap-4 pt-4">
@@ -184,19 +206,36 @@ export function CorpusProblemReader({
                 problem={problem}
                 initialPage={part.page}
               />
-              <MathWorkingEditor
-                key={`${taskKey}:working`}
-                id="corpus-working"
-                value={notes[taskKey] ?? ""}
-                onChange={(value) => onNotesChange(taskKey, value)}
-                description="Use Save subpart progress below to keep your notes and self-review mark in your private account. Unsaved edits are lost on leaving or refresh. No marks or ELO are awarded."
-              />
+              <StepHeading step={2}>Answer</StepHeading>
+              {signedIn ? (
+                <fieldset disabled={disabled} className="min-w-0">
+                  <MathWorkingEditor
+                    key={`${taskKey}:working`}
+                    id="corpus-working"
+                    value={notes[taskKey] ?? ""}
+                    onChange={(value) => onNotesChange(taskKey, value)}
+                    description="Use Save subpart progress below to keep your notes and self-review mark in your private account. Unsaved edits are lost on leaving or refresh. No marks or ELO are awarded."
+                  />
+                </fieldset>
+              ) : sessionPending ? (
+                <p role="status" className="text-sm text-muted-foreground">Checking whether you are signed in…</p>
+              ) : (
+                <>
+                  <p className="text-sm leading-relaxed text-muted-foreground">Sign in to keep working notes. You can read the problem and open the official solution without an account.</p>
+                  <PlainMathCheck />
+                </>
+              )}
+              <StepHeading step={3}>Check</StepHeading>
+              <p className="text-sm leading-relaxed text-muted-foreground">This part has no automatic check. Compare your working with the official solution in step 4, then mark it as reviewed.</p>
+              <StepHeading step={4}>Solution</StepHeading>
               <details
                 key={taskKey}
-                className="min-w-0 rounded-lg border p-4"
+                style={partStyle(colour)}
+                className={box}
                 onToggle={(event) => setSolutionOpen(event.currentTarget.open)}
               >
-                <summary className="cursor-pointer text-sm font-medium">
+                <summary className="flex min-h-11 cursor-pointer flex-wrap items-center gap-2 text-sm font-medium">
+                  <PartChip index={colour}>{part.id}</PartChip>
                   Reveal official solution · {part.id}
                 </summary>
                 {solutionOpen && (
@@ -220,8 +259,9 @@ export function CorpusProblemReader({
             <CardFooter className="flex flex-wrap items-center justify-between gap-3 border-t pt-5">
               <Button
                 variant={isReviewed ? "secondary" : "outline"}
-                size="sm"
+                className="min-h-11"
                 aria-pressed={isReviewed}
+                disabled={disabled}
                 onClick={() => onReviewToggle(taskKey)}
               >
                 {isReviewed && <Check data-icon="inline-start" />}
@@ -229,14 +269,14 @@ export function CorpusProblemReader({
               </Button>
               {signedIn ? (
                 <Button
-                  size="sm"
+                  className="min-h-11"
                   onClick={() => onSaveProgress(taskKey)}
-                  disabled={saving}
+                  disabled={saving || disabled}
                 >
                   {saving ? "Saving…" : "Save subpart progress"}
                 </Button>
               ) : (
-                <Button size="sm" variant="outline" asChild>
+                <Button className="min-h-11" variant="outline" asChild>
                   <Link href="/sign-in?returnTo=%2Fdashboard%3Fview%3Dproblems">
                     Sign in to save progress
                   </Link>
@@ -248,7 +288,7 @@ export function CorpusProblemReader({
                 </p>
               )}
               <a
-                className="inline-flex items-center gap-1 text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
+                className="inline-flex min-h-11 items-center gap-1 text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
                 href={
                   corpusDocument(problem, "solutions", part.solutionPage).pdf
                 }
@@ -261,7 +301,7 @@ export function CorpusProblemReader({
             </CardFooter>
           </Card>
           <details className="min-w-0 rounded-lg border p-5">
-            <summary className="cursor-pointer text-sm font-medium">
+            <summary className="flex min-h-11 cursor-pointer items-center text-sm font-medium">
               Source, attribution & import review
             </summary>
             <div className="flex flex-col gap-4 pt-4">
@@ -272,7 +312,7 @@ export function CorpusProblemReader({
                 href={problem.sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-sm underline underline-offset-4"
+                className="inline-flex min-h-11 items-center gap-1 text-sm underline underline-offset-4"
               >
                 Official source archive
                 <ArrowUpRight className="size-4" />
@@ -304,7 +344,7 @@ export function CorpusProblemReader({
       </div>
       <Alert>
         <Info />
-        <AlertTitle>Learning, not a rating event</AlertTitle>
+        <AlertTitle role="heading" aria-level={3}>Learning, not a rating event</AlertTitle>
         <AlertDescription>
           Reviews are your own learning notes. This pilot has no contest
           submissions, automatic full-problem judging, or ELO changes.

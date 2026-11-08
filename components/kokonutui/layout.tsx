@@ -5,6 +5,7 @@ import Sidebar from "./sidebar";
 import TopNav from "./top-nav";
 import { communityProfilesEnabled } from "@/lib/community/profile-route";
 import { ProfileSetupPrompt } from "@/components/community/profile-setup-prompt";
+import { GuidedTour } from "@/components/tour/guided-tour";
 
 export default function Layout({
   children,
@@ -18,6 +19,7 @@ export default function Layout({
   return (
     <div className="flex min-h-dvh font-sans">
       <SkipLink targetId="main-content">Skip to content</SkipLink>
+      <GuidedTour tourId="welcome" />
       <Sidebar view={view} topic={topic} />
       <div className="flex min-w-0 flex-1 flex-col lg:pl-60">
         <TopNav view={view} topic={topic} />
