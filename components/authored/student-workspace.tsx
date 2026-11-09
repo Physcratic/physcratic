@@ -38,6 +38,7 @@ import {
   studentHistorySchema,
   submissionInfoSchema,
   formKey,
+  expressionDraftError,
   type PublicRevision,
   type Viewer,
   type AnswerBuffer,
@@ -1154,7 +1155,8 @@ function AnswerFields({
         </Field>
       </>
     );
-  if (buffer.kind === "expression")
+  if (buffer.kind === "expression") {
+    const error = expressionDraftError(buffer.expression);
     return (
       <div className="space-y-2">
         <label id={`${expressionId}-label`} htmlFor={expressionId} className="block text-sm font-medium">
@@ -1166,13 +1168,21 @@ function AnswerFields({
           value={buffer.expression}
           onChange={(latex) => onChange({ ...buffer, expression: latex })}
           symbols={symbols}
-          maxLength={180}
+          maxLength={null}
+          upgradeOnBlur
+          invalid={Boolean(error)}
+          describedBy={`${expressionId}-limit`}
+          checkSymbols={!error}
         />
+        <p id={`${expressionId}-limit`} role="status" aria-live="polite" className="text-sm text-destructive empty:hidden">
+          {error}
+        </p>
         <p className="text-sm leading-relaxed text-muted-foreground">
-          Note: Type as you usually write it. E.g. [ / ] for a fraction, [ ^ ] for a power [ int ] for an integral, etc
+          Type / for a fraction, ^ for a power, or sqrt for a square root. You can also type supported LaTeX.
         </p>
       </div>
     );
+  }
   return (
     <Field
       label="Manual answer"

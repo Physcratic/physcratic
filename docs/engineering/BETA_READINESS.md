@@ -1,5 +1,12 @@
 # Beta readiness log
 
+## 2026-11-09 - Friday B1 expression input and recovery
+
+- Base `ab8881007fa6fe040b87a1b0fdb6a85e2d12b295`, branch `codex/friday-b1-expression-recovery`. Review only, no merge or deployment. Editable expression drafts now exceed the unchanged 180-character submission limit without throwing or truncating. The existing serialized recovery budget and storage failures explicitly report memory-only edits and download-before-leaving guidance. Invalid transport input allocates no retry identity or POST.
+- Authored fields opt into restored MathLive editing with blur/composition-safe fallback transition. Numeric/manual fields and other callers retain their policy. Integral guidance removed. No grading decision, migration, publication contract, feature flag, CSP, workflow, billing or provider change.
+- Node 22.23.1 (checksum-verified), pnpm 10.34.9 frozen install, TypeScript and zero-warning lint pass. Full server: 792 pass, 24 DB-dependent skips and one inherited TODO. Separate disposable PostgreSQL 18.6: 162 pass, no skips. Components: 136 pass. New expression browser: 50 checks pass at 1440/375 in light/dark, including 179/180/181/210-character reloads, real keystroke overflow, no invalid POST, delayed/failed imports, focus/selection, synthetic composition, plain/math correctness equivalence and account clearing. Existing authored-student PostgreSQL/browser suite passes retry/idempotency, revision/account races, history and solution/media isolation.
+- Guarded production build passes using main's clean-environment `scripts/csp/local.mjs --build` (build only). The stricter offline runner initially blocked a native subprocess before compilation. No guard was weakened. Physical iOS/Android keyboards, deployed providers and Preview remain unverified. Review the draft PR for exact head, subsequent built-browser outcomes and remote check status.
+
 ## 2026-11-09 - Temporary manual QA and contest account isolation
 
 - Main `fa986db`, PR #122 `82f39b9`. Confirmed and reproduced prior-account contest answers surviving an in-place account switch. Separate fix `95a6f8b` adds an account-keyed private cache/form boundary and 12 Chromium checks. No server, schema, CSP/header, dependency or deployment change.

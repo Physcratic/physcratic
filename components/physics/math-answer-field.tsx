@@ -30,6 +30,7 @@ export function MathAnswerField({
   autoFocus,
   emptyHint,
   loadWithValue,
+  upgradeOnBlur = false,
   checkSymbols = true,
   padMode = "answer",
 }: {
@@ -46,13 +47,16 @@ export function MathAnswerField({
   invalid?: boolean;
   describedBy?: string;
   placeholder?: string;
-  maxLength?: number;
+  /** Null keeps an unfinished draft intact. Submission validation belongs to the caller. */
+  maxLength?: number | null;
   /** Move the cursor into the field as soon as it is ready. */
   autoFocus?: boolean;
   /** A short example shown inside the empty maths field. */
   emptyHint?: string;
   /** Open as a maths field even when it starts with a value (editing something already written). */
   loadWithValue?: boolean;
+  /** Load restored work too, but wait until focus and composition leave the fallback before replacing it. */
+  upgradeOnBlur?: boolean;
   /** Name a symbol the problem does not use. Off for free-form equations, where any symbol is fine. */
   checkSymbols?: boolean;
   /** "answer" hides the buttons the checker cannot read. "full" shows them all (Studio text and solution fields). */
@@ -79,18 +83,27 @@ export function MathAnswerField({
   /** MathLive's own shortcuts, before the problem's symbols took any out. */
   const baseShortcuts = useRef<Record<string, never> | null>(null);
 
-  // Load MathLive only when this field is on screen, and only if the box is still empty (never swap a typed answer).
+  // Authored drafts can upgrade after blur. Other callers keep their original empty-field-only policy.
   useEffect(() => {
     let cancelled = false;
-    const start = loadWithValue || value.trim() === "";
+    let composing = false;
+    let frame = 0;
+    let Element: typeof MathfieldElement | undefined;
+    let mounted: MathfieldElement | undefined;
+    const inputArea = wrapper.current;
+    const start = upgradeOnBlur || loadWithValue || value.trim() === "";
     if (!start || !host.current) return;
-    import("mathlive")
-      .then(({ MathfieldElement: Element }) => {
-        // Slow to load: if the reader has started typing in the plain box, leave it alone.
-        if (cancelled || !host.current || (!loadWithValue && (latest.current.trim() !== "" || document.activeElement === plain.current))) return;
+    const mount = () => {
+      try {
+        if (cancelled || !Element || !host.current || mounted) return;
+        if (upgradeOnBlur) {
+          // Never replace an active editor, including a palette click or an IME commit.
+          if (composing || inputArea?.contains(document.activeElement)) return;
+        } else if (!loadWithValue && (latest.current.trim() !== "" || document.activeElement === plain.current)) return;
         Element.fontsDirectory = null;
         Element.soundsDirectory = null;
         const element = new Element();
+        if (upgradeOnBlur || loadWithValue) element.value = plain.current?.value ?? latest.current;
         element.id = id;
         element.setAttribute("aria-labelledby", labelId);
         element.mathVirtualKeyboardPolicy = "manual";
@@ -113,6 +126,7 @@ export function MathAnswerField({
           true,
         );
         host.current.appendChild(element);
+        mounted = element;
         field.current = element;
         // Names turn into maths as you type, and a declared symbol is left alone.
         baseShortcuts.current = element.inlineShortcuts as Record<string, never>;
@@ -165,12 +179,37 @@ export function MathAnswerField({
           element.addEventListener("focusin", apply);
         }
         setReady(true);
-      })
+      } catch {
+        // If the library cannot initialize this draft, keep the editable fallback.
+        mounted?.remove();
+        if (field.current === mounted) field.current = null;
+        mounted = undefined;
+      }
+    };
+    const scheduleMount = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(mount);
+    };
+    const beginComposition = () => { composing = true; };
+    const endComposition = () => { composing = false; scheduleMount(); };
+    if (upgradeOnBlur) {
+      inputArea?.addEventListener("focusout", scheduleMount);
+      inputArea?.addEventListener("compositionstart", beginComposition);
+      inputArea?.addEventListener("compositionend", endComposition);
+    }
+    import("mathlive")
+      .then((module) => { Element = module.MathfieldElement; mount(); })
       .catch(() => {});
     return () => {
       cancelled = true;
+      cancelAnimationFrame(frame);
+      inputArea?.removeEventListener("focusout", scheduleMount);
+      inputArea?.removeEventListener("compositionstart", beginComposition);
+      inputArea?.removeEventListener("compositionend", endComposition);
+      mounted?.remove();
+      if (field.current === mounted) field.current = null;
     };
-    // Runs once per mount: the field decides between MathLive and the plain box at the start.
+    // One import and one editor instance per mount. Values/attributes are synced below.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -219,7 +258,8 @@ export function MathAnswerField({
     const { text, caret } = plainInsertion(item.insert);
     const start = input.selectionStart ?? input.value.length;
     const end = input.selectionEnd ?? start;
-    const next = `${input.value.slice(0, start)}${text}${input.value.slice(end)}`.slice(0, maxLength);
+    const inserted = `${input.value.slice(0, start)}${text}${input.value.slice(end)}`;
+    const next = maxLength === null ? inserted : inserted.slice(0, maxLength);
     change.current(next);
     requestAnimationFrame(() => {
       input.focus();
@@ -263,7 +303,7 @@ export function MathAnswerField({
             id={id}
             className="h-11 font-mono"
             value={value}
-            maxLength={maxLength}
+            maxLength={maxLength ?? undefined}
             autoComplete="off"
             autoCapitalize="off"
             spellCheck={false}

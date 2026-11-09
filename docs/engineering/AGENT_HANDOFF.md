@@ -1,5 +1,11 @@
 # Agent handoff
 
+## Friday B1 review handoff (9 November 2026)
+
+- Base `ab8881007fa6fe040b87a1b0fdb6a85e2d12b295`, dedicated branch `codex/friday-b1-expression-recovery`. Authored expression recovery/presentation only. Draft PR head and Checks tab are authoritative. Do not merge or deploy.
+- Draft strings are separate from the unchanged 180-character submission contract. Overlength work survives mode changes/reload, cannot create a retry key/POST, and has associated live validation. The existing 2,000,000-character recovery budget reports capacity/quota failures explicitly while retaining memory/download data. Existing pending requests and immutable account/problem/revision identities are preserved.
+- Authored MathLive restoration is opt-in and waits for fallback blur/composition completion. Numeric/manual controls, other reader layouts, grading and publication are unchanged. See BETA_READINESS.md and AUTHORED_STUDENT_UI.md for verification and limits. Independent review and physical-device keyboard acceptance remain outstanding. No Production, shared SQL, migration, provider/flag, CSP, workflow or billing operation occurred. Stop after the draft implementation PR.
+
 ## Temporary manual QA handoff (9 November 2026)
 
 Main `fa986db`, PR #122 `82f39b9` unchanged. Separate contest account-isolation fix `95a6f8b` is ready for independent review, not merged. See [manual QA evidence](MANUAL_QA_2026-11-09.md). Local standard/PG checks and Chromium CSP/moderation/authoring regressions pass. Firefox/WebKit remain BLOCKED, the profile browser has a stale expectation FAIL, and full guest/signed-in sweep is NOT RUN. Do not infer Production/provider readiness. Next action is independent review and completing missing qualification. No deployment, flags, SQL or enforcement is authorised.
