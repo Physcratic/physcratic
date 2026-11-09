@@ -22,7 +22,7 @@ export function hashPolicy(hashes) {
 export async function publicArtifact(root) {
   const buildId = (await readFile(resolve(root, '.next/BUILD_ID'), 'utf8')).trim();
   const manifest = JSON.parse(await readFile(resolve(root, '.next/prerender-manifest.json'), 'utf8'));
-  const routes = {};
+  const routes = /** @type {Record<string,{htmlDigest:string,hashes:string[],policy:string,htmlBytes:number,status:number}>} */ ({});
   for (const route of Object.keys(manifest.routes)) {
     if (route.endsWith('/opengraph-image')) continue; // metadata handler, not HTML
     // Explicitly reviewed public build artifacts only. New pages still fail the
