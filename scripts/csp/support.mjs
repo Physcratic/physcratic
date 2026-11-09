@@ -1,6 +1,19 @@
 import assert from 'node:assert/strict';
 import { resolve } from 'node:path';
 
+/** @param {Record<string, string | undefined>} env */
+export function browserSelection(env = process.env, {metricsOnly = false} = {}) {
+  const all = ['chromium', 'firefox', 'webkit'];
+  const names = (env.CSP_BROWSERS || all.join(',')).split(',').map(name => name.trim());
+  assert.ok(names.every(name => all.includes(name)), 'Unknown CSP browser selection');
+  assert.equal(new Set(names).size, names.length, 'Duplicate CSP browser selection');
+  if (env.CSP_REQUIRE_ALL === '1') {
+    assert.equal(metricsOnly, false, 'Required browser qualification cannot use metrics-only mode');
+    assert.deepEqual([...names].sort(), [...all].sort(), 'Required qualification must select all three engines');
+  }
+  return metricsOnly ? [] : names;
+}
+
 export function localOrigin(value) {
   const url = new URL(value);
   assert.equal(url.protocol, 'http:');

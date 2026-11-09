@@ -10,11 +10,12 @@ import { productionBuild, startLocal } from './local.mjs';
 import { digest, publicArtifact, verifyArtifact, nonceMiddleware, staticHeaderProposal, NONCE_MATCHERS } from './policy-artifact.mjs';
 import {routeInventory,assertQualified} from './route-inventory.mjs';
 import { sourceRegistry, attribution } from './attribution.mjs';
-import { safeViolation } from './support.mjs';
+import { safeViolation, browserSelection } from './support.mjs';
 import { evalAttribution } from './attribute.mjs';
 import { installDocumentFixtures } from './document-fixtures.mjs';
 import {documentHeaders,documentBrowsers} from './document-checks.mjs';
 const metricsOnly = process.env.CSP_METRICS_ONLY === '1';
+const browserNames = browserSelection(process.env, {metricsOnly});
 const root = process.cwd(), output = resolve('build/csp', metricsOnly ? 'architecture-performance.json' : 'architecture-results.json');
 const require = createRequire(import.meta.url);
 const tools = process.env.AUTHORING_BROWSER_TOOLS ? createRequire(join(process.env.AUTHORING_BROWSER_TOOLS, 'package.json')) : require;
@@ -95,7 +96,7 @@ try {
         if (route !== '/dashboard') assert.ok(cache.includes('s-maxage'), 'Public caching must remain');
         if (variant === 'hybrid' && route === '/dashboard') assert.ok(fresh);
       }
-      for (const name of (metricsOnly ? [] : (process.env.CSP_BROWSERS || 'chromium,firefox,webkit').split(','))) {
+      for (const name of browserNames) {
         let browser;
         try { browser = await engines[name].launch({ headless: true, ...(name === 'chromium' ? { args: ['--no-sandbox'], ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}) } : {}) }); }
         catch { if (process.env.CSP_REQUIRE_ALL === '1') throw Error('Required browser unavailable: ' + name); result.browsers.push({ variant, browser: name, limitation: 'Executable unavailable' }); continue; }

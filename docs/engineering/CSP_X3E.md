@@ -35,3 +35,34 @@ Exact final-head workflow outcomes are recorded in PR #122. GitHub marked the in
 ## Remaining gates and next action
 
 No atomic publication adapter is implemented. Atomic HTML/hash/header/CDN rollout and rollback proof, real disposable provider/all-engine/cloud qualification, privacy-bounded collector changes and operator-owned Production observation evidence remain open. The calendar does not authorise enforcement. Next action is to review this test-only PR and obtain successful standard CI plus all-three-engine qualification on its exact head. Do not merge, deploy or start enforcement from this batch.
+
+## Node 22 verification follow-up, 9 November 2026
+
+Repeated verification in a fresh worktree with checksum-verified Node 22.23.4, pnpm 10.34.9 and disposable PostgreSQL 18.6. GitHub's unexecuted jobs are not code-test results. The user reports an exhausted Actions allowance. No billing or workflow change is needed for local verification.
+
+Confirmed and fixed a qualification-configuration bug: on the preceding head, `CSP_REQUIRE_ALL=1 CSP_METRICS_ONLY=1` returned success with zero browser cases. Required qualification now rejects metrics-only mode, a scoped engine list and duplicate engine entries before any build or browser test. Ordinary scoped diagnostics and performance runs remain available without the all-engine requirement. A focused regression covers these cases. This is a test-tooling guard, with no application or deployed policy change.
+
+Node 22 focused/type/lint/build, database and browser results belong to the exact-head evidence in PR #122. Full qualification remains blocked while Firefox/WebKit executables cannot be installed. The environment returns HTTP 403 "Domain forbidden" for both `cdn.playwright.dev` and `playwright.download.prss.microsoft.com`. Missing browsers are not passes. Synthetic unavailable-service/error documents are not proof of working login, staff grants or providers.
+
+To run the missing qualification locally, install Node 22, then use a clean worktree without dotenv/Vercel configuration:
+
+```sh
+git fetch origin refs/pull/122/head
+git worktree add --detach ../physcratic-csp-local FETCH_HEAD
+cd ../physcratic-csp-local
+node --version
+git rev-parse HEAD
+corepack pnpm install --frozen-lockfile
+CSP_VERIFY_TOOLS=$(mktemp -d)
+npm install --prefix "$CSP_VERIFY_TOOLS" --no-audit --no-fund playwright@1.64.1
+"$CSP_VERIFY_TOOLS/node_modules/.bin/playwright" install --with-deps chromium firefox webkit
+export AUTHORING_BROWSER_TOOLS="$CSP_VERIFY_TOOLS"
+unset CSP_BROWSERS CSP_METRICS_ONLY CSP_REUSE_EXPERIMENT CHROMIUM_PATH
+export CSP_REQUIRE_ALL=1
+node --require ./tests/server-only-register.cjs --import tsx --test tests/csp-*.test.ts lib/security-csp*.test.ts
+node --import tsx scripts/csp/local.mjs --build
+node --import tsx scripts/csp/browser.mjs
+node --import tsx scripts/csp/architecture.mjs
+```
+
+Compare the printed SHA with the verification report. Both browser commands must exit successfully with all three engines before calling the qualification passed. No deployment or enforcement follows these commands.

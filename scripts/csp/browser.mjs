@@ -5,19 +5,20 @@ import { createRequire } from 'node:module';
 import { join, resolve } from 'node:path';
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { startLocal } from './local.mjs';
-import { safeViolation } from './support.mjs';
+import { safeViolation, browserSelection } from './support.mjs';
 import {routeInventory,checkResponse} from './route-inventory.mjs';
 import {publicArtifact,NONCE_MATCHERS} from './policy-artifact.mjs';
 import { evalAttribution } from './attribute.mjs';
 const require = createRequire(import.meta.url);
 const tools = process.env.AUTHORING_BROWSER_TOOLS ? createRequire(join(process.env.AUTHORING_BROWSER_TOOLS, 'package.json')) : require;
 const playwright = tools('playwright');
+const browserNames = browserSelection();
 const results = [], availability = [], output = resolve('build/csp/browser-results.json');
 await mkdir(resolve('build/csp'), { recursive: true });
 const artifact=await publicArtifact(process.cwd());
 const inventory=await routeInventory(process.cwd(),{matchers:NONCE_MATCHERS,hashRoutes:Object.keys(artifact.routes)});
 let failures = 0;
-for (const name of (process.env.CSP_BROWSERS || 'chromium,firefox,webkit').split(',')) {
+for (const name of browserNames) {
   assert.ok(['chromium', 'firefox', 'webkit'].includes(name));
   let browser;
   try {

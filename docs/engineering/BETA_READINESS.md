@@ -1,5 +1,9 @@
 # Beta readiness log
 
+## 2026-11-09 - X3E verification under Node 22
+
+Reverified PR #122 in a clean worktree with Node 22.23.4, pnpm 10.34.9 and disposable PostgreSQL 18.6. Tightened the test harness after reproducing required-engine success with metrics-only mode and zero browsers. Regression coverage rejects contradictory/scoped/duplicate required-engine selections. See CSP_X3E.md and PR #122 for exact-head evidence and local commands. Firefox/WebKit installation remains blocked by environment networking. GitHub jobs with no runner/steps are not test results. No workflow, billing, deployed policy, application, migration or Production operation changed. PR remains unmerged and enforcement NO-GO.
+
 ## 2026-11-08 - Main-first platform feature integration
 
 - Reconciled the user-approved feature-branch merge against main `613624d3ef10224a8bcf36c2155747a4b4c90b30`, treating main as the baseline, and incorporated main's later `03af01e` submission-hint update (#129) during verification. Preserved main's solving UI, MathLive input, shared answer reader, sampled default grading, catalogue, metadata, moderation, security fixes, settings and existing feature gates.

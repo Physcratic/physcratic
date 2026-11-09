@@ -1,5 +1,9 @@
 # Agent handoff
 
+## X3E verification follow-up (9 November 2026)
+
+Fresh Node 22.23.4/pnpm 10.34.9/PG18.6 verification follows PR #122 head `482ccc6`. Fixed the confirmed required-engine configuration bypass: metrics-only/scoped/duplicate selections cannot satisfy CSP_REQUIRE_ALL. See CSP_X3E.md for exact local commands and PR #122 for final-head test results. Firefox/WebKit downloads remain network-denied, so full qualification is BLOCKED rather than passed. GitHub allowance failures ran no tests. No billing/workflow/application/Production change, merge or enforcement. Next: run the unchanged full three-engine gate where its binaries are available, then review the remaining X3 readiness blockers separately.
+
 ## X3E detached coverage (9 November 2026)
 
 PR #122 now includes the scoped X3E follow-up, reconciled with main `fa986db`. See CSP_X3E.md for per-route policies, cache preservation, synthetic document tests and remaining gates. Production policy and application sources are unchanged. Inventory is fail-closed and covers current main's additional routes too. Exact-head validation, engine limitations and runner outcomes belong to the PR evidence. No merge/deployment/enforcement authorised. Next: reviewed exact-head standard and three-engine qualification, then separately approved adapter/provider/telemetry work. Enforcement and community launch remain NO-GO.
