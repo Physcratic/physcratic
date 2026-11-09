@@ -1,5 +1,11 @@
 # Beta readiness log
 
+## 2026-11-09 - Temporary manual QA and contest account isolation
+
+- Main `fa986db`, PR #122 `82f39b9`. Confirmed and reproduced prior-account contest answers surviving an in-place account switch. Separate fix `95a6f8b` adds an account-keyed private cache/form boundary and 12 Chromium checks. No server, schema, CSP/header, dependency or deployment change.
+- Node 22 frozen install, offline guards, typecheck, zero-warning lint, 787 server passes (24 database skips, one inherited TODO), 136 fix/147 PR component passes, guarded builds and 162 PostgreSQL 18.6 passes. Reviewed operator guards and moderation/Studio/authored-student browsers pass. Chromium CSP: 18 base cases and 28 architecture records pass with caching/private headers preserved.
+- Firefox/WebKit qualification BLOCKED. Profile browser FAILS its old blank-name expectation. Full guest/signed-in sweep NOT RUN. GitHub usage-limited jobs are not valid code evidence. See [the report](MANUAL_QA_2026-11-09.md) for exact SHAs, commands and limits. Independent review and missing qualification remain required. No merge, Production operation or CSP enforcement.
+
 ## 2026-11-08 - Main-first platform feature integration
 
 - Reconciled the user-approved feature-branch merge against main `613624d3ef10224a8bcf36c2155747a4b4c90b30`, treating main as the baseline, and incorporated main's later `03af01e` submission-hint update (#129) during verification. Preserved main's solving UI, MathLive input, shared answer reader, sampled default grading, catalogue, metadata, moderation, security fixes, settings and existing feature gates.
