@@ -23,6 +23,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Progress } from "@/components/ui/progress";
 import { ArenaDocument } from "@/components/physics/arena-document";
 import { ContestAnswerForm } from "./contest-answer-form";
+import { ContestAccountBoundary } from "./contest-account-boundary";
 
 function utc(value: string) {
   return (
@@ -41,12 +42,17 @@ function remaining(milliseconds: number) {
   return `${days}d ${hours}h ${minutes}m ${seconds % 60}s`;
 }
 export function ContestRoom({ id }: { id: string }) {
+  const { mutate: mutateShared } = useSWRConfig();
+  return <ContestAccountBoundary key={id}>
+    <ContestWorkspace id={id} onJoined={() => mutateShared("/api/dashboard")} />
+  </ContestAccountBoundary>;
+}
+function ContestWorkspace({ id, onJoined }: { id: string; onJoined: () => Promise<unknown> }) {
   const { data, error, isLoading, mutate } = useSWR<ContestRoomData>(
     `/api/contests/${id}`,
     fetchJson,
     { refreshInterval: 30000 },
   );
-  const { mutate: mutateShared } = useSWRConfig();
   const [now, setNow] = useState<number | null>(null);
   const [busy, setBusy] = useState(false);
   const [joinError, setJoinError] = useState("");
@@ -84,7 +90,7 @@ export function ContestRoom({ id }: { id: string }) {
         body: JSON.stringify({ contestId: id, registered: true }),
       });
       await mutate();
-      await mutateShared("/api/dashboard");
+      await onJoined();
     } catch (reason) {
       setJoinError(
         reason instanceof Error

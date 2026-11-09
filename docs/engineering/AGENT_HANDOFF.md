@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Temporary manual QA handoff (9 November 2026)
+
+Main `fa986db`, PR #122 `82f39b9` unchanged. Separate contest account-isolation fix `95a6f8b` is ready for independent review, not merged. See [manual QA evidence](MANUAL_QA_2026-11-09.md). Local standard/PG checks and Chromium CSP/moderation/authoring regressions pass. Firefox/WebKit remain BLOCKED, the profile browser has a stale expectation FAIL, and full guest/signed-in sweep is NOT RUN. Do not infer Production/provider readiness. Next action is independent review and completing missing qualification. No deployment, flags, SQL or enforcement is authorised.
+
 ## Current Security S1 handoff (4 November 2026)
 
 - Started main `d1dc0cff8c752a8857b43fba5f88546664cc664c`, branch `codex/community-security-s1`. [PR #119](https://github.com/Physcratic/physcratic/pull/119) merged as `a988056a157171db5f77e8470683fedc1cceb1e2`; exact tested head `b7112fd59168ac5d9b958a300d297b55d91d3b97` passed CI #207 (41812380330) and browser #7 (41812380259). Details/checksum/grants in COMMUNITY_STATUS.md.

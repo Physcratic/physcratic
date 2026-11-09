@@ -1,5 +1,7 @@
 # Execution roadmap
 
+Temporary manual QA (9 November 2026): see [evidence and outstanding gates](MANUAL_QA_2026-11-09.md). A separate reproduced contest account-isolation fix is awaiting independent review. PR #122 stays unmerged, Firefox/WebKit qualification remains blocked, and no launch/enforcement follows local testing.
+
 Baseline: main `a4a75c292fc0a9d6392e25f92818e454d6ffb4eb`, verified 4 November 2026. Source: [community guidebook](COMMUNITY_GUIDEBOOK.md); current code and [status](COMMUNITY_STATUS.md) take precedence over stale planning claims.
 
 | Priority | Workstream | State / acceptance |
