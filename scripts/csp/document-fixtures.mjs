@@ -11,7 +11,7 @@ export async function installDocumentFixtures(root) {
 import {auth as original} from './csp-original-auth';
 const getSession: typeof original.api.getSession = (async (input: Parameters<typeof original.api.getSession>[0]) => {
  if(process.env.CSP_DOCUMENT_FIXTURES!=='synthetic-only') return original.api.getSession(input);
- const state=new Headers(input.headers).get('x-csp-document-fixture');
+ const state=new Headers(input?.headers).get('x-csp-document-fixture');
  if(!state || state==='anonymous') return null;
  if(state==='error') throw new Error('Synthetic session failure');
  return {user:{id:'synthetic-csp-user',name:'Synthetic CSP user',email:'csp@example.invalid',emailVerified:state!=='unverified',createdAt:new Date(0),updatedAt:new Date(0)},session:{id:'synthetic-session',token:'synthetic',userId:'synthetic-csp-user',expiresAt:new Date('2099-01-01'),createdAt:new Date(0),updatedAt:new Date(0)}};
