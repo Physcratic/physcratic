@@ -20,17 +20,23 @@ function MathText({ text }: { text: string }) {
   });
 }
 
-function ArenaParagraph({ text }: { text: string }) {
+function ArenaParagraph({ text, staticFigures }: { text: string; staticFigures?: boolean }) {
   const figure =
     /^!\[([^\]]+)\]\((\/corpus\/arena\/figures\/[a-z-]+\.png)\)$/.exec(text);
   if (figure)
     return (
       <figure className="flex justify-center">
-        <ProblemImage
-          src={figure[2]}
-          alt={figure[1]}
-          className="h-auto max-h-96 max-w-full rounded-md"
-        />
+        {staticFigures ? (
+          // Plain <img> so the figure and its alt text are in the server HTML and show with no JavaScript.
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={figure[2]} alt={figure[1]} loading="lazy" decoding="async" className="h-auto max-h-96 max-w-full rounded-md" />
+        ) : (
+          <ProblemImage
+            src={figure[2]}
+            alt={figure[1]}
+            className="h-auto max-h-96 max-w-full rounded-md"
+          />
+        )}
       </figure>
     );
   if (/^\$\$[^$]*\$\$$/.test(text)) return <MathFormula formula={text} />;
@@ -41,10 +47,10 @@ function ArenaParagraph({ text }: { text: string }) {
   );
 }
 
-function ArenaBlocks({ blocks }: { blocks: ArenaBlock[] }) {
+function ArenaBlocks({ blocks, staticFigures }: { blocks: ArenaBlock[]; staticFigures?: boolean }) {
   return blocks.map((block, index) =>
     block.type === "paragraph" ? (
-      <ArenaParagraph key={index} text={block.text} />
+      <ArenaParagraph key={index} text={block.text} staticFigures={staticFigures} />
     ) : (
       <ol
         key={index}
@@ -55,7 +61,7 @@ function ArenaBlocks({ blocks }: { blocks: ArenaBlock[] }) {
         {block.items.map((paragraphs, itemIndex) => (
           <li key={itemIndex} className="flex min-w-0 flex-col gap-4 rounded-lg border border-border bg-card p-4 text-card-foreground">
             {paragraphs.map((text, paragraphIndex) => (
-              <ArenaParagraph key={paragraphIndex} text={text} />
+              <ArenaParagraph key={paragraphIndex} text={text} staticFigures={staticFigures} />
             ))}
           </li>
         ))}
@@ -66,7 +72,7 @@ function ArenaBlocks({ blocks }: { blocks: ArenaBlock[] }) {
 
 const partHeading = /^(\([a-z]\))\s*([\s\S]*)$/;
 
-export function ArenaDocument({ content }: { content: string }) {
+export function ArenaDocument({ content, staticFigures = false }: { content: string; staticFigures?: boolean }) {
   const id = useId();
   const sections = parseArenaDocument(content);
   // Lettered part headings such as "(a)" get a colour by position and a chip that keeps the letter. The statement
@@ -83,7 +89,7 @@ export function ArenaDocument({ content }: { content: string }) {
         if (!section.heading) {
           return (
             <Fragment key={index}>
-              <ArenaBlocks blocks={section.blocks} />
+              <ArenaBlocks blocks={section.blocks} staticFigures={staticFigures} />
             </Fragment>
           );
         }
@@ -110,7 +116,7 @@ export function ArenaDocument({ content }: { content: string }) {
               )}
             </h3>
             <div className={cn("flex min-w-0 flex-col gap-5", /^\d+[.)]\s/.test(section.heading) && "pl-4 sm:pl-6")}>
-              <ArenaBlocks blocks={section.blocks} />
+              <ArenaBlocks blocks={section.blocks} staticFigures={staticFigures} />
             </div>
           </section>
         );

@@ -15,6 +15,8 @@ import { FeedbackBox, PartChip, ResultLine, StepHeading, partBorder, partStyle }
 import { MathAnswerField } from "./math-answer-field";
 import { formatConditions, type PaletteItem } from "./answer-palette";
 import { markSolved } from "./solved-problems";
+import { clearSavedAnswer, clearSavedAnswers, readSavedAnswers, saveAnswer } from "./saved-answers";
+import { Skeleton } from "@/components/ui/skeleton";
 
 async function loadMetadata(url: string) {
   const response = await fetch(url);
@@ -42,6 +44,12 @@ export function ArchiveAnswerPanel({ problemId, onCorrect, onSeeHint, nextHref }
   const pending = useRef<AbortController | null>(null);
   const fieldPrefix = useId();
   useEffect(() => () => pending.current?.abort(), []);
+  // Answers typed before a reload or a tap on Back come back once the fields exist. They live in this tab only.
+  useEffect(() => {
+    if (!data || data.problemId !== problemId) return;
+    const saved = readSavedAnswers(problemId, data.parts.filter((part) => part.kind !== "self-review").map((part) => part.id));
+    if (Object.keys(saved).length) setAnswers((current) => ({ ...saved, ...current }));
+  }, [data, problemId]);
 
   async function checkAnswers(event: React.FormEvent) {
     event.preventDefault();
@@ -64,6 +72,8 @@ export function ArchiveAnswerPanel({ problemId, onCorrect, onSeeHint, nextHref }
       if (checked.problemId !== problemId || checked.version !== data.version) throw new Error("The problem changed. Reload the answer fields and retry.");
       if (controller.signal.aborted) return;
       setResult(checked);
+      // A part that is correct no longer needs its saved answer. The box keeps what was typed until the page is left.
+      for (const part of checked.results) if (part.status === "correct") clearSavedAnswer(problemId, part.partId);
       if (checked.results.every((part) => part.status === "correct")) onCorrect?.();
       // Solved in this browser: every part that has an answer box is correct. Parts to check yourself do not count.
       if (checked.results.some((part) => part.status === "correct") && checked.results.every((part) => part.status === "correct" || part.status === "self-review")) markSolved(problemId);
@@ -82,7 +92,7 @@ export function ArchiveAnswerPanel({ problemId, onCorrect, onSeeHint, nextHref }
     if (target) document.getElementById(`${fieldPrefix}-${target.id}`)?.focus();
   };
   const canCheck = Boolean(data?.parts.some((part) => part.kind !== "self-review" && answers[part.id]?.trim()));
-  const set = (partId: string, value: string) => { setAnswers((current) => ({ ...current, [partId]: value })); setResult(null); setError(""); };
+  const set = (partId: string, value: string) => { setAnswers((current) => ({ ...current, [partId]: value })); saveAnswer(problemId, partId, value); setResult(null); setError(""); };
   const notes = data?.parts.filter((part) => part.kind !== "self-review" && part.help && !(part.kind === "numeric" && part.help.length <= shortHelp)) ?? [];
 
   return <section id="step-answer" aria-labelledby="step-answer-title" className="flex min-w-0 scroll-mt-24 flex-col gap-6">
@@ -90,7 +100,9 @@ export function ArchiveAnswerPanel({ problemId, onCorrect, onSeeHint, nextHref }
       <StepHeading step={2} id="step-answer-title">Answer</StepHeading>
       <p className="text-sm leading-relaxed text-muted-foreground">Checks are not saved and do not change your rating.</p>
     </header>
-    {!data && !loadError && <p role="status" className="text-sm text-muted-foreground">Loading answer fields…</p>}
+    {!data && !loadError && <div role="status" className="flex min-w-0 flex-col gap-4"><span className="sr-only">Loading answer fields…</span>
+      <div aria-hidden="true" className="flex flex-col gap-3 rounded-lg border bg-card p-4"><Skeleton className="h-6 w-2/3" /><Skeleton className="h-11 w-full" /></div>
+      <div aria-hidden="true" className="flex gap-3"><Skeleton className="h-11 w-36" /><Skeleton className="h-11 w-36" /></div></div>}
     {(loadError || (data && data.problemId !== problemId)) && <Alert variant="destructive"><AlertTitle>Answer fields unavailable</AlertTitle><AlertDescription><Button variant="outline" className="min-h-11" onClick={() => mutate()}>Retry loading fields</Button></AlertDescription></Alert>}
     {data?.problemId === problemId && <form onSubmit={checkAnswers} className="flex min-w-0 flex-col gap-6" onKeyDown={(event) => {
       if (event.key === "Enter" && (event.nativeEvent.isComposing || event.keyCode === 229)) event.preventDefault();
@@ -125,7 +137,7 @@ export function ArchiveAnswerPanel({ problemId, onCorrect, onSeeHint, nextHref }
         {error && <Alert variant="destructive"><AlertTitle>Could not check your answers</AlertTitle><AlertDescription>{error} Your input is unchanged.</AlertDescription></Alert>}
         <div className="flex flex-wrap gap-3">
           <Button type="submit" data-tour="check-button" className="min-h-11 px-6" disabled={busy}>{busy && <Loader2 className="animate-spin" data-icon="inline-start" />}{busy ? "Checking…" : "Check answer"}</Button>
-          <Button type="button" variant="outline" className="min-h-11" disabled={busy} onClick={() => { setAnswers({}); setResult(null); setError(""); }}><RotateCcw data-icon="inline-start" />Clear answers</Button>
+          <Button type="button" variant="outline" className="min-h-11" disabled={busy} onClick={() => { setAnswers({}); clearSavedAnswers(problemId); setResult(null); setError(""); }}><RotateCcw data-icon="inline-start" />Clear answers</Button>
         </div>
         <div aria-live="polite" aria-atomic="true" className="min-w-0">
           {summary && <FeedbackBox tone={summary.tone} title={summary.headline}>

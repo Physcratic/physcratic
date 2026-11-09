@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowLeft, FilePlus2, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { ErrorText, HowItWorksLink, studioTokens } from "./studio-ui";
 import {
   draftRequest,
@@ -213,10 +214,18 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
           </div>
         )}
         <p role="status" className="my-6 text-sm text-muted-foreground">
-          {busy ? "Loading…" : `${items.length} drafts loaded`}
+          {busy && !items.length ? "Loading your drafts…" : busy ? "Working…" : `${items.length} drafts loaded`}
         </p>
         <div className="divide-y rounded-xl border bg-card">
-          {items.length
+          {busy && !items.length ? (
+            // The page already has its headings and buttons. The list shows the shape of what is coming.
+            [0, 1, 2].map((row) => (
+              <div key={row} aria-hidden="true" className="flex flex-wrap items-center justify-between gap-3 px-4 py-5 sm:px-6">
+                <div className="flex min-w-0 items-center gap-4"><Skeleton className="size-5 shrink-0" /><div className="space-y-2"><Skeleton className="h-4 w-48" /><Skeleton className="h-3 w-32" /></div></div>
+                <Skeleton className="h-11 w-20" />
+              </div>
+            ))
+          ) : items.length
             ? items.map((item) => (
                 <article
                   key={item.problemId}

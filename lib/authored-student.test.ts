@@ -44,6 +44,14 @@ function result(body: StudentSubmission) {
     replayed: false,
   };
 }
+test("editing a local answer does not show an unnecessary submission status", () => {
+  const storage = memory();
+  const session = new StudentSolverSession(problem, "A", storage);
+  session.edit(revision, part, numeric);
+  assert.equal(session.snapshot().message, "");
+  assert.deepEqual(session.buffer(revision, part, "numeric"), numeric);
+  assert.equal(session.snapshot().book.pending, null);
+});
 test("numeric buffers reject incomplete, nonfinite and nonzero underflow; dimensionless aliases survive", () => {
   for (const value of [
     "-",

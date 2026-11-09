@@ -3,6 +3,7 @@
 ## Working rules
 - Commit straight to main, after full local CI from a clean worktree (every step in `.github/workflows/ci.yml`, with the database tests on a throwaway Postgres). Never force-push.
 - Never buy anything, change a plan or seat, or redeploy a blocked commit on Vercel or any other service. Stop and ask the owner.
+- Never run a build, dev server or tests in the main checkout. It has .env.local. Always use a clean worktree.
 - Never touch the Vercel, Neon, auth, email or Blob settings, any real database, `lib/db/schema.ts`, `migrations/` or `.env` files without explicit approval for that task.
 - Copy rules: no em dashes, en dashes or semicolons. Casual is fine. No aphorisms or slogans. CONTRIBUTING.md has the full list.
 - Every screen passes the sweep: `SWEEP=1 node tests/solve-contrast.browser.mjs`, signed in and guest.

@@ -9,6 +9,7 @@ import { filterProblemsByTag, getProblemTags } from "@/lib/problem-tags";
 import { getEstimatedProblemElo } from "@/lib/problem-archive";
 import { CorpusProblemReader } from "./corpus-problem-reader";
 import { ProblemCard } from "./problem-card";
+import { LoadingLines } from "@/components/loading-lines";
 
 export function CorpusCollection({
   query,
@@ -67,9 +68,7 @@ export function CorpusCollection({
     return (
       <div className="flex flex-col gap-4">
         {(saved.session.isPending || saved.progress.isLoading) && (
-          <p role="status" className="text-sm text-muted-foreground">
-            Loading your saved archive notes…
-          </p>
+          <LoadingLines label="Loading your saved archive notes…" />
         )}
         {(saved.session.error || saved.progress.error) && (
           <div className="flex flex-col items-start gap-3">

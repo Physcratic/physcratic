@@ -2,7 +2,7 @@
 
 import useSWR from "swr";
 import { authClient } from "@/lib/auth-client";
-import { fetchJson } from "@/lib/api-client";
+import { apiReadSWRConfig, fetchJson } from "@/lib/api-client";
 import type { ProblemHistoryEntry } from "@/lib/problem-history";
 
 export function useProblemHistory() {
@@ -13,6 +13,7 @@ export function useProblemHistory() {
     session.data?.user ? ["/api/progress", session.data.user.id] : null,
     ([url]: [string, string]) =>
       fetchJson<{ history: ProblemHistoryEntry[] }>(url),
+    apiReadSWRConfig,
   );
   return {
     history: data?.history ?? [],

@@ -8,6 +8,7 @@ import { profileHeaders, profileReply } from "./profile-api";
 import { encodeProfileImage, InvalidProfileImage } from "./profile-image";
 import { profileMediaPolicy as policy, profileMediaKinds, type ProfileMediaSet, type ProfileMediaKind } from "./profile-media-contracts";
 import type { ProfileMediaStorage } from "./profile-media-storage";
+import { profilePictureCropSchema } from "./profile-picture-crop";
 
 export type ProfileMediaAction = "metadata" | "image" | "upload" | "remove" | "cleanup";
 type Dependencies = { pool: Pool; storage: ProfileMediaStorage;
@@ -127,8 +128,15 @@ export function createProfileMediaApi(deps: Dependencies) {
         await cleanup(user.id).catch(() => {});
         return profileReply(await ownResult(user.id));
       }
+      const pictureCrop = request.headers.get("X-Profile-Picture-Crop");
+      const bannerCrop = request.headers.get("X-Profile-Banner-Crop");
+      if ((pictureCrop !== null && kind !== "avatar") || (bannerCrop !== null && kind !== "banner"))
+        throw new MediaError(400, "Invalid image crop.");
+      const cropHeader = kind === "avatar" ? pictureCrop : bannerCrop;
+      if (cropHeader !== null && cropHeader.length > 256) throw new MediaError(400, "Invalid image crop.");
+      const crop = cropHeader === null ? undefined : profilePictureCropSchema.parse(JSON.parse(cropHeader));
       const bytes = await readRequestBytes(request, policy[kind!].inputBytes, 5000);
-      const output = await encodeProfileImage(bytes, kind!);
+      const output = await encodeProfileImage(bytes, kind!, crop);
       await cleanup(user.id).catch(() => {});
       const id = randomUUID(), path = `community-profile-media/${id}.webp`;
       await transaction(user.id, async client => {

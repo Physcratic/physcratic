@@ -156,7 +156,28 @@ export const contests = pgTable("contest", {
   published: boolean("published").notNull().default(false), rated: boolean("rated").notNull().default(false),
   registrationOpen: boolean("registrationOpen").notNull().default(false), problemIds: jsonb("problemIds").$type<string[]>().notNull().default([]),
   creators: jsonb("creators").$type<string[]>().notNull().default([]), createdAt: timestamp("createdAt", { withTimezone: true }).notNull().defaultNow(),
+  creatorUserId: text("creatorUserId"), launchOnPublish: boolean("launchOnPublish").notNull().default(false),
+  version: integer("version").notNull().default(1), publishedAt: timestamp("publishedAt", { withTimezone: true }),
 });
+
+export const contestAdmins = pgTable("contest_admin", {
+  userId: text("userId").primaryKey(), createdAt: timestamp("createdAt", { withTimezone: true }).notNull().defaultNow(),
+});
+
+export const contestProblems = pgTable("contest_problem", {
+  contestId: text("contestId").notNull(), problemId: text("problemId").notNull(), position: integer("position").notNull(),
+  title: text("title").notNull(), topic: text("topic").notNull(), statement: text("statement").notNull(), version: text("version").notNull(),
+  metadata: jsonb("metadata").$type<import("@/lib/archive-grading-contracts").ArchiveMetadata>().notNull(),
+  definition: jsonb("definition").$type<import("@/lib/archive-grading/definitions").ArchiveDefinition>().notNull(),
+}, (t) => [primaryKey({ columns: [t.contestId, t.problemId] }), unique("contest_problem_position_unique").on(t.contestId, t.position)]);
+
+export const contestAttempts = pgTable("contest_attempt", {
+  id: uuid("id").primaryKey(), userId: text("userId").notNull(), contestId: text("contestId").notNull(), problemId: text("problemId").notNull(),
+  idempotencyKey: uuid("idempotencyKey").notNull(), version: text("version").notNull(),
+  answers: jsonb("answers").$type<{ partId: string; latex: string }[]>().notNull(),
+  results: jsonb("results").$type<import("@/lib/archive-grading-contracts").ArchivePartResult[]>().notNull(),
+  createdAt: timestamp("createdAt", { withTimezone: true }).notNull().default(sql`clock_timestamp()`),
+}, (t) => [unique("contest_attempt_idempotency_unique").on(t.userId, t.contestId, t.idempotencyKey), index("contest_attempt_owner_time").on(t.userId, t.contestId, t.createdAt)]);
 
 export const contestRegistrations = pgTable("contest_registration", {
   userId: text("userId").notNull(), contestId: text("contestId").notNull(), createdAt: timestamp("createdAt", { withTimezone: true }).notNull().defaultNow(),

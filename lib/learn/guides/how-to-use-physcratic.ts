@@ -14,7 +14,7 @@ export const howToUsePhyscratic: ArticleDraft = {
   body: [
     { type: "heading", level: 2, text: "Find a problem" },
     { type: "paragraph", text: "Choose Problems in the sidebar. The library opens Physcratic Arena, with the Olympiad archive and Guided exercises in the other tabs. Pick a topic with the Topic buttons, or type in Find a problem. Choose Open problem on a card to start." },
-    { type: "paragraph", text: "The dashboard has a Recommended problem card. It shows a random Arena problem that you have not solved in this browser, and Another problem swaps it for a different one. Random quick practice, in the library, opens one of the short practice problems." },
+    { type: "paragraph", text: "The dashboard has a Recommended problem card. It shows a random Arena problem that you have not solved in this browser, and Another problem swaps it for a different one. Older short practice problems are still available through direct links in these guides, but the library no longer promotes them." },
     { type: "siteLink", href: "/dashboard?view=problems", label: "Open the problem library" },
     { type: "image", src: `${dir}/library-topic.webp`, alt: "The problem library with the Waves topic button selected and three Physcratic Arena problem cards below the search boxes.", width: 1280, height: 1000, caption: "Pick a topic, then open a card." },
 

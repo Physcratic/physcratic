@@ -5,7 +5,6 @@ import {
   parseDashboardParams,
   type DashboardParams,
 } from "@/lib/dashboard-route";
-import { jsonLdScript, organization, website } from "@/lib/seo/json-ld";
 
 type Props = { searchParams: Promise<DashboardParams> };
 
@@ -13,21 +12,14 @@ export async function generateMetadata({
   searchParams,
 }: Props): Promise<Metadata> {
   const params = await searchParams;
-  return dashboardMetadata(parseDashboardParams(params), params);
+  // The home page (/) is the public front door. The dashboard is the signed-in app, so it is not indexed. Its links still work.
+  return { ...dashboardMetadata(parseDashboardParams(params), params), robots: { index: false, follow: true } };
 }
 
 export default async function DashboardPage({ searchParams }: Props) {
   const { view, topic, query } = parseDashboardParams(await searchParams);
   return (
     <>
-      {view === "overview" ? (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: jsonLdScript([organization(), website()]),
-          }}
-        />
-      ) : null}
       <Dashboard view={view} topic={topic} query={query} />
     </>
   );

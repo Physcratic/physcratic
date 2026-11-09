@@ -50,6 +50,38 @@
         "path": "/learn/start-preparing-physics-olympiad"
       },
       {
+        "name": "home, signed out",
+        "path": "/"
+      },
+      {
+        "name": "problem library",
+        "path": "/problems"
+      },
+      {
+        "name": "problem archive",
+        "path": "/problems/archive"
+      },
+      {
+        "name": "topic page",
+        "path": "/problems/topics/mechanics"
+      },
+      {
+        "name": "archive problem page",
+        "path": "/dashboard/problems/ipho-2025-t2"
+      },
+      {
+        "name": "archive problem page, no statement text",
+        "path": "/dashboard/problems/ipho-2017-t2"
+      },
+      {
+        "name": "arena problem page",
+        "path": "/dashboard/problems/arena-mind-the-gap"
+      },
+      {
+        "name": "practice problem page",
+        "path": "/dashboard/problems/incline"
+      },
+      {
         "name": "terms",
         "path": "/terms"
       },
@@ -120,6 +152,10 @@
       {
         "name": "404 profile",
         "path": "/u/no-such-person"
+      },
+      {
+        "name": "404 topic",
+        "path": "/problems/topics/no-such-topic"
       }
     ]
   }

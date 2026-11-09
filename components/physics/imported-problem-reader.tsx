@@ -410,9 +410,8 @@ export function ImportedProblemReader({
         <div className="flex flex-col gap-3 pt-4 text-sm leading-relaxed text-muted-foreground">
           <p>{problem.attribution}</p>
           <p>
-            Imported {data?.importedOn ?? "2026-10-31"}. Source credits are retained. Importing
-            does not establish republication permission. Rights review and
-            independent physics review are pending.
+            Imported {data?.importedOn ?? "2026-10-31"}. Source credits are retained.{" "}
+            {problem.rightsNote} Independent physics review is pending.
           </p>
           {data?.sources.map((source) => (
             <div key={source.kind} className="flex flex-col gap-2">

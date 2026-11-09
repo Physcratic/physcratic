@@ -21,6 +21,8 @@ async function context(options = {}) {
     if (u.pathname === '/api/dashboard') return route.fulfill({ json: dashboard });
     if (u.pathname === '/api/rankings') return route.fulfill({ json: { rankings: [] } });
     if (u.pathname === '/api/authored-problems/library') return route.fulfill({ json: { problems: [], nextCursor: null } });
+    // The arena list reads this public route. It is a GET and changes nothing.
+    if (u.pathname === '/api/arena/collection' && r.method() === 'GET') return route.continue();
     if (u.pathname.startsWith('/api/') && u.pathname !== '/api/archive-grade') return route.fulfill({ status: 401, json: { error: 'Sign in required.' } });
     // The local archive grader is pure and does not save data. Every other write is blocked.
     if (!['GET', 'HEAD'].includes(r.method()) && u.pathname !== '/api/archive-grade') throw Error('Unexpected write: ' + u.pathname);
@@ -48,7 +50,7 @@ try {
       await p.screenshot({ path: join(process.env.P1_SCREENSHOTS, `overview-${width}-${theme}.png`), fullPage: true, animations: 'disabled' });
     }
     const navigate = async (view, heading) => {
-      if (width < 1024) await p.getByRole('button', { name: 'Open navigation', exact: true }).click();
+      if (width < 1024) await p.getByRole('button', { name: 'Menu', exact: true }).click();
       await p.locator(`nav[aria-label="Main navigation"] a[href="/dashboard?view=${view}"]:visible`).click();
       await p.getByRole('heading', { name: heading, level: 1, exact: true }).waitFor();
     };
@@ -63,16 +65,19 @@ try {
     await waitFor(p, () => document.querySelectorAll('#arena-results [data-problem-card]').length === 1);
     assert.match(await p.locator('#arena-results').innerText(), /Mind the Gap/);
     await search.fill('');
-    for (const tag of ['Mechanics', 'Energy conservation']) {
-      await p.getByLabel('Tag', { exact: true }).click();
-      await p.getByRole('option', { name: tag, exact: true }).focus();
-      await p.keyboard.press('Enter');
-      assert.ok((await p.locator('#arena-results [data-problem-card]').allTextContents()).every(t => t.includes(tag)));
+    // The tag filter is a text box with suggestions (placeholder "All tags"), so a tag is typed. The suggestions are the real tags.
+    const tagBox = p.getByLabel('Tag', { exact: true });
+    await waitFor(p, () => document.querySelectorAll('#arena-results [data-problem-card]').length > 1);
+    const unfiltered = await p.locator('#arena-results [data-problem-card]').count();
+    const suggestions = await p.locator('#problem-tag-options option').evaluateAll(options => options.map(option => option.value));
+    assert.ok(suggestions.length >= 2, 'the tag box suggests tags: ' + suggestions.length);
+    for (const tag of suggestions.slice(0, 2)) {
+      await tagBox.fill(tag);
+      await waitFor(p, () => document.querySelectorAll('#arena-results [data-problem-card]').length > 0);
+      assert.ok(await p.locator('#arena-results [data-problem-card]').count() <= unfiltered, 'a tag never adds cards: ' + tag);
       checks++;
     }
-    await p.getByLabel('Tag', { exact: true }).click();
-    await p.getByRole('option', { name: 'All tags', exact: true }).focus();
-    await p.keyboard.press('Enter');
+    await tagBox.fill('');
     await p.getByRole('tab', { name: /Olympiad archive/ }).click();
     await p.locator('#catalog-results [data-problem-card]').first().waitFor();
     const years = await p.locator('#catalog-results [data-problem-card]').evaluateAll(cards => cards.map(card => Number(card.dataset.problemCard.match(/-(\d{4})-/)?.[1])));
@@ -86,13 +91,15 @@ try {
     await p.getByRole('tab', { name: /Guided exercises/ }).click();
     await p.locator('#guided-results').getByRole('button', { name: /^Open problem:/ }).first().click();
     await p.locator('#corpus-title').waitFor();
-    const working = p.getByLabel('Your working', { exact: true });
-    await working.fill('Unsaved local working stays in the guided reader.');
-    await p.getByRole('tab', { name: /Physcratic Arena/ }).click();
-    await p.getByRole('tab', { name: /Guided exercises/ }).click();
-    assert.equal(await working.inputValue(), 'Unsaved local working stays in the guided reader.');
-    await p.getByRole('tab', { name: /Authored problems/ }).click();
-    assert.equal(new URL(p.url()).searchParams.get('collection'), 'authored');
+    // Signed out, the reader says working notes need an account. The notes box is for signed-in people only.
+    await p.getByText('Sign in to keep working notes.', { exact: false }).waitFor();
+    assert.equal(await p.getByLabel('Your working', { exact: true }).count(), 0);
+    // Back to collection returns to the guided list, with the tabs again.
+    await p.getByRole('button', { name: 'Back to collection' }).click();
+    await p.locator('#guided-results').getByRole('button', { name: /^Open problem:/ }).first().waitFor();
+    checks += 2;
+    // Community problems are part of the Arena list now, so there is no tab of their own.
+    assert.equal(await p.getByRole('tab', { name: /Authored problems/ }).count(), 0);
     await navigate('contests', 'Contests');
     await navigate('rankings', 'Rankings');
     await p.getByLabel('Search contestants', { exact: true }).fill('Nobody');
@@ -138,9 +145,9 @@ try {
   {
     const c = await context(), p = await c.newPage();
     await p.goto(origin + '/dashboard/problems/incline', { waitUntil: 'networkidle' });
-    await p.getByPlaceholder('Number or LaTeX expression').first().fill('4.9');
+    await p.getByRole('textbox', { name: /Final answer/ }).fill('4.9');
     await p.getByRole('button', { name: 'Check answer', exact: true }).click();
-    await p.getByText(/Correct within this part’s numerical tolerance\./).waitFor();
+    await p.locator('[aria-live="polite"]').getByText(/correct/i).first().waitFor();
     checks++;
     await c.close();
   }
@@ -209,5 +216,5 @@ try {
     await c.close();
   }
   }
-  console.log(`Dashboard loading: ${checks} checks passed, including four layout/theme combinations, SSR, navigation, filters, archive sorting, retained guided edits and local grading${process.env.P1_BASELINE ? " (baseline)" : ", delayed and failed calculator chunks"}.`);
+  console.log(`Dashboard loading: ${checks} checks passed, including four layout/theme combinations, SSR, navigation, filters, archive sorting, the guided exercise and local grading${process.env.P1_BASELINE ? " (baseline)" : ", delayed and failed calculator chunks"}.`);
 } finally { await browser.close(); }

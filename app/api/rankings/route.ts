@@ -1,48 +1,29 @@
-import { and, asc, desc, eq, isNotNull, ne, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
-import { contests, contestRatings } from "@/lib/db/schema";
-import { submissionError } from "@/lib/submission-server";
+import { parseRankingsQuery, RANKINGS_SEARCH_MAX_LENGTH } from "@/lib/rankings";
+import { createRankingsService } from "@/lib/rankings-server";
 
 export const runtime = "nodejs";
-export async function GET() {
-  try {
-    const latest = db
-      .selectDistinctOn([contestRatings.userId], {
-        userId: contestRatings.userId,
-        handle: contestRatings.publicHandle,
-        rating: contestRatings.rating,
-        change: contestRatings.change,
-        updatedAt: contestRatings.createdAt,
-        contests:
-          sql<number>`count(*) over (partition by ${contestRatings.userId})::int`.as(
-            "contests",
-          ),
-      })
-      .from(contestRatings)
-      .innerJoin(contests, eq(contests.id, contestRatings.contestId))
-      .where(and(eq(contests.published, true), eq(contests.rated, true)))
-      .orderBy(asc(contestRatings.userId), desc(contestRatings.createdAt))
-      .as("latest_ratings");
-    const rows = await db
-      .select({
-        handle: latest.handle,
-        rating: latest.rating,
-        change: latest.change,
-        updatedAt: latest.updatedAt,
-        contests: latest.contests,
-      })
-      .from(latest)
-      .where(and(isNotNull(latest.handle), ne(latest.handle, "")))
-      .orderBy(desc(latest.rating), asc(latest.handle))
-      .limit(100);
+const getRankings = createRankingsService(db);
+const headers = { "Cache-Control": "no-store" };
+
+export async function GET(request: Request) {
+  const query = parseRankingsQuery(new URL(request.url).searchParams);
+  if (!query) {
     return Response.json(
-      { rankings: rows },
-      { headers: { "Cache-Control": "no-store" } },
+      {
+        error: `Use a positive whole page number up to 1000000 and a search of at most ${RANKINGS_SEARCH_MAX_LENGTH} characters.`,
+      },
+      { status: 400, headers },
     );
+  }
+  try {
+    return Response.json(await getRankings(query), { headers });
   } catch {
-    return submissionError(
-      "Rankings are temporarily unavailable. Please retry.",
-      503,
+    return Response.json(
+      {
+        error: "Rankings are temporarily unavailable. Please retry.",
+      },
+      { status: 503, headers },
     );
   }
 }

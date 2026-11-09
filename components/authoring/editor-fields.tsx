@@ -3,6 +3,7 @@ import {
   useId,
   useRef,
   useState,
+  useEffect,
   cloneElement,
   isValidElement,
   type ReactNode,
@@ -60,8 +61,11 @@ export function MathPreview({
   inline?: boolean;
   keyboardScrollable?: boolean;
 }) {
+  const box = useRef<HTMLSpanElement>(null);
+  const [inlineOverflow, setInlineOverflow] = useState(false);
+  let html: string;
   try {
-    const html = katex.renderToString(latex, {
+    html = katex.renderToString(latex, {
       displayMode: !inline,
       throwOnError: true,
       trust: false,
@@ -69,26 +73,47 @@ export function MathPreview({
       maxSize: 20,
       output: "htmlAndMathml",
     });
-    return (
-      <span
-        tabIndex={keyboardScrollable ? 0 : undefined}
-        role={keyboardScrollable ? "group" : undefined}
-        aria-label={keyboardScrollable ? "Mathematical expression" : undefined}
-        className={
-          inline
-            ? "inline-block max-w-full overflow-x-auto align-middle focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
-            : "block max-w-full overflow-x-auto py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
-        }
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
-    );
   } catch {
+    html = "";
+  }
+  useEffect(() => {
+    if (!inline || !html || !box.current) return;
+    const element = box.current;
+    const math = element.querySelector<HTMLElement>(".katex");
+    const measure = () => {
+      // KaTeX can extend a pixel beyond its box even for U_i. Only actual width pressure needs a scroller.
+      setInlineOverflow(Boolean(math && math.getBoundingClientRect().width > element.clientWidth + 3));
+    };
+    measure();
+    if (typeof ResizeObserver === "undefined") return;
+    const observer = new ResizeObserver(measure);
+    observer.observe(element);
+    if (math) observer.observe(math);
+    return () => observer.disconnect();
+  }, [html, inline]);
+  if (!html) {
     return (
       <span className="block text-sm text-destructive">
         Equation preview unavailable. Check LaTeX commands and braces.
       </span>
     );
   }
+  const scrollable = !inline || inlineOverflow;
+  return (
+    <span
+      ref={box}
+      data-math-preview={inline ? "inline" : "block"}
+      tabIndex={keyboardScrollable && scrollable ? 0 : undefined}
+      role={keyboardScrollable && scrollable ? "group" : undefined}
+      aria-label={keyboardScrollable && scrollable ? "Mathematical expression" : undefined}
+      className={
+        inline
+          ? `inline-block max-w-full align-middle focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring ${inlineOverflow ? "overflow-x-auto" : "overflow-x-clip [overflow-clip-margin:0.2em]"}`
+          : "block max-w-full overflow-x-auto py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
+      }
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  );
 }
 function EquationInput({
   value,

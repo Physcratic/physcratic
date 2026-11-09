@@ -24,6 +24,7 @@ import {
 import arena from "@/lib/arena/index.json";
 import { pickProblem, readSolved } from "./solved-problems";
 import { PublishedContestCard } from "./published-contest-card";
+import { LoadingLines } from "@/components/loading-lines";
 
 const arenaProblems = arena.problems;
 const arenaIds = arenaProblems.map((item) => item.id);
@@ -54,9 +55,7 @@ function FeaturedContest() {
       </CardHeader>
       <CardContent className="flex flex-1 flex-col justify-center">
         {isLoading ? (
-          <p role="status" className="text-sm text-muted-foreground">
-            Loading published contests…
-          </p>
+          <LoadingLines label="Loading published contests…" />
         ) : error ? (
           <div className="flex flex-col items-start gap-3">
             <p role="alert" className="text-sm text-destructive">

@@ -157,7 +157,10 @@ export function GuidedTour({ tourId }: { tourId: TourId }) {
         else if (rect.top < 8) window.scrollBy(0, rect.top - 8);
       }
       const next = target.getBoundingClientRect();
-      setBox({ top: next.top, left: next.left, width: next.width, height: next.height });
+      // A target taller than the space above the phone card cannot clear it. Then the ring marks the part that is in view,
+      // so the card never covers the ring. The person scrolls for the rest.
+      const clear = vw < 640 ? vh - ch - 24 - next.top : Infinity;
+      setBox({ top: next.top, left: next.left, width: next.width, height: next.height > clear && clear >= 48 ? clear : next.height });
       if (vw >= 640) {
         const gap = 14;
         let top: number;

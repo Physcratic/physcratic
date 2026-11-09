@@ -39,7 +39,8 @@ export type ProblemCardProps = {
   elo?: number;
   attribution?: React.ReactNode;
 } & (
-  | { href: string; onOpen?: never }
+  // With both, the link is a real <a href> for crawlers and no-JS visitors, and a plain left click calls onOpen instead.
+  | { href: string; onOpen?: () => void }
   | { href?: never; onOpen: () => void }
 );
 
@@ -128,7 +129,15 @@ export function ProblemCard({
           </CardTitle>
           {href ? (
             <Button variant="outline-transparent" className="min-h-11 shrink-0" asChild>
-              <Link href={href} aria-label={actionLabel}>
+              <Link
+                href={href}
+                aria-label={actionLabel}
+                onClick={onOpen ? (event) => {
+                  if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+                  event.preventDefault();
+                  onOpen();
+                } : undefined}
+              >
                 {actionContent}
               </Link>
             </Button>

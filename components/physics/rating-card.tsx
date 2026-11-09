@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/empty";
 import { RankTitle } from "./rank-title";
 import { cn } from "@/lib/utils";
+import { LoadingLines } from "@/components/loading-lines";
 
 const chartConfig = {
   rating: { label: "ELO", color: "var(--chart-1)" },
@@ -88,9 +89,7 @@ export function RatingCard({
         </CardHeader>
         <CardContent>
           {dashboard.isLoading ? (
-            <p role="status" className="text-sm text-muted-foreground">
-              Loading your rating…
-            </p>
+            <LoadingLines label="Loading your rating…" />
           ) : dashboard.error ? (
             <div className="flex flex-col items-start gap-3">
               <p role="alert" className="text-sm text-destructive">

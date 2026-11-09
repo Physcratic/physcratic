@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import Link from "next/link";
 import useSWRImmutable from "swr/immutable";
 import { ArrowLeft, RotateCcw } from "lucide-react";
@@ -24,7 +25,8 @@ async function loadProblem(url: string) {
   return arenaProblemSchema.parse(await response.json());
 }
 
-export function ArenaProblemReader({ problem,statsEnabled=false,commentsEnabled=false,moderationEnabled=false }: { problem: ArenaCatalogEntry;statsEnabled?:boolean;commentsEnabled?:boolean;moderationEnabled?:boolean }) {
+/** `statement` is the statement rendered on the server, so it is in the HTML before any script runs. */
+export function ArenaProblemReader({ problem,statement,statsEnabled=false,commentsEnabled=false,moderationEnabled=false }: { problem: ArenaCatalogEntry;statement?:ReactNode;statsEnabled?:boolean;commentsEnabled?:boolean;moderationEnabled?:boolean }) {
   const { data, isLoading, error, mutate } = useSWRImmutable(problem.path, loadProblem);
   // Existing order only: the next entry in the Arena index. Left out for the last problem.
   const position = arenaIndex.problems.findIndex((item) => item.id === problem.id);
@@ -40,12 +42,12 @@ export function ArenaProblemReader({ problem,statsEnabled=false,commentsEnabled=
     {moderationEnabled&&<ReportControl subject={{kind:'problem',key:`arena:${problem.id}`}}/>}
     {statsEnabled&&<ProblemStatsPanel problemKey={`arena:${problem.id}`}/>}
     <SolveSteps />
-    {isLoading && <div role="status" className="flex flex-col gap-3"><span className="text-sm text-muted-foreground">Loading typeset problem…</span><Skeleton className="h-96 w-full" /></div>}
-    {error && <Alert variant="destructive"><AlertTitle>Could not load this problem</AlertTitle><AlertDescription><Button variant="outline" className="min-h-11" onClick={() => mutate()}><RotateCcw data-icon="inline-start" />Retry</Button></AlertDescription></Alert>}
-    {data && <Tabs key={problem.id} defaultValue="statement" className="flex min-w-0 flex-col gap-4">
+    {isLoading && !statement && <div role="status" className="flex flex-col gap-3"><span className="text-sm text-muted-foreground">Loading typeset problem…</span><Skeleton className="h-96 w-full" /></div>}
+    {error && !statement && <Alert variant="destructive"><AlertTitle>Could not load this problem</AlertTitle><AlertDescription><Button variant="outline" className="min-h-11" onClick={() => mutate()}><RotateCcw data-icon="inline-start" />Retry</Button></AlertDescription></Alert>}
+    {(data || statement) && <Tabs key={problem.id} defaultValue="statement" className="flex min-w-0 flex-col gap-4">
       <TabsList className="h-auto w-fit max-w-full flex-wrap"><TabsTrigger className="min-h-11" value="statement"><StepNumber>1</StepNumber>Problem statement</TabsTrigger><TabsTrigger className="min-h-11" value="solution" data-tour="solution-tab"><StepNumber>4</StepNumber>Worked solution</TabsTrigger></TabsList>
       {(["statement", "solution"] as const).map((kind) => <TabsContent key={kind} value={kind} forceMount={kind === "statement" ? true : undefined} className="min-w-0 data-[state=inactive]:hidden">
-        <div className="flex min-w-0 flex-col gap-6"><Card className="min-w-0 shadow-none"><CardHeader><CardTitle><h2>{kind === "statement" ? "Problem statement" : "Worked solution"}</h2></CardTitle><CardDescription>{kind === "statement" ? "Transcribed text and LaTeX, with original diagrams." : "Contains spoilers. Transcribed from the supplied worked solution, including its assumptions and qualifications."}</CardDescription></CardHeader><CardContent className="min-w-0"><ArenaDocument content={data[kind]} /></CardContent></Card>{kind === "statement" && <Card className="min-w-0 shadow-none"><CardContent className="pt-6"><ArchiveAnswerPanel key={problem.id} problemId={problem.id} nextHref={nextProblem ? `/dashboard/problems/${nextProblem.id}` : undefined} /></CardContent></Card>}</div>
+        <div className="flex min-w-0 flex-col gap-6"><Card className="min-w-0 shadow-none"><CardHeader><CardTitle><h2>{kind === "statement" ? "Problem statement" : "Worked solution"}</h2></CardTitle><CardDescription>{kind === "statement" ? "Transcribed text and LaTeX, with original diagrams." : "Contains spoilers. Transcribed from the supplied worked solution, including its assumptions and qualifications."}</CardDescription></CardHeader><CardContent className="min-w-0">{kind === "statement" && statement ? statement : data ? <ArenaDocument content={data[kind]} /> : error ? <Alert variant="destructive"><AlertTitle>Could not load the worked solution</AlertTitle><AlertDescription><Button variant="outline" className="min-h-11" onClick={() => mutate()}><RotateCcw data-icon="inline-start" />Retry</Button></AlertDescription></Alert> : <div role="status" className="flex flex-col gap-3"><span className="text-sm text-muted-foreground">Loading typeset problem…</span><Skeleton className="h-96 w-full" /></div>}</CardContent></Card>{kind === "statement" && <Card className="min-w-0 shadow-none"><CardContent className="pt-6"><ArchiveAnswerPanel key={problem.id} problemId={problem.id} nextHref={nextProblem ? `/dashboard/problems/${nextProblem.id}` : undefined} /></CardContent></Card>}</div>
       </TabsContent>)}
     </Tabs>}
     {commentsEnabled&&<Discussions moderationEnabled={moderationEnabled} problemKey={`arena:${problem.id}`}/>}

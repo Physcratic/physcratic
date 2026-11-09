@@ -6,6 +6,7 @@ import { authClient } from "@/lib/auth-client";
 import { accountErrorMessage, EMAIL_NOT_READY_MESSAGE } from "@/lib/account-messages";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { LoadingLines } from "@/components/loading-lines";
 
 const sectionClass = "scroll-mt-6 space-y-5 rounded-2xl border bg-card p-5 sm:p-7";
 
@@ -81,7 +82,7 @@ export function PasswordSection({ email, hasPassword, emailReady }: { email: str
     } catch { setError(accountErrorMessage("request-reset", undefined)); }
     finally { setBusy(false); }
   }
-  if (hasPassword === null) return <section id="password-settings" aria-labelledby="password-heading" className={sectionClass}><h2 id="password-heading" className="text-lg font-semibold">Password</h2><p role="status" className="text-sm text-muted-foreground">Loading…</p></section>;
+  if (hasPassword === null) return <section id="password-settings" aria-labelledby="password-heading" className={sectionClass}><h2 id="password-heading" className="text-lg font-semibold">Password</h2><LoadingLines label="Loading…" /></section>;
   if (!hasPassword) return <section id="password-settings" aria-labelledby="password-heading" className={sectionClass}>
     <header className="space-y-1"><h2 id="password-heading" className="text-lg font-semibold">Set a password</h2><p className="text-sm leading-6 text-muted-foreground">You sign in without a password right now. We’ll email you a link to set one.</p></header>
     {!emailReady && <EmailNotReady />}

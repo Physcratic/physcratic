@@ -100,17 +100,21 @@ export function StudentWorkspace({
   statsEnabled=false,
   commentsEnabled=false,
   moderationEnabled=false,
+  initialRevision,
 }: {
   problemId: string;
   viewer: Viewer;
   statsEnabled?:boolean;
   commentsEnabled?:boolean;
   moderationEnabled?:boolean;
+  /** The published revision read on the server, so the statement is in the HTML before any script runs. */
+  initialRevision?: PublicRevision | null;
 }) {
-  const [revision, setRevision] = useState<PublicRevision | null>(null),
-    [availability, setAvailability] = useState<Availability>("loading"),
+  const [revision, setRevision] = useState<PublicRevision | null>(initialRevision ?? null),
+    [availability, setAvailability] = useState<Availability>(initialRevision ? "ready" : "loading"),
     [publicMessage, setPublicMessage] = useState(""),
     [authDenied, setAuthDenied] = useState(false);
+  const hadInitial = useRef(Boolean(initialRevision));
   const revisionRef = useRef(revision),
     requestId = useRef(0),
     needsReload = useRef(false),
@@ -179,7 +183,9 @@ export function StudentWorkspace({
   );
   useEffect(() => {
     alive.current = true;
-    void load(true);
+    // With a server-rendered revision, check it quietly: a newer publication shows the existing "stale" notice.
+    void load(!hadInitial.current);
+    hadInitial.current = false;
     const focus = () => {
       if (document.visibilityState === "visible") void load();
     };
@@ -1088,12 +1094,14 @@ function PrivateWorkspace({
                   {info.parts.find((p) => p.partId === part?.id)?.attemptsUsed === "1" ? "attempt" : "attempts"} on this part.
                 </p>
               )}
-              <p
-                role="status"
-                className="text-xs leading-relaxed text-muted-foreground"
-              >
-                {state.message}
-              </p>
+              {state.message && (
+                <p
+                  role="status"
+                  className="text-xs leading-relaxed text-muted-foreground"
+                >
+                  {state.message}
+                </p>
+              )}
             </section>
             {availability === "ready" && revision && part && <WorkedSolution key={`${revision.id}:${part.id}`} partColour={partColour} partLabel={part.label || String(parts.indexOf(part) + 1)} problemId={problemId} revisionId={revision.id} partId={part.id} onStale={invalidate} onAuth={denyAuth} />}
           </aside>
@@ -1161,7 +1169,7 @@ function AnswerFields({
           maxLength={180}
         />
         <p className="text-sm leading-relaxed text-muted-foreground">
-          Type maths as you write it, with / for a fraction and ^ for a power. Use the symbols the problem gives.
+          Note: Type as you usually write it. E.g. [ / ] for a fraction, [ ^ ] for a power [ int ] for an integral, etc
         </p>
       </div>
     );

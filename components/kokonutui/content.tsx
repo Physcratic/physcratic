@@ -4,14 +4,13 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Field, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { Shuffle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { problems, viewTitles, type Problem, type View } from "@/lib/physics";
+import { viewTitles, type Problem, type View } from "@/lib/physics";
 import { Overview } from "@/components/physics/overview";
 import { ProblemLibrary } from "@/components/physics/problem-library";
 import { LearningGuide } from "@/components/physics/learning-guide";
 import { Contests } from "@/components/physics/contests";
 import { Rankings } from "@/components/physics/rankings";
+import { RANKINGS_SEARCH_MAX_LENGTH } from "@/lib/rankings";
 
 const subtitles: Record<View, string> = {
   overview: "Today's problem, your rating and recommended practice.",
@@ -38,13 +37,6 @@ export default function Content({
   function openProblem(problem: Problem) {
     router.push(`/dashboard/problems/${problem.id}`);
   }
-  const choices = topic
-    ? problems.filter((problem) => problem.topic === topic)
-    : problems;
-  function openRandomProblem() {
-    if (!choices.length) return;
-    openProblem(choices[Math.floor(Math.random() * choices.length)]);
-  }
 
   return (
     <div className="workspace-enter flex flex-col gap-7">
@@ -65,23 +57,13 @@ export default function Content({
             <Input
               id="ranking-search"
               type="search"
+              maxLength={RANKINGS_SEARCH_MAX_LENGTH}
               value={rankingSearch}
               onChange={(event) => setRankingSearch(event.target.value)}
               placeholder="Search contestants…"
               aria-controls="rankings-table"
             />
           </Field>
-        )}
-        {view === "problems" && (
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={openRandomProblem}
-            disabled={!choices.length}
-          >
-            <Shuffle data-icon="inline-start" />
-            Random quick practice
-          </Button>
         )}
       </div>
       {view === "overview" && (

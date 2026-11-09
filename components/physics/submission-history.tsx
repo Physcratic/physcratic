@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from "@/components/ui/empty";
+import { LoadingLines } from "@/components/loading-lines";
 
 type Attempt = { id: string; problemId: string; partId: string; status: string; createdAt: string; payload: SolutionSubmission; check: { matched: boolean; awardedPoints: number; maxPoints: number } | null; ratingEvent: { rating: number; change: number } | null };
 async function loadAttempts(url: string): Promise<{ attempts: Attempt[] }> {
@@ -20,7 +21,7 @@ async function loadAttempts(url: string): Promise<{ attempts: Attempt[] }> {
 export function SubmissionHistory() {
   const { data: session, isPending } = authClient.useSession();
   const { data, error, mutate, isLoading } = useSWR(session?.user ? ["/api/submissions", session.user.id] : null, ([url]) => loadAttempts(url));
-  if (isPending || isLoading) return <p role="status" className="text-sm text-muted-foreground">Loading your private attempts…</p>;
+  if (isPending || isLoading) return <LoadingLines label="Loading your private attempts…" />;
   if (!session?.user) return <Alert><AlertTitle>Sign in to continue</AlertTitle><AlertDescription><Link href="/sign-in" className="underline underline-offset-4">Your saved attempts require an active session.</Link></AlertDescription></Alert>;
   if (error) return <Alert variant="destructive"><AlertTitle>Could not load your attempts</AlertTitle><AlertDescription><Button variant="outline" onClick={() => mutate()}>Retry</Button></AlertDescription></Alert>;
   if (!data?.attempts.length) return <Empty><EmptyHeader><EmptyTitle>Your first solution starts here.</EmptyTitle><EmptyDescription>Open an imported problem, select Your solution, and save your reasoning or handwritten work.</EmptyDescription></EmptyHeader><Button asChild><Link href="/dashboard?view=problems">Browse problems</Link></Button></Empty>;
