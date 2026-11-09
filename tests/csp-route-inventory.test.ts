@@ -53,3 +53,24 @@ test('real source/build inventory rejects a new handler and stale build source',
   await writeFile(join(root,'app/admin/page.tsx'),'');result=await routeInventory(root,{matchers:[],hashRoutes:['/learn']});assert.throws(()=>assertQualified(result),/mismatch/);
  }finally{await rm(root,{recursive:true,force:true});}
 });
+
+test('the five X3D gaps require explicit, rendering-appropriate coverage',()=>{
+ const pages=['/','/_not-found','/settings','/admin/moderation','/admin/verification'];
+ const b={pages,sourcePages:pages.filter(p=>p!=='/_not-found'),prerender:{routes:{'/_not-found':{dataRoute:'/_not-found.rsc'}},dynamicRoutes:{}},matchers:['/','/settings','/admin/moderation','/admin/verification'],hashRoutes:['/_not-found']};
+ assertQualified(classifyInventory(b));
+ for(const m of b.matchers)assert.throws(()=>assertQualified(classifyInventory({...b,matchers:b.matchers.filter(x=>x!==m)})),/Unclassified HTML/);
+ assert.throws(()=>assertQualified(classifyInventory({...b,hashRoutes:[]})),/Unclassified HTML/);
+ assert.throws(()=>assertQualified(classifyInventory({...b,pages:[...pages,'/admin/new'],sourcePages:[...b.sourcePages,'/admin/new']})),/Unclassified HTML/);
+ // A cached document cannot be authorised by a per-request nonce header alone.
+ assert.throws(()=>assertQualified(classifyInventory({...b,prerender:{...b.prerender,routes:{...b.prerender.routes,'/settings':{dataRoute:'/settings.rsc'}}}})),/Unclassified HTML/);
+});
+
+test('unknown 404 HTML needs exact build evidence; status or path is never an exemption',async()=>{
+ const {digest}=await import('../scripts/csp/policy-artifact.mjs');
+ const i=classifyInventory(base()),body='<script>trusted build</script>',artifact={routes:{'/_not-found':{htmlDigest:digest(body)}}};
+ const response={status:404,contentType:'text/html',body};
+ assert.equal(checkResponse(i,'/unknown',response,artifact),'html-document');
+ assert.throws(()=>checkResponse(i,'/unknown',{...response,body:body+' '},artifact),/Unclassified HTML/);
+ assert.throws(()=>checkResponse(i,'/unknown',{...response,status:200},artifact),/Unclassified HTML/);
+ assert.throws(()=>checkResponse(i,'/unknown',response),/Unclassified HTML/);
+});

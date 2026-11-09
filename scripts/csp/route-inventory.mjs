@@ -2,6 +2,7 @@
 import assert from 'node:assert/strict';
 import {readdir,readFile,writeFile,mkdir} from 'node:fs/promises';
 import {resolve,relative} from 'node:path';
+import {createHash} from 'node:crypto';
 export function appRoute(path){
  const parts=path.replaceAll('\\','/').split('/').filter(Boolean);
  assert.ok(!parts.some(p=>/^\(\./.test(p)),'Intercepting routes require explicit inventory support');
@@ -80,10 +81,15 @@ export function documentKnown(inventory,path){
   return d.variants.includes(pathname)||new RegExp('^'+pattern+'$').test(pathname);
  })||inventory.rscRoutes?.some(d=>d.dataRoute===pathname);
 }
-export function checkResponse(inventory,path,response){
+export function checkResponse(inventory,path,response,artifact){
  const knownDocument=documentKnown(inventory,path),kind=responseKind({...response,knownDocument});
  assert.ok(!kind.startsWith('unclassified'),'Unclassified response '+path+': '+kind);
- if(kind==='html-document')assert.ok(knownDocument,'Unclassified HTML response: '+path);
+ if(kind==='html-document'){
+  const fallback=artifact?.routes['/_not-found'];
+  const verifiedError=response.status===404&&fallback&&typeof response.body==='string'&&
+   createHash('sha256').update(response.body).digest('base64')===fallback.htmlDigest;
+  assert.ok(knownDocument||verifiedError,'Unclassified HTML response: '+path);
+ }
  if(kind==='redirect')assert.ok(response.location,'Redirect missing Location: '+path);
  return kind;
 }
