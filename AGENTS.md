@@ -2,7 +2,6 @@
 
 Read `CLAUDE.md`, `CONTRIBUTING.md`, `docs/engineering/EXECUTION_ROADMAP.md` and `docs/engineering/AGENT_HANDOFF.md` before a batch. Verify code against the relevant guidebook rather than historical status prose.
 
-
 ## Product UX and copy (all user-facing work)
 
 - Optimize for a first-time visitor who has no tutorial. They must understand the page purpose, the next action, and the result of that action without explanation. Design the full journey from entry to completion, not isolated components.
@@ -11,6 +10,8 @@ Read `CLAUDE.md`, `CONTRIBUTING.md`, `docs/engineering/EXECUTION_ROADMAP.md` and
 - Write plain, specific, functional website copy. No em dashes, en dashes or semicolons in user-visible text. No aphorisms, poetic or motivational subtexts, clever slogans, generic AI-sounding filler, inflated claims or decorative subtitles. If a sentence does not help someone understand a task, requirement, state, consequence or useful context, delete it.
 - Prefer descriptive labels such as "Submit answer", "Save problem" and "Your attempts". Make forms, errors, empty states and confirmations actionable and understandable. Avoid unnecessary jargon and duplicate instructions.
 - For any substantial UI change, review the first-time user path on mobile and desktop without relying on a tutorial. Check keyboard, screen-reader, loading, error and recovery paths. Fix confusing flow before adding polish. Reuse existing patterns and obey `CONTRIBUTING.md` copy rules. Do not introduce a broad redesign unless explicitly requested.
+
+## Engineering and safety (all work)
 
 - Next 15 App Router, TypeScript, React 19, pnpm 10, Node 22. Reuse typed problem identities, immutable revisions, server grading, Better Auth sessions and private-media proxies.
 - Fresh branch/worktree from fetched main; recheck main/open PRs before reserving migration IDs and again before delivery; focused commits and PR, reconcile concurrent work, verify exact-head CI. Do not rebuild completed features or introduce unrelated dependencies/refactors.
