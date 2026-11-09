@@ -6,7 +6,7 @@ Baseline: main `a4a75c292fc0a9d6392e25f92818e454d6ffb4eb`, verified 4 November 2
 
 | Priority | Workstream | State / acceptance |
 | --- | --- | --- |
-| Ready for independent review | Friday B1 expression input/recovery | Branch `codex/friday-b1-expression-recovery` from `ab88810`. Draft PR only. Preserve 180-character server limit and retry/identity contracts. See BETA_READINESS.md and current handoff. No merge or deployment |
+| Ready for independent review | Friday B1 expression input/recovery | [Draft PR #132](https://github.com/Physcratic/physcratic/pull/132), branch `codex/friday-b1-expression-recovery` from `ab88810`. Implementation `9a9d400`. Review only. Preserve 180-character server limit and retry/identity contracts. See BETA_READINESS.md and current handoff. No merge or deployment |
 | Complete | Authoring/revisions, student reading/submissions/grading, taxonomy, Learn, P1 | Preserve contracts and regressions |
 | Complete | Community 2A/2B1/2B2/3A/3B | PRs #90/#95/#98/#101; code merged, operator deployment/enablement remains unverified |
 | Complete, production locked | Threaded discussion (Batch 4) | [PR #106](https://github.com/Physcratic/physcratic/pull/106), merge `a01836e71521ffbb4686f9b360e355c47fdd2a50`. Threads, reactions, owned edits, soft deletion and abuse controls. Default OFF and production-locked until Batch 5 |

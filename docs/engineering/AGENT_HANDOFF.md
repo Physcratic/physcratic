@@ -1,10 +1,11 @@
 # Agent handoff
 
-## Friday B1 review handoff (9 November 2026)
+## Friday B1 review handoff (10 November 2026)
 
-- Base `ab8881007fa6fe040b87a1b0fdb6a85e2d12b295`, dedicated branch `codex/friday-b1-expression-recovery`. Authored expression recovery/presentation only. Draft PR head and Checks tab are authoritative. Do not merge or deploy.
+- Base `ab8881007fa6fe040b87a1b0fdb6a85e2d12b295`, implementation `9a9d40094e57dd946d02327ddec8018fdf8c2671`, [draft PR #132](https://github.com/Physcratic/physcratic/pull/132), branch `codex/friday-b1-expression-recovery`. Authored expression recovery/presentation only. Final PR head adds verification notes only. Its Checks tab is authoritative. Do not merge or deploy.
 - Draft strings are separate from the unchanged 180-character submission contract. Overlength work survives mode changes/reload, cannot create a retry key/POST, and has associated live validation. The existing 2,000,000-character recovery budget reports capacity/quota failures explicitly while retaining memory/download data. Existing pending requests and immutable account/problem/revision identities are preserved.
-- Authored MathLive restoration is opt-in and waits for fallback blur/composition completion. Numeric/manual controls, other reader layouts, grading and publication are unchanged. See BETA_READINESS.md and AUTHORED_STUDENT_UI.md for verification and limits. Independent review and physical-device keyboard acceptance remain outstanding. No Production, shared SQL, migration, provider/flag, CSP, workflow or billing operation occurred. Stop after the draft implementation PR.
+- Verification: Node 22.23.1, typecheck, zero-warning lint, guarded build, 792 server passes (24 DB skips, one inherited TODO), 136 components, 162 disposable PG checks, 50 targeted expression browser checks, 259 production-page typing checks and the existing student PG/browser suite pass. GitHub usage is unavailable according to the owner mission. Remote jobs have no assigned runner or executed steps. An additional full guest sweep is still running, with no pass claimed.
+- Authored MathLive restoration is opt-in and waits for fallback blur/composition completion. Numeric/manual controls, other reader layouts, grading and publication are unchanged. See BETA_READINESS.md and AUTHORED_STUDENT_UI.md for verification and limits. Independent review and physical-device keyboard acceptance remain outstanding. No Production, shared SQL, migration, provider/flag, CSP, workflow or billing operation occurred. B1 is ready for independent review. The owner has separately authorized the overnight mission to continue with B2 in a fresh branch. Do not merge or deploy any batch.
 
 ## Temporary manual QA handoff (9 November 2026)
 
