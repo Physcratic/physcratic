@@ -28,3 +28,5 @@ Batch 5B completion follows independently merged PR #112 without duplicating its
 Current authorization: Security S1 remediation/PR/merge after exact-head green checks, then stop. Existing production discussion lock remains intact; installation/activation is separate user/operator work.
 
 Phase 6A: documentation-only release audit complete. See COMMUNITY_RELEASE_READINESS.md for evidence states and approvals. Exact next phase: operator-authorised read-only inventory and isolated preproduction rehearsal (Phase 6B). Launch remains NO-GO; no Production action is authorised by this checklist.
+
+Friday release, 10 November 2026: B1 expression recovery is draft PR #132. B2A `codex/friday-b2a-progress-ledger` adds the private practice/Arena persistence contract and additive migration 0017, with no UI integration yet. See [contract and operator prerequisites](PRACTICE_PROGRESS.md) and current handoff. Next is explicitly dependent B2B solving/dashboard integration, followed by B3 attribution and B4 practice/Arena layout where safe. No merge, deployment, Production migration or feature activation is authorized.
