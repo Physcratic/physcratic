@@ -1,5 +1,9 @@
 # Agent handoff
 
+## X3E detached coverage (9 November 2026)
+
+PR #122 now includes the scoped X3E follow-up, reconciled with main `fa986db`. See CSP_X3E.md for per-route policies, cache preservation, synthetic document tests and remaining gates. Production policy and application sources are unchanged. Inventory is fail-closed and covers current main's additional routes too. Exact-head validation, engine limitations and runner outcomes belong to the PR evidence. No merge/deployment/enforcement authorised. Next: reviewed exact-head standard and three-engine qualification, then separately approved adapter/provider/telemetry work. Enforcement and community launch remain NO-GO.
+
 ## X3D regression coverage (4 November 2026)
 
 Test-only route inventory and expanded CSP workflow triggers. See CSP_X3D.md for classified routes, deliberate exclusions and evidence. Current prototype has five uncovered HTML documents and now fails qualification explicitly. No deployed policy/application/provider change. PR is for review only, no merge or enforcement authorised. Next step is review of regression coverage and the separately scoped readiness blockers, not automatic X3 enforcement.

@@ -38,6 +38,17 @@ export async function documentHeaders(local, artifact, inventory, enforced) {
   assert.equal(checkResponse(inventory,'/settings/',{status:redirect.status,location:redirect.headers.get('location')}),'redirect');
   assert.equal(new URL(redirect.headers.get('location'),local.origin).pathname,'/settings');
   results.push({route:'/settings/',status:redirect.status,strategy:'redirect, destination tested separately'});
+  for(const route of ['/', '/_not-found', '/settings', '/admin/moderation', '/admin/verification']){
+    const response=await fetch(local.origin+route+'?_rsc=synthetic',{headers:{rsc:'1'}});
+    const kind=checkResponse(inventory,route,{status:response.status,contentType:response.headers.get('content-type'),headers:{rsc:'1'}});
+    assert.equal(kind,'rsc','Expected an RSC representation: '+route);
+    await response.text();results.push({route,status:response.status,strategy:'RSC, not an HTML exemption'});
+  }
+  for(const route of ['/api/health','/api/auth/get-session']){
+    const response=await fetch(local.origin+route);
+    assert.equal(checkResponse(inventory,route,{status:response.status,contentType:response.headers.get('content-type')}),'non-document');
+    await response.text();results.push({route,status:response.status,strategy:'JSON non-document'});
+  }
   return results;
 }
 
@@ -67,10 +78,14 @@ export async function documentBrowsers({browser,name,local,root,artifact,invento
       page.on('pageerror',e=>errors.push(e.message));
       const response=await page.goto(local.origin+route,{waitUntil:'networkidle'}),html=await response.text();
       checkResponse(inventory,route,{status:response.status(),contentType:response.headers()['content-type'],body:html},artifact);
+      if(fixtures){
+        assert.ok(response.headers()['cache-control'].includes('private')&&response.headers()['cache-control'].includes('no-store'),'Synthetic private response became cacheable');
+        assert.match(response.headers()['content-security-policy'],/'nonce-[A-Za-z0-9+/]{32}'/);
+      }
       if(expected)await page.getByText(expected,{exact:true}).first().waitFor();
       assert.ok(await page.locator('h1:visible').count(),'Document heading did not render');
       assert.equal(await page.locator('html').evaluate(e=>e.classList.contains('dark')),true,'Theme bootstrap did not execute');
-      if(route==='/settings'&&state==='member')await page.getByText('csp@example.invalid',{exact:true}).first().waitFor();
+      if(route==='/settings'&&state==='member')await page.getByText('Synthetic CSP user',{exact:true}).first().waitFor();
       if(route==='/settings'){
         // A real React control proves hydration, beyond server-rendered text.
         await page.getByRole('radio',{name:'Light',exact:true}).check();
@@ -93,8 +108,10 @@ export async function documentBrowsers({browser,name,local,root,artifact,invento
       assert.equal(Boolean(await page.evaluate(()=>window.__documentInjected)),!enforced);
       if(enforced)assert.ok((await page.evaluate(()=>window.__documentViolations)).some(e=>e.blockedURI==='inline'));
       assert.deepEqual(errors,[],'Document browser errors: '+route);
-      results.push({browser:name,route,state:state||'gates off',status:'PASS',negativeInlineBlocked:enforced});
-    }finally{await context.close();}
+      results.push({variant:enforced?'hybrid':'report-only',browser:name,route,state:state||'gates off',status:'PASS',negativeInlineBlocked:enforced});
+      console.log(JSON.stringify({documentCheck:results.at(-1)}));
+    }catch(error){throw new Error(name+' '+route+' '+(state||'gates off')+': '+error.message,{cause:error});}
+    finally{await context.close();}
   }
   return results;
 }

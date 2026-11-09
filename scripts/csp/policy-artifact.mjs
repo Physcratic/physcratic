@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import {gunzipSync,inflateSync,brotliDecompressSync} from 'node:zlib';
 import { buildCsp } from '../../lib/security/csp.ts';
 export const NONCE_MATCHERS = ['/', '/dashboard','/dashboard/author','/dashboard/authored/:path*','/dashboard/submissions','/dashboard/contests/:path*','/sign-in','/sign-up','/u/:path*','/coaching',
   '/settings', '/admin/moderation', '/admin/verification', '/forgot-password', '/reset-password', '/email-change'];
@@ -50,6 +51,12 @@ export function verifyStaticResponse(data, status, html) {
   assert.equal(status, data.status, 'Static document status mismatch');
   assert.equal(digest(html), data.htmlDigest, 'Served HTML/build mismatch');
   assert.deepEqual([...new Set(inlineScripts(html).map(digest))], data.hashes, 'Served script hashes/build mismatch');
+}
+export function decodeStaticBody(bytes, encoding) {
+  const decoders={gzip:gunzipSync,deflate:inflateSync,br:brotliDecompressSync};
+  const decoder=decoders[encoding];
+  assert.ok(decoder||!encoding||encoding==='identity','Unsupported static content encoding');
+  return (decoder?decoder(bytes,{maxOutputLength:4*1024*1024}):bytes).toString('utf8');
 }
 export function staticHeaderProposal(artifact) {
   // Proposal fragment only. Never writes Vercel config or replaces adapter

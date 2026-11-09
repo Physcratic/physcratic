@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { digest, hashPolicy, inlineScripts, nonceMiddleware, staticHeaderProposal,publicArtifact,verifyArtifact,verifyStaticResponse } from '../scripts/csp/policy-artifact.mjs';
+import { digest, hashPolicy, inlineScripts, nonceMiddleware, staticHeaderProposal,publicArtifact,verifyArtifact,verifyStaticResponse,decodeStaticBody } from '../scripts/csp/policy-artifact.mjs';
 import { AttributionBudget, attribution, routeTemplate } from '../scripts/csp/attribution.mjs';
 import { providerReadiness } from '../scripts/csp/providers.mjs';
 
@@ -73,6 +73,9 @@ test('trusted static artifacts reject stale builds and mismatched bytes, never h
   await verifyArtifact(root,a);
   await assert.rejects(verifyArtifact(root,{...a,buildId:'old-build'}),/mismatch/);
   verifyStaticResponse(a.routes['/_not-found'],404,html);
+  const {gzipSync,brotliCompressSync}=await import('node:zlib');
+  for(const [encoding,bytes]of [['gzip',gzipSync(html)],['br',brotliCompressSync(html)]] as const)verifyStaticResponse(a.routes['/_not-found'],404,decodeStaticBody(bytes,encoding));
+  assert.throws(()=>decodeStaticBody(Buffer.from(html),'unsupported'),/encoding/);
   assert.throws(()=>verifyStaticResponse(a.routes['/_not-found'],200,html),/status mismatch/);
   assert.throws(()=>verifyStaticResponse(a.routes['/learn'],200,html+' '),/build mismatch/);
   assert.throws(()=>verifyStaticResponse({...a.routes['/learn'],hashes:[digest('other build')]},200,html),/hashes\/build mismatch/);

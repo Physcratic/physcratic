@@ -54,7 +54,7 @@ try {
   const hybridArtifact = await publicArtifact(experiment);
   assert.equal(hybridArtifact.themeHash, baseArtifact.themeHash);
   assert.equal(await staticCount(root), await staticCount(experiment), 'Public prerendering must be retained');
-  assert.deepEqual(Object.keys(hybridArtifact.routes),Object.keys(baseArtifact.routes),'Public static route set changed');
+  assert.deepEqual(Object.keys(hybridArtifact.routes).sort(),Object.keys(baseArtifact.routes).sort(),'Public static route set changed');
   assertQualified(await routeInventory(experiment,{matchers:NONCE_MATCHERS,hashRoutes:Object.keys(hybridArtifact.routes)}));
   await verifyArtifact(experiment, hybridArtifact);
   await writeFile(resolve(root, 'build/csp/static-header-proposal.json'), JSON.stringify({ buildId: hybridArtifact.buildId, routes: staticHeaderProposal(hybridArtifact) }, null, 2));

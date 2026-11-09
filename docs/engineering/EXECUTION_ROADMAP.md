@@ -1,5 +1,7 @@
 # Execution roadmap
 
+X3E review candidate (9 November 2026): test-only follow-up in PR #122 closes the five X3D inventory gaps and reconciles current-main routes. See CSP_X3E.md and the PR's exact-head checks for runtime qualification and environment blockers. No deployed policy change, merge or enforcement is authorised. Next milestone is reviewed standard/all-engine qualification, not automatic enforcement.
+
 Baseline: main `a4a75c292fc0a9d6392e25f92818e454d6ffb4eb`, verified 4 November 2026. Source: [community guidebook](COMMUNITY_GUIDEBOOK.md); current code and [status](COMMUNITY_STATUS.md) take precedence over stale planning claims.
 
 | Priority | Workstream | State / acceptance |

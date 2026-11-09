@@ -11,7 +11,7 @@ import { buildCsp } from '../../lib/security/csp.ts';
 import { childEnvironment, localOrigin, safeViolation } from './support.mjs';
 import { codecPdf } from './fixtures.mjs';
 import { collectionFixture } from './collection-fixture.mjs';
-import { verifyStaticResponse } from './policy-artifact.mjs';
+import { verifyStaticResponse,decodeStaticBody } from './policy-artifact.mjs';
 import { documentFixtureEnvironment } from './document-fixtures.mjs';
 const require = createRequire(import.meta.url);
 const { build } = createRequire(require.resolve('tsx'))('esbuild');
@@ -145,7 +145,7 @@ export async function startLocal(mode, root = process.cwd(), options = {}) {
           response.on('end', () => {
             try {
               const body = Buffer.concat(chunks);
-              verifyStaticResponse(staticDocument, response.statusCode, body.toString('utf8'));
+              verifyStaticResponse(staticDocument, response.statusCode, decodeStaticBody(body,response.headers['content-encoding']));
               result['content-security-policy'] = result['content-security-policy'] ? `${result['content-security-policy']}, ${staticDocument.policy}` : staticDocument.policy;
               res.writeHead(response.statusCode, result); res.end(body);
             } catch { res.writeHead(502, {'Content-Type':'text/plain','Cache-Control':'no-store'}); res.end('Trusted static document mismatch'); }

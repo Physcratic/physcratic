@@ -1,5 +1,7 @@
 # X3D: fail-closed CSP regression inventory
 
+Historical X3D evidence follows. [X3E](CSP_X3E.md) extends this same review PR with explicit coverage and current-main reconciliation. Its exact-head runtime qualification remains a separate gate from this original inventory failure.
+
 Baseline: main `6f290654a0461560ce6aa9190e2bdf71fcc1dc2d`, 4 November 2026. Test tooling only. Application/header/policy output, public prerendering, auth, private media and community flags are unchanged. No adapter, provider call, deployment or enforcement is introduced. PR #121 remains the readiness report, not an enforcement approval.
 
 ## Coverage and deliberate qualification failure
