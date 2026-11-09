@@ -38,6 +38,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { ContestDraftForm } from "./contest-draft-form";
+import { ContestAccountBoundary } from "./contest-account-boundary";
 
 function utc(value: string) {
   return (
@@ -49,6 +50,9 @@ function utc(value: string) {
   );
 }
 export function ContestAdmin() {
+  return <ContestAccountBoundary><ContestAdminWorkspace /></ContestAccountBoundary>;
+}
+function ContestAdminWorkspace() {
   const { data, error, isLoading, mutate } = useSWR<ContestAdminData>(
     "/api/contests/admin",
     fetchJson,
