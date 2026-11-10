@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { problems, type Problem } from "@/lib/physics";
 import { ProblemHeading } from "./problem-heading";
 import { MathFormula } from "./math-formula";
+import { AnswerWorkspace } from "./answer-workspace";
 import { ArchiveAnswerPanel } from "./archive-answer-panel";
 import { clearSavedAnswers } from "./saved-answers";
 import { SolveSteps, StepHeading, proseWidth, solveTokens } from "./solve-ui";
@@ -36,21 +37,21 @@ function PracticeProblem({ problem }: { problem: Problem }) {
     </div>
     <ProblemHeading id="practice-title" title={problem.title} source="Quick practice" estimate={String(problem.elo)} tags={getProblemTags(problem)} />
     <SolveSteps hrefs={{ 1: "#step-read", 2: "#step-answer", 3: "#step-check", 4: "#step-solution" }} />
-    <div className="grid min-w-0 items-start gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(0,34rem)]">
+    <div className="grid min-w-0 items-start gap-6 xl:grid-cols-[minmax(0,1fr)_23rem]">
       <Card id="step-read" className="min-w-0 scroll-mt-24 shadow-none">
         <CardHeader className="gap-4">
           <StepHeading step={1}>Read the problem</StepHeading>
           <div className={`flex flex-col gap-3 ${proseWidth}`}>{problem.prompt.split(/(?<=[.!?])\s+(?=[A-Z])/u).map((sentence, index) => <p key={index} className="text-pretty text-base leading-relaxed text-foreground">{sentence.endsWith("?") ? <strong className="text-lg font-semibold leading-relaxed">{sentence}</strong> : sentence}</p>)}</div>
         </CardHeader>
       </Card>
-      <div className="flex min-w-0 flex-col gap-4">
+      <AnswerWorkspace className="xl:row-span-2">
         <Card className="min-w-0 shadow-none"><CardContent className="pt-6"><ArchiveAnswerPanel resetToken={reset} problemId={problem.id} onCorrect={() => setShowSolution(true)} onSeeHint={seeHint} nextHref={hasNext ? `/dashboard/problems/${nextProblem.id}` : undefined} /></CardContent></Card>
         <div className="flex flex-col gap-3">
           <Button variant="outline" data-tour="hint-button" className="min-h-11 justify-between" onClick={() => setShowHint(!showHint)} aria-expanded={showHint} aria-controls="problem-hint"><span className="flex items-center gap-2"><Lightbulb data-icon="inline-start" />{showHint ? "Hide hint" : "Need a hint?"}</span>{showHint ? <ChevronUp /> : <ChevronDown />}</Button>
           {showHint && <p id="problem-hint" tabIndex={-1} className={`rounded-lg border bg-muted/50 p-4 text-base leading-relaxed text-foreground ${proseWidth}`}>{problem.hint}</p>}
         </div>
-      </div>
-      <Card id="step-solution" className="min-w-0 scroll-mt-24 shadow-none xl:col-span-2">
+      </AnswerWorkspace>
+      <Card id="step-solution" className="min-w-0 scroll-mt-24 shadow-none xl:col-start-1">
         <CardHeader className="gap-4">
           <StepHeading step={4}>Solution</StepHeading>
           <p className="text-sm text-muted-foreground">Try the problem first. The solution shows every step.</p>
