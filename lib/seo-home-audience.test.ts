@@ -38,4 +38,12 @@ describe("home page audience", () => {
       assert.equal(cache, undefined, `no Cache-Control override for ${rule.source}`);
     }
   });
+
+  it("redirects site entry URLs without redirecting the public library", async () => {
+    const redirects = await nextConfig.redirects!();
+    for (const source of ["/", "/problem"]) {
+      assert.ok(redirects.some((rule) => rule.source === source && rule.destination === "/dashboard" && rule.permanent), source);
+    }
+    assert.ok(!redirects.some((rule) => rule.source === "/problems"));
+  });
 });
