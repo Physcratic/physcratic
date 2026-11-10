@@ -303,7 +303,7 @@ export function arenaStatementText(id: string): string | undefined {
 /** Title and description of a topic page, shared by the page and the metadata guard test. */
 export function topicPageCopy(name: string, count: number) {
   return {
-    title: `${name} physics olympiad problems`,
+    title: `${name.endsWith("physics") ? name : `${name} physics`} olympiad problems`,
     description: `${count} ${name.toLowerCase()} problems from IPhO, APhO, EuPhO, Physcratic Arena and practice sets, each with its own page and a checked answer where there is one.`,
   };
 }

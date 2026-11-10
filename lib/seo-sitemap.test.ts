@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
-import { existsSync } from "node:fs";
+import robotsParser from "robots-parser";
+import { resolveRobots } from "next/dist/build/webpack/loaders/metadata/resolve-route-data";
+import { existsSync, readFileSync } from "node:fs";
 import { describe, it } from "node:test";
 import nextConfig from "../next.config";
 import { GET as llms } from "../app/llms.txt/route";
@@ -102,5 +104,45 @@ describe("crawl access", () => {
       if (robotsHeader) assert.equal(rule.source, "/api/:path*");
       assert.equal(rule.headers.some((h) => h.key.toLowerCase() === "content-security-policy"), false, "the CSP is report-only, so it blocks no crawler");
     }
+  });
+});
+
+// Parse Next's actual robots.txt serialization rather than inspecting rule strings.
+describe("robots URL matching", () => {
+  for (const userAgent of ["Googlebot", "PhyscraticGenericCrawler"]) {
+    it(`restricts authoring but permits authored readers for ${userAgent}`, () => {
+      const before = process.env.VERCEL_ENV;
+      process.env.VERCEL_ENV = "production";
+      try {
+        const parsed = robotsParser("https://physcratic.com/robots.txt", resolveRobots(robots()));
+        for (const url of ["/dashboard/author", "/dashboard/author?", "/dashboard/author?draft=abc", "/dashboard/author/", "/dashboard/author/edit", "/dashboard/author/edit?draft=abc", "/dashboard/submissions", "/sign-in?returnTo=x", "/sign-up"]) {
+          assert.equal(parsed.isAllowed(`https://physcratic.com${url}`, userAgent), false, url);
+        }
+        for (const url of ["/dashboard/authored/00000000-0000-4000-8000-000000000000", "/dashboard/authored/example?revision=1", "/dashboard/authored/", "/dashboard/author-other", "/dashboard/problems/incline", "/problems", "/learn", "/coaching"]) {
+          assert.equal(parsed.isAllowed(`https://physcratic.com${url}`, userAgent), true, url);
+        }
+      } finally {
+        if (before === undefined) delete process.env.VERCEL_ENV; else process.env.VERCEL_ENV = before;
+      }
+    });
+    it(`disallows all crawling outside production for ${userAgent}`, () => {
+      const before = process.env.VERCEL_ENV;
+      try {
+        for (const environment of ["preview", "development", undefined]) {
+          if (environment === undefined) delete process.env.VERCEL_ENV; else process.env.VERCEL_ENV = environment;
+          const parsed = robotsParser("https://physcratic.com/robots.txt", resolveRobots(robots()));
+          for (const url of ["/", "/dashboard/author?draft=1", "/dashboard/authored/example", "/dashboard/problems/incline", "/problems"]) {
+            assert.equal(parsed.isAllowed(`https://physcratic.com${url}`, userAgent), false, `${environment}: ${url}`);
+          }
+        }
+      } finally {
+        if (before === undefined) delete process.env.VERCEL_ENV; else process.env.VERCEL_ENV = before;
+      }
+    });
+  }
+  it("keeps authored readers noindex/nofollow and outside discovery", () => {
+    const source = readFileSync(new URL("../app/dashboard/authored/[id]/page.tsx", import.meta.url), "utf8");
+    assert.match(source, /robots:\s*\{ index: false, follow: false \}/);
+    assert.ok(!indexableRoutes.some((route) => route.path.startsWith("/dashboard/authored/")));
   });
 });
