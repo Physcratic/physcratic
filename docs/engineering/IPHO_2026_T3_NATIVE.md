@@ -39,7 +39,7 @@ These issues are preserved, not repaired in the imported content. C3's physical 
 | Location | Issue and consequence |
 | --- | --- |
 | S3 page 1, printed 10, title and A1. S3 page 2, printed 11, C1 figure | The solution title is Chashing abolute zero and A1 is labelled T1-A1. The diagram labels the cold/hot quantities TL/QL and TH/QH while the surrounding text uses Tc/Qc and Th/Qh. All printed labels remain. The catalog uses the statement's exact title and T3 identity. Tests explicitly recognise the mislabelled solution A1 rather than silently changing it |
-| S3 page 1, printed 10, B1 first line | `dU = dW + dQ = mu0 V H dM + C dT` substitutes `C dT` for general heat, although an isothermal magnetic process transfers heat. The supplied internal-energy law is `dU = C_M dT`, and the following isothermal step correctly obtains `dQ = -mu0 V H dM`. Treating the first line as a general heat-capacity identity would contradict that step. Both printed expressions are retained |
+| S3 page 1, printed 10, B1 first line | `dU = dW + dQ = mu0 V H dM + C dT` introduces an undefined C. Reading it as the supplied finite C_M would incorrectly set isothermal heat transfer to zero. The supplied internal-energy law is `dU = C_M dT`, and the following isothermal step correctly obtains `dQ = -mu0 V H dM`. Whether C denotes a formal process-dependent heat capacity or is a typographical substitution needs clarification. Both printed expressions are retained |
 | Q3 page 4, printed 14, C3 material name, with Q3 page 2, printed 12, state equation | Potassium chromate is named as the paramagnetic material. A magnetic-susceptibility handbook table lists K2CrO4 with negative room-temperature molar susceptibility. This conflicts with the positive Curie-type model supplied here and requires material-identification review. The table does not establish subkelvin behaviour or an intended replacement material. No material name or constant is substituted |
 | Q3 page 4, printed 14, C3 field values, compared with S3 page 1 B2 and page 2 C2 | C2 implies `(Th/Tc)^2 = (H1^2-H4^2)/(H2^2-H3^2)`, giving Th/Tc about 1.424034. For positive lambda, B2's 1-to-2 adiabat requires Th/Tc below H1/H2, about 1.322249. Combining the printed values instead gives lambda about negative 0.061932 J K/mol, so the stated `C_M = n lambda/T^2` would be negative. The four values do not describe the claimed cycle for an ordinary positive-heat-capacity salt. All values remain unchanged |
 | S3 page 2, printed 11, C3 numerical result | The source rounds Qc to 0.129 J before deriving a 0.00992 K drop and printing Tf = 0.99008 K. Using the unrounded supplied field values and conventional mu0 gives Qc about 0.12934593 J and Tf about 0.99005031 K. This is an intermediate-rounding and reported-precision issue, separate from the cycle inconsistency. The printed numerical chain remains unchanged |
@@ -64,4 +64,42 @@ Adds only T3 to the selection, title/source metadata, import index, manifest, do
 
 T1/T2 native JSON, original PDFs, figures, dedicated tests and source-review ledgers are unchanged. Shared affected-count tests are extended by one record. No application component, renderer, schema, dependency, authentication, grading, real player rating or feature-gate contract is edited. The later #133 reconciliation preserves all of main's non-shared-document files byte for byte, including its gate, route tests, schema and additive migration. No SQL or flag is operated. Its practice/Arena-only catalog excludes imported problems. The new disabled-route tests verify that the reconciliation does not load database/session bindings while off.
 
-The initial T3 tree passed 87 focused checks, typecheck, lint, build and eight browser combinations. Main advanced after those checks. Fresh reconciled-tree results and the exact tested tree are recorded after verification. The earlier results alone are not final reconciled-head evidence. Full server, database, component and site-wide sweeps are deferred to final combined QA, as requested. Previous T1/T2 evidence retains its original scope and head. GitHub Actions usage remains unavailable and no remote pass is claimed. No merge, deployment, Production/shared database, settings, billing, workflow rerun or README trigger is performed.
+The initial T3 tree passed 87 focused checks, typecheck, lint, build and eight browser combinations. Main advanced after those checks. Reconciled implementation `a0e98860e1ee9c99a8e231d8bf7698d1fb272523`, exact tested tree `f4b6fbd099c72bfba364c582f636b6a0bbc5404c`, incorporates main `5a82bb0e5dfb0f3496c89e1763b71ea3cc744658`. Its parents preserve the T3 implementation and main independently. The final follow-up changes only four engineering review/handoff documents. The PR records its final head separately. The earlier results alone are not final reconciled-head evidence. Full server, database, component and site-wide sweeps are deferred to final combined QA, as requested. Previous T1/T2 evidence retains its original scope and head. GitHub Actions usage remains unavailable and no remote pass is claimed. No merge, deployment, Production/shared database, settings, billing, workflow rerun or README trigger is performed.
+
+
+Environment: isolated `codex/ipho-2026-native` worktree `/workspace/physcratic-ipho-2026-native`, no dotenv or Vercel configuration, inherited service credentials removed. Node 22.23.1, pnpm 10.34.9, Chromium 154, external Playwright 1.64.1 and axe 4.14.0. The guarded production build uses synthetic configuration and an unreachable loopback database. `.next` is a normal worktree-local directory. No build output is relocated.
+
+| Check | Final result and scope |
+| --- | --- |
+| Frozen install | Pass, unchanged dependency manifests/lockfile |
+| Offline isolation guards | Pass, two inherited platform skips, guard files unchanged by later main |
+| Focused source/schema/catalog/rating/host/SEO/card/native rendering plus main's four gate tests | 91 pass, no skips or failures, repeated after reconciliation |
+| Next type generation and TypeScript | Pass after reconciliation |
+| Zero-warning ESLint | Pass after reconciliation |
+| Guarded production build | Pass after reconciliation |
+| T3 production browser | Eight document/width/theme combinations pass after reconciliation, 375/1440, light/dark |
+| Prior-content integrity | Pass, T1/T2 source records, PDFs, figures, dedicated tests and review ledgers byte-identical |
+| Main #133 integrity | Pass, every non-shared-document path byte-identical to main, including unchanged gate/schema/migration/tests |
+| Full server, database, component and site-wide sweeps | Not rerun, deferred to final combined QA as requested |
+| Remote GitHub Actions | Unavailable under the reported usage blocker, no remote pass claimed |
+
+The focused browser verifies the initial server-rendered statement and mathematics, all ten question headings in both tabs, the source's T1-A1 solution mislabel, complete semantic table, loaded/labelled figures, zero KaTeX errors, local original PDFs with HTTP 200 and PDF signatures, visible equation/PDF focus, actual arrow-key equation scrolling, no horizontal page overflow and zero serious/critical axe violations. Source crops and mobile/desktop screenshots in both themes were visually inspected. Logs are `/tmp/t3-*.log` and `build/csp/production-build.log`. Screenshots/server logs are under `work/ipho-2026-t3-browser` and are not committed.
+
+All 102 earlier collection objects and source/import metadata records, all previous non-collection manifest hashes, all 120 earlier estimates and the historical 118-problem ledger are unchanged. No T1/T2 dedicated test or renderer is modified. New tests cover the official title, scoring and preserved source inconsistencies rather than correcting them. No assertion is weakened.
+
+The late upstream change adds a backend and a server-only default-OFF route boundary, not an imported-reader change. Its catalog is restricted to practice/Arena identities. Its four exact-gate/no-private-bindings tests pass on the reconciled tree, and the complete focused import tests, type/lint/build and T3 production browser pass again. No renderer or input contract change invalidates T1/T2's prior visual evidence. Previous broader runs retain their recorded head and scope, and are not claimed as fresh final-head passes. Final combined QA, physical devices, OS keyboards, Firefox/WebKit and live-provider qualification remain outside this implementation batch.
+
+At the last overlap check, #133 is merged. Open #134, #136 and #137 intersect this PR relative to integrated main only in roadmap, handoff and readiness documentation. Both branches' entries are preserved. No competing runtime implementation is imported from those open PRs. No operator installation or activation follows this import. Existing #133 policy, deletion and provider-backup prerequisites remain unchanged.
+
+Reproduce with Node 22 on PATH and inherited service credentials removed:
+
+```sh
+corepack pnpm install --frozen-lockfile
+python3 -B scripts/phase-c-offline/run.py safety
+node --require ./tests/server-only-register.cjs --import tsx --test lib/ipho-2026-native.test.ts lib/ipho-2026-t2.test.ts lib/ipho-2026-t3.test.ts lib/imported-corpus.test.ts lib/corpus-catalog.test.ts lib/problem-archive.test.ts lib/olympiad-hosts.test.ts lib/seo-problem-pages.test.ts lib/seo-public-routes.test.ts lib/public-problem-metadata.test.ts lib/practice-check-route.test.ts tests/problem-card.test.ts tests/imported-native.test.ts tests/ipho-2026-t3.test.ts
+corepack pnpm exec next typegen
+corepack pnpm exec tsc --noEmit
+corepack pnpm lint --max-warnings=0
+node --import tsx scripts/csp/local.mjs --build
+AUTHORING_BROWSER_TOOLS=/external/browser-tools CHROMIUM_PATH=/usr/bin/chromium node tests/ipho-2026-t3.browser.mjs
+```

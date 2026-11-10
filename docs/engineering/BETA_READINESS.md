@@ -1,5 +1,12 @@
 # Beta readiness log
 
+## IPhO 2026 native import, Batch 3 (10 November 2026)
+
+- Draft PR #139 extends expected head `78a5859a4afd8a4b878b16985d68364cb2a14249`. T3 implementation `29720ac0d14ec7c1e7ab136673c43db92c53f966`, reconciled implementation `a0e98860e1ee9c99a8e231d8bf7698d1fb272523`, tree `f4b6fbd099c72bfba364c582f636b6a0bbc5404c`. Main advanced through #133 during final verification. Reconciliation incorporates `5a82bb0e5dfb0f3496c89e1763b71ea3cc744658` without conflicts and preserves its non-shared-document files exactly, including the default-OFF gate, schema and migration. No SQL or flag operation.
+- T3, Chasing the absolute zero, includes all ten questions, four statement/two solution pages, the comparison table, three faithful source crops and original PDFs. [Hashes, equation page map, five review entries, 2200 estimate and checks](IPHO_2026_T3_NATIVE.md). The C3 material name and inconsistent cycle values require human review. All source errors and labels remain visible. T1/T2 documents, PDFs, figures, dedicated tests, review ledgers and all previous estimates are unchanged. Counts are 103 imports, 43/35/25 by competition, and 121 estimates.
+- Pass on reconciled tree: focused 91, including four #133 gate/no-bindings checks, typegen/typecheck, zero-warning lint, guarded normal-local-.next build and eight T3 browser combinations at mobile/desktop in both themes. Frozen install/offline guards pass. Initial pre-reconciliation passes are recorded separately. Full server/database/component/site-wide sweeps are deferred to final combined QA. Remote Actions is unavailable, not passing. Physical devices/live providers remain unverified.
+- Batch 3 is implementation only. Final combined QA and any merge require the next batch. No merge, deployment, README trigger, settings, billing, Production/shared database or APhO work. No T3-specific renderer, schema, authentication, grading, dependency or feature-gate changes. Open #134/#136/#137 share engineering documents only relative to integrated main. Retain #133's operator/activation prerequisites. Stop after updating this draft.
+
 ## IPhO 2026 native import, Batch 2 (10 November 2026)
 
 - Draft PR #139 extends expected T1 head `3df48fb78b7b635c5cb70d0ba3fd093ec4ea5c56`. Implementation `df31d1f02f5b940ba15f99e6d55b0e2afcfe782b`, tree `5ea4dfa6cafd4e51cc8ed7c926e2570e89a12cda`, reconciles current main `942be99148870b834767fbc212e649127abb3b93` and preserves merged #132 exactly. Shared engineering entries from both branches remain.

@@ -1,5 +1,12 @@
 # Agent handoff
 
+## IPhO 2026 native T3 handoff (10 November 2026)
+
+- Extends draft [PR #139](https://github.com/Physcratic/physcratic/pull/139) from expected `78a5859a4afd8a4b878b16985d68364cb2a14249`. T3 implementation `29720ac0d14ec7c1e7ab136673c43db92c53f966`. Reconciled implementation `a0e98860e1ee9c99a8e231d8bf7698d1fb272523`, tested tree `f4b6fbd099c72bfba364c582f636b6a0bbc5404c`, incorporates main `5a82bb0e5dfb0f3496c89e1763b71ea3cc744658` after #133 merged during final verification. Its non-shared-document files remain byte-identical to main. No conflict or T3-specific shared application change. GitHub writes use `arrowdunatos`.
+- Adds `ipho-2026-t3`, Chasing the absolute zero, all ten scored questions, four statement/two solution pages, the complete comparison table and three precise source-diagram crops. [Hashes, page map, five source-review entries, 2200 estimate and local QA](IPHO_2026_T3_NATIVE.md). C3's material identification and incompatible positive-heat-capacity cycle need human review. Source labels, first-law notation and rounding are retained. T1/T2 and all prior estimates/tests/review ledgers remain unchanged. Counts are 103 imports and 121 estimates.
+- Reconciled-tree focused 91, typegen/typecheck, zero-warning lint, guarded normal-local-.next build and eight T3 mobile/desktop light/dark browser combinations pass. Four focused tests retain #133's default-OFF/no-private-bindings boundary. Frozen install/offline guards pass. No SQL, provider, flag, billing, deployment or merge operation. Remote Actions remains unavailable, not passing.
+- Batch 3 implementation only. Full server/database/component/site-wide sweeps and final combined IPhO QA belong to the next authorised batch. Do not merge, deploy or begin APhO. Preserve all source flags and #133's existing activation/operator prerequisites. No installation is required for this static import. Open #134/#136/#137 overlap this import only in shared engineering documents relative to current main.
+
 ## IPhO 2026 native T2 handoff (10 November 2026)
 
 - Extends draft [PR #139](https://github.com/Physcratic/physcratic/pull/139) from expected `3df48fb78b7b635c5cb70d0ba3fd093ec4ea5c56`. Implementation `df31d1f02f5b940ba15f99e6d55b0e2afcfe782b`, tested tree `5ea4dfa6cafd4e51cc8ed7c926e2570e89a12cda`, reconciles main `942be99148870b834767fbc212e649127abb3b93` including merged #132. Its relevant authored-expression code and tests remain byte-identical to main. Both branches' shared-document entries are retained. GitHub writes use `arrowdunatos`.
