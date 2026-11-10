@@ -1,5 +1,11 @@
 # Agent handoff
 
+## Current website documentation snapshot (11 November 2026)
+
+[CURRENT_SITE_MAP.md](CURRENT_SITE_MAP.md) documents all 26 page routes and query-based dashboard screens at main `b3912ce60f80929c360ccb7956d6b394eef1aff5`. [CURRENT_PAGE_HIERARCHIES.md](CURRENT_PAGE_HIERARCHIES.md) describes inspected composition and grouped layouts. All page source files and selected major composition components were read. No live browser, flag values, production providers or database were inspected. Detailed editor/contest/staff/reader internals are explicitly not exhaustive.
+These are current-code reference documents, separate from TEST_SITE_MAP.md and TEST_PAGE_HIERARCHIES.md. Future plans must not be presented as existing behaviour. Main equals the fixed original UI baseline at inspection. Branch-only difficulty labels and standalone prototypes are not current-main features.
+Documentation-only checkpoint. Next product task remains the course-catalogue homepage prototype, guided by current source preservation and the experimental map.
+
 ## Course catalogue is the homepage (11 November 2026)
 
 Owner decision: `/test/` itself is the course-discovery catalogue. Remove the separate catalogue page, while retaining `/test/courses/[slug]` details. TEST_SITE_MAP.md and TEST_PAGE_HIERARCHIES.md now merge homepage/catalogue contents and diagrams, update filter/return contracts, and make coaching/practice secondary destinations. This supersedes earlier coaching-led homepage suggestions. Nine page hierarchies remain. No routes were implemented or changed at runtime.

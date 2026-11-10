@@ -3,6 +3,10 @@
 Living design document for `codex/ui-overhaul`. Updated 11 November 2026.
 This is the starting point for deciding what belongs on each `/test/` page. Edit it as decisions change.
 
+## Current-site references
+
+For what exists today, use [CURRENT_SITE_MAP.md](CURRENT_SITE_MAP.md) and [CURRENT_PAGE_HIERARCHIES.md](CURRENT_PAGE_HIERARCHIES.md). They are pinned source snapshots, distinct from this experimental plan. Live availability is not inferred from source presence.
+
 ## Product brief
 
 Physcratic is an education marketplace where students learn from accomplished competitors across academic olympiads and, eventually, areas such as debate, MUN and chess.
