@@ -1,5 +1,11 @@
 # Beta readiness log
 
+## IPhO 2026 difficulty recalibration (10 November 2026)
+
+- Draft PR #139, expected starting head `41515fa1fd89aba81431d0d513ace3432c522468`. Main `5a82bb0e5dfb0f3496c89e1763b71ea3cc744658` is already incorporated. No reconciliation is needed for this focused metadata review.
+- Reinspected all original T1/T2/T3 statements, solutions and relevant diagrams, all 22 PDF pages. Current estimates are 1950/2050/1850. [Independent assessment, supplied-guidance discount, cross-range Arena/Olympiad comparisons and the 1800 T1 candidate](IPHO_2026_DIFFICULTY_REVIEW.md). Earlier batch values below remain historical evidence and are superseded for current metadata. All source issues, documents, figures, grading, player ratings, schema, historical values and the 118-problem ledger remain unchanged.
+- Pass: 65 focused rating/catalog/filter/Arena/native/card tests with no skips or failures, TypeScript and zero-warning lint. No full server/database/browser/build sweep is run for these three numeric changes. Corpus totals stay 103 imports and 121 estimates. Remote Actions is unavailable, not passing. Final combined release QA is still required. No merge, deployment, settings, billing, SQL or new import work. Stop after this draft update.
+
 ## IPhO 2026 native import, Batch 3 (10 November 2026)
 
 - Draft PR #139 extends expected head `78a5859a4afd8a4b878b16985d68364cb2a14249`. T3 implementation `29720ac0d14ec7c1e7ab136673c43db92c53f966`, reconciled implementation `a0e98860e1ee9c99a8e231d8bf7698d1fb272523`, tree `f4b6fbd099c72bfba364c582f636b6a0bbc5404c`. Main advanced through #133 during final verification. Reconciliation incorporates `5a82bb0e5dfb0f3496c89e1763b71ea3cc744658` without conflicts and preserves its non-shared-document files exactly, including the default-OFF gate, schema and migration. No SQL or flag operation.

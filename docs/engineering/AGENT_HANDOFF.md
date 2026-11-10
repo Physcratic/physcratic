@@ -1,5 +1,11 @@
 # Agent handoff
 
+## IPhO 2026 rating recalibration (10 November 2026)
+
+- Focused review of draft PR #139 from `41515fa1fd89aba81431d0d513ace3432c522468`, with main `5a82bb0e5dfb0f3496c89e1763b71ea3cc744658` already included. Current estimates are T1 1950, T2 2050 and T3 1850. [Independent source/subpart assessments, twelve cross-range comparisons and the 1800 T1 candidate](IPHO_2026_DIFFICULTY_REVIEW.md). These supersede the import estimates in the historical batch notes below.
+- All 22 original target PDF pages were reinspected. Orbital, reflection and thermodynamic guidance receives a larger discount. T1's unsupplied recoil minimum keeps it modestly above 1800. Source issues, native content, diagrams, grading, player ratings, schema and the historical 118-problem ledger remain unchanged. Counts stay 103 imports and 121 estimates. No upstream reconciliation or application contract change.
+- Node 22 focused 65, TypeScript and zero-warning lint pass. Only three map values, their dedicated assertions/comparisons and IPhO 2026 rating documentation change. No full server/database/browser/build sweep. Remote Actions is not counted as passing. Final combined release QA remains the next separately authorised phase. No PR merge, deployment, SQL, settings/billing or new import batch. Stop after updating draft #139.
+
 ## IPhO 2026 native T3 handoff (10 November 2026)
 
 - Extends draft [PR #139](https://github.com/Physcratic/physcratic/pull/139) from expected `78a5859a4afd8a4b878b16985d68364cb2a14249`. T3 implementation `29720ac0d14ec7c1e7ab136673c43db92c53f966`. Reconciled implementation `a0e98860e1ee9c99a8e231d8bf7698d1fb272523`, tested tree `f4b6fbd099c72bfba364c582f636b6a0bbc5404c`, incorporates main `5a82bb0e5dfb0f3496c89e1763b71ea3cc744658` after #133 merged during final verification. Its non-shared-document files remain byte-identical to main. No conflict or T3-specific shared application change. GitHub writes use `arrowdunatos`.

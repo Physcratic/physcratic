@@ -46,7 +46,11 @@ The existing eleven historical physics flags and historical 118-problem difficul
 
 ## Editorial difficulty
 
-Estimate: 2250, Advanced (IPhO level). This measures work for a strong Olympiad student, without measured solving statistics. A needs a correct pressure-resultant and buoyancy torque model. B requires translating individual to total angular momentum, finding turning distances and interpreting the asymptote, with conic formulas already supplied. C requires a constrained momentum/energy threshold and a small recoil expansion, with the binomial hint supplied. The independent sections limit cumulative conceptual integration. The threshold construction makes it slightly harder than the retained IPhO 2025 T1 anchor at 2200, while guidance and independence keep it below the 2300 comparison anchors. Source inconsistencies create review work and do not inflate the estimate.
+Current estimate: 1950, Advanced (IPhO level). The import estimate of 2250 is superseded by the [independent 2026 calibration review](IPHO_2026_DIFFICULTY_REVIEW.md). Earlier QA and import records retain their original scope.
+
+A requires a pressure-difference and buoyancy torque model. B supplies both conic and eccentricity formulas, leaving total energy/angular momentum, a turning-point ratio and asymptote geometry. C is the main unsupplied insight: construct an angle-constrained energy/momentum threshold, select the physical minimum and expand the small recoil correction with the provided series. The three sections are independent, with no extra coupled dynamics. Their routine algebra and vocabulary do not support 2250.
+
+An 1800 estimate is a serious candidate because A/B are compact and guided. The complete problem still adds an unsupplied threshold construction to the hydrostatic model, supporting 1950 above the 1800 three-string comparison and below the more sustained supplied-conic satellite problem at 2050. The linked review assesses A, B and C separately, gives cross-range comparisons and explains the limits of this judgement. All six source flags remain unchanged and do not add intended solving difficulty. No measured solving statistics are claimed.
 
 ## Compatibility and verification
 
