@@ -8,6 +8,7 @@ import { getProblemTags } from "@/lib/problem-tags";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { problems, type Problem } from "@/lib/physics";
+import { ProblemHeading } from "./problem-heading";
 import { MathFormula } from "./math-formula";
 import { ArchiveAnswerPanel } from "./archive-answer-panel";
 import { clearSavedAnswers } from "./saved-answers";
@@ -31,13 +32,9 @@ function PracticeProblem({ problem }: { problem: Problem }) {
   return <section className={`flex min-w-0 flex-col gap-6 ${solveTokens}`} aria-labelledby="practice-title">
     <div className="flex flex-wrap items-center justify-between gap-3">
       <Button variant="ghost" size="sm" className="min-h-11" asChild><Link href="/dashboard?view=problems&collection=practice"><ArrowLeft data-icon="inline-start" />Back to collection</Link></Button>
-      <Badge variant="outline">Quick practice · {problem.minutes} min</Badge>
+      <Badge variant="outline">{problem.minutes} min</Badge>
     </div>
-    <div className="flex flex-col gap-3">
-      <p className="text-sm text-muted-foreground">Difficulty {problem.elo.toLocaleString("en-US")} · Illustrative estimate</p>
-      <h1 id="practice-title" className="text-balance text-2xl font-medium tracking-tight">{problem.title}</h1>
-      <div className="flex flex-wrap gap-2" aria-label="Problem tags">{getProblemTags(problem).map((tag) => <Badge key={tag} variant="secondary">{tag}</Badge>)}</div>
-    </div>
+    <ProblemHeading id="practice-title" title={problem.title} source="Quick practice" estimate={String(problem.elo)} tags={getProblemTags(problem)} />
     <SolveSteps hrefs={{ 1: "#step-read", 2: "#step-answer", 3: "#step-check", 4: "#step-solution" }} />
     <div className="grid min-w-0 items-start gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(0,34rem)]">
       <Card id="step-read" className="min-w-0 scroll-mt-24 shadow-none">

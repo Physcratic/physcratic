@@ -5,7 +5,7 @@ import { SolutionPermissions } from "../components/authoring/solution-permission
 import type { Viewer } from "../lib/authored-student";
 declare global {
   interface Window {
-    __student: { problemId: string; viewer: Viewer };
+    __student: { problemId: string; viewer: Viewer; attributionEnabled?: boolean };
     __setViewer: (v: Viewer) => void;
   }
 }
@@ -19,7 +19,7 @@ function Harness() {
       </main>
     );
   return (
-    <StudentWorkspace problemId={window.__student.problemId} viewer={viewer} />
+    <StudentWorkspace problemId={window.__student.problemId} viewer={viewer} attributionEnabled={window.__student.attributionEnabled} />
   );
 }
 createRoot(document.getElementById("root")!).render(

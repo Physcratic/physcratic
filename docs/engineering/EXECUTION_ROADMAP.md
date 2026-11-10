@@ -2,6 +2,12 @@
 
 Temporary manual QA (9 November 2026): see [evidence and outstanding gates](MANUAL_QA_2026-11-09.md). A separate reproduced contest account-isolation fix is awaiting independent review. PR #122 stays unmerged, Firefox/WebKit qualification remains blocked, and no launch/enforcement follows local testing.
 
+## Friday B3 reader metadata checkpoint (10 November 2026)
+
+Branch `codex/friday-b3-reader-metadata` explicitly depends on B1 PR #132 at `6dba304ff65f701ae1b03d382ea6de6fb71cb80e`. The separate draft PR records its final head. B2A/B2B are independent. [Reader metadata contract](READER_METADATA.md) covers shared title/tag/estimate presentation and a separate current-public-consent author projection. Existing profile/authorship gates remain OFF by default, with zero disabled client polling or database/session loader calls. No mutable profile field enters a revision, and no private identity fallback exists.
+
+Privacy qualification is a fresh server snapshot and a client lifetime of 15 seconds from request start. Names clear during revalidation, blur/hidden, failures and revision changes. Withdrawal cannot instantly erase already delivered data across devices without a push channel. Keep the existing flags OFF if zero-delay remote revocation is required. This does not authorize profile launch or any flag operation. Local PASS: Node 22 frozen install, typegen/TypeScript, zero-warning lint, offline guards, guarded build, 795 server tests plus 25 DB skips and one inherited TODO, 147 components, 9 disposable PG attribution checks, 28 metadata browser checks, 50 preserved B1 expression checks, 40 built guest reader functional/contrast combinations and the built default-off/unreachable-schema HTTP smoke. Actions usage, missing Firefox/WebKit, real providers/Preview and physical devices remain unqualified. Exact head and results are in the PR. No schema, grant, grading, rating, deployment or CSP change. Next is scoped B4 practice/Arena layout.
+
 Baseline: main `a4a75c292fc0a9d6392e25f92818e454d6ffb4eb`, verified 4 November 2026. Source: [community guidebook](COMMUNITY_GUIDEBOOK.md); current code and [status](COMMUNITY_STATUS.md) take precedence over stale planning claims.
 
 | Priority | Workstream | State / acceptance |

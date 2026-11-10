@@ -6,11 +6,12 @@ import useSWRImmutable from "swr/immutable";
 import { ArrowLeft, RotateCcw } from "lucide-react";
 import { arenaProblemSchema, type ArenaCatalogEntry } from "@/lib/arena-schema";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Skeleton } from "@/components/ui/skeleton";
+import { ProblemHeading } from "./problem-heading";
+import { getEstimatedProblemElo } from "@/lib/problem-archive";
 import { ArenaDocument } from "./arena-document";
 import { ArchiveAnswerPanel } from "./archive-answer-panel";
 import arenaIndex from "@/lib/arena/index.json";
@@ -33,12 +34,10 @@ export function ArenaProblemReader({ problem,statement,statsEnabled=false,commen
   const nextProblem = position >= 0 ? arenaIndex.problems[position + 1] : undefined;
   return <section className={`mx-auto flex w-full max-w-4xl min-w-0 flex-col gap-6 ${solveTokens}`} aria-labelledby="arena-problem-title">
     <div><Button variant="ghost" className="min-h-11" asChild><Link href="/dashboard?view=problems&collection=arena"><ArrowLeft data-icon="inline-start" />Back to Physcratic Arena</Link></Button></div>
-    <header className="flex flex-col gap-3">
-      <div className="flex flex-wrap gap-2"><Badge>Physcratic Arena</Badge><Badge variant="outline">{problem.topic}</Badge><Badge variant="outline">Unrated</Badge></div>
-      <h1 id="arena-problem-title" className="text-balance text-2xl font-medium tracking-tight sm:text-3xl">{problem.title}</h1>
+    <ProblemHeading id="arena-problem-title" title={problem.title} source="Physcratic Arena" estimate={String(getEstimatedProblemElo(problem.id))} tags={[problem.topic, ...problem.tags]}>
       <p className="text-pretty leading-relaxed text-muted-foreground">{problem.summary}</p>
-      <div className="flex flex-wrap gap-2">{problem.tags.map((tag) => <Badge key={tag} variant="secondary">{tag}</Badge>)}</div>
-    </header>
+      <p className="text-sm text-muted-foreground">Unrated · Published by Physcratic</p>
+    </ProblemHeading>
     {moderationEnabled&&<ReportControl subject={{kind:'problem',key:`arena:${problem.id}`}}/>}
     {statsEnabled&&<ProblemStatsPanel problemKey={`arena:${problem.id}`}/>}
     <SolveSteps />
