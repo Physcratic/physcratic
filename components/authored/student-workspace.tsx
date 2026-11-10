@@ -2,6 +2,8 @@
 import {ProblemStatsPanel} from '@/components/community/problem-stats';
 import {ReportControl} from '@/components/community/report-controls';
 import {Discussions} from '@/components/community/discussions';
+import { ProblemHeading } from "@/components/physics/problem-heading";
+import { PublicAuthorName } from "./public-author-name";
 import { SkipLink } from "@/components/skip-link";
 import { studioTokens } from "@/components/authoring/studio-ui";
 import { WorkedSolution } from "./worked-solution";
@@ -45,7 +47,6 @@ import {
 } from "@/lib/authored-student";
 import type { AuthoredAttempt } from "@/lib/authored-attempt-contracts";
 import { StatementBlocks } from "./public-content";
-import { describeEstimate } from "@/lib/rating-bands";
 const feedbackTone: Record<AuthoredAttempt["status"], FeedbackTone> = {
   correct: "success",
   incorrect: "error",
@@ -102,6 +103,7 @@ export function StudentWorkspace({
   commentsEnabled=false,
   moderationEnabled=false,
   initialRevision,
+  attributionEnabled=false,
 }: {
   problemId: string;
   viewer: Viewer;
@@ -110,6 +112,7 @@ export function StudentWorkspace({
   moderationEnabled?:boolean;
   /** The published revision read on the server, so the statement is in the HTML before any script runs. */
   initialRevision?: PublicRevision | null;
+  attributionEnabled?: boolean;
 }) {
   const [revision, setRevision] = useState<PublicRevision | null>(initialRevision ?? null),
     [availability, setAvailability] = useState<Availability>(initialRevision ? "ready" : "loading"),
@@ -248,16 +251,9 @@ export function StudentWorkspace({
         className="focus:outline-none mx-auto w-full min-w-0 max-w-[1440px] space-y-7 px-4 py-6 sm:px-8 sm:py-10"
       >
         <div className="flex flex-wrap items-end justify-between gap-4 border-b pb-6">
-          <div className="min-w-0 max-w-full">
-            <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              Authored physics · Practice
-            </p>
-            <h1 className="max-w-4xl text-3xl font-semibold tracking-tight [overflow-wrap:anywhere] sm:text-4xl">
-              {availability === "ready"
-                ? revision?.content.title
-                : "Physics problem"}
-            </h1>
-          </div>
+          <ProblemHeading title={availability === "ready" ? revision?.content.title ?? "Physics problem" : "Physics problem"} source="Community-authored problem" estimate={availability === "ready" ? revision?.content.estimatedDifficulty : null} tags={availability === "ready" ? [...(revision?.content.topicTags ?? []), ...(revision?.content.methodTags ?? [])] : []}>
+            {availability === "ready" && revision && (attributionEnabled ? <PublicAuthorName key={`${problemId}:${revision.id}`} problemId={problemId} revisionId={revision.id} /> : <p className="text-sm text-muted-foreground">Published by Community author</p>)}
+          </ProblemHeading>
           <Button
             type="button"
             variant="outline"
@@ -348,21 +344,6 @@ function PublicStatement({
       aria-label="Published problem statement"
       className="min-w-0 space-y-8 rounded-xl border bg-card p-5 sm:p-8"
     >
-      <div className="flex flex-wrap gap-2">
-        {[...doc.topicTags, ...doc.methodTags].map((tag, i) => (
-          <span
-            key={`${tag}:${i}`}
-            className="rounded-full bg-muted px-3 py-1 text-xs"
-          >
-            {tag}
-          </span>
-        ))}
-        {doc.estimatedDifficulty && (
-          <span className="rounded-full border px-3 py-1 text-xs">
-            Difficulty: {describeEstimate(doc.estimatedDifficulty)}
-          </span>
-        )}
-      </div>
       {doc.attachments.filter((a) => a.purpose === "statement-pdf").length >
         0 && (
         <div className="rounded-lg border bg-muted/20 p-4">

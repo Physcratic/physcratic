@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { z } from "zod";
 import { StudentPageClient } from "@/components/authored/student-page-client";
+import { authoredAttributionEnabled } from "@/lib/authored-attribution-route";
 import { publicStudentRevision, type PublicRevision } from "@/lib/authored-student";
 import {communityModerationUiEnabled} from '@/lib/community/moderation-route';
 import {communityProblemStatsEnabled} from '@/lib/community/problem-stats-route';
@@ -38,5 +39,5 @@ export default async function AuthoredProblemPage({
   const parsed = z.uuid().safeParse((await params).id);
   if (!parsed.success) notFound();
   const initialRevision = await publishedRevision(parsed.data.toLowerCase());
-  return <StudentPageClient initialRevision={initialRevision} moderationEnabled={communityModerationUiEnabled()} commentsEnabled={communityCommentsEnabled()} statsEnabled={communityProblemStatsEnabled()} problemId={parsed.data.toLowerCase()} />;
+  return <StudentPageClient attributionEnabled={authoredAttributionEnabled()} initialRevision={initialRevision} moderationEnabled={communityModerationUiEnabled()} commentsEnabled={communityCommentsEnabled()} statsEnabled={communityProblemStatsEnabled()} problemId={parsed.data.toLowerCase()} />;
 }

@@ -1,0 +1,27 @@
+# Friday reader metadata
+
+B3, 10 November 2026. Reconciled with main `5a82bb0e5dfb0f3496c89e1763b71ea3cc744658`, including B1 squash `942be99148870b834767fbc212e649127abb3b93` and default-off B2A progress. B2B UI is independent. No schema, rating, grading, publication-content or profile-editing contract changes.
+
+## Presentation
+
+`ProblemHeading` is a small presentation primitive for practice, Arena and authored readers. It preserves literal published titles and existing tags. Authored estimates come only from the existing `estimatedDifficulty` field. Practice/Arena estimates come from existing stored/editorial values. `describeEstimate`, `bandForEstimate` and the existing Badge variants supply the single rating-band policy and colors. Numeric estimates explicitly include `(estimate)`. Legacy free-text labels remain readable, absent estimates remain absent, and no rating is inferred from a topic. Arena remains unrated. Existing statement content, source documents, solutions and inputs are unchanged.
+
+## Current public attribution
+
+The separate `GET /api/authored-problems/:id/attribution?revisionId=:uuid` projection is allowlisted to problem/revision IDs and an optional public display name. It selects only `community_profile.display_name` through a currently published problem and matching current revision, with `public_visibility=true`. It never joins Better Auth identity or returns owner IDs, email, handles, biography, drafts, private attempts or answer keys. Empty, private and missing names use `Community author`. Mutable profile data never enters immutable revision JSON.
+
+Both existing `COMMUNITY_AUTHORSHIP_ENABLED` and `COMMUNITY_PROFILES_ENABLED` gates are required. They remain default OFF and no flag is operated by this batch. The server passes a derived boolean to the reader. Off means no byline polling, and direct endpoint requests return neutral before dynamically loading database/session bindings. This works with an unavailable or older schema. Enabled reads use one indexed, bounded current-publication snapshot and a query deadline. Missing schema/provider fails closed. Factory responses are private/no-store/max-age=0 with nosniff/noindex headers. The existing next.config.ts private API header normalizes the HTTP cache header to private/no-store, retaining the same non-cacheable contract. That configuration is unchanged.
+
+There is no author-name SWR, sessionStorage or server-rendered identity snapshot. The client clears a name before revalidation, on blur/hidden, on failure, on revision mismatch and on expiry. Late responses cannot restore an obsolete name. Names have a 15-second freshness lifetime measured from request start, not response arrival. Visible focused pages revalidate at that interval. Publication changes hide the byline until the current revision is confirmed.
+
+The existing policy in `COMMUNITY_STATUS.md`, Batch 3A, says “Revocation and privacy changes apply on the next uncached read.” This is a request-snapshot contract, not a zero-delay remote-erasure requirement. The 15-second client limit is a bounded implementation interpretation of that policy. The Profile visibility setting discloses public problem attribution, this limit and the inability to recall copies before consent is saved.
+
+**Revocation limit:** the next server read reflects committed visibility at its database snapshot. A focused client can retain an already delivered public name until its freshness window ends. There is no cross-device push channel or instantaneous erasure of already delivered public data. After a fresh read observes withdrawal, no old-name cache fallback remains. A frozen browser cannot promise a real-time repaint. If zero-delay remote revocation is a hard release condition, keep the existing flags OFF and ship the neutral byline until a separately reviewed push design exists. This batch does not enable profiles or supersede their operational NO-GO.
+
+## Verification and review
+
+Focused tests cover both gates, zero disabled loader calls, strict selectors/output fields, public/private/missing/blank/withdrawn profiles, current and cross-problem revisions, unpublication and unavailable schema. Projection integration uses disposable PG18.6 with minimal synthetic tables matching the queried columns. It is not a migration or live-provider qualification.
+
+The actual StudentWorkspace browser covers long titles, legacy and numeric estimates, tags, withdrawal, blur, delayed/failed/late reads, freshness expiry, new revisions, unpublication, default-off zero polling and 375/1440 light/dark axe/overflow. Existing B1 expression regressions remain required. The built default-off HTTP smoke uses the existing clean-environment network guard with an unreachable database. Local commands and exact results are recorded in the draft PR. Physical devices, live providers, Preview and independent pre-merge review remain separate gates. No SQL/grants, feature activation, deployment, workflow/billing or CSP operation is performed.
+
+Concurrent draft PR #135 (`73e26b6c7954258cf63b7f3bbd70f61a46d9ac0f`) recalibrates editorial values in `lib/problem-archive.ts`. B3 only calls the existing helper and does not duplicate or overwrite that map. The helper signature and bands are unchanged in the inspected diff. Reconcile shared documentation and rerun focused rating/reader checks on a combined revision after independent review. No part of PR #135 is merged or copied into this branch.
