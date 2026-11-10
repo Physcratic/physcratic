@@ -4,6 +4,10 @@
 
 Read `CLAUDE.md`, `CONTRIBUTING.md`, `docs/engineering/EXECUTION_ROADMAP.md` and `docs/engineering/AGENT_HANDOFF.md` before a batch. Verify code against the relevant guidebook rather than historical status prose.
 
+## UI overhaul branch workflow
+
+For work on `codex/ui-overhaul` or its experimental UI successors, read `docs/engineering/UI_OVERHAUL_BASELINE.md` first. Preserve the fixed baseline SHA, continue the owner-requested branch, and use its feature checklist and checkpoint process. Experimental UI restructuring is authorized, but feature removals must be explicit owner decisions. Review cumulative baseline differences and affected user flows before delivery. Existing production, security, grading and feature-gate restrictions remain in force.
+
 ## Product UX and copy (all user-facing work)
 
 - Optimize for a first-time visitor who has no tutorial. They must understand the page purpose, the next action, and the result of that action without explanation. Design the full journey from entry to completion, not isolated components.

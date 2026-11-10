@@ -1,5 +1,13 @@
 # Agent handoff
 
+## UI overhaul prototype handoff (11 November 2026)
+
+Continue `codex/ui-overhaul`. Read [UI_OVERHAUL_BASELINE.md](UI_OVERHAUL_BASELINE.md) before any UI overhaul batch. Fixed original baseline is `b3912ce60f80929c360ccb7956d6b394eef1aff5`, verified as the parent of the first branch change. The owner authorizes experimental UI redesign with feature preservation by default. Record intentional changes/removals and compare cumulative work against the fixed baseline after each substantial batch. Do not silently discard functionality or weaken security/grading/accessibility.
+
+Committed so far: `1eb8ed5` and `d60feae` rename the shared bands to Advanced (Olympiad) and Expert (Olympiad++), updating existing test expectations. `4a9148f` adds [local setup guidance](../development/LOCAL_UI_SETUP.md). These application tests have not been run. No overhaul UI or recommendation system is implemented. Topic/band-based recommendations are a discussed initial design, not delivered functionality.
+
+The new checklist maps baseline routes and existing browser suites. All runtime preservation entries remain needs verification. Next: establish local guest preview and affected-flow baseline screenshots, then prototype entry/discovery. Full signed-in setup needs isolated schema/fixtures, verification/email access and cookie checks. No production credentials, settings, feature activation, merge or deployment. The documentation commit adding this section is discoverable with `git log -1 -- docs/engineering/UI_OVERHAUL_BASELINE.md`.
+
 ## SEO P1 technical corrections (10 November 2026)
 
 Branch `codex/seo-p1-technical` starts from `18ed7a48`. Corrects the authoring robots boundary and Modern physics title only, with dated SEO counts in SEARCH_AND_AI_VISIBILITY.md. Parser-based tests cover exact/query/nested authoring paths, authored-reader access, Googlebot and generic crawlers, and non-production denial. Authored noindex/nofollow, canonicals, sitemap policy and public anchors are preserved. `robots-parser` is a pinned test-only dependency. Local Node 22.23.1 verification: 84 focused SEO/render checks pass, Next typegen/TypeScript and zero-warning lint pass. Exact-head GitHub CI and merge remain pending publication of the P1 PR. No manual deployment or production operation. Stop after P1, no P2.
