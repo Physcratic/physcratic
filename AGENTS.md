@@ -6,6 +6,8 @@ Read `CLAUDE.md`, `CONTRIBUTING.md`, `docs/engineering/EXECUTION_ROADMAP.md` and
 
 ## UI overhaul branch workflow
 
+Read `docs/engineering/TEST_SITE_MAP.md` for the experimental marketplace product direction, proposed `/test/` page contents and link contracts. Update that map with page changes and keep proposed, implemented and verified states distinct.
+
 For work on `codex/ui-overhaul` or its experimental UI successors, read `docs/engineering/UI_OVERHAUL_BASELINE.md` first. Preserve the fixed baseline SHA, continue the owner-requested branch, and use its feature checklist and checkpoint process. Experimental UI restructuring is authorized, but feature removals must be explicit owner decisions. Review cumulative baseline differences and affected user flows before delivery. Existing production, security, grading and feature-gate restrictions remain in force.
 
 ## Product UX and copy (all user-facing work)

@@ -1,5 +1,13 @@
 # Agent handoff
 
+## Marketplace prototype page map (11 November 2026)
+
+The owner clarified that Physcratic is the broader education marketplace, with Academy as the long-term course business, Coaching bootstrapping revenue and Arena serving free value/acquisition/brand credibility. The earlier practice-first direction is superseded as the overall homepage strategy. It remains a practice-flow experiment only.
+
+Read [TEST_SITE_MAP.md](TEST_SITE_MAP.md) for the living product brief, visual route hierarchy, per-page contents/actions, cross-page links, shared fixture contract, assumptions and staged checklist. `/test/` is the experimental Physcratic homepage. Routes in that map are proposed and not implemented. The business proposal supplies context, not blanket approval of all proposed features or private figures as marketing claims.
+
+Next: establish truthful initial offerings/audience and compare homepage hierarchies, then build a local-only shell and one linked offering/instructor/enquiry-or-preview flow. No real enquiry, payment, marketplace publishing, production service or deployment is authorized by the prototype plan. Continue original baseline preservation. This checkpoint changes documentation only.
+
 ## Discovery prototype checkpoint (11 November 2026)
 
 Standalone experiment: `prototypes/practice-discovery/index.html`, with instructions and research sources in its README. Open directly in a browser, no env variables or server needed. Compare A direct topic/band selection with B guided selection, then open a synthetic reading screen. This is isolated from application routes. Samples are uncalibrated and no production services, accounts, persistence or answer checking are connected. Easier/Harder explicitly change bands as a prototype shortcut, not the planned within-band algorithm. Only light appearance is sketched.
