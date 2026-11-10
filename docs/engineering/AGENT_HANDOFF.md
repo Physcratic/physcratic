@@ -1,5 +1,11 @@
 # Agent handoff
 
+## Discovery prototype checkpoint (11 November 2026)
+
+Standalone experiment: `prototypes/practice-discovery/index.html`, with instructions and research sources in its README. Open directly in a browser, no env variables or server needed. Compare A direct topic/band selection with B guided selection, then open a synthetic reading screen. This is isolated from application routes. Samples are uncalibrated and no production services, accounts, persistence or answer checking are connected. Easier/Harder explicitly change bands as a prototype shortcut, not the planned within-band algorithm. Only light appearance is sketched.
+
+Verification: extracted JavaScript passes `node --check`. Browser execution, user testing and full app CI have not run. No chosen design or recommendation system is delivered. Next: try both versions locally, observe likely users completing the task, choose a direction, then integrate with the fixed-baseline preservation checks. For this prototype only, no application code changed. The commit containing this section is discoverable via `git log -1 -- prototypes/practice-discovery/index.html`.
+
 ## UI overhaul prototype handoff (11 November 2026)
 
 Continue `codex/ui-overhaul`. Read [UI_OVERHAUL_BASELINE.md](UI_OVERHAUL_BASELINE.md) before any UI overhaul batch. Fixed original baseline is `b3912ce60f80929c360ccb7956d6b394eef1aff5`, verified as the parent of the first branch change. The owner authorizes experimental UI redesign with feature preservation by default. Record intentional changes/removals and compare cumulative work against the fixed baseline after each substantial batch. Do not silently discard functionality or weaken security/grading/accessibility.
