@@ -61,21 +61,15 @@ async function pool<T>(items: T[], size: number, work: (item: T) => Promise<void
   await Promise.all(Array.from({ length: size }, async () => { while (next < items.length) await work(items[next++]); }));
 }
 
-// 1. Home page for a signed-out visitor.
+// 1. Both entry URLs redirect to the app for visitors and crawlers.
 {
-  const home = await get("/");
-  same(home.status, 200, "home status");
-  ok(/private/.test(home.headers.get("cache-control") ?? "") && /no-store/.test(home.headers.get("cache-control") ?? ""), `home is private, no-store: ${home.headers.get("cache-control")}`);
-  const h1 = tagText(home.body, "h1");
-  same(h1.length, 1, "home has one h1");
-  ok(/free physics olympiad practice/i.test(h1[0]), `home h1: ${h1[0]}`);
-  ok(visible(home.body).includes("Physcratic is free physics olympiad practice with IPhO, APhO and EuPhO problems and checked answers."), "home sentence");
-  const links = hrefs(home.body);
-  for (const link of ["/problems", "/problems/archive", "/learn", "/coaching"]) ok(links.includes(link), `home links to ${link}`);
-  const types = jsonLd(home.body).flat().map((n: any) => n["@type"]);
-  ok(types.includes("WebSite") && types.includes("Organization"), `home JSON-LD: ${types}`);
-  ok(!/noindex/.test(meta(home.body, "robots")), "home is indexable");
-  ok(!/Welcome back|My attempts|Sign out/.test(visible(home.body)), "home shows no signed-in content");
+  for (const [agent, userAgent] of [["browser", PLAIN_UA], ...Object.entries(BOTS)]) {
+    for (const path of ["/", "/problem"]) {
+      const response = await get(path, userAgent);
+      same(response.status, 308, `${agent} ${path} permanently redirects`);
+      same(new URL(response.headers.get("location") ?? "", origin).pathname, "/dashboard", `${agent} ${path} destination`);
+    }
+  }
 }
 
 // 2. The signed-in app is not indexed, and its links still work.
@@ -231,7 +225,7 @@ for (const article of publishedArticles) {
 
 // 7. Each crawler gets the same pages as a browser: 200, no noindex header, no challenge page.
 {
-  const samples = ["/", "/problems", "/problems/archive", "/problems/topics/mechanics", "/dashboard/problems/ipho-2025-t2", "/dashboard/problems/arena-mind-the-gap", "/dashboard/problems/incline", `/learn/${publishedArticles[0].slug}`, "/learn", "/coaching", "/sitemap.xml", "/llms.txt", "/llms-full.txt", "/robots.txt"];
+  const samples = ["/problems", "/problems/archive", "/problems/topics/mechanics", "/dashboard/problems/ipho-2025-t2", "/dashboard/problems/arena-mind-the-gap", "/dashboard/problems/incline", `/learn/${publishedArticles[0].slug}`, "/learn", "/coaching", "/sitemap.xml", "/llms.txt", "/llms-full.txt", "/robots.txt"];
   for (const [bot, userAgent] of Object.entries(BOTS)) {
     for (const path of samples) {
       const response = await get(path, userAgent);
