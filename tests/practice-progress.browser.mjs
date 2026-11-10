@@ -90,6 +90,16 @@ try{
   await context.close();
  }
  // Actual installed-schema OFF gate must not write, report saved or retry POSTs in the background.
+ // Actual combined ProblemReader + B4 rail must clear draft fields without remounting or losing a pending save.
+ const real=await browser.newContext({viewport:{width:1440,height:950}}),realPage=await real.newPage();await realPage.goto(origin+'?reader=1');await session(realPage,'RealReader');
+ await realPage.locator('[data-answer-workspace]').waitFor();dropNext=true;await grade(realPage,'4.9');await waitText(realPage,'The save is unconfirmed.');
+ const realOriginal=bodies.at(-1);await realPage.locator('input[inputmode="decimal"]').fill('3');
+ await realPage.locator('input[inputmode="decimal"]').evaluate(el=>{window.__combinedResetField=el;});
+ await realPage.getByRole('button',{name:'Start over',exact:true}).click();
+ assert.equal(await realPage.locator('input[inputmode="decimal"]').inputValue(),'');
+ assert.equal(await realPage.locator('input[inputmode="decimal"]').evaluate(el=>el===window.__combinedResetField),true,'resetToken must preserve the live field node');
+ await realPage.getByRole('button',{name:'Retry pending save',exact:true}).click();await waitText(realPage,'The original pending check is saved. Your current answers have not been checked.');
+ assert.deepEqual(bodies.at(-1),realOriginal);assert.equal(await count('RealReader'),1);await real.close();
  const off=await browser.newContext(),offPage=await off.newPage();enabled=false;await offPage.goto(origin);await session(offPage,'Disabled');
  await waitText(offPage,'No completion count is available.');await grade(offPage,'4.9');await waitText(offPage,'Saved practice checks are disabled.');
  assert.equal(await offPage.getByText('Saved to your account. Your dashboard will update.',{exact:true}).count(),0);assert.equal(await count('Disabled'),0);
