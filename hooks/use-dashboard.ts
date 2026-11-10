@@ -11,11 +11,12 @@ export function useDashboard() {
     session.isPending || session.error
       ? null
       : ["/api/dashboard", session.data?.user.id ?? "guest"],
-    ([url]: [string, string]) => fetchJson<DashboardData>(url),
+    ([url, account]: [string, string]) => fetchJson<DashboardData>(url, { headers: { "X-Practice-Account": account } }),
     { ...apiReadSWRConfig, refreshInterval: 60_000, keepPreviousData: false },
   );
   return {
     ...result,
+    data: session.isPending || session.error ? undefined : result.data,
     error: session.error ?? result.error,
     isLoading: session.isPending || result.isLoading,
   };

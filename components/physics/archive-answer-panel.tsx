@@ -1,10 +1,14 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { useSWRConfig } from "swr";
+import { authClient } from "@/lib/auth-client";
+import { PracticeCheckJournal, practiceSessionStorage } from "@/lib/practice-check-client";
+import { practiceCheckInputSchema, practiceCheckReceiptSchema } from "@/lib/practice-check-contracts";
 import useSWRImmutable from "swr/immutable";
 import Link from "next/link";
 import { ArrowRight, Lightbulb, Loader2, RotateCcw } from "lucide-react";
-import { archiveAnswerLimit, archiveMetadataSchema, archiveGradeResponseSchema, type ArchiveGradeResponse } from "@/lib/archive-grading-contracts";
+import { archiveAnswerLimit, archiveMetadataSchema, archiveGradeResponseSchema, type ArchiveGradeResponse, type ArchiveMetadata } from "@/lib/archive-grading-contracts";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Field, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field";
@@ -15,7 +19,6 @@ import { FeedbackBox, PartChip, ResultLine, StepHeading, partBorder, partStyle }
 import { MathAnswerField } from "./math-answer-field";
 import { formatConditions, type PaletteItem } from "./answer-palette";
 import { markSolved } from "./solved-problems";
-import { clearSavedAnswer, clearSavedAnswers, readSavedAnswers, saveAnswer } from "./saved-answers";
 import { Skeleton } from "@/components/ui/skeleton";
 
 async function loadMetadata(url: string) {
@@ -31,56 +34,110 @@ const shortHelp = 60;
 /**
  * Steps 2 and 3 of a problem: type an answer for each part, then check it.
  * `onSeeHint` and `nextHref` are optional. Without them the matching buttons are left out, so a screen with
- * no hint or no next problem shows neither. Checking, the request and the grader are unchanged.
+ * no hint or no next problem shows neither. Saved checks use the same trusted grader as guest checks.
  * An expression is typed in one maths field with a palette under it. A number is a plain box. A problem counts as
  * solved in this browser when every part with an answer box is correct.
  */
-export function ArchiveAnswerPanel({ problemId, onCorrect, onSeeHint, nextHref }: { problemId: string; onCorrect?: () => void; onSeeHint?: () => void; nextHref?: string }) {
-  const { data, error: loadError, mutate } = useSWRImmutable(`/corpus/grading/${encodeURIComponent(problemId)}.json`, loadMetadata);
-  const [answers, setAnswers] = useState<Record<string, string>>({});
+type PanelProps = { problemId: string; onCorrect?: () => void; onSeeHint?: () => void; nextHref?: string; resetToken?: number };
+export function ArchiveAnswerPanel(props: PanelProps) {
+  const { data, error, mutate } = useSWRImmutable(`/corpus/grading/${encodeURIComponent(props.problemId)}.json`, loadMetadata);
+  const session = authClient.useSession();
+  const boundary = useRef({ ready: false, account: "guest", epoch: 0 });
+  const account = session.error ? "guest" : session.data?.user.id ?? "guest";
+  if (boundary.current.ready && boundary.current.account !== account) {
+    boundary.current.epoch++; boundary.current.account = account;
+  }
+  if (!session.isPending || account !== "guest") {
+    boundary.current.ready = true; boundary.current.account = account;
+  }
+  const saveAccount = !session.isPending && !session.error && session.data?.user.emailVerified ? account : undefined;
+  if (!data && !error) return <div role="status" className="flex min-w-0 flex-col gap-4"><span className="sr-only">Loading answer fields…</span><Skeleton className="h-11 w-full" /></div>;
+  if (error || !data || data.problemId !== props.problemId) return <Alert variant="destructive"><AlertTitle>Answer fields unavailable</AlertTitle><AlertDescription><Button variant="outline" className="min-h-11" onClick={() => mutate()}>Retry loading fields</Button></AlertDescription></Alert>;
+  return <ArchiveAnswerWorkspace key={`${boundary.current.epoch}:${data.problemId}:${data.version}`} {...props} data={data} account={account} saveAccount={saveAccount} resolving={session.isPending} refreshMetadata={() => { void mutate(); }} />;
+}
+
+function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, resetToken, data, account, saveAccount, resolving, refreshMetadata }: PanelProps & { data: ArchiveMetadata; account: string; saveAccount?: string; resolving: boolean; refreshMetadata: () => void }) {
+  const [journal, setJournal] = useState(() => new PracticeCheckJournal(account, problemId, data.version, practiceSessionStorage()));
+  const [answers, setAnswers] = useState<Record<string, string>>(() => journal.book.answers);
+  const currentAnswers = useRef(answers);
+  const typedWhileResolving = useRef(false);
+  const [conflict, setConflict] = useState(false);
   const [result, setResult] = useState<ArchiveGradeResponse | null>(null);
   const [error, setError] = useState("");
+  const [saveMessage, setSaveMessage] = useState("");
   const [busy, setBusy] = useState(false);
+  const [, redraw] = useState(0);
+  const { mutate } = useSWRConfig();
   const pending = useRef<AbortController | null>(null);
   const fieldPrefix = useId();
+  const previousReset = useRef(resetToken);
   useEffect(() => () => pending.current?.abort(), []);
-  // Answers typed before a reload or a tap on Back come back once the fields exist. They live in this tab only.
   useEffect(() => {
-    if (!data || data.problemId !== problemId) return;
-    const saved = readSavedAnswers(problemId, data.parts.filter((part) => part.kind !== "self-review").map((part) => part.id));
-    if (Object.keys(saved).length) setAnswers((current) => ({ ...saved, ...current }));
-  }, [data, problemId]);
+    if (journal.account === account) return;
+    pending.current?.abort(); pending.current = null; setBusy(false); setResult(null); setError(""); setSaveMessage("");
+    const next = new PracticeCheckJournal(account, problemId, data.version, practiceSessionStorage());
+    setJournal(next);
+    if (journal.account === "guest" && typedWhileResolving.current && Object.keys(currentAnswers.current).length) {
+      if (next.book.pending || Object.keys(next.book.answers).length || next.warning) setConflict(true);
+      else next.edit(currentAnswers.current);
+    } else { currentAnswers.current = next.book.answers; setAnswers(next.book.answers); }
+    typedWhileResolving.current = false;
+  }, [account, journal, problemId, data.version]);
+  useEffect(() => {
+    if (previousReset.current === resetToken) return;
+    previousReset.current = resetToken;
+    pending.current?.abort(); pending.current = null; setBusy(false);
+    currentAnswers.current = {}; if (!conflict) journal.edit({}); setAnswers({}); setResult(null); setError(""); setSaveMessage(""); redraw(n => n + 1);
+  }, [resetToken, journal, conflict]);
 
-  async function checkAnswers(event: React.FormEvent) {
-    event.preventDefault();
-    if (!data || data.problemId !== problemId || pending.current) return;
-    if (!canCheck) { setError("Type an answer first."); return; }
+  async function checkAnswers(event?: React.FormEvent, withoutSaving = false, retry = false) {
+    event?.preventDefault();
+    if (pending.current) return;
+    const input = { problemId, version: data.version, answers: data.parts.filter(part => part.kind !== "self-review" && answers[part.id]?.trim()).map(part => ({ partId: part.id, latex: answers[part.id] })) };
+    const shouldSave = !withoutSaving && Boolean(saveAccount);
+    if (shouldSave && (conflict || journal.account !== account)) { setError("Choose which draft to use before saving."); return; }
+    let request = retry ? journal.retry() : null;
+    if (retry && (!request || !saveAccount)) { setError("Sign in to the original account to retry this save."); return; }
+    if (!retry && !practiceCheckInputSchema.safeParse(input).success) { setError("Type a supported answer within the input limit first."); return; }
+    try {
+      if (shouldSave && !retry) request = journal.begin(input);
+      if (shouldSave && !request) { setError("Recovery could not prepare a safe retry. Use Check without saving and keep your answers before leaving."); redraw(n => n + 1); return; }
+    } catch (reason) { setError(reason instanceof Error ? reason.message : "Could not prepare the check."); return; }
     const controller = new AbortController();
     pending.current = controller;
-    setBusy(true); setError(""); setResult(null);
+    setBusy(true); setError(""); setResult(null); setSaveMessage(""); redraw(n => n + 1);
     try {
-      const response = await fetch("/api/archive-grade", {
-        method: "POST", headers: { "Content-Type": "application/json" }, signal: AbortSignal.any([controller.signal, AbortSignal.timeout(15000)]),
-        body: JSON.stringify({ problemId, version: data.version, answers: data.parts.filter((part) => part.kind !== "self-review" && answers[part.id]?.trim()).map((part) => ({ partId: part.id, latex: answers[part.id] })) }),
+      const response = await fetch(shouldSave ? "/api/practice-checks" : "/api/archive-grade", {
+        method: "POST", headers: { "Content-Type": "application/json", ...(shouldSave ? { "X-Practice-Account": account } : {}) }, signal: AbortSignal.any([controller.signal, AbortSignal.timeout(15000)]),
+        cache: "no-store", credentials: "same-origin", body: shouldSave ? JSON.stringify(request) : JSON.stringify({ problemId, version: data.version, answers: input.answers }),
       });
       const body = await response.json();
+      if (controller.signal.aborted) return;
       if (!response.ok) {
-        if (response.status === 409) void mutate();
         throw new Error(typeof body.error === "string" ? body.error : "Could not check your answers. Please retry.");
       }
-      const checked = archiveGradeResponseSchema.parse(body);
-      if (checked.problemId !== problemId || checked.version !== data.version) throw new Error("The problem changed. Reload the answer fields and retry.");
-      if (controller.signal.aborted) return;
+      const receipt = shouldSave ? practiceCheckReceiptSchema.parse(body) : null;
+      const checked = archiveGradeResponseSchema.parse(receipt ? { problemId: receipt.attempt.problemId, version: receipt.attempt.version, results: receipt.attempt.results } : body);
+      if (checked.problemId !== problemId || checked.version !== data.version || checked.results.length !== data.parts.length || new Set(checked.results.map(p => p.partId)).size !== data.parts.length || checked.results.some(p => !data.parts.some(part => part.id === p.partId))) throw new Error("The problem changed. Reload the answer fields and retry.");
+      if (receipt) {
+        journal.accept(receipt);
+        setSaveMessage(journal.book.pending ? "Saved to your account. Local retry cleanup failed. Retrying the same check is safe." : "Saved to your account. Your dashboard will update.");
+        void mutate(key => Array.isArray(key) && key[1] === account && ["/api/practice-progress", "/api/dashboard"].includes(key[0]));
+      } else setSaveMessage("Checked without saving. This result does not update account progress.");
+      const gradedAnswers = receipt?.attempt.answers ?? input.answers;
+      const visible = data.parts.filter(part => part.kind !== "self-review" && currentAnswers.current[part.id]?.trim()).map(part => ({ partId: part.id, latex: currentAnswers.current[part.id] }));
+      if (gradedAnswers.length !== visible.length || gradedAnswers.some(answer => !visible.some(current => current.partId === answer.partId && current.latex === answer.latex))) {
+        setResult(null);
+        setSaveMessage(receipt ? "The original pending check is saved. Your current answers have not been checked." : "The earlier answers were checked without saving. Your current answers have not been checked.");
+        return;
+      }
       setResult(checked);
-      // A part that is correct no longer needs its saved answer. The box keeps what was typed until the page is left.
-      for (const part of checked.results) if (part.status === "correct") clearSavedAnswer(problemId, part.partId);
-      if (checked.results.every((part) => part.status === "correct")) onCorrect?.();
-      // Solved in this browser: every part that has an answer box is correct. Parts to check yourself do not count.
-      if (checked.results.some((part) => part.status === "correct") && checked.results.every((part) => part.status === "correct" || part.status === "self-review")) markSolved(problemId);
+      if (checked.results.every(part => part.status === "correct")) onCorrect?.();
+      if (account === "guest" && checked.results.some(part => part.status === "correct") && checked.results.every(part => part.status === "correct" || part.status === "self-review")) markSolved(problemId);
     } catch (reason) {
-      if (!controller.signal.aborted) setError(reason instanceof Error && reason.name === "TimeoutError" ? "The check timed out. Please retry." : reason instanceof Error ? reason.message : "Could not check your answers. Please retry.");
+      if (!controller.signal.aborted) setError((reason instanceof Error ? reason.message : "Could not check your answers.") + (shouldSave ? " The save is unconfirmed. Retry the original check, or check without saving." : ""));
     } finally {
-      if (!controller.signal.aborted) { pending.current = null; setBusy(false); }
+      if (!controller.signal.aborted) { pending.current = null; setBusy(false); redraw(n => n + 1); }
     }
   }
 
@@ -91,20 +148,15 @@ export function ArchiveAnswerPanel({ problemId, onCorrect, onSeeHint, nextHref }
     const target = data?.parts.find((part) => part.kind !== "self-review" && result?.results.find((item) => item.partId === part.id)?.status !== "correct");
     if (target) document.getElementById(`${fieldPrefix}-${target.id}`)?.focus();
   };
-  const canCheck = Boolean(data?.parts.some((part) => part.kind !== "self-review" && answers[part.id]?.trim()));
-  const set = (partId: string, value: string) => { setAnswers((current) => ({ ...current, [partId]: value })); saveAnswer(problemId, partId, value); setResult(null); setError(""); };
+  const set = (partId: string, value: string) => { const next = { ...currentAnswers.current, [partId]: value }; currentAnswers.current = next; if (resolving) typedWhileResolving.current = true; setAnswers(next); if (!conflict) journal.edit(next); redraw(n => n + 1); setResult(null); setError(""); setSaveMessage(""); };
   const notes = data?.parts.filter((part) => part.kind !== "self-review" && part.help && !(part.kind === "numeric" && part.help.length <= shortHelp)) ?? [];
 
   return <section id="step-answer" aria-labelledby="step-answer-title" className="flex min-w-0 scroll-mt-24 flex-col gap-6">
     <header className="flex flex-col gap-2">
       <StepHeading step={2} id="step-answer-title">Answer</StepHeading>
-      <p className="text-sm leading-relaxed text-muted-foreground">Checks are not saved and do not change your rating.</p>
+      <p className="text-sm leading-relaxed text-muted-foreground">{saveAccount ? "Checks are saved privately to your account. They do not change your rating." : "Checks are not saved and do not change your rating."}</p>
     </header>
-    {!data && !loadError && <div role="status" className="flex min-w-0 flex-col gap-4"><span className="sr-only">Loading answer fields…</span>
-      <div aria-hidden="true" className="flex flex-col gap-3 rounded-lg border bg-card p-4"><Skeleton className="h-6 w-2/3" /><Skeleton className="h-11 w-full" /></div>
-      <div aria-hidden="true" className="flex gap-3"><Skeleton className="h-11 w-36" /><Skeleton className="h-11 w-36" /></div></div>}
-    {(loadError || (data && data.problemId !== problemId)) && <Alert variant="destructive"><AlertTitle>Answer fields unavailable</AlertTitle><AlertDescription><Button variant="outline" className="min-h-11" onClick={() => mutate()}>Retry loading fields</Button></AlertDescription></Alert>}
-    {data?.problemId === problemId && <form onSubmit={checkAnswers} className="flex min-w-0 flex-col gap-6" onKeyDown={(event) => {
+    {data?.problemId === problemId && <form onSubmit={(event) => { void checkAnswers(event); }} className="flex min-w-0 flex-col gap-6" onKeyDown={(event) => {
       if (event.key === "Enter" && (event.nativeEvent.isComposing || event.keyCode === 229)) event.preventDefault();
     }}>
       <FieldGroup>
@@ -134,10 +186,18 @@ export function ArchiveAnswerPanel({ problemId, onCorrect, onSeeHint, nextHref }
       {notes.length > 0 && <details className="min-w-0 rounded-lg border p-4"><summary className="flex min-h-11 cursor-pointer items-center text-sm font-medium">Notes for each part</summary><ul className="flex flex-col gap-2 pt-3 text-sm leading-relaxed text-muted-foreground">{notes.map((part) => <li key={part.id}><strong className="font-medium text-foreground">{part.sourcePart} {part.label}.</strong> {part.help}</li>)}</ul></details>}
       <div className="flex min-w-0 flex-col gap-4">
         <StepHeading step={3} as="h3" id="step-check">Check</StepHeading>
-        {error && <Alert variant="destructive"><AlertTitle>Could not check your answers</AlertTitle><AlertDescription>{error} Your input is unchanged.</AlertDescription></Alert>}
+        {conflict && <Alert><AlertTitle>Choose your draft</AlertTitle><AlertDescription>Another recovery entry exists for this account. Choose the answer fields to keep. Pending saves stay unchanged. Until you choose, copy new edits before leaving or reloading.
+          <div className="flex flex-wrap gap-3"><Button type="button" variant="outline" className="min-h-11" onClick={() => { journal.edit(currentAnswers.current); setConflict(false); redraw(n => n + 1); }}>Keep current draft</Button><Button type="button" variant="outline" className="min-h-11" onClick={() => { currentAnswers.current = journal.book.answers; setAnswers(journal.book.answers); setConflict(false); setResult(null); }}>Restore account draft</Button></div>
+        </AlertDescription></Alert>}
+        {journal.warning && <p role="status" className="text-sm text-destructive">{journal.warning}</p>}
+        {journal.book.pending && <Alert><AlertTitle>Pending save</AlertTitle><AlertDescription>The original check is kept for retry. Reload does not send it again. Editing or clearing fields does not change it.</AlertDescription></Alert>}
+        {saveMessage && <p role="status" className="text-sm">{saveMessage}</p>}
+        {error && <Alert variant="destructive"><AlertTitle>Could not check your answers</AlertTitle><AlertDescription>{error} Your input is unchanged. Copy your answers before refreshing if the problem changed. <Button type="button" variant="outline" className="min-h-11" disabled={busy} onClick={refreshMetadata}>Refresh answer fields</Button></AlertDescription></Alert>}
         <div className="flex flex-wrap gap-3">
-          <Button type="submit" data-tour="check-button" className="min-h-11 px-6" disabled={busy}>{busy && <Loader2 className="animate-spin" data-icon="inline-start" />}{busy ? "Checking…" : "Check answer"}</Button>
-          <Button type="button" variant="outline" className="min-h-11" disabled={busy} onClick={() => { setAnswers({}); clearSavedAnswers(problemId); setResult(null); setError(""); }}><RotateCcw data-icon="inline-start" />Clear answers</Button>
+          <Button type="submit" data-tour="check-button" className="min-h-11 px-6" disabled={busy || Boolean(saveAccount && (journal.book.pending || conflict || journal.account !== account))}>{busy && <Loader2 className="animate-spin" data-icon="inline-start" />}{busy ? "Checking…" : "Check answer"}</Button>
+          {journal.book.pending && <Button type="button" variant="outline" className="min-h-11" disabled={busy || !saveAccount || conflict} onClick={() => { void checkAnswers(undefined, false, true); }}>Retry pending save</Button>}
+          {saveAccount && (journal.book.pending || journal.warning || error || conflict) && <Button type="button" variant="outline" className="min-h-11" disabled={busy} onClick={() => { void checkAnswers(undefined, true); }}>Check without saving</Button>}
+          <Button type="button" variant="outline" className="min-h-11" disabled={busy} onClick={() => { currentAnswers.current = {}; setAnswers({}); if (!conflict) journal.edit({}); redraw(n => n + 1); setResult(null); setError(""); }}><RotateCcw data-icon="inline-start" />Clear answers</Button>
         </div>
         <div aria-live="polite" aria-atomic="true" className="min-w-0">
           {summary && <FeedbackBox tone={summary.tone} title={summary.headline}>

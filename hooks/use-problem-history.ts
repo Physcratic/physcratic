@@ -3,23 +3,21 @@
 import useSWR from "swr";
 import { authClient } from "@/lib/auth-client";
 import { apiReadSWRConfig, fetchJson } from "@/lib/api-client";
-import type { ProblemHistoryEntry } from "@/lib/problem-history";
+import { practiceProgressSchema, type PracticeProgress } from "@/lib/practice-check-contracts";
 
 export function useProblemHistory() {
   const session = authClient.useSession();
-  const { data, error, isLoading, mutate } = useSWR<{
-    history: ProblemHistoryEntry[];
-  }>(
-    session.data?.user ? ["/api/progress", session.data.user.id] : null,
-    ([url]: [string, string]) =>
-      fetchJson<{ history: ProblemHistoryEntry[] }>(url),
-    apiReadSWRConfig,
+  const account = !session.isPending && !session.error ? session.data?.user.id : undefined;
+  const result = useSWR<PracticeProgress>(
+    account ? ["/api/practice-progress", account] : null,
+    async ([url, actor]: [string, string]) => practiceProgressSchema.parse(await fetchJson(url, { headers: { "X-Practice-Account": actor } })),
+    { ...apiReadSWRConfig, keepPreviousData: false },
   );
   return {
-    history: data?.history ?? [],
-    error: session.error ?? error,
-    isLoading: session.isPending || isLoading,
-    signedIn: !!session.data?.user,
-    mutate,
+    progress: account && !result.error ? result.data : undefined,
+    error: session.error ?? result.error,
+    isLoading: session.isPending || result.isLoading,
+    signedIn: Boolean(account),
+    mutate: result.mutate,
   };
 }
