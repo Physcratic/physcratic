@@ -65,4 +65,45 @@ No renderer or other application component is edited in Batch 2. Existing struct
 
 ## Verification
 
-Local commands, results and exact tested tree are recorded below after completion. GitHub Actions usage remains unavailable. Remote checks are not represented as passing. No merge, deployment, live service or production database operation is authorised or performed. T3 import and final combined IPhO integration QA remain the next batch.
+Implementation commit `df31d1f02f5b940ba15f99e6d55b0e2afcfe782b`, exact tested tree `5ea4dfa6cafd4e51cc8ed7c926e2570e89a12cda`. Its parents are the expected T1 head and current main. The final follow-up changes only this review, roadmap, handoff and readiness documentation. The PR records that final head separately. GitHub Actions usage remains unavailable. Remote checks are not represented as passing. No merge, deployment, live service or production database operation is authorised or performed. T3 import and final combined IPhO integration QA remain the next batch.
+
+
+Environment: isolated credential-free worktree `/workspace/physcratic-ipho-2026-t2`, Node 22.23.1, pnpm 10.34.9, Chromium 154, external Playwright 1.64.1 and axe 4.14.0. Inherited service credentials are removed. The existing guarded build supplies synthetic local configuration and an unreachable loopback database. `.next` is a normal directory inside this worktree, not relocated or symlinked.
+
+| Check | Result |
+| --- | --- |
+| Frozen lockfile install | Pass |
+| Offline safety | Pass, two inherited platform skips |
+| Next type generation, TypeScript | Pass |
+| ESLint with zero warnings | Pass |
+| Focused source/schema/catalog/rating/host/SEO/card/native rendering | 82 pass |
+| Full server file set, concurrency limited to two | 804 pass, 24 database-dependent skips, one inherited TODO, zero failures |
+| Full component suite | 143 pass, zero failures |
+| Guarded production build | Pass |
+| T1 and T2 native production browser | 16 document/width/theme combinations pass, 375/1440, light/dark |
+| Main #132 expression browser | 50 pass, desktop/touch and light/dark |
+| Prior-content and reconciliation integrity | Pass |
+
+The native browser checks initial server-rendered questions and maths, all scored questions in both tabs, retained solution alternatives, all loaded/labelled figures, original PDF HTTP 200/signatures and keyboard focus, zero KaTeX errors, actual arrow-key scrolling of overflowing equations, no page overflow and zero serious/critical axe findings. T2's statement has no displayed equations, so scrolling is exercised on its solution. Source crops and mobile/desktop screenshots in both themes were visually inspected. Logs are `/tmp/t2-*.log` and `build/csp/production-build.log`. Screenshots and server logs are in `work/ipho-2026-browser` and are not committed.
+
+The first focused run found stale IPhO/sitemap counts and an existing card fixture's assumption that the first catalog item was T1. Counts now include T2, and catalog order retains T1 before T2. No assertion is removed or relaxed. The final complete focused run passes. No application defect or source correction was needed.
+
+Main and open PRs were rechecked. #133 `6c4da5862a205719a7749a4f0a2337568c020ca3`, #134 `685b4b383ee499cc12fe0824ad752e47ab44933d`, #136 `7d508f27c4b9a6df2fdfe71c7a83d98141aa8cb3` and #137 `8a4d5ecfeb6959213cf5135dfc4d744bf564c516` intersect the combined import diff only in roadmap, handoff and readiness documentation. No competing runtime code is copied. This branch contains main's #132 implementation and tests exactly, rather than an alternative reconciliation of those contracts.
+
+The previous T1 whole-site guest/signed-in sweeps, library browser and unchanged database/release package evidence retain their original scope and head in the Batch 1 record. They are not claimed as fresh final-head runs. Batch 2 changes data and tests without changing the shared native renderer. Main's expression behavior is covered again by its actual 50-check browser and the full server/component suites. These targeted integration checks support reusing the broader prior evidence. No new full database/release package, whole-site sweep or deployed Preview run is claimed. Physical devices, OS keyboards, Firefox/WebKit and live providers remain unverified. Final combined IPhO QA follows T3.
+
+Reproduce with Node 22 on PATH and inherited service credentials removed:
+
+```sh
+corepack pnpm install --frozen-lockfile
+python3 -B scripts/phase-c-offline/run.py safety
+node --require ./tests/server-only-register.cjs --import tsx --test lib/ipho-2026-native.test.ts lib/ipho-2026-t2.test.ts lib/imported-corpus.test.ts lib/corpus-catalog.test.ts lib/problem-archive.test.ts lib/olympiad-hosts.test.ts lib/seo-problem-pages.test.ts lib/seo-public-routes.test.ts lib/public-problem-metadata.test.ts tests/problem-card.test.ts tests/imported-native.test.ts
+corepack pnpm exec next typegen
+corepack pnpm exec tsc --noEmit
+corepack pnpm lint --max-warnings=0
+node --require ./tests/server-only-register.cjs --import tsx --test --test-concurrency=2 lib/*.test.ts
+corepack pnpm test:ui
+node --import tsx scripts/csp/local.mjs --build
+AUTHORING_BROWSER_TOOLS=/external/browser-tools CHROMIUM_PATH=/usr/bin/chromium node tests/ipho-2026-native.browser.mjs
+AUTHORING_BROWSER_TOOLS=/external/browser-tools CHROMIUM_PATH=/usr/bin/chromium node --conditions=react-server --import tsx tests/authored-expression.browser.mjs
+```

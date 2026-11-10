@@ -1,5 +1,12 @@
 # Agent handoff
 
+## IPhO 2026 native T2 handoff (10 November 2026)
+
+- Extends draft [PR #139](https://github.com/Physcratic/physcratic/pull/139) from expected `3df48fb78b7b635c5cb70d0ba3fd093ec4ea5c56`. Implementation `df31d1f02f5b940ba15f99e6d55b0e2afcfe782b`, tested tree `5ea4dfa6cafd4e51cc8ed7c926e2570e89a12cda`, reconciles main `942be99148870b834767fbc212e649127abb3b93` including merged #132. Its relevant authored-expression code and tests remain byte-identical to main. Both branches' shared-document entries are retained. GitHub writes use `arrowdunatos`.
+- Adds only `ipho-2026-t2`, Cooking with sunlight?, eight scored subquestions, all four statement and five solution pages, thirteen source crops and both original PDFs. [Source/equation page map, hashes, three retained source issues, 2300 estimate and QA](IPHO_2026_T2_NATIVE.md). Counts are 102 imports and 120 estimates. T1, its six flags, all previous corpus objects, historical estimates and the 118-problem ledger are unchanged.
+- Local focused 82, server 804 passes with 24 DB skips and one inherited TODO, components 143, typegen/typecheck, zero-warning lint, guarded normal-local-.next build, 16 native T1/T2 browser combinations and main's 50 expression browser checks pass. Prior T1 full sweeps retain their original scope and are not fresh final-head evidence. Actions remains unavailable and is not counted as passed. No new grading, auth, schema, dependency, student-rating or feature-gate behavior.
+- #133/#134/#136/#137 overlap only shared engineering documents relative to integrated main. Draft only, no merge, deployment or Production/shared SQL. Next batch is T3 plus final combined IPhO QA after separate authorisation. Retain all T1/T2 and historical physics flags for human editorial signoff. No operator installation is required.
+
 ## IPhO 2026 native T1 handoff (10 November 2026)
 
 - Branch `codex/ipho-2026-native`, implementation `8b5fb23490346283156f2b0df1e795d2cd89eda8`, source tree `34c506e8889b3375ea0d0bfaca03d29d53821c4a`. Reconciles current main `035be5793e30888dec22216247c9f28916a221cb` including the #128 sidebar/library test change. GitHub writes use the owner-selected `arrowdunatos` account. Only T1 is imported. T2/T3 are not started.

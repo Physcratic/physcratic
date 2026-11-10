@@ -1,5 +1,12 @@
 # Beta readiness log
 
+## IPhO 2026 native import, Batch 2 (10 November 2026)
+
+- Draft PR #139 extends expected T1 head `3df48fb78b7b635c5cb70d0ba3fd093ec4ea5c56`. Implementation `df31d1f02f5b940ba15f99e6d55b0e2afcfe782b`, tree `5ea4dfa6cafd4e51cc8ed7c926e2570e89a12cda`, reconciles current main `942be99148870b834767fbc212e649127abb3b93` and preserves merged #132 exactly. Shared engineering entries from both branches remain.
+- T2, Cooking with sunlight?, is complete across eight scored questions, all four statement/five solution pages and thirteen source crops. Original PDFs and every equation are traceable. [Hashes, page map, three retained source issues, 2300 estimate and QA commands](IPHO_2026_T2_NATIVE.md). T1 and its six review flags remain unchanged. Counts are 102 imports and 120 editorial estimates, with all historical values and review records preserved.
+- Pass: frozen install, offline guards, typegen/typecheck, zero-warning lint, focused 82, full server 804 with 24 DB skips and one inherited TODO, components 143, guarded normal-local-.next build, 16 T1/T2 native browser combinations and 50 #132 expression browser checks. Prior whole-site/DB evidence retains its recorded scope. Actions is unavailable, not passing. Physical devices and live providers remain unverified.
+- Open #133/#134/#136/#137 share engineering documents only with the integrated import diff. No new grading, real student rating, auth, schema, dependency or feature-gate behavior. No merge, deployment, README trigger, billing/settings or Production/shared database operation. T3 and final combined QA remain pending. Stop after updating this draft PR.
+
 ## 2026-11-10 - IPhO 2026 native T1
 
 - Implementation `8b5fb23490346283156f2b0df1e795d2cd89eda8`, based on main `035be5793e30888dec22216247c9f28916a221cb`. T1 only, one ID with A/B/C and five scored questions, all official solution methods, four source crops, accessible original PDFs and verified Colombia host metadata. [Source hashes, completeness and six physics review flags](IPHO_2026_NATIVE.md).
