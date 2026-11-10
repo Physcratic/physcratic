@@ -8,7 +8,8 @@ import { isProductionDeploy, siteUrl } from "@/lib/site";
 // and API responses already send X-Robots-Tag: noindex.
 export const CRAWLERS = ["Googlebot", "Bingbot", "OAI-SearchBot", "GPTBot", "ClaudeBot", "PerplexityBot"] as const;
 
-const DISALLOW = ["/dashboard/author", "/dashboard/submissions", "/sign-in", "/sign-up"];
+// Cover the exact authoring page, queries and descendants without matching /dashboard/authored/.
+const DISALLOW = ["/dashboard/author$", "/dashboard/author?", "/dashboard/author/", "/dashboard/submissions", "/sign-in", "/sign-up"];
 
 export default function robots(): MetadataRoute.Robots {
   if (!isProductionDeploy()) {
