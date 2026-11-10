@@ -14,9 +14,10 @@ describe("public route registry", () => {
   it("has no query-string URLs, so no ?view= or ?topic= in the sitemap", () => {
     assert.deepEqual(publicRoutes.filter((r) => r.path.includes("?")).map((r) => r.path), []);
   });
-  it("lists the home page, the library and the archive", () => {
+  it("excludes the redirected home and lists the public problem library", () => {
     const paths = indexableRoutes.map((r) => r.path);
-    for (const path of ["/", "/problems", "/problems/archive"]) assert.ok(paths.includes(path), path);
+    for (const path of ["/problems", "/problems/archive"]) assert.ok(paths.includes(path), path);
+    assert.ok(!paths.includes("/"), "the redirected home must not be in the sitemap");
     assert.ok(!paths.includes("/dashboard"), "the signed-in app is not in the sitemap");
   });
   it("resolves every problem id and lists every problem page", () => {
