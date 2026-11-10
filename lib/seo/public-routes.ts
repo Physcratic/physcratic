@@ -38,7 +38,7 @@ export function findPublicProblem(id: string): Problem | null {
 }
 
 export const publicRoutes: PublicRoute[] = [
-  { path: "/", kind: "home", title: "Physcratic", summary: "Free physics olympiad practice", indexable: true },
+  { path: "/", kind: "home", title: "Physcratic", summary: "Redirects to the dashboard", indexable: false },
   { path: "/problems", kind: "library", title: "Problem library", summary: "Every problem in one list", indexable: true },
   { path: "/problems/archive", kind: "library", title: "Olympiad problem archive", summary: "IPhO, APhO and EuPhO problems by year", indexable: true },
   ...topicsWithProblems().map((topic) => ({
