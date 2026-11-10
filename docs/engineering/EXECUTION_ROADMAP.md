@@ -1,5 +1,9 @@
 # Execution roadmap
 
+## B5 account deletion readiness
+
+B1–B4 are merged through main `b1db1777db683d87ea121b9fbd16686f7750a2f5`. B5 remains NO-GO for implementation/merge and progress activation until the owner resolves whole-account authored/evidence/identity dispositions. This bounded draft adds only a disabled-deletion regression and [actual dependency/failure evidence with the B6 sequence](ACCOUNT_DELETION_READINESS.md). No runtime, migration, privilege, provider, flag or deployment change. The exact draft head and focused verification are recorded in its PR and delivery report.
+
 Olympiad host flags (10 November 2026): branch `claude/olympiad-host-flags`, implementation `cd049d2903b17df844e16b682be40749d74c5cee`, follows merged #135 main `40ced00d20c4ef01f34b6cedf80caa8c06bc2a47`. Verified metadata covers all 44 imported editions and 100 cards, including joint and online hosts. See [mapping, sources and local checks](OLYMPIAD_HOST_FLAGS.md). Draft PR only, no merge or deployment. Next action is review of this small card change. No operator installation is required. Concurrent #133/#134/#136/#137 have no card/lookup collision, shared engineering-document additions need normal reconciliation.
 
 Editorial difficulty review (10 November 2026): [PR #135](https://github.com/Physcratic/physcratic/pull/135) reviews all 118 static estimates and changes 62. Implementation `73e26b6c7954258cf63b7f3bbd70f61a46d9ac0f` follows fetched main `ab8881007fa6fe040b87a1b0fdb6a85e2d12b295`. See [review table, source limits and verification](PROBLEM_DIFFICULTY_REVIEW.md). Current task ends with this open PR. Next action is human review of estimates and the 11 source issues, including the provisional infinite-V value. No merge or deployment is authorised by this task.

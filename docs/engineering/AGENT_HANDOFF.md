@@ -1,5 +1,9 @@
 # Agent handoff
 
+## B5 account deletion checkpoint
+
+B1–B4 are merged through main `b1db1777db683d87ea121b9fbd16686f7750a2f5`. B5 remains NO-GO for implementation/merge and progress activation until the owner resolves whole-account authored/evidence/identity dispositions. This bounded draft adds only a disabled-deletion regression and [actual dependency/failure evidence with the B6 sequence](ACCOUNT_DELETION_READINESS.md). No runtime, migration, privilege, provider, flag or deployment change. The exact draft head and focused verification are recorded in its PR and delivery report.
+
 ## Independent B1 reconciliation (10 November 2026)
 
 - PR #132 incorporates main `035be5793e30888dec22216247c9f28916a221cb` through a reconciliation merge. Both B1 and main evidence sections are preserved. The PR remains unmerged and undeployed.

@@ -1,5 +1,9 @@
 # Beta readiness log
 
+## 2026-11-10 - B5 account deletion readiness
+
+B1–B4 are merged through main `b1db1777db683d87ea121b9fbd16686f7750a2f5`. B5 remains NO-GO for implementation/merge and progress activation until the owner resolves whole-account authored/evidence/identity dispositions. This bounded draft adds only a disabled-deletion regression and [actual dependency/failure evidence with the B6 sequence](ACCOUNT_DELETION_READINESS.md). No runtime, migration, privilege, provider, flag or deployment change. The exact draft head and focused verification are recorded in its PR and delivery report.
+
 ## 2026-11-10 - Friday B1 expression input and recovery
 
 - Base `ab8881007fa6fe040b87a1b0fdb6a85e2d12b295`, implementation `9a9d40094e57dd946d02327ddec8018fdf8c2671`, [draft PR #132](https://github.com/Physcratic/physcratic/pull/132), branch `codex/friday-b1-expression-recovery`. Review only, no merge or deployment. Editable expression drafts now exceed the unchanged 180-character submission limit without throwing or truncating. The existing serialized recovery budget and storage failures explicitly report memory-only edits and download-before-leaving guidance. Invalid transport input allocates no retry identity or POST.
