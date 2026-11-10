@@ -27,13 +27,15 @@ try {
     const waitSelected = async (name) => {
       await page.getByRole("tab", { name }).and(page.locator('[aria-selected="true"]')).waitFor();
       assert.equal(await selected(name), "true");
+      assert.equal(await page.getByRole("tab").and(page.locator('[aria-selected="true"]')).count(), 1);
       checks++;
     };
     for (const suffix of ["", "&collection=practice", "&collection=unknown"]) {
       await page.goto(`${origin}/dashboard?view=problems${suffix}`);
       await waitSelected(/Physcratic Arena/);
       assert.equal(await page.getByRole("tab", { name: /Quick practice/ }).count(), 0);
-      assert.equal(await page.getByRole("tab").count(), 4);
+      assert.equal(await page.getByRole("tab").count(), 3);
+      assert.equal(await page.getByRole("tab", { name: /Authored problems/ }).count(), 0);
       await page.locator("#arena-results").waitFor();
     }
     await page.goto(`${origin}/dashboard?view=problems&collection=practice&topic=Mechanics&q=force#results`);
@@ -49,7 +51,7 @@ try {
     await page.reload();
     await waitSelected(/Olympiad archive/);
     assert.equal(await page.getByLabel("Find a problem", { exact: true }).inputValue(), "force");
-    for (const [name, value] of [[/Guided exercises/, "pilot"], [/Authored problems/, "authored"], [/Physcratic Arena/, "arena"]]) {
+    for (const [name, value] of [[/Guided exercises/, "pilot"], [/Physcratic Arena/, "arena"]]) {
       await page.getByRole("tab", { name }).click();
       await waitSelected(name);
       assert.equal(new URL(page.url()).searchParams.get("collection"), value);
@@ -58,7 +60,11 @@ try {
     }
     await page.getByRole("tab", { name: /Physcratic Arena/ }).focus();
     await page.keyboard.press("End");
-    await waitSelected(/Authored problems/);
+    await waitSelected(/Guided exercises/);
+    await page.keyboard.press("Home");
+    await waitSelected(/Physcratic Arena/);
+    await page.keyboard.press("ArrowLeft");
+    await waitSelected(/Guided exercises/);
     await page.keyboard.press("Home");
     await waitSelected(/Physcratic Arena/);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
@@ -66,6 +72,7 @@ try {
     for (const tab of tabs) {
       const bounds = await tab.boundingBox();
       assert.ok(bounds && bounds.x >= 0 && bounds.x + bounds.width <= width, "tabs fit the viewport");
+      assert.ok(bounds.height >= 44, "tabs remain touch sized");
     }
     // A same-page history transition must update the controlled collection too.
     await page.evaluate(() => history.pushState(null, "", "/dashboard?view=problems&collection=catalog"));
@@ -74,6 +81,39 @@ try {
     await waitSelected(/Physcratic Arena/);
     await page.goForward();
     await waitSelected(/Olympiad archive/);
+    // Authored collection deep links remain supported inside the Arena tab.
+    await page.goto(`${origin}/dashboard?view=problems&collection=authored&topic=Mechanics&q=force#results`);
+    await waitSelected(/Physcratic Arena/);
+    await page.getByRole("heading", { name: "Published authored problems", exact: true }).waitFor();
+    assert.equal(await page.getByRole("tab").count(), 3);
+    assert.equal(new URL(page.url()).searchParams.get("collection"), "authored");
+    await page.reload();
+    await waitSelected(/Physcratic Arena/);
+    assert.equal(await page.getByLabel("Find a problem", { exact: true }).inputValue(), "force");
+    await page.getByRole("tab", { name: /Physcratic Arena/ }).focus();
+    await page.keyboard.press("ArrowRight");
+    await waitSelected(/Olympiad archive/);
+    assert.equal(new URL(page.url()).searchParams.get("collection"), "catalog");
+    assert.equal(new URL(page.url()).searchParams.get("topic"), "Mechanics");
+    assert.equal(new URL(page.url()).searchParams.get("q"), "force");
+    assert.equal(new URL(page.url()).hash, "#results");
+    await page.evaluate(() => history.pushState(null, "", "/dashboard?view=problems&collection=authored"));
+    await waitSelected(/Physcratic Arena/);
+    await page.reload();
+    await waitSelected(/Physcratic Arena/);
+    // Confirm the reloaded client is hydrated before exercising patched history.
+    await page.getByRole("tab", { name: /Physcratic Arena/ }).focus();
+    await page.keyboard.press("ArrowRight");
+    await waitSelected(/Olympiad archive/);
+    await page.evaluate(() => history.pushState(null, "", "/dashboard?view=problems&collection=authored"));
+    await waitSelected(/Physcratic Arena/);
+    await page.evaluate(() => history.pushState(null, "", "/dashboard?view=problems&collection=pilot"));
+    await waitSelected(/Guided exercises/);
+    await page.goBack();
+    await waitSelected(/Physcratic Arena/);
+    assert.equal(new URL(page.url()).searchParams.get("collection"), "authored");
+    await page.goForward();
+    await waitSelected(/Guided exercises/);
     // Existing practice routes, content and return links remain usable.
     await page.goto(`${origin}/dashboard/problems/incline`);
     await page.locator("#practice-title").waitFor();
