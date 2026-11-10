@@ -23,9 +23,13 @@ export interface RatingPoint {
 export interface DashboardData {
   user: { name: string } | null;
   savedAttempts: number;
-  practiceAttempts: number;
-  solvedProblems: number;
+  practiceAttempts: number | null;
+  solvedProblems: number | null;
   archiveReviewed: number;
+  practiceProgressAvailable?: boolean;
+  inProgressProblems?: number | null;
+  legacyPracticeAttempts?: number;
+  legacySolvedProblems?: number;
   ratings: RatingPoint[];
   contests: PublishedContest[];
 }
