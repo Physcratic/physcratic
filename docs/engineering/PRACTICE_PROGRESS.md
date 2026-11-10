@@ -1,6 +1,14 @@
 # Practice and Arena progress
 
-Friday release B2A, 10 November 2026. Base main `ab8881007fa6fe040b87a1b0fdb6a85e2d12b295`. This is the persistence/API batch. Dashboard and solving UI integration is B2B, which must explicitly depend on this branch while B2A is unmerged. No migration is run by application startup, build or deployment.
+Friday release B2A, 10 November 2026. Original base main `ab8881007fa6fe040b87a1b0fdb6a85e2d12b295`, reconciled with main `942be99148870b834767fbc212e649127abb3b93`. This is the persistence/API batch. Dashboard and solving UI integration is B2B PR #134, which must reconcile with the final B2A merge before its own review. No migration is run by application startup, build or deployment.
+
+## Default-OFF activation boundary
+
+All private practice endpoints are disabled unless the server configuration has exactly `PRACTICE_CHECKS_ENABLED=true`. The default is OFF in every environment, including Production. This is a server-only setting, not a public client flag. Headers, cookies, query fields and request bodies cannot enable it. No environment setting or feature activation is performed by this PR.
+
+`GET/POST /api/practice-checks` and `GET /api/practice-progress` use one lightweight route gate. When OFF it returns HTTP 503 with private/no-store, cookie/account Vary and nosniff headers before even importing database or session bindings. It does not authenticate, charge rate limits, read history or save any record, including when migration 0017 already exists. A disabled POST returns `saveState:unconfirmed`, never `saved:true`, because a retry might refer to an earlier committed request. The client must preserve the original retry intent. The enabled route retains the existing authenticated API contract below.
+
+The public guest checker is outside this gate and remains functional. B2B must preserve unsaved guest checking while persistence is OFF or unavailable. A code-only merge is authorized after the required QA gates, with persistence still OFF. Installation, grants and activation remain separate, unauthorized operations subject to the prerequisites below.
 
 ## Progress model
 
@@ -42,9 +50,24 @@ A failed or uncertain save returns an explicit `saveState:unconfirmed`. This inc
 
 `0017_practice_checks.up.sql` creates only `practice_check_attempt`, `practice_check_part` and `practice_check_rate`, their indexes/constraints and an immutable-attempt trigger. It changes no existing table, routine or grant. Composite foreign keys keep each materialized part linked to an attempt for the same owner, kind, problem and version. The SQL trigger is authoritative, do not use schema push.
 
-Empty UP/DOWN/UP preserves existing tables/data. Populated DOWN deliberately refuses to erase student work. Application rollback leaves the new tables intact and old code ignores them. Missing tables make the new persistence APIs return an explicit unavailable/unconfirmed response, while the public checker continues working. Saved attempts restrict deletion of their owning account, matching the existing authored-attempt retention model. Retention and account deletion policy require owner review before installation.
+Empty UP/DOWN/UP preserves existing tables/data. Populated DOWN deliberately refuses to erase student work. Application rollback leaves the new tables intact and old code ignores them. With the gate explicitly enabled, missing tables make the new persistence APIs return an explicit unavailable/unconfirmed response, while the public checker continues working. Current saved attempts restrict deletion of their owning account, matching the existing authored-attempt implementation. That implementation does not yet satisfy the owner-approved account-deletion policy below, so activation remains blocked. Migration 0017 is unchanged by the activation-gate remediation.
 
 No automatic grant is added. A restricted runtime role needs schema USAGE, SELECT/INSERT on the attempt table, and SELECT/INSERT/UPDATE on part/rate tables. No DELETE or privileged function execution is needed. Actual restricted-role operation is tested locally. Installation, reviewed checksums, migration ledger, runtime grants, backup/rollback and deployment are separate owner-only prerequisites. No Production or shared resource is operated by this work.
+
+## Approved retention policy and remaining activation prerequisites
+
+The owner approved this intended behavior on 10 November 2026:
+
+- Preserve saved progress and practice history while the student's account is active.
+- When an account is deleted, erase its associated practice history through a controlled, verified account-deletion workflow.
+- Keep ordinary-use history immutable. Account deletion is a separately authorized exception, not an ordinary runtime DELETE permission.
+- Document and respect the actual provider backup-retention and expiry policy. No duration, immediate backup-erasure guarantee or legal-hold rule is established here.
+
+The verified account-deletion workflow and its narrow immutability/FK exception are **not implemented**. The current RESTRICT FK prevents account deletion after a saved check, and the immutable trigger also rejects deleting those checks. That is an implementation gap to close before activation, not permission to prevent account deletion indefinitely. Do not change the FK, disable triggers, cascade-delete history or grant ordinary runtime DELETE as a shortcut. A separately reviewed deletion design must erase the relevant practice records under verified account-deletion authority and reconcile existing account/history dependencies.
+
+The actual provider backup retention, expiry, restore/erasure handling and any provider-specific limitations remain unverified. No provider setting or real backup has been inspected or changed. Operators must establish and document those facts before activation rather than inventing an expiry promise.
+
+Persistent progress must remain OFF until the deletion workflow is implemented and tested, the backup policy is verified, and the owner separately approves reviewed 0017 installation/ledger/checksums, least-privilege grants, backup/recovery/application rollback and activation. The code-only merge authorizes none of those operations. After B2A merges, B2B PR #134 must update its dependency and keep this gate and guest fallback intact.
 
 ## Verification
 
@@ -56,3 +79,5 @@ AUTHORING_BROWSER_TOOLS=/external/browser-tools CHROMIUM_PATH=/usr/bin/chromium 
 ```
 
 Fixtures use disposable PostgreSQL and synthetic session adapters. Browser tests execute real HTTP requests and production API/grader factories, including reload and a separate mobile context, not a production UI integration. B2B must test the actual solving/dashboard components. Live Better Auth, real providers, Production data and physical phones are not established by these fixtures. Independent pre-merge review remains required.
+
+The local fixture explicitly enables its server route. Additional OFF checks prove that installed-schema requests cannot create attempts, parts or rate rows and that client enable hints are ignored. Fresh-process endpoint tests forbid importing private bindings while disabled. Final exact-head QA and remote unexecuted-Action observations are recorded with PR #133, separately from historical implementation counts.

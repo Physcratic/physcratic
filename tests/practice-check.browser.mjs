@@ -9,6 +9,7 @@ import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { Pool } from 'pg';
 import { createPracticeCheckApi } from '../lib/practice-check-api.ts';
+import { createPracticeCheckRoute, practiceChecksEnabled } from '../lib/practice-check-route.ts';
 import { practiceCheckCatalog } from '../lib/practice-check-catalog.ts';
 import { handleArchiveGrade } from '../lib/archive-grading-request.ts';
 import { isAllowedSubmissionOrigin } from '../lib/submission-security.ts';
@@ -20,10 +21,13 @@ const schema='practice_browser_'+randomUUID().replaceAll('-','');
 const admin=new Pool({connectionString:target.href});await admin.query(`CREATE SCHEMA ${schema}`);
 const pool=new Pool({connectionString:target.href,options:`-c search_path=${schema},public`,max:5});
 let origin,browser,server;
-const api=createPracticeCheckApi({pool,user:async request=>{
+let enabled=false,loads=0;
+const serverApi=createPracticeCheckApi({pool,user:async request=>{
   const id=request.headers.get('cookie')?.match(/viewer=([ABU])/u)?.[1];
   return id?{id,emailVerified:id!=='U'}:null;
 },origin:request=>isAllowedSubmissionOrigin(request,[origin])});
+// Explicit server-only opt-in for this disposable fixture. No request controls it.
+const api=createPracticeCheckRoute(()=>practiceChecksEnabled({PRACTICE_CHECKS_ENABLED:enabled?'true':undefined}),async()=>{loads++;return{practiceCheckApi:serverApi};});
 const metadata=practiceCheckCatalog().find(p=>p.metadata.problemId==='incline').metadata;
 const body=value=>({problemId:'incline',version:metadata.version,answers:[{partId:'answer',latex:value}],idempotencyKey:randomUUID()});
 async function cookie(context,user){await context.clearCookies();if(user)await context.addCookies([{name:'viewer',value:user,url:origin}]);}
@@ -50,6 +54,12 @@ try{
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));origin=`http://127.0.0.1:${server.address().port}`;
   browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{})});
   const context=await browser.newContext(),page=await context.newPage();await page.goto(origin);
+  await cookie(context,'A');
+  for(const path of ['/api/practice-checks','/api/practice-progress'])assert.equal((await call(page,path)).status,503);
+  const disabled=await page.request.post(origin+'/api/practice-checks?PRACTICE_CHECKS_ENABLED=true',{headers:{origin,'X-Practice-Account':'A','PRACTICE_CHECKS_ENABLED':'true',cookie:'viewer=A; PRACTICE_CHECKS_ENABLED=true'},data:body('4.9')});
+  assert.equal(disabled.status(),503);assert.equal((await disabled.json()).saveState,'unconfirmed');assert.equal(loads,0);
+  assert.deepEqual((await pool.query('SELECT (SELECT count(*)::int FROM practice_check_attempt) AS attempts,(SELECT count(*)::int FROM practice_check_rate) AS rates')).rows[0],{attempts:0,rates:0});
+  enabled=true;await cookie(context);
   const guestBody=body('4.9');delete guestBody.idempotencyKey;
   const guest=await call(page,'/api/archive-grade',guestBody);assert.equal(guest.status,200);assert.equal(guest.body.results[0].status,'correct');
   assert.equal((await call(page,'/api/practice-checks',body('4.9'))).status,401);
@@ -67,8 +77,12 @@ try{
   const sameAccount=await call(mobile,'/api/practice-progress');assert.equal(sameAccount.body.solvedProblems,1);assert.equal(sameAccount.body.savedChecks,2);
   const foreign=await phone.request.post(origin+'/api/practice-checks',{headers:{origin:'https://attacker.invalid'},data:body('4.9')});assert.equal(foreign.status(),403);
   const forged=await call(mobile,'/api/practice-checks',{...body('4.9'),correct:true});assert.equal(forged.status,400);assert.equal((await call(mobile,'/api/practice-progress')).body.savedChecks,2);
+  enabled=false;const loaded=loads;
+  assert.equal((await call(mobile,'/api/practice-checks',body('4.9'))).status,503);
+  assert.equal((await call(mobile,'/api/practice-progress')).status,503);assert.equal(loads,loaded);
+  assert.equal((await pool.query('SELECT count(*)::int AS total FROM practice_check_attempt')).rows[0].total,2);
   await phone.close();await context.close();
-  console.log('PASS practice-check browser HTTP: guest/verified/unverified, incorrect/correct/replay, reload, second-device read, account/sign-out isolation, private caching, origin and forged-result rejection. Viewer sessions are synthetic.');
+  console.log('PASS practice-check browser HTTP: default-OFF with installed schema and client override refusal, explicit local enable, guest/verified/unverified, incorrect/correct/replay, reload, second-device read, account/sign-out isolation, private caching, origin and forged-result rejection, disabled-again no-save. Viewer sessions are synthetic.');
 }finally{
   await browser?.close();if(server){server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}
   await pool.end();await admin.query(`DROP SCHEMA ${schema} CASCADE`);await admin.end();

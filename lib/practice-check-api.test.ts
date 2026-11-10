@@ -4,6 +4,7 @@ import { randomUUID } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { Pool } from 'pg';
 import { createPracticeCheckApi } from './practice-check-api';
+import { createPracticeCheckRoute, practiceChecksEnabled } from './practice-check-route';
 import { practiceCheckCatalog } from './practice-check-catalog';
 import { gradeArchiveAnswers } from './archive-grading';
 import { getArchiveDefinition } from './archive-grading/catalog';
@@ -26,7 +27,8 @@ test('server-owned practice/Arena ledger on disposable PostgreSQL',{skip:!url&&'
   const sessions=new Map<string,{id:string;emailVerified:boolean}>();
   let catalog=practiceCheckCatalog(),gradeCalls=0;
   const deps={pool,user:async(r:Request)=>sessions.get(r.headers.get('x-user')??''),origin:(r:Request)=>isAllowedSubmissionOrigin(r,['https://physcratic.test']),catalog:()=>catalog,grade:(input:Parameters<typeof gradeArchiveAnswers>[0])=>{gradeCalls++;return gradeArchiveAnswers(input);}};
-  const api=createPracticeCheckApi(deps);
+  // This fixture explicitly enables the server route in the disposable test only.
+  const api=createPracticeCheckRoute(()=>practiceChecksEnabled({PRACTICE_CHECKS_ENABLED:'true'}),async()=>({practiceCheckApi:createPracticeCheckApi(deps)}));
   const numeric=practiceCheckCatalog().find(e=>e.metadata.problemId==='incline')!;
   const arena=practiceCheckCatalog().find(e=>e.metadata.problemId==='arena-mind-the-gap')!;
   const up=await readFile('migrations/0017_practice_checks.up.sql','utf8'),down=await readFile('migrations/0017_practice_checks.down.sql','utf8');
@@ -50,6 +52,20 @@ test('server-owned practice/Arena ledger on disposable PostgreSQL',{skip:!url&&'
       await pool.query('BEGIN;'+down+'COMMIT;');await pool.query('BEGIN;'+up+'COMMIT;');
       assert.deepEqual((await pool.query('SELECT * FROM legacy_marker')).rows,[{id:17}]);
       await assert.rejects(pool.query('BEGIN;'+up+'COMMIT;'),/already exists/);await pool.query('ROLLBACK');
+    });
+    await t.test('default-OFF blocks every endpoint even with installed schema and client enable hints',async()=>{
+      const user=await actor();let loads=0;
+      const disabled=createPracticeCheckRoute(()=>practiceChecksEnabled({}),async()=>{loads++;return{practiceCheckApi:createPracticeCheckApi(deps)};});
+      const counts=async()=> (await pool.query('SELECT (SELECT count(*)::int FROM practice_check_attempt) AS attempts,(SELECT count(*)::int FROM practice_check_part) AS parts,(SELECT count(*)::int FROM practice_check_rate) AS rates')).rows[0];
+      const before=await counts();
+      for(const action of ['submit','history','progress'] as const){
+        const original=request(user,action==='submit'?input():undefined,{query:'?PRACTICE_CHECKS_ENABLED=true&enabled=true'});
+        const headers=new Headers(original.headers);headers.set('PRACTICE_CHECKS_ENABLED','true');headers.set('cookie','PRACTICE_CHECKS_ENABLED=true');
+        const response=await disabled(action,new Request(original,{headers}));
+        const body=await json(response,503);assert.equal(body.error,'Saved practice checks are disabled.');assert.notEqual(body.saved,true);
+        if(action==='submit')assert.equal(body.saveState,'unconfirmed');
+      }
+      assert.equal(loads,0);assert.deepEqual(await counts(),before);
     });
     await t.test('guest checker remains independent, while private writes require verified session and origin',async()=>{
       const guest=await handleArchiveGrade(request(undefined,{problemId:'incline',version:numeric.metadata.version,answers:input().answers}),['https://physcratic.test']);

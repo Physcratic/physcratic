@@ -1,3 +1,4 @@
-import { practiceCheckApi } from '@/lib/practice-check-server';
+import { practiceCheckRoute } from '@/lib/practice-check-route';
 export const runtime='nodejs';
-export const GET=(request:Request)=>practiceCheckApi('progress',request);
+export const dynamic='force-dynamic';
+export const GET=(request:Request)=>practiceCheckRoute('progress',request);
