@@ -8,8 +8,8 @@ test("the four visible bands match the inclusive boundaries and display ranges",
   assert.deepEqual(ratingBands.map((band) => [band.id, band.name, band.min, band.max, band.range]), [
     ["beginner-olympiad", "Beginner", 0, 801, "0 to 800"],
     ["intermediate-olympiad", "Intermediate", 801, 1801, "801 to 1,800"],
-    ["advanced", "Advanced (IPhO level)", 1801, 2601, "1,801 to 2,600"],
-    ["mastery", "Mastery", 2601, Infinity, "2,601+"],
+    ["advanced", "Advanced (Olympiad)", 1801, 2601, "1,801 to 2,600"],
+    ["mastery", "Expert (Olympiad++)", 2601, Infinity, "2,601+"],
   ])
   assert.equal(new Set(ratingBands.map((band) => band.id)).size, 4)
   for (const band of ratingBands) {
@@ -70,8 +70,8 @@ test("exact ratings still accept the complete 0 to 4000 scale", () => {
 test("estimate descriptions show current names without changing numeric or legacy values", () => {
   for (const [value, name] of [
     [100, "Beginner"], [800, "Beginner"], [801, "Intermediate"], [1200, "Intermediate"],
-    [1600, "Intermediate"], [1800, "Intermediate"], [1801, "Advanced (IPhO level)"],
-    [2600, "Advanced (IPhO level)"], [2601, "Mastery"], [3201, "Mastery"], [4000, "Mastery"],
+    [1600, "Intermediate"], [1800, "Intermediate"], [1801, "Advanced (Olympiad)"],
+    [2600, "Advanced (Olympiad)"], [2601, "Expert (Olympiad++)"], [3201, "Expert (Olympiad++)"], [4000, "Expert (Olympiad++)"],
   ] as const) {
     assert.equal(describeEstimate(String(value)), `~${value.toLocaleString("en-US")} · ${name} (estimate)`)
   }
