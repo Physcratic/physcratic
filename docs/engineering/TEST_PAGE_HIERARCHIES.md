@@ -5,7 +5,7 @@ Living companion to [TEST_SITE_MAP.md](TEST_SITE_MAP.md). Branch: `codex/ui-over
 ## How to read these diagrams
 
 The site map shows **where pages connect**. This document shows **what each page contains and what deserves attention first**.
-All hierarchies below are **proposed, unbuilt and untested**. They are editable initial decisions, not fixed requirements or claims of available features.
+Hierarchies remain proposed. The homepage now has an isolated sample-data prototype, with browser verification pending. Other pages remain unbuilt and untested. They are editable initial decisions, not fixed requirements or claims of available features.
 Numbers represent intended reading/attention priority, not an exact viewport position or mandatory vertical stack. Use them to make rough wireframes, then test.
 Each group owns its detail nodes. These are content relationships, not clickable navigation arrows.
 On desktop, the main action may sit beside supporting content. On mobile, use a coherent reading and keyboard order. Do not hide essential suitability, price/access conditions, errors or safety information merely to shorten the page.
@@ -47,6 +47,31 @@ flowchart TD
 
 Search and filters update results on `/test/`. Returning from a course restores search, filters and scroll position.
 Show useful no-match or no-available-course states without inventing inventory. Additional filters appear only when useful.
+
+### Homepage variations by account state
+
+```mermaid
+flowchart TD
+  home["/test/ · Same course catalogue"]
+  identity{"Sample account state"}
+  guest["Guest · Brief introduction and sign-in controls"]
+  enrolled["Member with course · Continue learning panel"]
+  empty["Member without course · Browse-first guidance"]
+  home --> identity
+  identity --> guest
+  identity --> enrolled
+  identity --> empty
+  enrolled --> resume["Course title, next lesson, progress, continue action"]
+  enrolled --> discover["Catalogue remains available"]
+  guest --> discover
+  empty --> discover
+```
+
+One account is the proposed identity across Academy, Coaching and Arena. Course access is separate from account existence.
+The current fixture provides three states, sample dialogs and a light/dark toggle. It does not authenticate or persist anything.
+Keep the Continue learning area compact so the homepage remains the catalogue.
+Account controls change with state, not the site's primary purpose.
+The separate sample toolbar is a research control, not a planned customer-facing account switcher.
 
 ### 2. Course details
 

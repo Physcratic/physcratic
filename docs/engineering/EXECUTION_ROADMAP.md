@@ -1,5 +1,14 @@
 # Execution roadmap
 
+## Homepage account-state prototype (11 November 2026)
+
+`prototypes/marketplace-home/index.html` implements a standalone course-catalogue homepage with guest, enrolled-member and no-enrolment member states. `app/test/page.tsx` embeds that file inside an allow-scripts-only sandbox after an explicit local-development/non-Vercel gate. Outside development it returns notFound. No public asset, real auth, data/provider access or transactions were added.
+Product decision: one Physcratic identity across Academy/Coaching/Arena, with separate records and permissions. The homepage remains course discovery in every state. An enrolled member gets a compact Continue learning panel, not a replacement dashboard.
+Sample course/instructor/lesson dialogs, search, filters, no-match reset, account chooser and theme toggle are implemented in the fixture. Other experimental routes are not implemented. All instructor/course/progress data is fictional and labelled. Current-site snapshots remain pinned to main.
+JavaScript syntax and static fixture/isolation checks pass. Browser could not reach localhost (ERR_CONNECTION_REFUSED), so no successful browser, mobile/a11y/contrast check, Next build or full CI is claimed. App integration requires repository quality gates before review-ready status.
+Security reminder: unchanged backend alone does not qualify redesigned UI. Verify session/roles/entitlements, CSRF/origin, data/cache boundaries, input/XSS/media access and recovery/account switching during integration.
+Next: user opens the standalone file or local /test/, compares the three states, and decides introduction/Continue learning hierarchy before building other routes.
+
 ## Marketplace prototype page map (11 November 2026)
 
 The owner clarified that Physcratic is the broader education marketplace, with Academy as the long-term course business, Coaching bootstrapping revenue and Arena serving free value/acquisition/brand credibility. The earlier practice-first direction is superseded as the overall homepage strategy. It remains a practice-flow experiment only.

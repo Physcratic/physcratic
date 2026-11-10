@@ -102,3 +102,10 @@ Also inspect API routes and query-based dashboard views when changing a flow. Pa
 | This documentation commit | Baseline, preservation process and handoff | Documentation/source inventory review only. No application behaviour changed |
 
 Next task: get the local guest preview running, establish affected-flow baseline evidence, then prototype the entry/discovery flow. Signed-in setup remains a separate unresolved prerequisite.
+
+## Security qualification for the integrated redesign
+
+The owner called out security review as a full-redesign completion concern on 11 November 2026. Maintain existing boundaries throughout, then verify the integrated candidate rather than assuming an unchanged backend makes the UI safe.
+Track impacted flows and existing tests for: authentication/session/cookies, server roles and course entitlements, CSRF/origin checks, private-data/cache boundaries, XSS and bounded input validation, media/file authorization, revision identity, account switching and uncertain-submission/idempotent recovery.
+Keep synthetic fixtures and local-only gates separate from real auth. Never ship a sample account chooser or credential bypass as real access.
+At review-ready delivery record candidate SHA, affected contracts, test evidence, unresolved findings and what was not exercised. A passing visual review or sample prototype is not security qualification. Production/feature activation still requires its existing separate authorization.

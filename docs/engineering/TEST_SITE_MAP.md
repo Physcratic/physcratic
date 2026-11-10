@@ -31,7 +31,7 @@ Any invented instructor or offering must be clearly marked as sample throughout 
 - **Confirmed direction:** parallel experimental site at `/test/`, course-catalogue homepage without a separate catalogue route, iterative prototyping, existing site preserved.
 - **Proposed:** route names below, section order, primary actions and page contents. They are editable first drafts.
 - **Deferred:** production checkout, enrolment, lesson delivery, creator publishing and broader categories until their requirements are separately settled.
-- **Implementation:** no `/test/` routes exist as part of this planning checkpoint. The earlier standalone practice prototype is an exploration, not the marketplace shell.
+- **Implementation:** `/test/` now embeds a standalone course-homepage fixture in local development only. It simulates guest, enrolled-member and member-without-enrolments states. No real auth, course access or cross-platform account integration exists. Other experimental routes remain unbuilt. The earlier practice prototype remains a separate exploration.
 - Keep the experiment local-only initially. A future implementation must enforce a development boundary and exclude experimental routes from public navigation, indexing and sitemaps. Noindex alone is not access control. No deployment is authorized.
 
 ## Route hierarchy
@@ -125,7 +125,7 @@ See [TEST_PAGE_HIERARCHIES.md](TEST_PAGE_HIERARCHIES.md) for a proposed content-
 
 ## Page specifications
 
-All rows are **planned, not built**. Contents and action priorities remain proposed until tried.
+The homepage has a **sample-data implementation with browser verification pending**. Other routes below remain planned, not built. Course and instructor previews are dialogs, not implemented detail routes. Contents and priorities remain subject to review.
 
 | Page | Visitor's decision | Initial contents | Primary action | Connections and context |
 | --- | --- | --- | --- | --- |
@@ -159,9 +159,27 @@ Future student learning/dashboard and instructor creator routes are deferred. Do
 Do not show a related offering unless it exists in the shared data and is relevant. Do not interrupt solving with purchase prompts.
 Missing IDs must produce an understandable unavailable state and a way back, not a broken link.
 
+## Homepage account-state experiment
+
+Owner accepted one Physcratic account across Academy, Coaching and Arena. Identity can be shared while course entitlements, coaching records, Arena activity and instructor/staff permissions remain distinct.
+This is a product decision, not implemented real account integration.
+
+| State at /test/ | First content | Account controls | Catalogue |
+| --- | --- | --- | --- |
+| Guest | Brief course-discovery introduction | Sign in and create account | Fully browsable sample catalogue |
+| Enrolled member | Compact Continue learning with sample course/progress | My learning and sample account menu | Still visible below |
+| Member without enrolments | Welcome and honest no-enrolment guidance | Same member controls | Primary way to start |
+
+An Arena account must not be assigned a course automatically or redirected away from course discovery on the main homepage.
+Implementation: `prototypes/marketplace-home/index.html`, embedded by `app/test/page.tsx` only in local development, plus a directly openable standalone file.
+Simulated sign-in changes fixture state only. Course/instructor/lesson previews are dialogs. Coaching/Arena are explanatory navigation stubs.
+Search, filters, clear/no-match recovery, theme toggle and responsive CSS exist. No real sign-in, enrolment, payment, persistence or lesson completion exists.
+Verification: JavaScript syntax and static fixture/isolation checks pass. Browser connection refused, so runtime, responsive/accessibility, Next build and application CI remain unverified.
+See `prototypes/marketplace-home/README.md` for review steps.
+
 ## Shared sample data
 
-Proposed location: `components/experimental/fixtures.ts` once implementation begins.
+Current homepage fixtures live in the standalone prototype script. When integrating native application pages, extract a shared typed fixture module such as `components/experimental/fixtures.ts` instead of duplicating these records.
 Use a single source for subjects, competition goals, instructors, courses and coaching options.
 Stable IDs connect records: course.instructorIds, coaching.instructorIds, course.subjectId and related problem identities.
 Represent availability explicitly, such as sample, planned or available. Avoid interpreting absent information as a confirmed offering.
@@ -175,8 +193,8 @@ Never load production credentials, real enquiries or private learner data to mak
 - [ ] Confirm initial audience, available offerings and truthful instructor information.
 - [ ] Try two homepage content hierarchies before polishing either.
 - [ ] Select shared navigation, type, spacing and component direction.
-- [ ] Implement a local-only `/test/` shell and clear experimental boundary.
-- [ ] Add consistent sample records and useful missing-content states.
+- [x] Add a development-only `/test/` fixture wrapper and three sample account states. Browser/build verification pending.
+- [x] Add internally consistent homepage sample courses/instructors and no-match recovery. Cross-route integration remains pending.
 
 ### 2. One complete commercial discovery flow
 
