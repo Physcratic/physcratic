@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import type { OlympiadHost } from "@/lib/olympiad-hosts"
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -31,6 +32,7 @@ export type ProblemCardProps = {
   headingLevel?: 3 | 4;
   source: string;
   competition?: keyof typeof competitionVariants;
+  host?: OlympiadHost
   reference?: string;
   statementLanguage?: "en" | "ru";
   description?: string;
@@ -51,6 +53,7 @@ export function ProblemCard({
   headingLevel = 3,
   source,
   competition,
+  host,
   reference,
   statementLanguage = "en",
   description,
@@ -86,9 +89,21 @@ export function ProblemCard({
     >
       <div className="problem-entry-header flex flex-wrap items-center justify-between gap-3 px-5 py-3">
         <div className="flex min-w-0 flex-wrap items-center gap-3">
-          <Badge variant={competition ? competitionVariants[competition] : "concept"}>
-            {source}
-          </Badge>
+          <div className="inline-flex shrink-0 items-center gap-1.5">
+            {competition && host && (
+              <span
+                role="img"
+                aria-label={`Hosted by ${host.country}${host.online ? " (online)" : ""}`}
+                title={`Hosted by ${host.country}${host.online ? " (online)" : ""}`}
+                className="shrink-0 text-base leading-none"
+              >
+                {host.flag}
+              </span>
+            )}
+            <Badge variant={competition ? competitionVariants[competition] : "concept"}>
+              {source}
+            </Badge>
+          </div>
           {reference && (
             <span className="text-sm font-medium text-muted-foreground">
               {reference}
