@@ -669,3 +669,37 @@ export const communityModerationLimits=pgTable('community_moderation_limit',{
 export const communityContentLimits=pgTable('community_content_limit',{
  userId:text('user_id').primaryKey().references(()=>user.id,{onDelete:'cascade'}),day:date('day').notNull(),writes:integer('writes').notNull(),
 },t=>[check('community_content_limit_writes_check',sql`${t.writes} BETWEEN 1 AND 101`)]);
+
+// Additive 0017. SQL also enforces immutable attempts and refuses populated DOWN.
+export const practiceCheckRate = pgTable("practice_check_rate", {
+  userId:text("user_id").primaryKey().references(()=>user.id,{onDelete:"cascade"}),
+  windowStart:timestamp("window_start",{withTimezone:true}).notNull(),
+  requests:integer("requests").notNull(),submissions:integer("submissions").notNull(),
+},t=>[check("practice_check_rate_requests_check",sql`${t.requests} BETWEEN 1 AND 61`),check("practice_check_rate_submissions_check",sql`${t.submissions} BETWEEN 0 AND 21`)]);
+export const practiceCheckAttempts = pgTable("practice_check_attempt", {
+  id:uuid("id").primaryKey(),userId:text("user_id").notNull().references(()=>user.id,{onDelete:"restrict"}),
+  kind:text("kind").$type<"practice"|"arena">().notNull(),problemId:text("problem_id").notNull(),version:text("version").notNull(),
+  idempotencyKey:uuid("idempotency_key").notNull(),
+  answers:jsonb("answers").$type<import("@/lib/archive-grading-contracts").ArchiveGradeRequest["answers"]>().notNull(),
+  results:jsonb("results").$type<import("@/lib/archive-grading-contracts").ArchivePartResult[]>().notNull(),
+  createdAt:timestamp("created_at",{withTimezone:true,precision:3}).notNull().default(sql`clock_timestamp()`),
+},t=>[
+  unique("practice_check_attempt_user_id_idempotency_key_key").on(t.userId,t.idempotencyKey),
+  unique("practice_check_attempt_id_user_id_kind_problem_id_version_key").on(t.id,t.userId,t.kind,t.problemId,t.version),
+  index("practice_check_owner_time").on(t.userId,t.createdAt.desc(),t.id.desc()),
+  index("practice_check_selection").on(t.userId,t.kind,t.problemId,t.version,t.createdAt),
+  check("practice_check_attempt_kind_check",sql`${t.kind} IN ('practice','arena')`),
+  check("practice_check_attempt_problem_id_check",sql`${t.problemId} ~ '^[a-z]+(-[a-z]+)*$' AND length(${t.problemId})<=100`),
+  check("practice_check_attempt_version_check",sql`${t.version} ~ '^[a-f0-9]{64}$'`),
+  check("practice_check_attempt_answers_check",sql`jsonb_typeof(${t.answers})='array' AND jsonb_array_length(${t.answers}) BETWEEN 1 AND 64 AND octet_length(${t.answers}::text)<=100000`),
+  check("practice_check_attempt_results_check",sql`jsonb_typeof(${t.results})='array' AND jsonb_array_length(${t.results}) BETWEEN 1 AND 64 AND octet_length(${t.results}::text)<=100000`),
+]);
+export const practiceCheckParts = pgTable("practice_check_part", {
+  userId:text("user_id").notNull(),kind:text("kind").$type<"practice"|"arena">().notNull(),problemId:text("problem_id").notNull(),version:text("version").notNull(),
+  partId:text("part_id").notNull(),correct:boolean("correct").notNull(),lastAttemptId:uuid("last_attempt_id").notNull(),
+  checkedAt:timestamp("checked_at",{withTimezone:true,precision:3}).notNull(),
+},t=>[
+  primaryKey({columns:[t.userId,t.kind,t.problemId,t.version,t.partId]}),
+  foreignKey({columns:[t.lastAttemptId,t.userId,t.kind,t.problemId,t.version],foreignColumns:[practiceCheckAttempts.id,practiceCheckAttempts.userId,practiceCheckAttempts.kind,practiceCheckAttempts.problemId,practiceCheckAttempts.version]}).onDelete("restrict"),
+  check("practice_check_part_part_id_check",sql`${t.partId} ~ '^[a-z0-9]+([.-][a-z0-9]+)*$' AND length(${t.partId})<=100`),
+]);
