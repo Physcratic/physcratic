@@ -1,5 +1,11 @@
 # Agent handoff
 
+## Olympiad host flags handoff (10 November 2026)
+
+- Branch `claude/olympiad-host-flags`, implementation `cd049d2903b17df844e16b682be40749d74c5cee`, based on fetched main `40ced00d20c4ef01f34b6cedf80caa8c06bc2a47`, which merges #135. Adds an optional named native flag immediately before the imported competition badge. All 44 current editions have verified hosts. Joint IPhO 2016 and online arrangements are explicit, unsupported years including 2026 omit the flag. [Mapping, source references and commands](OLYMPIAD_HOST_FLAGS.md).
+- Node 22.23.1/pnpm 10.34.9 clean-worktree frozen install, offline guards, typegen/TypeScript, zero-warning lint and guarded build pass. Focused 34, server 794 pass with 24 DB skips and one inherited TODO, components 139 pass. Focused Chromium checks pass at 375/1440 in both themes with keyboard, wrapping, accessible names and axe. Full guest and synthetic signed-in sweeps pass 336 and 72 combinations with zero distinct failures. The linked report records commands and limitations.
+- Main and open #133/#134/#136/#137 were rechecked. Their application paths do not overlap, their shared engineering-document additions may need reconciliation. No catalog, difficulty, rating, source, reader, grading, schema, auth, dependency, settings, feature-gate or deployment change. No Production/shared database operation. Next action is draft-PR review. No operator installation is needed. Stop after the draft PR, do not merge or deploy.
+
 ## Editorial difficulty review handoff (10 November 2026)
 
 - [PR #135](https://github.com/Physcratic/physcratic/pull/135) is open and unmerged. Base `ab8881007fa6fe040b87a1b0fdb6a85e2d12b295`, implementation `73e26b6c7954258cf63b7f3bbd70f61a46d9ac0f`. Main and open PRs were rechecked. Preserve current bands, legacy filters, sources, grading and real player ratings.

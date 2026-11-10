@@ -67,6 +67,39 @@ No currently imported edition has an unknown host. The joint 2016 host and onlin
 
 ## Local checks
 
-Exact results and final head are recorded in the draft PR. Focused tests cover all 100 cards, lookup coverage, competition/year identity, joint/online hosts, missing metadata, preserved metadata and opening action, and no extra tab stops. The focused browser renders the actual cards with production CSS at 375/1440 in light/dark and checks placement, wrapping, accessible names, keyboard opening/focus and axe. Full site sweeps and standard local checks are recorded separately from this component fixture. GitHub Actions usage remains exhausted, remote failures are not passing verification.
+Implementation `cd049d2903b17df844e16b682be40749d74c5cee` was tested in a fresh clean worktree, using Node 22.23.1, pnpm 10.34.9, Chromium 154, external Playwright 1.64.1 and axe 4.14.0. Later changes only record verification and handoff documentation. The draft PR records the final head.
+
+| Check | Result |
+| --- | --- |
+| Frozen install, offline guards | Pass. Transport guards retain two platform skips |
+| Next typegen, TypeScript, zero-warning ESLint | Pass |
+| Focused lookup, catalog and card tests | 34 pass, including all 100 imported cards |
+| Full server suite | 794 pass, 24 database-dependent skips, one inherited TODO, no failures |
+| Full component suite | 139 pass, no skips or failures |
+| Guarded production build | Pass with synthetic loopback configuration |
+| Focused card browser | Four width/theme combinations, nine actual cards each, pass |
+| Full guest site sweep | 336 route/width/theme combinations, zero distinct failures |
+| Signed-in site sweep | 72 route/width/theme combinations, zero distinct failures |
+
+The focused browser uses the current production CSS at 375/1440 in light/dark. It checks flag placement, joint/online accessible names, missing metadata, wrapping, no horizontal overflow, keyboard opening/focus and zero serious/critical axe violations. Screenshots were inspected. Initial new fixture runs exposed a wrong badge-element assertion and missing Next client environment and browser-context setup. These test fixtures were corrected without removing existing assertions or changing application behavior.
+
+Commands run with the Node 22 executable first on PATH and inherited service credentials removed:
+
+```sh
+corepack pnpm install --frozen-lockfile
+python3 -B scripts/phase-c-offline/run.py safety
+corepack pnpm exec next typegen
+corepack pnpm exec tsc --noEmit
+corepack pnpm lint --max-warnings=0
+node --require ./tests/server-only-register.cjs --import tsx --test lib/olympiad-hosts.test.ts lib/corpus-catalog.test.ts tests/problem-card.test.ts
+corepack pnpm run test:server
+corepack pnpm test:ui
+node --import tsx scripts/csp/local.mjs --build
+AUTHORING_BROWSER_TOOLS=/external/browser-tools CHROMIUM_PATH=/usr/bin/chromium node tests/olympiad-host-flags.browser.mjs
+```
+
+The focused browser saves screenshots under `work/olympiad-host-flags`, or `BROWSER_SCREENSHOTS` when supplied. External browser tools are not application dependencies. GitHub Actions usage remains exhausted, remote failures are not passing verification. No live provider, physical-device or Firefox/WebKit result is claimed. Full database/release package suites were not repeated for this presentation-only change, their source and contracts remain unchanged.
+
+The existing `SWEEP=1 node tests/solve-contrast.browser.mjs` ran against the actual guarded production server at 375/390/768/1440 in both themes. The guest sweep covers 42 stages per viewport/theme, including current card collections. Its existing contest fixtures remain in use. The second invocation supplies a synthetic `SESSION_COOKIE` and covers nine signed-in stages per viewport/theme. Signed-in qualification uses only a disposable PostgreSQL 18.6 container, synthetic account/session and locally seeded schema. No real account or shared database is used. Guest minimum text/border contrast is 4.64:1/3.70:1. Signed-in minimum text/border contrast is 5.25:1/3.67:1. The optional admin and published-authored-student stages are not included.
 
 Concurrent PRs #133, #134, #136 and #137 do not change either card file or the new lookup. Their shared engineering-document additions need normal reconciliation if combined later. No reader, difficulty, grading, schema, authentication, source-document, dependency or deployment change is included. Draft only, do not merge or deploy.
