@@ -1,5 +1,11 @@
 # Beta readiness log
 
+## IPhO 2026 final local CI replacement (10 November 2026)
+
+The owner authorizes full local CI replacement and a normal guarded merge of [PR #139](https://github.com/Physcratic/physcratic/pull/139), starting at `1778fd3d4db6a0d3522bcef0c3563292b65467ea` with main `5a82bb0e5dfb0f3496c89e1763b71ea3cc744658` already included. [Commands, exact content tree, environment, completed CI results and remaining browser/merge gates](IPHO_2026_FINAL_QA.md). Full server 812 pass, 25 database skips and one inherited TODO. Separate PostgreSQL 18.6 run 183 pass, components 145, release guards 58 and operator guards 5 pass. Frozen install, offline guards, typegen/typecheck, zero-warning lint, guarded normal-local-.next build and focused 42 pass.
+
+The final guest/synthetic signed-in sweeps, exact final head/tree and merge outcome are recorded on the PR before the merge decision. Actions remains unavailable, not passing. No code fix, new physics review or source correction. T1 1950, T2 2050 and T3 1850 remain unchanged, with 103 imports and 121 estimates. Preserve every source-review flag and #133's default-OFF/operator prerequisites. No manual deployment, Production SQL, settings/billing, flag or README operation. Stop after merge verification or a blocked report. Earlier draft-only entries describe their historical batches.
+
 ## IPhO 2026 difficulty recalibration (10 November 2026)
 
 - Draft PR #139, expected starting head `41515fa1fd89aba81431d0d513ace3432c522468`. Main `5a82bb0e5dfb0f3496c89e1763b71ea3cc744658` is already incorporated. No reconciliation is needed for this focused metadata review.
