@@ -1,0 +1,3352 @@
+{
+  "reviewDate": "2026-11-10",
+  "baseCommit": "ab8881007fa6fe040b87a1b0fdb6a85e2d12b295",
+  "targetSolver": "Strong Olympiad student",
+  "scope": "100 imported theory problems and 18 current Physcratic originals",
+  "historicalNativePdfs": "Not inspected. No tracked PDF matches the 36 native registry filenames. Native estimates follow the current repository statements, linked figures and worked solutions.",
+  "problems": [
+    {
+      "id": "apho-2006-t2",
+      "old": 2300,
+      "proposed": 1900,
+      "status": "reviewed",
+      "assessment": "Energy-level phase curves and shifted harmonic arcs determine dry-friction stopping and linear amplitude loss, without a non-routine differential equation",
+      "limitations": "",
+      "batch": 8,
+      "statement": "public/corpus/documents/english-apho-2006-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2006-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "9a229d0e841347a9ec2d8d3fd134c7b59621440fac408b3585a890facbf6e49a",
+      "solutionSha256": "7f912dd1f1d611176ba80b3670f50a20a5c0fbd365a81cd8a6610aa89f76b8cc",
+      "statementPages": [
+        1,
+        2,
+        3
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2006-t2.json"
+    },
+    {
+      "id": "apho-2009-t1",
+      "old": 2250,
+      "proposed": 2250,
+      "status": "reviewed",
+      "assessment": "Rolling constraints and coupled inertia are guided, while the final slip impulse and contact condition add a separate physical argument",
+      "limitations": "",
+      "batch": 8,
+      "statement": "public/corpus/documents/english-apho-2009-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2009-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "775f096f642e87b459f2433ba83b870889531977c4113249cfb656d62b9240da",
+      "solutionSha256": "67ede6d73f3935409f4dc204ed583e16580af1d537a767403e99ef80dbed419e",
+      "statementPages": [
+        1,
+        2
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2009-t1.json"
+    },
+    {
+      "id": "apho-2011-t2",
+      "old": 2500,
+      "proposed": 2500,
+      "status": "reviewed",
+      "assessment": "Stick-slip phase matching and a weak-damping extinction threshold require independent reasoning before transferring the model to a torsional hinge",
+      "limitations": "",
+      "batch": 8,
+      "statement": "public/corpus/documents/english-apho-2011-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2011-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "8462e48e92094017d3ec904a8c6cbc60c680d7a28266016fa1a86a57aab44b15",
+      "solutionSha256": "be31437d7e2a5c5c64285d270cd8b3b84581e004e4c4fe10e48c0ed7640e6881",
+      "statementPages": [
+        1,
+        2,
+        3
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2011-t2.json"
+    },
+    {
+      "id": "apho-2012-t1",
+      "old": 2400,
+      "proposed": 2050,
+      "status": "reviewed",
+      "assessment": "The dipole field and thin-ring decomposition are supplied, so induced emf and drag reuse one flux-force calculation and the final integral need not be evaluated",
+      "limitations": "",
+      "batch": 9,
+      "statement": "public/corpus/documents/english-apho-2012-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2012-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "ee699cfd960016652e8058a68439bd0fb669738a7dd1f6977250a20394905c75",
+      "solutionSha256": "e26d6d64e8a52ddfdf5319a9ba873d3709de6cc132462eb870a2978aa34d3a5c",
+      "statementPages": [
+        1,
+        2,
+        3
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2012-t1.json"
+    },
+    {
+      "id": "apho-2012-t3",
+      "old": 2700,
+      "proposed": 2100,
+      "status": "reviewed",
+      "assessment": "Successive polarization projections give the phase directly, and the supplied sphere coordinates reduce the geometric phase to a spherical sector area",
+      "limitations": "",
+      "batch": 9,
+      "statement": "public/corpus/documents/english-apho-2012-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2012-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "c96a44cdc5476b3b921d0dd2b0253daff1ced71b28e13aa5e29f3905bdea42f9",
+      "solutionSha256": "b3a5406b544b2a96ad06726006c899a24d949c8b1ce2fe9d2611617dd9b92460",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2012-t3.json"
+    },
+    {
+      "id": "apho-2013-t1",
+      "old": 2500,
+      "proposed": 2500,
+      "status": "reviewed",
+      "assessment": "Equivalent line-charge placement must reproduce both cylindrical boundaries, then conductive current and a nontrivial Ampere loop determine the magnetic field",
+      "limitations": "",
+      "batch": 9,
+      "statement": "public/corpus/documents/english-apho-2013-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2013-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "c367ae27d70e1b04de8be8dcb550696c20fc3a004a5ec5df192bb6a5ca83f766",
+      "solutionSha256": "162c21f08ae1fa1fcb27b693b8fea70d56d06e02364209034dba470e5ca7c895",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2013-t1.json"
+    },
+    {
+      "id": "apho-2013-t3",
+      "old": 2600,
+      "proposed": 2250,
+      "status": "reviewed",
+      "assessment": "The rotating-frame derivative and resonance targets are supplied, leaving vector precession, averaging counter-rotation and a guided uncertainty-versus-separation argument",
+      "limitations": "",
+      "batch": 9,
+      "statement": "public/corpus/documents/english-apho-2013-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2013-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "9827ab77ad668760a97a15cad9cfeef4baf19881f9b4ef125bccbaf3d60a83de",
+      "solutionSha256": "50381c3693a220ee37be80155e86ce6eb52e3533d7c636a4a3f9688b4a0fb42b",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2013-t3.json"
+    },
+    {
+      "id": "apho-2014-t2",
+      "old": 2500,
+      "proposed": 2250,
+      "status": "reviewed",
+      "assessment": "Logarithmic wire potential and transverse impulse must be connected to interference geometry, while the relativistic wavelength and numerical parts are standard",
+      "limitations": "",
+      "batch": 8,
+      "statement": "public/corpus/documents/english-apho-2014-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2014-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "36457730acc639e286c2e447277876fdd3edd71cf8fd01bd7b038f33f57b9b43",
+      "solutionSha256": "2cc4f79bba40e23017ab263939eed3d6a4ab2d9019aee5868142dbd9bfbd9e43",
+      "statementPages": [
+        1,
+        2
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2014-t2.json"
+    },
+    {
+      "id": "apho-2014-t3",
+      "old": 2550,
+      "proposed": 1950,
+      "status": "reviewed-with-source-issue",
+      "assessment": "The supplied deflection law leaves ring symmetry, small-angle lens geometry and a standard escape-energy calculation, without a relativity derivation",
+      "limitations": "Official part (c) awards arcs for an off-axis point source and penalizes the two-image result of a point lens. The small-angle justification in (f) also needs review. Rating follows the intended supplied-law geometry",
+      "batch": 9,
+      "statement": "public/corpus/documents/english-apho-2014-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2014-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "3507ee19e53fa1e9a782722f3d6c51d6ade6d3dda3d132519c757fca7ad4bfe7",
+      "solutionSha256": "11fdc9aa88f96d31f6c601046ddd5230f9ae70dd27d41a69679771154b76b8c5",
+      "statementPages": [
+        1,
+        2,
+        3
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2014-t3.json"
+    },
+    {
+      "id": "apho-2015-t1",
+      "old": 2800,
+      "proposed": 2050,
+      "status": "reviewed",
+      "assessment": "Classical Hall drift, Coulomb length scaling and Poisson charge variance carry the calculation, with fractional charge and flux quantization supplied",
+      "limitations": "",
+      "batch": 8,
+      "statement": "public/corpus/documents/english-apho-2015-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2015-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "71e314181b1b58b3a4f62e823e917f4810c46a466265b348325ebe4963d9fe91",
+      "solutionSha256": "7cdb8ea6a2c6a0c3a2182d2249210956d706f965dd7336904f9a9ea76f658bd4",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2015-t1.json"
+    },
+    {
+      "id": "apho-2015-t2",
+      "old": 2550,
+      "proposed": 2550,
+      "status": "reviewed",
+      "assessment": "Diamagnetic current from unequal orbit populations, a magnetic-moment invariant and atmospheric quenching combine several physical mechanisms",
+      "limitations": "",
+      "batch": 8,
+      "statement": "public/corpus/documents/english-apho-2015-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2015-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "93fea0aa00d3d25dc88221a9e80bff5a93986132db869cf7467bebd7dbba5c9c",
+      "solutionSha256": "3555ec0187782336bb332dc86f932905f83ca97c5efd2d5d66bcc93717500a09",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2015-t2.json"
+    },
+    {
+      "id": "apho-2015-t3",
+      "old": 2450,
+      "proposed": 2100,
+      "status": "reviewed",
+      "assessment": "The Airy transmission and Zeeman law are given, leaving fringe-order selection, squared-radius inversion and repeated spectral-width algebra",
+      "limitations": "",
+      "batch": 8,
+      "statement": "public/corpus/documents/english-apho-2015-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2015-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "81a3d2e03f8585eca26cb872c2e4181b652f792b6c7677ad97526bd3e66879a4",
+      "solutionSha256": "ea72af7482eb68dc2ca81707691d5358c16dbe4b8866202511c134102dc38cce",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2015-t3.json"
+    },
+    {
+      "id": "apho-2016-t1",
+      "old": 2450,
+      "proposed": 2450,
+      "status": "reviewed",
+      "assessment": "Lattice geometry sets translational and rotational inertia, a singular large-size scaling and an unsupplied virtual-work choice of the best force point",
+      "limitations": "",
+      "batch": 8,
+      "statement": "public/corpus/documents/english-apho-2016-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2016-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "a09471cbeaa43759b19fa7f508b687156ab4dbdcbb753b4aba827ef348d67a76",
+      "solutionSha256": "c318b8f120d4f6fa54dde09d89a9881695e13111e0dc02f4ff7de28c1b92d8dd",
+      "statementPages": [
+        1,
+        2,
+        3
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2016-t1.json"
+    },
+    {
+      "id": "apho-2016-t3",
+      "old": 2650,
+      "proposed": 2100,
+      "status": "reviewed",
+      "assessment": "Pair-breaking energies and resultant spin fields use supplied models, and the supplied Gaussian trial function and integrals reduce the orbital part to one-variable minimization",
+      "limitations": "",
+      "batch": 8,
+      "statement": "public/corpus/documents/english-apho-2016-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2016-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "2c1d1c4d62c9e78a235a96cebd86ce699b030e6d52b906ba0f3410dd7dde554b",
+      "solutionSha256": "989cba1161ad8ebb0283a4fc6836c4d6af37669bd5b801e574c49bd8342e85df",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2016-t3.json"
+    },
+    {
+      "id": "apho-2017-t1",
+      "old": 2750,
+      "proposed": 2750,
+      "status": "reviewed",
+      "assessment": "Vortex momentum changes, the energy-momentum velocity relation and image-vortex energy conservation near a corner require distinct insights despite the supplied analogy",
+      "limitations": "",
+      "batch": 8,
+      "statement": "public/corpus/documents/english-apho-2017-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2017-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "250263c0501cf00c413bb068fdea601a2b7b0adc9ff94d0fbcb170cea378e24b",
+      "solutionSha256": "5543d7cf45403b3139af927526f892fdf0f180845b4929d50c24c8ccf3fb616d",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2017-t1.json"
+    },
+    {
+      "id": "apho-2017-t2",
+      "old": 2700,
+      "proposed": 2500,
+      "status": "reviewed",
+      "assessment": "Impulse and encounter-rate estimates build dynamical friction and slingshot loss, but later inspiral stages reuse guided energy differentiation and matching",
+      "limitations": "",
+      "batch": 8,
+      "statement": "public/corpus/documents/english-apho-2017-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2017-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "e39d71efe30ec9eae62b74f90c31675b6075baa92e42cac9182d0284c868202a",
+      "solutionSha256": "8d22819a21f53c4073194b9436fc45796ee8b1fa09be0adc02802f35fbb8eeb8",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2017-t2.json"
+    },
+    {
+      "id": "apho-2017-t3",
+      "old": 2500,
+      "proposed": 2500,
+      "status": "reviewed",
+      "assessment": "Free rotation and internal dissipation combine with eddy-current integration and a body-frame field derivative before orbit-averaged relaxation",
+      "limitations": "",
+      "batch": 8,
+      "statement": "public/corpus/documents/english-apho-2017-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2017-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "39c6a0c5b6c28dc54e4c4ae4ca67c02f7369631705b69b2dcb2ae45c6c4bce73",
+      "solutionSha256": "a68dd4493eccde788e9d805bab0b21561e255b6c6d206d4d5d4e3773734d588a",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2017-t3.json"
+    },
+    {
+      "id": "apho-2018-t1",
+      "old": 2600,
+      "proposed": 2400,
+      "status": "reviewed",
+      "assessment": "Dipole work and damped response lead to a Gaussian trap and uncertainty-based cloud model, with most intermediate constructions explicitly requested",
+      "limitations": "",
+      "batch": 7,
+      "statement": "public/corpus/documents/english-apho-2018-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2018-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "5337e5696833799cf565cb5ef6ca90cb195ae45075a56b7e6128d4d63a17050f",
+      "solutionSha256": "b3aa97212a8c8b3b38fe8381f0ef4cba1d91b0726ddb3471b95f1ae83abdd100",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2018-t1.json"
+    },
+    {
+      "id": "apho-2018-t2",
+      "old": 2500,
+      "proposed": 2500,
+      "status": "reviewed",
+      "assessment": "Elevator tension and taper equations, nanotube bond counting and a heliocentric escape orbit require several independent constructions",
+      "limitations": "",
+      "batch": 7,
+      "statement": "public/corpus/documents/english-apho-2018-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2018-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "06c54bf0fe8e9e4d1e5ccc104ff608a41bff74cde4bea53c8f87f2eb1396400b",
+      "solutionSha256": "abac49a42939d8a4639c07e9892560fb8336b1f5c0cf7e503e30b1a059d804ad",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2018-t2.json"
+    },
+    {
+      "id": "apho-2018-t3",
+      "old": 2550,
+      "proposed": 2400,
+      "status": "reviewed",
+      "assessment": "Thermoelectric heat balances and the reversible Peltier relation are substantive, but the generator and refrigerator optimizations largely reuse one model",
+      "limitations": "",
+      "batch": 7,
+      "statement": "public/corpus/documents/english-apho-2018-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2018-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "64100f01973713343700f62a8b5e51a76c7985f2a5bf8265322fa31fd3ad7292",
+      "solutionSha256": "ddb6ac87b744095a0664a59179bd35fe2b9e62d91541cd6a6a42843f083404aa",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2018-t3.json"
+    },
+    {
+      "id": "apho-2019-t1",
+      "old": 2700,
+      "proposed": 2700,
+      "status": "reviewed",
+      "assessment": "Transmission-line impedance, charging energy including battery work and resonant spin-readout design require several distinct circuit and statistical arguments",
+      "limitations": "",
+      "batch": 7,
+      "statement": "public/corpus/documents/english-apho-2019-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2019-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "aa38cd9596f44656d9ed4b7973778ae5ec284d29b7c7ca21df9fe77917de2601",
+      "solutionSha256": "dcb877086e63cad93dde2b3abca90f3bff8811e5f23c14b2465af950623df0a5",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2019-t1.json"
+    },
+    {
+      "id": "apho-2019-t2",
+      "old": 2750,
+      "proposed": 2750,
+      "status": "reviewed-with-source-issue",
+      "assessment": "Relativistic mass loading and pressure conservation, synchrotron beaming and adiabatic particle redistribution combine distinct physical models",
+      "limitations": "Official C1 gyrofrequency includes an extra pitch-angle factor, and D2 distribution normalization needs checking for the energy-variable Jacobian. Human review needed, rating follows the intended models",
+      "batch": 7,
+      "statement": "public/corpus/documents/english-apho-2019-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2019-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "5efc7dcba95a671a062f53a2278dc7a473b9893cc7293c253b0ebfa6e939f03f",
+      "solutionSha256": "ce7da27669e382e8466cedfcd8fb35804e1d322a6596d1ca8ba9b974cb4b4a58",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2019-t2.json"
+    },
+    {
+      "id": "apho-2019-t3",
+      "old": 2650,
+      "proposed": 2950,
+      "status": "reviewed-with-source-issue",
+      "assessment": "A.4-A.10 combine rotating frames, contact kinematics and dissipation, then require finding and proving the Jellett projection. Earlier vector identities guide the derivation but do not supply the conserved direction.",
+      "limitations": "Official A.10 prose infers constancy from torque perpendicular to a moving vector too quickly. Its final derivative supplies the needed second term.",
+      "batch": 1,
+      "statement": "public/corpus/documents/english-apho-2019-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2019-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "b4d75088981628eec08fa7ca1156d9782365c265b7b740d76344f8633caff44b",
+      "solutionSha256": "92f6642ec76407a48895524426d98fde1e874ea8dfa3c138f58c9b30079301a5",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2019-t3.json"
+    },
+    {
+      "id": "apho-2021-t1",
+      "old": 2450,
+      "proposed": 2450,
+      "status": "reviewed",
+      "assessment": "Shock-frame balances, valve contraction and reflected pressure signs feed a coupled slow-closure recurrence, supporting the existing value",
+      "limitations": "",
+      "batch": 7,
+      "statement": "public/corpus/documents/english-apho-2021-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2021-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "2a1fb6322b5c85c41fde5e2ba952d8c18f8f3ebe43bc6875421a2d04a9aeb746",
+      "solutionSha256": "7490ed2a57d12df13b2c5ab9f50de6713ed6296e29e7ab11ca2b3bbbc1f5a8f8",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2021-t1.json"
+    },
+    {
+      "id": "apho-2021-t2",
+      "old": 2700,
+      "proposed": 2900,
+      "status": "reviewed-with-source-issue",
+      "assessment": "Derive anisotropic polarization and energy-flow directions, minimise an anisotropic optical path, then expand phase matching to second order to obtain emission cones. Bell probabilities are guided and do not drive the rating.",
+      "limitations": "Official C.5 switches between alpha+beta and alpha-beta in its trigonometric reduction. Human solution review needed.",
+      "batch": 1,
+      "statement": "public/corpus/documents/english-apho-2021-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2021-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "c2fe02a61d641a44e6a8c3f6048a87061736e7d65ccbf217ccb2797d87f863dd",
+      "solutionSha256": "cafdc1d5a6f6400ee9b01154cec4f44f1d24d6d6b0d6a18c83866b837a52dadb",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2021-t2.json"
+    },
+    {
+      "id": "apho-2021-t3",
+      "old": 2550,
+      "proposed": 2900,
+      "status": "reviewed-with-source-issue",
+      "assessment": "Translate film diffusion into receding images, sum the history of a moving source and differentiate to obtain dipole lift and drag. Skin-depth self-consistency adds a separate constraint despite the supplied integral.",
+      "limitations": "Official C.3/C.4 use inconsistent numerical equilibrium heights. Does not change the required model construction.",
+      "batch": 1,
+      "statement": "public/corpus/documents/english-apho-2021-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2021-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "aae77264d35880893c40cc5dd551c54e44965c9dfe19ee04b2a34e67e4d1dd17",
+      "solutionSha256": "5f0308f8ea44f8e95c9dd436501b2a4eef64d6f8241cb5f7ce36a6a3e1ea6b66",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2021-t3.json"
+    },
+    {
+      "id": "apho-2022-t1",
+      "old": 2500,
+      "proposed": 2100,
+      "status": "reviewed",
+      "assessment": "Stern-Gerlach splitting reduces to two-stage classical trajectories and a supplied wire-field geometry, followed by magnetic moment and uncertainty algebra",
+      "limitations": "",
+      "batch": 7,
+      "statement": "public/corpus/documents/english-apho-2022-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2022-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "2ea57b3ea45d3e0688ee32a6883d8bde86bec6863a4187c645bf8ae26e3a8fa9",
+      "solutionSha256": "1139a5228eb5d8351e9c40d994f1ea33dbb36f707e69d5cd7e6abcf5460fd15b",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2022-t1.json"
+    },
+    {
+      "id": "apho-2022-t2",
+      "old": 2650,
+      "proposed": 2200,
+      "status": "reviewed",
+      "assessment": "The rotating-bead force diagram, effective potential and series are given, leaving equilibrium, stability and repeated small-oscillation algebra",
+      "limitations": "",
+      "batch": 7,
+      "statement": "public/corpus/documents/english-apho-2022-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2022-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "b5bc5ffcd53a30943215d5a4bb8d48221ed6ae6e0cfb3d397bbda07ec4494481",
+      "solutionSha256": "3781256cd2e3b3b30a595b7160acef2cba706f5dd484554180dbe2e30fb31922",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2022-t2.json"
+    },
+    {
+      "id": "apho-2022-t3",
+      "old": 2550,
+      "proposed": 2200,
+      "status": "reviewed",
+      "assessment": "The driven electron oscillator, dimensional scattering law and attenuation are guided separately, with Earth-curvature visibility geometry the main additional construction",
+      "limitations": "",
+      "batch": 7,
+      "statement": "public/corpus/documents/english-apho-2022-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2022-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "8fc87dbae975d577745dfdfe351b3419172145f2aad70a83a0563db53beee55c",
+      "solutionSha256": "59cecef7d93bba5ca5b8a52d004278aba70c9e996d7a40408af0ad924f20eeec",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2022-t3.json"
+    },
+    {
+      "id": "apho-2023-t1",
+      "old": 2350,
+      "proposed": 2350,
+      "status": "reviewed",
+      "assessment": "Orbit energy loss combines drag and ion collection, with an atmospheric expansion and asymptotic fall-time integral, supporting the existing value",
+      "limitations": "",
+      "batch": 7,
+      "statement": "public/corpus/documents/english-apho-2023-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2023-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "c107325e7d34217900653f8dc337ceddb80aa9e7cd2e1ff53c591f2cd92c8e28",
+      "solutionSha256": "b96f04c5f589bcddb0076c92f7e691786ca5f411734001136215b30546d7fac2",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2023-t1.json"
+    },
+    {
+      "id": "apho-2023-t2",
+      "old": 2550,
+      "proposed": 2950,
+      "status": "reviewed-with-source-issue",
+      "assessment": "Rolling and turntable back reaction must be eliminated together to classify conics. The charged-shell torque and transformed differential equation add independent modelling and asymptotic energy work.",
+      "limitations": "Statement C gives I=mr^2/10 but C.5 and solution energy use 1/11. Initial conditions alone do not specify the zero effective-frequency branch used in C.4. Human physics review needed.",
+      "batch": 1,
+      "statement": "public/corpus/documents/english-apho-2023-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2023-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "3bbff44638e7bbd44d369a4469014b73095efedb60708fa2d9d4dac7107add44",
+      "solutionSha256": "58a38d67e7f097a033c6ec735a7a231c5476ee91556605f9bb2fd8592c0638f9",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2023-t2.json"
+    },
+    {
+      "id": "apho-2024-t3",
+      "old": 2600,
+      "proposed": 2300,
+      "status": "reviewed-with-source-issue",
+      "assessment": "Most tasks supply the astronomy model and reduce to graph reading, unit conversions, one power-law integral and one minimisation. Physical interpretation is needed, but no coupled dynamics comparable to the upper anchors.",
+      "limitations": "B.1 attribution of lunar-occultation fringes to telescope diffraction and several solution units/numerics need human review. Rating follows intended tasks, not repairing the paper.",
+      "batch": 1,
+      "statement": "public/corpus/documents/english-apho-2024-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2024-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "b76c445714fb8c56a197163171c4f80abbc99cc2c35bed577cfd127bba74d5dc",
+      "solutionSha256": "5b275efc5059714722f09f05768797e4afb424c028e70e4767d35fb0719e5bf0",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2024-t3.json"
+    },
+    {
+      "id": "apho-2025-t1",
+      "old": 2500,
+      "proposed": 2300,
+      "status": "reviewed",
+      "assessment": "The ring average and equivalent point masses are supplied. Remaining insights are the near-centre ring field and torque-to-precession geometry, followed by adding lunar torque. Far fewer independent choices than the rigid-body upper anchors.",
+      "limitations": "",
+      "batch": 1,
+      "statement": "public/corpus/documents/english-apho-2025-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2025-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "147955df3edee9127aeee3eaac3e457a33773976dca5a13c03159b4f7d28bd38",
+      "solutionSha256": "2d21348ab2d688c0099fb1d769c985dc6a45a89cee9de2094f1d393d882b7f36",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2025-t1.json"
+    },
+    {
+      "id": "apho-2025-t2",
+      "old": 2750,
+      "proposed": 2450,
+      "status": "reviewed",
+      "assessment": "Spin-wave linearization, neutron momentum balance and mean-field self-consistency require integration, but the Hamiltonian, torque model and expansion steps are supplied",
+      "limitations": "",
+      "batch": 7,
+      "statement": "public/corpus/documents/english-apho-2025-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2025-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "5d83bac49bd75466a699c054a5cd70d0e141cac327bd5260733869154a20536f",
+      "solutionSha256": "9c3b53aa167f4fc963ca864f302afc48304016122cf6f33ec06738a6c9ab6719",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2025-t2.json"
+    },
+    {
+      "id": "apho-2025-t3",
+      "old": 2450,
+      "proposed": 2300,
+      "status": "reviewed",
+      "assessment": "Layer radiation balance, adiabatic lapse and condensation require several models, but each is specified and the halo calculation reuses Snell geometry",
+      "limitations": "",
+      "batch": 7,
+      "statement": "public/corpus/documents/english-apho-2025-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-apho-2025-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "1bf6709ccd044f96985d6cb75373f6711e878046493cfcf0dda5e0c72ce68258",
+      "solutionSha256": "2e7b2dff2a82b50193208b258b1a8b7369a4b7ba7d177581088ed2a758e868b6",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sourceIndex": "public/corpus/english-problems/apho-2025-t3.json"
+    },
+    {
+      "id": "arena-a-grin-and-a-wiggle",
+      "old": 2500,
+      "proposed": 2500,
+      "status": "reviewed-with-source-issue",
+      "assessment": "An unsupplied axial optical invariant gives amplitude-dependent ray phase. Two distinct cubic expansions and exit refraction must remain consistent. This warrants more than the guided precession anchor.",
+      "limitations": "Native solution explicitly completes missing original part (e) and corrects part (c). Original handwritten solution not locally inspected.",
+      "batch": 3,
+      "statement": "lib/arena/source-05.ts",
+      "solution": "lib/arena/source-05.ts",
+      "diagrams": "All linked native figures inspected, or no diagram supplied",
+      "statementSha256": "8a8bf5ec298636b7af4c606ec562ec79e14a78ef690bf9b88758751778365e52",
+      "solutionSha256": "8a8bf5ec298636b7af4c606ec562ec79e14a78ef690bf9b88758751778365e52",
+      "figures": [
+        "public/corpus/arena/figures/a-grin-and-a-wiggle-statement.png",
+        "public/corpus/arena/figures/a-grin-and-a-wiggle-solution-image.png",
+        "public/corpus/arena/figures/a-grin-and-a-wiggle-solution-focus.png"
+      ],
+      "historicalStatement": "03_A_GRIN_and_a_Wiggle_Problem.pdf",
+      "historicalSolution": "03_A_GRIN_and_a_Wiggle_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
+    },
+    {
+      "id": "arena-an-atom-with-stage-fright",
+      "old": 2650,
+      "proposed": 2000,
+      "status": "reviewed",
+      "assessment": "Expanding a two-state superposition and inserting its dipole into a supplied radiation law yields a separable population equation by energy balance. Quantum notation does not add independent insights.",
+      "limitations": "",
+      "batch": 3,
+      "statement": "lib/arena/source-05.ts",
+      "solution": "lib/arena/source-05.ts",
+      "diagrams": "All linked native figures inspected, or no diagram supplied",
+      "statementSha256": "8a8bf5ec298636b7af4c606ec562ec79e14a78ef690bf9b88758751778365e52",
+      "solutionSha256": "8a8bf5ec298636b7af4c606ec562ec79e14a78ef690bf9b88758751778365e52",
+      "figures": [
+        "public/corpus/arena/figures/an-atom-with-stage-fright-solution-population.png",
+        "public/corpus/arena/figures/an-atom-with-stage-fright-solution-power.png"
+      ],
+      "historicalStatement": "03_An_Atom_with_Stage_Fright_Problem.pdf",
+      "historicalSolution": "03_An_Atom_with_Stage_Fright_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
+    },
+    {
+      "id": "arena-mind-the-gap",
+      "old": 1350,
+      "proposed": 1350,
+      "status": "reviewed",
+      "assessment": "Spherical sag and reflected phase give the ring equation. Consecutive squared radii remove the unknown order. A short two-insight problem.",
+      "limitations": "",
+      "batch": 2,
+      "statement": "lib/arena/source-01.ts",
+      "solution": "lib/arena/source-01.ts",
+      "diagrams": "All linked native figures inspected, or no diagram supplied",
+      "statementSha256": "b8b506512a83f41a13e7b16af628aaa639d59c459508aa9dd0a8c3c90d55d40f",
+      "solutionSha256": "b8b506512a83f41a13e7b16af628aaa639d59c459508aa9dd0a8c3c90d55d40f",
+      "figures": [
+        "public/corpus/arena/figures/mind-the-gap-statement.png",
+        "public/corpus/arena/figures/mind-the-gap-solution.png"
+      ],
+      "historicalStatement": "01_Mind_the_Gap_Problem.pdf",
+      "historicalSolution": "01_Mind_the_Gap_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
+    },
+    {
+      "id": "arena-the-bending-beam-riddle",
+      "old": 2550,
+      "proposed": 2350,
+      "status": "reviewed",
+      "assessment": "Static force and moment balance are broken into guided steps. Rotational inertia in the dynamic element is the main new construction, followed by routine dispersion. Below the cubic GRIN problem.",
+      "limitations": "",
+      "batch": 3,
+      "statement": "lib/arena/source-06.ts",
+      "solution": "lib/arena/source-06.ts",
+      "diagrams": "All linked native figures inspected, or no diagram supplied",
+      "statementSha256": "70dbf8b33d9d297cc9c44866e930cfad6c4ca05eb6aea51ce55d537f3e11da42",
+      "solutionSha256": "70dbf8b33d9d297cc9c44866e930cfad6c4ca05eb6aea51ce55d537f3e11da42",
+      "figures": [
+        "public/corpus/arena/figures/the-bending-beam-riddle-statement.png"
+      ],
+      "historicalStatement": "03_The_Bending_Beam_Riddle_Problem.pdf",
+      "historicalSolution": "03_The_Bending_Beam_Riddle_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
+    },
+    {
+      "id": "arena-the-bubble-treaty",
+      "old": 1750,
+      "proposed": 1750,
+      "status": "reviewed",
+      "assessment": "Combine Laplace pressure with the 120-degree film junction, cap volume and separate isothermal gas conservation. Unequal bubbles reuse the same junction geometry.",
+      "limitations": "",
+      "batch": 2,
+      "statement": "lib/arena/source-01.ts",
+      "solution": "lib/arena/source-01.ts",
+      "diagrams": "All linked native figures inspected, or no diagram supplied",
+      "statementSha256": "b8b506512a83f41a13e7b16af628aaa639d59c459508aa9dd0a8c3c90d55d40f",
+      "solutionSha256": "b8b506512a83f41a13e7b16af628aaa639d59c459508aa9dd0a8c3c90d55d40f",
+      "figures": [
+        "public/corpus/arena/figures/the-bubble-treaty-statement.png",
+        "public/corpus/arena/figures/the-bubble-treaty-solution-equal.png",
+        "public/corpus/arena/figures/the-bubble-treaty-solution-unequal.png"
+      ],
+      "historicalStatement": "01_The_Bubble_Treaty_Problem.pdf",
+      "historicalSolution": "01_The_Bubble_Treaty_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
+    },
+    {
+      "id": "arena-the-capacitors-missing-energy",
+      "old": 2500,
+      "proposed": 2500,
+      "status": "reviewed",
+      "assessment": "Requires stress transformations, relativity of release simultaneity and work during unequal release times to close the field-plus-support energy budget. The intermediate questions guide but do not remove these choices.",
+      "limitations": "",
+      "batch": 3,
+      "statement": "lib/arena/source-06.ts",
+      "solution": "lib/arena/source-06.ts",
+      "diagrams": "All linked native figures inspected, or no diagram supplied",
+      "statementSha256": "70dbf8b33d9d297cc9c44866e930cfad6c4ca05eb6aea51ce55d537f3e11da42",
+      "solutionSha256": "70dbf8b33d9d297cc9c44866e930cfad6c4ca05eb6aea51ce55d537f3e11da42",
+      "figures": [
+        "public/corpus/arena/figures/the-capacitors-missing-energy-statement.png"
+      ],
+      "historicalStatement": "03_The_Capacitors_Missing_Energy_Problem.pdf",
+      "historicalSolution": "03_The_Capacitors_Missing_Energy_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
+    },
+    {
+      "id": "arena-the-clock-in-the-racing-mirror",
+      "old": 2100,
+      "proposed": 2100,
+      "status": "reviewed",
+      "assessment": "Separate emission, reflection and arrival events, then combine angular aberration and Doppler shift to back-trace a virtual image. This is comparable to, but shorter than, the 2200 anchor.",
+      "limitations": "",
+      "batch": 2,
+      "statement": "lib/arena/source-03.ts",
+      "solution": "lib/arena/source-03.ts",
+      "diagrams": "All linked native figures inspected, or no diagram supplied",
+      "statementSha256": "ed2ceefe7c82bc73bfb8e4f5babcb5a17d25128222633bfbafe33336dbb103fe",
+      "solutionSha256": "ed2ceefe7c82bc73bfb8e4f5babcb5a17d25128222633bfbafe33336dbb103fe",
+      "figures": [
+        "public/corpus/arena/figures/the-clock-in-the-racing-mirror-statement.png",
+        "public/corpus/arena/figures/the-clock-in-the-racing-mirror-solution.png"
+      ],
+      "historicalStatement": "02_The_Clock_in_the_Racing_Mirror_Problem.pdf",
+      "historicalSolution": "02_The_Clock_in_the_Racing_Mirror_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
+    },
+    {
+      "id": "arena-the-cosmic-kitchen",
+      "old": 2600,
+      "proposed": 2600,
+      "status": "reviewed",
+      "assessment": "Requires state counting, chemical-equilibrium ratios, photon abundance and expansion-era scaling before a comoving neutron-decay count. Many supplied intermediate tasks prevent comparison with the 2900 anchors.",
+      "limitations": "",
+      "batch": 2,
+      "statement": "lib/arena/source-01.ts",
+      "solution": "lib/arena/source-01.ts",
+      "diagrams": "All linked native figures inspected, or no diagram supplied",
+      "statementSha256": "b8b506512a83f41a13e7b16af628aaa639d59c459508aa9dd0a8c3c90d55d40f",
+      "solutionSha256": "b8b506512a83f41a13e7b16af628aaa639d59c459508aa9dd0a8c3c90d55d40f",
+      "figures": [
+        "public/corpus/arena/figures/the-cosmic-kitchen-statement.png"
+      ],
+      "historicalStatement": "01_The_Cosmic_Kitchen_Problem.pdf",
+      "historicalSolution": "01_The_Cosmic_Kitchen_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
+    },
+    {
+      "id": "arena-the-dodecahedron-conspiracy",
+      "old": 1550,
+      "proposed": 1800,
+      "status": "reviewed",
+      "assessment": "Flux sharing alone is easy, but the charged-face field requires a solid-angle argument, superposition and the unsupplied adjacent-normal geometry. More construction than a 1550 score reflects.",
+      "limitations": "",
+      "batch": 2,
+      "statement": "lib/arena/source-03.ts",
+      "solution": "lib/arena/source-03.ts",
+      "diagrams": "All linked native figures inspected, or no diagram supplied",
+      "statementSha256": "ed2ceefe7c82bc73bfb8e4f5babcb5a17d25128222633bfbafe33336dbb103fe",
+      "solutionSha256": "ed2ceefe7c82bc73bfb8e4f5babcb5a17d25128222633bfbafe33336dbb103fe",
+      "figures": [
+        "public/corpus/arena/figures/the-dodecahedron-conspiracy-statement.png",
+        "public/corpus/arena/figures/the-dodecahedron-conspiracy-solution.png"
+      ],
+      "historicalStatement": "02_The_Dodecahedron_Conspiracy_Problem.pdf",
+      "historicalSolution": "02_The_Dodecahedron_Conspiracy_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
+    },
+    {
+      "id": "arena-the-five-fold-collision",
+      "old": 2400,
+      "proposed": 2400,
+      "status": "reviewed",
+      "assessment": "Centre-of-momentum transformations, maximum lab deflection and the positive invariant mass of two remaining photons are separate insights. Substantially less coupled than the turntable anchor.",
+      "limitations": "",
+      "batch": 2,
+      "statement": "lib/arena/source-02.ts",
+      "solution": "lib/arena/source-02.ts",
+      "diagrams": "All linked native figures inspected, or no diagram supplied",
+      "statementSha256": "d5bd23917c79e6a180af97b4a98277563def0f946eee442f0422cbbbeaa293a6",
+      "solutionSha256": "d5bd23917c79e6a180af97b4a98277563def0f946eee442f0422cbbbeaa293a6",
+      "figures": [
+        "public/corpus/arena/figures/the-five-fold-collision-statement.png",
+        "public/corpus/arena/figures/the-five-fold-collision-solution.png"
+      ],
+      "historicalStatement": "01_The_Five_Fold_Collision_Problem.pdf",
+      "historicalSolution": "01_The_Five_Fold_Collision_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
+    },
+    {
+      "id": "arena-the-gas-with-elbows",
+      "old": 2450,
+      "proposed": 2200,
+      "status": "reviewed",
+      "assessment": "The statement supplies state energies, Gaussian and Stirling hints, the mean-field prescription and the target free energy. Excluded-volume pair counting is the main independent model choice. Most later steps are derivatives.",
+      "limitations": "",
+      "batch": 2,
+      "statement": "lib/arena/source-03.ts",
+      "solution": "lib/arena/source-03.ts",
+      "diagrams": "All linked native figures inspected, or no diagram supplied",
+      "statementSha256": "ed2ceefe7c82bc73bfb8e4f5babcb5a17d25128222633bfbafe33336dbb103fe",
+      "solutionSha256": "ed2ceefe7c82bc73bfb8e4f5babcb5a17d25128222633bfbafe33336dbb103fe",
+      "figures": [],
+      "historicalStatement": "02_The_Gas_with_Elbows_Problem.pdf",
+      "historicalSolution": "02_The_Gas_with_Elbows_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
+    },
+    {
+      "id": "arena-the-infinite-v",
+      "old": 2300,
+      "proposed": 2300,
+      "status": "reviewed-with-source-issue",
+      "assessment": "Integrating a half-plane reveals a logarithmic field divergence. Finite-cutoff stability combines angular and taut-string constraints. Retain the estimate provisionally because the infinite original has no finite requested answer.",
+      "limitations": "Human review required. Infinite geometry is divergent. Current worked solution regularises it using a cutoff absent from the statement. Preserved value is provisional.",
+      "batch": 3,
+      "statement": "lib/arena/source-06.ts",
+      "solution": "lib/arena/source-06.ts",
+      "diagrams": "All linked native figures inspected, or no diagram supplied",
+      "statementSha256": "70dbf8b33d9d297cc9c44866e930cfad6c4ca05eb6aea51ce55d537f3e11da42",
+      "solutionSha256": "70dbf8b33d9d297cc9c44866e930cfad6c4ca05eb6aea51ce55d537f3e11da42",
+      "figures": [
+        "public/corpus/arena/figures/the-infinite-v-statement.png",
+        "public/corpus/arena/figures/the-infinite-v-solution.png"
+      ],
+      "historicalStatement": "03_The_Infinite_V_Problem.pdf",
+      "historicalSolution": "03_The_Infinite_V_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
+    },
+    {
+      "id": "arena-the-invisible-brake",
+      "old": 2200,
+      "proposed": 2200,
+      "status": "reviewed-with-source-issue",
+      "assessment": "Flux-weighted angular averaging, momentum transport and cylindrical shear balance must be built independently. The heating calculation also needs an energy model, supporting parity with the galaxy anchor.",
+      "limitations": "Native solution adds a nearly incompressible-flow qualification needed by the wall-heating answer.",
+      "batch": 3,
+      "statement": "lib/arena/source-05.ts",
+      "solution": "lib/arena/source-05.ts",
+      "diagrams": "All linked native figures inspected, or no diagram supplied",
+      "statementSha256": "8a8bf5ec298636b7af4c606ec562ec79e14a78ef690bf9b88758751778365e52",
+      "solutionSha256": "8a8bf5ec298636b7af4c606ec562ec79e14a78ef690bf9b88758751778365e52",
+      "figures": [
+        "public/corpus/arena/figures/the-invisible-brake-statement.png"
+      ],
+      "historicalStatement": "03_The_Invisible_Brake_Problem.pdf",
+      "historicalSolution": "03_The_ Invisible_Brake_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
+    },
+    {
+      "id": "arena-the-phantom-charge",
+      "old": 2050,
+      "proposed": 1800,
+      "status": "reviewed",
+      "assessment": "The supplied integral removes the non-routine quadrature. Annular potential, differentiation on either side and the energy barrier need fewer independent choices than its old score implies.",
+      "limitations": "",
+      "batch": 2,
+      "statement": "lib/arena/source-02.ts",
+      "solution": "lib/arena/source-02.ts",
+      "diagrams": "All linked native figures inspected, or no diagram supplied",
+      "statementSha256": "d5bd23917c79e6a180af97b4a98277563def0f946eee442f0422cbbbeaa293a6",
+      "solutionSha256": "d5bd23917c79e6a180af97b4a98277563def0f946eee442f0422cbbbeaa293a6",
+      "figures": [
+        "public/corpus/arena/figures/the-phantom-charge-statement.png",
+        "public/corpus/arena/figures/the-phantom-charge-solution.png"
+      ],
+      "historicalStatement": "01_The_Phantom_Charge_Problem.pdf",
+      "historicalSolution": "01_The_Phantom_Charge_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
+    },
+    {
+      "id": "arena-the-quantum-escape-room",
+      "old": 2350,
+      "proposed": 2100,
+      "status": "reviewed",
+      "assessment": "The statement leads the separation into conserved tangential momentum and imaginary normal momentum. Matching four linear conditions is routine algebra, followed by collision-rate escape. Less modelling than the old 2350 implies.",
+      "limitations": "",
+      "batch": 3,
+      "statement": "lib/arena/source-04.ts",
+      "solution": "lib/arena/source-04.ts",
+      "diagrams": "All linked native figures inspected, or no diagram supplied",
+      "statementSha256": "caf6df6a592381b4b07eb6b3eecc65c89585d973fc64ac94f5b8c78671d52a27",
+      "solutionSha256": "caf6df6a592381b4b07eb6b3eecc65c89585d973fc64ac94f5b8c78671d52a27",
+      "figures": [
+        "public/corpus/arena/figures/the-quantum-escape-room-statement.png",
+        "public/corpus/arena/figures/the-quantum-escape-room-solution.png"
+      ],
+      "historicalStatement": "02_The_Quantum_Escape_Room_Problem.pdf",
+      "historicalSolution": "02_The_Quantum_Escape_Room_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
+    },
+    {
+      "id": "arena-the-string-that-answered-back",
+      "old": 1950,
+      "proposed": 1950,
+      "status": "reviewed",
+      "assessment": "Construct two wave segments and impose displacement continuity plus the driven slope jump. The second drive position reuses that model, keeping this below the 2200 galaxy anchor.",
+      "limitations": "",
+      "batch": 2,
+      "statement": "lib/arena/source-02.ts",
+      "solution": "lib/arena/source-02.ts",
+      "diagrams": "All linked native figures inspected, or no diagram supplied",
+      "statementSha256": "d5bd23917c79e6a180af97b4a98277563def0f946eee442f0422cbbbeaa293a6",
+      "solutionSha256": "d5bd23917c79e6a180af97b4a98277563def0f946eee442f0422cbbbeaa293a6",
+      "figures": [
+        "public/corpus/arena/figures/the-string-that-answered-back-statement.png",
+        "public/corpus/arena/figures/the-string-that-answered-back-solution-a.png",
+        "public/corpus/arena/figures/the-string-that-answered-back-solution-b.png"
+      ],
+      "historicalStatement": "01_The_String_That_Answered_Back_Problem.pdf",
+      "historicalSolution": "01_The_String_That_Answered_Back_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
+    },
+    {
+      "id": "arena-the-three-way-wave-split",
+      "old": 1800,
+      "proposed": 1800,
+      "status": "reviewed",
+      "assessment": "Construct displacement continuity and transverse junction force balance, then combine zero reflection with a power ratio. A compact coupled-boundary problem below the galaxy anchor.",
+      "limitations": "",
+      "batch": 3,
+      "statement": "lib/arena/source-04.ts",
+      "solution": "lib/arena/source-04.ts",
+      "diagrams": "All linked native figures inspected, or no diagram supplied",
+      "statementSha256": "caf6df6a592381b4b07eb6b3eecc65c89585d973fc64ac94f5b8c78671d52a27",
+      "solutionSha256": "caf6df6a592381b4b07eb6b3eecc65c89585d973fc64ac94f5b8c78671d52a27",
+      "figures": [
+        "public/corpus/arena/figures/the-three-way-wave-split-statement.png"
+      ],
+      "historicalStatement": "02_The_Three_Way_Wave_Split_Problem.pdf",
+      "historicalSolution": "02_The_Three_Way_Wave_Split_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
+    },
+    {
+      "id": "arena-titans-double-take",
+      "old": 1850,
+      "proposed": 1850,
+      "status": "reviewed",
+      "assessment": "Trace one- and two-reflection droplet rays and identify stationary deviation. The second bow reuses the extremisation, so no extra difficulty is assigned to the unfamiliar setting.",
+      "limitations": "",
+      "batch": 3,
+      "statement": "lib/arena/source-04.ts",
+      "solution": "lib/arena/source-04.ts",
+      "diagrams": "All linked native figures inspected, or no diagram supplied",
+      "statementSha256": "caf6df6a592381b4b07eb6b3eecc65c89585d973fc64ac94f5b8c78671d52a27",
+      "solutionSha256": "caf6df6a592381b4b07eb6b3eecc65c89585d973fc64ac94f5b8c78671d52a27",
+      "figures": [
+        "public/corpus/arena/figures/titans-double-take-statement.png",
+        "public/corpus/arena/figures/titans-double-take-solution-primary.png",
+        "public/corpus/arena/figures/titans-double-take-solution-secondary.png"
+      ],
+      "historicalStatement": "02_Titans_Double_Take_Problem.pdf",
+      "historicalSolution": "02_Titans_Double_Take_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
+    },
+    {
+      "id": "eupho-2017-t1",
+      "old": 2250,
+      "proposed": 1900,
+      "status": "reviewed",
+      "assessment": "The task asks for estimates. A physical-pendulum rope model and node-based length scaling suffice. No solution of the variable-tension wave equation is required, so 2250 overstates the derivation.",
+      "limitations": "",
+      "batch": 6,
+      "statement": "public/corpus/documents/eupho-2017-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2017-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "4c48b3b95fdccf57bd38c69c589f9ef146e94b5f24424b483bd92cf9f2a4edce",
+      "solutionSha256": "728a37eae2ada41fafde7eafb8f3d4fcd7885d3235d759a728839d2dd9cea2cf",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2017-t1.json"
+    },
+    {
+      "id": "eupho-2017-t2",
+      "old": 2200,
+      "proposed": 2200,
+      "status": "reviewed",
+      "assessment": "Incoming molecular flux and outgoing momentum have different temperature scales. Maximum speed follows flux suppression and needs a cooling-time consistency check. Comparable to the kinetic-theory original.",
+      "limitations": "",
+      "batch": 6,
+      "statement": "public/corpus/documents/eupho-2017-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2017-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "4c48b3b95fdccf57bd38c69c589f9ef146e94b5f24424b483bd92cf9f2a4edce",
+      "solutionSha256": "728a37eae2ada41fafde7eafb8f3d4fcd7885d3235d759a728839d2dd9cea2cf",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2017-t2.json"
+    },
+    {
+      "id": "eupho-2017-t3",
+      "old": 2450,
+      "proposed": 2450,
+      "status": "reviewed",
+      "assessment": "Recognise trapped flux as a boundary condition and construct two image dipoles that preserve the initial field while cancelling its change. A short but unguided model supporting the existing score.",
+      "limitations": "",
+      "batch": 6,
+      "statement": "public/corpus/documents/eupho-2017-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2017-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "4c48b3b95fdccf57bd38c69c589f9ef146e94b5f24424b483bd92cf9f2a4edce",
+      "solutionSha256": "728a37eae2ada41fafde7eafb8f3d4fcd7885d3235d759a728839d2dd9cea2cf",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2017-t3.json"
+    },
+    {
+      "id": "eupho-2018-t1",
+      "old": 2200,
+      "proposed": 2200,
+      "status": "reviewed",
+      "assessment": "Use centre-of-mass energy and angular momentum, recognising that closest approach freezes the shape so the assembly instantaneously rotates as a rigid body. A compact but independent construction near the galaxy anchor.",
+      "limitations": "",
+      "batch": 6,
+      "statement": "public/corpus/documents/eupho-2018-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2018-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "5c34a3b07086609182001506f2d9ae1f81c21e11a40ad36acd335bcac7933f01",
+      "solutionSha256": "72ed8d502770a6ecfa3c4b575d3c6fb01c47288d7ddd45516aee6a41c7fcf64d",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2018-t1.json"
+    },
+    {
+      "id": "eupho-2018-t2",
+      "old": 2400,
+      "proposed": 2400,
+      "status": "reviewed",
+      "assessment": "Must infer pressure reduction from diamagnetism and formulate virtual work or magnetic force balance, then justify neglecting vapour and hydrostatic pressures. Existing value reflects unguided model construction.",
+      "limitations": "",
+      "batch": 6,
+      "statement": "public/corpus/documents/eupho-2018-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2018-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "5c34a3b07086609182001506f2d9ae1f81c21e11a40ad36acd335bcac7933f01",
+      "solutionSha256": "72ed8d502770a6ecfa3c4b575d3c6fb01c47288d7ddd45516aee6a41c7fcf64d",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2018-t2.json"
+    },
+    {
+      "id": "eupho-2018-t3",
+      "old": 2300,
+      "proposed": 2300,
+      "status": "reviewed",
+      "assessment": "Convert a macroscopic profile into step spacing, then vary neighbouring step positions while preserving crystal volume. The constrained minimum supplies a nontrivial interaction exponent with little algebra.",
+      "limitations": "",
+      "batch": 6,
+      "statement": "public/corpus/documents/eupho-2018-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2018-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "5c34a3b07086609182001506f2d9ae1f81c21e11a40ad36acd335bcac7933f01",
+      "solutionSha256": "72ed8d502770a6ecfa3c4b575d3c6fb01c47288d7ddd45516aee6a41c7fcf64d",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2018-t3.json"
+    },
+    {
+      "id": "eupho-2019-t1",
+      "old": 2000,
+      "proposed": 2200,
+      "status": "reviewed",
+      "assessment": "Area ratios eliminate the unknown heat-transfer coefficient during melting, but the second part requires a thermal-lag differential equation. The two regimes justify parity with the galaxy anchor.",
+      "limitations": "",
+      "batch": 5,
+      "statement": "public/corpus/documents/eupho-2019-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2019-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "b3f2dbbe54979f53cffaa4f9755162a6f25d6657e9f7e1e0345bc6896589ccbb",
+      "solutionSha256": "1f4748031b50ef3ec9089c0f49fbc3202ed84828ad8009aef1ce23f7a6f720c4",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2019-t1.json"
+    },
+    {
+      "id": "eupho-2019-t2",
+      "old": 2350,
+      "proposed": 2350,
+      "status": "reviewed",
+      "assessment": "Magnetic torque on a volume-charged rolling sphere must be combined with friction and the turning angular-momentum vector. Existing value reflects the coupled constraints without approaching the free-turntable anchor.",
+      "limitations": "",
+      "batch": 5,
+      "statement": "public/corpus/documents/eupho-2019-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2019-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "b3f2dbbe54979f53cffaa4f9755162a6f25d6657e9f7e1e0345bc6896589ccbb",
+      "solutionSha256": "1f4748031b50ef3ec9089c0f49fbc3202ed84828ad8009aef1ce23f7a6f720c4",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2019-t2.json"
+    },
+    {
+      "id": "eupho-2019-t3",
+      "old": 2050,
+      "proposed": 2250,
+      "status": "reviewed",
+      "assessment": "A snapshot of a moving stream is not a single projectile trajectory. Infer the common safety envelope, prove a tangent is sampled and extract launch speed from the envelope geometry. More construction than 2050.",
+      "limitations": "",
+      "batch": 5,
+      "statement": "public/corpus/documents/eupho-2019-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2019-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "b3f2dbbe54979f53cffaa4f9755162a6f25d6657e9f7e1e0345bc6896589ccbb",
+      "solutionSha256": "1f4748031b50ef3ec9089c0f49fbc3202ed84828ad8009aef1ce23f7a6f720c4",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2019-t3.json"
+    },
+    {
+      "id": "eupho-2020-t1",
+      "old": 2250,
+      "proposed": 2250,
+      "status": "reviewed",
+      "assessment": "Construct an end-pole or reciprocal-flux approximation for a solenoid, then derive induced-current extrema and time scales. Existing value near the precession anchor is supported.",
+      "limitations": "",
+      "batch": 5,
+      "statement": "public/corpus/documents/eupho-2020-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2020-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "2e00ad72afe554a193ab4f54e3e12272055183fe38b7d93ecc7b1b755470ec12",
+      "solutionSha256": "a6cfffa08852197b55ba923f8ffbab42005c9fe74d479b245d924ebb60198ccf",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2020-t1.json"
+    },
+    {
+      "id": "eupho-2020-t2",
+      "old": 2150,
+      "proposed": 2350,
+      "status": "reviewed",
+      "assessment": "The inextensible thread fixes one velocity component while its basis rotates. A separate post-detachment motion sets the true maximum speed. This hidden change of regime merits more than 2150.",
+      "limitations": "",
+      "batch": 5,
+      "statement": "public/corpus/documents/eupho-2020-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2020-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "2e00ad72afe554a193ab4f54e3e12272055183fe38b7d93ecc7b1b755470ec12",
+      "solutionSha256": "a6cfffa08852197b55ba923f8ffbab42005c9fe74d479b245d924ebb60198ccf",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2020-t2.json"
+    },
+    {
+      "id": "eupho-2020-t3",
+      "old": 2100,
+      "proposed": 2500,
+      "status": "reviewed",
+      "assessment": "Must identify the bright region as a twice-imaged blur spot, convert intensity ratios to area and then infer lamp-camera separation. The unguided photometric and geometric inverse models exceed the old 2100.",
+      "limitations": "",
+      "batch": 5,
+      "statement": "public/corpus/documents/eupho-2020-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2020-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "2e00ad72afe554a193ab4f54e3e12272055183fe38b7d93ecc7b1b755470ec12",
+      "solutionSha256": "a6cfffa08852197b55ba923f8ffbab42005c9fe74d479b245d924ebb60198ccf",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2020-t3.json"
+    },
+    {
+      "id": "eupho-2021-t1",
+      "old": 2050,
+      "proposed": 2300,
+      "status": "reviewed",
+      "assessment": "The leak keeps a fixed pressure difference while mass transfers between insulated chambers. Must separate an adiabatic gas parcel from the energy balance of the full system. Less routine than the old 2050.",
+      "limitations": "",
+      "batch": 5,
+      "statement": "public/corpus/documents/eupho-2021-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2021-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "8e0cc9c57463e94ebb0199361a45e7c66af5fd3bf4667cd5270d98c71e0e0a2a",
+      "solutionSha256": "6e94a7b91aea5b517d645d93ebbbf74a913382752c96a83fac9dc46a619e7aa8",
+      "statementPages": [
+        1,
+        2
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2021-t1.json"
+    },
+    {
+      "id": "eupho-2021-t3",
+      "old": 2150,
+      "proposed": 2450,
+      "status": "reviewed",
+      "assessment": "Infer a two-ray caustic from a photograph, locate its stationary angle and invert the wavelength-dependent displacement. The dispersion estimate needs second-order or numerical geometry without a supplied model.",
+      "limitations": "",
+      "batch": 5,
+      "statement": "public/corpus/documents/eupho-2021-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2021-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "8e0cc9c57463e94ebb0199361a45e7c66af5fd3bf4667cd5270d98c71e0e0a2a",
+      "solutionSha256": "6e94a7b91aea5b517d645d93ebbbf74a913382752c96a83fac9dc46a619e7aa8",
+      "statementPages": [
+        1,
+        2
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2021-t3.json"
+    },
+    {
+      "id": "eupho-2022-t1",
+      "old": 2150,
+      "proposed": 2300,
+      "status": "reviewed",
+      "assessment": "The narrow gap makes liquid inertia dominant. Construct continuity, effective kinetic energy and restoring energy rather than treating the cylinder as an isolated buoyant oscillator. Comparable modelling to the precession anchor.",
+      "limitations": "",
+      "batch": 5,
+      "statement": "public/corpus/documents/eupho-2022-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2022-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "bf780fa814a4ec9e6ef26c18dceb3972e40645bf8bcd488fad4d7f2b51a49605",
+      "solutionSha256": "4c319ea0930f16c2d652f8875b1970bf451529c8c4f5370cdbf44686e312b7bc",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2022-t1.json"
+    },
+    {
+      "id": "eupho-2022-t2",
+      "old": 2450,
+      "proposed": 2450,
+      "status": "reviewed",
+      "assessment": "Current continuity across resistance jumps and fast thermal equilibration create a relaxation cycle. Must construct switching thresholds and two exponential segments before finding the period. Existing value is defensible.",
+      "limitations": "",
+      "batch": 5,
+      "statement": "public/corpus/documents/eupho-2022-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2022-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "bf780fa814a4ec9e6ef26c18dceb3972e40645bf8bcd488fad4d7f2b51a49605",
+      "solutionSha256": "4c319ea0930f16c2d652f8875b1970bf451529c8c4f5370cdbf44686e312b7bc",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2022-t2.json"
+    },
+    {
+      "id": "eupho-2022-t3",
+      "old": 2300,
+      "proposed": 2550,
+      "status": "reviewed",
+      "assessment": "Translation and rotation exchange kinetic energy while magnetic forces do no work. Reversal needs a generalized-momentum invariant and the limiting asymptote needs another argument. More independent construction than the old 2300.",
+      "limitations": "",
+      "batch": 5,
+      "statement": "public/corpus/documents/eupho-2022-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2022-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "bf780fa814a4ec9e6ef26c18dceb3972e40645bf8bcd488fad4d7f2b51a49605",
+      "solutionSha256": "4c319ea0930f16c2d652f8875b1970bf451529c8c4f5370cdbf44686e312b7bc",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2022-t3.json"
+    },
+    {
+      "id": "eupho-2023-t1",
+      "old": 2300,
+      "proposed": 2300,
+      "status": "reviewed",
+      "assessment": "Build radial heat balance in two regions and match temperatures, then use equal optical path to derive focusing. Two linked physical models support the existing value near the precession anchor.",
+      "limitations": "",
+      "batch": 4,
+      "statement": "public/corpus/documents/eupho-2023-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2023-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "160e0caa8018b81910ed4e347a271c1253478d05ea12226e50f3ffb87041c7db",
+      "solutionSha256": "bbfefa159262b696980648a1696ed5553fc63915120a20d6f59a90e3653d8859",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2023-t1.json"
+    },
+    {
+      "id": "eupho-2023-t3",
+      "old": 2400,
+      "proposed": 2600,
+      "status": "reviewed",
+      "assessment": "Must construct a two-dimensional potential-current solution with motional emf, continuity and boundary matching. The induced electric field outside the magnetic footprint cannot be omitted. Less guided than its old 2400 suggests.",
+      "limitations": "",
+      "batch": 4,
+      "statement": "public/corpus/documents/eupho-2023-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2023-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "160e0caa8018b81910ed4e347a271c1253478d05ea12226e50f3ffb87041c7db",
+      "solutionSha256": "bbfefa159262b696980648a1696ed5553fc63915120a20d6f59a90e3653d8859",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2023-t3.json"
+    },
+    {
+      "id": "eupho-2024-t1",
+      "old": 2100,
+      "proposed": 2100,
+      "status": "reviewed",
+      "assessment": "Requires coupled deceleration and spin-up, then a sliding-to-rolling transition before the wall exit. The separable derivation is compact, supporting the existing value below the coupled-turntable anchor.",
+      "limitations": "",
+      "batch": 4,
+      "statement": "public/corpus/documents/eupho-2024-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2024-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "b133e366dbae9a412098b33271fca7bd5cb420471c9a576d163f0c7a2f52d57a",
+      "solutionSha256": "3552bfea2e675a9124633aff27b5399436615ab56292e8e38ca4364d58a1c467",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2024-t1.json"
+    },
+    {
+      "id": "eupho-2024-t2",
+      "old": 2250,
+      "proposed": 2250,
+      "status": "reviewed",
+      "assessment": "Velocity addition and simultaneous gift spacing are followed by a separate retarded-observation count. These two timing constructions justify the existing estimate near the galaxy anchor.",
+      "limitations": "",
+      "batch": 4,
+      "statement": "public/corpus/documents/eupho-2024-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2024-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "b133e366dbae9a412098b33271fca7bd5cb420471c9a576d163f0c7a2f52d57a",
+      "solutionSha256": "3552bfea2e675a9124633aff27b5399436615ab56292e8e38ca4364d58a1c467",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2024-t2.json"
+    },
+    {
+      "id": "eupho-2024-t3",
+      "old": 2350,
+      "proposed": 2350,
+      "status": "reviewed",
+      "assessment": "Losslessness and coherent cancellation constrain relative mirror phases. Stored cavity energy and decay after switching off require distinguishing amplitudes from powers. Less mathematical integration than the upper anchors.",
+      "limitations": "",
+      "batch": 4,
+      "statement": "public/corpus/documents/eupho-2024-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2024-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "b133e366dbae9a412098b33271fca7bd5cb420471c9a576d163f0c7a2f52d57a",
+      "solutionSha256": "3552bfea2e675a9124633aff27b5399436615ab56292e8e38ca4364d58a1c467",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2024-t3.json"
+    },
+    {
+      "id": "eupho-2025-t1",
+      "old": 1950,
+      "proposed": 2200,
+      "status": "reviewed",
+      "assessment": "Must construct the reflected-ray area map and distinguish path length from radial distance when finding shadow rings. Little guidance is supplied. This is comparable to the 2200 galaxy anchor despite its short statement.",
+      "limitations": "",
+      "batch": 4,
+      "statement": "public/corpus/documents/eupho-2025-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2025-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "49d08947fe41354aa57bfa745c2dfa494e08613ddac3c485a71ee288911b0e36",
+      "solutionSha256": "0faca703487040c3e4d5c19fde4208a0cbacc8769d33401f810309a60f6deb9f",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2025-t1.json"
+    },
+    {
+      "id": "eupho-2025-t2",
+      "old": 2250,
+      "proposed": 2250,
+      "status": "reviewed",
+      "assessment": "Chain constraints make vertical displacement and rotation second order. Recognising the purely translational leading kinetic energy is essential to the stability and period. Shorter but less guided than the precession anchor.",
+      "limitations": "",
+      "batch": 4,
+      "statement": "public/corpus/documents/eupho-2025-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2025-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "49d08947fe41354aa57bfa745c2dfa494e08613ddac3c485a71ee288911b0e36",
+      "solutionSha256": "0faca703487040c3e4d5c19fde4208a0cbacc8769d33401f810309a60f6deb9f",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2025-t2.json"
+    },
+    {
+      "id": "eupho-2025-t3",
+      "old": 2300,
+      "proposed": 2500,
+      "status": "reviewed",
+      "assessment": "The unsupplied conserved-flux tube is the main insight. Combining its changing radius with the local field-line pitch gives a long helical length and requires checking the asymptotic approximation. More model construction than the old 2300.",
+      "limitations": "",
+      "batch": 4,
+      "statement": "public/corpus/documents/eupho-2025-statement/document.pdf",
+      "solution": "public/corpus/documents/eupho-2025-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "49d08947fe41354aa57bfa745c2dfa494e08613ddac3c485a71ee288911b0e36",
+      "solutionSha256": "0faca703487040c3e4d5c19fde4208a0cbacc8769d33401f810309a60f6deb9f",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "sourceIndex": "public/corpus/problems/eupho-2025-t3.json"
+    },
+    {
+      "id": "ipho-2004-t3",
+      "old": 2350,
+      "proposed": 1950,
+      "status": "reviewed",
+      "assessment": "The driven-oscillator equation and sinusoidal ansatz are supplied. Lock-in averaging, mass sensitivity and Coulomb force-gradient shifts use short standard derivations.",
+      "limitations": "",
+      "batch": 13,
+      "statement": "public/corpus/documents/english-ipho-2004-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2004-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "a9a4e9f678153ab190f268dc19930dab8067d05f1fbcb1d38cb9b38610f9ba4b",
+      "solutionSha256": "f603df2f6c8226653eaeb61917c37919e41cc87ad25624b9d61aa65bfff2338e",
+      "statementPages": [
+        1,
+        2,
+        3
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2004-t3.json"
+    },
+    {
+      "id": "ipho-2005-t1",
+      "old": 2250,
+      "proposed": 2050,
+      "status": "reviewed",
+      "assessment": "The full conic equations and conserved-quantity formulas are given, leaving radial-impulse energy, unchanged angular momentum and asymptote geometry",
+      "limitations": "",
+      "batch": 11,
+      "statement": "public/corpus/documents/english-ipho-2005-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2005-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "7ab175fc3932a60b47f0f7999e1ad5cd91c12f9d47ff54c47b958f05bf04a847",
+      "solutionSha256": "727521a1884ddd4aecea001f600f536f2a9070de2e053a4207fc24755f7dbd33",
+      "statementPages": [
+        1,
+        2,
+        3
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2005-t1.json"
+    },
+    {
+      "id": "ipho-2005-t2",
+      "old": 2400,
+      "proposed": 2400,
+      "status": "reviewed",
+      "assessment": "Rotating-coil vector averaging, motional emf in two disks and a magnetic balance require separate constructions. Finite-displacement stability needs cancellation of symmetric first-order magnetic terms.",
+      "limitations": "",
+      "batch": 13,
+      "statement": "public/corpus/documents/english-ipho-2005-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2005-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "ccdc01b92366f30ddeb017eeba5223765b436ddfdee0101ea774c8ae0e76ef49",
+      "solutionSha256": "08581879a750b3f096d3a605c25bfd04fe63bee32f331d920ab463d06ec2d6e5",
+      "statementPages": [
+        1,
+        2,
+        3
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2005-t2.json"
+    },
+    {
+      "id": "ipho-2007-t2",
+      "old": 2150,
+      "proposed": 2000,
+      "status": "reviewed",
+      "assessment": "Plate-force and spring balances are broken into small steps. The floating-node capacitor constraint and the factor-of-two transient oscillator displacement are the main additional insights.",
+      "limitations": "",
+      "batch": 12,
+      "statement": "public/corpus/documents/english-ipho-2007-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2007-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "a5553bf1e5702140aa3c4e3496acde6fb826e114b976b17e50bb7bcd906dd48b",
+      "solutionSha256": "161f46402b8ed8c52cf0e5bd422e7eaf318eef5a5f4d024b86cf1bc6ba03f4c0",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2007-t2.json"
+    },
+    {
+      "id": "ipho-2008-t1",
+      "old": 2200,
+      "proposed": 2400,
+      "status": "reviewed",
+      "assessment": "Changing water shape and mass alter torque across filling and spilling branches, which must also satisfy energy and maximum inflow-rate constraints",
+      "limitations": "",
+      "batch": 11,
+      "statement": "public/corpus/documents/english-ipho-2008-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2008-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "06d0070a48ec398a02c337a160be4b0d59e106257b7e95ad53d139fb2e95114e",
+      "solutionSha256": "3480c3404fa6cdbef4f75aa4a445ba3aa27feabfb34247633c01f57c9e614152",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2008-t1.json"
+    },
+    {
+      "id": "ipho-2008-t2",
+      "old": 2300,
+      "proposed": 2300,
+      "status": "reviewed",
+      "assessment": "Wavefront envelopes and the mirror ring require distinct geometric constructions. Thresholds, angular resolution and chromatic broadening then combine optics with relativistic particle kinematics.",
+      "limitations": "",
+      "batch": 12,
+      "statement": "public/corpus/documents/english-ipho-2008-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2008-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "75e6b3948a145525ff31121ea279d7d2071fc8db2e7a0bd82330aac0a43685a6",
+      "solutionSha256": "5dc0c1abba3d7d496c0e2cace0ac10b137f1e006118abb091f6af73ae314f9f9",
+      "statementPages": [
+        1,
+        2,
+        3
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2008-t2.json"
+    },
+    {
+      "id": "ipho-2009-t1",
+      "old": 2350,
+      "proposed": 2100,
+      "status": "reviewed",
+      "assessment": "Conservation laws and final synchronisation are explicitly staged. The nontrivial step is cancellation of the leading tidal torques, followed by a guided expansion and rate differentiation.",
+      "limitations": "",
+      "batch": 12,
+      "statement": "public/corpus/documents/english-ipho-2009-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2009-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "d33c90b9353747045d51c1fcf29c28290371fcdc036ae79aa6dc41409bc56560",
+      "solutionSha256": "ce30702d56bfd330316994aa217f3b66b716b465efadcdebc9ecdf21982982be",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2009-t1.json"
+    },
+    {
+      "id": "ipho-2009-t2",
+      "old": 2500,
+      "proposed": 2150,
+      "status": "reviewed",
+      "assessment": "Photon recoil and Doppler shifts are divided into explicit small steps. The excitation probability is supplied, leaving the two-beam force, its linear expansion and exponential cooling.",
+      "limitations": "",
+      "batch": 13,
+      "statement": "public/corpus/documents/english-ipho-2009-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2009-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "456e8dcc4e97c4a6a3d95ca24b09eab5c9d03aa4e5d0230ab568ba9777104bac",
+      "solutionSha256": "3cd04b42dacfff97486c6a84182924c4e32b5e6b839a2e3efdbff84934bc68b8",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2009-t2.json"
+    },
+    {
+      "id": "ipho-2010-t1",
+      "old": 2300,
+      "proposed": 2300,
+      "status": "reviewed",
+      "assessment": "The image-charge ansatz is supplied, but its parameters, pendulum projection and the difference between interaction energy and total induced-charge energy still require independent reasoning.",
+      "limitations": "",
+      "batch": 12,
+      "statement": "public/corpus/documents/english-ipho-2010-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2010-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "67701ceca004cc12a187b6f0d8dc950a73ec9af64dc1a22b2f7e0bba0af0d195",
+      "solutionSha256": "b7b89a6e6394a7b4a10d21c091d0eb90b9b58ed5bac5df9044e69c82e9fbe20f",
+      "statementPages": [
+        1,
+        2,
+        3
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2010-t1.json"
+    },
+    {
+      "id": "ipho-2010-t2",
+      "old": 2200,
+      "proposed": 2000,
+      "status": "reviewed",
+      "assessment": "Bernoulli and density assumptions are supplied. Connecting external hydrostatics to kinetic energy is the main step, followed by continuity and a heat balance that reuse the same relation.",
+      "limitations": "",
+      "batch": 12,
+      "statement": "public/corpus/documents/english-ipho-2010-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2010-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "04358456d1e6541487927ff56142df9615213af4453a5c3872994865fb504c0f",
+      "solutionSha256": "6c28269b658ecd0dd4feef3cbdc3905d0f9e980d315442b4e964223a56b3575d",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2010-t2.json"
+    },
+    {
+      "id": "ipho-2011-t1",
+      "old": 2550,
+      "proposed": 2550,
+      "status": "reviewed",
+      "assessment": "The triangular orbit must be proved geometrically. Radial perturbations at equal primary masses require varying angular speed under conserved angular momentum and linearising the two-centre potential.",
+      "limitations": "",
+      "batch": 12,
+      "statement": "public/corpus/documents/english-ipho-2011-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2011-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "356ee3ec4a4f3ea200393a2b814b7bbdcdfc4bbd831cf99055cb1db093d0aaae",
+      "solutionSha256": "06f6156471f82b403cf10adf6cbf8479d062cbf922c2762239013d212a152e26",
+      "statementPages": [
+        1,
+        2,
+        3
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2011-t1.json"
+    },
+    {
+      "id": "ipho-2012-t2",
+      "old": 2450,
+      "proposed": 2450,
+      "status": "reviewed",
+      "assessment": "Capillary breakup must be combined with electrostatic surface pressure. Cross-coupled charging and the final drop energy require distinguishing applied potential from the drop self-field.",
+      "limitations": "",
+      "batch": 12,
+      "statement": "public/corpus/documents/english-ipho-2012-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2012-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "2861013a629439e55c3db905e764fd115fb31c9b1ce294d1e1aab3c78a19b2a2",
+      "solutionSha256": "214e34713f3d8e5c95c0069c888952a37a4451f01cf745dd5bffc5ec19bcaa33",
+      "statementPages": [
+        1
+      ],
+      "solutionPages": [
+        1,
+        2
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2012-t2.json"
+    },
+    {
+      "id": "ipho-2013-t1",
+      "old": 2250,
+      "proposed": 2250,
+      "status": "reviewed",
+      "assessment": "Camera triangulation, decay dating and impact angular momentum require separate models. Maximum impact speed combines solar escape, orbital motion and Earth attraction, but each derivation is short.",
+      "limitations": "",
+      "batch": 12,
+      "statement": "public/corpus/documents/english-ipho-2013-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2013-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "2c684cd54d06972ad1b220c0d9554a70e56112e984bcb3590be5c084a94a9875",
+      "solutionSha256": "b98f225380755f27a81ae8b7250fb000861d3c6833abdfc9fd171c8c2877336a",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2013-t1.json"
+    },
+    {
+      "id": "ipho-2013-t2",
+      "old": 2450,
+      "proposed": 2250,
+      "status": "reviewed",
+      "assessment": "Displaced charge spheres require superposition. Subsequent equivalent capacitance, inductance and losses are explicitly staged energy identifications, with the radiation law supplied.",
+      "limitations": "",
+      "batch": 12,
+      "statement": "public/corpus/documents/english-ipho-2013-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2013-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "5f7951cb064f66701ac13e3b584cc74d2af76da8725b134b6f325f6010950be8",
+      "solutionSha256": "2c8f13c50b96025ff547e77747e80bcfcd927c78c37928b141ffdaa335c54cb1",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2013-t2.json"
+    },
+    {
+      "id": "ipho-2013-t3",
+      "old": 2400,
+      "proposed": 2400,
+      "status": "reviewed",
+      "assessment": "Hydrostatic ice shape, incompressible flow, depth dating and the geoid require several independent models. Potential equality for sea-level change adds substantial integration beyond routine algebra.",
+      "limitations": "",
+      "batch": 12,
+      "statement": "public/corpus/documents/english-ipho-2013-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2013-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "8b84c2f2f11830442b585c49db7b0859f83de57d43fd36e74ce14ba96f82ea30",
+      "solutionSha256": "d37b0711e8adbc031cfc1a014a68c82bb07bc48f6cea1e14de30763e8d59c4bc",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2013-t3.json"
+    },
+    {
+      "id": "ipho-2014-t3",
+      "old": 2500,
+      "proposed": 2300,
+      "status": "reviewed",
+      "assessment": "Production, drift and recombination give a quadratic balance. Avalanche current has a supplied exponential form, leaving boundary conditions and secondary-emission feedback as the main independent steps.",
+      "limitations": "",
+      "batch": 12,
+      "statement": "public/corpus/documents/english-ipho-2014-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2014-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "0e3dcc253bdf2e889af946083bcba30328cdcc920ac2a3da0fa54c94bcce2138",
+      "solutionSha256": "910439829cf48dfcc008f560e0fac1dda8f44e694ab450b2b392574b3f98cad5",
+      "statementPages": [
+        1,
+        2
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2014-t3.json"
+    },
+    {
+      "id": "ipho-2015-t1",
+      "old": 2450,
+      "proposed": 2200,
+      "status": "reviewed",
+      "assessment": "Wien integrals are supplied and solar-cell optimization is routine, while Cherenkov threshold energy and line-of-sight Doppler broadening add separate insights",
+      "limitations": "",
+      "batch": 11,
+      "statement": "public/corpus/documents/english-ipho-2015-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2015-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "8a2011423c093bffb23b121b63e7e07f8422f20a49d5a6521623a58d44759f9c",
+      "solutionSha256": "1fc4e7a3ecf0c6eecd1d5ff3602c73a6f45e3d8b07079a8b199bc67e3f94dff4",
+      "statementPages": [
+        1,
+        2
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2015-t1.json"
+    },
+    {
+      "id": "ipho-2015-t2",
+      "old": 2500,
+      "proposed": 2300,
+      "status": "reviewed",
+      "assessment": "Least-action refraction and graded-index rays are staged with an integral hint, then the same stationary-phase relation is reused for electron interference",
+      "limitations": "",
+      "batch": 11,
+      "statement": "public/corpus/documents/english-ipho-2015-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2015-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "408546e55fec4a800aebb7ea20aaddc70bf87e9e5899772518130da6aa98a891",
+      "solutionSha256": "009df4f7fef4808869f07c156686856957df76f4a2fc0c3a1b9380557c091cb8",
+      "statementPages": [
+        1,
+        2
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2015-t2.json"
+    },
+    {
+      "id": "ipho-2015-t3",
+      "old": 2550,
+      "proposed": 2050,
+      "status": "reviewed",
+      "assessment": "Heat conduction is reduced to dimensional analysis and the leakage law is supplied, leaving standard center-of-mass collisions and one-variable cylinder optimization",
+      "limitations": "",
+      "batch": 11,
+      "statement": "public/corpus/documents/english-ipho-2015-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2015-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "9d713aaa58ff54b62a0c07496328cb82b5d209fc0e6ba4eab0ca57825a72c892",
+      "solutionSha256": "9beed7a47d96aad3014b1c664affeb9cfd8ebc7b00dd93a98be9989280afb821",
+      "statementPages": [
+        1,
+        2
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2015-t3.json"
+    },
+    {
+      "id": "ipho-2016-t1",
+      "old": 2400,
+      "proposed": 2400,
+      "status": "reviewed",
+      "assessment": "Hidden-disk inversion combines centre of mass and inertia. Rotating-station falls then require an inertial-frame construction for the first nonzero return and a Coriolis-driven trajectory, despite staged earlier parts.",
+      "limitations": "",
+      "batch": 12,
+      "statement": "public/corpus/documents/english-ipho-2016-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2016-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "bb5f498da4d5f0fe13e8540346780e17a12a1a5aefd1f3ee1f1b8c8bab724300",
+      "solutionSha256": "8cc8664f1cfc01c33270e65a9571aec3d8adff673189acb02be2cfb36637f75f",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2016-t1.json"
+    },
+    {
+      "id": "ipho-2016-t2",
+      "old": 2650,
+      "proposed": 2400,
+      "status": "reviewed",
+      "assessment": "Inductive and capacitive stability must be distinguished, but the relaxation cycle and excitation threshold reuse piecewise RC exponentials",
+      "limitations": "",
+      "batch": 11,
+      "statement": "public/corpus/documents/english-ipho-2016-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2016-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "6bf5c3371973491e192442bc6585262a6574d0f8fd34debeca2e83625041a1b7",
+      "solutionSha256": "e55ce8e3ab2507ad0f33eee724c241171d9aa9121d932494f08565a036165b22",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2016-t2.json"
+    },
+    {
+      "id": "ipho-2017-t2",
+      "old": 2350,
+      "proposed": 2350,
+      "status": "reviewed",
+      "assessment": "Seismic head-wave geometry and continuous ray integration combine with shallow-water continuity and conserved energy flux, supporting the existing value",
+      "limitations": "",
+      "batch": 11,
+      "statement": "public/corpus/documents/english-ipho-2017-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2017-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "56af240e6ee694b30404ad210c50544a8e2b37ff656a8dd2f26909c06a314e4f",
+      "solutionSha256": "e7dfa9566d96ca5dea0442227b4bc6364045619492862f3806fa3eec06fc448d",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2017-t2.json"
+    },
+    {
+      "id": "ipho-2017-t3",
+      "old": 2400,
+      "proposed": 2300,
+      "status": "reviewed-with-source-issue",
+      "assessment": "Friedmann and inflaton equations are supplied, leaving expansion regimes and slow-roll derivative substitutions with a final observational constraint check",
+      "limitations": "dN = H dt with N = 0 at the end makes N negative before the end. D2 instead asks for N = 60, and the official solution reports no consistent integer. Human review of the sign convention is needed",
+      "batch": 11,
+      "statement": "public/corpus/documents/english-ipho-2017-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2017-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "23dab6c537a9007370eba4f67c31c715c71f2aaa856716b7a3fdee357b543e61",
+      "solutionSha256": "a1d8218781278d86d74490b63b8ec49b22eba61475b1a7d746b7c3ad1afd90d5",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2017-t3.json"
+    },
+    {
+      "id": "ipho-2018-t1",
+      "old": 2500,
+      "proposed": 2200,
+      "status": "reviewed",
+      "assessment": "Quadrupole components, power law and integration rule are supplied, so chirp-mass extraction is guided differentiation and graph inversion rather than relativistic model construction",
+      "limitations": "",
+      "batch": 11,
+      "statement": "public/corpus/documents/english-ipho-2018-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2018-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "5d0ba5473601aec11962a660ed55bc759485db68a0b66109c324335fbebf9752",
+      "solutionSha256": "e6b70d5098fd1952bef4bcd0cee54003a24ea2edd080160d4e9759282e358613",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2018-t1.json"
+    },
+    {
+      "id": "ipho-2018-t2",
+      "old": 2450,
+      "proposed": 2200,
+      "status": "reviewed",
+      "assessment": "The radiation law and transverse missing momentum are given, leaving a separable loss equation and invariant-mass reconstruction with a quadratic ambiguity",
+      "limitations": "",
+      "batch": 11,
+      "statement": "public/corpus/documents/english-ipho-2018-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2018-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "848199e2cc3a3118555fb8e73dbfbd3d0f05969beb37317d5757c1499f48e1f6",
+      "solutionSha256": "b03fc35de0fdf623b1d0100006388abfded702582df2e1634fa14aaf15787846",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2018-t2.json"
+    },
+    {
+      "id": "ipho-2018-t3",
+      "old": 2300,
+      "proposed": 2300,
+      "status": "reviewed",
+      "assessment": "A supplied circuit analogy combines with tissue mass conservation, matched spherical heat flow and linearized narrowing of a branching vessel network",
+      "limitations": "",
+      "batch": 11,
+      "statement": "public/corpus/documents/english-ipho-2018-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2018-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "fdce49fdb954bb317d0e6c5e227adef48a758ac90e0d45bbcecdb6991c40165e",
+      "solutionSha256": "7667b3768d15b8ba7baf58124634d0882fe22633214273c2f7decddd6294e4e9",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2018-t3.json"
+    },
+    {
+      "id": "ipho-2019-t1",
+      "old": 2300,
+      "proposed": 2300,
+      "status": "reviewed",
+      "assessment": "The collapse-front model is supplied, but center-of-mass fall, the finite unstretched segment and the final inelastic momentum sharing still need careful separation",
+      "limitations": "",
+      "batch": 10,
+      "statement": "public/corpus/documents/english-ipho-2019-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2019-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "96b623b665b38e671740257d7e28b7b2b2d92db3450be39e5043f00e22ef6927",
+      "solutionSha256": "b6edd014adb2f8bab5a47289b137f3b61f84186bd602b7212fa86088e7bbbce2",
+      "statementPages": [
+        1,
+        2,
+        3
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2019-t1.json"
+    },
+    {
+      "id": "ipho-2019-t2",
+      "old": 2500,
+      "proposed": 2500,
+      "status": "reviewed",
+      "assessment": "Crossed-field drift must explain spoke focusing and synchronism, then dielectric phase lag must be connected to energy absorption and attenuation",
+      "limitations": "",
+      "batch": 10,
+      "statement": "public/corpus/documents/english-ipho-2019-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2019-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "a33326a968579e95499464f29c90da9bffb3c4e6e715d54bab49e9f5319a8ee1",
+      "solutionSha256": "ad1a091d3213eddd0946745ed8ef72a1f5fd1b2f2a82532b21ae238645946888",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2019-t2.json"
+    },
+    {
+      "id": "ipho-2019-t3",
+      "old": 2600,
+      "proposed": 2600,
+      "status": "reviewed",
+      "assessment": "Parcel thermodynamics, phase-shifted acoustic work and convected heat must be kept distinct, with weak-coupling orders consistently carried through",
+      "limitations": "",
+      "batch": 11,
+      "statement": "public/corpus/documents/english-ipho-2019-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2019-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "30182f27b8154b5fa2e7c12b99e11b98c3a3dc136b77ad74722df26bdf040362",
+      "solutionSha256": "21e25ca7ce7449d7936893b7a96394f9b19395d671d0e8388ad3398b1e8e6be4",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2019-t3.json"
+    },
+    {
+      "id": "ipho-2021-t1",
+      "old": 2400,
+      "proposed": 2400,
+      "status": "reviewed",
+      "assessment": "Layer pressure balances and leading-order ridge forces combine with ray-density mapping and an independent overlap argument for the last seismic shadow",
+      "limitations": "",
+      "batch": 10,
+      "statement": "public/corpus/documents/english-ipho-2021-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2021-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "f37517d2efa23f5d2b7c1426452bb6af43302aba01ba5c2fb516ca4e763342c1",
+      "solutionSha256": "aa13de734a87886a58f99b95e00ae4c1e7c93404b7ec4f742179170886767392",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2021-t1.json"
+    },
+    {
+      "id": "ipho-2021-t2",
+      "old": 2450,
+      "proposed": 2450,
+      "status": "reviewed",
+      "assessment": "The thin-ring capacitance needs matched near and far contributions, and the focusing impulse must include both charging and discharge",
+      "limitations": "",
+      "batch": 10,
+      "statement": "public/corpus/documents/english-ipho-2021-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2021-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "7c90dde74ecbae904c90324acf177348b68ef8f5b00b865e890bd5a3cf296a2f",
+      "solutionSha256": "26a1fdb2a4987f4062a46468afb8e3a4516f5c6daa563632138cd0b33c548e0a",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2021-t2.json"
+    },
+    {
+      "id": "ipho-2023-t1",
+      "old": 2400,
+      "proposed": 2400,
+      "status": "reviewed",
+      "assessment": "Random-walk moments, flux balance, persistent swimming regimes and disappearance of a force barrier require distinct statistical and mechanical reasoning",
+      "limitations": "",
+      "batch": 10,
+      "statement": "public/corpus/documents/english-ipho-2023-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2023-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "4fef805edaaa3c236c1e6a326bb5dd217e2915bee3bddfeb42652355cd7154c0",
+      "solutionSha256": "a813483dd978f206c2c237e2516abc8b6ae922bb794491c51d1b1abb33a3e03c",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2023-t1.json"
+    },
+    {
+      "id": "ipho-2023-t2",
+      "old": 2500,
+      "proposed": 2300,
+      "status": "reviewed",
+      "assessment": "Binding models and the light-speed correction are supplied, with the main derivation an asymptotic delay integral and its change across orbital geometry",
+      "limitations": "",
+      "batch": 10,
+      "statement": "public/corpus/documents/english-ipho-2023-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2023-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "1952ff21f907107b23c3757af34ecdcb362f38b56085aae32bc183d287beb4cd",
+      "solutionSha256": "a202c939bb78a0e384830b2e2d901a660661051ecba28214ab64f7dfd1b9942d",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2023-t2.json"
+    },
+    {
+      "id": "ipho-2023-t3",
+      "old": 2350,
+      "proposed": 2350,
+      "status": "reviewed",
+      "assessment": "Hydrostatic pressure and surface tension must be combined into a surface invariant, then reused to cancel contact terms in the rod interaction force",
+      "limitations": "",
+      "batch": 10,
+      "statement": "public/corpus/documents/english-ipho-2023-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2023-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "fe25d0f5ef076db853d8b64a1a9d58ca343665087ab8afe1dec294e53d8a9016",
+      "solutionSha256": "d86cee21f6fe4322ef9a796061ac6021a63115e56e0285593ce33141b527d7fc",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2023-t3.json"
+    },
+    {
+      "id": "ipho-2024-t1",
+      "old": 2250,
+      "proposed": 2050,
+      "status": "reviewed",
+      "assessment": "The radiation laws and one-layer model are supplied, so the main choices are the reflection series and two coupled energy balances followed by routine differentiation",
+      "limitations": "",
+      "batch": 10,
+      "statement": "public/corpus/documents/english-ipho-2024-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2024-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "a513d544b6dc80e8fd6454d908e14b378b6e4306cb3bc49d26f826558862803a",
+      "solutionSha256": "c7006bbcadf2bdfa1feaf99c89cac6c7aa8b41f66cc742d0a12dc41a90bf6e52",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2024-t1.json"
+    },
+    {
+      "id": "ipho-2024-t2",
+      "old": 2550,
+      "proposed": 2300,
+      "status": "reviewed",
+      "assessment": "Dynamic stabilization uses an explicitly supplied fast-slow decomposition, while laser cooling follows a given linear absorption law and a guided recoil balance",
+      "limitations": "",
+      "batch": 10,
+      "statement": "public/corpus/documents/english-ipho-2024-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2024-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "0f3b3e4f6162f1e0341cfe0ab33b22e98fadb3d9750de53ebf2fb169d9263df4",
+      "solutionSha256": "084625e46ab1bff700c9434a9a663a846ab66f7c59c895bd4394bbf079c4711b",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2024-t2.json"
+    },
+    {
+      "id": "ipho-2024-t3",
+      "old": 2450,
+      "proposed": 2450,
+      "status": "reviewed",
+      "assessment": "Binary angular momentum, local accretion energy and polytropic hydrostatic and perturbation equations require several constructions despite detailed staging",
+      "limitations": "",
+      "batch": 10,
+      "statement": "public/corpus/documents/english-ipho-2024-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2024-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "2ff2d180492f1655f30d2655847b2aeaff827d69ccba54ff5d0dbcb9f7489ddb",
+      "solutionSha256": "6199c3c566ae49a2c542e70b3a6ff2cbaf70dab821a5e4a173e6dc315cd557d0",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2024-t3.json"
+    },
+    {
+      "id": "ipho-2025-t1",
+      "old": 2350,
+      "proposed": 2200,
+      "status": "reviewed",
+      "assessment": "Bohr and magnetic-energy steps are explicit. Density integration is supplied, leaving Doppler projection geometry, stable oscillations and piecewise MOND roots as the main demands. Breadth adds less than unguided model construction.",
+      "limitations": "",
+      "batch": 1,
+      "statement": "public/corpus/documents/english-ipho-2025-t1-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2025-t1-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "866d34e6f1c5469c9a33761f9b8fea94e41620cb28831ed5401b056febdc4485",
+      "solutionSha256": "4551f43739a66723fae135aa80f5811cca0c719a9d8e9ca2d72c63ec9d28d988",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2025-t1.json"
+    },
+    {
+      "id": "ipho-2025-t2",
+      "old": 2450,
+      "proposed": 2450,
+      "status": "reviewed",
+      "assessment": "Vapour-pressure branches and coupled mercury-volume constraints produce an unstable friction-driven switch, followed by constrained work optimization and a pressure-volume cycle",
+      "limitations": "",
+      "batch": 10,
+      "statement": "public/corpus/documents/english-ipho-2025-t2-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2025-t2-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "2a23bf9c8451fbaa7036ca6eaf83aaae49995d3b5aa5f2600874296319ddd333",
+      "solutionSha256": "4845538076deabf1207426c57ee2948fe8d9939163b26fb68e77761a45ffedb8",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2025-t2.json"
+    },
+    {
+      "id": "ipho-2025-t3",
+      "old": 2500,
+      "proposed": 2300,
+      "status": "reviewed",
+      "assessment": "Growth and drag laws, the acoustic piston mass and phase boundary are supplied, leaving linked balance equations and cork work with variable friction",
+      "limitations": "",
+      "batch": 10,
+      "statement": "public/corpus/documents/english-ipho-2025-t3-statement/document.pdf",
+      "solution": "public/corpus/documents/english-ipho-2025-t3-solution/document.pdf",
+      "diagrams": "Relevant figures inspected in the named original documents",
+      "statementSha256": "d8715ed3a2c6e552f294aef451382db869c8e7fd800621a7b1b30886c705cdd8",
+      "solutionSha256": "fed9e276bcc33b300fcf58a510554ccbe503f0a5da1b27ab22b9414aeca7c913",
+      "statementPages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "solutionPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "sourceIndex": "public/corpus/english-problems/ipho-2025-t3.json"
+    }
+  ]
+}

@@ -1,5 +1,12 @@
 # Agent handoff
 
+## Editorial difficulty review handoff (10 November 2026)
+
+- [PR #135](https://github.com/Physcratic/physcratic/pull/135) is open and unmerged. Base `ab8881007fa6fe040b87a1b0fdb6a85e2d12b295`, implementation `73e26b6c7954258cf63b7f3bbd70f61a46d9ac0f`. Main and open PRs were rechecked. Preserve current bands, legacy filters, sources, grading and real player ratings.
+- Reviewed 100 imported original statements/official solutions and 18 current native statements/worked solutions, including relevant figures, in batches of at most 12. Change 62 estimates, preserve 56 and retain all seven provisional anchors. [Review table and source flags](PROBLEM_DIFFICULTY_REVIEW.md), [complete ledger](problem-difficulty-review.json). Historical native PDFs are insufficiently inspected, with no tracked match for their 36 registry filenames. Eleven current-source issues need human review. Infinite-V remains unchanged and provisional.
+- Local Node 22.23.1/pnpm 10.34.9: frozen install, offline guards, typegen/TypeScript, zero-warning lint and guarded production build pass. Focused tests 21, server 790 pass with 24 DB skips and one inherited TODO, components 136, disposable PostgreSQL 18.6 tests 162 with no skips, release/mail-storage/operator guards 17/41/5. Package checksums intact. Guest and synthetic signed-in Chromium sweeps pass 336 and 72 combinations. Implementation-head GitHub jobs fail without executed steps or logs. Final-head remote status is recorded in the PR, with browser scope in the review.
+- This task stops after the PR. Next action is independent editorial/physics review, including historical native source correspondence. No operator installation is needed for these static estimates. Any merge or deployment is separate owner work. No Production/shared SQL, flags, provider/settings, README trigger or deployment operation occurred.
+
 ## Temporary manual QA handoff (9 November 2026)
 
 Main `fa986db`, PR #122 `82f39b9` unchanged. Separate contest account-isolation fix `95a6f8b` is ready for independent review, not merged. See [manual QA evidence](MANUAL_QA_2026-11-09.md). Local standard/PG checks and Chromium CSP/moderation/authoring regressions pass. Firefox/WebKit remain BLOCKED, the profile browser has a stale expectation FAIL, and full guest/signed-in sweep is NOT RUN. Do not infer Production/provider readiness. Next action is independent review and completing missing qualification. No deployment, flags, SQL or enforcement is authorised.

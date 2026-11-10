@@ -1,5 +1,7 @@
 # Execution roadmap
 
+Editorial difficulty review (10 November 2026): [PR #135](https://github.com/Physcratic/physcratic/pull/135) reviews all 118 static estimates and changes 62. Implementation `73e26b6c7954258cf63b7f3bbd70f61a46d9ac0f` follows fetched main `ab8881007fa6fe040b87a1b0fdb6a85e2d12b295`. See [review table, source limits and verification](PROBLEM_DIFFICULTY_REVIEW.md). Current task ends with this open PR. Next action is human review of estimates and the 11 source issues, including the provisional infinite-V value. No merge or deployment is authorised by this task.
+
 Temporary manual QA (9 November 2026): see [evidence and outstanding gates](MANUAL_QA_2026-11-09.md). A separate reproduced contest account-isolation fix is awaiting independent review. PR #122 stays unmerged, Firefox/WebKit qualification remains blocked, and no launch/enforcement follows local testing.
 
 Baseline: main `a4a75c292fc0a9d6392e25f92818e454d6ffb4eb`, verified 4 November 2026. Source: [community guidebook](COMMUNITY_GUIDEBOOK.md); current code and [status](COMMUNITY_STATUS.md) take precedence over stale planning claims.
