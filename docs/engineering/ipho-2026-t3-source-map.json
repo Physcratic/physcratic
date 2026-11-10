@@ -1,0 +1,84 @@
+{
+  "id": "ipho-2026-t3",
+  "indexing": "Ranges are inclusive, one based. Maths counts each inline or displayed LaTeX expression in document order, including table cells. Aligned derivations remain one displayed expression.",
+  "documents": {
+    "statement": {
+      "sha256": "1fc6e246a0f1a369719f5bd39bfc12f7b665353be84a91485c8643370330b224",
+      "pdfPages": 4,
+      "nodes": 30,
+      "mathExpressions": 151,
+      "displayedExpressions": 1,
+      "pages": [
+        {
+          "pdfPage": 1,
+          "printedPage": 11,
+          "nodeStart": 1,
+          "mathStart": 1,
+          "displayStart": 1,
+          "nodeEnd": 7,
+          "mathEnd": 16,
+          "displayEnd": 1
+        },
+        {
+          "pdfPage": 2,
+          "printedPage": 12,
+          "nodeStart": 8,
+          "mathStart": 17,
+          "displayStart": 2,
+          "nodeEnd": 16,
+          "mathEnd": 70,
+          "displayEnd": 1
+        },
+        {
+          "pdfPage": 3,
+          "printedPage": 13,
+          "nodeStart": 17,
+          "mathStart": 71,
+          "displayStart": 2,
+          "nodeEnd": 27,
+          "mathEnd": 120,
+          "displayEnd": 1
+        },
+        {
+          "pdfPage": 4,
+          "printedPage": 14,
+          "nodeStart": 28,
+          "mathStart": 121,
+          "displayStart": 2,
+          "nodeEnd": 30,
+          "mathEnd": 151,
+          "displayEnd": 1
+        }
+      ]
+    },
+    "solution": {
+      "sha256": "3ef1952f8a7466beb809764b2b0dcdd8191f71fd42ad4f71a96c0b53ab5bcb01",
+      "pdfPages": 2,
+      "nodes": 62,
+      "mathExpressions": 73,
+      "displayedExpressions": 28,
+      "pages": [
+        {
+          "pdfPage": 1,
+          "printedPage": 10,
+          "nodeStart": 1,
+          "mathStart": 1,
+          "displayStart": 1,
+          "nodeEnd": 34,
+          "mathEnd": 43,
+          "displayEnd": 15
+        },
+        {
+          "pdfPage": 2,
+          "printedPage": 11,
+          "nodeStart": 35,
+          "mathStart": 44,
+          "displayStart": 16,
+          "nodeEnd": 62,
+          "mathEnd": 73,
+          "displayEnd": 28
+        }
+      ]
+    }
+  }
+}

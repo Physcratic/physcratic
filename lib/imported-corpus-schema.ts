@@ -89,6 +89,7 @@ const documentSchema = z.union([
   importedPdfSchema.extend({ appendix: importedPdfSchema.optional() }),
   z.object({
     format: z.literal("html"),
+    referencePdf: localAsset.refine((value) => value.endsWith(".pdf")).optional(),
     nodes: z.array(importedNodeSchema).min(1),
     text: z.string().min(80),
     figures: z.array(localAsset),

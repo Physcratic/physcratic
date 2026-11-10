@@ -1,0 +1,1182 @@
+{
+  "id": "ipho-2026-t3",
+  "importedOn": "2026-11-10",
+  "language": "en",
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/2026/ipho-t3/statement.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "QUESTION T3 [10 pts]. Chasing the absolute zero"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A refrigeration cycle must be carried out by a system with characteristics appropriate for the temperatures to be achieved. One hundred years ago, in 1926, the chemist William Giauque and, independently, the physicist Peter Debye proposed paramagnetic salts as ideal systems for lowering temperatures far below $1\\,\\mathrm{K}$. Indeed, beginning in the following decade, temperatures as low as $0.0044\\,\\mathrm{K}$ were achieved (Wander de Haas and Gerrit Wiersma, 1935, Leiden Cryogenic Laboratories). In this question, the paramagnetic Carnot refrigeration cycle is studied."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t3/torus.png",
+            "alt": "Densely wound torus connected to an external emf, with arrows marking mean radius R and cross-section diameter 2r."
+          },
+          {
+            "type": "element",
+            "tag": "figcaption",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 3a."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider a torus with mean radius $R$ and inner radius $r$ made of a homogeneous, isotropic paramagnetic material, around which an insulated conducting wire is wound, with its ends connected to an external voltage source (emf), as shown in figure 3a. The resistance of the wire is so low that energy losses due to the heating of the wire can be neglected. The winding is dense, with $N$ turns in total, and it is assumed that $r\\ll R$, so that the fields $\\vec{H}$ and $\\vec{B}$ and the magnetization $\\vec{M}$ have approximately constant magnitudes throughout the torus. Let $V$ and $A$ be the volume and the cross-section area of the torus. Hereinafter, the abbreviation Pm-T is used to refer to the paramagnetic torus."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In paramagnetic materials, $\\vec{M}$ is parallel to $\\vec{H}$ and the following relation holds:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\vec{B}=\\mu_0\\vec{H}+\\mu_0\\vec{M}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Energy transfer sign convention: in this problem, Work ($W$) and Heat ($Q$) are considered positive when they flow into the system, and negative when they flow out."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-A [1.0 pts]. Work in the Pm-T"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Hint: in magnetic materials, $\\oint_C\\vec{H}\\cdot d\\vec{\\ell}=I_C$, where $I_C$ is the net free current passing through the area bounded by the closed curve $C$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-A1 [0.2 pts]. Let $H$ be the magnitude of $\\vec{H}$ in the torus. Write $H$ in terms of $N$, $A$, $V$ and the instantaneous electric current $I$ in the wire."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-A2 [0.6 pts]. Let $dW_{emf}$ be the work that the external voltage source performs to change the magnitude of $\\vec{B}$ by $dB$. Write $dW_{emf}$ in terms of $V$, $H$, and $dB$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-A3 [0.2 pts]. The total work done by the voltage source, $dW_{emf}$, can be divided in two parts: the work that would be performed to change the magnetic field if the toroid had a vacuum core, $dW_{vac}$, and the work done on the paramagnetic material itself, $dW$. Write $dW$ in terms of $\\mu_0$, $H$, $V$ and $dM$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-B [3.0 pts]. Heat and temperature in the Pm-T"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The following table compares two thermodynamic systems: the ideal gas and the Pm-T. Use this information and your answer to question T3-A3 to solve the following questions. This information will also be used in part C. If you did not find an answer for $dW$ in question T3-A3, you may use $dW=\\alpha V\\mu_0H\\,dM$ where $\\alpha$ is a number. The volume $V$ of the paramagnetic torus is constant, so that there is no work due to pressure. Below, $T$ is the temperature in all instances."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "table",
+        "children": [
+          {
+            "type": "element",
+            "tag": "thead",
+            "children": [
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "IDEAL GAS"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "th",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "PARAMAGNETIC TORUS"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "tbody",
+            "children": [
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "State functions: $P$, $V$ and temperature $T$"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "State functions: $H$, $M$ and temperature $T$"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Constants: $R$, $\\gamma$ and number of moles $n$"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Constants: $K$, $\\lambda$ and number of moles $n$"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Equation of state: $PV=nRT$"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Equation of state: $TMV=nKH$"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Heat capacity at constant $V$:"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "br"
+                      },
+                      {
+                        "type": "text",
+                        "text": "$C_V=nR/(\\gamma-1)$"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Heat capacity at constant $M$:"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "br"
+                      },
+                      {
+                        "type": "text",
+                        "text": "$C_M=n\\lambda/T^2$"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "tr",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Internal energy $U$ in any process satisfies"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "br"
+                      },
+                      {
+                        "type": "text",
+                        "text": "$dU=C_V\\,dT$"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "td",
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Internal energy $U$ in any process satisfies"
+                      },
+                      {
+                        "type": "element",
+                        "tag": "br"
+                      },
+                      {
+                        "type": "text",
+                        "text": "$dU=C_M\\,dT$"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$K$ and $\\lambda$ are constants given by the material in the torus. You may use the equations provided in the table directly without proving them."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-B1 [1.5 pts]. If the magnitude of $\\vec{H}$ changes from $H_i$ to $H_f$ at a constant temperature $T$, an energy $Q$ is transferred between the Pm-T and its environment. Write $Q$ in terms of $\\mu_0$, $n$, $V$, $K$, $H_i$, $H_f$, and $T$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-B2 [1.5 pts]. If the magnitude of $\\vec{H}$ changes adiabatically from $H_i$ to $H_f$, the temperature of the Pm-T changes from $T_i$ to $T_f$. Write $\\Delta T=T_f-T_i$ in terms of $\\mu_0$, $V$, $n$, $K$, $\\lambda$, $H_i$, $H_f$, and $T_i$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-C [6.0 pts]. Carnot refrigerator of the Pm-T"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t3/cycle.png",
+            "alt": "H versus T Carnot cycle with vertices 1, 2, 3 and 4, two vertical isotherms and curved adiabatic branches connecting them."
+          },
+          {
+            "type": "element",
+            "tag": "figcaption",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 3b."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The $H$ vs. $T$ diagram of the Carnot refrigeration cycle $1\\to2\\to3\\to4\\to1$ performed by the Pm-T is shown in figure 3b. In this cycle, let:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$T_h$: temperature of the hot reservoir"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$T_c$: temperature of the cold reservoir"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$Q_h$: absolute value of the heat transferred to the hot reservoir"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$Q_c$: absolute value of the heat absorbed from the cold reservoir"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-C1 [0.2 pts]. Mark $T_h$ and $T_c$ on the $T$ axis of the $H$ vs. $T$ diagram. Also label the processes in which the transfers of $Q_h$ and $Q_c$ occur, respectively."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-C2 [1.5 pts]. Let $M_1$, $M_2$, $M_3$ and $M_4$ be the magnitudes of $\\vec{M}$ at the vertices of this cycle. Write $M_1$ in terms of $M_2$, $M_3$, and $M_4$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-C3 [0.8 pts]. Suppose that to cool $1.00\\,\\mathrm{L}$ of liquid helium initially at $1.00\\,\\mathrm{K}$, we utilize a 2.0 moles Pm-T made of potassium chromate. For this material, $K=1.87\\times10^{-6}\\,\\mathrm{K}\\cdot\\mathrm{m}^3/\\mathrm{mol}$, its density is $2730\\,\\mathrm{kg}/\\mathrm{m}^3$ and its molar mass is $0.19\\,\\mathrm{kg}/\\mathrm{mol}$. The Pm-T performs a Carnot refrigeration cycle with $H_1=411624\\,\\mathrm{A}/\\mathrm{m}$, $H_2=311306\\,\\mathrm{A}/\\mathrm{m}$, $H_3=204618\\,\\mathrm{A}/\\mathrm{m}$ and $H_4=240446\\,\\mathrm{A}/\\mathrm{m}$. After one operating cycle, calculate the final temperature of the liquid helium. Assume that for the liquid helium both the specific heat capacity $c=100\\,\\mathrm{J}/(\\mathrm{kg}\\cdot\\mathrm{K})$ and the density $\\rho=130\\,\\mathrm{kg}/\\mathrm{m}^3$ remain constant."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-C4 [2.0 pts]. In order to continuously lower the temperature of a body with constant heat capacity $C_c$, Carnot cycles are allowed to occur over time in such a way that the power $P$ transferred to the refrigerator remains constant. It is then assumed that the temperature $T_h$ of the hot reservoir remains constant and that in each operating cycle the temperature $T_c$ of the cooled body decreases by $dT_c$, satisfying the relation $dQ_c/dQ_h=T_c/T_h$. If at $t=0$ we have $T_c=T_0$, determine the time $t$ that the Carnot refrigerator must operate for the cooled body to reach a temperature $T<T_0$. Express your answer in terms of $C_c$, $T_h$, $P$, $T_0$ and $T$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-C5 [1.5 pts]. The efficiency of a refrigerator is quantified by its coefficient of performance $\\mathrm{COP}=Q_c/W$. Determine the overall COP of the refrigerator of question T3-C4 with all the cycles performed until time $t$. Write your answer in terms of $T_0$ and $T_h$ and $T$."
+          }
+        ]
+      }
+    ],
+    "text": "QUESTION T3 [10 pts]. Chasing the absolute zero\n\nA refrigeration cycle must be carried out by a system with characteristics appropriate for the temperatures to be achieved. One hundred years ago, in 1926, the chemist William Giauque and, independently, the physicist Peter Debye proposed paramagnetic salts as ideal systems for lowering temperatures far below $1\\,\\mathrm{K}$. Indeed, beginning in the following decade, temperatures as low as $0.0044\\,\\mathrm{K}$ were achieved (Wander de Haas and Gerrit Wiersma, 1935, Leiden Cryogenic Laboratories). In this question, the paramagnetic Carnot refrigeration cycle is studied.\n\nConsider a torus with mean radius $R$ and inner radius $r$ made of a homogeneous, isotropic paramagnetic material, around which an insulated conducting wire is wound, with its ends connected to an external voltage source (emf), as shown in figure 3a. The resistance of the wire is so low that energy losses due to the heating of the wire can be neglected. The winding is dense, with $N$ turns in total, and it is assumed that $r\\ll R$, so that the fields $\\vec{H}$ and $\\vec{B}$ and the magnetization $\\vec{M}$ have approximately constant magnitudes throughout the torus. Let $V$ and $A$ be the volume and the cross-section area of the torus. Hereinafter, the abbreviation Pm-T is used to refer to the paramagnetic torus.\n\nIn paramagnetic materials, $\\vec{M}$ is parallel to $\\vec{H}$ and the following relation holds:\n\n$$\\vec{B}=\\mu_0\\vec{H}+\\mu_0\\vec{M}.$$\n\nEnergy transfer sign convention: in this problem, Work ($W$) and Heat ($Q$) are considered positive when they flow into the system, and negative when they flow out.\n\nT3-A [1.0 pts]. Work in the Pm-T\n\nHint: in magnetic materials, $\\oint_C\\vec{H}\\cdot d\\vec{\\ell}=I_C$, where $I_C$ is the net free current passing through the area bounded by the closed curve $C$.\n\nT3-A1 [0.2 pts]. Let $H$ be the magnitude of $\\vec{H}$ in the torus. Write $H$ in terms of $N$, $A$, $V$ and the instantaneous electric current $I$ in the wire.\n\nT3-A2 [0.6 pts]. Let $dW_{emf}$ be the work that the external voltage source performs to change the magnitude of $\\vec{B}$ by $dB$. Write $dW_{emf}$ in terms of $V$, $H$, and $dB$.\n\nT3-A3 [0.2 pts]. The total work done by the voltage source, $dW_{emf}$, can be divided in two parts: the work that would be performed to change the magnetic field if the toroid had a vacuum core, $dW_{vac}$, and the work done on the paramagnetic material itself, $dW$. Write $dW$ in terms of $\\mu_0$, $H$, $V$ and $dM$.\n\nT3-B [3.0 pts]. Heat and temperature in the Pm-T\n\nThe following table compares two thermodynamic systems: the ideal gas and the Pm-T. Use this information and your answer to question T3-A3 to solve the following questions. This information will also be used in part C. If you did not find an answer for $dW$ in question T3-A3, you may use $dW=\\alpha V\\mu_0H\\,dM$ where $\\alpha$ is a number. The volume $V$ of the paramagnetic torus is constant, so that there is no work due to pressure. Below, $T$ is the temperature in all instances.\n\nIDEAL GAS\n\nPARAMAGNETIC TORUS\n\nState functions: $P$, $V$ and temperature $T$\n\nState functions: $H$, $M$ and temperature $T$\n\nConstants: $R$, $\\gamma$ and number of moles $n$\n\nConstants: $K$, $\\lambda$ and number of moles $n$\n\nEquation of state: $PV=nRT$\n\nEquation of state: $TMV=nKH$\n\nHeat capacity at constant $V$:\n$C_V=nR/(\\gamma-1)$\n\nHeat capacity at constant $M$:\n$C_M=n\\lambda/T^2$\n\nInternal energy $U$ in any process satisfies\n$dU=C_V\\,dT$\n\nInternal energy $U$ in any process satisfies\n$dU=C_M\\,dT$\n\n$K$ and $\\lambda$ are constants given by the material in the torus. You may use the equations provided in the table directly without proving them.\n\nT3-B1 [1.5 pts]. If the magnitude of $\\vec{H}$ changes from $H_i$ to $H_f$ at a constant temperature $T$, an energy $Q$ is transferred between the Pm-T and its environment. Write $Q$ in terms of $\\mu_0$, $n$, $V$, $K$, $H_i$, $H_f$, and $T$.\n\nT3-B2 [1.5 pts]. If the magnitude of $\\vec{H}$ changes adiabatically from $H_i$ to $H_f$, the temperature of the Pm-T changes from $T_i$ to $T_f$. Write $\\Delta T=T_f-T_i$ in terms of $\\mu_0$, $V$, $n$, $K$, $\\lambda$, $H_i$, $H_f$, and $T_i$.\n\nT3-C [6.0 pts]. Carnot refrigerator of the Pm-T\n\nThe $H$ vs. $T$ diagram of the Carnot refrigeration cycle $1\\to2\\to3\\to4\\to1$ performed by the Pm-T is shown in figure 3b. In this cycle, let:\n\n$T_h$: temperature of the hot reservoir\n\n$T_c$: temperature of the cold reservoir\n\n$Q_h$: absolute value of the heat transferred to the hot reservoir\n\n$Q_c$: absolute value of the heat absorbed from the cold reservoir\n\nT3-C1 [0.2 pts]. Mark $T_h$ and $T_c$ on the $T$ axis of the $H$ vs. $T$ diagram. Also label the processes in which the transfers of $Q_h$ and $Q_c$ occur, respectively.\n\nT3-C2 [1.5 pts]. Let $M_1$, $M_2$, $M_3$ and $M_4$ be the magnitudes of $\\vec{M}$ at the vertices of this cycle. Write $M_1$ in terms of $M_2$, $M_3$, and $M_4$.\n\nT3-C3 [0.8 pts]. Suppose that to cool $1.00\\,\\mathrm{L}$ of liquid helium initially at $1.00\\,\\mathrm{K}$, we utilize a 2.0 moles Pm-T made of potassium chromate. For this material, $K=1.87\\times10^{-6}\\,\\mathrm{K}\\cdot\\mathrm{m}^3/\\mathrm{mol}$, its density is $2730\\,\\mathrm{kg}/\\mathrm{m}^3$ and its molar mass is $0.19\\,\\mathrm{kg}/\\mathrm{mol}$. The Pm-T performs a Carnot refrigeration cycle with $H_1=411624\\,\\mathrm{A}/\\mathrm{m}$, $H_2=311306\\,\\mathrm{A}/\\mathrm{m}$, $H_3=204618\\,\\mathrm{A}/\\mathrm{m}$ and $H_4=240446\\,\\mathrm{A}/\\mathrm{m}$. After one operating cycle, calculate the final temperature of the liquid helium. Assume that for the liquid helium both the specific heat capacity $c=100\\,\\mathrm{J}/(\\mathrm{kg}\\cdot\\mathrm{K})$ and the density $\\rho=130\\,\\mathrm{kg}/\\mathrm{m}^3$ remain constant.\n\nT3-C4 [2.0 pts]. In order to continuously lower the temperature of a body with constant heat capacity $C_c$, Carnot cycles are allowed to occur over time in such a way that the power $P$ transferred to the refrigerator remains constant. It is then assumed that the temperature $T_h$ of the hot reservoir remains constant and that in each operating cycle the temperature $T_c$ of the cooled body decreases by $dT_c$, satisfying the relation $dQ_c/dQ_h=T_c/T_h$. If at $t=0$ we have $T_c=T_0$, determine the time $t$ that the Carnot refrigerator must operate for the cooled body to reach a temperature $T<T_0$. Express your answer in terms of $C_c$, $T_h$, $P$, $T_0$ and $T$.\n\nT3-C5 [1.5 pts]. The efficiency of a refrigerator is quantified by its coefficient of performance $\\mathrm{COP}=Q_c/W$. Determine the overall COP of the refrigerator of question T3-C4 with all the cycles performed until time $t$. Write your answer in terms of $T_0$ and $T_h$ and $T$.",
+    "figures": [
+      "/corpus/2026/ipho-t3/torus.png",
+      "/corpus/2026/ipho-t3/cycle.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/2026/ipho-t3/solution.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "SOLUTION T3 [10 pts]. Chashing abolute zero"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-A [1.0 points]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T1-A1 [0.2 pts]. Field $\\vec{H}$ inside the torus is almost entirely confined to its core, forming concentric circumferential circles. Therefore, from magnetic circuital law $\\oint_C\\vec{H}\\cdot d\\vec{\\ell}=I_C$ we have $H\\cdot2\\pi R=NI$. Dividing and multiplying by $A=\\pi r^2$ yields to"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$H=\\frac{NI}{2\\pi R}\\frac{A}{\\pi r^2}=\\frac{NIA}{V}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-A2 [0.6 pts]. When $I$ is changed, there is induced an emf $\\mathcal{E}_{ind}$. Thus, since"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\mathcal{E}+\\mathcal{E}_{ind}=\\mathrm{resistance}\\times I\\approx0,$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "from Faraday's law of induction, the work done by the external emf is given by"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$dW_{emf}=\\mathcal{E}\\,dq=-\\mathcal{E}_{ind}I\\,dt=\\frac{d\\Phi_B}{dt}I\\,dt=I\\,d\\Phi_B,$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where $dq$ is the quantity of electric charge flowing during the time interval $dt$ and $\\Phi_B=NAB$ is the flux of the field $\\vec{B}$ inside the torus. Therefore,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$dW_{emf}=NIA\\,dB=VH\\,dB.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-A3 [0.2 pts]. Since $\\vec{B}$, $\\vec{H}$ and $\\vec{M}$ are paralell vectors, from $\\vec{B}=\\mu_0\\vec{H}+\\mu_0\\vec{M}$ we get"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$dB=\\mu_0\\,dH+\\mu_0\\,dM,$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "from which, after substitution in the answer of question T3-A2, yields to"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$dW_{emf}=\\mu_0VH\\,dH+\\mu_0VH\\,dM.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Hence,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$dW=\\mu_0VH\\,dM.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-B [3.0 pts]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-B1 [1.5 pts]. The first law of thermodynamics for the torus is $dU=dW+dQ=\\mu_0VH\\,dM+C\\,dT$. At constant $M$, we have $dU=C_M\\,dT=n\\lambda\\,dT/T^2$, i. e., $U$ depends only on $T$. Hence, for isothermal processes, $dQ=-dW=-\\mu_0VH\\,dM$. Furthermore, from the equation of state we have for isothermal processes that $TV\\,dM=nK\\,dH$ and then"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$dQ=-\\mu_0VH\\left(\\frac{nK}{TV}\\,dH\\right)=-\\mu_0\\frac{nK}{T}H\\,dH.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Integration from $H_i$ to $H_f$ gives"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$Q=-\\mu_0\\frac{nK}{T}\\frac{H_f^2-H_i^2}{2}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note: This is proportional to the volume because it has the number of moles."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-B2 [1.5 pts]. For adiabatic processes, the first law yields to $dU=dW$ and then"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\frac{n\\lambda}{T^2}\\,dT=\\mu_0VH\\,dM=\\mu_0V\\frac{TMV}{nK}\\,dM,$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where we have used the equation of state to substitute $H$. Separating variables we have"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\frac{n\\lambda}{T^3}\\,dT=\\mu_0\\frac{V^2}{nK}M\\,dM,$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "and hence, after integration from $(T_i,M_i)$ to $(T_f,M_f)$,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\frac{n\\lambda}{2}\\left(\\frac{1}{T_i^2}-\\frac{1}{T_f^2}\\right)=\\mu_0\\frac{V^2}{nK}\\frac{M_f^2-M_i^2}{2}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since $M=nKH/TV$, this equation simplifies to"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\frac{\\lambda}{T_i^2}-\\frac{\\lambda}{T_f^2}=\\mu_0K\\left(\\frac{H_f^2}{T_f^2}-\\frac{H_i^2}{T_i^2}\\right),$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "from which"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\frac{T_f^2}{T_i^2}=\\frac{\\lambda+\\mu_0KH_f^2}{\\lambda+\\mu_0KH_i^2}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Hence"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\Delta T=T_f-T_i=T_i\\left(\\sqrt{\\frac{\\lambda+\\mu_0KH_f^2}{\\lambda+\\mu_0KH_i^2}}-1\\right).$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-C [6.0 pts]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-C1 [0.2 pts]."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t3/labelled-cycle.png",
+            "alt": "Labelled H versus T cycle showing cold temperature TL at vertices 2 and 3, hot temperature TH at 1 and 4, heat QL flowing in at the cold isotherm and QH flowing out at the hot isotherm."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-C2 [1.5 pts]. In the Carnot cycle"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\frac{Q_c}{Q_h}=\\frac{T_c}{T_h}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Particularly, for the Carnot cycle of paramagnetic refrigeration, we have $Q_c=|Q_{2\\to3}|=Q_{2\\to3}$ and $Q_h=|Q_{4\\to1}|=-Q_{4\\to1}$. From the answer to question T3-B1,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$Q_c=-\\mu_0\\frac{nK}{T_c}\\frac{H_3^2-H_2^2}{2}=\\mu_0\\frac{nK}{T_c}\\frac{H_2^2-H_3^2}{2},$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$Q_h=-\\left(-\\mu_0\\frac{nK}{T_h}\\frac{H_1^2-H_4^2}{2}\\right)=\\mu_0\\frac{nK}{T_h}\\frac{H_1^2-H_4^2}{2},$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where $T_c=T_2=T_3$ and $T_h=T_4=T_1$ are the respective temperatures of the isothermal processes $2\\to3$ and $4\\to1$. Therefore, after substitution and simplification in the Carnot identity, we have"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\frac{T_h}{T_c}\\frac{H_2^2-H_3^2}{H_1^2-H_4^2}=\\frac{T_c}{T_h},\\qquad\\frac{H_2^2-H_3^2}{T_c^2}=\\frac{H_1^2-H_4^2}{T_h^2}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since, by the equation of state, $M=nKH/TV$, we get"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$M_2^2-M_3^2=M_1^2-M_4^2,\\qquad M_1=\\sqrt{M_2^2-M_3^2+M_4^2}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-C3 [0.8 pts]. By substituting the given numerical values"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$Q_c=\\mu_0\\frac{nK}{T_c}\\frac{H_2^2-H_3^2}{2}=1.29\\times10^{-1}\\,\\mathrm{J}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Hence"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\begin{aligned}|\\Delta T|_{\\mathrm{helium}}&=\\frac{1.29\\times10^{-1}\\,\\mathrm{J}}{130\\,\\mathrm{kg}\\cdot\\mathrm{m}^{-3}\\times10^{-3}\\,\\mathrm{m}^3\\times10^2\\,\\mathrm{J}\\cdot\\mathrm{kg}^{-1}\\cdot\\mathrm{K}^{-1}}\\\\&=\\frac{1.29}{1.30}\\times10^{-2}\\,\\mathrm{K}=9.92\\times10^{-3}\\,\\mathrm{K}.\\end{aligned}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Hence"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$T_f=T_i-|\\Delta T|=1.00\\,\\mathrm{K}-0.00992\\,\\mathrm{K}=0.99008\\,\\mathrm{K}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-C4 [2.0 pts]. From the Carnot cycle identity $dQ_c/dQ_h=T_c/T_h$ and the first law in differential form $dQ_h=dW+dQ_c$, we have"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\frac{dW+dQ_c}{dQ_c}=\\frac{dW}{dQ_c}+1=-\\frac{P\\,dt}{C_c\\,dT_c}+1=\\frac{T_h}{T_c},$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where $dW=P\\,dt$ and $dQ_c=-C_c\\,dT_c$ have been used. Hence, after separation of variables,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$dt=-\\frac{C_cT_h}{P}\\left(\\frac{dT_c}{T_c}-\\frac{dT_c}{T_h}\\right).$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Integrating from $t=0$ ($T_c=T_0$) to $t$ ($T_c=T$) we get"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$t=\\frac{C_cT_h}{P}\\left(\\ln\\frac{T_0}{T}-\\frac{T_0-T}{T_h}\\right).$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T3-C5 [1.5 pts]. Since $W=Pt$ and $Q_c=C_c(T_0-T)$,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$W=Pt=C_cT_h\\ln\\frac{T_0}{T}-Q_c.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Therefore"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\mathrm{COP}=\\frac{Q_c}{W}=\\left(\\frac{T_h}{T_0-T}\\ln\\frac{T_0}{T}-1\\right)^{-1}.$$"
+          }
+        ]
+      }
+    ],
+    "text": "SOLUTION T3 [10 pts]. Chashing abolute zero\n\nT3-A [1.0 points]\n\nT1-A1 [0.2 pts]. Field $\\vec{H}$ inside the torus is almost entirely confined to its core, forming concentric circumferential circles. Therefore, from magnetic circuital law $\\oint_C\\vec{H}\\cdot d\\vec{\\ell}=I_C$ we have $H\\cdot2\\pi R=NI$. Dividing and multiplying by $A=\\pi r^2$ yields to\n\n$$H=\\frac{NI}{2\\pi R}\\frac{A}{\\pi r^2}=\\frac{NIA}{V}.$$\n\nT3-A2 [0.6 pts]. When $I$ is changed, there is induced an emf $\\mathcal{E}_{ind}$. Thus, since\n\n$$\\mathcal{E}+\\mathcal{E}_{ind}=\\mathrm{resistance}\\times I\\approx0,$$\n\nfrom Faraday's law of induction, the work done by the external emf is given by\n\n$$dW_{emf}=\\mathcal{E}\\,dq=-\\mathcal{E}_{ind}I\\,dt=\\frac{d\\Phi_B}{dt}I\\,dt=I\\,d\\Phi_B,$$\n\nwhere $dq$ is the quantity of electric charge flowing during the time interval $dt$ and $\\Phi_B=NAB$ is the flux of the field $\\vec{B}$ inside the torus. Therefore,\n\n$$dW_{emf}=NIA\\,dB=VH\\,dB.$$\n\nT3-A3 [0.2 pts]. Since $\\vec{B}$, $\\vec{H}$ and $\\vec{M}$ are paralell vectors, from $\\vec{B}=\\mu_0\\vec{H}+\\mu_0\\vec{M}$ we get\n\n$$dB=\\mu_0\\,dH+\\mu_0\\,dM,$$\n\nfrom which, after substitution in the answer of question T3-A2, yields to\n\n$$dW_{emf}=\\mu_0VH\\,dH+\\mu_0VH\\,dM.$$\n\nHence,\n\n$$dW=\\mu_0VH\\,dM.$$\n\nT3-B [3.0 pts]\n\nT3-B1 [1.5 pts]. The first law of thermodynamics for the torus is $dU=dW+dQ=\\mu_0VH\\,dM+C\\,dT$. At constant $M$, we have $dU=C_M\\,dT=n\\lambda\\,dT/T^2$, i. e., $U$ depends only on $T$. Hence, for isothermal processes, $dQ=-dW=-\\mu_0VH\\,dM$. Furthermore, from the equation of state we have for isothermal processes that $TV\\,dM=nK\\,dH$ and then\n\n$$dQ=-\\mu_0VH\\left(\\frac{nK}{TV}\\,dH\\right)=-\\mu_0\\frac{nK}{T}H\\,dH.$$\n\nIntegration from $H_i$ to $H_f$ gives\n\n$$Q=-\\mu_0\\frac{nK}{T}\\frac{H_f^2-H_i^2}{2}.$$\n\nNote: This is proportional to the volume because it has the number of moles.\n\nT3-B2 [1.5 pts]. For adiabatic processes, the first law yields to $dU=dW$ and then\n\n$$\\frac{n\\lambda}{T^2}\\,dT=\\mu_0VH\\,dM=\\mu_0V\\frac{TMV}{nK}\\,dM,$$\n\nwhere we have used the equation of state to substitute $H$. Separating variables we have\n\n$$\\frac{n\\lambda}{T^3}\\,dT=\\mu_0\\frac{V^2}{nK}M\\,dM,$$\n\nand hence, after integration from $(T_i,M_i)$ to $(T_f,M_f)$,\n\n$$\\frac{n\\lambda}{2}\\left(\\frac{1}{T_i^2}-\\frac{1}{T_f^2}\\right)=\\mu_0\\frac{V^2}{nK}\\frac{M_f^2-M_i^2}{2}.$$\n\nSince $M=nKH/TV$, this equation simplifies to\n\n$$\\frac{\\lambda}{T_i^2}-\\frac{\\lambda}{T_f^2}=\\mu_0K\\left(\\frac{H_f^2}{T_f^2}-\\frac{H_i^2}{T_i^2}\\right),$$\n\nfrom which\n\n$$\\frac{T_f^2}{T_i^2}=\\frac{\\lambda+\\mu_0KH_f^2}{\\lambda+\\mu_0KH_i^2}.$$\n\nHence\n\n$$\\Delta T=T_f-T_i=T_i\\left(\\sqrt{\\frac{\\lambda+\\mu_0KH_f^2}{\\lambda+\\mu_0KH_i^2}}-1\\right).$$\n\nT3-C [6.0 pts]\n\nT3-C1 [0.2 pts].\n\nT3-C2 [1.5 pts]. In the Carnot cycle\n\n$$\\frac{Q_c}{Q_h}=\\frac{T_c}{T_h}.$$\n\nParticularly, for the Carnot cycle of paramagnetic refrigeration, we have $Q_c=|Q_{2\\to3}|=Q_{2\\to3}$ and $Q_h=|Q_{4\\to1}|=-Q_{4\\to1}$. From the answer to question T3-B1,\n\n$$Q_c=-\\mu_0\\frac{nK}{T_c}\\frac{H_3^2-H_2^2}{2}=\\mu_0\\frac{nK}{T_c}\\frac{H_2^2-H_3^2}{2},$$\n\n$$Q_h=-\\left(-\\mu_0\\frac{nK}{T_h}\\frac{H_1^2-H_4^2}{2}\\right)=\\mu_0\\frac{nK}{T_h}\\frac{H_1^2-H_4^2}{2},$$\n\nwhere $T_c=T_2=T_3$ and $T_h=T_4=T_1$ are the respective temperatures of the isothermal processes $2\\to3$ and $4\\to1$. Therefore, after substitution and simplification in the Carnot identity, we have\n\n$$\\frac{T_h}{T_c}\\frac{H_2^2-H_3^2}{H_1^2-H_4^2}=\\frac{T_c}{T_h},\\qquad\\frac{H_2^2-H_3^2}{T_c^2}=\\frac{H_1^2-H_4^2}{T_h^2}.$$\n\nSince, by the equation of state, $M=nKH/TV$, we get\n\n$$M_2^2-M_3^2=M_1^2-M_4^2,\\qquad M_1=\\sqrt{M_2^2-M_3^2+M_4^2}.$$\n\nT3-C3 [0.8 pts]. By substituting the given numerical values\n\n$$Q_c=\\mu_0\\frac{nK}{T_c}\\frac{H_2^2-H_3^2}{2}=1.29\\times10^{-1}\\,\\mathrm{J}.$$\n\nHence\n\n$$\\begin{aligned}|\\Delta T|_{\\mathrm{helium}}&=\\frac{1.29\\times10^{-1}\\,\\mathrm{J}}{130\\,\\mathrm{kg}\\cdot\\mathrm{m}^{-3}\\times10^{-3}\\,\\mathrm{m}^3\\times10^2\\,\\mathrm{J}\\cdot\\mathrm{kg}^{-1}\\cdot\\mathrm{K}^{-1}}\\\\&=\\frac{1.29}{1.30}\\times10^{-2}\\,\\mathrm{K}=9.92\\times10^{-3}\\,\\mathrm{K}.\\end{aligned}$$\n\nHence\n\n$$T_f=T_i-|\\Delta T|=1.00\\,\\mathrm{K}-0.00992\\,\\mathrm{K}=0.99008\\,\\mathrm{K}.$$\n\nT3-C4 [2.0 pts]. From the Carnot cycle identity $dQ_c/dQ_h=T_c/T_h$ and the first law in differential form $dQ_h=dW+dQ_c$, we have\n\n$$\\frac{dW+dQ_c}{dQ_c}=\\frac{dW}{dQ_c}+1=-\\frac{P\\,dt}{C_c\\,dT_c}+1=\\frac{T_h}{T_c},$$\n\nwhere $dW=P\\,dt$ and $dQ_c=-C_c\\,dT_c$ have been used. Hence, after separation of variables,\n\n$$dt=-\\frac{C_cT_h}{P}\\left(\\frac{dT_c}{T_c}-\\frac{dT_c}{T_h}\\right).$$\n\nIntegrating from $t=0$ ($T_c=T_0$) to $t$ ($T_c=T$) we get\n\n$$t=\\frac{C_cT_h}{P}\\left(\\ln\\frac{T_0}{T}-\\frac{T_0-T}{T_h}\\right).$$\n\nT3-C5 [1.5 pts]. Since $W=Pt$ and $Q_c=C_c(T_0-T)$,\n\n$$W=Pt=C_cT_h\\ln\\frac{T_0}{T}-Q_c.$$\n\nTherefore\n\n$$\\mathrm{COP}=\\frac{Q_c}{W}=\\left(\\frac{T_h}{T_0-T}\\ln\\frac{T_0}{T}-1\\right)^{-1}.$$",
+    "figures": [
+      "/corpus/2026/ipho-t3/labelled-cycle.png"
+    ],
+    "shared": false
+  },
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2026_Q3.pdf",
+      "note": "Original English PDF supplied by the owner. Matched title, page count and printed content against the original PDF linked by Olimpicos. Local reference bytes retained unchanged."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2026_S3.pdf",
+      "note": "Original English PDF supplied by the owner. Matched title, page count and printed content against the original PDF linked by Olimpicos. Local reference bytes retained unchanged."
+    }
+  ]
+}

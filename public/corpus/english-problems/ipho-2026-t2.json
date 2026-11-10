@@ -1,0 +1,1816 @@
+{
+  "id": "ipho-2026-t2",
+  "importedOn": "2026-11-10",
+  "language": "en",
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/2026/ipho-t2/statement.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "QUESTION T2 [10 pts]. Cooking with sunlight?"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The redistribution of luminous flux into regions of high and low intensity due to reflection or refraction can lead to the formation of caustics: curves formed by the intersection of infinitesimally close light rays. As an example, Figure 2a shows the caustic formed by rays incident paraxially on a half-cylindrical mirror. Figure 2b shows a photograph of the caustic formed by the reflection of light on the bottom part of a coffee cup. The brightest and central point of the caustic is called the cusp, at this point, the light intensity is maximal."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t2/a.png",
+            "alt": "Parallel incident rays reflected by a semicircular mirror form a curved caustic and a central cusp."
+          },
+          {
+            "type": "element",
+            "tag": "figcaption",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 2a."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t2/b.png",
+            "alt": "Photograph of a coffee cup showing a bright caustic on its bottom surface."
+          },
+          {
+            "type": "element",
+            "tag": "figcaption",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 2b."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Caustics have a variety of applications in science, ranging from high-precision optics and quantum optics to astrophysics. In this question, you will study the caustic formation by light reflection on a half-cylinder mirror of radius $R$, as shown in figure 2c. You will also investigate other aspects of this mirror, such as its application in solar cookers."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Throughout the problem, assume that the incident rays come from a distant external light source and are parallel to the mirror's optical axis. By symmetry, it is sufficient to study reflection in one plane. Figure 2d shows such a plane, the mirror, and the coordinate system used throughout the problem."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t2/c.png",
+            "alt": "Perspective view of the half-cylinder mirror with diameter 2R and an incident ray reflecting inside the curved surface."
+          },
+          {
+            "type": "element",
+            "tag": "figcaption",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 2c."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t2/d.png",
+            "alt": "Mirror cross-section with x and y axes, endpoints at minus R and R, and an upward incident ray at horizontal distance x."
+          },
+          {
+            "type": "element",
+            "tag": "figcaption",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 2d."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-A [1.5 pts]. Multiple reflections"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t2/e.png",
+            "alt": "Step graph of the reflection count N against incident coordinate x, with open and closed endpoints at plus and minus x1, x2 and x3."
+          },
+          {
+            "type": "element",
+            "tag": "figcaption",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 2e."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Figure 2e shows the relationship between the $x$-coordinate of an incident ray and the number $N$ of reflections it undergoes, up to $N=3$. As $x$ varies over the interval $(-R,R)$, the variable $N$ varies over all natural numbers greater than or equal to 1. The maximum distance from the optical axis that allows an incident ray to be reflected by the mirror at most $N$ times is denoted $x_N$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-A1 [1.5 pts]. Find the general expression for $x_N$ in the infinite sequence $x_1,x_2,x_3,\\ldots$ that limits the coordinates of the rays with at most $N$ reflections. Express your answer in terms of $R$ and $N$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-B [4.0 pts]. Solar Cooker"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t2/f.png",
+            "alt": "Solar cooker with a half-cylinder mirror of diameter 2R and an absorbing cylinder of radius a whose centre is R over 2 from the mirror."
+          },
+          {
+            "type": "element",
+            "tag": "figcaption",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 2f."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider a system consisting of a half-hollow-cylinder mirror and a cylindrical container. The cylinder is fully absorbing: any ray of light hitting it will be absorbed. The mirror radius is $R$. The container radius $a$. The axes of the mirror and the container are parallel. The center of the container is $R/2$ from the mirror on the system's symmetry plane, as shown in figure 2f. The mirror harnesses solar radiation to heat food inside the container. Assume that the sunlight is of constant and uniform intensity (power per unit area), and that the light rays are parallel to the optical axis of the mirror. Furthermore, assume that $a$ is such that any ray that is absorbed by the cylinder reflects from the mirror at most once. Let $\\theta_{\\max}$ be the maximum angle of incidence on the mirror (measured with respect to the normal drawn at the point of incidence) of any reflected ray striking the container."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-B1 [2.0 pts]. The container radius is $a=\\alpha\\sin(\\theta_{\\max})+\\beta\\sin(2\\theta_{\\max})$. Write $\\alpha$ and $\\beta$ in terms of $R$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If you do not find $\\alpha$ and $\\beta$, use the expression given for the rest of the problem."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-B2 [1.5 pts]. Let $P_0$ be the power that would be received by the cyllinder if the mirror was not present. Write $P/P_0$, the ratio of the actual received power $P$ to $P_0$, in terms of $\\theta_{\\max}$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-B3 [0.5 pts]. If $R=1.0\\,\\mathrm{m}$, write the value of $a$ such that $P=5P_0$. Give your answer in cm."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-C [4.5 pts]. Caustics and Cusp"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-C1 [0.5 pts]. Consider a ray $A$ that strikes the mirror at an angle $\\theta$, as shown in Figure 2g. Upon reflection, the equation corresponding to this ray in the coordinate system defined in Figure 2g. is $y=m_Ax+b_A$. Write $m_A$ and $b_A$ in terms of $\\theta$ and $R$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Hint: the expected form of $m_A=K_1\\cot(K_2\\theta)$ and $b_A=R\\frac{K_3}{\\cos(K_4\\theta_i)}$, with $K_i$ numerical constants."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t2/g.png",
+            "alt": "Ray A rises vertically to the semicircular mirror at angle theta to the normal, then reflects down and left along y equals mA x plus bA."
+          },
+          {
+            "type": "element",
+            "tag": "figcaption",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 2g."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-C2 [2.0 pts]. Now consider a ray $B$, parallel to $A$, that strikes the surface at an angle $\\theta+\\Delta\\theta$, with $\\Delta\\theta\\ll\\theta$. Upon reflection, the equation corresponding to this ray is $y=m_Bx+b_B$. Write $m_B$ and $b_B$ in terms of $\\theta$, $\\Delta\\theta$, and $R$, approximating to first order in $\\Delta\\theta$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-C3 [1.0 pts]. Find the coordinates of the point of intersection $(X_c,Y_c)$ between the reflected rays of $A$ and $B$. Write your answer in terms of $R$ and $\\theta$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-C4 [1.0 pts]. For $\\theta\\ll1$, we have $Y_c=v|X_c|^{p/q}+u$. Write $v$ and $u$ in terms of $R$ and find the values of the integers $p$ and $q$ (equivalently, give the rational number $p/q$)."
+          }
+        ]
+      }
+    ],
+    "text": "QUESTION T2 [10 pts]. Cooking with sunlight?\n\nThe redistribution of luminous flux into regions of high and low intensity due to reflection or refraction can lead to the formation of caustics: curves formed by the intersection of infinitesimally close light rays. As an example, Figure 2a shows the caustic formed by rays incident paraxially on a half-cylindrical mirror. Figure 2b shows a photograph of the caustic formed by the reflection of light on the bottom part of a coffee cup. The brightest and central point of the caustic is called the cusp, at this point, the light intensity is maximal.\n\nCaustics have a variety of applications in science, ranging from high-precision optics and quantum optics to astrophysics. In this question, you will study the caustic formation by light reflection on a half-cylinder mirror of radius $R$, as shown in figure 2c. You will also investigate other aspects of this mirror, such as its application in solar cookers.\n\nThroughout the problem, assume that the incident rays come from a distant external light source and are parallel to the mirror's optical axis. By symmetry, it is sufficient to study reflection in one plane. Figure 2d shows such a plane, the mirror, and the coordinate system used throughout the problem.\n\nT2-A [1.5 pts]. Multiple reflections\n\nFigure 2e shows the relationship between the $x$-coordinate of an incident ray and the number $N$ of reflections it undergoes, up to $N=3$. As $x$ varies over the interval $(-R,R)$, the variable $N$ varies over all natural numbers greater than or equal to 1. The maximum distance from the optical axis that allows an incident ray to be reflected by the mirror at most $N$ times is denoted $x_N$.\n\nT2-A1 [1.5 pts]. Find the general expression for $x_N$ in the infinite sequence $x_1,x_2,x_3,\\ldots$ that limits the coordinates of the rays with at most $N$ reflections. Express your answer in terms of $R$ and $N$.\n\nT2-B [4.0 pts]. Solar Cooker\n\nConsider a system consisting of a half-hollow-cylinder mirror and a cylindrical container. The cylinder is fully absorbing: any ray of light hitting it will be absorbed. The mirror radius is $R$. The container radius $a$. The axes of the mirror and the container are parallel. The center of the container is $R/2$ from the mirror on the system's symmetry plane, as shown in figure 2f. The mirror harnesses solar radiation to heat food inside the container. Assume that the sunlight is of constant and uniform intensity (power per unit area), and that the light rays are parallel to the optical axis of the mirror. Furthermore, assume that $a$ is such that any ray that is absorbed by the cylinder reflects from the mirror at most once. Let $\\theta_{\\max}$ be the maximum angle of incidence on the mirror (measured with respect to the normal drawn at the point of incidence) of any reflected ray striking the container.\n\nT2-B1 [2.0 pts]. The container radius is $a=\\alpha\\sin(\\theta_{\\max})+\\beta\\sin(2\\theta_{\\max})$. Write $\\alpha$ and $\\beta$ in terms of $R$.\n\nIf you do not find $\\alpha$ and $\\beta$, use the expression given for the rest of the problem.\n\nT2-B2 [1.5 pts]. Let $P_0$ be the power that would be received by the cyllinder if the mirror was not present. Write $P/P_0$, the ratio of the actual received power $P$ to $P_0$, in terms of $\\theta_{\\max}$.\n\nT2-B3 [0.5 pts]. If $R=1.0\\,\\mathrm{m}$, write the value of $a$ such that $P=5P_0$. Give your answer in cm.\n\nT2-C [4.5 pts]. Caustics and Cusp\n\nT2-C1 [0.5 pts]. Consider a ray $A$ that strikes the mirror at an angle $\\theta$, as shown in Figure 2g. Upon reflection, the equation corresponding to this ray in the coordinate system defined in Figure 2g. is $y=m_Ax+b_A$. Write $m_A$ and $b_A$ in terms of $\\theta$ and $R$\n\nHint: the expected form of $m_A=K_1\\cot(K_2\\theta)$ and $b_A=R\\frac{K_3}{\\cos(K_4\\theta_i)}$, with $K_i$ numerical constants.\n\nT2-C2 [2.0 pts]. Now consider a ray $B$, parallel to $A$, that strikes the surface at an angle $\\theta+\\Delta\\theta$, with $\\Delta\\theta\\ll\\theta$. Upon reflection, the equation corresponding to this ray is $y=m_Bx+b_B$. Write $m_B$ and $b_B$ in terms of $\\theta$, $\\Delta\\theta$, and $R$, approximating to first order in $\\Delta\\theta$.\n\nT2-C3 [1.0 pts]. Find the coordinates of the point of intersection $(X_c,Y_c)$ between the reflected rays of $A$ and $B$. Write your answer in terms of $R$ and $\\theta$.\n\nT2-C4 [1.0 pts]. For $\\theta\\ll1$, we have $Y_c=v|X_c|^{p/q}+u$. Write $v$ and $u$ in terms of $R$ and find the values of the integers $p$ and $q$ (equivalently, give the rational number $p/q$).",
+    "figures": [
+      "/corpus/2026/ipho-t2/a.png",
+      "/corpus/2026/ipho-t2/b.png",
+      "/corpus/2026/ipho-t2/c.png",
+      "/corpus/2026/ipho-t2/d.png",
+      "/corpus/2026/ipho-t2/e.png",
+      "/corpus/2026/ipho-t2/f.png",
+      "/corpus/2026/ipho-t2/g.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/2026/ipho-t2/solution.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "SOLUTION T2 [10 pts]. Cooking with sunlight?"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "PART A [1.5 pts]. Multiple reflections"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-A1 [1.5 pts]. For $n=1$, finding $x_1$ corresponds to considering the limiting case of the ray, shown in blue in the figure below."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t2/one.png",
+            "alt": "One-reflection limiting ray in blue and red, showing points A, B, C1 and O, the mirror axes and equal theta1 angles."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In this case, the incident ray passes through point $A$, and the reflected ray, shown in red in the figure, passes exactly through point $B$ on the edge of the mirror."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let $\\theta_1$ be the angle formed by the radius passing through the reflection point $C_1$ with the vertical axis (the $y$ axis). Let $O$ be the center of the mirror."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since the incident ray is parallel to the $y$ axis, the angle of incidence is"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\angle OC_1A=\\theta_1.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "By the law of reflection,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\angle OC_1A=\\angle OC_1B=\\theta_1.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Additionally, note that the triangle $C_1BO$ is isosceles, so"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\angle C_1BO=\\theta_1.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Finally, summing the internal angles of the triangle $C_1BA$, we have"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$3\\theta_1+\\frac{\\pi}{2}=\\pi,$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\theta_1=\\frac{\\pi}{6}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Correspondingly, from the triangle $OC_1A$, we obtain"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$x_1=R\\sin\\frac{\\pi}{6}=\\frac{R}{2}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For $n=2$, the limiting case for two reflections is shown in the figure below."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t2/two.png",
+            "alt": "Two-reflection limiting ray through C2 and D2 to edge B, with A2 and O, equal theta2 angles and dashed radii."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In analogy with the case $n=1$, we let $\\theta_2$ be the angle between the radius passing through the reflection point $C_2$ and the mirror axis. We see that the trajectory of the reflected ray determines two isosceles triangles with a common side and a base angle of $\\theta_2$. Also note that the ray's trajectory forms half of a regular pentagon. Summing over the internal angles of the two isosceles triangles and the rectangular triangle, we obtain"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$5\\theta_2+\\frac{\\pi}{2}+\\pi=3\\pi,$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "which simplifies to"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\theta_2=\\frac{3\\pi}{10}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Correspondingly,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$x_2=R\\sin\\frac{3\\pi}{10}=\\frac{1+\\sqrt{5}}{4}R\\approx0.8R.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Case n=3: For completeness, we present the limiting case for 3 reflections in the figure below."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t2/three.png",
+            "alt": "Three-reflection limiting ray through C3, D3 and E3 to edge B, with A3, O and equal theta3 angles on the half-heptagon path."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Letting $\\theta_3$ be the incidence angle, we observe that the trajectory of the reflected ray determines three isosceles triangles with common sides and a base angle of $\\theta_3$. Also notice that the ray's trajectory now forms half of a regular heptagon. Summing over the internal angles of the three isosceles triangles and the rectangular triangle, we obtain"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$7\\theta_3+\\frac{\\pi}{2}+\\pi=4\\pi,$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "which simplifies to"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\theta_3=\\frac{5\\pi}{14}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Correspondingly"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$x_3=R\\sin\\frac{5\\pi}{14}\\approx0.9R.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Generalizing the result, the limiting case for $n$ reflections corresponds to the ray with incidence angle $\\theta_N$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The trajectory of the reflected ray determines $n$ isosceles triangles with common sides and a base angle of $\\theta_N$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Also note that the ray's trajectory now forms half of a regular $2n+1$-gon. Summing over the internal angles of the $n$ isosceles triangles and the rectangular triangle determined by the incident ray, we obtain"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$(2n\\theta_N+\\pi)+\\left(\\frac{\\pi}{2}+\\theta_N\\right)=(n+1)\\pi,$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$(2n+1)\\theta_N+\\frac{3\\pi}{2}=(n+1)\\pi,$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "which simplifies to"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\theta_N=\\frac{2n-1}{4n+2}\\pi$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Correspondingly"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$x_n=R\\sin\\frac{2N-1}{4N+2}\\pi=R\\cos\\frac{\\pi}{2N+1}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-B [4.0 pts]. Solar Cooker"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-B1 [2.0 pts]."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The limiting case is shown in the figure below."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t2/cooker.png",
+            "alt": "Limiting cooker ray touches the absorbing cylinder at C after reflection at B, with centre Oc, axis crossing D, incidence point A and theta max angles."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "text",
+                "text": "$O_c$ is the center of the container."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "text",
+                "text": "$A$ is the incidence point on the $x$-axis"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "text",
+                "text": "$B$ is the reflection point"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "text",
+                "text": "The reflected ray is tangential to the container at the point $C$"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "ul",
+        "children": [
+          {
+            "type": "element",
+            "tag": "li",
+            "children": [
+              {
+                "type": "text",
+                "text": "The reflected ray crosses the $y$-axis at $D$."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "As the triangle $ODB$ is isosceles,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\angle ODB=\\pi-2\\theta_{\\max},$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\cos\\theta_{\\max}=\\frac{R}{2\\overline{OD}}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\overline{OD}=\\frac{R}{2\\cos\\theta_{\\max}}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The triangle $O_cDC$ is rectangle"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\begin{aligned}a&=\\overline{O_cD}\\sin(\\pi-2\\theta_{\\max})\\\\&=\\left(\\overline{OD}-\\frac{R}{2}\\right)\\sin(2\\theta_{\\max})\\\\&=\\left(\\frac{R}{2\\cos\\theta_{\\max}}-\\frac{R}{2}\\right)\\sin(2\\theta_{\\max})\\\\&=R\\sin\\theta_{\\max}-\\frac{R}{2}\\sin(2\\theta_{\\max})\\end{aligned}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The coefficients read"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\alpha=R$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\beta=-\\frac{R}{2}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-B2 [1.5 pts]. Without the mirror:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$P_0=2Ial,$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where $I$ is the sunlight intensity and $l$ is the length of the cylinder."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "With the mirror:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\begin{aligned}P&=2I\\overline{OA}l\\\\&=2IRl\\sin\\theta_{\\max}\\end{aligned}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\begin{aligned}\\frac{P}{P_0}&=\\frac{2IRl\\sin\\theta_{\\max}}{2Ial}\\\\&=\\frac{R\\sin\\theta_{\\max}}{R\\sin\\theta_{\\max}(1-\\cos\\theta_{\\max})}\\end{aligned}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\frac{P}{P_0}=\\frac{1}{1-\\cos\\theta_{\\max}}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h5",
+        "children": [
+          {
+            "type": "text",
+            "text": "Alternative answer in terms of $\\alpha$ and $\\beta$:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Without the mirror:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$P_0=2Ial=2I(\\alpha\\sin\\theta_{\\max}+\\beta\\sin(2\\theta_{\\max}))l$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where $I$ is the sunlight intensity and $l$ is the length of the cylinder."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "With the mirror:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\begin{aligned}P&=2I\\overline{OA}l\\\\&=2IRl\\sin\\theta_{\\max}\\end{aligned}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\begin{aligned}\\frac{P}{P_0}&=\\frac{2IRl\\sin\\theta_{\\max}}{2Ial}\\\\&=\\frac{R\\sin\\theta_{\\max}}{\\alpha\\sin\\theta_{\\max}+\\beta\\sin(2\\theta_{\\max})}\\end{aligned}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\frac{P}{P_0}=\\frac{R}{\\alpha+2\\beta\\cos\\theta_{\\max}}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-B3 [0.5 pts]. If $P=5P_0$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$5=\\frac{1}{1-\\cos\\theta_{\\max}},$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\cos\\theta_{\\max}=\\frac{4}{5},$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\sin\\theta_{\\max}=\\frac{3}{5}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Finally"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$a=(1\\mathrm{m})\\frac{3}{5}\\left(1-\\frac{4}{5}\\right).$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$a=12\\,\\mathrm{cm}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h5",
+        "children": [
+          {
+            "type": "text",
+            "text": "Alternative solution parametrized in terms of $\\alpha$ and $\\beta$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$a=-\\frac{R\\sqrt{100\\beta^2-(R-5\\alpha)^2}}{50\\beta}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-C [4.5 pts]. Caustics and Cusp"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-C1 [0.5 pts]."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t2/slope.png",
+            "alt": "Reflected ray from B crosses the y axis at C, showing O, A, theta and the isosceles triangle used for the slope and intercept."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The reflected ray forms an angle $2\\theta$ with the vertical axis. Therefore, the slope of the line is"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$m_A=\\cot(2\\theta).$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The reflected ray intersects the $y$-axis at $C$, $\\overline{OC}=b_A$, forming the isosceles triangle $OBC$. from the intersection"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\cos\\theta=\\frac{R}{2b_A}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$b_A=\\frac{R}{2\\cos\\theta}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Equivalent expressions:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\begin{aligned}m_A&=\\cot(2\\theta)=\\frac{1}{\\tan(2\\theta)}=\\frac{\\cot(\\theta)}{2}-\\frac{\\tan(\\theta)}{2}\\\\b_A&=\\frac{R}{2\\cos\\theta}=\\frac{R}{2}\\sec\\theta\\end{aligned}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-C2 [2.0 pts]."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t2/envelope.png",
+            "alt": "Two nearby reflected rays intersect near the red caustic inside the semicircular mirror, illustrating the envelope construction."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The slope is"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\begin{aligned}m_B&=\\cot(2\\theta+2\\Delta\\theta)\\\\&=\\frac{\\cot(2\\theta)\\cot(2\\Delta\\theta)-1}{\\cot(2\\theta)+\\cot(2\\Delta\\theta)}\\\\&=\\frac{\\cot(2\\theta)-\\tan(2\\Delta\\theta)}{\\cot(2\\theta)\\tan(2\\Delta\\theta)+1}\\\\&=(\\cot(2\\theta)-2\\Delta\\theta)(1-2\\Delta\\theta\\cot(2\\theta))+\\ldots\\\\&=\\cot(2\\theta)-2\\Delta\\theta(1-\\tan^2(2\\Delta\\theta))+\\ldots\\end{aligned}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Then, the first-order expansion of $m_B$ reads"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$m_B=\\cot(2\\theta)-2\\csc^2(2\\theta)\\Delta\\theta.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "On the other hand, the intercept is"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\begin{aligned}b_B&=\\frac{R}{2}\\sec(\\theta+\\Delta\\theta)\\\\&=\\frac{R}{2}\\frac{\\sec(\\theta)\\sec(\\Delta\\theta)}{1-\\tan(\\theta)\\tan(\\Delta\\theta)}\\\\&=\\frac{R}{2}(\\sec(\\theta)(1+\\tan(\\theta)\\Delta\\theta))+\\ldots\\end{aligned}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "and the first-order expansion reads"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$b_B=\\frac{R}{2}\\sec(\\theta)(1+\\tan(\\theta)\\Delta\\theta)$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Equivalent expressions:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\begin{aligned}m_B&=\\cot(2\\theta)-2\\csc^2(2\\theta)\\Delta\\theta\\\\&=\\frac{1}{2}\\csc^2(2\\theta)(\\sin(4\\theta)-4\\Delta\\theta)\\\\&=\\frac{1}{2}\\left(\\cot(\\theta)-\\tan(\\theta)-\\csc^2(\\theta)\\sec^2(\\theta)\\Delta\\theta\\right)\\end{aligned}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\begin{aligned}b_B&=\\frac{R}{2}\\sec(\\theta)(1+\\tan(\\theta)\\Delta\\theta)\\\\&=\\frac{R}{2\\cos(\\theta)}(1+\\tan(\\theta)\\Delta\\theta)\\end{aligned}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-C3 [1.0 pts]."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The coordinates of the intersection point, $(X_C,Y_C)$, fulfill the following equations:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\begin{aligned}Y_C&=m_AX_C+b_A\\\\Y_C&=m_BX_C+b_B,\\end{aligned}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Solving:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$(X_C,Y_C)=\\left(-\\frac{b_A-b_B}{m_A-m_B},\\frac{m_Ab_B-b_Am_B}{m_A-m_B}\\right)$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Replacing $m_B$ and $b_B$, we find:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$(X_C,Y_C)=\\left(R\\sin^3(\\theta),\\frac{R}{2}\\cos(\\theta)(2-\\cos(2\\theta))\\right)$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$X_C=R\\sin^3(\\theta)$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$Y_C=\\frac{R}{2}\\cos(\\theta)(2-\\cos(2\\theta))$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Equivalent expressions:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\begin{aligned}Y_C&=\\frac{R}{2}\\cos(\\theta)(2-\\cos(2\\theta))\\\\&=\\frac{R}{4}(3\\cos(\\theta)-\\cos(3\\theta))\\\\&=\\frac{R}{4}(3\\cos(\\theta)-\\cos^3(\\theta)+3\\sin^2(\\theta)\\cos(\\theta))\\end{aligned}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T2-C4 [1.0 pts]. For $\\theta\\ll1$, we use the approximations"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\sin\\theta\\approx\\theta,$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\cos\\theta\\approx1-\\frac{\\theta^2}{2}.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thus, near the cusp, the caustic is approximated as"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$(X_C,Y_C)\\approx\\left(R\\theta^3,\\frac{R}{4}(2+3\\theta^2)\\right)$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$(X_C,Y_C)\\approx\\left(R\\theta^3,\\frac{R}{2}+\\frac{3R}{4}\\theta^2\\right)$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Solving for $\\theta$, we get"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\theta=\\left(\\frac{X_C}{R}\\right)^{\\frac{1}{3}},$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "and substitute in $Y_C$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$Y_C=\\frac{R}{2}+\\frac{3R}{4}\\left(\\frac{X_C}{R}\\right)^{\\frac{2}{3}}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Comparing with"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$Y_C=v|X_C|^{p/q}+u,$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "we find"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$v=\\frac{3}{4}R^{\\frac{1}{3}}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$u=\\frac{R}{2},$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$p=2$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$q=3$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This shows that the shape of the cusp is universal and that its tip is located at $y=\\frac{R}{2}$."
+          }
+        ]
+      }
+    ],
+    "text": "SOLUTION T2 [10 pts]. Cooking with sunlight?\n\nPART A [1.5 pts]. Multiple reflections\n\nT2-A1 [1.5 pts]. For $n=1$, finding $x_1$ corresponds to considering the limiting case of the ray, shown in blue in the figure below.\n\nIn this case, the incident ray passes through point $A$, and the reflected ray, shown in red in the figure, passes exactly through point $B$ on the edge of the mirror.\n\nLet $\\theta_1$ be the angle formed by the radius passing through the reflection point $C_1$ with the vertical axis (the $y$ axis). Let $O$ be the center of the mirror.\n\nSince the incident ray is parallel to the $y$ axis, the angle of incidence is\n\n$$\\angle OC_1A=\\theta_1.$$\n\nBy the law of reflection,\n\n$$\\angle OC_1A=\\angle OC_1B=\\theta_1.$$\n\nAdditionally, note that the triangle $C_1BO$ is isosceles, so\n\n$$\\angle C_1BO=\\theta_1.$$\n\nFinally, summing the internal angles of the triangle $C_1BA$, we have\n\n$$3\\theta_1+\\frac{\\pi}{2}=\\pi,$$\n\n$$\\theta_1=\\frac{\\pi}{6}.$$\n\nCorrespondingly, from the triangle $OC_1A$, we obtain\n\n$$x_1=R\\sin\\frac{\\pi}{6}=\\frac{R}{2}.$$\n\nFor $n=2$, the limiting case for two reflections is shown in the figure below.\n\nIn analogy with the case $n=1$, we let $\\theta_2$ be the angle between the radius passing through the reflection point $C_2$ and the mirror axis. We see that the trajectory of the reflected ray determines two isosceles triangles with a common side and a base angle of $\\theta_2$. Also note that the ray's trajectory forms half of a regular pentagon. Summing over the internal angles of the two isosceles triangles and the rectangular triangle, we obtain\n\n$$5\\theta_2+\\frac{\\pi}{2}+\\pi=3\\pi,$$\n\nwhich simplifies to\n\n$$\\theta_2=\\frac{3\\pi}{10}.$$\n\nCorrespondingly,\n\n$$x_2=R\\sin\\frac{3\\pi}{10}=\\frac{1+\\sqrt{5}}{4}R\\approx0.8R.$$\n\nCase n=3: For completeness, we present the limiting case for 3 reflections in the figure below.\n\nLetting $\\theta_3$ be the incidence angle, we observe that the trajectory of the reflected ray determines three isosceles triangles with common sides and a base angle of $\\theta_3$. Also notice that the ray's trajectory now forms half of a regular heptagon. Summing over the internal angles of the three isosceles triangles and the rectangular triangle, we obtain\n\n$$7\\theta_3+\\frac{\\pi}{2}+\\pi=4\\pi,$$\n\nwhich simplifies to\n\n$$\\theta_3=\\frac{5\\pi}{14}$$\n\nCorrespondingly\n\n$$x_3=R\\sin\\frac{5\\pi}{14}\\approx0.9R.$$\n\nGeneralizing the result, the limiting case for $n$ reflections corresponds to the ray with incidence angle $\\theta_N$.\n\nThe trajectory of the reflected ray determines $n$ isosceles triangles with common sides and a base angle of $\\theta_N$.\n\nAlso note that the ray's trajectory now forms half of a regular $2n+1$-gon. Summing over the internal angles of the $n$ isosceles triangles and the rectangular triangle determined by the incident ray, we obtain\n\n$$(2n\\theta_N+\\pi)+\\left(\\frac{\\pi}{2}+\\theta_N\\right)=(n+1)\\pi,$$\n\n$$(2n+1)\\theta_N+\\frac{3\\pi}{2}=(n+1)\\pi,$$\n\nwhich simplifies to\n\n$$\\theta_N=\\frac{2n-1}{4n+2}\\pi$$\n\nCorrespondingly\n\n$$x_n=R\\sin\\frac{2N-1}{4N+2}\\pi=R\\cos\\frac{\\pi}{2N+1}$$\n\nT2-B [4.0 pts]. Solar Cooker\n\nT2-B1 [2.0 pts].\n\nThe limiting case is shown in the figure below.\n\n$O_c$ is the center of the container.\n\n$A$ is the incidence point on the $x$-axis\n\n$B$ is the reflection point\n\nThe reflected ray is tangential to the container at the point $C$\n\nThe reflected ray crosses the $y$-axis at $D$.\n\nAs the triangle $ODB$ is isosceles,\n\n$$\\angle ODB=\\pi-2\\theta_{\\max},$$\n\n$$\\cos\\theta_{\\max}=\\frac{R}{2\\overline{OD}}.$$\n\n$$\\overline{OD}=\\frac{R}{2\\cos\\theta_{\\max}}.$$\n\nThe triangle $O_cDC$ is rectangle\n\n$$\\begin{aligned}a&=\\overline{O_cD}\\sin(\\pi-2\\theta_{\\max})\\\\&=\\left(\\overline{OD}-\\frac{R}{2}\\right)\\sin(2\\theta_{\\max})\\\\&=\\left(\\frac{R}{2\\cos\\theta_{\\max}}-\\frac{R}{2}\\right)\\sin(2\\theta_{\\max})\\\\&=R\\sin\\theta_{\\max}-\\frac{R}{2}\\sin(2\\theta_{\\max})\\end{aligned}$$\n\nThe coefficients read\n\n$$\\alpha=R$$\n\n$$\\beta=-\\frac{R}{2}$$\n\nT2-B2 [1.5 pts]. Without the mirror:\n\n$$P_0=2Ial,$$\n\nwhere $I$ is the sunlight intensity and $l$ is the length of the cylinder.\n\nWith the mirror:\n\n$$\\begin{aligned}P&=2I\\overline{OA}l\\\\&=2IRl\\sin\\theta_{\\max}\\end{aligned}$$\n\nThus\n\n$$\\begin{aligned}\\frac{P}{P_0}&=\\frac{2IRl\\sin\\theta_{\\max}}{2Ial}\\\\&=\\frac{R\\sin\\theta_{\\max}}{R\\sin\\theta_{\\max}(1-\\cos\\theta_{\\max})}\\end{aligned}$$\n\n$$\\frac{P}{P_0}=\\frac{1}{1-\\cos\\theta_{\\max}}.$$\n\nAlternative answer in terms of $\\alpha$ and $\\beta$:\n\nWithout the mirror:\n\n$$P_0=2Ial=2I(\\alpha\\sin\\theta_{\\max}+\\beta\\sin(2\\theta_{\\max}))l$$\n\nwhere $I$ is the sunlight intensity and $l$ is the length of the cylinder.\n\nWith the mirror:\n\n$$\\begin{aligned}P&=2I\\overline{OA}l\\\\&=2IRl\\sin\\theta_{\\max}\\end{aligned}$$\n\nThus\n\n$$\\begin{aligned}\\frac{P}{P_0}&=\\frac{2IRl\\sin\\theta_{\\max}}{2Ial}\\\\&=\\frac{R\\sin\\theta_{\\max}}{\\alpha\\sin\\theta_{\\max}+\\beta\\sin(2\\theta_{\\max})}\\end{aligned}$$\n\n$$\\frac{P}{P_0}=\\frac{R}{\\alpha+2\\beta\\cos\\theta_{\\max}}.$$\n\nT2-B3 [0.5 pts]. If $P=5P_0$\n\n$$5=\\frac{1}{1-\\cos\\theta_{\\max}},$$\n\n$$\\cos\\theta_{\\max}=\\frac{4}{5},$$\n\n$$\\sin\\theta_{\\max}=\\frac{3}{5}.$$\n\nFinally\n\n$$a=(1\\mathrm{m})\\frac{3}{5}\\left(1-\\frac{4}{5}\\right).$$\n\n$$a=12\\,\\mathrm{cm}.$$\n\nAlternative solution parametrized in terms of $\\alpha$ and $\\beta$\n\n$$a=-\\frac{R\\sqrt{100\\beta^2-(R-5\\alpha)^2}}{50\\beta}$$\n\nT2-C [4.5 pts]. Caustics and Cusp\n\nT2-C1 [0.5 pts].\n\nThe reflected ray forms an angle $2\\theta$ with the vertical axis. Therefore, the slope of the line is\n\n$$m_A=\\cot(2\\theta).$$\n\nThe reflected ray intersects the $y$-axis at $C$, $\\overline{OC}=b_A$, forming the isosceles triangle $OBC$. from the intersection\n\n$$\\cos\\theta=\\frac{R}{2b_A}.$$\n\n$$b_A=\\frac{R}{2\\cos\\theta}.$$\n\nEquivalent expressions:\n\n$$\\begin{aligned}m_A&=\\cot(2\\theta)=\\frac{1}{\\tan(2\\theta)}=\\frac{\\cot(\\theta)}{2}-\\frac{\\tan(\\theta)}{2}\\\\b_A&=\\frac{R}{2\\cos\\theta}=\\frac{R}{2}\\sec\\theta\\end{aligned}$$\n\nT2-C2 [2.0 pts].\n\nThe slope is\n\n$$\\begin{aligned}m_B&=\\cot(2\\theta+2\\Delta\\theta)\\\\&=\\frac{\\cot(2\\theta)\\cot(2\\Delta\\theta)-1}{\\cot(2\\theta)+\\cot(2\\Delta\\theta)}\\\\&=\\frac{\\cot(2\\theta)-\\tan(2\\Delta\\theta)}{\\cot(2\\theta)\\tan(2\\Delta\\theta)+1}\\\\&=(\\cot(2\\theta)-2\\Delta\\theta)(1-2\\Delta\\theta\\cot(2\\theta))+\\ldots\\\\&=\\cot(2\\theta)-2\\Delta\\theta(1-\\tan^2(2\\Delta\\theta))+\\ldots\\end{aligned}$$\n\nThen, the first-order expansion of $m_B$ reads\n\n$$m_B=\\cot(2\\theta)-2\\csc^2(2\\theta)\\Delta\\theta.$$\n\nOn the other hand, the intercept is\n\n$$\\begin{aligned}b_B&=\\frac{R}{2}\\sec(\\theta+\\Delta\\theta)\\\\&=\\frac{R}{2}\\frac{\\sec(\\theta)\\sec(\\Delta\\theta)}{1-\\tan(\\theta)\\tan(\\Delta\\theta)}\\\\&=\\frac{R}{2}(\\sec(\\theta)(1+\\tan(\\theta)\\Delta\\theta))+\\ldots\\end{aligned}$$\n\nand the first-order expansion reads\n\n$$b_B=\\frac{R}{2}\\sec(\\theta)(1+\\tan(\\theta)\\Delta\\theta)$$\n\nEquivalent expressions:\n\n$$\\begin{aligned}m_B&=\\cot(2\\theta)-2\\csc^2(2\\theta)\\Delta\\theta\\\\&=\\frac{1}{2}\\csc^2(2\\theta)(\\sin(4\\theta)-4\\Delta\\theta)\\\\&=\\frac{1}{2}\\left(\\cot(\\theta)-\\tan(\\theta)-\\csc^2(\\theta)\\sec^2(\\theta)\\Delta\\theta\\right)\\end{aligned}$$\n\n$$\\begin{aligned}b_B&=\\frac{R}{2}\\sec(\\theta)(1+\\tan(\\theta)\\Delta\\theta)\\\\&=\\frac{R}{2\\cos(\\theta)}(1+\\tan(\\theta)\\Delta\\theta)\\end{aligned}$$\n\nT2-C3 [1.0 pts].\n\nThe coordinates of the intersection point, $(X_C,Y_C)$, fulfill the following equations:\n\n$$\\begin{aligned}Y_C&=m_AX_C+b_A\\\\Y_C&=m_BX_C+b_B,\\end{aligned}$$\n\nSolving:\n\n$$(X_C,Y_C)=\\left(-\\frac{b_A-b_B}{m_A-m_B},\\frac{m_Ab_B-b_Am_B}{m_A-m_B}\\right)$$\n\nReplacing $m_B$ and $b_B$, we find:\n\n$$(X_C,Y_C)=\\left(R\\sin^3(\\theta),\\frac{R}{2}\\cos(\\theta)(2-\\cos(2\\theta))\\right)$$\n\n$$X_C=R\\sin^3(\\theta)$$\n\n$$Y_C=\\frac{R}{2}\\cos(\\theta)(2-\\cos(2\\theta))$$\n\nEquivalent expressions:\n\n$$\\begin{aligned}Y_C&=\\frac{R}{2}\\cos(\\theta)(2-\\cos(2\\theta))\\\\&=\\frac{R}{4}(3\\cos(\\theta)-\\cos(3\\theta))\\\\&=\\frac{R}{4}(3\\cos(\\theta)-\\cos^3(\\theta)+3\\sin^2(\\theta)\\cos(\\theta))\\end{aligned}$$\n\nT2-C4 [1.0 pts]. For $\\theta\\ll1$, we use the approximations\n\n$$\\sin\\theta\\approx\\theta,$$\n\n$$\\cos\\theta\\approx1-\\frac{\\theta^2}{2}.$$\n\nThus, near the cusp, the caustic is approximated as\n\n$$(X_C,Y_C)\\approx\\left(R\\theta^3,\\frac{R}{4}(2+3\\theta^2)\\right)$$\n\n$$(X_C,Y_C)\\approx\\left(R\\theta^3,\\frac{R}{2}+\\frac{3R}{4}\\theta^2\\right)$$\n\nSolving for $\\theta$, we get\n\n$$\\theta=\\left(\\frac{X_C}{R}\\right)^{\\frac{1}{3}},$$\n\nand substitute in $Y_C$\n\n$$Y_C=\\frac{R}{2}+\\frac{3R}{4}\\left(\\frac{X_C}{R}\\right)^{\\frac{2}{3}}$$\n\nComparing with\n\n$$Y_C=v|X_C|^{p/q}+u,$$\n\nwe find\n\n$$v=\\frac{3}{4}R^{\\frac{1}{3}}$$\n\n$$u=\\frac{R}{2},$$\n\n$$p=2$$\n\n$$q=3$$\n\nThis shows that the shape of the cusp is universal and that its tip is located at $y=\\frac{R}{2}$.",
+    "figures": [
+      "/corpus/2026/ipho-t2/one.png",
+      "/corpus/2026/ipho-t2/two.png",
+      "/corpus/2026/ipho-t2/three.png",
+      "/corpus/2026/ipho-t2/cooker.png",
+      "/corpus/2026/ipho-t2/slope.png",
+      "/corpus/2026/ipho-t2/envelope.png"
+    ],
+    "shared": false
+  },
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2026_Q2.pdf",
+      "note": "Original English PDF supplied by the owner. Matched title, page count and printed content against the original PDF linked by Olimpicos. Local reference bytes retained unchanged."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2026_S2.pdf",
+      "note": "Original English PDF supplied by the owner. Matched title, page count and printed content against the original PDF linked by Olimpicos. Local reference bytes retained unchanged."
+    }
+  ]
+}

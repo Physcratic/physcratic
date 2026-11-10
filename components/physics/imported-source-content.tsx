@@ -18,7 +18,7 @@ function renderText(text: string): ReactNode {
       display || part.startsWith("\\(") ? 2 : 1,
       display || part.startsWith("\\(") ? -2 : -1,
     );
-    const html = katex.renderToString(expression, {
+    let html = katex.renderToString(expression, {
       displayMode: display,
       throwOnError: false,
       trust: false,
@@ -35,7 +35,11 @@ function renderText(text: string): ReactNode {
         "\\const": "\\mathrm{const}",
       },
     });
-    return <span key={index} dangerouslySetInnerHTML={{ __html: html }} />;
+    // Display equations can overflow on phones. Their scroll area needs keyboard access.
+    if (display) {
+      html = html.replace('class="katex-display"', 'class="katex-display focus-visible:ring-2 focus-visible:ring-ring" tabindex="0" role="group" aria-label="Equation"')
+    }
+    return <span key={index} dangerouslySetInnerHTML={{ __html: html }} />
   });
 }
 

@@ -10,6 +10,8 @@ const country = (country: string, flag: string): OlympiadHost => ({ country, fla
 const hosts: Readonly<Record<Competition, Readonly<Partial<Record<number, OlympiadHost>>>>> = {
   // Official archives and special arrangements: docs/engineering/OLYMPIAD_HOST_FLAGS.md
   IPhO: {
+    // Official organiser: https://ipho2026.com/ and the supplied T1 solution header
+    2026: country("Colombia", "🇨🇴"),
     2004: country("South Korea", "🇰🇷"),
     2005: country("Spain", "🇪🇸"),
     2007: country("Iran", "🇮🇷"),
