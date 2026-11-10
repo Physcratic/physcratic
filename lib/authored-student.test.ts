@@ -34,8 +34,8 @@ function result(body: StudentSubmission) {
       partId: body.partId,
       answer: body.answer,
       status: "correct",
-      reason: "within-tolerance",
-      engineVersion: "numeric-v1",
+      reason: body.answer.kind === "expression" ? "symbolic-equivalent" : "within-tolerance",
+      engineVersion: body.answer.kind === "expression" ? "symbolic-v1" : "numeric-v1",
       attemptNumber: "1",
       createdAt: new Date().toISOString(),
       spoilerPolicy: "no-reveal-v1",
@@ -296,4 +296,98 @@ test("server-derived assisted attempts and restored receipts accept true without
       .receipts[formKey(revision, part)].attempt.assisted,
     true,
   );
+});
+
+test("expression drafts survive reload below, at and above the unchanged submission limit", async () => {
+  for (const length of [179, 180, 181, 210]) {
+    const storage = memory();
+    const expression = "x".repeat(length);
+    let sends = 0, keys = 0;
+    const send = async (body: StudentSubmission) => {
+      sends++;
+      return result(body);
+    };
+    const uuid = () => { keys++; return randomUUID(); };
+    const session = new StudentSolverSession(problem, "A", storage, send, uuid);
+    assert.doesNotThrow(() => session.edit(revision, part, { kind: "expression", expression }));
+    const restored = new StudentSolverSession(problem, "A", storage, send, uuid);
+    assert.deepEqual(restored.buffer(revision, part, "expression"), { kind: "expression", expression });
+    assert.equal(restored.snapshot().rawRecovery, null);
+    assert.equal(keys, 0, "editing and reload allocate no retry identity");
+    await restored.submit(revision, part, "expression");
+    assert.equal(sends, length <= 180 ? 1 : 0);
+    assert.equal(keys, length <= 180 ? 1 : 0);
+    if (length > 180) {
+      assert.equal(restored.snapshot().book.pending, null);
+      assert.match(restored.snapshot().error, /Shorten it to 180/);
+      assert.throws(() => answerFromBuffer({ kind: "expression", expression }), /180/);
+    }
+  }
+});
+
+test("overlength work stays separate across modes, parts, revisions, problems and accounts", () => {
+  const storage = memory();
+  const session = new StudentSolverSession(problem, "A", storage);
+  const expression = { kind: "expression" as const, expression: "x".repeat(210) };
+  const otherPart = randomUUID(), nextRevision = randomUUID();
+  session.edit(revision, part, expression);
+  session.edit(revision, otherPart, numeric);
+  assert.deepEqual(session.buffer(revision, part, "expression"), expression);
+  assert.deepEqual(session.buffer(revision, otherPart, "numeric"), numeric);
+  assert.deepEqual(session.buffer(nextRevision, part, "expression"), { kind: "expression", expression: "" });
+  assert.deepEqual(new StudentSolverSession(problem, "B", storage).snapshot().book.buffers, {});
+  assert.deepEqual(new StudentSolverSession(randomUUID(), "A", storage).snapshot().book.buffers, {});
+});
+
+test("recovery capacity and storage failure preserve the latest draft in memory with explicit feedback", () => {
+  for (const quota of [false, true]) {
+    const storage = memory();
+    const session = new StudentSolverSession(problem, "A", storage);
+    session.edit(revision, part, { kind: "expression", expression: "x" });
+    if (quota) storage.setItem = () => { throw Error("quota"); };
+    const expression = quota ? "x".repeat(210) : "x".repeat(2_000_001);
+    assert.doesNotThrow(() => session.edit(revision, part, { kind: "expression", expression }));
+    assert.deepEqual(session.buffer(revision, part, "expression"), { kind: "expression", expression });
+    assert.match(session.snapshot().storageWarning, /only in memory/);
+    assert.match(session.snapshot().storageWarning, /before reloading or leaving/);
+    assert.equal(session.snapshot().book.pending, null);
+  }
+});
+
+test("an unfinished overlength draft cannot change an existing expression retry", async () => {
+  const storage = memory();
+  const sent: StudentSubmission[] = [];
+  let fail = true;
+  const send = async (body: StudentSubmission) => {
+    sent.push(structuredClone(body));
+    if (fail) throw Error("lost response");
+    return result(body);
+  };
+  const session = new StudentSolverSession(problem, "A", storage, send);
+  session.edit(revision, part, { kind: "expression", expression: "x^2" });
+  await session.submit(revision, part, "expression");
+  session.edit(revision, part, { kind: "expression", expression: "x".repeat(210) });
+  const otherPart = randomUUID();
+  session.edit(revision, otherPart, { kind: "expression", expression: "x".repeat(210) });
+  const restored = new StudentSolverSession(problem, "A", storage, send);
+  fail = false;
+  await restored.retry();
+  assert.deepEqual(sent[1], sent[0]);
+  assert.deepEqual(restored.buffer(revision, part, "expression"), { kind: "expression", expression: "x^2" });
+  assert.deepEqual(restored.buffer(revision, otherPart, "expression"), { kind: "expression", expression: "x".repeat(210) });
+});
+
+test("invalid expression transport never allocates an idempotency key", async () => {
+  for (const expression of ["", "x\u0000", "x\ud800", "x".repeat(181)]) {
+    let keys = 0, calls = 0;
+    const session = new StudentSolverSession(problem, "A", memory(), async body => {
+      calls++;
+      return result(body);
+    }, () => { keys++; return randomUUID(); });
+    session.edit(revision, part, { kind: "expression", expression });
+    await session.submit(revision, part, "expression");
+    assert.equal(keys, 0);
+    assert.equal(calls, 0);
+    assert.equal(session.snapshot().book.pending, null);
+  }
 });

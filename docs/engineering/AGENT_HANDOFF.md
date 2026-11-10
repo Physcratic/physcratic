@@ -1,5 +1,17 @@
 # Agent handoff
 
+## Independent B1 reconciliation (10 November 2026)
+
+- PR #132 incorporates main `035be5793e30888dec22216247c9f28916a221cb` through a reconciliation merge. Both B1 and main evidence sections are preserved. The PR remains unmerged and undeployed.
+- Independent final verification and merge-readiness findings are recorded in the review delivery report. No operator installation or schema change is required for B1. Remote Actions availability and physical-device qualification remain separate gates.
+
+## Friday B1 review handoff (10 November 2026)
+
+- Base `ab8881007fa6fe040b87a1b0fdb6a85e2d12b295`, implementation `9a9d40094e57dd946d02327ddec8018fdf8c2671`, [draft PR #132](https://github.com/Physcratic/physcratic/pull/132), branch `codex/friday-b1-expression-recovery`. Authored expression recovery/presentation only. Final PR head adds verification notes only. Its Checks tab is authoritative. Do not merge or deploy.
+- Draft strings are separate from the unchanged 180-character submission contract. Overlength work survives mode changes/reload, cannot create a retry key/POST, and has associated live validation. The existing 2,000,000-character recovery budget reports capacity/quota failures explicitly while retaining memory/download data. Existing pending requests and immutable account/problem/revision identities are preserved.
+- Verification: Node 22.23.1, typecheck, zero-warning lint, guarded build, 792 server passes (24 DB skips, one inherited TODO), 136 components, 162 disposable PG checks, 50 targeted expression browser checks, 259 production-page typing checks and the existing student PG/browser suite pass. GitHub usage is unavailable according to the owner mission. Remote jobs have no assigned runner or executed steps. Full guest sweep passes all 336 page/theme/width combinations, with zero distinct failures and minimum text/border ratios 4.64:1/3.70:1. It uses a loopback adapter to the unchanged production stateless grader. Full signed-in route sweep and physical devices remain unverified.
+- Authored MathLive restoration is opt-in and waits for fallback blur/composition completion. Numeric/manual controls, other reader layouts, grading and publication are unchanged. See BETA_READINESS.md and AUTHORED_STUDENT_UI.md for verification and limits. Independent review and physical-device keyboard acceptance remain outstanding. No Production, shared SQL, migration, provider/flag, CSP, workflow or billing operation occurred. B1 is ready for independent review. The owner has separately authorized the overnight mission to continue with B2 in a fresh branch. Do not merge or deploy any batch.
+
 ## Olympiad host flags handoff (10 November 2026)
 
 - Branch `claude/olympiad-host-flags`, implementation `cd049d2903b17df844e16b682be40749d74c5cee`, based on fetched main `40ced00d20c4ef01f34b6cedf80caa8c06bc2a47`, which merges #135. Adds an optional named native flag immediately before the imported competition badge. All 44 current editions have verified hosts. Joint IPhO 2016 and online arrangements are explicit, unsupported years including 2026 omit the flag. [Mapping, source references and commands](OLYMPIAD_HOST_FLAGS.md).
