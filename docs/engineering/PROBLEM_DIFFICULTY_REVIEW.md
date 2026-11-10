@@ -8,9 +8,9 @@ The target solver is a strong Olympiad student. Ratings reflect independently re
 
 Reviewed 118 distinct IDs in 13 batches of at most 12 problems. Coverage is 35 APhO, 40 IPhO, 25 EuPhO and 18 Physcratic originals. The imported reviews used the exact local original statement and official solution PDFs listed in the [assessment ledger](problem-difficulty-review.json), including relevant figures. Scanned IPhO 2017 sources were inspected as page images. Corpus and translation trees were not read recursively.
 
-For the 18 originals, the review covers the complete current statements and worked solutions in `lib/arena/source-01.ts` through `source-06.ts`, plus their linked figures. Historical native PDFs and handwritten solutions were not inspected and are not claimed as verified. Main changed native titles and punctuation during the review. Those diffs were checked and do not change the physics assessed here.
+For the 18 originals, the review covers the complete current statements and worked solutions in `lib/arena/source-01.ts` through `source-06.ts`, plus their linked figures. Historical native PDFs and handwritten solutions were not inspected. No tracked PDF matches the 36 registry filenames, which are recorded individually in the ledger. Historical-source correspondence therefore remains insufficiently inspected. Main changed native titles and punctuation during the review. Those diffs were checked and do not change the physics assessed here.
 
-All current repository problems were inspected. Source inspection is distinct from correctness verification. Problems with specific source issues are marked `reviewed-with-source-issue` in the ledger. The infinite-V problem has no finite answer under its stated infinite geometry, so its unchanged 2300 is provisional and is excluded from comparison anchors.
+All 118 current problems in the review set were inspected. Source inspection is distinct from correctness verification. Problems with specific source issues are marked `reviewed-with-source-issue` in the ledger. The infinite-V problem has no finite answer under its stated infinite geometry, so its unchanged 2300 is provisional and is excluded from comparison anchors.
 
 62 estimates change and 56 remain. Every ID is preserved. All estimates remain integers from 800 to 3000 in steps of 50. The existing five bands and legacy filter ranges are unchanged.
 
@@ -172,4 +172,27 @@ These observations are review flags, not source corrections. The estimates follo
 
 ## Verification
 
-See the PR for the final head SHA, exact check results and remote CI status. Regression checks cover the 100 imported and 18 original identities, missing ratings, integer bounds and steps, five-band and legacy-filter consistency, all seven anchors and selected relative rankings. No source statement, solution, grader, player rating, schema, filter implementation or UI is changed.
+Implementation and test code were verified at `73e26b6c7954258cf63b7f3bbd70f61a46d9ac0f` in a fresh worktree with Node 22.23.1 and pnpm 10.34.9. Later documentation adds the historical native filenames and verification record, without changing estimates or test assertions. [PR #135](https://github.com/Physcratic/physcratic/pull/135) records the final head SHA and remote checks.
+
+| Local check | Result |
+| --- | --- |
+| Focused difficulty, rating bands and Arena tests | 21 pass |
+| Frozen install, offline guards, Next typegen and TypeScript | Pass |
+| ESLint with zero warnings | Pass |
+| Full server suite | 790 pass, 24 DB-dependent skips, one inherited TODO, zero failures |
+| Component suite | 136 pass |
+| Separate disposable PostgreSQL 18.6 suite | 162 pass, zero skips |
+| Release, mail/storage and operator guards | 17, 41 and 5 pass. Both package checksums intact |
+| Production build | Pass through the existing clean-environment `scripts/csp/local.mjs --build` wrapper |
+| Guest browser sweep | 336 combinations pass, zero failures. Minimum text 4.64:1 and border 3.70:1 |
+| Signed-in browser sweep | 72 combinations pass, zero failures. Minimum text 5.25:1 and border 3.67:1 |
+
+The focused command was `pnpm exec tsx --conditions=react-server --test lib/problem-archive.test.ts lib/rating-bands.test.ts lib/arena.test.ts`. Standard commands followed `.github/workflows/ci.yml`. The database command ran every top-level `lib/*.test.ts` referencing `AUTHORING_TEST_DATABASE_URL` inside `scripts/test-problem-authoring.sh`, with `AUTHORING_TEST_EXPECTED_VERSION=18.6`. Release guards ran in a separate disposable container. The PostgreSQL image digest was `sha256:123b17998ccaf47e53b502e8c6a1e79afd8f579c6f3eec83c563da026f957395`.
+
+The first full server run caught the old dodecahedron filter expectation. Its move from 1550 to 1800 now has an explicit advanced-band assertion, and the rerun passes. The first release attempt lacked the disposable URL, then passed within the existing disposable harness. No assertion was relaxed to hide a failure.
+
+Both browser runs used `SWEEP=1 node tests/solve-contrast.browser.mjs`, with system Chromium 154, external Playwright 1.64.1 and axe 4.14.0. Widths were 375, 390, 768 and 1440 in light and dark. The actual local production build used the existing loopback network guard, a separate disposable PostgreSQL container and one synthetic verified Better Auth account. Current migrations and fixture legacy tables were installed only there. The signed-in run supplied its synthetic session cookie. Existing suite mocks were retained. Optional admin and published authored-student stages were not enabled. These results do not establish physical-device, live-provider or deployment acceptance.
+
+Remote checks on the implementation head are not green. [CI #291](https://github.com/Physcratic/physcratic/actions/runs/42727463465) and [community browser #31](https://github.com/Physcratic/physcratic/actions/runs/42727463198) report failure with no executed steps or logs. Fetching a job log returns `BlobNotFound`. Vercel statuses also report failure. No workflow rerun, billing/settings change or deployment operation was attempted. The PR records final-head check observations separately from these local results.
+
+Regression checks cover the 100 imported and 18 original identities, missing ratings, integer bounds and steps, five-band and legacy-filter consistency, all seven anchors and selected relative rankings. No source statement, solution, grader, player rating, schema, filter implementation or UI is changed.

@@ -1,5 +1,12 @@
 # Beta readiness log
 
+## 2026-11-10 - Editorial problem difficulty review
+
+- [PR #135](https://github.com/Physcratic/physcratic/pull/135), base `ab8881007fa6fe040b87a1b0fdb6a85e2d12b295`, implementation `73e26b6c7954258cf63b7f3bbd70f61a46d9ac0f`. Inspected all 118 current problems in batches of at most 12, using original local imported PDFs and current native statements, figures and worked solutions. Change 62 estimates and preserve 56. All seven provisional anchors remain after source review. Ratings reflect solving work after guidance, without measured solving statistics.
+- [Complete changed table, retained assessments and source limits](PROBLEM_DIFFICULTY_REVIEW.md). The ledger names source files, page ranges and hashes. Eleven source issues require human physics review. Infinite-V stays provisional at 2300. Historical native PDFs/handwritten solutions were not inspected, and their 36 registry filenames have no tracked PDF match.
+- Fresh clean worktree, Node 22.23.1, pnpm 10.34.9. Focused 21, server 790, components 136, disposable PostgreSQL 18.6 162, release/mail-storage/operator 17/41/5 pass. Server has 24 DB-dependent skips and one inherited TODO, separate PG has no skips. Frozen install, offline guards, typegen/TypeScript, zero-warning ESLint, package checksums and guarded production build pass. Guest and synthetic signed-in Chromium sweeps pass 336 and 72 combinations with zero failures. Implementation-head remote jobs fail without executed steps or logs. Final-head remote status and browser scope are recorded in the PR and review.
+- Only editorial constants, related tests and review/handoff documentation change. Sources, grading, player ratings, schema, current bands, legacy filters, UI and dependencies remain unchanged. No Production/shared SQL, settings, flags, deployment or README trigger. PR stays open for review. Stop after this PR.
+
 ## 2026-11-09 - Temporary manual QA and contest account isolation
 
 - Main `fa986db`, PR #122 `82f39b9`. Confirmed and reproduced prior-account contest answers surviving an in-place account switch. Separate fix `95a6f8b` adds an account-keyed private cache/form boundary and 12 Chromium checks. No server, schema, CSP/header, dependency or deployment change.

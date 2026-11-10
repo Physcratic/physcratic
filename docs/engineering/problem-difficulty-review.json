@@ -3,7 +3,7 @@
   "baseCommit": "ab8881007fa6fe040b87a1b0fdb6a85e2d12b295",
   "targetSolver": "Strong Olympiad student",
   "scope": "100 imported theory problems and 18 current Physcratic originals",
-  "historicalNativePdfs": "Not inspected. Native estimates follow the current repository statements, linked figures and worked solutions.",
+  "historicalNativePdfs": "Not inspected. No tracked PDF matches the 36 native registry filenames. Native estimates follow the current repository statements, linked figures and worked solutions.",
   "problems": [
     {
       "id": "apho-2006-t2",
@@ -1101,7 +1101,10 @@
         "public/corpus/arena/figures/a-grin-and-a-wiggle-statement.png",
         "public/corpus/arena/figures/a-grin-and-a-wiggle-solution-image.png",
         "public/corpus/arena/figures/a-grin-and-a-wiggle-solution-focus.png"
-      ]
+      ],
+      "historicalStatement": "03_A_GRIN_and_a_Wiggle_Problem.pdf",
+      "historicalSolution": "03_A_GRIN_and_a_Wiggle_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
     },
     {
       "id": "arena-an-atom-with-stage-fright",
@@ -1119,7 +1122,10 @@
       "figures": [
         "public/corpus/arena/figures/an-atom-with-stage-fright-solution-population.png",
         "public/corpus/arena/figures/an-atom-with-stage-fright-solution-power.png"
-      ]
+      ],
+      "historicalStatement": "03_An_Atom_with_Stage_Fright_Problem.pdf",
+      "historicalSolution": "03_An_Atom_with_Stage_Fright_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
     },
     {
       "id": "arena-mind-the-gap",
@@ -1137,7 +1143,10 @@
       "figures": [
         "public/corpus/arena/figures/mind-the-gap-statement.png",
         "public/corpus/arena/figures/mind-the-gap-solution.png"
-      ]
+      ],
+      "historicalStatement": "01_Mind_the_Gap_Problem.pdf",
+      "historicalSolution": "01_Mind_the_Gap_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
     },
     {
       "id": "arena-the-bending-beam-riddle",
@@ -1154,7 +1163,10 @@
       "solutionSha256": "70dbf8b33d9d297cc9c44866e930cfad6c4ca05eb6aea51ce55d537f3e11da42",
       "figures": [
         "public/corpus/arena/figures/the-bending-beam-riddle-statement.png"
-      ]
+      ],
+      "historicalStatement": "03_The_Bending_Beam_Riddle_Problem.pdf",
+      "historicalSolution": "03_The_Bending_Beam_Riddle_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
     },
     {
       "id": "arena-the-bubble-treaty",
@@ -1173,7 +1185,10 @@
         "public/corpus/arena/figures/the-bubble-treaty-statement.png",
         "public/corpus/arena/figures/the-bubble-treaty-solution-equal.png",
         "public/corpus/arena/figures/the-bubble-treaty-solution-unequal.png"
-      ]
+      ],
+      "historicalStatement": "01_The_Bubble_Treaty_Problem.pdf",
+      "historicalSolution": "01_The_Bubble_Treaty_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
     },
     {
       "id": "arena-the-capacitors-missing-energy",
@@ -1190,7 +1205,10 @@
       "solutionSha256": "70dbf8b33d9d297cc9c44866e930cfad6c4ca05eb6aea51ce55d537f3e11da42",
       "figures": [
         "public/corpus/arena/figures/the-capacitors-missing-energy-statement.png"
-      ]
+      ],
+      "historicalStatement": "03_The_Capacitors_Missing_Energy_Problem.pdf",
+      "historicalSolution": "03_The_Capacitors_Missing_Energy_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
     },
     {
       "id": "arena-the-clock-in-the-racing-mirror",
@@ -1208,7 +1226,10 @@
       "figures": [
         "public/corpus/arena/figures/the-clock-in-the-racing-mirror-statement.png",
         "public/corpus/arena/figures/the-clock-in-the-racing-mirror-solution.png"
-      ]
+      ],
+      "historicalStatement": "02_The_Clock_in_the_Racing_Mirror_Problem.pdf",
+      "historicalSolution": "02_The_Clock_in_the_Racing_Mirror_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
     },
     {
       "id": "arena-the-cosmic-kitchen",
@@ -1225,7 +1246,10 @@
       "solutionSha256": "b8b506512a83f41a13e7b16af628aaa639d59c459508aa9dd0a8c3c90d55d40f",
       "figures": [
         "public/corpus/arena/figures/the-cosmic-kitchen-statement.png"
-      ]
+      ],
+      "historicalStatement": "01_The_Cosmic_Kitchen_Problem.pdf",
+      "historicalSolution": "01_The_Cosmic_Kitchen_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
     },
     {
       "id": "arena-the-dodecahedron-conspiracy",
@@ -1243,7 +1267,10 @@
       "figures": [
         "public/corpus/arena/figures/the-dodecahedron-conspiracy-statement.png",
         "public/corpus/arena/figures/the-dodecahedron-conspiracy-solution.png"
-      ]
+      ],
+      "historicalStatement": "02_The_Dodecahedron_Conspiracy_Problem.pdf",
+      "historicalSolution": "02_The_Dodecahedron_Conspiracy_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
     },
     {
       "id": "arena-the-five-fold-collision",
@@ -1261,7 +1288,10 @@
       "figures": [
         "public/corpus/arena/figures/the-five-fold-collision-statement.png",
         "public/corpus/arena/figures/the-five-fold-collision-solution.png"
-      ]
+      ],
+      "historicalStatement": "01_The_Five_Fold_Collision_Problem.pdf",
+      "historicalSolution": "01_The_Five_Fold_Collision_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
     },
     {
       "id": "arena-the-gas-with-elbows",
@@ -1276,7 +1306,10 @@
       "diagrams": "All linked native figures inspected, or no diagram supplied",
       "statementSha256": "ed2ceefe7c82bc73bfb8e4f5babcb5a17d25128222633bfbafe33336dbb103fe",
       "solutionSha256": "ed2ceefe7c82bc73bfb8e4f5babcb5a17d25128222633bfbafe33336dbb103fe",
-      "figures": []
+      "figures": [],
+      "historicalStatement": "02_The_Gas_with_Elbows_Problem.pdf",
+      "historicalSolution": "02_The_Gas_with_Elbows_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
     },
     {
       "id": "arena-the-infinite-v",
@@ -1294,7 +1327,10 @@
       "figures": [
         "public/corpus/arena/figures/the-infinite-v-statement.png",
         "public/corpus/arena/figures/the-infinite-v-solution.png"
-      ]
+      ],
+      "historicalStatement": "03_The_Infinite_V_Problem.pdf",
+      "historicalSolution": "03_The_Infinite_V_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
     },
     {
       "id": "arena-the-invisible-brake",
@@ -1311,7 +1347,10 @@
       "solutionSha256": "8a8bf5ec298636b7af4c606ec562ec79e14a78ef690bf9b88758751778365e52",
       "figures": [
         "public/corpus/arena/figures/the-invisible-brake-statement.png"
-      ]
+      ],
+      "historicalStatement": "03_The_Invisible_Brake_Problem.pdf",
+      "historicalSolution": "03_The_ Invisible_Brake_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
     },
     {
       "id": "arena-the-phantom-charge",
@@ -1329,7 +1368,10 @@
       "figures": [
         "public/corpus/arena/figures/the-phantom-charge-statement.png",
         "public/corpus/arena/figures/the-phantom-charge-solution.png"
-      ]
+      ],
+      "historicalStatement": "01_The_Phantom_Charge_Problem.pdf",
+      "historicalSolution": "01_The_Phantom_Charge_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
     },
     {
       "id": "arena-the-quantum-escape-room",
@@ -1347,7 +1389,10 @@
       "figures": [
         "public/corpus/arena/figures/the-quantum-escape-room-statement.png",
         "public/corpus/arena/figures/the-quantum-escape-room-solution.png"
-      ]
+      ],
+      "historicalStatement": "02_The_Quantum_Escape_Room_Problem.pdf",
+      "historicalSolution": "02_The_Quantum_Escape_Room_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
     },
     {
       "id": "arena-the-string-that-answered-back",
@@ -1366,7 +1411,10 @@
         "public/corpus/arena/figures/the-string-that-answered-back-statement.png",
         "public/corpus/arena/figures/the-string-that-answered-back-solution-a.png",
         "public/corpus/arena/figures/the-string-that-answered-back-solution-b.png"
-      ]
+      ],
+      "historicalStatement": "01_The_String_That_Answered_Back_Problem.pdf",
+      "historicalSolution": "01_The_String_That_Answered_Back_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
     },
     {
       "id": "arena-the-three-way-wave-split",
@@ -1383,7 +1431,10 @@
       "solutionSha256": "caf6df6a592381b4b07eb6b3eecc65c89585d973fc64ac94f5b8c78671d52a27",
       "figures": [
         "public/corpus/arena/figures/the-three-way-wave-split-statement.png"
-      ]
+      ],
+      "historicalStatement": "02_The_Three_Way_Wave_Split_Problem.pdf",
+      "historicalSolution": "02_The_Three_Way_Wave_Split_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
     },
     {
       "id": "arena-titans-double-take",
@@ -1402,7 +1453,10 @@
         "public/corpus/arena/figures/titans-double-take-statement.png",
         "public/corpus/arena/figures/titans-double-take-solution-primary.png",
         "public/corpus/arena/figures/titans-double-take-solution-secondary.png"
-      ]
+      ],
+      "historicalStatement": "02_Titans_Double_Take_Problem.pdf",
+      "historicalSolution": "02_Titans_Double_Take_Solution.pdf",
+      "historicalInspection": "Not inspected. No tracked PDF matches these registry filenames."
     },
     {
       "id": "eupho-2017-t1",
