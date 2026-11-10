@@ -41,16 +41,16 @@ function alternateImport() {
   };
 }
 
-test("catalog contains exactly 102 unique full problems across the agreed competitions", () => {
-  assert.equal(catalogProblems.length, 102)
-  assert.equal(new Set(catalogProblems.map((problem) => problem.id)).size, 102)
+test("catalog contains exactly 103 unique full problems across the agreed competitions", () => {
+  assert.equal(catalogProblems.length, 103)
+  assert.equal(new Set(catalogProblems.map((problem) => problem.id)).size, 103)
   assert.deepEqual(
     competitions.map(
       (competition) =>
         catalogProblems.filter((problem) => problem.competition === competition)
           .length,
     ),
-    [42, 35, 25],
+    [43, 35, 25],
   );
   for (const problem of catalogProblems) {
     assert.equal(
@@ -140,10 +140,10 @@ test("verified local English titles match original PDF text, not editorial parap
 test("primary-topic accounting meets every target without counting mixed problems twice", () => {
   assert.equal(
     catalogCoverage.reduce((sum, row) => sum + row.count, 0),
-    102,
+    103,
   );
   for (const row of catalogCoverage) {
-    assert.equal(row.count, row.target + (["Mechanics", "Optics"].includes(row.topic) ? 1 : 0), row.topic)
+    assert.equal(row.count, row.target + (["Mechanics", "Optics", "Thermodynamics"].includes(row.topic) ? 1 : 0), row.topic)
     assert.equal(
       Object.values(row.byCompetition).reduce((sum, count) => sum + count, 0),
       row.count,
@@ -151,7 +151,7 @@ test("primary-topic accounting meets every target without counting mixed problem
   }
 });
 
-test("all 102 records are imported while pilot guides, review and rights status remain honest", () => {
+test("all 103 records are imported while pilot guides, review and rights status remain honest", () => {
   assert.deepEqual(
     catalogProblems
       .filter((problem) => problem.hasPilotGuide)
@@ -160,8 +160,8 @@ test("all 102 records are imported while pilot guides, review and rights status 
     corpusProblems.map((problem) => problem.id).sort(),
   );
   assert.deepEqual(catalogExport.counts, {
-    total: 102,
-    imported: 102,
+    total: 103,
+    imported: 103,
     importedPilot: 5,
     sourceLinked: 0,
   });
@@ -221,17 +221,17 @@ test("catalog search composes competition, year, concept and estimated difficult
     filterCatalog({ competition: "APhO", query: "EuPhO" }).length,
     0,
   );
-  assert.equal(filterCatalog({ difficulty: "1600-plus" }).length, 102)
+  assert.equal(filterCatalog({ difficulty: "1600-plus" }).length, 103)
   assert.equal(filterCatalog({ difficulty: "1200-1599" }).length, 0);
   assert.equal(filterCatalog({ difficulty: "under-1200" }).length, 0);
   assert.equal(filterCatalog({ difficulty: "unrated" }).length, 0);
 });
 
 test("competition search supports partial names, contest years and combined filters", () => {
-  assert.equal(filterCatalog({ competition: "" }).length, 102)
-  assert.equal(filterCatalog({ competition: "   " }).length, 102)
-  assert.equal(filterCatalog({ competition: " ALL " }).length, 102)
-  assert.equal(filterCatalog({ competition: " ipho " }).length, 42)
+  assert.equal(filterCatalog({ competition: "" }).length, 103)
+  assert.equal(filterCatalog({ competition: "   " }).length, 103)
+  assert.equal(filterCatalog({ competition: " ALL " }).length, 103)
+  assert.equal(filterCatalog({ competition: " ipho " }).length, 43)
   assert.equal(filterCatalog({ competition: "apho" }).length, 35);
   assert.equal(filterCatalog({ competition: "euph" }).length, 25);
 
@@ -322,10 +322,10 @@ test("catalog export and original pilot endpoint remain separate downloadable JS
     /physcratic-olympiad-catalog\.json/,
   );
   const catalog = await response.json();
-  assert.equal(catalog.problems.length, 102)
-  assert.equal(catalog.counts.imported, 102)
+  assert.equal(catalog.problems.length, 103)
+  assert.equal(catalog.counts.imported, 103)
   assert.equal(catalog.counts.sourceLinked, 0);
-  assert.equal(catalog.imports.problems.length, 102)
+  assert.equal(catalog.imports.problems.length, 103)
   assert.equal(catalog.grading.rated, false);
   const pilot = await GET(
     new Request("https://physcratic.test/api/corpus"),

@@ -25,7 +25,7 @@ describe("problem pages", () => {
   it("covers every practice, Arena and archive problem exactly once", () => {
     assert.equal(pages.length, problems.length + arena.problems.length + catalogProblems.length);
     assert.equal(new Set(pages.map((p) => p.id)).size, pages.length);
-    assert.equal(pages.filter((p) => p.kind === "archive").length, 102)
+    assert.equal(pages.filter((p) => p.kind === "archive").length, 103)
     for (const p of pages) assert.equal(p.path, `/dashboard/problems/${p.id}`);
   });
   it("titles archive problems like \"Cox's Timepiece, IPhO 2025 Problem 2 | Physcratic\"", () => {
@@ -62,7 +62,7 @@ describe("problem pages", () => {
       const view = archiveStatementView(p)!;
       assert.ok(view.paragraphs.length > 0 || !p.indexable, p.id);
       assert.ok(p.source && p.source.line.startsWith(`${p.competition} ${p.year}, Problem ${p.number}`), p.id);
-      assert.ok(view.pdfHref?.endsWith("document.pdf") || (["ipho-2026-t1", "ipho-2026-t2"].includes(p.id) && view.pdfHref?.endsWith("statement.pdf")), p.id)
+      assert.ok(view.pdfHref?.endsWith("document.pdf") || (["ipho-2026-t1", "ipho-2026-t2", "ipho-2026-t3"].includes(p.id) && view.pdfHref?.endsWith("statement.pdf")), p.id)
       for (const image of view.pageImages) assert.ok(image.alt.length > 20 && image.src.endsWith(".webp"), p.id);
     }
   });
@@ -70,7 +70,7 @@ describe("problem pages", () => {
     assert.equal(ARCHIVE_INDEXABLE, true);
     for (const p of pages) assert.equal(p.indexable, p.kind !== "archive" || (ARCHIVE_INDEXABLE && !p.thin), p.id);
     assert.deepEqual(pages.filter((p) => !p.indexable).map((p) => p.id), ["ipho-2017-t2", "ipho-2017-t3"]);
-    assert.equal(pages.filter((p) => p.kind === "archive" && p.indexable).length, 100)
+    assert.equal(pages.filter((p) => p.kind === "archive" && p.indexable).length, 101)
   });
   it("marks only pages with too little text as thin, and there are few of them", () => {
     const thin = pages.filter((p) => p.thin);

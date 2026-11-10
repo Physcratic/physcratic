@@ -18,6 +18,7 @@ export function getEloBand(elo: number) {
 const estimatedProblemElos: Readonly<Record<string, number>> = {
   "ipho-2026-t1": 2250,
   "ipho-2026-t2": 2300,
+  "ipho-2026-t3": 2200,
   "arena-mind-the-gap": 1350,
   "arena-the-bubble-treaty": 1750,
   "arena-the-cosmic-kitchen": 2600,

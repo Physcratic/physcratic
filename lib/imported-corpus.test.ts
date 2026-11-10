@@ -16,10 +16,10 @@ const content = catalogProblems.map((problem) =>
   ),
 );
 
-test("every one of the 102 catalog problems has complete local statement and solution content", () => {
-  assert.equal(content.length, 102)
-  assert.equal(manifest.count, 102)
-  assert.equal(new Set(content.map((problem) => problem.id)).size, 102)
+test("every one of the 103 catalog problems has complete local statement and solution content", () => {
+  assert.equal(content.length, 103)
+  assert.equal(manifest.count, 103)
+  assert.equal(new Set(content.map((problem) => problem.id)).size, 103)
   for (const problem of content) {
     assert.equal(
       problem.id,
@@ -70,8 +70,8 @@ test("the downloadable corpus contains all statements and solutions, not only li
   const collection = JSON.parse(
     readLocal("/corpus/collection.json").toString(),
   );
-  assert.equal(collection.count, 102)
-  assert.equal(collection.problems.length, 102)
+  assert.equal(collection.count, 103)
+  assert.equal(collection.problems.length, 103)
   for (const source of collection.problems) {
     const parsed = importedProblemSchema.parse(source);
     assert.ok(parsed.statement.text.length >= 80);

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "importedOn": "2026-10-31",
-  "count": 102,
+  "count": 103,
   "problems": [
     {
       "id": "ipho-2026-t1",
@@ -37,6 +37,25 @@
         {
           "kind": "solution",
           "url": "https://olimpicos.net/files/ipho/IPhO_2026_S2.pdf",
+          "note": "Original English PDF supplied by the owner. Matched title, page count and printed content against the original PDF linked by Olimpicos. Local reference bytes retained unchanged."
+        }
+      ]
+    },
+    {
+      "id": "ipho-2026-t3",
+      "path": "/corpus/english-problems/ipho-2026-t3.json",
+      "language": "en",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2026_Q3.pdf",
+          "note": "Original English PDF supplied by the owner. Matched title, page count and printed content against the original PDF linked by Olimpicos. Local reference bytes retained unchanged."
+        },
+        {
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2026_S3.pdf",
           "note": "Original English PDF supplied by the owner. Matched title, page count and printed content against the original PDF linked by Olimpicos. Local reference bytes retained unchanged."
         }
       ]
@@ -1895,8 +1914,8 @@
   "assets": [
     {
       "path": "/corpus/collection.json",
-      "bytes": 2403832,
-      "sha256": "e72ee10042acc746ee6ebefacf28766cd3fc8516dff4a3b31781c0b7975e0a41"
+      "bytes": 2436963,
+      "sha256": "928e188cab729c5e83af146aef8ff38b28c4cea7ac8c486718eebed0e3f7c064"
     },
     {
       "path": "/corpus/documents/english-apho-2006-t2-solution/document.pdf",
@@ -7247,6 +7266,36 @@
       "path": "/corpus/2026/ipho-t2/two.png",
       "bytes": 34600,
       "sha256": "48ba441abc72a2c88813a2c614971941942540f0ad023bb157304a4c602cc06d"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2026-t3.json",
+      "bytes": 47362,
+      "sha256": "de9ad3083efbbe68d5c3617eff74851423b19125d63ff055a7ced9cec89aa526"
+    },
+    {
+      "path": "/corpus/2026/ipho-t3/cycle.png",
+      "bytes": 29146,
+      "sha256": "71a2cd92cffeca4aaee8861bb62f894b6dbc659b3e9465876a04cd37d22beae1"
+    },
+    {
+      "path": "/corpus/2026/ipho-t3/labelled-cycle.png",
+      "bytes": 38494,
+      "sha256": "8bd832317db6c89a9a294adffa24acd06f3cbba70821f580256993213b6ae7fa"
+    },
+    {
+      "path": "/corpus/2026/ipho-t3/solution.pdf",
+      "bytes": 273124,
+      "sha256": "3ef1952f8a7466beb809764b2b0dcdd8191f71fd42ad4f71a96c0b53ab5bcb01"
+    },
+    {
+      "path": "/corpus/2026/ipho-t3/statement.pdf",
+      "bytes": 464094,
+      "sha256": "1fc6e246a0f1a369719f5bd39bfc12f7b665353be84a91485c8643370330b224"
+    },
+    {
+      "path": "/corpus/2026/ipho-t3/torus.png",
+      "bytes": 160860,
+      "sha256": "9c7025048c896223d9afc740d4882f4d766566af489212c856d3ccb4915cf0e1"
     }
   ]
 }

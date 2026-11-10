@@ -7,9 +7,9 @@ import { problems } from "./physics";
 import { catalogProblems } from "./corpus-catalog";
 import arena from "./arena/index.json";
 
-test("the actual public page uses X1 descriptions, identity and canonicals for all 132 static problems", async () => {
+test("the actual public page uses X1 descriptions, identity and canonicals for all 133 static problems", async () => {
   const all = [...problems, ...catalogProblems, ...arena.problems];
-  assert.equal(all.length, 132)
+  assert.equal(all.length, 133)
   const titles = [];
   for (const problem of all) {
     const metadata = await generateMetadata({ params: Promise.resolve({ id: problem.id }) });
@@ -22,7 +22,7 @@ test("the actual public page uses X1 descriptions, identity and canonicals for a
     titles.push(metadata.title);
     assert.doesNotMatch(JSON.stringify(metadata), /attachments|answerMode|privateParts|solution-pdf|ownerId/);
   }
-  assert.equal(new Set(titles).size, 132)
+  assert.equal(new Set(titles).size, 133)
 });
 
 test("unknown and authored-looking IDs cannot pull private metadata into the static public route", async () => {

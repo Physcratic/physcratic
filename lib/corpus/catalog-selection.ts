@@ -16,6 +16,7 @@ export const catalogSelection: Record<Competition, readonly Selection[]> = {
   IPhO: [
     [2026, "T1", "Three problems", "Mechanics", ["Hydrostatics", "Orbital dynamics", "Momentum conservation"]],
     [2026, "T2", "Cooking with sunlight?", "Optics", ["Geometric optics", "Reflection"]],
+    [2026, "T3", "Chasing the absolute zero", "Thermodynamics", ["Magnetic fields", "Adiabatic processes", "Heat engines"]],
     [
       2025,
       "T1",
