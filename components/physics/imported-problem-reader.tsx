@@ -34,6 +34,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   importedProblemSchema,
   type ImportedDocument,
+  type ImportedProblem,
 } from "@/lib/imported-corpus-schema";
 import type { CatalogProblem } from "@/lib/corpus-catalog";
 import { translationSchema } from "@/lib/corpus-translation";
@@ -156,22 +157,48 @@ function PdfReader({
   );
 }
 
+function NativeReader({ document, language, kind }: {
+  document: Extract<ImportedDocument, { format: "html" }>
+  language: "en" | "ru"
+  kind: "statement" | "solution"
+}) {
+  return (
+    <>
+      {document.referencePdf && (
+        <a
+          href={document.referencePdf}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex min-h-11 items-center text-sm underline underline-offset-4"
+        >
+          Open original {kind} PDF
+          <span className="sr-only"> (opens in a new tab)</span>
+        </a>
+      )}
+      <ImportedSourceContent nodes={document.nodes} language={language} />
+    </>
+  )
+}
+
 export function ImportedProblemReader({
   problem,
   onBack,
   onOpenPilot,
   asPage = false,
+  initialData,
 }: {
   problem: CatalogProblem;
   onBack: () => void;
   onOpenPilot?: (id: string) => void;
   /** True on the problem's own page, where the title is the page's h1. Inside the library it stays an h2. */
   asPage?: boolean;
+  initialData?: ImportedProblem
 }) {
   const TitleTag = asPage ? "h1" : "h2";
   const { data, error, isLoading, mutate } = useSWRImmutable(
     problem.importPath,
     loadProblem,
+    { fallbackData: initialData },
   );
   const [tab, setTab] = useState("statement");
   const [language, setLanguage] = useState("en");
@@ -198,7 +225,7 @@ export function ImportedProblemReader({
     >
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Button variant="ghost" className="min-h-11" onClick={onBack}>
-          <ArrowLeft data-icon="inline-start" /> Back to all 100 problems
+          <ArrowLeft data-icon="inline-start" /> Back to all problems
         </Button>
         {problem.hasPilotGuide && onOpenPilot && (
           <Button
@@ -312,7 +339,7 @@ export function ImportedProblemReader({
           </AlertDescription>
         </Alert>
       )}
-      {(isLoading || translationLoading) && (
+      {((isLoading && !data) || translationLoading) && (
         <div role="status" className="flex flex-col gap-4">
           <span className="text-sm text-muted-foreground">
             Loading imported statement and solution…
@@ -380,16 +407,10 @@ export function ImportedProblemReader({
                       label={`${problem.competition} ${problem.year} ${problem.code} ${kind}`}
                     />
                   ) : (
-                    <ImportedSourceContent
-                      nodes={
-                        (
-                          readingData[kind] as Extract<
-                            ImportedDocument,
-                            { format: "html" }
-                          >
-                        ).nodes
-                      }
+                    <NativeReader
+                      document={readingData[kind] as Extract<ImportedDocument, { format: "html" }>}
                       language={readingData.language}
+                      kind={kind}
                     />
                   )}
                 </CardContent>

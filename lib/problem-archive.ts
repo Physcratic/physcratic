@@ -16,6 +16,7 @@ export function getEloBand(elo: number) {
 // or inputs to player-rating updates. Review evidence: docs/engineering/PROBLEM_DIFFICULTY_REVIEW.md.
 // Keep a problem's estimate identical across collections.
 const estimatedProblemElos: Readonly<Record<string, number>> = {
+  "ipho-2026-t1": 2250,
   "arena-mind-the-gap": 1350,
   "arena-the-bubble-treaty": 1750,
   "arena-the-cosmic-kitchen": 2600,

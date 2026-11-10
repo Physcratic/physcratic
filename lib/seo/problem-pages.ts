@@ -5,6 +5,7 @@
  * purpose: they stay noindex and out of every list (see docs/engineering/SEARCH_AND_AI_VISIBILITY.md).
  */
 import { existsSync, readFileSync } from "node:fs";
+import { importedProblemSchema, type ImportedProblem } from "../imported-corpus-schema"
 import path from "node:path";
 import arena from "../arena/index.json";
 import { catalogProblems, type CatalogProblem } from "../corpus-catalog";
@@ -90,6 +91,7 @@ export function archiveMetaTitle(title: string, competition: string, year: numbe
 }
 
 export interface PdfStatement {
+  native?: ImportedProblem
   importedOn?: string;
   /** The text for this problem only. For a shared PDF it is the part between this problem's number and the next. */
   text: string;
@@ -105,12 +107,19 @@ export function pdfStatement(problem: CatalogProblem): PdfStatement {
   const file = path.join(process.cwd(), "public", problem.importPath);
   const parsed = JSON.parse(readFileSync(file, "utf8")) as {
     importedOn?: string;
-    statement: { text?: string; pdf?: string; format: string; shared?: boolean; sourcePages?: number[] };
+    statement: {
+      text?: string
+      pdf?: string
+      referencePdf?: string
+      format: string
+      shared?: boolean
+      sourcePages?: number[]
+    }
   };
   const raw = parsed.statement.text ?? "";
   const shared = Boolean(parsed.statement.shared);
   const section = shared ? sharedSection(raw, Number(problem.code.slice(1))) : raw;
-  return { importedOn: parsed.importedOn, text: section ?? "", shared, pdf: parsed.statement.pdf, sourcePages: parsed.statement.sourcePages ?? [], unsplit: shared && section === undefined };
+  return { importedOn: parsed.importedOn, text: section ?? "", shared, pdf: parsed.statement.pdf ?? parsed.statement.referencePdf, sourcePages: parsed.statement.sourcePages ?? [], unsplit: shared && section === undefined, ...(parsed.statement.format === "html" ? { native: importedProblemSchema.parse(parsed) } : {}) }
 }
 
 const THIN_STATEMENT = 400;
@@ -259,6 +268,7 @@ export function firstSentenceOf(page: ProblemPage, text: string): string {
 }
 
 export interface ArchiveStatementView {
+  native?: ImportedProblem
   /** The statement as paragraphs of text taken from the official PDF. */
   paragraphs: string[];
   /** Rendered pages of the official PDF that hold the problem, with alt text. Figures and equations are in these. */
@@ -279,7 +289,7 @@ export function archiveStatementView(page: ProblemPage): ArchiveStatementView | 
         .filter((n) => existsSync(path.join(process.cwd(), "public", folder, `page-${n}.webp`)))
         .map((n) => ({ src: `${folder}/page-${n}.webp`, alt: `${label}, statement page ${n} of ${numbers.length}, with the figures and equations` }))
     : [];
-  return { paragraphs: statementParagraphs(statement.text, problem.title), pageImages, pdfHref: statement.pdf };
+  return { paragraphs: statementParagraphs(statement.text, problem.title), pageImages, pdfHref: statement.pdf, ...(statement.native ? { native: statement.native } : {}) }
 }
 
 /** The Arena statement as source text, read at build time so it is in the HTML. */

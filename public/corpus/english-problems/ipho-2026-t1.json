@@ -1,0 +1,1589 @@
+{
+  "id": "ipho-2026-t1",
+  "importedOn": "2026-11-10",
+  "language": "en",
+  "statement": {
+    "format": "html",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "QUESTION T1 [10 pts]. Three problems"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This question consists of three independent problems."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "T1-A [3.0 pts]. Hydrostatic gate"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t1/a.png",
+            "alt": "Two reservoirs separated by wall MN. The left water surface is higher by Δh. A submerged square section of the cube is tilted 45 degrees and hinged at O on its upper left edge. The side is a and the segment from the left vertex to O is a/2."
+          },
+          {
+            "type": "element",
+            "tag": "figcaption",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 1a."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Two water reservoirs are separated by a vertical wall MN, as shown in the figure 1a. The left reservoir can receive water from a source. It must be ensured that the maximum possible difference between the water levels is $\\Delta h = 1.41\\ \\mathrm{m}$. To achieve this, a slot of vertical size $a\\sqrt{2}/2$ is cut in MN and sealed with a solid cubic block of side length $a$. The block has density $3\\rho_0$, with $\\rho_0$ the density of water. The block is fully submerged, fixed to the wall at $O$ and can rotate without friction about the axis perpendicular to the plane of the figure that passes through point $O$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T1-A1 [3.0 pts.]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Calculate the value of $a$ that ensures the maximum permissible difference in water levels is not exceeded."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "T1-B [3.5 pts]. Electron-positron pair"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t1/b.png",
+            "alt": "A positron above an electron, separated vertically by 100a₀. The positron velocity points right and the electron velocity points left."
+          },
+          {
+            "type": "element",
+            "tag": "figcaption",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 1b."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At a certain instant of time, a positron $e^+$ is located at a distance of $100a_0$ from an electron $e^-$. The particles are moving in such a way that their velocities are antiparallel at that instant, perpendicular to their separation, as shown in figure 1b. It is known that each particle has an angular momentum of magnitude $\\mu\\hbar$ with respect to the system's center of mass, where $\\mu$ is a dimensionless numerical factor. Assume that the only interaction between $e^+$ and $e^-$ is electrostatic (both particles have the same mass $m$ and equal magnitude of the charge but of opposite sign). Furthermore, assume that this system remains isolated and that its dynamics are classical and non-relativistic."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The Bohr radius $a_0$ is given by $a_0=4\\pi\\epsilon_0\\hbar^2/(me^2)$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T1-B1 [1.0 pts.]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If $\\mu=4$, the system is bound, meaning that the particles move in a closed orbit around the system's center of mass. Find the maximum separation distance between $e^+$ and $e^-$ in terms of $a_0$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T1-B2 [2.5 pts]."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If $\\mu=\\frac{15}{2}$, the system is unbound, meaing that the particles are no longer in closed orbit around the system's center of mass. Let $\\vec{u}_\\infty$ be the velocity of $e^+$ relative to $e^-$ as the separation distance between them tends to infinity. Calculate the angle between $\\vec{u}_\\infty$ and the initial line of motion of $e^+$. Give your answer in degrees."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Hint 1: The eccentricty $\\varepsilon$ of a conic trajectory for the present case is given by"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\varepsilon=\\sqrt{1+\\frac{4L^2E}{k^2e^4m}}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where E and L are the total energy and the magnitude of the total angular momentum, respectively. k is Coulombs constant $k=1/(4\\pi\\epsilon_0)$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Hint 2: The equation of a conic in polar coordinates is"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$r=\\frac{a}{1-\\varepsilon\\cos(\\theta)}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "T1-C [3.5 pts]. Photodissociation of ozone"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t1/c.png",
+            "alt": "An incoming photon γ travels right toward ozone. The outgoing oxygen molecule travels upward and right at angle θ to the incident direction. The oxygen atom travels downward and right."
+          },
+          {
+            "type": "element",
+            "tag": "figcaption",
+            "children": [
+              {
+                "type": "text",
+                "text": "Fig. 1c."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A photon with angular frequency $\\omega$ strikes an ozone molecule O₃ at rest, dissociating it (breaking it apart) into an oxygen molecule O₂ and an oxygen atom O, as shown in figure 1c. The photon is absorbed in this process. Let $U_i$ and $U_f$ be the ground state energies of the ozone and oxygen molecules, respectively. Assume that this system remains isolated and that its dynamics is classical (potential energies do not contribute to mass and the motion of the Oxygen atoms are non-relativistic). Use the relation $p=E/c$ for the linear momentum of the photon, where $E$ is its energy."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T1-C1 [2.5 pts]."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If the angle that the momentum of the outgoing O₂ with respect to the incident photon is $\\theta$, determine the minimum angular frequency $\\omega_{\\min}$ required for this dissociation to occur at this angle. Write your answer in terms of $\\hbar$, $c$, $\\theta$, $\\Delta U=U_f-U_i$, and the mass $m$ of an oxygen atom."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T1-C2 [1.0 pts]."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If $\\theta=\\pi/6$, calculate the value of $\\hbar\\omega_{\\min}-\\Delta U$. Give your answer in electronvolts (eV). Take $\\Delta U=1.10\\ \\mathrm{eV}$ and $m=16.0\\ \\mathrm{amu}$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Hint:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$(1+x)^r=1+rx+\\frac{r(r-1)}{2!}x^2+\\frac{r(r-1)(r-2)}{3!}x^3+\\cdots$$"
+          }
+        ]
+      }
+    ],
+    "text": "QUESTION T1 [10 pts]. Three problems\n\nThis question consists of three independent problems.\n\nT1-A [3.0 pts]. Hydrostatic gate\n\nTwo water reservoirs are separated by a vertical wall MN, as shown in the figure 1a. The left reservoir can receive water from a source. It must be ensured that the maximum possible difference between the water levels is $\\Delta h = 1.41\\ \\mathrm{m}$. To achieve this, a slot of vertical size $a\\sqrt{2}/2$ is cut in MN and sealed with a solid cubic block of side length $a$. The block has density $3\\rho_0$, with $\\rho_0$ the density of water. The block is fully submerged, fixed to the wall at $O$ and can rotate without friction about the axis perpendicular to the plane of the figure that passes through point $O$.\n\nT1-A1 [3.0 pts.]\n\nCalculate the value of $a$ that ensures the maximum permissible difference in water levels is not exceeded.\n\nT1-B [3.5 pts]. Electron-positron pair\n\nAt a certain instant of time, a positron $e^+$ is located at a distance of $100a_0$ from an electron $e^-$. The particles are moving in such a way that their velocities are antiparallel at that instant, perpendicular to their separation, as shown in figure 1b. It is known that each particle has an angular momentum of magnitude $\\mu\\hbar$ with respect to the system's center of mass, where $\\mu$ is a dimensionless numerical factor. Assume that the only interaction between $e^+$ and $e^-$ is electrostatic (both particles have the same mass $m$ and equal magnitude of the charge but of opposite sign). Furthermore, assume that this system remains isolated and that its dynamics are classical and non-relativistic.\n\nThe Bohr radius $a_0$ is given by $a_0=4\\pi\\epsilon_0\\hbar^2/(me^2)$.\n\nT1-B1 [1.0 pts.]\n\nIf $\\mu=4$, the system is bound, meaning that the particles move in a closed orbit around the system's center of mass. Find the maximum separation distance between $e^+$ and $e^-$ in terms of $a_0$.\n\nT1-B2 [2.5 pts].\n\nIf $\\mu=\\frac{15}{2}$, the system is unbound, meaing that the particles are no longer in closed orbit around the system's center of mass. Let $\\vec{u}_\\infty$ be the velocity of $e^+$ relative to $e^-$ as the separation distance between them tends to infinity. Calculate the angle between $\\vec{u}_\\infty$ and the initial line of motion of $e^+$. Give your answer in degrees.\n\nHint 1: The eccentricty $\\varepsilon$ of a conic trajectory for the present case is given by\n\n$$\\varepsilon=\\sqrt{1+\\frac{4L^2E}{k^2e^4m}}$$\n\nwhere E and L are the total energy and the magnitude of the total angular momentum, respectively. k is Coulombs constant $k=1/(4\\pi\\epsilon_0)$.\n\nHint 2: The equation of a conic in polar coordinates is\n\n$$r=\\frac{a}{1-\\varepsilon\\cos(\\theta)}$$\n\nT1-C [3.5 pts]. Photodissociation of ozone\n\nA photon with angular frequency $\\omega$ strikes an ozone molecule O₃ at rest, dissociating it (breaking it apart) into an oxygen molecule O₂ and an oxygen atom O, as shown in figure 1c. The photon is absorbed in this process. Let $U_i$ and $U_f$ be the ground state energies of the ozone and oxygen molecules, respectively. Assume that this system remains isolated and that its dynamics is classical (potential energies do not contribute to mass and the motion of the Oxygen atoms are non-relativistic). Use the relation $p=E/c$ for the linear momentum of the photon, where $E$ is its energy.\n\nT1-C1 [2.5 pts].\n\nIf the angle that the momentum of the outgoing O₂ with respect to the incident photon is $\\theta$, determine the minimum angular frequency $\\omega_{\\min}$ required for this dissociation to occur at this angle. Write your answer in terms of $\\hbar$, $c$, $\\theta$, $\\Delta U=U_f-U_i$, and the mass $m$ of an oxygen atom.\n\nT1-C2 [1.0 pts].\n\nIf $\\theta=\\pi/6$, calculate the value of $\\hbar\\omega_{\\min}-\\Delta U$. Give your answer in electronvolts (eV). Take $\\Delta U=1.10\\ \\mathrm{eV}$ and $m=16.0\\ \\mathrm{amu}$.\n\nHint:\n\n$$(1+x)^r=1+rx+\\frac{r(r-1)}{2!}x^2+\\frac{r(r-1)(r-2)}{3!}x^3+\\cdots$$",
+    "figures": [
+      "/corpus/2026/ipho-t1/a.png",
+      "/corpus/2026/ipho-t1/b.png",
+      "/corpus/2026/ipho-t1/c.png"
+    ],
+    "shared": false,
+    "referencePdf": "/corpus/2026/ipho-t1/statement.pdf"
+  },
+  "solution": {
+    "format": "html",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "SOLUTION T1 [10 pts]. Three problems"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "T1-A [3.0 pts]. Hydrostatic gate"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T1-A1 [3.0 pts]."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since the dam is perfectly sealed, the area of the opening is $a\\cdot(a/\\sqrt{2})$:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "figure",
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "src": "/corpus/2026/ipho-t1/gate-solution.png",
+            "alt": "A square tilted 45 degrees. A vertical segment from the midpoint of its upper left edge to the lower left edge has length a/√2. The side segment above the left vertex is a/2."
+          },
+          {
+            "type": "element",
+            "tag": "figcaption",
+            "children": [
+              {
+                "type": "text",
+                "text": "Hydrostatic gate cross-section."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The horizontal force exerted by the water on either side is equal to the pressure at the centroid of the cube sections on the corresponding side times the effective area, as calculated previously:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\Delta F=\\frac{a^2}{\\sqrt{2}}\\rho_0g\\Delta h$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "With an effective application point at the centroid of the left region of the block. The other relevant forces are the block's weight $\\rho\\times g\\times\\mathrm{vol}$, the vertical component of the force exerted by the fluid (buoyant force) $\\rho_0\\times g\\times\\mathrm{vol}$, and the force that the hinge applies to the block (which exerts no torque)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At the critical $\\Delta h$, the bottom edge of the opening applies zero force to the block. For the net torque to be 0,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\frac{a^2}{\\sqrt{2}}\\rho_0g\\Delta h\\left(\\frac{a}{2\\sqrt{2}}\\right)=(\\rho-\\rho_0)a^3g\\left(\\frac{a}{2\\sqrt{2}}\\right)$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note: Arms are $a/(2\\sqrt{2})$ from O either in the horizontal or vertical direction for pressure difference and effective weight respectively."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$a=\\frac{\\rho_0}{\\sqrt{2}(\\rho-\\rho_0)}\\Delta h$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For $\\rho=3\\rho_0$,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$a=\\frac{\\Delta h}{2\\sqrt{2}}=0.50\\mathrm{m}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "T1-B [2.5 pts]. Electron-positron pair"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From the definition of angular momentum,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$mv_0(50a_0)=\\mu\\hbar$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$v_0=\\frac{\\mu\\hbar}{50ma_0}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The total energy of the system is"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$2\\left(\\frac{1}{2}mv_0^2\\right)-\\frac{ke^2}{100a_0}=\\frac{ke^2}{a_0}\\left(\\frac{\\mu^2}{50^2}-\\frac{1}{100}\\right)$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T1-B1 [1.0 pts]."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For $\\mu=4$,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$E=-\\frac{9ke^2}{2500a_0}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h5",
+        "children": [
+          {
+            "type": "text",
+            "text": "SOLUTION 1:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At the critical separation distances, $\\vec{v}\\perp\\vec{r}$ and $L=mvr$. The energy at $r_{\\max}$ and $r_{\\min}$ can be written as"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$E=2\\frac{L^2}{2mr^2}-\\frac{ke^2}{r}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using $L=2\\mu\\hbar=8\\hbar$ and the conservation of energy,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$-\\frac{9ke^2}{2500a_0}=\\frac{64\\hbar^2}{mr^2}-\\frac{ke^2}{r}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\frac{ke^2}{a_0}\\left(\\frac{9}{2500}r^2-a_0r+64a_0^2\\right)=0$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$r=\\frac{a_0\\pm\\sqrt{a_0^2-\\frac{576}{625}a_0^2}}{9/1250}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$r=\\frac{1250}{9}a_0\\left(1\\pm\\frac{7}{25}\\right)$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The maximum separation corresponds to the solution with the plus sign,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$r_{\\max}=\\frac{1600}{9}a_0$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h5",
+        "children": [
+          {
+            "type": "text",
+            "text": "SOLUTION 2:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since the energy is negative and the electrostatic force is central and proportional to $r^{-2}$, the trajectory of the particles will be elliptical with respect to the CM. The energy can be written in terms of the semi-major axis $x$ as"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$E=-\\frac{ke^2}{2x}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$x=\\frac{1250}{9}a_0$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since $\\vec{v}_0$ is perpendicular to the vector that connects the two particles, the initial position must correspond to either $r_{\\max}$ or $r_{\\min}$. The other critical distance, $r_2$ is given by the definition of $x$:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$2x=r_0+r_2$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$r_2=\\left(\\frac{2500}{9}-100\\right)a_0=\\frac{1600}{9}a_0$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Which is greater than $r_0$ and corresponds to $r_{\\max}$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h5",
+        "children": [
+          {
+            "type": "text",
+            "text": "SOLUTION 3:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The general equation for the trajectory in polar coordinates is"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$r(\\theta)=\\frac{\\ell}{1+\\varepsilon\\cos(\\theta-\\theta_0)}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "with $\\ell=\\frac{2L^2}{mke^2}$ the semi-latus rectum and $\\varepsilon$ the eccentricity, as given by the hint in question T1-B2. The maximum separation distance is reached when $\\cos(\\theta-\\theta_0)=-1$:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$r_{\\max}=\\frac{\\ell}{1-\\varepsilon}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Calculating the values of $\\ell$ and $\\varepsilon$,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\ell=\\frac{2(8\\hbar)^2}{mke^2}=128a_0$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\varepsilon=\\sqrt{1-\\frac{36ke^2(8\\hbar)^2}{2500a_0m(ke^2)^2}}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\varepsilon=\\sqrt{1-\\frac{2304}{2500}}=\\frac{7}{25}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Replacing these values in the expression for $r_{\\max}$,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$r_{\\max}=\\frac{128}{1-(7/25)}a_0=\\frac{1600}{9}a_0$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T1-B2 [2.5 pts]."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For $\\mu=15/2$,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$E=+\\frac{ke^2}{80a_0}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The distance between particles follows"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$r(\\theta)=\\frac{\\ell}{1+\\varepsilon\\cos(\\theta-\\theta_0)}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since the initial position corresponds to the closest approach, it is convenient to measure the angle $\\theta$ with respect to the $y$ axis so that $\\cos\\theta_0=1$, $\\theta_0=0$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For $r\\to\\infty$,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$1+\\varepsilon\\cos\\theta'\\to0$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\theta'=\\arccos(-1/\\varepsilon)$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Calculating the eccentricity,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\varepsilon=\\sqrt{1+\\frac{4ke^2(15\\hbar^2)}{80a_0m(ke^2)^2}}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\varepsilon=\\sqrt{1+\\frac{45}{4}}=\\frac{7}{2}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Replacing this value in the expression for $\\theta$,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\theta'=\\arccos(-2/7)=106.60^\\circ$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since this is the angle with respect to the y-axis but the initial $e^+$ velocity is directed towards the positive x-axis, heading downward"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\theta=90^\\circ-\\theta'=-16.60^\\circ$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "T1-C [3.5 pts]. Photodissociation of ozone"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T1-C1 [2.5 pts]."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h5",
+        "children": [
+          {
+            "type": "text",
+            "text": "SOLUTION 1: pure algebra"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The momentum conservation is"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\hbar\\frac{\\omega}{c}\\hat{k}=\\vec{p}+\\vec{q},$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where $\\vec{p}$ and $\\vec{q}$ are the momentum of the O₂ and the O, respectively. Solving for $q^2$,"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$q^2=\\left(\\frac{\\hbar\\omega}{c}-p\\cos(\\theta)\\right)^2+p^2\\sin^2(\\theta).$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The energy conservation reads"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\hbar\\omega=\\Delta U+\\frac{p^2}{4m}+\\frac{q^2}{2m}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "where $\\Delta U=U_f-U_i$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For a given $\\theta$, $p$ can be written in terms of $\\omega$. Replacing $q^2$ on energy balance and simplifying, we get"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$p^2-\\frac{4\\hbar\\omega\\cos(\\theta)}{3c}p+\\frac{2\\hbar^2\\omega^2}{3c^2}+\\frac{4}{3}m(\\Delta U-\\hbar\\omega)=0.$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This gives a quadratic equation on $p$. For $p$ to be real, the discriminant must be positive."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\frac{16\\hbar^2\\omega^2\\cos^2(\\theta)}{9c^2}-4\\left(\\frac{2\\hbar^2\\omega^2}{3c^2}+\\frac{4}{3}m(\\Delta U-\\hbar\\omega)\\right)\\geq0$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The previous bound determines $\\omega_{\\min}$ as the minimal root of the quadratic equation on $\\omega$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$(\\cos(2\\theta)-2)\\hbar^2\\omega^2+6mc^2\\hbar\\omega-6\\Delta U\\,mc^2=0$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\omega_\\pm=\\frac{-6mc^2\\hbar\\pm\\sqrt{D}}{2(\\cos(2\\theta)-2)\\hbar^2}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$D=36\\hbar^2m^2c^4+24\\Delta U\\,mc^2\\hbar^2(\\cos(2\\theta)-2)$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The smallest root $\\omega_+$. Thus, simplifying, one gets"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\omega_{\\min}=\\frac{3mc^2-\\sqrt{3mc^2(3mc^2+2\\Delta U(\\cos(2\\theta)-2))}}{\\hbar(2-\\cos(2\\theta))}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h5",
+        "children": [
+          {
+            "type": "text",
+            "text": "SOLUTION 2: Center of mass approach"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h6",
+        "children": [
+          {
+            "type": "text",
+            "text": "Part I: Conservation laws"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "First, find the velocity of the center of mass. We get"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$(3mv_{\\mathrm{CM}})=p_\\gamma=\\hbar\\omega/c$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We will use $p_\\gamma$ for calculations"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$v_{\\mathrm{CM}}=p_\\gamma/(3m)$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We want to relate the relative velocities in CM. We have by magnitude"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$2mv_1=mv_2$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "And $v_2$ is the single oxygen atom (the one we don't want). The energy conservation equation is"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\begin{aligned}E_\\gamma=p_\\gamma c&=\\frac{1}{2}(3m)v_{\\mathrm{CM}}^2+\\Delta U+\\frac{1}{2}mv_2^2+\\frac{1}{2}(2m)v_1^2\\\\&=\\Delta U+\\frac{p_\\gamma^2}{6m}+\\frac{1}{2}\\times6m(v_1)^2\\end{aligned}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We can now find $v_1$ in terms of $p_\\gamma$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h6",
+        "children": [
+          {
+            "type": "text",
+            "text": "Part 2: geometry and critical condition"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We see that the set of possible velocities $\\vec{v}_1$ form a circle (they have constant $v_1$). We need to consider that $\\theta$ is the angle between $\\vec{v}_{\\mathrm{CM}}$ and $\\vec{v}_{\\mathrm{CM}}+\\vec{v}_1$ (this is the full velocity of particle 1)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If the circle of radius $v_1$ is too small there is no solution (the straight line at the angle will not intersect the circle). If the radius $v_1$ is big enough, there will always be two solutions intersecting the circle. The critical case (crossover from no solution to two) is when the circle is tangent to the straight line. This is the case we need."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "In that case the triangle formed by $0$, $\\vec{v}_{\\mathrm{CM}}$, $\\vec{v}_{\\mathrm{CM}}+\\vec{v}_1$ is a right triangle."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Warning: This can only happen if $\\theta\\leq90^\\circ$. The other case will be dealt with separately."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "This way"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$v_1=v_{\\mathrm{CM}}\\sin(\\theta)$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Replace above to find that in conservation of energy"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$p_\\gamma c=\\Delta U+\\frac{p_\\gamma^2}{6m}+\\frac{1}{2}\\times\\frac{p_\\gamma^2\\sin^2(\\theta)}{3m}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "now we can solve the quadratic equation for $p_\\gamma$. We get (we need to choose the correct solution of the quadratic equation)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$p_\\gamma=\\frac{3cm-\\sqrt{3}\\sqrt{m}\\sqrt{3c^2m+2\\Delta U\\cos(2\\theta)-4\\Delta U}}{2\\sin^2(\\theta)+1}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Note: Any of the following expressions are the same:"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$2\\sin^2(\\theta)+1=3-2\\cos^2(\\theta)=2-\\cos(2\\theta)$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Rewrite as the angular frequency"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\omega_{\\min}=3mc^2\\left[\\frac{1-\\sqrt{1-\\frac{\\Delta U}{3mc^2}(2\\sin^2(\\theta)+1)}}{(2\\sin^2(\\theta)+1)\\hbar}\\right]$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Special case: $\\theta\\geq90^\\circ$, this is essentially impossible to see in a brute force algebraic solution, but it is an important feature of the problem. Needs a small amount of points in this solution"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For angle greater than $90^\\circ$, as soon as the circle reaches the answer for $90^\\circ$ it becomes big enough to allow all angles. Formula is the same with $\\theta=90^\\circ$."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h4",
+        "children": [
+          {
+            "type": "text",
+            "text": "T1-C2 [1.0 pts]."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Up to second order in $\\Delta U$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\omega_{\\min}=\\frac{\\Delta U}{\\hbar}-\\frac{(\\cos(2\\theta)-2)\\Delta U^2}{6\\hbar mc^2}$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\hbar\\omega_{\\min}-\\Delta U=\\frac{(2-\\cos(2\\theta))}{6mc^2}(\\Delta U)^2$$"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "$$\\hbar\\omega_{\\min}-\\Delta U=2.03\\times10^{-11}\\ \\mathrm{eV}$$"
+          }
+        ]
+      }
+    ],
+    "text": "SOLUTION T1 [10 pts]. Three problems\n\nT1-A [3.0 pts]. Hydrostatic gate\n\nT1-A1 [3.0 pts].\n\nSince the dam is perfectly sealed, the area of the opening is $a\\cdot(a/\\sqrt{2})$:\n\nThe horizontal force exerted by the water on either side is equal to the pressure at the centroid of the cube sections on the corresponding side times the effective area, as calculated previously:\n\n$$\\Delta F=\\frac{a^2}{\\sqrt{2}}\\rho_0g\\Delta h$$\n\nWith an effective application point at the centroid of the left region of the block. The other relevant forces are the block's weight $\\rho\\times g\\times\\mathrm{vol}$, the vertical component of the force exerted by the fluid (buoyant force) $\\rho_0\\times g\\times\\mathrm{vol}$, and the force that the hinge applies to the block (which exerts no torque).\n\nAt the critical $\\Delta h$, the bottom edge of the opening applies zero force to the block. For the net torque to be 0,\n\n$$\\frac{a^2}{\\sqrt{2}}\\rho_0g\\Delta h\\left(\\frac{a}{2\\sqrt{2}}\\right)=(\\rho-\\rho_0)a^3g\\left(\\frac{a}{2\\sqrt{2}}\\right)$$\n\nNote: Arms are $a/(2\\sqrt{2})$ from O either in the horizontal or vertical direction for pressure difference and effective weight respectively.\n\n$$a=\\frac{\\rho_0}{\\sqrt{2}(\\rho-\\rho_0)}\\Delta h$$\n\nFor $\\rho=3\\rho_0$,\n\n$$a=\\frac{\\Delta h}{2\\sqrt{2}}=0.50\\mathrm{m}$$\n\nT1-B [2.5 pts]. Electron-positron pair\n\nFrom the definition of angular momentum,\n\n$$mv_0(50a_0)=\\mu\\hbar$$\n\n$$v_0=\\frac{\\mu\\hbar}{50ma_0}$$\n\nThe total energy of the system is\n\n$$2\\left(\\frac{1}{2}mv_0^2\\right)-\\frac{ke^2}{100a_0}=\\frac{ke^2}{a_0}\\left(\\frac{\\mu^2}{50^2}-\\frac{1}{100}\\right)$$\n\nT1-B1 [1.0 pts].\n\nFor $\\mu=4$,\n\n$$E=-\\frac{9ke^2}{2500a_0}$$\n\nSOLUTION 1:\n\nAt the critical separation distances, $\\vec{v}\\perp\\vec{r}$ and $L=mvr$. The energy at $r_{\\max}$ and $r_{\\min}$ can be written as\n\n$$E=2\\frac{L^2}{2mr^2}-\\frac{ke^2}{r}$$\n\nUsing $L=2\\mu\\hbar=8\\hbar$ and the conservation of energy,\n\n$$-\\frac{9ke^2}{2500a_0}=\\frac{64\\hbar^2}{mr^2}-\\frac{ke^2}{r}$$\n\n$$\\frac{ke^2}{a_0}\\left(\\frac{9}{2500}r^2-a_0r+64a_0^2\\right)=0$$\n\n$$r=\\frac{a_0\\pm\\sqrt{a_0^2-\\frac{576}{625}a_0^2}}{9/1250}$$\n\n$$r=\\frac{1250}{9}a_0\\left(1\\pm\\frac{7}{25}\\right)$$\n\nThe maximum separation corresponds to the solution with the plus sign,\n\n$$r_{\\max}=\\frac{1600}{9}a_0$$\n\nSOLUTION 2:\n\nSince the energy is negative and the electrostatic force is central and proportional to $r^{-2}$, the trajectory of the particles will be elliptical with respect to the CM. The energy can be written in terms of the semi-major axis $x$ as\n\n$$E=-\\frac{ke^2}{2x}$$\n\n$$x=\\frac{1250}{9}a_0$$\n\nSince $\\vec{v}_0$ is perpendicular to the vector that connects the two particles, the initial position must correspond to either $r_{\\max}$ or $r_{\\min}$. The other critical distance, $r_2$ is given by the definition of $x$:\n\n$$2x=r_0+r_2$$\n\n$$r_2=\\left(\\frac{2500}{9}-100\\right)a_0=\\frac{1600}{9}a_0$$\n\nWhich is greater than $r_0$ and corresponds to $r_{\\max}$\n\nSOLUTION 3:\n\nThe general equation for the trajectory in polar coordinates is\n\n$$r(\\theta)=\\frac{\\ell}{1+\\varepsilon\\cos(\\theta-\\theta_0)}$$\n\nwith $\\ell=\\frac{2L^2}{mke^2}$ the semi-latus rectum and $\\varepsilon$ the eccentricity, as given by the hint in question T1-B2. The maximum separation distance is reached when $\\cos(\\theta-\\theta_0)=-1$:\n\n$$r_{\\max}=\\frac{\\ell}{1-\\varepsilon}$$\n\nCalculating the values of $\\ell$ and $\\varepsilon$,\n\n$$\\ell=\\frac{2(8\\hbar)^2}{mke^2}=128a_0$$\n\n$$\\varepsilon=\\sqrt{1-\\frac{36ke^2(8\\hbar)^2}{2500a_0m(ke^2)^2}}$$\n\n$$\\varepsilon=\\sqrt{1-\\frac{2304}{2500}}=\\frac{7}{25}$$\n\nReplacing these values in the expression for $r_{\\max}$,\n\n$$r_{\\max}=\\frac{128}{1-(7/25)}a_0=\\frac{1600}{9}a_0$$\n\nT1-B2 [2.5 pts].\n\nFor $\\mu=15/2$,\n\n$$E=+\\frac{ke^2}{80a_0}$$\n\nThe distance between particles follows\n\n$$r(\\theta)=\\frac{\\ell}{1+\\varepsilon\\cos(\\theta-\\theta_0)}$$\n\nSince the initial position corresponds to the closest approach, it is convenient to measure the angle $\\theta$ with respect to the $y$ axis so that $\\cos\\theta_0=1$, $\\theta_0=0$.\n\nFor $r\\to\\infty$,\n\n$$1+\\varepsilon\\cos\\theta'\\to0$$\n\n$$\\theta'=\\arccos(-1/\\varepsilon)$$\n\nCalculating the eccentricity,\n\n$$\\varepsilon=\\sqrt{1+\\frac{4ke^2(15\\hbar^2)}{80a_0m(ke^2)^2}}$$\n\n$$\\varepsilon=\\sqrt{1+\\frac{45}{4}}=\\frac{7}{2}$$\n\nReplacing this value in the expression for $\\theta$,\n\n$$\\theta'=\\arccos(-2/7)=106.60^\\circ$$\n\nSince this is the angle with respect to the y-axis but the initial $e^+$ velocity is directed towards the positive x-axis, heading downward\n\n$$\\theta=90^\\circ-\\theta'=-16.60^\\circ$$\n\nT1-C [3.5 pts]. Photodissociation of ozone\n\nT1-C1 [2.5 pts].\n\nSOLUTION 1: pure algebra\n\nThe momentum conservation is\n\n$$\\hbar\\frac{\\omega}{c}\\hat{k}=\\vec{p}+\\vec{q},$$\n\nwhere $\\vec{p}$ and $\\vec{q}$ are the momentum of the O₂ and the O, respectively. Solving for $q^2$,\n\n$$q^2=\\left(\\frac{\\hbar\\omega}{c}-p\\cos(\\theta)\\right)^2+p^2\\sin^2(\\theta).$$\n\nThe energy conservation reads\n\n$$\\hbar\\omega=\\Delta U+\\frac{p^2}{4m}+\\frac{q^2}{2m}$$\n\nwhere $\\Delta U=U_f-U_i$.\n\nFor a given $\\theta$, $p$ can be written in terms of $\\omega$. Replacing $q^2$ on energy balance and simplifying, we get\n\n$$p^2-\\frac{4\\hbar\\omega\\cos(\\theta)}{3c}p+\\frac{2\\hbar^2\\omega^2}{3c^2}+\\frac{4}{3}m(\\Delta U-\\hbar\\omega)=0.$$\n\nThis gives a quadratic equation on $p$. For $p$ to be real, the discriminant must be positive.\n\n$$\\frac{16\\hbar^2\\omega^2\\cos^2(\\theta)}{9c^2}-4\\left(\\frac{2\\hbar^2\\omega^2}{3c^2}+\\frac{4}{3}m(\\Delta U-\\hbar\\omega)\\right)\\geq0$$\n\nThe previous bound determines $\\omega_{\\min}$ as the minimal root of the quadratic equation on $\\omega$\n\n$$(\\cos(2\\theta)-2)\\hbar^2\\omega^2+6mc^2\\hbar\\omega-6\\Delta U\\,mc^2=0$$\n\n$$\\omega_\\pm=\\frac{-6mc^2\\hbar\\pm\\sqrt{D}}{2(\\cos(2\\theta)-2)\\hbar^2}$$\n\n$$D=36\\hbar^2m^2c^4+24\\Delta U\\,mc^2\\hbar^2(\\cos(2\\theta)-2)$$\n\nThe smallest root $\\omega_+$. Thus, simplifying, one gets\n\n$$\\omega_{\\min}=\\frac{3mc^2-\\sqrt{3mc^2(3mc^2+2\\Delta U(\\cos(2\\theta)-2))}}{\\hbar(2-\\cos(2\\theta))}$$\n\nSOLUTION 2: Center of mass approach\n\nPart I: Conservation laws\n\nFirst, find the velocity of the center of mass. We get\n\n$$(3mv_{\\mathrm{CM}})=p_\\gamma=\\hbar\\omega/c$$\n\nWe will use $p_\\gamma$ for calculations\n\n$$v_{\\mathrm{CM}}=p_\\gamma/(3m)$$\n\nWe want to relate the relative velocities in CM. We have by magnitude\n\n$$2mv_1=mv_2$$\n\nAnd $v_2$ is the single oxygen atom (the one we don't want). The energy conservation equation is\n\n$$\\begin{aligned}E_\\gamma=p_\\gamma c&=\\frac{1}{2}(3m)v_{\\mathrm{CM}}^2+\\Delta U+\\frac{1}{2}mv_2^2+\\frac{1}{2}(2m)v_1^2\\\\&=\\Delta U+\\frac{p_\\gamma^2}{6m}+\\frac{1}{2}\\times6m(v_1)^2\\end{aligned}$$\n\nWe can now find $v_1$ in terms of $p_\\gamma$.\n\nPart 2: geometry and critical condition\n\nWe see that the set of possible velocities $\\vec{v}_1$ form a circle (they have constant $v_1$). We need to consider that $\\theta$ is the angle between $\\vec{v}_{\\mathrm{CM}}$ and $\\vec{v}_{\\mathrm{CM}}+\\vec{v}_1$ (this is the full velocity of particle 1).\n\nIf the circle of radius $v_1$ is too small there is no solution (the straight line at the angle will not intersect the circle). If the radius $v_1$ is big enough, there will always be two solutions intersecting the circle. The critical case (crossover from no solution to two) is when the circle is tangent to the straight line. This is the case we need.\n\nIn that case the triangle formed by $0$, $\\vec{v}_{\\mathrm{CM}}$, $\\vec{v}_{\\mathrm{CM}}+\\vec{v}_1$ is a right triangle.\n\nWarning: This can only happen if $\\theta\\leq90^\\circ$. The other case will be dealt with separately.\n\nThis way\n\n$$v_1=v_{\\mathrm{CM}}\\sin(\\theta)$$\n\nReplace above to find that in conservation of energy\n\n$$p_\\gamma c=\\Delta U+\\frac{p_\\gamma^2}{6m}+\\frac{1}{2}\\times\\frac{p_\\gamma^2\\sin^2(\\theta)}{3m}$$\n\nnow we can solve the quadratic equation for $p_\\gamma$. We get (we need to choose the correct solution of the quadratic equation)\n\n$$p_\\gamma=\\frac{3cm-\\sqrt{3}\\sqrt{m}\\sqrt{3c^2m+2\\Delta U\\cos(2\\theta)-4\\Delta U}}{2\\sin^2(\\theta)+1}$$\n\nNote: Any of the following expressions are the same:\n\n$$2\\sin^2(\\theta)+1=3-2\\cos^2(\\theta)=2-\\cos(2\\theta)$$\n\nRewrite as the angular frequency\n\n$$\\omega_{\\min}=3mc^2\\left[\\frac{1-\\sqrt{1-\\frac{\\Delta U}{3mc^2}(2\\sin^2(\\theta)+1)}}{(2\\sin^2(\\theta)+1)\\hbar}\\right]$$\n\nSpecial case: $\\theta\\geq90^\\circ$, this is essentially impossible to see in a brute force algebraic solution, but it is an important feature of the problem. Needs a small amount of points in this solution\n\nFor angle greater than $90^\\circ$, as soon as the circle reaches the answer for $90^\\circ$ it becomes big enough to allow all angles. Formula is the same with $\\theta=90^\\circ$.\n\nT1-C2 [1.0 pts].\n\nUp to second order in $\\Delta U$\n\n$$\\omega_{\\min}=\\frac{\\Delta U}{\\hbar}-\\frac{(\\cos(2\\theta)-2)\\Delta U^2}{6\\hbar mc^2}$$\n\n$$\\hbar\\omega_{\\min}-\\Delta U=\\frac{(2-\\cos(2\\theta))}{6mc^2}(\\Delta U)^2$$\n\n$$\\hbar\\omega_{\\min}-\\Delta U=2.03\\times10^{-11}\\ \\mathrm{eV}$$",
+    "figures": [
+      "/corpus/2026/ipho-t1/gate-solution.png"
+    ],
+    "shared": false,
+    "referencePdf": "/corpus/2026/ipho-t1/solution.pdf"
+  },
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2026_Q1.pdf",
+      "note": "Original English PDF supplied by the owner. Matched title, page count and printed content against the original PDF linked by Olimpicos. Local reference bytes retained unchanged."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2026_S1.pdf",
+      "note": "Original English PDF supplied by the owner. Matched title, page count and printed content against the original PDF linked by Olimpicos. Local reference bytes retained unchanged."
+    }
+  ]
+}
