@@ -29,7 +29,7 @@ Repeated logos, running headers and footers remain in the original references. R
 
 Native statement: 29 top-level nodes, three displayed equations, 46 inline expressions and three figures. Native solution: 121 top-level nodes, 53 displayed equations, 69 inline expressions and one figure. All five scored subquestions remain under one ID and sum to 10 points. All three B1 methods and both C1 methods are included.
 
-Four precise, four-times-resolution crops retain the source diagrams. No whole-page screenshot is used as native content. Figure captions are semantic text, excluded from crops to avoid duplication. Geometry, labels, signs, arrows, angle and distances remain faithful to the supplied PDF. Original local PDFs remain directly accessible from each native document.
+Four precise crops rendered at 288 dpi retain the source diagrams. No whole-page screenshot is used as native content. Figure captions are semantic text, excluded from crops to avoid duplication. Geometry, labels, signs, arrows, angle and distances remain faithful to the supplied PDF. Original local PDFs remain directly accessible from each native document.
 
 ## Source issues requiring human physics review
 
@@ -55,3 +55,48 @@ The existing HTML structured-node and KaTeX renderer is reused. Displayed equati
 The historical difficulty test still checks the original ledger against its exact 100 imported and 18 original identities. A separate native test covers the new estimate. Existing grading, player ratings, database schema, authentication and dependencies are unchanged.
 
 Local QA results and exact head are recorded in the draft PR. GitHub Actions usage is unavailable, remote failures are not passing code verification. Sources are supplied official content, not independently certified physics corrections. Real providers, physical devices and unavailable browser engines are not qualified by synthetic local checks.
+
+## Local verification record
+
+Implementation `8b5fb23490346283156f2b0df1e795d2cd89eda8`, tree `34c506e8889b3375ea0d0bfaca03d29d53821c4a`, follows current main `035be5793e30888dec22216247c9f28916a221cb`. Main's #128 sidebar removal and expanded library browser test are retained. Later commits only record verification and handoff documentation. GitHub writes use `arrowdunatos`.
+
+Environment: isolated credential-free worktree, Node 22.23.1, pnpm 10.34.9, Chromium 154, external Playwright 1.64.1 and axe 4.14.0. The production build uses the existing loopback guard and synthetic configuration, with a normal worktree-local `.next`. External browser tooling is not an application dependency.
+
+| Check | Result |
+| --- | --- |
+| Frozen install | Pass |
+| Offline guards | Pass, two inherited platform skips |
+| Next type generation and TypeScript | Pass |
+| Zero-warning ESLint | Pass |
+| Focused source, schema, catalog, estimates, host, SEO and rendering | 77 pass |
+| Full server | 796 pass, 24 database-dependent skips, one inherited TODO, zero failures |
+| Full components | 141 pass, zero failures |
+| Guarded production build | Pass |
+| Native production browser | Eight document/width/theme combinations pass, 375/1440, light/dark |
+| Main's problem-library browser | 56 checks pass, 375/1440 |
+| Guest whole-site sweep | 336 combinations, zero distinct failures |
+| Synthetic signed-in sweep | 72 combinations, zero distinct failures |
+
+The native browser verifies all five questions in both documents, alternative solution methods, loaded/labelled figures, zero KaTeX errors, HTTP 200 original PDFs with valid PDF signatures, keyboard focus, actual arrow-key equation scrolling, no horizontal page overflow and zero serious/critical axe findings. Initial HTML includes native maths and questions. The obsolete plain-text LaTeX duplicate is absent. Screenshots were inspected.
+
+Initial checks found stale collection counts and a tag outside the canonical vocabulary. Counts and date expectations now explicitly include T1, and the import uses existing Hydrostatics, Orbital dynamics and Momentum conservation tags. The first browser fixture passed a relative URL to Playwright's request client, then used an absolute local URL. Actual browser findings exposed inaccessible equation scrolling and duplicated raw LaTeX. The renderer and native server handoff were fixed and verified without relaxing checks. A missing handoff was caught by the new initial-HTML assertion before being corrected. The component fixture explicitly supplies React for tsx's classic JSX runtime, matching the application's automatic Next JSX runtime. One broad run ended without a completed summary, no cause is asserted. The final full server suite uses the same file set and assertions with test concurrency limited to two.
+
+Reproduce with Node 22 on PATH, inherited service credentials removed and no root dotenv files:
+
+```sh
+corepack pnpm install --frozen-lockfile
+python3 -B scripts/phase-c-offline/run.py safety
+corepack pnpm exec next typegen
+corepack pnpm exec tsc --noEmit
+corepack pnpm lint --max-warnings=0
+node --require ./tests/server-only-register.cjs --import tsx --test lib/ipho-2026-native.test.ts lib/imported-corpus.test.ts lib/corpus-catalog.test.ts lib/problem-archive.test.ts lib/olympiad-hosts.test.ts lib/seo-problem-pages.test.ts lib/seo-public-routes.test.ts lib/public-problem-metadata.test.ts tests/problem-card.test.ts tests/imported-native.test.ts
+node --require ./tests/server-only-register.cjs --import tsx --test --test-concurrency=2 lib/*.test.ts
+corepack pnpm test:ui
+node --import tsx scripts/csp/local.mjs --build
+AUTHORING_BROWSER_TOOLS=/external/browser-tools CHROMIUM_PATH=/usr/bin/chromium node tests/ipho-2026-native.browser.mjs
+```
+
+Native screenshots and server logs are stored under `work/ipho-2026-browser`. Standard command logs are in `/tmp/ipho26-final-*.log`. Whole-site browser evidence and exact final head are recorded in the PR after completion. Superseded sweeps were stopped after source/main changes and are not counted as passes. The full database/release packages were not rerun because their contracts and sources are unchanged. Disposable PostgreSQL is used only for synthetic site-browser fixtures. No live providers, physical phones or unavailable Firefox/WebKit engines are qualified here.
+
+
+Both final site sweeps passed on the reconciled implementation. The existing command is `SWEEP=1 node tests/solve-contrast.browser.mjs`, with a synthetic `SESSION_COOKIE` for the second pass. Widths are 375/390/768/1440 in both themes. Guest minimum text/border contrast is 4.64:1/3.70:1. Signed-in ratios are recorded in the retained logs. Browser seed, server and sweep logs are in `work/difficulty-review`. The synthetic session cookie is removed after completion. Optional admin and published-authored-student stages are not included. No deployed or live-provider qualification is inferred.

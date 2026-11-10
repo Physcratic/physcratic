@@ -1,5 +1,12 @@
 # Beta readiness log
 
+## 2026-11-10 - IPhO 2026 native T1
+
+- Implementation `8b5fb23490346283156f2b0df1e795d2cd89eda8`, based on main `035be5793e30888dec22216247c9f28916a221cb`. T1 only, one ID with A/B/C and five scored questions, all official solution methods, four source crops, accessible original PDFs and verified Colombia host metadata. [Source hashes, completeness and six physics review flags](IPHO_2026_NATIVE.md).
+- Reuses the imported HTML/KaTeX renderer. Native statements render on the server and avoid the raw-LaTeX text duplicate. Display maths supports keyboard scrolling. Historical 100 imports and the 118-problem difficulty review remain intact, current totals are 101 imports and 119 estimates. The new estimate is 2250, based on torque modelling, central-force geometry and a constrained recoil threshold with supplied hints. Self-review only, no automatic grading.
+- Node 22.23.1/pnpm 10.34.9, frozen install and offline guards. Focused 77, server 796 pass with 24 DB skips and one inherited TODO, components 141, guarded build, typecheck/lint, eight native browser combinations, 56 library checks and guest/signed-in sweeps 336/72 all pass. Final local checks and limitations are recorded in the linked review and PR. Earlier verification failures are retained in that evidence. Actions usage is unavailable, remote checks are not passing evidence.
+- Draft only, no merge or T2 work in this batch. GitHub uses `arrowdunatos`. No README trigger, deployment, Production/shared SQL, settings, feature gates, billing, dependency, auth, schema, student rating or grading operation.
+
 ## 2026-11-10 - Olympiad host-country flags
 
 - Implementation `cd049d2903b17df844e16b682be40749d74c5cee`, base main `40ced00d20c4ef01f34b6cedf80caa8c06bc2a47`, branch `claude/olympiad-host-flags`. Verified lookup for all 44 imported editions, 100 cards. Native flags appear immediately before competition badges, with accessible host names and explicit online labels. Joint IPhO 2016 shows both countries. Missing or future years omit the flag. [Sources, mapping and verification](OLYMPIAD_HOST_FLAGS.md).
