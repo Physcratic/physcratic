@@ -31,30 +31,38 @@ try {
     await new Promise(resolve => setTimeout(resolve, 100))
   }
   browser = await chromium.launch({ headless: true, ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}) })
-  for (const width of [375, 1440]) for (const theme of ['light', 'dark']) {
+  const problems = [
+    { id: 'ipho-2026-t1', prefix: 'T1', title: 'Three problems', codes: ['A1', 'B1', 'B2', 'C1', 'C2'], figures: [3, 1] },
+    { id: 'ipho-2026-t2', prefix: 'T2', title: 'Cooking with sunlight?', codes: ['A1', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3', 'C4'], figures: [7, 6] },
+  ]
+  for (const problem of problems) for (const width of [375, 1440]) for (const theme of ['light', 'dark']) {
     const context = await browser.newContext({ viewport: { width, height: 900 } })
     await context.addInitScript(theme => localStorage.setItem('theme', theme), theme)
     await context.route('**/*', route => new URL(route.request().url()).origin === origin ? route.continue() : route.abort())
     const page = await context.newPage()
     const errors = []
     page.on('pageerror', error => errors.push(error.message))
-    const response = await page.goto(origin + '/dashboard/problems/ipho-2026-t1')
+    const response = await page.goto(origin + '/dashboard/problems/' + problem.id)
     const serverHtml = await response.text()
-    assert.match(serverHtml, /<h4>T1-A1/)
+    assert.ok(serverHtml.includes(`<h4>${problem.prefix}-A1`))
     assert.match(serverHtml, /class="katex/)
     assert.equal(await page.getByRole('heading', { name: 'Statement as text', exact: true }).count(), 0)
-    await page.getByRole('heading', { level: 1, name: 'Three problems', exact: true }).waitFor()
+    await page.getByRole('heading', { level: 1, name: problem.title, exact: true }).waitFor()
     for (const kind of ['statement', 'solution']) {
       if (kind === 'solution') await page.getByRole('tab', { name: /Worked solution/ }).click()
       const article = page.locator('.imported-source-content:visible')
       await article.waitFor()
-      for (const code of ['A1', 'B1', 'B2', 'C1', 'C2']) assert.equal(await article.getByRole('heading', { name: new RegExp(`^T1-${code} `) }).count(), 1)
-      if (kind === 'solution') {
+      for (const code of problem.codes) assert.equal(await article.getByRole('heading', { name: new RegExp(`^${problem.prefix}-${code} `) }).count(), 1)
+      if (kind === 'solution' && problem.prefix === 'T1') {
         assert.equal(await article.getByRole('heading', { name: 'SOLUTION 3:', exact: true }).count(), 1)
         assert.match(await article.innerText(), /Special case:/)
       }
+      if (kind === 'solution' && problem.prefix === 'T2') {
+        assert.match(await article.innerText(), /Alternative answer in terms of/)
+        assert.match(await article.innerText(), /Alternative solution parametrized/)
+      }
       const images = article.locator('img')
-      assert.equal(await images.count(), kind === 'statement' ? 3 : 1)
+      assert.equal(await images.count(), problem.figures[kind === 'statement' ? 0 : 1])
       for (const img of await images.all()) {
         await img.scrollIntoViewIfNeeded()
         await img.evaluate(img => img.decode())
@@ -65,7 +73,7 @@ try {
       for (const equation of await article.locator('.katex-display').all()) {
         assert.equal(await equation.getAttribute('tabindex'), '0')
       }
-      if (width === 375) {
+      if (width === 375 && (problem.prefix === 'T1' || kind === 'solution')) {
         const overflow = await article.locator('.katex-display').evaluateAll(nodes => nodes.findIndex(el => el.scrollWidth > el.clientWidth + 1))
         assert.ok(overflow >= 0)
         const equation = article.locator('.katex-display').nth(overflow)
@@ -84,12 +92,12 @@ try {
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false)
       const axe = await new AxeBuilder({ page }).analyze()
       assert.deepEqual(axe.violations.filter(v => ['serious', 'critical'].includes(v.impact)), [])
-      await page.screenshot({ path: `${out}/${kind}-${width}-${theme}.png`, fullPage: true })
+      await page.screenshot({ path: `${out}/${problem.prefix}-${kind}-${width}-${theme}.png`, fullPage: true })
     }
     assert.deepEqual(errors, [])
     await context.close()
   }
-  console.log('PASS 8 production native document combinations, complete questions, alternative solutions, maths, figures, original PDFs, focus, overflow and axe')
+  console.log('PASS 16 production native document combinations, complete questions, alternative solutions, maths, figures, original PDFs, focus, overflow and axe')
 } finally {
   await browser?.close()
   server.kill('SIGTERM')

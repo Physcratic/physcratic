@@ -10,6 +10,7 @@ export function normalizeNumericUnits(units: string): string {
   return label === "1" ? "" : label;
 }
 const id = z.uuid().transform((value) => value.toLowerCase());
+export const expressionAnswerLimit = 180;
 export const gradeSelectionSchema = z.strictObject({
   problemId: id,
   revisionId: id,
@@ -24,7 +25,7 @@ export const authoredAnswerSchema = z.discriminatedUnion("kind", [
   numericAnswerSchema,
   z.strictObject({
     kind: z.literal("expression"),
-    expression: z.string().min(1).max(180),
+    expression: z.string().min(1).max(expressionAnswerLimit),
   }),
   z.strictObject({ kind: z.literal("manual"), text: z.string().max(4000) }),
 ]);

@@ -1,0 +1,114 @@
+{
+  "id": "ipho-2026-t2",
+  "indexing": "Ranges are inclusive, one based. Maths counts each inline or displayed LaTeX expression in document order. Aligned derivations remain one displayed expression.",
+  "documents": {
+    "statement": {
+      "sha256": "d105a67ea95650c035c3c1c2f7649b27fc594843e8037485927af1711225ce55",
+      "pdfPages": 4,
+      "nodes": 26,
+      "mathExpressions": 67,
+      "displayedExpressions": 0,
+      "pages": [
+        {
+          "pdfPage": 1,
+          "printedPage": 7,
+          "nodeStart": 1,
+          "mathStart": 1,
+          "displayStart": 1,
+          "nodeEnd": 6,
+          "mathEnd": 1,
+          "displayEnd": 0
+        },
+        {
+          "pdfPage": 2,
+          "printedPage": 8,
+          "nodeStart": 7,
+          "mathStart": 2,
+          "displayStart": 1,
+          "nodeEnd": 12,
+          "mathEnd": 14,
+          "displayEnd": 0
+        },
+        {
+          "pdfPage": 3,
+          "printedPage": 9,
+          "nodeStart": 13,
+          "mathStart": 15,
+          "displayStart": 1,
+          "nodeEnd": 19,
+          "mathEnd": 33,
+          "displayEnd": 0
+        },
+        {
+          "pdfPage": 4,
+          "printedPage": 10,
+          "nodeStart": 20,
+          "mathStart": 34,
+          "displayStart": 1,
+          "nodeEnd": 26,
+          "mathEnd": 67,
+          "displayEnd": 0
+        }
+      ]
+    },
+    "solution": {
+      "sha256": "2256104b843dcaa7031ab3d14a9f32eea6f6be6714a3f284ee028c752b73493f",
+      "pdfPages": 5,
+      "nodes": 138,
+      "mathExpressions": 119,
+      "displayedExpressions": 63,
+      "pages": [
+        {
+          "pdfPage": 1,
+          "printedPage": 5,
+          "nodeStart": 1,
+          "mathStart": 1,
+          "displayStart": 1,
+          "nodeEnd": 26,
+          "mathEnd": 26,
+          "displayEnd": 9
+        },
+        {
+          "pdfPage": 2,
+          "printedPage": 6,
+          "nodeStart": 27,
+          "mathStart": 27,
+          "displayStart": 10,
+          "nodeEnd": 56,
+          "mathEnd": 53,
+          "displayEnd": 19
+        },
+        {
+          "pdfPage": 3,
+          "printedPage": 7,
+          "nodeStart": 57,
+          "mathStart": 54,
+          "displayStart": 20,
+          "nodeEnd": 89,
+          "mathEnd": 79,
+          "displayEnd": 36
+        },
+        {
+          "pdfPage": 4,
+          "printedPage": 8,
+          "nodeStart": 90,
+          "mathStart": 80,
+          "displayStart": 37,
+          "nodeEnd": 116,
+          "mathEnd": 101,
+          "displayEnd": 49
+        },
+        {
+          "pdfPage": 5,
+          "printedPage": 9,
+          "nodeStart": 117,
+          "mathStart": 102,
+          "displayStart": 50,
+          "nodeEnd": 138,
+          "mathEnd": 119,
+          "displayEnd": 63
+        }
+      ]
+    }
+  }
+}

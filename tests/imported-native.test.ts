@@ -27,3 +27,21 @@ for (const kind of ["statement", "solution"] as const) {
     }
   })
 }
+
+const t2 = importedProblemSchema.parse(JSON.parse(readFileSync("public/corpus/english-problems/ipho-2026-t2.json", "utf8")))
+for (const kind of ["statement", "solution"] as const) {
+  test(`T2 ${kind} renders all eight questions, original diagrams and mathematical notation`, () => {
+    const doc = t2[kind]
+    if (doc.format !== "html") throw new Error("Expected native document")
+    const html = renderToStaticMarkup(createElement(ImportedSourceContent, { nodes: doc.nodes, language: "en" }))
+    assert.doesNotMatch(html, /katex-error|<script|<iframe/)
+    assert.match(html, /<math/)
+    for (const code of ["A1", "B1", "B2", "B3", "C1", "C2", "C3", "C4"]) assert.ok(html.includes(`T2-${code}`), code)
+    for (const src of doc.figures) assert.ok(html.includes(`src="${src}"`), src)
+    if (kind === "solution") {
+      assert.match(html, /tabindex="0" role="group" aria-label="Equation"/)
+      assert.match(html, /Alternative answer in terms of/)
+      assert.match(html, /Alternative solution parametrized/)
+    }
+  })
+}

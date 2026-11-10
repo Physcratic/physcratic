@@ -45,7 +45,7 @@ test("ELO bands match the filter boundaries", () => {
 
 test("every Arena, archive and guided problem has an explicit editorial difficulty estimate", () => {
   const entries = [...arena.problems, ...catalogProblems, ...corpusProblems];
-  assert.equal(new Set(entries.map((problem) => problem.id)).size, 119)
+  assert.equal(new Set(entries.map((problem) => problem.id)).size, 120)
   const estimates = entries.map((problem) => {
     const elo = getEstimatedProblemElo(problem.id);
     assert.ok(Number.isInteger(elo) && elo >= 800 && elo <= 3000, problem.id);
