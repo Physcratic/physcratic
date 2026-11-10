@@ -1,5 +1,11 @@
 # Beta readiness log
 
+## 2026-11-10 - Olympiad host-country flags
+
+- Implementation `cd049d2903b17df844e16b682be40749d74c5cee`, base main `40ced00d20c4ef01f34b6cedf80caa8c06bc2a47`, branch `claude/olympiad-host-flags`. Verified lookup for all 44 imported editions, 100 cards. Native flags appear immediately before competition badges, with accessible host names and explicit online labels. Joint IPhO 2016 shows both countries. Missing or future years omit the flag. [Sources, mapping and verification](OLYMPIAD_HOST_FLAGS.md).
+- Clean worktree, Node 22.23.1/pnpm 10.34.9. Frozen install, offline guards, typegen/TypeScript, zero-warning lint and guarded production build pass. Focused tests 34, server 794 pass with 24 DB skips and one inherited TODO, components 139 pass. Four focused Chromium width/theme combinations pass, including placement, wrapping, keyboard opening/focus and axe. Screenshots inspected. Full guest and synthetic signed-in sweeps pass 336 and 72 combinations with zero distinct failures. Commands and limitations are in the linked report. Actions usage is unavailable, remote checks are not claimed as passing.
+- Rechecked concurrent #133/#134/#136/#137 with no overlapping card/lookup source changes. Only shared engineering-document additions need normal reconciliation. No difficulty, catalog, sources, reader, grading, schema, authentication, dependency, settings, Production/shared SQL, deployment or README trigger. Draft PR only, stop without merging or deploying.
+
 ## 2026-11-10 - Editorial problem difficulty review
 
 - [PR #135](https://github.com/Physcratic/physcratic/pull/135), base `ab8881007fa6fe040b87a1b0fdb6a85e2d12b295`, implementation `73e26b6c7954258cf63b7f3bbd70f61a46d9ac0f`. Inspected all 118 current problems in batches of at most 12, using original local imported PDFs and current native statements, figures and worked solutions. Change 62 estimates and preserve 56. All seven provisional anchors remain after source review. Ratings reflect solving work after guidance, without measured solving statistics.
