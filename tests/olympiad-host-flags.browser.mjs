@@ -22,7 +22,7 @@ try {
     import {catalogProblems} from './lib/corpus-catalog'
     const ids=['ipho-2025-t1','apho-2025-t1','eupho-2025-t1','ipho-2016-t1','apho-2016-t1','ipho-2021-t1','eupho-2020-t1','apho-2022-t1']
     const entries=ids.map(id=>catalogProblems.find(p=>p.id===id)!)
-    entries.push({...entries[0],year:2026})
+    entries.push({...entries[0],year:2027})
     window.opened=[]
     createRoot(document.getElementById('root')!).render(<main className="mx-auto max-w-4xl p-4"><h1>Olympiad cards</h1><h2>Collection</h2><h3>Problems</h3><div className="space-y-4">{entries.map(p=><OlympiadProblemCard key={p.id+p.year} problem={p} onOpen={id=>window.opened.push(id)} />)}</div></main>)
   ` }, bundle: true, outfile: join(temp, 'bundle.js'), platform: 'browser', format: 'esm', jsx: 'automatic', define: { 'process.env': '{}', 'process.env.NODE_ENV': '"production"' } })

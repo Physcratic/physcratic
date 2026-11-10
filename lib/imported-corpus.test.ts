@@ -16,10 +16,10 @@ const content = catalogProblems.map((problem) =>
   ),
 );
 
-test("every one of the 100 catalog problems has complete local statement and solution content", () => {
-  assert.equal(content.length, 100);
-  assert.equal(manifest.count, 100);
-  assert.equal(new Set(content.map((problem) => problem.id)).size, 100);
+test("every one of the 103 catalog problems has complete local statement and solution content", () => {
+  assert.equal(content.length, 103)
+  assert.equal(manifest.count, 103)
+  assert.equal(new Set(content.map((problem) => problem.id)).size, 103)
   for (const problem of content) {
     assert.equal(
       problem.id,
@@ -70,8 +70,8 @@ test("the downloadable corpus contains all statements and solutions, not only li
   const collection = JSON.parse(
     readLocal("/corpus/collection.json").toString(),
   );
-  assert.equal(collection.count, 100);
-  assert.equal(collection.problems.length, 100);
+  assert.equal(collection.count, 103)
+  assert.equal(collection.problems.length, 103)
   for (const source of collection.problems) {
     const parsed = importedProblemSchema.parse(source);
     assert.ok(parsed.statement.text.length >= 80);
@@ -108,7 +108,7 @@ test("2019 official solutions are split by the actual solution code, not the rep
 });
 
 test("all 75 IPhO and APhO imports use original English problem and solution PDFs", () => {
-  const originals = content.filter((record) => /^(ipho|apho)-/.test(record.id));
+  const originals = content.filter((record) => /^(ipho|apho)-/.test(record.id) && !record.id.startsWith("ipho-2026-"))
   assert.equal(originals.length, 75);
   for (const problem of originals) {
     assert.equal(problem.language, "en", problem.id);

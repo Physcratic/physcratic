@@ -11,7 +11,7 @@ test("all current imported editions have verified host metadata", () => {
     assert.match(host.flag, /^(?:[\u{1F1E6}-\u{1F1FF}]{2})+$/u)
     editions.add(`${problem.competition}-${problem.year}`)
   }
-  assert.equal(editions.size, 44)
+  assert.equal(editions.size, 45)
 })
 
 test("hosts depend on both competition and year", () => {
@@ -31,7 +31,7 @@ test("online editions retain the verified organiser rather than an abandoned ven
 
 test("missing, cancelled and future editions do not acquire guessed hosts", () => {
   for (const competition of ["IPhO", "APhO", "EuPhO"] as const) {
-    for (const year of [1900, 2026, 2099, NaN]) assert.equal(olympiadHost(competition, year), undefined)
+    for (const year of [1900, 2027, 2099, NaN]) assert.equal(olympiadHost(competition, year), undefined)
   }
   assert.equal(olympiadHost("APhO", 2020), undefined)
   assert.equal(olympiadHost("IPhO", 2020), undefined)

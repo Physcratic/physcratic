@@ -266,9 +266,9 @@ test("host flags identify online and joint hosts without adding a control", () =
 })
 
 test("unknown host metadata and non-competition cards omit the flag", () => {
-  const problem = { ...catalogProblems[0], year: 2026 }
+  const problem = { ...catalogProblems[0], year: 2027 }
   const html = renderToStaticMarkup(createElement(OlympiadProblemCard, { problem, onOpen() {} }))
   assert.doesNotMatch(html, /Hosted by|role="img"/)
-  assert.match(html, /2026 · T1/)
+  assert.match(html, /2027 · T1/)
   assert.doesNotMatch(render({ ...base, host: { country: "France", flag: "🇫🇷" }, onOpen() {} }), /Hosted by|🇫🇷/)
 })

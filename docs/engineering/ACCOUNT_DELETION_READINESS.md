@@ -1,28 +1,36 @@
 # B5 account deletion readiness
 
-10 November 2026. Inspected main `b1db1777db683d87ea121b9fbd16686f7750a2f5`, after B1, B2A, B2B, B3 and B4 merges. **NO-GO for a general account-deletion implementation, B5 merge or persistent-progress activation until the owner resolves the dispositions below.** This bounded change adds a regression for the existing disabled state and records the actual blockers. It does not implement deletion or authorize Production work.
+10 November 2026, continuation after the owner's account-wide policy approval. Reconciled with main `78abf9fbbb5ee603a465acade520dca2a8b9afb7`. **B5 remains NO-GO for runtime implementation, merge or activation because the mixed-subject evidence disposition below cannot yet be implemented safely.** This is the explicit privacy stop condition in the owner's completion instruction, not a renewed objection to the policy already approved.
 
-## Existing authority and behavior
+## Approved policy and current disabled behavior
 
-[PRACTICE_PROGRESS.md](PRACTICE_PROGRESS.md#approved-retention-policy-and-remaining-activation-prerequisites) approves preserving active-account practice history and erasing associated practice history through controlled verified account deletion, with a narrow ordinary-immutability exception. It does not establish a disposition for authored submissions, published material, verification evidence or staff/moderation audit identities. No backup-expiry or legal-hold policy is invented here.
+The owner approves erasing authentication/profile PII, private drafts, practice history, personal authored answers/reveal ownership, preferences and other unnecessary private account data. Appropriately licensed published problems/revisions/supporting media, other students' work, genuinely anonymous aggregates and the minimum justified security/moderation evidence are preserved. A shared retained login identity is not deletion. Historical migrations must remain unchanged, any future privileged exceptions must be narrow, and database/Blob work must not be falsely described as one transaction.
 
-`createAuthOptions` in `lib/auth-config.ts` does not enable Better Auth `user.deleteUser`. There is no application deletion UI or custom deletion endpoint. Better Auth 1.7.14 provides POST `/api/auth/delete-user` and GET `/api/auth/delete-user/callback`, but the configured feature is disabled. The new real-auth PostgreSQL regression confirms that authenticated, unauthenticated, forged-account, token/callback and repeated requests cannot erase either synthetic account, its credentials/sessions or saved practice records. The ordinary runtime test role has no DELETE permission on practice attempts.
+`createAuthOptions` still does not enable Better Auth `user.deleteUser`. There is no application deletion UI or custom deletion endpoint. The existing real-auth PostgreSQL regression verifies own/unauthenticated/forged-account/token/callback/repeated denial with identities, credentials, sessions and saved practice data intact. The ordinary runtime fixture has no practice-attempt DELETE privilege. No deletion workflow, outbox, migration or enabling flag is added by this readiness PR. `PRACTICE_CHECKS_ENABLED` stays default OFF, and 0017 is not automatically installed.
 
-`PRACTICE_CHECKS_ENABLED` remains default OFF. Migration0017 remains explicit operator installation only. No startup, build or request installs a migration. No new deletion flag, privileged function, migration, grant, runtime handler or activation path is introduced by B5.
+The former broad authored/practice disposition questions are resolved by the new policy. Published-content rights have their own [prospective licence/consent design](PUBLICATION_LICENSE_PROPOSAL.md), which does not activate Terms or infer existing consent. Unknown existing rights would deny deletion before cleanup and keep the feature disabled, rather than silently discard published content. Rights uncertainty alone is not treated as a reason to avoid technical work. The independent mixed-subject privacy conflict below is the actual remaining stop.
 
-## Actual account-data graph
+## Remaining mixed-subject privacy boundary
 
-| Data class | Current protection or gap | Required disposition before implementation |
-| --- | --- | --- |
-| Practice/Arena checks | 0017 `practice_check_attempt.user_id` RESTRICT, immutable attempt trigger, and part-to-attempt RESTRICT. Per-user rate rows cascade. | Erasure is approved, but it needs a narrowly authorized atomic exception. Do not grant ordinary DELETE or disable triggers. |
-| Authored student attempts and solution reveals | 0004/0005 user RESTRICT, immutable history, immutable revision/part references and recorded assistance. `AUTHORED_STUDENT_SUBMISSIONS.md`, SQL/migration safety, explicitly reserves account retention/deletion for a separately reviewed design. | Decide whether account deletion erases these records under a new exception, or retains irreversibly de-identified records with defined effects on historical completion/assistance. Practice-only approval does not choose this. |
-| Authored publications, revisions, permissions and private media | 0001 owner RESTRICT and immutable published revisions, 0003 retained media/revision bindings, 0005 `approved_by` RESTRICT and nondeletable permissions. Other students may reference the revisions. | Decide publication withdrawal/continued availability, rights attribution, retained private keys/media and owner responsibility. Existing FK mechanics do not authorize deleting other students' history or transferring ownership. |
-| Public profile/media, favourites and comments | Profile and ordinary preferences/favourites cascade. 0008 media references the profile with RESTRICT and requires tracked retire/delete transitions and private-object cleanup. 0013 intentionally permits comment author SET NULL. | Preserve existing comment anonymization. Account removal must reconcile private media/object cleanup without silently orphaning files or claiming network/object deletion is one SQL transaction. |
-| Medal proofs and staff/audit identities | 0010 claimant/staff RESTRICT, reviewer/audit references, immutable proof/audit and role history. Setting a staff role to none does not remove its identity reference. | Decide retained evidence and identity treatment. Existing instructions preserve proof, case and staff/audit history. Do not silently erase or reassign these records. |
-| Moderation cases/evidence | 0014 permits reporter/appeal FK anonymization but retains cases, immutable evidence/audit and raw actor IDs in other fields/JSON. | Define which identity links remain or are de-identified while preserving required evidence. An auth-user DELETE alone is not an erasure audit. |
-| Other account-owned data without a user FK | Current ORM has FK-free userId columns in solution attempts/evidence, legacy practice/archive progress, contest participation/results and individual rating records. 0016 also creates FK-free contest owner columns. | Specify cleanup/retention for private solution/evidence and public/historical contest/rating identities. Inventory owner columns and object registries as well as FKs. |
+A general instruction to retain the minimum justified evidence does not choose which identifiers or text may remain in a case concerning several people. Existing immutable storage deliberately mixes authors, reporters, reviewers and evidence subjects:
 
-Auth sessions and credential accounts have user cascades. This does not make the rest of the graph safe. Deactivation or retaining a live auth identity to satisfy RESTRICT is not account deletion.
+| Actual table/columns | Why automatic deletion or ID replacement is insufficient |
+| --- | --- |
+| `community_comment_evidence.body`, bound to `comment_id/content_version` | An exact historical comment can identify its author and describe other people. It can also be necessary evidence for another student's report/appeal. Removing the author's user FK does not redact the snapshot. |
+| `community_report.subject/details/resolution` and `community_moderation_appeal.reason/resolution` | A report or appeal belongs to one person but may identify a different person, refer to their content and form part of another case. Reporter/appeal SET NULL only changes the relational identity. |
+| `community_moderation_audit.reason/data/target`, `community_comment_review.reason`, `community_thread_lock.reason` | Free text and arbitrary JSON may contain identities outside the actor field. Matching raw user IDs or names cannot prove complete PII removal, and clearing whole payloads can destroy someone else's case evidence. |
+| `community_staff_audit.reason/operator`, `community_medal_claim.certificate_name/reason/reviewer_id`, `community_medal_audit.reason/actor_id` | A departing reviewer can be identified in another claimant's proof/review history. Erasing the other claimant's evidence is not authorized by deletion of that reviewer. |
+
+Sources: migrations0010 and0014. `community_immutable_audit` protects audit/evidence UPDATE/DELETE and0014 additionally blocks TRUNCATE. `community_case_guard` explicitly rejects case DELETE and preserves inputs while allowing narrow FK anonymization. These are established protections, not permission to retain personal information indefinitely.
+
+The safe missing mechanism is **one of**:
+
+- Verified operator redaction/adjudication for every affected mixed-subject case before deletion is allowed. It must identify the affected records beyond owner/FK columns, determine necessary third-party evidence, authorize specific redactions and leave an auditable completion decision without retaining the deleted identity unnecessarily.
+- An explicitly defined, limited evidence-retention exception with the actual purpose, permitted data/identity fields, restricted access, expiry/review rules and rights-request handling. No period or legal hold is invented here.
+
+Neither mechanism currently exists. Retaining identifiable originals indefinitely would violate the approved minimization policy, while generic structured-only replacement could destroy another person's evidence. A shared non-login principal, removing FK links or deleting personal attempt rows does not solve this. Therefore no privileged eraser, partial-success endpoint, new immutability exception or deletion migration is implemented. Policy approval resolved most prior questions, but this precise privacy/retention boundary still triggers the owner's explicit stop instruction.
+
+The rest of the already-inspected graph remains relevant for the later implementation: authored0001–0005 ownership/immutable revisions and attempts, profile/media0007/0008, proof/staff0010, comments/cases0013/0014, FK-free solution/evidence/contest/rating/archive rows and practice0017. Future deletion must preserve published dependencies/other students' rows, erase private drafts/answers and use durable, auditable private-object cleanup. No repeat platform audit is required.
 
 ## Disposable failure proof
 
@@ -36,21 +44,10 @@ The installed Better Auth 1.7.14 `internalAdapter.deleteUser` removes sessions a
 
 An unrelated account remained unchanged in every case. Production configuration was never enabled. The diagnostic is evidence against naively enabling the native facility, not a regression that requires unsafe behavior forever. A practice-only `beforeDelete` cleanup hook would not solve the remaining FK/retention graph or share a transaction automatically with subsequent adapter calls.
 
-## Owner decisions and B6 sequence
+## Exact next action and B6 sequence
 
-The next action is an owner policy decision, **before implementation or activation**:
+Resolve the mixed-subject boundary by specifying and qualifying operator adjudication/redaction, or the limited retention exception above. Review the prospective licence separately. Existing authors must not be treated as accepting it retroactively.
 
-1. Decide authored attempt/reveal erasure versus de-identified retention, and published material/private-media disposition when its author leaves. Retaining published content and other students' history requires a reviewed ownership/identity design. Do not infer a licence or transfer from the existing schema.
-2. Decide verification/staff/moderation evidence and identity retention, including reviewer references and identities in audit JSON. Preserve current immutable evidence until that disposition is approved. No retention duration or legal hold is assumed.
-3. Decide cleanup/retention for other private account records and external objects. Prefer explicit erasure of unnecessary private data and minimal, de-identified retained evidence where the owner requires retention. This is a recommendation for a decision, not an adopted policy.
+Then complete one default-OFF workflow with meaningful recent authentication, explicit confirmation, server-owned identity, transactional database erasure/de-identification, narrowly authorized immutable exceptions, replay/concurrency/rollback safety and a durable private-object cleanup outbox. A shared publication/audit principal must contain no closed-account PII and must be unable to acquire credentials, provider links or sessions. Licence checks must fail before cleanup where preservation rights are not established. Do not directly enable the demonstrated unsafe native deletion path.
 
-After those decisions, implement and qualify one complete verified workflow. Reuse Better Auth authentication/password or confirmation protections, but require server-owned identity, atomic database cleanup/identity removal, narrowly scoped privileges, immutable ordinary use, repeat/concurrency/failure safety and explicit external-object completion handling. Keep the feature default OFF until reviewed schema/runtime permissions are installed and tested. Do not treat the present guard regression as an implemented lifecycle.
-
-Only after that implementation passes may the activation phase:
-
-- Confirm reviewed deletion and progress migration IDs/checksums, installation order and least-privilege grants. No new migration ID is reserved by this readiness PR.
-- Verify actual provider backup retention, expiry, restore behavior and post-restore erasure handling. Do not promise immediate backup deletion.
-- Identify the exact Production database/branch and immutable migration ledger, using separately authorized operator evidence.
-- Establish recovery and application rollback. Default-OFF gates stop exposure, and populated history must not be erased to force a down migration.
-- Qualify synthetic accounts for save/replay/reload, isolation, deletion and injected failure, with effective restricted runtime privileges and the installed schema.
-- Obtain separate owner authorization for Production installation and activation. No Production SQL, grants, roles, settings, flags or manual deployment belongs to this B5 work.
+Only after complete implementation and focused verification may B6 qualify reviewed migration/checksum/grant prerequisites (no new ID is reserved here), actual provider backup retention/expiry and restore-erasure behavior, exact Production database/branch and migration ledger, recovery/rollback and synthetic save/replay/isolation/deletion/cleanup-failure flows. Default-OFF gates stop exposure. Populated history must not be destroyed to force a rollback. Obtain separate owner authorization before installing0017 or any deletion migration, granting runtime permissions or enabling either feature. No Production operations belong to this PR.

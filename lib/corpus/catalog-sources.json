@@ -1981,9 +1981,66 @@
       "url": "https://olimpicos.net/files/apho/APhO_2012_S3.pdf",
       "status": 200,
       "checkedOn": "2026-10-31"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2026_Q1.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2026_S1.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2026_Q2.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2026_S2.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2026_Q3.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2026_S3.pdf",
+      "status": "document-header-checked"
     }
   ],
   "problems": [
+    {
+      "id": "ipho-2026-t1",
+      "checkedOn": "2026-11-10",
+      "sourceTitle": "Three problems",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2026_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2026_S1.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
+    },
+    {
+      "id": "ipho-2026-t2",
+      "checkedOn": "2026-11-10",
+      "sourceTitle": "Cooking with sunlight?",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2026_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2026_S2.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
+    },
+    {
+      "id": "ipho-2026-t3",
+      "checkedOn": "2026-11-10",
+      "sourceTitle": "Chasing the absolute zero",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2026_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2026_S3.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
+    },
     {
       "id": "ipho-2025-t1",
       "checkedOn": "2026-10-31",

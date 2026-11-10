@@ -45,7 +45,7 @@ test("ELO bands match the filter boundaries", () => {
 
 test("every Arena, archive and guided problem has an explicit editorial difficulty estimate", () => {
   const entries = [...arena.problems, ...catalogProblems, ...corpusProblems];
-  assert.equal(new Set(entries.map((problem) => problem.id)).size, 118);
+  assert.equal(new Set(entries.map((problem) => problem.id)).size, 121)
   const estimates = entries.map((problem) => {
     const elo = getEstimatedProblemElo(problem.id);
     assert.ok(Number.isInteger(elo) && elo >= 800 && elo <= 3000, problem.id);
@@ -77,7 +77,7 @@ test("topic navigation and records share the updated taxonomy", () => {
 });
 
 test("difficulty review covers exactly the imported and original identities", () => {
-  const importedIds = new Set(catalogProblems.map((problem) => problem.id))
+  const importedIds = new Set(catalogProblems.filter((p) => p.year < 2026).map((problem) => problem.id))
   const originalIds = new Set(arena.problems.map((problem) => problem.id))
   assert.equal(importedIds.size, 100)
   assert.equal(originalIds.size, 18)

@@ -41,16 +41,16 @@ function alternateImport() {
   };
 }
 
-test("catalog contains exactly 100 unique full problems across the agreed competitions", () => {
-  assert.equal(catalogProblems.length, 100);
-  assert.equal(new Set(catalogProblems.map((problem) => problem.id)).size, 100);
+test("catalog contains exactly 103 unique full problems across the agreed competitions", () => {
+  assert.equal(catalogProblems.length, 103)
+  assert.equal(new Set(catalogProblems.map((problem) => problem.id)).size, 103)
   assert.deepEqual(
     competitions.map(
       (competition) =>
         catalogProblems.filter((problem) => problem.competition === competition)
           .length,
     ),
-    [40, 35, 25],
+    [43, 35, 25],
   );
   for (const problem of catalogProblems) {
     assert.equal(
@@ -140,10 +140,10 @@ test("verified local English titles match original PDF text, not editorial parap
 test("primary-topic accounting meets every target without counting mixed problems twice", () => {
   assert.equal(
     catalogCoverage.reduce((sum, row) => sum + row.count, 0),
-    100,
+    103,
   );
   for (const row of catalogCoverage) {
-    assert.equal(row.count, row.target, row.topic);
+    assert.equal(row.count, row.target + (["Mechanics", "Optics", "Thermodynamics"].includes(row.topic) ? 1 : 0), row.topic)
     assert.equal(
       Object.values(row.byCompetition).reduce((sum, count) => sum + count, 0),
       row.count,
@@ -151,7 +151,7 @@ test("primary-topic accounting meets every target without counting mixed problem
   }
 });
 
-test("all 100 records are imported while pilot guides, review and rights status remain honest", () => {
+test("all 103 records are imported while pilot guides, review and rights status remain honest", () => {
   assert.deepEqual(
     catalogProblems
       .filter((problem) => problem.hasPilotGuide)
@@ -160,8 +160,8 @@ test("all 100 records are imported while pilot guides, review and rights status 
     corpusProblems.map((problem) => problem.id).sort(),
   );
   assert.deepEqual(catalogExport.counts, {
-    total: 100,
-    imported: 100,
+    total: 103,
+    imported: 103,
     importedPilot: 5,
     sourceLinked: 0,
   });
@@ -195,7 +195,7 @@ test("every external statement and solution has recorded successful URL verifica
         );
       else assert.ok(verified.has(url), `${problem.id}: ${url}`);
     }
-    assert.equal(problem.checkedOn, problem.sourceKind === "english-archive" ? "2026-10-31" : "2026-10-28");
+    assert.equal(problem.checkedOn, problem.year === 2026 ? "2026-11-10" : problem.sourceKind === "english-archive" ? "2026-10-31" : "2026-10-28")
     if (problem.sourceKind === "official-bundle") {
       assert.equal(problem.statementUrl, problem.solutionUrl);
       assert.match(
@@ -221,17 +221,17 @@ test("catalog search composes competition, year, concept and estimated difficult
     filterCatalog({ competition: "APhO", query: "EuPhO" }).length,
     0,
   );
-  assert.equal(filterCatalog({ difficulty: "1600-plus" }).length, 100);
+  assert.equal(filterCatalog({ difficulty: "1600-plus" }).length, 103)
   assert.equal(filterCatalog({ difficulty: "1200-1599" }).length, 0);
   assert.equal(filterCatalog({ difficulty: "under-1200" }).length, 0);
   assert.equal(filterCatalog({ difficulty: "unrated" }).length, 0);
 });
 
 test("competition search supports partial names, contest years and combined filters", () => {
-  assert.equal(filterCatalog({ competition: "" }).length, 100);
-  assert.equal(filterCatalog({ competition: "   " }).length, 100);
-  assert.equal(filterCatalog({ competition: " ALL " }).length, 100);
-  assert.equal(filterCatalog({ competition: " ipho " }).length, 40);
+  assert.equal(filterCatalog({ competition: "" }).length, 103)
+  assert.equal(filterCatalog({ competition: "   " }).length, 103)
+  assert.equal(filterCatalog({ competition: " ALL " }).length, 103)
+  assert.equal(filterCatalog({ competition: " ipho " }).length, 43)
   assert.equal(filterCatalog({ competition: "apho" }).length, 35);
   assert.equal(filterCatalog({ competition: "euph" }).length, 25);
 
@@ -322,10 +322,10 @@ test("catalog export and original pilot endpoint remain separate downloadable JS
     /physcratic-olympiad-catalog\.json/,
   );
   const catalog = await response.json();
-  assert.equal(catalog.problems.length, 100);
-  assert.equal(catalog.counts.imported, 100);
+  assert.equal(catalog.problems.length, 103)
+  assert.equal(catalog.counts.imported, 103)
   assert.equal(catalog.counts.sourceLinked, 0);
-  assert.equal(catalog.imports.problems.length, 100);
+  assert.equal(catalog.imports.problems.length, 103)
   assert.equal(catalog.grading.rated, false);
   const pilot = await GET(
     new Request("https://physcratic.test/api/corpus"),

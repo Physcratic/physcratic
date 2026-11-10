@@ -1,0 +1,27 @@
+# Prospective publication licence and consent design
+
+**PROPOSAL ONLY. NOT ACTIVE TERMS, NOT LEGAL ADVICE OR A LEGAL-SUFFICIENCY CLAIM.** No Terms version, signup acceptance, Studio publishing behavior or existing author's rights is changed. Legal/operator review and a separate implementation/activation decision are required.
+
+## Current agreement and publishing declaration
+
+`lib/terms.ts`, version `2026-10-30-draft-1`, grants a limited non-exclusive licence reasonably necessary to provide, secure and maintain the features used. It does not clearly establish continuing publication after account closure. Its updates section explicitly rejects retroactive acceptance. `components/authoring/simple-model.ts` currently says “I wrote this problem and I'm happy to share it on Physcratic” or “I have permission to share this adapted problem on Physcratic.” Those declarations do not establish the proposed post-closure rights or third-party sublicensing authority.
+
+## Proposed narrowly scoped wording for review
+
+> You retain ownership of your original problem and supporting material. For material you intentionally publish on Physcratic, you grant Physcratic a non-exclusive licence to store, reproduce, format, host and display the published problem, its published revisions and the diagrams, worked solutions and supporting media needed to provide that published problem. Subject to applicable law and third-party rights, this limited publication licence continues after account closure so that the published problem and other students' work can remain available. It does not permit publication of private drafts, answers, notes or other private submissions, transfer your ownership or permit unrelated sale or reuse. Necessary service providers may process the licensed material only to operate that publication. Account closure removes your account identity from the byline, which becomes “Deleted user.” Rights complaints and applicable withdrawal/takedown rights remain subject to the reviewed process.
+
+Review duration, territorial scope, mandatory rights, service-provider permissions, treatment of revised/withdrawn versions and the actual operator's legal identity/contact before adopting text. Do not label this perpetual or irrevocable without that review. A contributor of adapted/third-party material must have authority for the actual proposed scope. Their generic authorship checkbox cannot manufacture those rights.
+
+## Prospective consent and receipt
+
+- Present the reviewed publication licence separately from ordinary signup Terms and the existing authorship/source declaration. Explain post-closure hosting, supporting media, identity removal and the rights process before publish. Require an unchecked affirmative confirmation for the exact proposed immutable revision. Saving a draft is not consent.
+- Validate current verified ownership and the exact immutable revision/media manifest on the server. A stale revision or changed supporting media requires a new confirmation. Record the reviewed licence version/text hash, revision identity/content hash, supporting media IDs/hashes and server acceptance time in a protected receipt. Prohibit client-supplied acceptance dates or importing a previous account's receipt.
+- Define receipt retention and minimization during review. The future deletion design must retain proof of the publication permission without unnecessarily retaining email, profile data, credentials, session tokens or a usable login identity. Receipt design is proposed, not an assertion that current records establish consent.
+- Existing accounts/revisions receive no automatic receipt or new acceptance. Before preserving an existing revision after closure, establish an adequate existing licence/rights basis or obtain actual fresh acceptance through the reviewed flow. Unknown rights must fail before any deletion cleanup. Do not reactivate old hidden content or delete another student's work to manufacture eligibility.
+- Keep deletion and the new consent flow inactive until reviewed Terms/notice, schema/grants, exact receipt checks and the mixed-subject privacy boundary in ACCOUNT_DELETION_READINESS.md are qualified. No migration ID, public endpoint or enabling flag is introduced by this proposal.
+
+## Documented operator rights-dispute path
+
+Before offering the flow, designate and publish an actual operator rights/privacy contact and qualified handling process. None is invented here. The existing community report reason `rights` may supplement that path only if its separately controlled feature is available. It is not claimed to be an active public contact today.
+
+An operator receives a complaint, records the identified problem/revision/media and claimed right, verifies scope and evidence with restricted access, and adjudicates the requested publication restriction or takedown. Do not infer authority from an unauthenticated complaint alone. Pending a justified restriction, use the existing reviewed unpublication/visibility mechanism rather than deleting immutable revisions, changing other students' records or exposing private media. Document the decision, affected dependencies, access restrictions and any required follow-up/object cleanup. Actual Production action requires separate authorization. Specify response/review and evidence-expiry rules during operator/legal review rather than inventing a deadline or indefinite retention.

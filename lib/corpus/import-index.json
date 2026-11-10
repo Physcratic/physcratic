@@ -1,8 +1,65 @@
 {
   "schemaVersion": "1.0.0",
   "importedOn": "2026-10-31",
-  "count": 100,
+  "count": 103,
   "problems": [
+    {
+      "id": "ipho-2026-t1",
+      "path": "/corpus/english-problems/ipho-2026-t1.json",
+      "language": "en",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2026_Q1.pdf",
+          "note": "Original English PDF supplied by the owner. Matched title, page count and printed content against the original PDF linked by Olimpicos. Local reference bytes retained unchanged."
+        },
+        {
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2026_S1.pdf",
+          "note": "Original English PDF supplied by the owner. Matched title, page count and printed content against the original PDF linked by Olimpicos. Local reference bytes retained unchanged."
+        }
+      ]
+    },
+    {
+      "id": "ipho-2026-t2",
+      "path": "/corpus/english-problems/ipho-2026-t2.json",
+      "language": "en",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2026_Q2.pdf",
+          "note": "Original English PDF supplied by the owner. Matched title, page count and printed content against the original PDF linked by Olimpicos. Local reference bytes retained unchanged."
+        },
+        {
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2026_S2.pdf",
+          "note": "Original English PDF supplied by the owner. Matched title, page count and printed content against the original PDF linked by Olimpicos. Local reference bytes retained unchanged."
+        }
+      ]
+    },
+    {
+      "id": "ipho-2026-t3",
+      "path": "/corpus/english-problems/ipho-2026-t3.json",
+      "language": "en",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "sources": [
+        {
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2026_Q3.pdf",
+          "note": "Original English PDF supplied by the owner. Matched title, page count and printed content against the original PDF linked by Olimpicos. Local reference bytes retained unchanged."
+        },
+        {
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2026_S3.pdf",
+          "note": "Original English PDF supplied by the owner. Matched title, page count and printed content against the original PDF linked by Olimpicos. Local reference bytes retained unchanged."
+        }
+      ]
+    },
     {
       "id": "ipho-2025-t1",
       "path": "/corpus/english-problems/ipho-2025-t1.json",
