@@ -5,6 +5,8 @@ import arena from "./arena/index.json";
 import { catalogProblems } from "./corpus-catalog";
 import { corpusProblems } from "./corpus-pilot";
 import { problems, topics, viewTitles } from "./physics";
+import { ratingBand, ratingBands } from "./rating-bands"
+import difficultyReview from "../docs/engineering/problem-difficulty-review.json"
 
 const now = Date.parse("2026-10-28T12:00:00Z");
 
@@ -73,3 +75,64 @@ test("topic navigation and records share the updated taxonomy", () => {
   }
   assert.equal(problems.filter((problem) => problem.topic === "Electromagnetism").length, 3);
 });
+
+test("difficulty review covers exactly the imported and original identities", () => {
+  const importedIds = new Set(catalogProblems.map((problem) => problem.id))
+  const originalIds = new Set(arena.problems.map((problem) => problem.id))
+  assert.equal(importedIds.size, 100)
+  assert.equal(originalIds.size, 18)
+  assert.ok([...originalIds].every((id) => !importedIds.has(id)))
+  const expectedIds = [...importedIds, ...originalIds].sort()
+  assert.deepEqual(difficultyReview.problems.map((problem) => problem.id).sort(), expectedIds)
+  for (const problem of difficultyReview.problems) {
+    assert.equal(getEstimatedProblemElo(problem.id), problem.proposed, problem.id)
+    assert.ok(problem.assessment.length > 0, problem.id)
+    for (const value of [problem.old, problem.proposed]) {
+      assert.ok(Number.isInteger(value) && value >= 800 && value <= 3000, problem.id)
+      assert.equal(value % 50, 0, problem.id)
+    }
+  }
+})
+
+test("editorial estimates match exactly one current band and retain legacy filter ranges", () => {
+  for (const problem of [...arena.problems, ...catalogProblems, ...corpusProblems]) {
+    const estimate = getEstimatedProblemElo(problem.id)
+    const expectedBand = ratingBand(estimate)
+    for (const band of ratingBands) {
+      assert.equal(matchesEstimatedDifficulty(problem.id, band.id), band.id === expectedBand.id, problem.id)
+    }
+    for (const [filter, min, max] of [
+      ["under-1200", 0, 1200],
+      ["1200-1599", 1200, 1600],
+      ["1600-plus", 1600, Infinity],
+    ] as const) {
+      assert.equal(matchesEstimatedDifficulty(problem.id, filter), estimate >= min && estimate < max, problem.id)
+    }
+  }
+})
+
+test("source-reviewed anchors and relative difficulty reflect independent construction", () => {
+  for (const [id, expected] of [
+    ["apho-2019-t3", 2950],
+    ["apho-2023-t2", 2950],
+    ["apho-2021-t2", 2900],
+    ["apho-2021-t3", 2900],
+    ["apho-2024-t3", 2300],
+    ["apho-2025-t1", 2300],
+    ["ipho-2025-t1", 2200],
+  ] as const) {
+    assert.equal(getEstimatedProblemElo(id), expected, id)
+  }
+  for (const [harder, easier] of [
+    ["apho-2019-t3", "apho-2017-t1"],
+    ["apho-2021-t2", "apho-2019-t2"],
+    ["eupho-2023-t3", "apho-2025-t1"],
+    ["eupho-2022-t3", "ipho-2025-t1"],
+    ["arena-a-grin-and-a-wiggle", "arena-the-bending-beam-riddle"],
+    ["arena-the-bending-beam-riddle", "arena-an-atom-with-stage-fright"],
+    ["ipho-2025-t1", "apho-2022-t1"],
+    ["arena-the-dodecahedron-conspiracy", "arena-mind-the-gap"],
+  ]) {
+    assert.ok(getEstimatedProblemElo(harder) > getEstimatedProblemElo(easier), `${harder} > ${easier}`)
+  }
+})

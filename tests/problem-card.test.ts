@@ -238,3 +238,37 @@ test("problem metadata and titles are escaped rather than interpreted as markup"
   assert.match(html, /&lt;script&gt;/);
   assert.doesNotMatch(html, /<script>/);
 });
+
+test("imported cards place the labelled host flag directly before the competition badge", () => {
+  for (const problem of catalogProblems) {
+    const html = renderToStaticMarkup(createElement(OlympiadProblemCard, { problem, onOpen() {} }))
+    assert.match(html, /role="img" aria-label="Hosted by /, problem.id)
+    assert.ok(html.indexOf('role="img"') < html.indexOf(`>${problem.competition}</div>`), problem.id)
+    assert.ok(html.includes(`${problem.year} · ${problem.code}`), problem.id)
+    assert.ok(html.includes(`href="/dashboard/problems/${problem.id}"`), problem.id)
+    assert.equal((html.match(/<a[\s>]/g) ?? []).length, 1)
+    assert.doesNotMatch(html, /<img|<svg[^>]*role="img"/)
+  }
+})
+
+test("host flags identify online and joint hosts without adding a control", () => {
+  for (const [id, label, flag] of [
+    ["ipho-2021-t1", "Hosted by Lithuania (online)", "🇱🇹"],
+    ["ipho-2016-t1", "Hosted by Switzerland and Liechtenstein", "🇨🇭🇱🇮"],
+    ["eupho-2020-t1", "Hosted by Estonia (online)", "🇪🇪"],
+  ]) {
+    const problem = catalogProblems.find((entry) => entry.id === id)!
+    const html = renderToStaticMarkup(createElement(OlympiadProblemCard, { problem, onOpen() {} }))
+    assert.ok(html.includes(`aria-label="${label}"`))
+    assert.ok(html.includes(flag))
+    assert.doesNotMatch(html, /tabindex=/)
+  }
+})
+
+test("unknown host metadata and non-competition cards omit the flag", () => {
+  const problem = { ...catalogProblems[0], year: 2026 }
+  const html = renderToStaticMarkup(createElement(OlympiadProblemCard, { problem, onOpen() {} }))
+  assert.doesNotMatch(html, /Hosted by|role="img"/)
+  assert.match(html, /2026 · T1/)
+  assert.doesNotMatch(render({ ...base, host: { country: "France", flag: "🇫🇷" }, onOpen() {} }), /Hosted by|🇫🇷/)
+})

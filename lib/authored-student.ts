@@ -3,7 +3,10 @@ import {
   authoredRevisionSchema,
   publicAuthoredRevision,
 } from "./problem-authoring";
-import { authoredAnswerSchema } from "./authored-grading-contracts";
+import {
+  authoredAnswerSchema,
+  expressionAnswerLimit,
+} from "./authored-grading-contracts";
 import {
   studentSubmissionSchema,
   studentGradeSchema,
@@ -163,7 +166,9 @@ const bufferSchema = z.discriminatedUnion("kind", [
   }),
   z.strictObject({
     kind: z.literal("expression"),
-    expression: z.string().max(180),
+    // Editable work is not a submission. The recovery book's existing
+    // 2,000,000-character storage budget reports in-memory-only edits explicitly.
+    expression: z.string(),
   }),
   z.strictObject({ kind: z.literal("manual"), text: z.string().max(4000) }),
 ]);
@@ -191,6 +196,11 @@ export function answerFromBuffer(buffer: AnswerBuffer) {
     value,
     units: buffer.units,
   });
+}
+export function expressionDraftError(expression: string): string {
+  return expression.length > expressionAnswerLimit
+    ? `This expression uses ${expression.length} characters. Shorten it to ${expressionAnswerLimit} before submitting. Your draft remains editable.`
+    : "";
 }
 export const formKey = (revisionId: string, partId: string) =>
   `${revisionId}:${partId}`;
@@ -321,7 +331,7 @@ export class StudentSolverSession {
     } catch {
       this.update({
         storageWarning:
-          "Tab recovery could not be written. Download your local work. New sends are paused until the retry key can be stored safely.",
+          "Your latest edits are only in memory because tab recovery could not be written. Download your local work before reloading or leaving. New sends are paused until recovery can be stored safely.",
       });
       return false;
     }
@@ -340,8 +350,14 @@ export class StudentSolverSession {
     return b?.kind === kind ? b : emptyBuffer(kind);
   }
   edit(revisionId: string, partId: string, buffer: AnswerBuffer) {
-    const parsed = bufferSchema.parse(buffer),
-      key = formKey(revisionId, partId),
+    const parsed = bufferSchema.safeParse(buffer);
+    if (!parsed.success) {
+      this.update({
+        error: "This edit could not be stored. Check the field's input limits.",
+      });
+      return;
+    }
+    const key = formKey(revisionId, partId),
       pending = this.value.book.pending;
     if (
       pending &&
@@ -350,7 +366,7 @@ export class StudentSolverSession {
       return;
     const book = {
       ...this.value.book,
-      buffers: { ...this.value.book.buffers, [key]: parsed },
+      buffers: { ...this.value.book.buffers, [key]: parsed.data },
     };
     this.persist(book);
     this.update({
@@ -381,14 +397,21 @@ export class StudentSolverSession {
       this.value.rawRecovery !== null
     )
       return;
+    const source = this.buffer(revisionId, partId, kind);
+    if (source.kind === "expression" && expressionDraftError(source.expression)) {
+      this.update({ error: expressionDraftError(source.expression) });
+      return;
+    }
     try {
-      const source = this.buffer(revisionId, partId, kind),
-        body = studentSubmissionSchema.parse({
+      // Validate everything, including Unicode, before allocating a retry key.
+      // This existing UUID is only a validation placeholder, never stored or sent.
+      const validated = studentSubmissionSchema.parse({
           revisionId,
           partId,
           answer: answerFromBuffer(source),
-          idempotencyKey: this.uuid(),
+          idempotencyKey: revisionId,
         }),
+        body = { ...validated, idempotencyKey: this.uuid() },
         book = {
           ...this.value.book,
           pending: { body, source, rejected: false },
