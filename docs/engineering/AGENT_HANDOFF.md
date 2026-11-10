@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Homepage footer prototype (11 November 2026)
+
+The marketplace homepage fixture now includes grouped Learn, Support and Physcratic navigation plus brand context and policy/status row. The same footer appears in all three account states. Learning links reuse existing prototype actions. About, Contact, Teach with us, help and policy entries open explicitly proposed previews. No real contact/policy/application service or new route was created. TEST_SITE_MAP.md and TEST_PAGE_HIERARCHIES.md describe the footer and boundaries. Seven destination-handler checks and JavaScript syntax pass; browser/mobile/keyboard/contrast and full application checks remain pending. Next: user reviews footer contents and grouping locally.
+
 ## Homepage account-state prototype (11 November 2026)
 
 `prototypes/marketplace-home/index.html` implements a standalone course-catalogue homepage with guest, enrolled-member and no-enrolment member states. `app/test/page.tsx` embeds that file inside an allow-scripts-only sandbox after an explicit local-development/non-Vercel gate. Outside development it returns notFound. No public asset, real auth, data/provider access or transactions were added.

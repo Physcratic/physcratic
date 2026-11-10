@@ -18,6 +18,34 @@ Keep experimental/sample status visible without letting it dominate the page. Ac
 Retain accessible headings, skip navigation, focus and meaningful empty/error states. Prototype action labels must not imply a real payment, booking or message was completed.
 Shared navigation is not redrawn on every page below. Footer/support links remain lower priority than the task.
 
+## Shared footer information hierarchy
+
+The homepage fixture now includes this footer in all three sample account states. It is secondary navigation, not another primary conversion area.
+
+```mermaid
+flowchart TD
+  footer["Footer"]
+  brand["Brand and brief description"]
+  learning["Learn"]
+  support["Support"]
+  company["Physcratic"]
+  policy["Policy and status row"]
+  footer --> brand
+  footer --> learning
+  footer --> support
+  footer --> company
+  footer --> policy
+  learning --> sections["Courses; Coaching; Arena"]
+  support --> assistance["Learning/access help; Contact"]
+  company --> organisation["About; Teach with us"]
+  policy --> status["Privacy; Terms; Refunds/cancellations; sample-data notice"]
+```
+
+Courses returns to the existing prototype catalogue. Coaching and Arena open navigation previews.
+Remaining links are explicitly proposed-destination or policy-status dialogs, not implemented pages. No fabricated contact details or policies.
+On mobile the groups wrap into a compact grid with visible headings. This CSS exists but has not been browser-verified.
+Keep purchase/access/refund conditions visible on the relevant offering or transaction too. The footer does not replace those disclosures.
+
 ### 1. Homepage and course catalogue
 
 Route: `/test/`. Visitor decision: **Find a course that fits my goal and level.**

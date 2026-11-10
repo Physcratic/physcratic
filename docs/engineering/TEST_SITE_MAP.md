@@ -159,6 +159,24 @@ Future student learning/dashboard and instructor creator routes are deferred. Do
 Do not show a related offering unless it exists in the shared data and is relevant. Do not interrupt solving with purchase prompts.
 Missing IDs must produce an understandable unavailable state and a way back, not a broken link.
 
+## Shared footer experiment
+
+Implemented in the homepage fixture, with contents still subject to review.
+
+| Group | Items | Current behaviour |
+| --- | --- | --- |
+| Brand | Physcratic and short product description | Returns to homepage content |
+| Learn | Courses, Coaching, Arena | Courses returns to catalogue; other sections open existing navigation previews |
+| Support | Learning and access help, Contact | Explicit proposed-destination dialogs |
+| Physcratic | About Physcratic, Teach with us | Explicit proposed-destination dialogs |
+| Policy row | Privacy, Terms, Refunds and cancellations | Policy-status previews, not published policies or new routes |
+
+No contact information, service commitment, instructor onboarding or policy has been invented. The Terms preview acknowledges the current application's provisional /terms separately.
+Support/company/policy pages are proposed only and not added as implemented routes. Material purchase conditions must also be shown at the purchase decision, not hidden exclusively in footer links.
+Footer action priority is lower than course discovery. Use labelled groups and keep the same footer across sample account states.
+Do not add a newsletter, social feed, unsupported links or full sitemap without a user need.
+Verification: footer destination/handler checks and JavaScript syntax pass. Browser/mobile/keyboard/contrast verification still pending.
+
 ## Homepage account-state experiment
 
 Owner accepted one Physcratic account across Academy, Coaching and Arena. Identity can be shared while course entitlements, coaching records, Arena activity and instructor/staff permissions remain distinct.

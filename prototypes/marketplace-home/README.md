@@ -44,3 +44,10 @@ The cloud browser could not reach the local preview server (ERR_CONNECTION_REFUS
 Read docs/engineering/UI_OVERHAUL_BASELINE.md before integration.
 A future shared-account implementation must verify server-enforced roles and course entitlements, session/cookie behaviour, CSRF/origin checks, private-data/cache boundaries, validation/XSS, media access and submission idempotency/recovery. Browser tests must cover account switching, guest/member states and error paths.
 An unchanged backend is not proof that redesigned front-end code preserves those boundaries. No security bypass or activation is authorized by this fixture.
+
+## Footer iteration
+
+Grouped footer added: Learn, Support and Physcratic, with brand context and a separate policy/status row. Shared across guest and member states.
+Courses uses the catalogue action; Coaching/Arena reuse navigation previews. Seven support/company/policy entries have explicit preview dialogs. These are not newly implemented pages or published policies.
+Try each group, close with Escape or Close, and confirm keyboard focus returns appropriately. Check narrow layout and both appearances locally.
+Checks: all seven footer destinations have handlers, no network/storage introduced, extracted JavaScript syntax passes. Browser, accessibility and app build/CI remain unverified.
