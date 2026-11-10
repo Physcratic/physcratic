@@ -25,7 +25,8 @@ describe("sitemap", () => {
     for (const page of allProblemPages()) assert.equal(paths.has(page.path), page.indexable, page.id);
     assert.ok(paths.has("/learn"));
     for (const article of publishedArticles) assert.ok(paths.has(`/learn/${article.slug}`), article.slug);
-    for (const p of ["/coaching", "/coaching/consultation", "/coaching/become-a-tutor", "/problems", "/problems/archive", "/"]) assert.ok(paths.has(p), p);
+    for (const p of ["/coaching", "/coaching/consultation", "/coaching/become-a-tutor", "/problems", "/problems/archive"]) assert.ok(paths.has(p), p);
+    assert.ok(!paths.has("/"), "the redirected root must not be in the sitemap");
   });
   it("has no ?view= or ?topic= URL, no query string at all, and not the signed-in app", () => {
     for (const url of urls) {
