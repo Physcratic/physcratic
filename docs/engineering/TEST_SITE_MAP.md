@@ -7,7 +7,7 @@ This is the starting point for deciding what belongs on each `/test/` page. Edit
 
 Physcratic is an education marketplace where students learn from accomplished competitors across academic olympiads and, eventually, areas such as debate, MUN and chess.
 Academy is the long-term course business. Coaching is the initial commercial offering and bootstrapping channel. Arena supplies useful free practice, acquisition, retention and brand credibility.
-The homepage at `/test/` represents the whole Physcratic brand, not just physics practice.
+The homepage at `/test/` is the primary course catalogue for Physcratic. It represents the whole brand through course discovery, with coaching and free practice as supporting destinations. There is no separate `/test/courses/` catalogue page. Course detail URLs remain `/test/courses/[slug]`.
 Start with a curated offering and expand toward a marketplace. Do not imply that future subjects, courses, payments or instructor tools are available today.
 
 Authority: the owner's current conversation decisions, supported by the supplied October 2026 business proposal, especially sections 6–9, 12, 15–16, 46 and 54–56. The private proposal is not copied into this public repository. Its examples, financial figures and recommendations are not verified marketing claims or automatic implementation requirements.
@@ -24,7 +24,7 @@ Any invented instructor or offering must be clearly marked as sample throughout 
 
 ## Status and scope
 
-- **Confirmed direction:** parallel experimental site at `/test/`, marketplace homepage, iterative prototyping, existing site preserved.
+- **Confirmed direction:** parallel experimental site at `/test/`, course-catalogue homepage without a separate catalogue route, iterative prototyping, existing site preserved.
 - **Proposed:** route names below, section order, primary actions and page contents. They are editable first drafts.
 - **Deferred:** production checkout, enrolment, lesson delivery, creator publishing and broader categories until their requirements are separately settled.
 - **Implementation:** no `/test/` routes exist as part of this planning checkpoint. The earlier standalone practice prototype is an exploration, not the marketplace shell.
@@ -36,18 +36,16 @@ This diagram shows proposed hierarchy, not every cross-page link. The table belo
 
 ```mermaid
 flowchart TD
-  home["/test/ · Physcratic homepage"]
-  academy["Academy · /test/courses"]
+  home["/test/ · Homepage and course catalogue"]
   coaching["Coaching · /test/coaching"]
   arena["Arena · /test/practice"]
   course["Course · /test/courses/[slug]"]
   instructor["Instructor · /test/instructors/[slug]"]
   enquiry["Enquiry · /test/coaching/enquire"]
   problem["Problem · /test/practice/[id]"]
-  home --> academy
   home --> coaching
   home --> arena
-  academy --> course
+  home --> course
   course --> instructor
   coaching --> instructor
   coaching --> enquiry
@@ -65,8 +63,7 @@ These are proposed interactions, not implemented routes. The overview above give
 
 ```mermaid
 flowchart TD
-  home["/test/ · Homepage"] --> catalog["/test/courses · Filtered catalogue"]
-  catalog --> course["/test/courses/[slug] · Course details"]
+  catalog["/test/ · Homepage and filtered course catalogue"] --> course["/test/courses/[slug] · Course details"]
   course --> instructor["/test/instructors/[slug] · Shared profile"]
   instructor -->|Choose an offering| course
   course -->|Back with filters retained| catalog
@@ -128,8 +125,7 @@ All rows are **planned, not built**. Contents and action priorities remain propo
 
 | Page | Visitor's decision | Initial contents | Primary action | Connections and context |
 | --- | --- | --- | --- | --- |
-| `/test/` | Is Physcratic relevant, and where should I start? | Clear explanation, currently available learning options, subject/goal entry points, specific instructor credibility, free practice entry | Explore available learning | Courses/coaching/practice. Carry subject or competition only when selected |
-| `/test/courses` | Which course might fit my goal and level? | Small curated catalogue, subject/competition/level filters, format and language, availability, price only when established, honest empty state | View a course | Course slug. Retain filters when returning |
+| `/test/` | Which course fits my goal and level? | Brief brand orientation, course search and relevant subject/competition/level filters, curated course results, instructor and format context, truthful availability and price, empty-state recovery; secondary coaching/practice links | View a course | Course slug. Keep homepage filters, search and scroll position when returning from details. No separate catalogue route |
 | `/test/courses/[slug]` | Is this course suitable? | Intended outcomes, target learner, prerequisites, syllabus, instructor, sample lesson, delivery format, workload, price/access terms and availability when established | Try a sample, or register interest if not available | Shared instructor ID, preview lesson ID. Keep course vs scheduled cohort distinct. No fake purchase |
 | `/test/instructors/[slug]` | Do I trust this person to teach me? | Exact sourced competition achievements, role, teaching approach/experience, sample teaching and their offerings | View a relevant offering | Shared instructor ID to course IDs and coaching options. Never infer teaching quality from awards alone |
 | `/test/coaching` | Does live coaching fit my needs? | Existing formats and subjects, instructors, fit, how enquiry works, scheduling/pricing details only when confirmed | Enquire about coaching | Instructor/subject/offering context passed to enquiry. Current public coaching data must be inspected before reuse |
@@ -146,8 +142,9 @@ Future student learning/dashboard and instructor creator routes are deferred. Do
 
 | From | Action | Destination | Data carried | Return behaviour |
 | --- | --- | --- | --- | --- |
-| Homepage | Choose an academic goal | Course or coaching list | Subject/competition ID | Keep chosen filters |
-| Course list | View course | Course detail | Course slug | Back restores list state |
+| Homepage catalogue | Choose a subject or goal | Filtered results on `/test/` | Subject/competition ID and search/filter state | Stay on homepage and retain selections |
+| Homepage catalogue | View course | `/test/courses/[slug]` | Course slug and catalogue return state | Back returns to `/test/` with filters, search and scroll restored |
+| Homepage | Explore coaching | `/test/coaching` | Optional subject/competition context | Home returns to `/test/` |
 | Course detail | Meet instructor | Instructor profile | Instructor ID and originating course | Back to that course |
 | Instructor | Explore their course | Course detail | Course slug | Instructor remains reachable |
 | Coaching | Enquire | Enquiry | Coaching option ID, optional instructor/subject | Back preserves selection |
@@ -205,7 +202,7 @@ Never load production credentials, real enquiries or private learner data to mak
 | Question | Current hypothesis | Evidence |
 | --- | --- | --- |
 | Should discovery start with subject or competition goal? | Goal-oriented entry may make choices more relevant | Untested |
-| What should lead the homepage today? | Available coaching plus clear course direction | Untested, availability must be checked |
+| What leads the homepage? | Course discovery is the owner's decision. Coaching and practice remain secondary | Confirmed direction, layout and inventory still untested |
 | Do instructor credentials need a dedicated page? | Shared profiles help users assess suitability | Untested |
 | Is guided selection better than immediate browsing? | Depends on catalogue size and visitor experience | Earlier A/B practice sketch exists, no user results |
 

@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Course catalogue is the homepage (11 November 2026)
+
+Owner decision: `/test/` itself is the course-discovery catalogue. Remove the separate catalogue page, while retaining `/test/courses/[slug]` details. TEST_SITE_MAP.md and TEST_PAGE_HIERARCHIES.md now merge homepage/catalogue contents and diagrams, update filter/return contracts, and make coaching/practice secondary destinations. This supersedes earlier coaching-led homepage suggestions. Nine page hierarchies remain. No routes were implemented or changed at runtime.
+
 ## Experimental page content hierarchies (11 November 2026)
 
 Read [TEST_PAGE_HIERARCHIES.md](TEST_PAGE_HIERARCHIES.md) alongside TEST_SITE_MAP.md. It adds ten proposed per-page information hierarchies with attention priorities, shared shell rules and required empty/error/recovery states. These are unbuilt/untested planning diagrams, not fixed wireframes. Update the relevant hierarchy with each page iteration. No application routes or runtime behaviour change in this checkpoint.

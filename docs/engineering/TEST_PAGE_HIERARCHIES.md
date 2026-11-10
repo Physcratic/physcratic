@@ -18,21 +18,23 @@ Keep experimental/sample status visible without letting it dominate the page. Ac
 Retain accessible headings, skip navigation, focus and meaningful empty/error states. Prototype action labels must not imply a real payment, booking or message was completed.
 Shared navigation is not redrawn on every page below. Footer/support links remain lower priority than the task.
 
-### 1. Homepage
+### 1. Homepage and course catalogue
 
-Route: `/test/`. Visitor decision: **Understand Physcratic and choose a starting point.**
+Route: `/test/`. Visitor decision: **Find a course that fits my goal and level.**
+Owner decision: course discovery is the homepage's primary purpose. There is no separate catalogue page. Course detail routes remain `/test/courses/[slug]`.
+Keep the brand explanation brief. Do not make visitors pass through a marketing landing page to reach the catalogue. Course availability remains explicit, including samples or planned offerings.
 
 ```mermaid
 flowchart TD
-  page["Homepage"]
-  first["1 · First view"]
-  second["2 · Explore available learning"]
-  support["3 · Relevant offerings; exact instructor credentials"]
-  extra["4 · Free practice; guides; coaching explanation"]
-  firstContent["What you can learn; who teaches; current availability"]
-  secondContent["Supporting sections"]
-  supportContent["Secondary routes"]
-  extraContent["undefined"]
+  page["Homepage and course catalogue"]
+  first["1 · Orient and discover"]
+  second["2 · Course results and main action"]
+  support["3 · Compare suitability"]
+  extra["4 · Supporting destinations"]
+  firstContent["Brief Physcratic explanation; search; useful subject, goal and level filters"]
+  secondContent["Curated course results; clear availability; view course"]
+  supportContent["Instructor; learner fit; format; language; established price"]
+  extraContent["Coaching; free practice; guides"]
   page --> first
   page --> second
   page --> support
@@ -43,32 +45,10 @@ flowchart TD
   extra --> extraContent
 ```
 
-### 2. Course catalogue
+Search and filters update results on `/test/`. Returning from a course restores search, filters and scroll position.
+Show useful no-match or no-available-course states without inventing inventory. Additional filters appear only when useful.
 
-Route: `/test/courses`. Visitor decision: **Choose a suitable course to inspect.**
-
-```mermaid
-flowchart TD
-  page["Course catalogue"]
-  first["1 · Discovery controls"]
-  second["2 · Results"]
-  support["3 · Decision details"]
-  extra["4 · Secondary controls"]
-  firstContent["Subject and goal; level; clear active filters"]
-  secondContent["Course title; learner fit; format; language; availability"]
-  supportContent["Price only if established; instructor; open course"]
-  extraContent["Additional filters; clear filters; useful empty state"]
-  page --> first
-  page --> second
-  page --> support
-  page --> extra
-  first --> firstContent
-  second --> secondContent
-  support --> supportContent
-  extra --> extraContent
-```
-
-### 3. Course details
+### 2. Course details
 
 Route: `/test/courses/[slug]`. Visitor decision: **Decide whether this course fits.**
 
@@ -93,7 +73,7 @@ flowchart TD
   extra --> extraContent
 ```
 
-### 4. Instructor profile
+### 3. Instructor profile
 
 Route: `/test/instructors/[slug]`. Visitor decision: **Assess teaching suitability and find an offering.**
 
@@ -118,7 +98,7 @@ flowchart TD
   extra --> extraContent
 ```
 
-### 5. Coaching options
+### 4. Coaching options
 
 Route: `/test/coaching`. Visitor decision: **Choose a suitable live learning option.**
 
@@ -143,7 +123,7 @@ flowchart TD
   extra --> extraContent
 ```
 
-### 6. Coaching enquiry
+### 5. Coaching enquiry
 
 Route: `/test/coaching/enquire`. Visitor decision: **Prepare an enquiry for the chosen option.**
 
@@ -168,7 +148,7 @@ flowchart TD
   extra --> extraContent
 ```
 
-### 7. Practice discovery
+### 6. Practice discovery
 
 Route: `/test/practice`. Visitor decision: **Find and open a suitable problem.**
 
@@ -193,7 +173,7 @@ flowchart TD
   extra --> extraContent
 ```
 
-### 8. Problem reader
+### 7. Problem reader
 
 Route: `/test/practice/[id]`. Visitor decision: **Work on the problem and interpret feedback.**
 
@@ -218,7 +198,7 @@ flowchart TD
   extra --> extraContent
 ```
 
-### 9. Guide catalogue
+### 8. Guide catalogue
 
 Route: `/test/learn`. Visitor decision: **Choose an explanation relevant to a need.**
 
@@ -243,7 +223,7 @@ flowchart TD
   extra --> extraContent
 ```
 
-### 10. Guide reader
+### 9. Guide reader
 
 Route: `/test/learn/[slug]`. Visitor decision: **Understand a concept and apply it.**
 
@@ -280,7 +260,7 @@ flowchart TD
 
 ## What stays unresolved
 
-Homepage priority between course direction and currently available coaching needs truthful inventory and user testing.
+Homepage course discovery is confirmed. Its exact content order and how to represent limited current course inventory still need testing. Coaching remains a secondary destination.
 Additional catalogue filters should only appear when the inventory makes them useful.
 Course purchase, student lesson delivery and creator workflows remain deferred.
 Problem reader integration must obey existing answer and recovery contracts. These diagrams are not permission to rebuild grading or bypass feature gates.
