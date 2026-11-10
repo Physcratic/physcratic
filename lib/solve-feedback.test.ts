@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { describePartResult, summariseCheck } from "./solve-feedback";
+import { describePartResult, summariseCheck, summariseSavedCheck } from "./solve-feedback";
 
 const r = (status: Parameters<typeof describePartResult>[0]) => ({ partId: "a", status, message: "" });
 
@@ -29,4 +29,17 @@ test("mixed and wrong results ask for another try", () => {
   assert.equal(mixed.tone, "warning");
   assert.equal(summariseCheck([r("invalid")]).tone, "error");
   assert.equal(summariseCheck([r("correct"), r("unanswered")]).needsAnotherTry, false);
+});
+
+test("saved receipts describe durability without changing correctness or guest feedback", () => {
+  for (const statuses of [["correct"], ["incorrect"], ["invalid"], ["inconclusive"], ["self-review"], ["correct", "unanswered"]] as const) {
+    const results = statuses.map(status => r(status));
+    const guest = summariseCheck(results), saved = summariseSavedCheck(results);
+    assert.match(guest.detail, /Nothing is saved\./);
+    assert.match(saved.detail, /Saved to your account\./);
+    assert.doesNotMatch(saved.detail, /Nothing is saved/);
+    const { detail: guestDetail, ...guestDecision } = guest;
+    const { detail: savedDetail, ...savedDecision } = saved;
+    void guestDetail; void savedDetail; assert.deepEqual(savedDecision, guestDecision);
+  }
 });

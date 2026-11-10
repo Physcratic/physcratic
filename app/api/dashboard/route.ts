@@ -1,5 +1,6 @@
 import { and, asc, count, countDistinct, eq, sql } from "drizzle-orm";
-import { db } from "@/lib/db";
+import { dashboardAccountMatches, dashboardPracticeCounts } from "@/lib/dashboard-practice";
+import { db, pool } from "@/lib/db";
 import {
   archiveProgress,
   contests,
@@ -15,6 +16,8 @@ export const runtime = "nodejs";
 export async function GET(request: Request) {
   try {
     const user = await submissionUser(request);
+    if (!dashboardAccountMatches(request, user?.id ?? null)) return Response.json({ error: "Your account changed. Refresh your sign-in." }, { status: 409, headers: { "Cache-Control": "private, no-store", Vary: "Cookie, X-Practice-Account" } });
+    const checked = await dashboardPracticeCounts(pool, user?.id ?? null);
     const published = await db
       .select({
         id: contests.id,
@@ -95,8 +98,9 @@ export async function GET(request: Request) {
       {
         user: user ? { name: user.name } : null,
         savedAttempts: saved.total,
-        practiceAttempts: practice.total,
-        solvedProblems: solved.total,
+        ...checked,
+        legacyPracticeAttempts: practice.total,
+        legacySolvedProblems: solved.total,
         archiveReviewed: reviewed.total,
         ratings,
         contests: published.map((contest) => ({
@@ -106,7 +110,7 @@ export async function GET(request: Request) {
           ),
         })),
       },
-      { headers: { "Cache-Control": "private, no-store" } },
+      { headers: { "Cache-Control": "private, no-store", Vary: "Cookie, X-Practice-Account" } },
     );
   } catch {
     return submissionError(
