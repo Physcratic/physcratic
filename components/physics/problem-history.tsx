@@ -17,7 +17,7 @@ export function ProblemHistory({}: { onOpen: (problem: Problem) => void }) {
       <p role="alert" className="text-sm text-destructive">Your progress could not be loaded. No completion count is available.</p>
       <Button variant="outline" className="min-h-11" onClick={() => mutate()}>Retry progress</Button>
     </div> : !signedIn ? <Card className="shadow-none"><CardHeader><CardTitle><h2 className="text-base font-medium">Keep your progress</h2></CardTitle><CardDescription>Sign in and verify your email to save checked answers. Your history stays private.</CardDescription></CardHeader><CardContent><Button asChild variant="outline" className="min-h-11"><Link href="/sign-in?returnTo=%2Fdashboard">Sign in to save progress</Link></Button></CardContent></Card> : progress ? <>
-      <p className="text-sm text-muted-foreground">{progress.savedChecks} saved checks across versions. Completion below uses each problem&apos;s current grading version. Checks do not change your rating.</p>
+      <p className="text-sm text-muted-foreground">{progress.savedChecks} saved checks. Completion below uses the current version of each problem. Checks do not change your rating.</p>
       <div className="grid min-w-0 grid-cols-1 gap-5 min-[1100px]:grid-cols-2">
         {(["solved", "in-progress", "not-graded"] as const).map(status => {
           const items = progress.progress.filter(entry => entry.status === status);
@@ -28,9 +28,9 @@ export function ProblemHistory({}: { onOpen: (problem: Problem) => void }) {
           </CardContent></Card>;
         })}
       </div>
-      <p className="text-sm text-muted-foreground">Past browser-only checks and legacy unversioned records are not imported as current completion.</p>
+      <p className="text-sm text-muted-foreground">Earlier checks from this browser are not added to account progress. Earlier practice records are kept separately.</p>
       <Button variant="outline" className="min-h-11 w-fit" asChild><Link href="/dashboard/submissions">View my solution attempts</Link></Button>
-      {dashboard.data?.user && !dashboard.error && <p className="text-sm text-muted-foreground">{dashboard.data.savedAttempts} saved solution attempts · {dashboard.data.archiveReviewed} archive subproblems reviewed · {dashboard.data.legacyPracticeAttempts ?? 0} legacy unversioned checks kept separately.</p>}
+      {dashboard.data?.user && !dashboard.error && <p className="text-sm text-muted-foreground">{dashboard.data.savedAttempts} saved solution attempts · {dashboard.data.archiveReviewed} archive subproblems reviewed · {dashboard.data.legacyPracticeAttempts ?? 0} earlier practice checks kept separately.</p>}
     </> : null}
   </section>;
 }
