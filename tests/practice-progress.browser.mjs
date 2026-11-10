@@ -64,9 +64,9 @@ try{
   const context=await browser.newContext({viewport:{width:mobile?375:1440,height:1000},isMobile:mobile,hasTouch:mobile});
   await context.addInitScript(theme=>document.addEventListener('DOMContentLoaded',()=>document.documentElement.classList.toggle('dark',theme==='dark')),theme);
   const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await page.goto(origin);
-  await grade(page,'4.9');await waitText(page,'Checked without saving.');assert.ok(guestPosts>0);
+  await grade(page,'4.9');await waitText(page,'Checked without saving.');assert.ok(guestPosts>0);assert.equal(await page.getByText(/Nothing is saved\./).count(),1);
   const id=`T${mobile?1:0}${theme}`;await session(page,id);await page.locator('input[inputmode="decimal"]').waitFor();assert.equal(await page.locator('input[inputmode="decimal"]').inputValue(),'');
-  await grade(page,'1');await waitText(page,'Saved to your account. Your dashboard will update.');
+  await grade(page,'1');await waitText(page,'Saved to your account. Your dashboard will update.');assert.equal(await page.getByText(/Nothing is saved\./).count(),0,'durable receipt feedback must not claim unsaved');
   await page.locator('[data-testid="dashboard"]').filter({hasText:'0 solved, 1 saved'}).waitFor();
   await page.getByRole('heading',{name:'Not yet solved 1',exact:true}).waitFor();
   dropNext=true;await grade(page,'4.9');await waitText(page,'The save is unconfirmed.');assert.equal(await count(id),2);

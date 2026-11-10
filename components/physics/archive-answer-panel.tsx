@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { useSWRConfig } from "swr";
 import { authClient } from "@/lib/auth-client";
 import { PracticeCheckJournal, practiceSessionStorage } from "@/lib/practice-check-client";
@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Field, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { assignPartColors } from "@/lib/part-colors";
-import { summariseCheck } from "@/lib/solve-feedback";
+import { summariseCheck, summariseSavedCheck } from "@/lib/solve-feedback";
 import { FeedbackBox, PartChip, ResultLine, StepHeading, partBorder, partStyle } from "./solve-ui";
 import { MathAnswerField } from "./math-answer-field";
 import { formatConditions, type PaletteItem } from "./answer-palette";
@@ -64,6 +64,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
   const [conflict, setConflict] = useState(false);
   const [result, setResult] = useState<ArchiveGradeResponse | null>(null);
   const [error, setError] = useState("");
+  const [resultSaved, setResultSaved] = useState(false);
   const [saveMessage, setSaveMessage] = useState("");
   const [busy, setBusy] = useState(false);
   const [, redraw] = useState(0);
@@ -83,7 +84,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
     } else { currentAnswers.current = next.book.answers; setAnswers(next.book.answers); }
     typedWhileResolving.current = false;
   }, [account, journal, problemId, data.version]);
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (previousReset.current === resetToken) return;
     previousReset.current = resetToken;
     pending.current?.abort(); pending.current = null; setBusy(false);
@@ -131,6 +132,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
         setSaveMessage(receipt ? "The original pending check is saved. Your current answers have not been checked." : "The earlier answers were checked without saving. Your current answers have not been checked.");
         return;
       }
+      setResultSaved(Boolean(receipt));
       setResult(checked);
       if (checked.results.every(part => part.status === "correct")) onCorrect?.();
       if (account === "guest" && checked.results.some(part => part.status === "correct") && checked.results.every(part => part.status === "correct" || part.status === "self-review")) markSolved(problemId);
@@ -141,7 +143,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
     }
   }
 
-  const summary = result ? summariseCheck(result.results) : null;
+  const summary = result ? (resultSaved ? summariseSavedCheck(result.results) : summariseCheck(result.results)) : null;
   const colors = data?.problemId === problemId ? assignPartColors(data.parts.map((part) => part.sourcePart)) : [];
   const tryAgain = () => {
     // Moves focus only. It keeps the typed answers and the result, and nothing is counted or reset.
