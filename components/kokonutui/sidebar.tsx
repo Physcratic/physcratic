@@ -25,9 +25,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { coachingEntryHandlers } from "@/lib/coaching/analytics";
-import { problems, topics, type View } from "@/lib/physics";
-import { catalogProblems } from "@/lib/corpus-catalog";
-import arena from "@/lib/arena/index.json";
+import { topics, type View } from "@/lib/physics";
 import { cn } from "@/lib/utils";
 
 export default function Sidebar({
@@ -104,13 +102,6 @@ export default function Sidebar({
                 >
                   <Icon className="size-[18px]" strokeWidth={1.7} />
                   {label}
-                  {itemView === "problems" && (
-                    <span className="ml-auto text-sm">
-                      {(
-                        problems.length + catalogProblems.length + arena.count
-                      ).toLocaleString("en-US")}
-                    </span>
-                  )}
                 </Link>
               );
             })}

@@ -4,6 +4,7 @@ import * as React from "react";
 import type { CatalogProblem } from "@/lib/corpus-catalog";
 import { getProblemTags } from "@/lib/problem-tags";
 import { getEstimatedProblemElo } from "@/lib/problem-archive";
+import { olympiadHost } from "@/lib/olympiad-hosts"
 import { ProblemCard } from "./problem-card";
 
 export function OlympiadProblemCard({
@@ -29,6 +30,7 @@ export function OlympiadProblemCard({
       headingLevel={4}
       source={problem.competition}
       competition={problem.competition}
+      host={olympiadHost(problem.competition, problem.year)}
       reference={`${problem.year} · ${problem.code}`}
       statementLanguage={problem.importLanguage}
       elo={getEstimatedProblemElo(problem.id)}
