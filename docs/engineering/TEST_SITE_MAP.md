@@ -57,6 +57,67 @@ flowchart TD
 Instructor pages are shared records, not copies owned by Academy or Coaching.
 The experimental paths need not match existing application URLs.
 
+## Focused navigation diagrams
+
+These are proposed interactions, not implemented routes. The overview above gives hierarchy. These diagrams show decisions, shared destinations and return paths. Keep each diagram focused as the site grows.
+
+### Course discovery
+
+```mermaid
+flowchart TD
+  home["/test/ · Homepage"] --> catalog["/test/courses · Filtered catalogue"]
+  catalog --> course["/test/courses/[slug] · Course details"]
+  course --> instructor["/test/instructors/[slug] · Shared profile"]
+  instructor -->|Choose an offering| course
+  course -->|Back with filters retained| catalog
+  course --> preview["Inline sample lesson"]
+  preview -->|Close preview| course
+  course --> availability{"Available to buy?"}
+  availability -->|Not yet| interest["Interest action · Proposed, unsent"]
+  availability -->|Future integration only| purchase["Purchase flow · Deferred"]
+```
+
+A direct course URL must work without a catalogue visit. Preserve course context on instructor links. Interest collection, checkout and access delivery are not implemented or authorized by this diagram.
+
+### Coaching enquiry
+
+```mermaid
+flowchart TD
+  coaching["/test/coaching · Options"] --> profile["Shared instructor profile"]
+  profile -->|Choose coaching| coaching
+  coaching --> enquiry["/test/coaching/enquire · Selected option"]
+  enquiry -->|Change selection| coaching
+  enquiry --> validate{"Required fields complete?"}
+  validate -->|No| errors["Field errors"]
+  errors -->|Correct fields| enquiry
+  validate -->|Yes| receipt["Preview confirmation · Not sent"]
+  receipt -->|Edit draft| enquiry
+```
+
+Retain the selected coaching option, subject and optional instructor. The prototype confirmation must say no enquiry was sent. Real submission, delivery, retention and booking need a separately verified integration.
+
+### Practice and related learning
+
+```mermaid
+flowchart TD
+  library["/test/practice · Discovery"] --> reader["/test/practice/[id] · Problem"]
+  reader -->|Back with filters retained| library
+  guide["/test/learn/[slug] · Guide"] -->|Related problem| reader
+  reader -->|Return to source guide| guide
+  reader --> answer{"Answer interaction ready?"}
+  answer -->|Sample only| sample["Explicit sample state"]
+  answer -->|Existing contracts integrated| feedback["Answer feedback"]
+  feedback -->|Continue working| reader
+  reader -->|Optional relevant offering| offering["Course or coaching details"]
+  offering -->|Return without losing work| reader
+```
+
+Paid learning links are secondary. Only link an offering that exists and matches the topic. Preserve problem identity, revision and recovery when real answering is integrated. These diagrams do not establish that integration.
+
+### Maintenance
+
+When changing a route or action, update its page specification, link contract and affected diagram together. Keep state details such as submission retries in a dedicated diagram when implemented, rather than expanding this overview indefinitely.
+
 ## Page specifications
 
 All rows are **planned, not built**. Contents and action priorities remain proposed until tried.

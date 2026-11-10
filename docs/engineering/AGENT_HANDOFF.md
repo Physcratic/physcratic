@@ -2,6 +2,8 @@
 
 ## Marketplace prototype page map (11 November 2026)
 
+The page map now includes separate Mermaid diagrams for course discovery, coaching enquiry validation/return paths, and practice with guide/offering cross-links. All remain proposed. Experimental route implementation and browser verification are still pending.
+
 The owner clarified that Physcratic is the broader education marketplace, with Academy as the long-term course business, Coaching bootstrapping revenue and Arena serving free value/acquisition/brand credibility. The earlier practice-first direction is superseded as the overall homepage strategy. It remains a practice-flow experiment only.
 
 Read [TEST_SITE_MAP.md](TEST_SITE_MAP.md) for the living product brief, visual route hierarchy, per-page contents/actions, cross-page links, shared fixture contract, assumptions and staged checklist. `/test/` is the experimental Physcratic homepage. Routes in that map are proposed and not implemented. The business proposal supplies context, not blanket approval of all proposed features or private figures as marketing claims.
