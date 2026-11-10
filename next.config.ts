@@ -18,6 +18,13 @@ const nextConfig: NextConfig = {
     "/api/submissions": ["./public/corpus/problems/*.json"],
     "/api/submission-info/*": ["./public/corpus/problems/*.json"],
   },
+  // Bring both site entry URLs into the application. The SEO library at /problems stays public.
+  async redirects() {
+    return [
+      { source: "/", destination: "/dashboard", permanent: true },
+      { source: "/problem", destination: "/dashboard", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {
