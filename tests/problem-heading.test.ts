@@ -4,7 +4,7 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { ProblemHeading } from "../components/physics/problem-heading";
 import { ratingBand } from "../lib/rating-bands";
-for (const rating of [0, 199, 200, 799, 800, 1599, 1600, 2599, 2600, 4000]) test(`shared heading retains the canonical ${rating} estimate band`, () => {
+for (const rating of [0, 799, 800, 801, 1599, 1600, 1800, 1801, 2599, 2600, 2601, 3200, 3201, 4000]) test(`shared heading retains the canonical ${rating} estimate band`, () => {
   const html = renderToStaticMarkup(React.createElement(ProblemHeading, { title: 'Actual Published Title', source: 'Community-authored problem', estimate: String(rating), tags: ['Mechanics', 'Mechanics', 'Energy'] }));
   assert.ok(html.includes(ratingBand(rating).name)); assert.ok(html.includes('(estimate)')); assert.ok(html.includes(`~${rating.toLocaleString('en-US')}`)); assert.equal((html.match(/Mechanics/g) ?? []).length, 1); assert.equal((html.match(/<h1/g) ?? []).length, 1);
 });

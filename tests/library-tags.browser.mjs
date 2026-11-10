@@ -15,7 +15,7 @@ const browser = await chromium.launch({ headless: true, ...(process.env.CHROMIUM
 let checks = 0;
 const failures = [];
 const ok = (condition, message) => { checks++; if (!condition) failures.push(message); };
-const bands = ["Fundamentals", "Beginner olympiad", "Intermediate olympiad", "Advanced (IPhO level)", "Mastery"];
+const bands = ["Beginner", "Intermediate", "Advanced (IPhO level)", "Mastery"];
 const profiles = {
   desktop: { viewport: { width: 1440, height: 900 } },
   "iPhone 13": (({ defaultBrowserType, ...p }) => p)(devices["iPhone 13"]),
@@ -84,7 +84,7 @@ for (const [name, profile] of Object.entries(profiles)) {
     ok(await cards.count() === total && tagUrl() === null, `${name}: Clear tag filter removes it`);
   }
 
-  // Ratings: the band name is on the card, the filter has the five bands, the popover has the table.
+  // Ratings: the band name is on the card, the filter has the four bands, the popover has the table.
   const badge = page.locator("[data-problem-card]:visible [aria-label^='Estimated difficulty']").first();
   const badgeText = await badge.innerText();
   ok(bands.some((band) => badgeText.includes(band)), `${name}: a card shows its band next to the rating (${badgeText.replace(/\n/g, " ")})`);
@@ -96,14 +96,13 @@ for (const [name, profile] of Object.entries(profiles)) {
   const table = page.getByRole("table");
   await table.waitFor({ timeout: 5000 });
   const rows = await table.locator("tbody tr").allInnerTexts();
-  ok(rows.length === 5, `${name}: the popover table has five bands`);
+  ok(rows.length === 4, `${name}: the popover table has four bands`);
   const text = rows.join("\n");
   for (const [band, range, like] of [
-    ["Fundamentals", "Below 200", "A Level or school physics"],
-    ["Beginner olympiad", "200 to 799", "first round"],
-    ["Intermediate olympiad", "800 to 1,599", "national final"],
-    ["Advanced (IPhO level)", "1,600 to 2,599", "IPhO theory problem"],
-    ["Mastery", "2,600 and up", "APhO 2021"],
+    ["Beginner", "0 to 800", "first round"],
+    ["Intermediate", "801 to 1,800", "national final"],
+    ["Advanced (IPhO level)", "1,801 to 2,600", "IPhO theory problem"],
+    ["Mastery", "2,601+", "APhO 2021"],
   ]) ok(text.includes(band) && text.includes(range) && text.includes(like), `${name}: the popover row for ${band}`);
   await page.keyboard.press("Escape");
   ok(errors.length === 0, `${name}: page errors ${errors}`);

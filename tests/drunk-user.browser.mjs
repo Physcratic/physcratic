@@ -123,7 +123,7 @@ await task("publish", "From the dashboard, write a problem and publish it", asyn
   await tap(page.locator("[data-tour*='studio-answer'] math-field").first(), "final answer");
   await page.waitForTimeout(400);
   await page.keyboard.type("m*a");
-  await tap(page.getByRole("radio", { name: /^Beginner olympiad/ }), "difficulty");
+  await tap(page.getByRole("radio", { name: /^Beginner/ }), "difficulty");
   await tap(page.getByLabel(/I wrote this problem and I'm happy to share it on Physcratic/), "rights");
   await page.getByText("All changes saved").first().waitFor({ timeout: 20000 });
   await tap(page.getByRole("button", { name: "Publish", exact: true }), "Publish");

@@ -3,6 +3,8 @@ import test from 'node:test';
 import { randomUUID } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { Pool } from 'pg';
+import arena from './arena/index.json'
+import { getEstimatedProblemElo } from './problem-archive'
 import { createUnifiedArenaApi } from './unified-arena-api';
 import { problemKey,problemHref,problemKeySchema,unifiedArenaPageSchema } from './unified-arena';
 import { achievementFixtures,installAchievementFixtures } from '../tests/community-achievement-fixtures';
@@ -19,6 +21,22 @@ test('disabled community integration never queries missing tables; authored erro
  assert.equal(r.status,200);const page=unifiedArenaPageSchema.parse(await r.json());assert.ok(page.problems.some(p=>p.id==='arena-mind-the-gap'));assert.equal(page.authoredUnavailable,true);assert.ok(!JSON.stringify(page).includes('PRIVATE'));
  assert.equal((await api(new Request('https://test/?ownerId=private'))).status,400);
 });
+test('rating filter URLs accept current bands and retired ranges without querying private data', async () => {
+ const pool = { query: async () => { throw Error('Unexpected database query') } } as unknown as Pool
+ const api = createUnifiedArenaApi(pool)
+ for (const [difficulty, min, max] of [
+  ['beginner-olympiad', 0, 801], ['intermediate-olympiad', 801, 1801],
+  ['advanced', 1801, 2601], ['mastery', 2601, Infinity],
+  ['fundamentals', 0, 200], ['under-1200', 0, 1200],
+  ['1200-1599', 1200, 1600], ['1600-plus', 1600, Infinity],
+ ] as const) {
+  const response = await api(new Request('https://test/?' + new URLSearchParams({ source: 'arena', difficulty })))
+  assert.equal(response.status, 200, difficulty)
+  const page = unifiedArenaPageSchema.parse(await response.json())
+  const expected = arena.problems.filter(p => getEstimatedProblemElo(p.id) >= min && getEstimatedProblemElo(p.id) < max).map(p => p.id).sort()
+  assert.deepEqual(page.problems.map(p => p.id), expected, difficulty)
+ }
+})
 const url=process.env.AUTHORING_TEST_DATABASE_URL;
 test('mixed collection paginates complete filtered discovery and respects live authorship', {skip:!url},async()=>{
  const target=new URL(url!);assert.equal(target.hostname,'127.0.0.1');assert.equal(target.pathname,'/physcratic_authoring_test');
