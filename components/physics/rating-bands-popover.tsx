@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { ratingBands } from "@/lib/rating-bands";
 
-/** "What do the ratings mean?" with the five bands. The library and Problem Studio both use it. */
+/** Shared rating help for the library and Problem Studio. */
 export function RatingBandsPopover({ className }: { className?: string }) {
   return (
     <Popover>

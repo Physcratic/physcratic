@@ -79,11 +79,16 @@ test("cards without a supplied difficulty never invent an estimate", () => {
 
 test("practice cards identify difficulty ratings as estimates and preserve rating bands", () => {
   for (const [elo, band, level] of [
-    [150, "Fundamentals", "fundamentals"],
-    [500, "Beginner olympiad", "beginner-olympiad"],
-    [1300, "Intermediate olympiad", "intermediate-olympiad"],
+    [150, "Beginner", "beginner-olympiad"],
+    [800, "Beginner", "beginner-olympiad"],
+    [801, "Intermediate", "intermediate-olympiad"],
+    [1800, "Intermediate", "intermediate-olympiad"],
+    [1801, "Advanced (IPhO level)", "advanced"],
+    [2600, "Advanced (IPhO level)", "advanced"],
     [2250, "Advanced (IPhO level)", "advanced"],
-    [2700, "Mastery", "mastery"],
+    [2601, "Mastery", "mastery"],
+    [3201, "Mastery", "mastery"],
+    [4000, "Mastery", "mastery"],
   ] as const) {
     const html = render({ ...base, elo, onOpen() {} });
     const formatted = elo.toLocaleString("en-US");

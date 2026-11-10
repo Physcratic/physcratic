@@ -1,6 +1,6 @@
 # B5 account deletion readiness
 
-10 November 2026, continuation after the owner's account-wide policy approval. Reconciled with main `78abf9fbbb5ee603a465acade520dca2a8b9afb7`. **B5 remains NO-GO for runtime implementation, merge or activation because the mixed-subject evidence disposition below cannot yet be implemented safely.** This is the explicit privacy stop condition in the owner's completion instruction, not a renewed objection to the policy already approved.
+10 November 2026, continuation after the owner's account-wide policy approval. Reconciled with main `18ed7a48bd421c6a37cac901aeb787041e5ca5b0`, preserving the merged IPhO and rating-band work. **B5 remains NO-GO for runtime implementation, merge or activation because the mixed-subject evidence disposition below cannot yet be implemented safely.** This is the explicit privacy stop condition in the owner's completion instruction, not a renewed objection to the policy already approved.
 
 ## Approved policy and current disabled behavior
 

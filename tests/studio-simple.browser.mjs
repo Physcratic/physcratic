@@ -617,7 +617,7 @@ try {
     await tp.getByText("Tick the box to say you have permission to share it.", { exact: true }).waitFor({ timeout: 3000 });
     await tp.getByLabel("Source", { exact: true }).fill("IPhO 2019, Problem 2");
     await tp.getByLabel(/I have permission to share this adapted problem on Physcratic/).check();
-    await tp.getByRole("radio", { name: /^Intermediate olympiad/ }).click();
+    await tp.getByRole("radio", { name: /^Intermediate/ }).click();
     await tp.waitForURL((url) => url.searchParams.has("draft"));
     const tid = draftId(tp);
     await saved(tp);

@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { createRequire } from "node:module";
 import { readFileSync } from "node:fs";
 import test from "node:test";
+import { ratingBands } from "../lib/rating-bands"
 import { publishableDraftSchema, authoredDraftSchema } from "../lib/problem-authoring";
 import type { EditorDraft } from "../lib/problem-authoring-editor";
 import { editorDraftSchema, newProblem, draftPayload } from "../lib/problem-authoring-editor";
@@ -503,6 +504,18 @@ test("Where's it from: I wrote it, or Adapted from with a source and its own rig
   assert.deepEqual(simpleIssues(adapted), []);
   assert.ok(publishableDraftSchema.safeParse({ problemId: adapted.problemId, version: adapted.version, ...draftPayload(adapted) }).success);
 });
+
+test("Studio retains optional estimates, band presets and the complete exact-rating scale", () => {
+  const d = blank()
+  assert.equal(difficultyRating(d), null)
+  for (const rating of [...ratingBands.map((band) => band.middle), 0, 800, 801, 1800, 1801, 2600, 2601, 3201, 4000]) {
+    assert.equal(setDifficulty(d, String(rating)), true)
+    assert.equal(difficultyRating(d), rating)
+    assert.equal(d.content.estimatedDifficulty, String(rating))
+  }
+  assert.equal(setDifficulty(d, ""), true)
+  assert.equal(d.content.estimatedDifficulty, null)
+})
 
 test("estimated difficulty is a rating in the existing field, and an older label is kept until it is replaced", () => {
   const d = blank();
