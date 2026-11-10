@@ -32,7 +32,7 @@ export type CheckSummary = {
 
 const plural = (count: number, word: string) => `${count} ${word}${count === 1 ? "" : "s"}`;
 
-export function summariseCheck(results: readonly ArchivePartResult[]): CheckSummary {
+function checkSummary(results: readonly ArchivePartResult[], saved: boolean): CheckSummary {
   const count = (...statuses: FeedbackStatus[]) => results.filter((item) => statuses.includes(item.status)).length;
   const correct = count("correct");
   const wrong = count("incorrect", "invalid", "inconclusive");
@@ -40,9 +40,18 @@ export function summariseCheck(results: readonly ArchivePartResult[]): CheckSumm
   const review = count("self-review");
   const allCorrect = results.length > 0 && correct === results.length;
   const rest = [unanswered > 0 ? `${plural(unanswered, "part")} not answered` : "", review > 0 ? `${plural(review, "part")} to check yourself` : ""].filter(Boolean).join(", ");
-  const detail = `${correct} correct, ${wrong} to revisit${rest ? `, ${rest}` : ""}. Nothing is saved.`;
+  const detail = `${correct} correct, ${wrong} to revisit${rest ? `, ${rest}` : ""}. ${saved ? "Saved to your account." : "Nothing is saved."}`;
   if (allCorrect) return { tone: "success", headline: "Correct", detail, allCorrect, needsAnotherTry: false };
   if (wrong === 0 && correct > 0) return { tone: "success", headline: "Correct so far", detail, allCorrect, needsAnotherTry: false };
   if (wrong === 0) return { tone: "neutral", headline: "Nothing to check yet", detail, allCorrect, needsAnotherTry: false };
   return { tone: correct > 0 ? "warning" : "error", headline: correct > 0 ? `${plural(correct, "part")} correct, ${plural(wrong, "part")} to revisit` : "Not correct yet", detail, allCorrect, needsAnotherTry: true };
+}
+
+/** Stateless callers retain their existing feedback contract. */
+export function summariseCheck(results: readonly ArchivePartResult[]): CheckSummary {
+  return checkSummary(results, false);
+}
+/** Use only for an answer snapshot confirmed by a durable server receipt. */
+export function summariseSavedCheck(results: readonly ArchivePartResult[]): CheckSummary {
+  return checkSummary(results, true);
 }

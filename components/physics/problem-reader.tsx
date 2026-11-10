@@ -44,7 +44,7 @@ function PracticeProblem({ problem }: { problem: Problem }) {
         </CardHeader>
       </Card>
       <div className="flex min-w-0 flex-col gap-4">
-        <Card className="min-w-0 shadow-none"><CardContent className="pt-6"><ArchiveAnswerPanel key={reset} problemId={problem.id} onCorrect={() => setShowSolution(true)} onSeeHint={seeHint} nextHref={hasNext ? `/dashboard/problems/${nextProblem.id}` : undefined} /></CardContent></Card>
+        <Card className="min-w-0 shadow-none"><CardContent className="pt-6"><ArchiveAnswerPanel resetToken={reset} problemId={problem.id} onCorrect={() => setShowSolution(true)} onSeeHint={seeHint} nextHref={hasNext ? `/dashboard/problems/${nextProblem.id}` : undefined} /></CardContent></Card>
         <div className="flex flex-col gap-3">
           <Button variant="outline" data-tour="hint-button" className="min-h-11 justify-between" onClick={() => setShowHint(!showHint)} aria-expanded={showHint} aria-controls="problem-hint"><span className="flex items-center gap-2"><Lightbulb data-icon="inline-start" />{showHint ? "Hide hint" : "Need a hint?"}</span>{showHint ? <ChevronUp /> : <ChevronDown />}</Button>
           {showHint && <p id="problem-hint" tabIndex={-1} className={`rounded-lg border bg-muted/50 p-4 text-base leading-relaxed text-foreground ${proseWidth}`}>{problem.hint}</p>}

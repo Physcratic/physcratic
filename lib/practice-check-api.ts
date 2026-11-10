@@ -35,6 +35,8 @@ async function charge(pool:Pool,userId:string,submit:boolean){
     window_start=greatest(practice_check_rate.window_start,EXCLUDED.window_start) RETURNING requests,submissions`,[userId,submit?1:0]);
   if(rows[0].requests>policy.requestsPerMinute||(submit&&rows[0].submissions>policy.submissionsPerMinute))throw new CheckError(429,'Checked-answer request limit reached. Retry next minute.','60');
 }
+/** Internal authenticated dashboard reads share the same persistent read allowance. */
+export const chargePracticeRead = (pool:Pool,userId:string) => charge(pool,userId,false);
 function same(row:Row,input:PracticeCheckRequest){
   const stored=practiceCheckRequestSchema.parse({problemId:row.problem_id,version:row.version,answers:row.answers,idempotencyKey:input.idempotencyKey});
   return JSON.stringify(stored)===JSON.stringify(input);
