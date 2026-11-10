@@ -1,84 +1,105 @@
-import assert from "node:assert/strict";
-import test from "node:test";
-import { bandForEstimate, bandFilterIds, describeEstimate, matchesBand, parseRating, ratingBand, ratingBands } from "./rating-bands";
-import { readFileSync } from "node:fs";
+import assert from "node:assert/strict"
+import test from "node:test"
+import { bandForEstimate, bandFilterIds, describeEstimate, matchesBand, maxRating, parseRating, ratingBand, ratingBands } from "./rating-bands"
+import { readFileSync } from "node:fs"
+import { initialIndividualRating } from "./individual-elo"
 
-test("the five bands are in order, cover 0 upward with no gap or overlap, and match the owner's table", () => {
-  assert.deepEqual(
-    ratingBands.map((band) => [band.name, band.min, band.max]),
-    [["Fundamentals", 0, 200], ["Beginner olympiad", 200, 800], ["Intermediate olympiad", 800, 1600], ["Advanced (IPhO level)", 1600, 2600], ["Mastery", 2600, Infinity]],
-  );
-  for (let i = 1; i < ratingBands.length; i++) assert.equal(ratingBands[i].min, ratingBands[i - 1].max);
-  assert.equal(new Set(ratingBands.map((band) => band.id)).size, 5);
-  assert.deepEqual(ratingBands.map((band) => band.range), ["Below 200", "200 to 799", "800 to 1,599", "1,600 to 2,599", "2,600 and up"]);
+test("the four visible bands match the inclusive boundaries and display ranges", () => {
+  assert.deepEqual(ratingBands.map((band) => [band.id, band.name, band.min, band.max, band.range]), [
+    ["beginner-olympiad", "Beginner", 0, 801, "0 to 800"],
+    ["intermediate-olympiad", "Intermediate", 801, 1801, "801 to 1,800"],
+    ["advanced", "Advanced (IPhO level)", 1801, 2601, "1,801 to 2,600"],
+    ["mastery", "Mastery", 2601, Infinity, "2,601+"],
+  ])
+  assert.equal(new Set(ratingBands.map((band) => band.id)).size, 4)
   for (const band of ratingBands) {
-    assert.ok(band.example.length > 10 && band.example.length < 100, band.id);
-    assert.ok(!/[—–;]/.test(band.example + band.name + band.range), "no dashes or semicolons");
-    assert.equal(ratingBand(band.middle).id, band.id, `the middle of ${band.id} is in ${band.id}`);
+    assert.ok(band.example.length > 10 && band.example.length < 100, band.id)
+    assert.ok(!/[—–;]/.test(band.example + band.name + band.range), "plain copy")
+    assert.equal(ratingBand(band.middle).id, band.id)
   }
-});
+})
 
-test("a rating falls in the band at its edges", () => {
-  const id = (n: number) => ratingBand(n).id;
-  assert.equal(id(-5), "fundamentals");
-  assert.equal(id(0), "fundamentals");
-  assert.equal(id(199), "fundamentals");
-  assert.equal(id(200), "beginner-olympiad");
-  assert.equal(id(799), "beginner-olympiad");
-  assert.equal(id(800), "intermediate-olympiad");
-  assert.equal(id(1599), "intermediate-olympiad");
-  assert.equal(id(1600), "advanced");
-  assert.equal(id(2599), "advanced");
-  assert.equal(id(2600), "mastery");
-  assert.equal(id(4000), "mastery");
-});
+test("ratings at every requested boundary use the new bands", () => {
+  for (const [ratings, expected] of [
+    [[0, 799, 800], "beginner-olympiad"],
+    [[801, 1599, 1600, 1800], "intermediate-olympiad"],
+    [[1801, 2599, 2600], "advanced"],
+    [[2601, 3200, 3201, 4000], "mastery"],
+  ] as const) {
+    for (const rating of ratings) assert.equal(ratingBand(rating).id, expected, String(rating))
+  }
+  assert.equal(ratingBand(-5).id, "beginner-olympiad")
+})
 
-test("Studio fills in the middle of a band, and the starting rating is in Intermediate olympiad", () => {
-  assert.equal(ratingBands[0].middle, 100);
-  assert.equal(ratingBand(1200).id, "intermediate-olympiad");
-});
+test("every valid integer rating belongs to exactly one visible band and filter", () => {
+  assert.equal(maxRating, 4000)
+  for (let rating = 0; rating <= maxRating; rating++) {
+    const containing = ratingBands.filter((band) => rating >= band.min && rating < band.max)
+    assert.equal(containing.length, 1, String(rating))
+    assert.equal(ratingBand(rating), containing[0])
+    assert.deepEqual(ratingBands.filter((band) => matchesBand(rating, band.id)), containing)
+  }
+})
+
+test("Studio presets and the Intermediate starting player rating stay unchanged", () => {
+  assert.deepEqual(ratingBands.map((band) => band.middle), [500, 1200, 2100, 2800])
+  assert.equal(initialIndividualRating, 1200)
+  assert.equal(ratingBand(initialIndividualRating).id, "intermediate-olympiad")
+})
 
 test("the archive spreads over the top three bands", () => {
-  // The archive's editorial estimates, read from the source so this test needs no extra export.
-  const source = readFileSync("lib/problem-archive.ts", "utf8");
-  const block = source.slice(source.indexOf("estimatedProblemElos"), source.indexOf("};", source.indexOf("estimatedProblemElos")));
-  const estimates = [...block.matchAll(/:\s*(\d{3,4})/g)].map((match) => Number(match[1]));
-  assert.ok(estimates.length > 100, "found the archive estimates");
-  const counts = new Map<string, number>();
-  for (const elo of estimates) counts.set(ratingBand(elo).id, (counts.get(ratingBand(elo).id) ?? 0) + 1);
-  for (const id of ["intermediate-olympiad", "advanced", "mastery"]) assert.ok((counts.get(id) ?? 0) > 0, id);
-  assert.ok((counts.get("advanced") ?? 0) > 20, "the IPhO level band holds a real share of the archive");
-});
+  const source = readFileSync("lib/problem-archive.ts", "utf8")
+  const block = source.slice(source.indexOf("estimatedProblemElos"), source.indexOf("};", source.indexOf("estimatedProblemElos")))
+  const estimates = [...block.matchAll(/:\s*(\d{3,4})/g)].map((match) => Number(match[1]))
+  assert.ok(estimates.length > 100, "found the archive estimates")
+  const counts = new Map<string, number>()
+  for (const elo of estimates) counts.set(ratingBand(elo).id, (counts.get(ratingBand(elo).id) ?? 0) + 1)
+  for (const id of ["intermediate-olympiad", "advanced", "mastery"]) assert.ok((counts.get(id) ?? 0) > 0, id)
+  assert.ok((counts.get("advanced") ?? 0) > 20)
+})
 
-test("an author's exact rating is read from what they type", () => {
-  assert.equal(parseRating("1850"), 1850);
-  assert.equal(parseRating(" 1,850 "), 1850);
-  assert.equal(parseRating("~1850"), 1850);
-  assert.equal(parseRating("0"), 0);
-  assert.equal(parseRating("4000"), 4000);
-  for (const bad of ["", "abc", "4001", "-5", "18.5", "1e3", "12345"]) assert.equal(parseRating(bad), null, bad);
-});
+test("exact ratings still accept the complete 0 to 4000 scale", () => {
+  for (const value of [0, 800, 801, 1800, 1801, 2600, 2601, 3200, 3201, 4000]) {
+    assert.equal(parseRating(String(value)), value)
+  }
+  assert.equal(parseRating(" 1,850 "), 1850)
+  assert.equal(parseRating("~1850"), 1850)
+  for (const bad of ["", "abc", "4001", "-5", "18.5", "1e3", "12345"]) assert.equal(parseRating(bad), null, bad)
+})
 
-test("a stored estimate reads as an estimate, and an old free-text label is shown as written", () => {
-  assert.equal(describeEstimate("1850"), "~1,850 · Advanced (IPhO level) (estimate)");
-  assert.equal(describeEstimate("1200"), "~1,200 · Intermediate olympiad (estimate)");
-  assert.equal(describeEstimate("2600"), "~2,600 · Mastery (estimate)");
-  assert.equal(describeEstimate("2599"), "~2,599 · Advanced (IPhO level) (estimate)");
-  assert.equal(describeEstimate("100"), "~100 · Fundamentals (estimate)");
-  assert.equal(describeEstimate("Hard"), "Hard");
-  assert.equal(describeEstimate(null), "");
-  assert.equal(bandForEstimate("1850")?.id, "advanced");
-  assert.equal(bandForEstimate("Hard"), null);
-});
+test("estimate descriptions show current names without changing numeric or legacy values", () => {
+  for (const [value, name] of [
+    [100, "Beginner"], [800, "Beginner"], [801, "Intermediate"], [1200, "Intermediate"],
+    [1600, "Intermediate"], [1800, "Intermediate"], [1801, "Advanced (IPhO level)"],
+    [2600, "Advanced (IPhO level)"], [2601, "Mastery"], [3201, "Mastery"], [4000, "Mastery"],
+  ] as const) {
+    assert.equal(describeEstimate(String(value)), `~${value.toLocaleString("en-US")} · ${name} (estimate)`)
+  }
+  assert.equal(describeEstimate("Hard"), "Hard")
+  assert.equal(describeEstimate(null), "")
+  assert.equal(bandForEstimate("1850")?.id, "advanced")
+  assert.equal(bandForEstimate("Hard"), null)
+})
 
-test("filters take the five band ids and the three older ones", () => {
-  assert.ok(bandFilterIds.includes("mastery") && bandFilterIds.includes("1600-plus"));
-  assert.ok(matchesBand(1000, "all") && matchesBand(2750, "all"));
-  assert.ok(matchesBand(2250, "advanced") && !matchesBand(2250, "mastery") && !matchesBand(2250, "intermediate-olympiad"));
-  assert.ok(matchesBand(900, "under-1200") && !matchesBand(1200, "under-1200"));
-  assert.ok(matchesBand(1599, "1200-1599") && !matchesBand(1600, "1200-1599"));
-  assert.ok(matchesBand(1600, "1600-plus") && matchesBand(2800, "1600-plus"));
-  assert.equal(matchesBand(1500, "no-such-band"), false);
-  // Every rating is in exactly one of the five bands.
-  for (let rating = 0; rating <= 4000; rating += 50) assert.equal(ratingBands.filter((band) => matchesBand(rating, band.id)).length, 1, String(rating));
-});
+test("retired filter ids remain accepted with their historical ranges but stay hidden", () => {
+  const legacy = [
+    ["fundamentals", 0, 200],
+    ["under-1200", 0, 1200],
+    ["1200-1599", 1200, 1600],
+    ["1600-plus", 1600, Infinity],
+  ] as const
+  assert.equal(new Set(bandFilterIds).size, 8)
+  for (const [id, min, max] of legacy) {
+    assert.ok(bandFilterIds.includes(id))
+    assert.ok(!ratingBands.some((band) => String(band.id) === id))
+    for (let rating = 0; rating <= maxRating; rating++) {
+      assert.equal(matchesBand(rating, id), rating >= min && rating < max, `${id}: ${rating}`)
+    }
+  }
+  assert.ok(matchesBand(800, "beginner-olympiad"))
+  assert.ok(matchesBand(1800, "intermediate-olympiad"))
+  assert.ok(matchesBand(2600, "advanced"))
+  assert.ok(matchesBand(4000, "mastery"))
+  assert.ok(matchesBand(1000, "all") && matchesBand(2750, "all"))
+  assert.equal(matchesBand(1500, "no-such-band"), false)
+})

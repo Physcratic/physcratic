@@ -470,7 +470,7 @@ function SourceField({ draft, edit, touch, issue }: { draft: EditorDraft; edit: 
   );
 }
 
-/** Estimated difficulty as one of five bands, with an exact rating to type. It is saved in the existing difficulty field. */
+/** Estimated difficulty from the shared bands or an exact rating, saved in the existing difficulty field. */
 function DifficultyField({ draft, edit }: { draft: EditorDraft; edit: SimpleProps["edit"] }) {
   const id = useId();
   const rating = difficultyRating(draft);
