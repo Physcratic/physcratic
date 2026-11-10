@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Experimental page content hierarchies (11 November 2026)
+
+Read [TEST_PAGE_HIERARCHIES.md](TEST_PAGE_HIERARCHIES.md) alongside TEST_SITE_MAP.md. It adds ten proposed per-page information hierarchies with attention priorities, shared shell rules and required empty/error/recovery states. These are unbuilt/untested planning diagrams, not fixed wireframes. Update the relevant hierarchy with each page iteration. No application routes or runtime behaviour change in this checkpoint.
+
 ## Marketplace prototype page map (11 November 2026)
 
 The page map now includes separate Mermaid diagrams for course discovery, coaching enquiry validation/return paths, and practice with guide/offering cross-links. All remain proposed. Experimental route implementation and browser verification are still pending.

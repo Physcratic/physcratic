@@ -118,6 +118,10 @@ Paid learning links are secondary. Only link an offering that exists and matches
 
 When changing a route or action, update its page specification, link contract and affected diagram together. Keep state details such as submission retries in a dedicated diagram when implemented, rather than expanding this overview indefinitely.
 
+## Page information hierarchies
+
+See [TEST_PAGE_HIERARCHIES.md](TEST_PAGE_HIERARCHIES.md) for a proposed content-priority diagram for every page below. These diagrams describe each page internally, while this map describes routes and cross-page connections. Update both when changing a page's purpose or contents.
+
 ## Page specifications
 
 All rows are **planned, not built**. Contents and action priorities remain proposed until tried.
