@@ -21,7 +21,7 @@ export default function Layout({
       <SkipLink targetId="main-content">Skip to content</SkipLink>
       <GuidedTour tourId="welcome" />
       <Sidebar view={view} topic={topic} />
-      <div className="flex min-w-0 flex-1 flex-col lg:pl-60">
+      <div className="flex min-w-0 flex-1 flex-col xl:pl-60">
         <TopNav view={view} topic={topic} />
         <main id="main-content" tabIndex={-1} className="flex-1 p-5 focus:outline-none sm:p-8 xl:p-10">
           <div className="mx-auto w-full max-w-7xl">{communityProfilesEnabled() && <ProfileSetupPrompt />}{children}</div>

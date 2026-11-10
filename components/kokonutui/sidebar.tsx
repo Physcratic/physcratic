@@ -12,6 +12,7 @@ import {
   Trophy,
   ChartNoAxesCombined,
   GraduationCap,
+  CircleHelp,
 } from "lucide-react";
 import { AccountNav } from "@/components/account-nav";
 import { BrandMark } from "@/components/brand-mark";
@@ -25,7 +26,9 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { coachingEntryHandlers } from "@/lib/coaching/analytics";
-import { topics, type View } from "@/lib/physics";
+import type { View } from "@/lib/physics";
+import { startTour } from "@/components/tour/tour-storage";
+import { tours } from "@/components/tour/tours";
 import { cn } from "@/lib/utils";
 
 export default function Sidebar({
@@ -40,10 +43,18 @@ export default function Sidebar({
   const [phone, setPhone] = useState(false);
   useEffect(() => {
     const query = window.matchMedia("(max-width: 639px)");
-    const update = () => setPhone(query.matches);
+    const desktop = window.matchMedia("(min-width: 1280px)");
+    const update = () => {
+      setPhone(query.matches);
+      if (desktop.matches) setMobileOpen(false);
+    };
     update();
     query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
+    desktop.addEventListener("change", update);
+    return () => {
+      query.removeEventListener("change", update);
+      desktop.removeEventListener("change", update);
+    };
   }, []);
   const entry = coachingEntryHandlers("sidebar");
   const mainItems = [
@@ -122,31 +133,7 @@ export default function Sidebar({
             </Link>
           </div>
         </div>
-        <div className="flex flex-col gap-3" data-tour="nav-topics">
-          <h2 className="px-3 text-base font-semibold tracking-tight text-foreground">
-            Explore
-          </h2>
-          <div className="flex flex-col gap-1">
-            {topics.map(({ name, icon: Icon }) => (
-              <Link
-                key={name}
-                href={`/dashboard?view=problems&topic=${encodeURIComponent(name)}`}
-                onClick={() => setMobileOpen(false)}
-                aria-current={topic === name ? "page" : undefined}
-                className={cn(
-                  "flex min-h-11 items-center gap-3 rounded-lg px-3 text-sm transition-colors",
-                  topic === name
-                    ? "bg-accent font-medium text-accent-foreground"
-                    : "text-muted-foreground hover:bg-muted hover:text-foreground",
-                )}
-              >
-                <Icon className="size-[18px]" strokeWidth={1.7} />
-                {name}
-              </Link>
-            ))}
-          </div>
-        </div>
-        <div className="flex flex-col gap-3 sm:hidden">
+        <div className="flex flex-col gap-3 xl:hidden">
           <h2 className="px-3 text-base font-semibold tracking-tight text-foreground">
             More
           </h2>
@@ -167,6 +154,19 @@ export default function Sidebar({
               <BookOpen className="size-[18px]" strokeWidth={1.7} />
               Learn
             </Link>
+            <Button
+              type="button"
+              variant="ghost"
+              className="min-h-11 justify-start px-3"
+              aria-label={`Help: ${tours.welcome.name}`}
+              onClick={() => {
+                setMobileOpen(false);
+                startTour("welcome");
+              }}
+            >
+              <CircleHelp aria-hidden="true" />
+              Help
+            </Button>
             <div className="px-3 py-1">
               <FeedbackLink variant="inline" />
             </div>
@@ -192,10 +192,10 @@ export default function Sidebar({
 
   return (
     <>
-      <aside className="fixed inset-y-0 left-0 hidden w-60 border-r lg:block">
+      <aside className="fixed inset-y-0 left-0 hidden w-60 border-r xl:block">
         {navigation}
       </aside>
-      <div className="fixed right-3 top-3.5 z-[42] sm:left-4 sm:right-auto lg:hidden">
+      <div className="fixed right-3 top-3.5 z-[42] sm:left-4 sm:right-auto xl:hidden">
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" className="h-12 min-w-12 w-auto flex-col gap-0.5 px-2 py-1 text-xs font-medium leading-none sm:h-11 sm:flex-row sm:gap-2 sm:px-3 sm:text-sm" data-tour="nav-open">
@@ -206,7 +206,7 @@ export default function Sidebar({
           <SheetContent side={phone ? "right" : "left"} className="w-72 p-0">
             <SheetTitle className="sr-only">Physcratic navigation</SheetTitle>
             <SheetDescription className="sr-only">
-              Browse your physics workspace and topics.
+              Browse your physics workspace and account options.
             </SheetDescription>
             {navigation}
           </SheetContent>

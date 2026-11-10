@@ -35,7 +35,6 @@ export const tours: Record<TourId, Tour> = {
     autoStart: onDashboard,
     steps: [
       { id: "library", targets: ["nav-problems", "nav-open"], title: "The library", text: "Every problem lives in the library. Open it to browse, search and filter." },
-      { id: "topics", targets: ["nav-topics"], title: "Topics", text: "Pick a topic to see only those problems." },
       {
         id: "open",
         targets: ["problem-card"],

@@ -48,6 +48,6 @@ test("each tour has unique step ids and short, plain steps", () => {
 
 test("the Welcome tour covers the places the owner asked for, in order", () => {
   const ids = tours.welcome.steps.map((s) => s.id);
-  assert.deepEqual(ids, ["library", "topics", "open", "answer", "typing", "palette", "check", "help", "coaching", "settings"]);
+  assert.deepEqual(ids, ["library", "open", "answer", "typing", "palette", "check", "help", "coaching", "settings"]);
   assert.deepEqual(tours.studio.steps.map((s) => s.id), ["main", "question", "equation", "typing", "picture", "solution", "answer", "try", "source", "difficulty", "publish"]);
 });

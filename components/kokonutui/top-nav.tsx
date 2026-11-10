@@ -32,7 +32,7 @@ export default function TopNav({
   }, [router]);
 
   return (
-    <header className="relative z-40 flex h-[72px] shrink-0 items-center justify-between border-b bg-background pl-4 pr-[68px] sm:px-8 sm:pl-16 lg:pl-8 xl:px-10">
+    <header className="relative z-40 flex h-[72px] shrink-0 items-center justify-between border-b bg-background pl-4 pr-[68px] sm:px-8 sm:pl-32 xl:px-10">
       <Link href="/dashboard" className="flex min-h-11 min-w-0 items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:hidden" aria-label="Physcratic home">
         <BrandMark size={32} className="shrink-0 rounded-md" />
         <span className="truncate text-xl font-semibold tracking-[-0.05em]">Physcratic</span>
@@ -52,8 +52,8 @@ export default function TopNav({
           {topic || viewTitles[view]}
         </span>
       </nav>
-      <div className="flex shrink-0 items-center gap-1 sm:gap-5">
-        <div className="hidden sm:contents">
+      <div className="hidden shrink-0 items-center gap-5 xl:flex">
+        <div className="contents">
         {/* The name is the visible text, so a voice user can say what they see. The shortcut hint is outside the button. */}
         <div className="flex items-center gap-2">
           <Button
@@ -96,7 +96,7 @@ export default function TopNav({
           </Link>
         </Button>
         <TourHelpButton tourId="welcome" />
-        <div className="hidden sm:contents">
+        <div className="contents">
           <FeedbackLink variant="nav" />
           <span className="h-5 border-l" />
           <AccountNav />
