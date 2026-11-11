@@ -90,3 +90,17 @@ Guest concept was accepted as good enough for now. Member revision remains under
 L10 is implemented as hidden for all member states. The guest has separate, owner-requested Coaching/Arena heroes, so the old compact generic section is now hidden in all fixture states.
 No new recommendation, promotion, account or backend feature was added.
 JavaScript syntax and static check of the hidden block pass. Browser/a11y/build checks remain unverified.
+
+
+## L11 · Learning-first navigation and More
+
+- **Location/audience:** signed-in member header, enrolled and no-enrolment states, desktop and mobile.
+- **Change:** My learning and Explore courses are primary. Coaching and Arena move into a separate **More** disclosure near account controls. Mobile menu uses the same learning-first grouping.
+- **Trigger:** owner accepted this navigation plan and explicitly chose the label More.
+- **User need/reason:** keep frequent learning actions visible while retaining quick access to the product extensions without signing out or visiting a guest page.
+- **Cost/tradeoff:** an extra click and a less descriptive label reduce extension visibility.
+- **Simpler alternative:** leave both links visible. Rejected here because it competes with the learner's main task. Do not put product destinations inside account settings.
+- **Expected check:** either member state can reach each extension and return with account state unchanged; primary course actions remain available; mobile keeps the same hierarchy. Guest header stays unchanged.
+- **Status:** implemented after recording this decision. Native disclosure, Escape/outside-click dismissal and mobile grouping added. Extension destinations retain modal previews; no new live routes or account integration. JavaScript syntax and static structure checks pass; browser interaction remains unverified.
+- **Owner correction:** use More, not More from Physcratic.
+

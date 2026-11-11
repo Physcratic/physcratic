@@ -25,7 +25,7 @@ JS syntax/static checks pass. Browser, keyboard/mobile/accessibility and full ap
 ## Brand and navigation decision
 
 Physcratic itself is the core course marketplace. Do not introduce Physcratic Courses or a parallel Academy brand in customer navigation. Coaching and Arena are extensions of the core product, sharing its account identity.
-The prototype header and mobile menu now contain Coaching and Arena, not a Courses product tab. Brand/logo remains the homepage link. Explore courses buttons still lead to discovery, and the footer may retain Courses as a useful task link.
+Guest navigation shows Coaching and Arena directly. Member navigation prioritizes My learning and Explore courses, with Coaching and Arena in a separate **More** disclosure beside account controls. Mobile navigation keeps the learning links first, followed by a More group for the extensions. More is separate from account settings. Brand/logo remains the homepage link; the footer retains Courses as a useful task link. Decision L11 records the reason and visibility tradeoff.
 This changes prototype navigation only, not existing production routes or account implementation. The signed-out homepage concept is accepted as good enough for now; avoid further unsolicited visual redesign and focus subsequent work on requested details or other flows.
 
 ## Audience familiarity and labels

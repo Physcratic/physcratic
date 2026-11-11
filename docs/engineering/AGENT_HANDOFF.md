@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Learning-first navigation and More (11 November 2026)
+
+Decision L11: member header now prioritizes My learning and Explore courses. A separate More disclosure beside Account contains Coaching and Arena with short descriptions; mobile Menu keeps learning first, then More. Owner explicitly chose More. Guest navigation remains unchanged. Native disclosure supports Escape and outside-click dismissal. JS syntax/static structure checks pass; browser/build checks pending. Both maps and decision report updated.
+
 ## Mandatory prototype decision report (11 November 2026)
 
 Owner requests a separate reason for every prototype addition/removal/change. PROTOTYPE_DESIGN_DECISIONS.md now records the required pre-change reasoning process and an explicitly retrospective audit of current guest/member elements. Preserve weak/rejected reasoning and user corrections instead of defending or rewriting them. AGENTS.md requires entries before changes and outcome updates afterward. L10 records the generic learner Coaching/Arena promotion mistake; that block is now hidden in all member states, while guest dedicated heroes remain. Static gate and JavaScript syntax checked; browser/build pending. Next: use decision IDs for all prototype changes.
