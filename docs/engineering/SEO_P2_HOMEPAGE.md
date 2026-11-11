@@ -1,6 +1,6 @@
 # P2 public homepage checkpoint
 
-11 November 2026. Base `b3912ce60f80929c360ccb7956d6b394eef1aff5`, branch `codex/seo-p2-public-home`. Implementation `c42295b` incorporates main `77ac5de` through reviewed runtime merge head `7f65133`. The final documentation-only commit preserves those application bytes. The draft PR records its final head and GitHub results. No merge or manual deployment is authorized.
+11 November 2026. Base `b3912ce60f80929c360ccb7956d6b394eef1aff5`, branch `codex/seo-p2-public-home`. Implementation `c42295b` incorporates main `77ac5de` through reviewed runtime merge head `7f65133`. Documentation and layer-test follow-ups preserve those application bytes. The draft PR records its final head and GitHub results. No merge or manual deployment is authorized.
 
 ## Implementation and integration contracts
 
@@ -15,10 +15,10 @@ Exact combined-tree local gate: Node 22.23.1, frozen pnpm 10.34.9, PostgreSQL 18
 
 | Check | Result |
 | --- | --- |
-| SEO, copy, server rendering and tour tests | 104 pass, no skips or failures |
+| SEO, copy, server rendering and tour tests | 111 pass, no skips or failures |
 | Next typegen, TypeScript, zero-warning lint | Pass |
 | Guarded production build, synthetic auth and unavailable loopback DB | Pass, 182 generated pages |
-| Public-home browser, 375/768/1440 in both themes, no-JS and unavailable account API | 135 checks pass |
+| Public-home browser, 375/768/1440 in both themes, no-JS and unavailable account API | 142 checks pass |
 | A/B session fixture, concurrent HTML/RSC, real 1440/375 member navigation/logout | 657 checks pass |
 | Existing homepage-only contrast/structure/keyboard/axe sweep, 375/390/768/1440 both themes | Pass, zero failures. Minimum text 6.36:1, border 3.79:1 |
 | Independent source and six width/theme browser review | Pass, zero axe violations and no material blocker |
@@ -30,6 +30,10 @@ The extended existing home-session fixture uses disposable PostgreSQL and synthe
 The React best-practices checklist was applied: server-only public data, no new fetch waterfall or request-global state, stable typed problem identities, ordinary anchors and accessible existing controls. Source checks confirm upstream account-deletion APIs, settings, attribution and migrations remain byte-identical to main.
 
 No Production data, settings, providers, flags or deployment was operated. Production behavior, real providers, physical devices and Google Search Console/indexation/rankings are unverified.
+
+## GitHub component-test follow-up
+
+CI #333 on initial PR #143 head `697afae` stopped in `tests/tour-layer.test.ts` because its source assertion required the old literal `className="relative z-40 ..."` form. The header still uses the same unconditional `z-40` layer in both modes. This test-only repair checks the static layer outside conditional interpolations, renders both default-relative and public-sticky headers, and checks computed z-index/position in the browser. Existing ring/menu/dialog/card ordering assertions remain unchanged. Seven focused layer checks, the 111-check combined focused set and the 142-check public browser set pass. No application bytes changed and no production rebuild was needed. Exact-head GitHub CI rerun results are recorded on PR #143, with pending checks kept distinct from passing local evidence.
 
 ## Screenshots
 

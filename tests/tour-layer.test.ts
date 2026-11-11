@@ -1,9 +1,17 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
+import * as React from "react";
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { AppRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import TopNav from "../components/kokonutui/top-nav";
 import { CARD_LAYER, HEADER_LAYER, MENU_BUTTON_LAYER, MENU_LAYER, RING_HEADER_LAYER, RING_PAGE_LAYER, ringLayer } from "../components/tour/tour-layer";
 import { plainTourText } from "../components/tour/tour-text";
 import { tours } from "../components/tour/tours";
+
+(globalThis as { React?: unknown }).React = React;
+const router = { back() {}, forward() {}, refresh() {}, hmrRefresh() {}, push() {}, replace() {}, prefetch() {} };
 
 const inHeader = { closest: (selector: string) => (selector === "header" ? {} : null), dataset: { tour: "nav-coaching" } };
 const inPage = { closest: () => null, dataset: { tour: "answer-box" } };
@@ -25,7 +33,10 @@ test("a header step (Coaching, Help, Search, the menu button) raises the ring ju
 
 test("the header really sits on the layer the ring is measured against", () => {
   const nav = readFileSync("components/kokonutui/top-nav.tsx", "utf8");
-  assert.match(nav, new RegExp(`<header className="relative z-${HEADER_LAYER} `));
+  const header = nav.match(/<header\b[^>]*>/)?.[0];
+  assert.ok(header, "header source exists");
+  // Positioning can vary, but the stacking layer must remain outside all conditional interpolations.
+  assert.match(header.replace(/\$\{[^}]*\}/g, ""), new RegExp(`\\bz-${HEADER_LAYER}\\b`));
   for (const file of ["components/ui/dialog.tsx", "components/ui/dropdown-menu.tsx", "components/ui/sheet.tsx", "components/ui/popover.tsx"]) {
     assert.match(readFileSync(file, "utf8"), new RegExp(`z-${MENU_LAYER}`), file);
   }
@@ -55,5 +66,16 @@ test("both tours have a typing step with a key chip for the backslash", () => {
     assert.ok(step, id);
     assert.ok(step!.text.includes("[[\\]]theta") && step!.text.includes("sin"), id);
     assert.ok(plainTourText(step!.text).includes("\\theta"), id);
+  }
+});
+
+test("default and public sticky headers retain the same unconditional stacking layer", () => {
+  for (const sticky of [false, true]) {
+    const html = renderToStaticMarkup(createElement(AppRouterContext.Provider, { value: router }, createElement(TopNav, { view: "overview", sticky })));
+    const classes = html.match(/<header class="([^"]+)"/)?.[1].split(/\s+/);
+    assert.ok(classes, "rendered header exists");
+    assert.deepEqual(classes.filter(name => /^z-/.test(name)), [`z-${HEADER_LAYER}`]);
+    assert.ok(classes.includes(sticky ? "sticky" : "relative"));
+    if (sticky) assert.ok(classes.includes("top-0"));
   }
 });

@@ -29,6 +29,7 @@ try {
       const page = await context.newPage();
       await page.goto(origin, { waitUntil: "networkidle" });
       ok(await page.locator("h1").count() === 1, "one h1");
+      ok(await page.locator("header").first().evaluate(el => { const style = getComputedStyle(el); return style.zIndex === "40" && style.position === "sticky"; }), "public sticky header retains tour layer 40");
       ok(await page.locator("h1").textContent() === "Free physics olympiad practice", "meaningful h1");
       ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "no horizontal overflow");
       for (const href of ["/problems", "/problems/archive", "/learn", "/coaching", "/dashboard?view=contests", "/dashboard/problems/incline"]) {
@@ -94,5 +95,11 @@ try {
   await page.getByRole("link", { name: "Try a problem", exact: true }).click();
   ok(page.url() === `${origin}/dashboard/problems/incline`, "no-JS practice navigation");
   await context.close();
+  const defaultContext = await browser.newContext();
+  await defaultContext.route("**/*", route => new URL(route.request().url()).origin === origin ? route.continue() : route.abort());
+  const dashboard = await defaultContext.newPage();
+  await dashboard.goto(`${origin}/dashboard`, { waitUntil: "networkidle" });
+  ok(await dashboard.locator("header").first().evaluate(el => { const style = getComputedStyle(el); return style.zIndex === "40" && style.position === "relative"; }), "default dashboard header retains relative position and tour layer 40");
+  await defaultContext.close();
   console.log(`public-home.browser: ${checks} checks passed`);
 } finally { await browser.close(); }
