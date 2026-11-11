@@ -54,38 +54,27 @@ There is no separate course-list route. Course detail URLs remain planned as `/t
 
 #### Guest homepage
 
-Owner-approved motto: **For those who want to win.** Exact copy, including punctuation.
-Supporting sentence explains the actual offer. Names, exact achievements and subject biographies are removed from the hero.
+Read [GUEST_HOMEPAGE_LAYOUT.md](GUEST_HOMEPAGE_LAYOUT.md) for the full-page rough layout, copy, media allocation and CTA review.
 
-```mermaid
-flowchart TD
-  page["Guest landing"]
-  hero["1 · Motto, offer and instructor imagery"]
-  teaching["2 · Watch how a problem is solved"]
-  subjects["3 · Choose your olympiad subject"]
-  ending["4 · Course action and footer"]
-  page --> hero
-  page --> teaching
-  page --> subjects
-  page --> ending
-  hero --> message["For those who want to win. · Explore courses"]
-  hero --> portraits["Three editorial portraits paired with competition marks"]
-  teaching --> video["Large lesson-video slot"]
-  teaching --> screenshot["Overlapping annotated-lesson screenshot"]
-  subjects --> covers["Six subject artwork slots"]
-```
+| Order | Section | Primary content/action |
+| --- | --- | --- |
+| 1 | Hero | Exact motto, short offer, portraits/competition marks, Explore courses |
+| 2 | Coverage | X+ placeholder, subject line, logo rail, Find your competition |
+| 3 | Course teaching | Video, lesson-note screenshot, sample explanation |
+| 4 | Coaching hero | Personal live support, session media, Explore coaching |
+| 5 | Arena hero | Free physics practice, product screenshot, Explore free practice |
+| 6 | Final CTA | Ready to start preparing? Explore courses, browse without account |
+| 7 | Footer | Grouped support, learning, company and policy links |
 
-Reserve generous image/video space even before assets are available. The composition is designed for imagery, not text cards standing in for portraits.
-Current placeholders show portrait silhouettes, logo slots, a video frame, a screenshot sketch and subject covers. These are not final photos, logos, screenshots or recorded lessons.
-Video and screenshot slots open labelled placeholder previews. Read a sample explanation remains available separately.
-Explore courses opens catalogue browsing; subject artwork selects a matching subject.
-Use competition marks as evidence about instructors, not a claim of endorsement. Actual assets require accurate association, appropriate permissions, descriptive alt text and video captions/transcript.
-The supporting offer and concise subject line keep the aspirational motto understandable.
+Removed: Choose your olympiad subject gallery and Find a course for your next olympiad block. Catalogue filters and member discovery still exist.
+The full-page diagram lives in GUEST_HOMEPAGE_LAYOUT.md to avoid duplicating it here.
+Separate Coaching/Arena heroes replace the guest generic card pair. Settle the sales structure and actions before further visual detailing.
+Actual destination pages and real services remain outside this fixture.
 
 #### Guest visual system
 
 The guest-only refinement uses a single rust accent for primary actions on light, peach on dark, consistent rectangular portrait frames and spacing-led grouping.
-Remove duplicate section labels, decorative rotations, ornamental circles and unnecessary numbers. Keep substantial portrait, video, screenshot and subject-artwork slots.
+Remove duplicate section labels, decorative rotations, ornamental circles and unnecessary numbers. Keep substantial portrait, video, lesson-screenshot, coaching-session and Arena product-screenshot slots.
 Use specific teaching/subject headings, balanced text widths, consistent arrows and useful pressed/dialog feedback with reduced-motion support.
 Hero motto stays exact. No simulated loading is added to immediate actions.
 Calculated primary CTA text contrast: 6.31:1 light, 8.64:1 dark. Full browser and accessibility review remains pending.

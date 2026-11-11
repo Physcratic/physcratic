@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Guest structural first iteration (11 November 2026)
+
+Owner requested a faster marketing/CTA-first iteration and a whole-page Markdown layout. Read GUEST_HOMEPAGE_LAYOUT.md first for order, rough desktop/mobile composition and actions. Guest subject gallery and redundant course-promotion block removed. Separate Coaching and Arena heroes replace the old compact generic card pair, with large live-session/product media slots. Final CTA reads Ready to start preparing? with Explore courses and browse-without-account reassurance. Hero, competition lookup/rail and teaching preview remain. Catalogue filters and member layout preserved. New product actions reuse navigation previews. TEST_SITE_MAP.md and TEST_PAGE_HIERARCHIES.md reconciled. Syntax/static checks pass, browser/build qualification pending. Next: review page structure and CTA before more visual detail.
+
 ## Competition coverage and lookup (11 November 2026)
 
 Guest rail is now part of Preparation across X+ competitions, with the broad subject line including Debate/Chess. X+ is a placeholder, not a real count. Find your competition opens a searchable sample directory, then maps a selected example to sample course IDs. Debate/Chess map to no courses, with honest empty results. Subject changes and Clear filters remove the competition constraint. Shared catalogue gains this context; member learning hierarchy remains unchanged. Coaching/Arena section is visible after courses for guests. No sponsorship claim, new route or real course availability asserted. Maps updated; syntax/static checks pass, browser pending. Next: user reviews coverage copy, lookup and page order.

@@ -3,6 +3,10 @@
 Living design document for `codex/ui-overhaul`. Updated 11 November 2026.
 This is the starting point for deciding what belongs on each `/test/` page. Edit it as decisions change.
 
+## Guest page structure: review first
+
+Use [GUEST_HOMEPAGE_LAYOUT.md](GUEST_HOMEPAGE_LAYOUT.md) to review the complete guest page, section roles, rough composition and CTA copy before visual detailing. Current order: hero → competition coverage → teaching preview → Coaching hero → Arena hero → final course CTA → footer. The subject gallery and redundant course-promotion section are removed. Member presentation remains unchanged.
+
 ## Current-site references
 
 For what exists today, use [CURRENT_SITE_MAP.md](CURRENT_SITE_MAP.md) and [CURRENT_PAGE_HIERARCHIES.md](CURRENT_PAGE_HIERARCHIES.md). They are pinned source snapshots, distinct from this experimental plan. Live availability is not inferred from source presence.
@@ -166,7 +170,7 @@ Supporting copy explains olympiad courses taught by accomplished competitors.
 Hero imagery is a large editorial composition of three instructor portrait slots paired with competition-logo slots. Do not put names, exact award lists or subject biographies in the hero. Detailed credentials belong on relevant profiles/offerings, with accessible identification supplied when actual assets are selected.
 The slots are intentional image placeholders, not generated or unverified photographs. Competition marks will represent instructor credentials, not organisational endorsement.
 Immediately below: a large 16:9 teaching-video placeholder with an overlapping annotated-lesson screenshot slot. Both open media-preview dialogs. There is no actual video and no fake playback.
-Then: six large subject artwork covers leading into sample catalogue filtering. Mathematics, Physics, Chemistry, Biology, AI and Informatics are current illustrative choices.
+The former subject artwork gallery is removed from the guest landing. Subject browsing remains available in the catalogue and competition-coverage section.
 Finish with a repeated Explore courses action and shared footer.
 The guest landing contains no catalogue grid or filter form on entry. Explore courses opens the separate in-file catalogue view with a return action. No new course-list URL.
 Member recent-learning, selected interests, course fixtures and account simulation remain unchanged.
@@ -192,8 +196,8 @@ Examples: IMO, IPhO, IChO, IBO, IOAI, IOI, a generic debate competition and a ge
 Mapped courses are illustrative related content, not confirmed preparation or real availability for those competitions.
 Changing subject or clearing filters clears competition-specific mapping. The selection/context is retained while viewing a course dialog.
 Rail pause/hover/focus and reduced-motion behaviour remain. Member learning presentation is unchanged apart from the shared catalogue supporting this filter context.
-After course/subject sections, show **Other ways to prepare**, with Coaching and physics Arena entries before the footer. These remain explanatory navigation previews.
-Initial guest order: hero → competition coverage/rail/search → teaching preview → subject/course discovery → course action → Coaching/Arena → footer.
+After the course teaching preview, show separate full-width Coaching and Arena heroes, each with a large media slot and distinct action. Finish with one course-discovery CTA and the footer. Their destinations remain explanatory previews.
+Current guest order: hero → competition coverage/rail/search → teaching preview → Coaching hero → Arena hero → final course CTA → footer.
 Verification: JavaScript syntax and static mapping/reset/count/section checks pass. Browser and complete app verification remain pending.
 
 
