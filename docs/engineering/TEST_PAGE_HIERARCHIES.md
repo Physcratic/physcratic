@@ -90,6 +90,18 @@ Use specific teaching/subject headings, balanced text widths, consistent arrows 
 Hero motto stays exact. No simulated loading is added to immediate actions.
 Calculated primary CTA text contrast: 6.31:1 light, 8.64:1 dark. Full browser and accessibility review remains pending.
 
+#### Competition-logo rail
+
+A continuously scrolling competition-logo placeholder rail now sits between the guest hero and teaching preview. It uses eight generic asset slots in two equal groups for a seamless loop. The duplicate is hidden from assistive technology. Pause/Resume, hover/focus pause and a static wrapped reduced-motion fallback are included. These are blank layout slots, not claims of partnerships or actual instructor awards. Member layout is unchanged. JS syntax/static loop/control checks pass; browser verification remains pending.
+
+```mermaid
+flowchart TD
+  hero["Hero"] --> rail["Competition-logo placeholder rail"]
+  rail --> teaching["Teaching video and notes"]
+  rail --> motion["Continuous loop with pause control"]
+  rail --> reduced["Reduced motion: static wrapped logos"]
+```
+
 #### Member homepage
 
 ```mermaid

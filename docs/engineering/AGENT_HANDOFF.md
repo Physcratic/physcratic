@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Guest competition-logo rail (11 November 2026)
+
+A continuously scrolling competition-logo placeholder rail now sits between the guest hero and teaching preview. It uses eight generic asset slots in two equal groups for a seamless loop. The duplicate is hidden from assistive technology. Pause/Resume, hover/focus pause and a static wrapped reduced-motion fallback are included. These are blank layout slots, not claims of partnerships or actual instructor awards. Member layout is unchanged. JS syntax/static loop/control checks pass; browser verification remains pending.
+
 ## Guest design-principle refinement (11 November 2026)
 
 Applied owner's image checklist to the existing guest fixture. Simplified labels, removed decorative rotation/ornaments, aligned portrait frames and spacing, emphasised a guest-only rust/peach CTA accent, made teaching/subject headings specific and kept large media placeholders. Exact motto preserved. Member state unaffected. Added reduced-motion-aware pressed/dialog feedback. JS syntax/static checks pass; calculated CTA contrast is 6.31:1 light and 8.64:1 dark. Full browser/runtime/mobile/a11y still pending. Maps and README updated.

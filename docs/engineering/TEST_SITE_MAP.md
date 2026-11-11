@@ -182,6 +182,10 @@ Guest-only accent: rust on light, peach on dark. Calculated CTA text contrast is
 Spacing, inner radii, wrap widths, minimum control sizes, dialog feedback and reduced-motion handling are aligned. No synthetic loading delay is added because fixture actions are immediate.
 Member styling and behaviour are outside this guest-only refinement.
 
+## Competition-logo rail
+
+A continuously scrolling competition-logo placeholder rail now sits between the guest hero and teaching preview. It uses eight generic asset slots in two equal groups for a seamless loop. The duplicate is hidden from assistive technology. Pause/Resume, hover/focus pause and a static wrapped reduced-motion fallback are included. These are blank layout slots, not claims of partnerships or actual instructor awards. Member layout is unchanged. JS syntax/static loop/control checks pass; browser verification remains pending.
+
 ## Shared footer experiment
 
 Implemented in the homepage fixture, with contents still subject to review.
