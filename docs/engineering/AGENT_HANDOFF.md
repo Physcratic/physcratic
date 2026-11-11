@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Mandatory prototype decision report (11 November 2026)
+
+Owner requests a separate reason for every prototype addition/removal/change. PROTOTYPE_DESIGN_DECISIONS.md now records the required pre-change reasoning process and an explicitly retrospective audit of current guest/member elements. Preserve weak/rejected reasoning and user corrections instead of defending or rewriting them. AGENTS.md requires entries before changes and outcome updates afterward. L10 records the generic learner Coaching/Arena promotion mistake; that block is now hidden in all member states, while guest dedicated heroes remain. Static gate and JavaScript syntax checked; browser/build pending. Next: use decision IDs for all prototype changes.
+
 ## Enrolled learner home and My learning (11 November 2026)
 
 Member homepage now features one latest enrolled course with thumbnail/position and dominant resume, compact other active enrolments, two relevant suggestions and separate catalogue browsing. My learning is a full in-page view with all/in-progress/completed filters. Added two related sample courses plus a completed vector course. Default interests Physics/Mathematics, hidden behind Edit interests. Resume/review actions target their matching fixtures. Position/progress are sample only, no actual media seek/persistence/auth. Guest presentation unchanged; both maps updated. JS syntax/static checks pass; browser/build/a11y unverified. Next: user reviews member study flow.

@@ -345,7 +345,7 @@ function updateAccount(){
  $('recommendations').hidden=catalogueOpen||learningOpen;
  $('welcome').hidden=catalogueOpen||learningOpen;
  $('guest-story').hidden=view!=='guest'||catalogueOpen||learningOpen;
- document.querySelector('.secondary').hidden=view==='guest';
+ document.querySelector('.secondary').hidden=true; // L10: rejected generic cross-promotion; guest has dedicated heroes.
  document.querySelectorAll('.secondary [data-section]').forEach(b=>b.onclick=()=>sectionDialog(b.dataset.section));
  if($('find-competition'))$('find-competition').onclick=findCompetitionDialog;
  if($('hero-sample'))$('hero-sample').onclick=()=>lessonDialog(courses[0],false);

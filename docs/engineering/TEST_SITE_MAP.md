@@ -1,5 +1,9 @@
 # Physcratic experimental site map
 
+## Decision rationale and learner correction
+
+Read [PROTOTYPE_DESIGN_DECISIONS.md](PROTOTYPE_DESIGN_DECISIONS.md) for reasons, costs and owner corrections behind each prototype element. Record future changes there before implementing them. Decision L10 rejects the generic learner Other ways to prepare promotion: it is now hidden from the member homepage. Coaching/Arena remain in navigation and their dedicated guest heroes. No equivalent replacement promotion is added.
+
 ## Enrolled learner homepage revision
 
 The enrolled member homepage is now a study starting point rather than a catalogue-first page.

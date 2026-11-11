@@ -6,6 +6,8 @@ Read `CLAUDE.md`, `CONTRIBUTING.md`, `docs/engineering/EXECUTION_ROADMAP.md` and
 
 ## UI overhaul branch workflow
 
+Before each prototype UI addition, removal or material change, record its audience, trigger, specific user need/reason, tradeoff, simpler alternative and expected check in `docs/engineering/PROTOTYPE_DESIGN_DECISIONS.md`. Update the result and preserve owner corrections. Do not invent retrospective validation or justify elements just because a feature exists. Include affected decision IDs in the handoff. Keep this report consistent with prototype changes and both page maps.
+
 For commercial homepage/copy work, read `docs/engineering/SALES_AND_MESSAGING_BRIEF.md` before arranging sections or polishing visuals. Apply its customer, value, proof, objection and next-action reasoning. Own routine marketing/design decisions instead of asking the owner to direct every detail.
 
 Read `docs/engineering/TEST_SITE_MAP.md` for the experimental marketplace product direction, proposed `/test/` page contents and link contracts. Update that map with page changes and keep proposed, implemented and verified states distinct.
