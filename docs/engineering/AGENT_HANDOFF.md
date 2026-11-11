@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Marketplace identity and accepted guest concept (11 November 2026)
+
+Owner accepts the signed-out landing concept for now. Physcratic is the course marketplace itself; Coaching/Arena are extensions, not peers of a separate Courses brand. Removed Courses from prototype header and mobile menu, preserved brand home, Explore courses CTAs and footer task link. Both maps updated. Syntax/static nav checks pass. Do not restart visual redesign without a request.
+
 ## Audience-aware heading cleanup (11 November 2026)
 
 Removed the repeated medallist caption, first-selection-to-international-stage line and The Physcratic approach eyebrow. Coaching and Arena are now prominent h2 product identities with separate benefit copy. Owner says visitors have some familiarity: avoid re-explaining obvious context and default to no eyebrow unless it adds distinct information. Applied NN/g brevity, government heading and Wiebe awareness guidance; sources/rule added to sales brief and both maps. Functional labels and sample identification remain. Syntax/static checks pass; browser verification pending.
