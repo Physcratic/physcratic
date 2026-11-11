@@ -1,4 +1,5 @@
 import "server-only";
+import { readAuthoredProgress } from "./authored-progress";
 import { randomUUID } from "node:crypto";
 import type { Pool, PoolClient } from "pg";
 import { z } from "zod";
@@ -116,7 +117,7 @@ export function publicSymbolNames(value: unknown): string[] {
 
 export function createAuthoredAttemptApi(deps: Deps) {
   return async function handle(
-    action: "submit" | "list" | "read" | "info",
+    action: "submit" | "list" | "read" | "info" | "progress",
     request: Request,
     rawId?: string,
   ): Promise<Response> {
@@ -136,7 +137,13 @@ export function createAuthoredAttemptApi(deps: Deps) {
         );
       if (action === "submit" && !deps.origin(request))
         throw new AttemptError(403, "Request origin rejected.");
+      if (action === "progress" && request.headers.get("x-practice-account") !== null && request.headers.get("x-practice-account") !== user.id)
+        throw new AttemptError(409, "Your account changed. Refresh your sign-in.");
       await charge(deps.pool, user.id, action === "submit");
+      if (action === "progress") {
+        if (request.method !== "GET" || new URL(request.url).search) throw new AttemptError(400, "Invalid progress request.");
+        return reply(await readAuthoredProgress(deps.pool, user.id));
+      }
       const id = rawId ? uuid.parse(rawId) : undefined;
       if (action === "read") {
         const { rows } = await deps.pool.query<Row>(
