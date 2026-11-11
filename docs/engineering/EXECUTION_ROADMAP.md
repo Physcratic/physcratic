@@ -1,5 +1,8 @@
 # Execution roadmap
 
+## B5 account deletion readiness
+
+The owner now approves account-wide erasure/de-identification while preserving appropriately licensed published content and other students’ work. B5 still stops before runtime implementation because mixed-subject immutable case/evidence text needs a verified redaction/adjudication mechanism or a defined limited-retention exception. See [the precise remaining privacy gate](ACCOUNT_DELETION_READINESS.md) and [the inactive prospective licence/consent design](PUBLICATION_LICENSE_PROPOSAL.md). PR #140 remains draft and unmerged. No deletion endpoint, migration, privilege, active Terms, flag or Production change.
 ## SEO P1 technical corrections (10 November 2026)
 
 Branch `codex/seo-p1-technical` starts from `18ed7a48`. Corrects the authoring robots boundary and Modern physics title only, with dated SEO counts in SEARCH_AND_AI_VISIBILITY.md. Parser-based tests cover exact/query/nested authoring paths, authored-reader access, Googlebot and generic crawlers, and non-production denial. Authored noindex/nofollow, canonicals, sitemap policy and public anchors are preserved. `robots-parser` is a pinned test-only dependency. Local Node 22.23.1 verification: 84 focused SEO/render checks pass, Next typegen/TypeScript and zero-warning lint pass. Exact-head GitHub CI and merge remain pending publication of the P1 PR. No manual deployment or production operation. Stop after P1, no P2.
@@ -74,3 +77,5 @@ Friday release, 10 November 2026: B1 expression recovery is merged in main `942b
 
 
 Friday B2B, 10 November 2026: `codex/friday-b2b-progress-ui` explicitly depends on B2A PR #133 at `6c4da5862a205719a7749a4f0a2337568c020ca3`. Private saving/recovery, current-version dashboard/history and practice/Arena links are implemented with local browser/PG evidence. See the current handoff and [progress contract](PRACTICE_PROGRESS.md). No additional schema, deployment or activation. Next is B3 metadata/privacy, then B4 practice/Arena layout where safe.
+
+B5 implementation continuation (11 November 2026): custom default-OFF account-wide erasure/de-identification and retryable private cleanup are implemented in PR140 with additive0018. Owner-approved mixed-evidence policy is implemented through necessary-field plans and independent staff approval rather than indefinite originals. Unknown publication rights restrict display independently of personal deletion. B6 remains operator qualification and separately authorized activation, including actual ledger/grants, approved retention/legal-hold process, provider backup/restore behavior and reliable staffed cleanup. See `ACCOUNT_DELETION_READINESS.md`. Native Better Auth deletion and practice persistence remain OFF.

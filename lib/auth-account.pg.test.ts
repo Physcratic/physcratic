@@ -99,6 +99,45 @@ test("account settings flows on the throwaway PostgreSQL", { skip: !url }, async
   assert.equal(ada.status, 200);
   const adaId = (await sessionUser(ada.cookie)).id as string;
 
+  await t.test("account deletion remains disabled without erasing identities, sessions or practice history", async () => {
+    const { createPracticeCheckApi } = await import("./practice-check-api");
+    const { practiceCheckCatalog } = await import("./practice-check-catalog");
+    await setup.query(await readFile(new URL("../migrations/0017_practice_checks.up.sql", import.meta.url), "utf8"));
+    await setup.query(`GRANT SELECT, INSERT, UPDATE ON practice_check_attempt, practice_check_part, practice_check_rate TO "${role}"`);
+    await createUser("deletion-other@example.invalid", "other-password-1");
+    const other = await signIn("deletion-other@example.invalid", "other-password-1");
+    assert.equal(other.status, 200);
+    const otherId = (await sessionUser(other.cookie)).id as string;
+    const checks = createPracticeCheckApi({ pool, user: async request => (await auth.api.getSession({ headers: request.headers }))?.user, origin: request => request.headers.get("origin") === origin });
+    const version = practiceCheckCatalog().find(entry => entry.metadata.problemId === "incline")!.metadata.version;
+    for (const [cookie, actor] of [[ada.cookie, adaId], [other.cookie, otherId]]) {
+      const response = await checks("submit", new Request(`${origin}/api/practice-checks`, { method: "POST", headers: { origin, cookie, "X-Practice-Account": actor, "content-type": "application/json" }, body: JSON.stringify({ problemId: "incline", version, answers: [{ partId: "answer", latex: "4.9" }], idempotencyKey: randomUUID() }) }));
+      assert.equal(response.status, 201, await response.clone().text());
+    }
+    const snapshot = async () => (await setup.query(`SELECT
+      (SELECT jsonb_agg(to_jsonb(u) ORDER BY id) FROM "user" u WHERE id=ANY($1)) AS identities,
+      (SELECT jsonb_agg(to_jsonb(a) ORDER BY id) FROM "account" a WHERE "userId"=ANY($1)) AS credentials,
+      (SELECT jsonb_agg(to_jsonb(s) ORDER BY id) FROM "session" s WHERE "userId"=ANY($1)) AS sessions,
+      (SELECT jsonb_agg(to_jsonb(a) ORDER BY id) FROM practice_check_attempt a WHERE user_id=ANY($1)) AS attempts,
+      (SELECT jsonb_agg(to_jsonb(p) ORDER BY user_id,part_id) FROM practice_check_part p WHERE user_id=ANY($1)) AS progress
+      `, [[adaId, otherId]])).rows[0];
+    const before = await snapshot();
+    assert.equal(before.attempts.length, 2);
+    assert.equal((await call("/delete-user", { body: {} })).status, 401);
+    for (const body of [{ password: "first-password-1" }, { password: "first-password-1", userId: otherId }, { token: "forged-token" }]) {
+      const reply = await call("/delete-user", { body, cookie: ada.cookie });
+      assert.equal(reply.status, 404);
+      assert.notEqual(reply.body?.success, true);
+    }
+    const callback = await call("/delete-user/callback?token=forged-token", { method: "GET", cookie: ada.cookie });
+    assert.equal(callback.status, 404);
+    assert.notEqual(callback.body?.success, true);
+    assert.deepEqual(await snapshot(), before, "disabled and repeated requests must not partially delete either account");
+    assert.equal((await sessionUser(ada.cookie)).id, adaId);
+    assert.equal((await sessionUser(other.cookie)).id, otherId);
+    assert.equal((await setup.query("SELECT has_table_privilege($1,'practice_check_attempt','DELETE') AS allowed", [role])).rows[0].allowed, false);
+  });
+
   await t.test("the account name cannot be edited, the display name stays the only name", async () => {
     const reply = await call("/update-user", { body: { name: "Unmoderated" }, cookie: ada.cookie });
     assert.equal(reply.status, 400);
