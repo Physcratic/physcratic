@@ -33,3 +33,9 @@ Extracted JavaScript syntax and static checks for six subjects, two sample enrol
 Browser/mobile/keyboard/contrast and full Next build/CI remain unverified. The prior browser session could not reach the local server.
 Compare: does a guest understand what Physcratic is? Can a member resume an enrolled course immediately? Are suggestions understandable? Can either discover another subject?
 Read TEST_SITE_MAP.md and TEST_PAGE_HIERARCHIES.md for current planning. Preserve the fixed original baseline and existing security contracts before real integration.
+
+## Guest sales-page revision
+
+Guest landing now contains a value-led hero, compact existing coaching profiles, a teaching preview, subject relevance and a final Explore courses action. The catalogue opens as a separate in-file view with a back button instead of showing filters and cards on entry. No new course-list route.
+Hero records come from lib/coaching/medallists.ts: Rishit Garg (IPhO 2026 Gold), Ackhava (APhO 2026 Gold), Abhika (IPhO 2026 Silver). These are existing physics coaching profiles, not asserted authors of the sample marketplace courses. No portraits, invented awards or testimonials added.
+Member layout remains recently studied enrolled courses, selected-interest suggestions and catalogue. Research sources are recorded in TEST_SITE_MAP.md. Syntax/static checks pass, browser verification remains pending.

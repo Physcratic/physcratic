@@ -11,7 +11,7 @@ For what exists today, use [CURRENT_SITE_MAP.md](CURRENT_SITE_MAP.md) and [CURRE
 
 Physcratic is an education marketplace where students learn from accomplished competitors across academic olympiads and, eventually, areas such as debate, MUN and chess.
 Academy is the long-term course business. Coaching is the initial commercial offering and bootstrapping channel. Arena supplies useful free practice, acquisition, retention and brand credibility.
-The homepage at `/test/` has two audience-specific compositions. Guests see an introductory hero followed by multi-subject course discovery. Members see recently studied enrolled courses and interest-based suggestions before catalogue browsing. Coaching and free practice remain supporting destinations. There is no separate `/test/courses/` catalogue page. Course detail URLs remain `/test/courses/[slug]`.
+The homepage at `/test/` has two audience-specific compositions. Guests see a sales-focused introduction with instructor evidence, a teaching preview and compact subject relevance. Explore courses opens catalogue browsing as a separate in-prototype view, rather than displaying cards and filters immediately. Members see recently studied enrolled courses and interest-based suggestions before catalogue browsing. Coaching and free practice remain supporting destinations. There is no separate `/test/courses/` catalogue page. Course detail URLs remain `/test/courses/[slug]`.
 Start with a curated offering and expand toward a marketplace. Do not imply that future subjects, courses, payments or instructor tools are available today.
 
 Authority: the owner's current conversation decisions, supported by the supplied October 2026 business proposal, especially sections 6–9, 12, 15–16, 46 and 54–56. The private proposal is not copied into this public repository. Its examples, financial figures and recommendations are not verified marketing claims or automatic implementation requirements.
@@ -129,7 +129,7 @@ The homepage has a **sample-data implementation with browser verification pendin
 
 | Page | Visitor's decision | Initial contents | Primary action | Connections and context |
 | --- | --- | --- | --- | --- |
-| `/test/` | Guest: understand Physcratic and explore. Member: resume enrolled learning or find a relevant course | Guest hero and subject entry; member recent enrolled courses and chosen-interest suggestions; shared multi-subject catalogue, filters and footer | Guest: Explore courses. Member: Continue lesson, or discover if no enrolments | Recently studied means enrolled and studied, not recently viewed. Detail previews remain dialogs. No separate catalogue route |
+| `/test/` | Guest: understand Physcratic's value and explore. Member: resume enrolled learning or find a relevant course | Guest benefit/credibility hero and teaching preview; member recent enrolled courses and chosen-interest suggestions; shared multi-subject catalogue, filters and footer | Guest: Explore courses. Member: Continue lesson, or discover if no enrolments | Recently studied means enrolled and studied, not recently viewed. Detail previews remain dialogs. No separate catalogue route |
 | `/test/courses/[slug]` | Is this course suitable? | Intended outcomes, target learner, prerequisites, syllabus, instructor, sample lesson, delivery format, workload, price/access terms and availability when established | Try a sample, or register interest if not available | Shared instructor ID, preview lesson ID. Keep course vs scheduled cohort distinct. No fake purchase |
 | `/test/instructors/[slug]` | Do I trust this person to teach me? | Exact sourced competition achievements, role, teaching approach/experience, sample teaching and their offerings | View a relevant offering | Shared instructor ID to course IDs and coaching options. Never infer teaching quality from awards alone |
 | `/test/coaching` | Does live coaching fit my needs? | Existing formats and subjects, instructors, fit, how enquiry works, scheduling/pricing details only when confirmed | Enquire about coaching | Instructor/subject/offering context passed to enquiry. Current public coaching data must be inspected before reuse |
@@ -159,6 +159,16 @@ Future student learning/dashboard and instructor creator routes are deferred. Do
 Do not show a related offering unless it exists in the shared data and is relevant. Do not interrupt solving with purchase prompts.
 Missing IDs must produce an understandable unavailable state and a way back, not a broken link.
 
+## Guest sales-page revision
+
+Guest entry now leads with "Learn from olympiad medallists", a short explanation of the learner benefit and a prominent Explore courses action.
+A compact hero panel uses Rishit Garg (IPhO 2026 Gold), Ackhava (APhO 2026 Gold) and Abhika (IPhO 2026 Silver), taken from the existing `lib/coaching/medallists.ts` records. They are labelled as existing physics coaching team examples, not authors of the fictional marketplace courses.
+The former abstract subject board is replaced by specific instructor evidence. Below the hero: teaching preview, compact subject links, repeated course-discovery action, shared footer.
+No fabricated course-author attribution, testimonials, results or guarantee is added.
+The catalogue is hidden on guest entry. Explore courses and subject links open it in the same HTML app, with Back to introduction. No separate catalogue URL has been introduced.
+Member recent-learning and interest-suggestion structure is unchanged.
+Sales guidance: NN/g homepage principles (https://www.nngroup.com/articles/homepage-design-principles/), CXL landing-page structure (https://cxl.com/blog/how-to-build-a-high-converting-landing-page/) and Unbounce best practices (https://documentation.unbounce.com/hc/en-us/articles/360061988151-What-Are-Some-Best-Practices-When-Designing-My-Landing-Page). Use value, evidence and a dominant action while retaining useful homepage navigation.
+
 ## Shared footer experiment
 
 Implemented in the homepage fixture, with contents still subject to review.
@@ -184,7 +194,7 @@ This is a product decision, not implemented real account integration.
 
 | State at /test/ | First content | Account controls | Catalogue |
 | --- | --- | --- | --- |
-| Guest | Prominent introductory hero, subject choices and Explore courses action | Sign in and create account | Multi-subject catalogue below introduction |
+| Guest | Value proposition, existing physics coaching profiles, teaching preview and compact subjects | Sign in and create account | Opens through Explore courses, not visible on initial landing |
 | Enrolled member | Recently studied enrolled courses, followed by selected-interest suggestions | My learning and sample account menu | Additional browsing below personal learning |
 | Member without enrolments | No-enrolment guidance and selectable interests, no recent-course panel | Same member controls | Suggestions and multi-subject browsing |
 

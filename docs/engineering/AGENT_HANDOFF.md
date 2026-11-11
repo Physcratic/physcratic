@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Guest sales-focused introduction (11 November 2026)
+
+Owner requested execution of a simpler guest page that communicates Physcratic's differentiating value. Guest now leads with medallist-led learning, three existing physics coach records, a teaching sample and compact subject coverage. Search/filter/course grid is hidden until Explore courses opens a separate in-file catalogue view, with Back to introduction. No new URL. Member learning layout remains unchanged. Coach claims are copied from lib/coaching/medallists.ts and explicitly not attributed as authors of fictional courses. No fabricated testimonials or outcomes. Source fixture, maps and README updated. JS syntax/static checks pass; browser verification pending. Next: user opens guest v2 and reviews the opening message and content density.
+
 ## Guest and member homepage redesign (11 November 2026)
 
 Owner clarified course scope: Mathematics, Physics, Chemistry, Biology, AI and any field with an international olympiad. Informatics is included as an illustrative additional fixture. Guests now get an introductory hero and subject browsing. Members lead with recently studied enrolled courses, then suggestions matching explicitly chosen interests. Recently viewed courses do not belong in Continue learning. The no-enrolment member state has no recent-course panel.

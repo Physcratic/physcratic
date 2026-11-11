@@ -56,25 +56,26 @@ There is no separate course-list route. Course detail URLs remain planned as `/t
 
 ```mermaid
 flowchart TD
-  page["Guest homepage"]
-  hero["1 · Introductory hero"]
-  discovery["2 · Explore courses"]
-  support["3 · Other ways to learn"]
-  footer["4 · Shared footer"]
+  page["Guest introduction"]
+  hero["1 · Learner value and credible people"]
+  teaching["2 · Teaching preview"]
+  subjects["3 · Subject relevance"]
+  action["4 · Explore courses and footer"]
   page --> hero
-  page --> discovery
-  page --> support
-  page --> footer
-  hero --> identity["What Physcratic offers; olympiad subjects"]
-  hero --> action["Explore courses; sign in"]
-  discovery --> controls["Subject, search, level and format"]
-  discovery --> results["Course cards; sample status; instructor context"]
-  support --> options["Coaching and physics Arena"]
+  page --> teaching
+  page --> subjects
+  page --> action
+  hero --> message["Olympiad preparation with accomplished competitors"]
+  hero --> people["Existing physics coaches; exact recorded awards"]
+  teaching --> example["Worked reasoning example and sample lesson"]
+  subjects --> fields["Mathematics, Physics, Chemistry, Biology, AI, Informatics"]
+  action --> catalogue["Separate catalogue view with back action"]
 ```
 
-Current concept: “Learn for your next olympiad.” Subject choices cover Mathematics, Physics, Chemistry, Biology, AI and Informatics. These are illustrative offerings, not confirmed availability or a complete list of future international olympiad fields.
-Explore courses moves to the catalogue on the same page. A subject choice filters it.
-Credibility content is limited to truthful sample status until real instructor evidence is available.
+The landing view contains no course-card grid, search or filter controls. Explore courses opens those in a separate view within the same prototype, without introducing a new URL.
+Hero coaching profiles use existing repository records and are labelled as coaching profiles. They do not imply those people authored the fictional course catalogue.
+The teaching preview is illustrative and not attributed to those coaches.
+Keep the main action focused on course discovery, with a secondary sample-lesson action. Do not use fabricated reviews, success rates or guarantees.
 
 #### Member homepage
 
