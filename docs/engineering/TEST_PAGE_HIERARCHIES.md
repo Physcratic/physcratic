@@ -139,25 +139,26 @@ Pause controls and a reduced-motion static rail remain. Coaching/Arena now appea
 
 ```mermaid
 flowchart TD
-  page["Member homepage"]
-  recent["1 · Continue learning"]
-  interest["2 · For your interests"]
-  browse["3 · Explore all courses"]
-  support["4 · Supporting destinations and footer"]
-  page --> recent
-  page --> interest
-  page --> browse
-  page --> support
-  recent --> enrolled["Recently studied enrolled courses; next lesson; progress"]
-  interest --> choices["Explicitly selected subjects; explain suggestions"]
-  interest --> suggestions["Matching sample courses"]
-  browse --> catalogue["Same subject/search/filter catalogue"]
+  home["Your learning"]
+  latest["Featured latest enrolled course"]
+  others["Other active courses"]
+  discovery["Two relevant next-course suggestions"]
+  home --> latest
+  home --> others
+  home --> discovery
+  latest --> resume["Thumbnail; lesson; saved position; Resume"]
+  others --> learning["My learning: all, in progress, completed"]
+  discovery --> interests["Edit interests when needed"]
+  discovery --> catalogue["Explore all courses: separate catalogue view"]
 ```
 
-Two sample enrolled courses appear in recent-study order, each with a Continue lesson action.
-Suggestions match chosen subjects and exclude sample enrolled courses. No inferred behaviour model or numerical recommendation score is used.
-A member without enrolments sees no recent-course section. They can select subjects and explore suggestions/catalogue.
-My learning and account controls replace guest account actions. One identity is proposed across Academy, Coaching and Arena, with separate access and records.
+The hero action resumes the actual selected fixture course. The second active enrolment is a compact visual card. Completed courses appear in My learning, not the active homepage list.
+Recommendations exclude sample enrolments and default to Mathematics/Physics; other chosen interests get an accurate matching-subject reason.
+Remove the redundant Your learning eyebrow and explanatory greeting. Keep one useful page heading.
+No-enrolment members see discovery without an empty resume section.
+Sample 08:24 video and Example 2 reading positions illustrate future recovery. They are not persisted or sought in a real player.
+My learning is now a complete in-page view with status filters, matching resume/review actions and back navigation. No /test/learning route exists.
+Catalogue controls appear only on the catalogue view. Guest landing remains unchanged.
 
 #### Prototype status
 

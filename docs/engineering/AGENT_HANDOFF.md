@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Enrolled learner home and My learning (11 November 2026)
+
+Member homepage now features one latest enrolled course with thumbnail/position and dominant resume, compact other active enrolments, two relevant suggestions and separate catalogue browsing. My learning is a full in-page view with all/in-progress/completed filters. Added two related sample courses plus a completed vector course. Default interests Physics/Mathematics, hidden behind Edit interests. Resume/review actions target their matching fixtures. Position/progress are sample only, no actual media seek/persistence/auth. Guest presentation unchanged; both maps updated. JS syntax/static checks pass; browser/build/a11y unverified. Next: user reviews member study flow.
+
 ## Marketplace identity and accepted guest concept (11 November 2026)
 
 Owner accepts the signed-out landing concept for now. Physcratic is the course marketplace itself; Coaching/Arena are extensions, not peers of a separate Courses brand. Removed Courses from prototype header and mobile menu, preserved brand home, Explore courses CTAs and footer task link. Both maps updated. Syntax/static nav checks pass. Do not restart visual redesign without a request.

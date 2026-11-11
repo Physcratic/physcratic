@@ -1,5 +1,23 @@
 # Physcratic experimental site map
 
+## Enrolled learner homepage revision
+
+The enrolled member homepage is now a study starting point rather than a catalogue-first page.
+
+| Priority | Content | Behaviour |
+| --- | --- | --- |
+| 1 | Featured latest enrolled course | Thumbnail, specific next lesson, sample saved position 08:24 and dominant Resume action |
+| 2 | Other active enrolled courses | Compact visual cards with progress and correct lesson resume |
+| 3 | Related discovery | Two eligible suggestions matching selected interests; sample enrolments excluded; reason per card |
+| 4 | Broader browsing | Explore all courses opens catalogue as a separate in-page view |
+
+My learning is a full-page prototype view, not a modal, with All courses, In progress and Completed filters. Three sample enrolments include two active and one completed course. Only active courses appear on the homepage.
+Default member interests match Mathematics/Physics. Edit interests opens optional controls rather than displaying all preferences permanently.
+Saved video/reading positions are illustrative fixtures. Resume opens the corresponding lesson preview and explains its position; no real media seek, progress write, enrolment or auth implementation is claimed.
+The no-enrolment state has interest-based discovery and no fabricated recent learning. Catalogue filters, clear/reset and competition lookup are preserved. The guest landing is visually unchanged.
+My learning and catalogue are in-page views, not new application routes. Logo/back returns to the homepage.
+JS syntax/static checks pass. Browser, keyboard/mobile/accessibility and full application checks remain pending.
+
 ## Brand and navigation decision
 
 Physcratic itself is the core course marketplace. Do not introduce Physcratic Courses or a parallel Academy brand in customer navigation. Coaching and Arena are extensions of the core product, sharing its account identity.
