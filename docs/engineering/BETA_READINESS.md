@@ -2,7 +2,7 @@
 
 ## SEO P2 public homepage (11 November 2026)
 
-Branch `codex/seo-p2-public-home` implements the server-rendered public product lobby from `b3912ce` and incorporates main `77ac5de` without changing upstream account-deletion code or activation prerequisites. The member session branch, root metadata/private-no-store, old dashboard queries, reader URLs and publication policy remain unchanged. See [checkpoint, verification and screenshots](SEO_P2_HOMEPAGE.md). The draft PR records the exact final head and GitHub checks. No merge or manual deployment. P3 must stack from the locally verified P2 head and preserve its shell/discovery/session contracts.
+Branch `codex/seo-p2-public-home` implements the server-rendered public product lobby from `b3912ce` and incorporates frozen main `01757c0` without changing upstream account-deletion, reader/progress code or activation prerequisites. The member session branch, root metadata/private-no-store, old dashboard queries, reader URLs and publication policy remain unchanged. See [checkpoint, verification and screenshots](SEO_P2_HOMEPAGE.md). The draft PR records the exact final head and GitHub checks. No merge or manual deployment. The owner cancelled P3. Stop after the P2 draft PR and report. Further library work needs separate authorization.
 
 ## 2026-11-10 - B5 account deletion readiness
 
