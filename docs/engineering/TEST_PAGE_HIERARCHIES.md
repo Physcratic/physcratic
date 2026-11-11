@@ -54,28 +54,33 @@ There is no separate course-list route. Course detail URLs remain planned as `/t
 
 #### Guest homepage
 
+Owner-approved motto: **For those who want to win.** Exact copy, including punctuation.
+Supporting sentence explains the actual offer. Names, exact achievements and subject biographies are removed from the hero.
+
 ```mermaid
 flowchart TD
-  page["Guest introduction"]
-  hero["1 · Learner value and credible people"]
-  teaching["2 · Teaching preview"]
-  subjects["3 · Subject relevance"]
-  action["4 · Explore courses and footer"]
+  page["Guest landing"]
+  hero["1 · Motto, offer and instructor imagery"]
+  teaching["2 · Teaching experience"]
+  subjects["3 · Subject artwork gallery"]
+  ending["4 · Course action and footer"]
   page --> hero
   page --> teaching
   page --> subjects
-  page --> action
-  hero --> message["Olympiad preparation with accomplished competitors"]
-  hero --> people["Existing physics coaches; exact recorded awards"]
-  teaching --> example["Worked reasoning example and sample lesson"]
-  subjects --> fields["Mathematics, Physics, Chemistry, Biology, AI, Informatics"]
-  action --> catalogue["Separate catalogue view with back action"]
+  page --> ending
+  hero --> message["For those who want to win. · Explore courses"]
+  hero --> portraits["Three editorial portraits paired with competition marks"]
+  teaching --> video["Large lesson-video slot"]
+  teaching --> screenshot["Overlapping annotated-lesson screenshot"]
+  subjects --> covers["Six subject artwork slots"]
 ```
 
-The landing view contains no course-card grid, search or filter controls. Explore courses opens those in a separate view within the same prototype, without introducing a new URL.
-Hero coaching profiles use existing repository records and are labelled as coaching profiles. They do not imply those people authored the fictional course catalogue.
-The teaching preview is illustrative and not attributed to those coaches.
-Keep the main action focused on course discovery, with a secondary sample-lesson action. Do not use fabricated reviews, success rates or guarantees.
+Reserve generous image/video space even before assets are available. The composition is designed for imagery, not text cards standing in for portraits.
+Current placeholders show portrait silhouettes, logo slots, a video frame, a screenshot sketch and subject covers. These are not final photos, logos, screenshots or recorded lessons.
+Video and screenshot slots open labelled placeholder previews. Read a sample explanation remains available separately.
+Explore courses opens catalogue browsing; subject artwork selects a matching subject.
+Use competition marks as evidence about instructors, not a claim of endorsement. Actual assets require accurate association, appropriate permissions, descriptive alt text and video captions/transcript.
+The supporting offer and concise subject line keep the aspirational motto understandable.
 
 #### Member homepage
 

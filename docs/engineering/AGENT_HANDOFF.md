@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Guest editorial-media layout (11 November 2026)
+
+Owner approved exact motto “For those who want to win.” and requested image/video-led design with generous reserved space. This overrides generic slogan restrictions for the hero headline only. Guest hero now has three editorial portrait and competition-logo slots, without names/achievement lists. Large teaching-video and overlapping lesson-screenshot placeholders lead into six subject artwork covers, final course CTA and existing footer. Media slots open labelled previews, not fake playback. Member presentation and original site remain unchanged. Asset requirements are in prototypes/marketplace-home/ASSET_BRIEF.md. JS syntax and static checks pass; no browser/build qualification. Maps and README updated. Next: user reviews visual composition, then supplies/selects final media.
+
 ## Guest sales-focused introduction (11 November 2026)
 
 Owner requested execution of a simpler guest page that communicates Physcratic's differentiating value. Guest now leads with medallist-led learning, three existing physics coach records, a teaching sample and compact subject coverage. Search/filter/course grid is hidden until Explore courses opens a separate in-file catalogue view, with Back to introduction. No new URL. Member learning layout remains unchanged. Coach claims are copied from lib/coaching/medallists.ts and explicitly not attributed as authors of fictional courses. No fabricated testimonials or outcomes. Source fixture, maps and README updated. JS syntax/static checks pass; browser verification pending. Next: user opens guest v2 and reviews the opening message and content density.

@@ -129,7 +129,7 @@ The homepage has a **sample-data implementation with browser verification pendin
 
 | Page | Visitor's decision | Initial contents | Primary action | Connections and context |
 | --- | --- | --- | --- | --- |
-| `/test/` | Guest: understand Physcratic's value and explore. Member: resume enrolled learning or find a relevant course | Guest benefit/credibility hero and teaching preview; member recent enrolled courses and chosen-interest suggestions; shared multi-subject catalogue, filters and footer | Guest: Explore courses. Member: Continue lesson, or discover if no enrolments | Recently studied means enrolled and studied, not recently viewed. Detail previews remain dialogs. No separate catalogue route |
+| `/test/` | Guest: understand Physcratic's value and explore. Member: resume enrolled learning or find a relevant course | Guest motto, portrait/competition-mark hero and teaching media preview; member recent enrolled courses and chosen-interest suggestions; shared multi-subject catalogue, filters and footer | Guest: Explore courses. Member: Continue lesson, or discover if no enrolments | Recently studied means enrolled and studied, not recently viewed. Detail previews remain dialogs. No separate catalogue route |
 | `/test/courses/[slug]` | Is this course suitable? | Intended outcomes, target learner, prerequisites, syllabus, instructor, sample lesson, delivery format, workload, price/access terms and availability when established | Try a sample, or register interest if not available | Shared instructor ID, preview lesson ID. Keep course vs scheduled cohort distinct. No fake purchase |
 | `/test/instructors/[slug]` | Do I trust this person to teach me? | Exact sourced competition achievements, role, teaching approach/experience, sample teaching and their offerings | View a relevant offering | Shared instructor ID to course IDs and coaching options. Never infer teaching quality from awards alone |
 | `/test/coaching` | Does live coaching fit my needs? | Existing formats and subjects, instructors, fit, how enquiry works, scheduling/pricing details only when confirmed | Enquire about coaching | Instructor/subject/offering context passed to enquiry. Current public coaching data must be inspected before reuse |
@@ -159,15 +159,18 @@ Future student learning/dashboard and instructor creator routes are deferred. Do
 Do not show a related offering unless it exists in the shared data and is relevant. Do not interrupt solving with purchase prompts.
 Missing IDs must produce an understandable unavailable state and a way back, not a broken link.
 
-## Guest sales-page revision
+## Guest visual landing page
 
-Guest entry now leads with "Learn from olympiad medallists", a short explanation of the learner benefit and a prominent Explore courses action.
-A compact hero panel uses Rishit Garg (IPhO 2026 Gold), Ackhava (APhO 2026 Gold) and Abhika (IPhO 2026 Silver), taken from the existing `lib/coaching/medallists.ts` records. They are labelled as existing physics coaching team examples, not authors of the fictional marketplace courses.
-The former abstract subject board is replaced by specific instructor evidence. Below the hero: teaching preview, compact subject links, repeated course-discovery action, shared footer.
-No fabricated course-author attribution, testimonials, results or guarantee is added.
-The catalogue is hidden on guest entry. Explore courses and subject links open it in the same HTML app, with Back to introduction. No separate catalogue URL has been introduced.
-Member recent-learning and interest-suggestion structure is unchanged.
-Sales guidance: NN/g homepage principles (https://www.nngroup.com/articles/homepage-design-principles/), CXL landing-page structure (https://cxl.com/blog/how-to-build-a-high-converting-landing-page/) and Unbounce best practices (https://documentation.unbounce.com/hc/en-us/articles/360061988151-What-Are-Some-Best-Practices-When-Designing-My-Landing-Page). Use value, evidence and a dominant action while retaining useful homepage navigation.
+Owner-selected hero motto: **For those who want to win.** Preserve the exact wording and punctuation. This explicit owner copy decision overrides the general no-slogan rule for this headline only.
+Supporting copy explains olympiad courses taught by accomplished competitors.
+Hero imagery is a large editorial composition of three instructor portrait slots paired with competition-logo slots. Do not put names, exact award lists or subject biographies in the hero. Detailed credentials belong on relevant profiles/offerings, with accessible identification supplied when actual assets are selected.
+The slots are intentional image placeholders, not generated or unverified photographs. Competition marks will represent instructor credentials, not organisational endorsement.
+Immediately below: a large 16:9 teaching-video placeholder with an overlapping annotated-lesson screenshot slot. Both open media-preview dialogs. There is no actual video and no fake playback.
+Then: six large subject artwork covers leading into sample catalogue filtering. Mathematics, Physics, Chemistry, Biology, AI and Informatics are current illustrative choices.
+Finish with a repeated Explore courses action and shared footer.
+The guest landing contains no catalogue grid or filter form on entry. Explore courses opens the separate in-file catalogue view with a return action. No new course-list URL.
+Member recent-learning, selected interests, course fixtures and account simulation remain unchanged.
+Asset dimensions, intended content and accessibility notes: `prototypes/marketplace-home/ASSET_BRIEF.md`.
 
 ## Shared footer experiment
 
@@ -194,7 +197,7 @@ This is a product decision, not implemented real account integration.
 
 | State at /test/ | First content | Account controls | Catalogue |
 | --- | --- | --- | --- |
-| Guest | Value proposition, existing physics coaching profiles, teaching preview and compact subjects | Sign in and create account | Opens through Explore courses, not visible on initial landing |
+| Guest | Exact motto, editorial portrait/logo slots, immersive media preview and subject artwork | Sign in and create account | Opens through Explore courses, not visible on initial landing |
 | Enrolled member | Recently studied enrolled courses, followed by selected-interest suggestions | My learning and sample account menu | Additional browsing below personal learning |
 | Member without enrolments | No-enrolment guidance and selectable interests, no recent-course panel | Same member controls | Suggestions and multi-subject browsing |
 

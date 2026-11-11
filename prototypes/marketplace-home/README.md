@@ -39,3 +39,10 @@ Read TEST_SITE_MAP.md and TEST_PAGE_HIERARCHIES.md for current planning. Preserv
 Guest landing now contains a value-led hero, compact existing coaching profiles, a teaching preview, subject relevance and a final Explore courses action. The catalogue opens as a separate in-file view with a back button instead of showing filters and cards on entry. No new course-list route.
 Hero records come from lib/coaching/medallists.ts: Rishit Garg (IPhO 2026 Gold), Ackhava (APhO 2026 Gold), Abhika (IPhO 2026 Silver). These are existing physics coaching profiles, not asserted authors of the sample marketplace courses. No portraits, invented awards or testimonials added.
 Member layout remains recently studied enrolled courses, selected-interest suggestions and catalogue. Research sources are recorded in TEST_SITE_MAP.md. Syntax/static checks pass, browser verification remains pending.
+
+## Editorial image-and-video iteration
+
+Latest owner-approved hero motto: For those who want to win.
+Guest design reserves three large editorial instructor portraits with paired competition-logo slots. Names and award details are not shown in the hero. This supersedes the earlier named-coach card composition.
+Immediately below are a large teaching video and overlapping lesson screenshot, both interactive placeholder previews, followed by large artwork-led subject covers. No actual recording, portrait, competition logo or final course artwork is embedded. Member state is unchanged.
+ASSET_BRIEF.md specifies the replacement media. All placeholder interactions and exact motto are covered by static checks; JavaScript syntax passes. Browser/mobile/a11y/contrast and full app verification remain pending.
