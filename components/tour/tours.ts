@@ -26,6 +26,7 @@ export type Tour = {
 };
 
 const onDashboard = /^\/dashboard\/?$/;
+const onLobby = /^\/(?:dashboard\/?)?$/;
 const onProblem = /^\/dashboard\/problems\//;
 
 export const tours: Record<TourId, Tour> = {
@@ -39,9 +40,9 @@ export const tours: Record<TourId, Tour> = {
       {
         id: "open",
         targets: ["problem-card"],
-        path: onDashboard,
+        path: onLobby,
         title: "Open a problem",
-        text: "Tap Solve problem to open one. Or I can open one for you, to show how solving works.",
+        text: "Open a problem to start solving. Or I can open one for you, to show how solving works.",
         go: { label: "Open one for me", href: "/dashboard/problems/arena-mind-the-gap" },
       },
       { id: "answer", targets: ["answer-box"], path: onProblem, title: "Your answer", text: "Type your answer here. A [[/]] makes a fraction and a [[^]] makes a power, like on paper." },

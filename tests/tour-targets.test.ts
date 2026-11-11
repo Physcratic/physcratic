@@ -51,3 +51,11 @@ test("the Welcome tour covers the places the owner asked for, in order", () => {
   assert.deepEqual(ids, ["library", "topics", "open", "answer", "typing", "palette", "check", "help", "coaching", "settings"]);
   assert.deepEqual(tours.studio.steps.map((s) => s.id), ["main", "question", "equation", "typing", "picture", "solution", "answer", "try", "source", "difficulty", "publish"]);
 });
+
+
+test("manual Welcome tour supports both lobby URLs without auto-starting on public home", () => {
+  const open = tours.welcome.steps.find(step => step.id === "open")!;
+  for (const path of ["/", "/dashboard", "/dashboard/"]) assert.ok(open.path?.test(path), path);
+  assert.ok(!tours.welcome.autoStart.test("/"));
+  assert.ok(tours.welcome.autoStart.test("/dashboard"));
+});
