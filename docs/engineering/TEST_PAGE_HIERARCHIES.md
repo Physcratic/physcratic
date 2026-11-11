@@ -1,8 +1,47 @@
 # Experimental page information hierarchies
 
+## Implemented course-learning journey
+
+Decisions J01–J06 extend the accepted homepage into three linked full-page fixture views. These are hash locations in the standalone HTML, not deployed Next routes.
+
+| Page | Implemented location | Purpose and primary action |
+| --- | --- | --- |
+| Course details | `#/course/[course-id]` | Assess audience, prerequisites, outcomes, curriculum and instructor. Try sample, or resume an owned course |
+| Lesson viewer | `#/lesson/[course-id]/[lesson-id]` | Study one lesson with large media placeholder, written explanation, worked example, practice and outline |
+| My learning | `#/learn` | Filter all/in-progress/completed enrolments, resume or review, open course details |
+| Catalogue | `#/catalogue` | Existing search, subject, level, format and competition context |
+| Homepage | `#/` | Existing audience-specific starting point |
+
+```mermaid
+flowchart TD
+  discovery["Catalogue"] --> detail["Course details"]
+  detail --> sample["First-lesson sample"]
+  sample --> detail
+  home["Learner homepage"] --> study["Enrolled lesson"]
+  library["My learning"] --> detail
+  library --> study
+  study --> library
+  study --> detail
+```
+
+One course plan supplies names, lesson IDs and counts across every view. Sample enrolments remain Mechanics 3/8, Number theory 2/10 and Vectors 6/6 initially. Manual completion/reversal updates this tab's lesson, library and homepage. Reload or switching sample accounts resets changes. No media playback, real progress write, purchase, enrolment or authentication is connected. Only the first lesson is available to guests and unowned sample accounts; the client-side guard is a demonstration, not security enforcement.
+
+Search/filter and originating-page state survive course/sample round trips. Browser Back is supported. Unknown course/lesson IDs have a recovery view. Instructor, support, Coaching and Arena remain explanatory dialogs. The lesson hides the promotional footer and retains course/library navigation.
+
+Managed Chromium now reaches the preview. Course/sample/resume/progress/filter/empty-account/return/keyboard-outline paths were exercised. Responsive frames of 375, 390 and 768px (content widths 360, 375 and 753px due to scrollbars), plus desktop, showed no horizontal overflow in checked journey views and one visible h1. Computed text checks passed after theme transitions in checked light/dark views; observed minima were 5.44:1 light and 6.01:1 dark. This is a focused Chromium review, not a full accessibility certification or application CI pass. Read [the review guide](../../prototypes/marketplace-home/REVIEW_GUIDE.md) for a small review sequence.
+
+## Lesson and My learning information hierarchy
+
+| View | First | Next | Supporting controls |
+| --- | --- | --- | --- |
+| Lesson | Course return, lesson title and large video placeholder | Written explanation → worked example → practice prompt → reveal explanation | Course outline; previous/next; explicit completion for enrolled accounts |
+| My learning | Page purpose and owned courses | Resume active lesson or review completed course | All/in-progress/completed filters, course details, catalogue and empty-state recovery |
+
+Mobile puts a collapsed outline before lesson content. Desktop keeps it in a separate sidebar. Complete/mark-incomplete updates a shared set of lesson IDs; Next does not silently complete a lesson. The first sample lesson has a return-to-course action and no completion control. No notes, streaks, leaderboards, related-course advertisements or practice grading were added.
+
 ## Appearance and preference wording correction
 
-Decisions L12/X04: member recommendation action is **Update interests**. Shared dark appearance now covers thumbnail art, preview media, brand mark, selected filters/preferences, menus and dialogs with paired colors and native dark controls. Theme remains active across account/view changes. No page order, route, feature or account behavior changes. Syntax/static and twelve token contrast checks pass; rendered browser verification is blocked by process socket restrictions.
+Decisions L12/X04: member recommendation action is **Update interests**. Shared dark appearance now covers thumbnail art, preview media, brand mark, selected filters/preferences, menus and dialogs with paired colors and native dark controls. Theme remains active across account/view changes. No page order, route, feature or account behavior changes. Earlier token checks passed. Managed Chromium now supports focused rendered verification; see the current journey section.
 
 ## Decision rationale and learner correction
 
@@ -165,19 +204,19 @@ Recommendations exclude sample enrolments and default to Mathematics/Physics; ot
 Remove the redundant Your learning eyebrow and explanatory greeting. Keep one useful page heading.
 No-enrolment members see discovery without an empty resume section.
 Sample 08:24 video and Example 2 reading positions illustrate future recovery. They are not persisted or sought in a real player.
-My learning is now a complete in-page view with status filters, matching resume/review actions and back navigation. No /test/learning route exists.
+My learning is a full-page fixture at `#/learn` with status filters, matching resume/review actions, course details and back navigation. No real /test/learning application route exists.
 Catalogue controls appear only on the catalogue view. Guest landing remains unchanged.
 
 #### Prototype status
 
 The standalone fixture implements these presentations and can open directly as guest or with `?view=member`. The View as toolbar still allows all three states.
 App /test/ embeds the same file in local development only. Account state is simulated. There is no real auth, enrolment, progress write or course recommendation service.
-Course, instructor and lesson details remain dialogs. Light/dark and responsive CSS exist, but browser validation is pending.
+Course details and lessons are full-page hash views. Instructor previews remain dialogs. Focused light/dark and responsive Chromium evidence is recorded above.
 Search/filter state is kept when closing previews. Reload resets all fixture state.
 
 ### 2. Course details
 
-Route: `/test/courses/[slug]`. Visitor decision: **Decide whether this course fits.**
+Intended route: `/test/courses/[slug]`. Implemented fixture: `#/course/[course-id]`. Visitor decision: **Decide whether this course fits.**
 
 ```mermaid
 flowchart TD
@@ -389,7 +428,7 @@ flowchart TD
 
 Guest introduction and member recent-learning priorities are confirmed. Hero copy, subject choices, course card density and how to represent limited actual inventory still need testing. Coaching remains secondary.
 Additional catalogue filters should only appear when the inventory makes them useful.
-Course purchase, student lesson delivery and creator workflows remain deferred.
+Real purchase, student lesson delivery and creator workflows remain deferred. The bounded sample lesson viewer and My learning journey are now implemented.
 Problem reader integration must obey existing answer and recovery contracts. These diagrams are not permission to rebuild grading or bypass feature gates.
 Instructor sample data must be labelled consistently across profiles and offerings. Do not invent social proof.
 

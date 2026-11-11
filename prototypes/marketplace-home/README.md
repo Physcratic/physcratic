@@ -1,53 +1,39 @@
-# Guest and member homepage prototypes
+# Physcratic course-learning prototype
 
-Canonical source: index.html. Open directly, no installation, environment variables or network needed.
-Guest default: index.html. Member default: index.html?view=member when served, or choose enrolled learner in View as.
-The development-only /test/ route embeds this source. Its local-only gate is unchanged.
+Canonical source: [index.html](index.html). Open directly, without installation, environment variables or network. The development-only `/test/` page embeds this same file; its gate is unchanged.
 
-## Guest
+Default: guest homepage. When served, `?view=member` starts the enrolled fixture. **View as** switches among guest, enrolled and no-enrolment accounts.
 
-Introductory hero explains the multi-subject olympiad course platform. Explore courses scrolls to the catalogue. Hero subject choices also filter it.
-Sample fields: Mathematics, Physics, Chemistry, Biology, AI and Informatics. Broader course scope includes fields with international olympiads.
-Course search, subject chips, level and format filtering, no-match/reset, sample course/instructor/lesson dialogs and grouped footer work as fixture interactions.
+Start with [REVIEW_GUIDE.md](REVIEW_GUIDE.md). It keeps owner review to one decision at a time.
 
-## Signed-in learner
+## Implemented views
 
-Recent courses are enrolled courses that were recently studied, never simply viewed courses.
-Two sample enrolments appear in recent-study order with next lessons and illustrative progress. Continue opens a sample lesson, without recording completion.
-For your interests uses explicitly selected subjects to filter fixture suggestions and excludes sample enrolled courses. No behavioural inference or real recommendation backend exists.
-The no-enrolment member variant hides recent courses and provides interest choices and browsing.
-The course catalogue remains accessible below personal learning, without redirecting to Arena.
+| View | Hash location |
+| --- | --- |
+| Homepage | `#/` |
+| Catalogue | `#/catalogue` |
+| Course details | `#/course/mechanics` |
+| Enrolled lesson example | `#/lesson/mechanics/lesson-4` |
+| My learning | `#/learn` |
 
-## Shared behaviour and boundaries
+These are standalone views, not public or newly integrated Next routes. Course IDs, curricula and sample lesson completion are shared across views. Browser Back and course-origin return retain catalogue search/filter state in this tab.
 
-Simulated account switching across three states, My learning, sample course/instructor/lesson dialogs and appearance toggle remain available.
-Footer Support/Company/Policy actions are explicitly proposed previews. No real contact, policy publication or transactions.
-Coaching and Arena remain navigation previews. Arena is physics-focused initially, unlike the multi-subject course catalogue.
-All courses, instructors, progress and enrolments are fictional and labelled. No verified award, review, price, real availability or course access is asserted.
-No credential fields, APIs, network calls, browser storage, purchases or messages. Reload resets state.
-There is only one canonical HTML fixture in the repository. Separately supplied guest/member downloads use different initial states for convenience.
+The accepted guest homepage remains course discovery with editorial portrait/logo slots, competition coverage, teaching preview, Coaching and Arena heroes, final CTA and grouped footer. Member navigation keeps My learning and Explore courses primary, with Coaching/Arena under More. The learner homepage prioritizes enrolled study.
 
-## Verification and next review
+## Boundaries
 
-Extracted JavaScript syntax and static checks for six subjects, two sample enrolments, member initialization, no network/storage and labelled states pass.
-Browser/mobile/keyboard/contrast and full Next build/CI remain unverified. The prior browser session could not reach the local server.
-Compare: does a guest understand what Physcratic is? Can a member resume an enrolled course immediately? Are suggestions understandable? Can either discover another subject?
-Read TEST_SITE_MAP.md and TEST_PAGE_HIERARCHIES.md for current planning. Preserve the fixed original baseline and existing security contracts before real integration.
+Nine illustrative course offerings span Mathematics, Physics, Chemistry, Biology, AI and Informatics. Three sample enrolments initially show Mechanics 3/8, Number theory 2/10 and Vectors 6/6. Guests and unowned accounts can open the first lesson only. This is a client-side UI demonstration, not access control.
 
-## Guest sales-page revision
+Media is placeholder. Mechanics and one mathematics explanation have illustrative reading content; other readings say they are layout samples. No fake playback, credentials, network APIs, browser storage, payments or real records. Manual completion applies to this tab and resets on reload/account switching. Instructor, support, policy, Coaching and Arena destinations remain explanatory dialogs.
 
-Guest landing now contains a value-led hero, compact existing coaching profiles, a teaching preview, subject relevance and a final Explore courses action. The catalogue opens as a separate in-file view with a back button instead of showing filters and cards on entry. No new course-list route.
-Hero records come from lib/coaching/medallists.ts: Rishit Garg (IPhO 2026 Gold), Ackhava (APhO 2026 Gold), Abhika (IPhO 2026 Silver). These are existing physics coaching profiles, not asserted authors of the sample marketplace courses. No portraits, invented awards or testimonials added.
-Member layout remains recently studied enrolled courses, selected-interest suggestions and catalogue. Research sources are recorded in TEST_SITE_MAP.md. Syntax/static checks pass, browser verification remains pending.
+## Checks
 
-## Editorial image-and-video iteration
+```sh
+node prototypes/marketplace-home/checks/course-journey.mjs
+```
 
-Latest owner-approved hero motto: For those who want to win.
-Guest design reserves three large editorial instructor portraits with paired competition-logo slots. Names and award details are not shown in the hero. This supersedes the earlier named-coach card composition.
-Immediately below are a large teaching video and overlapping lesson screenshot, both interactive placeholder previews, followed by large artwork-led subject covers. No actual recording, portrait, competition logo or final course artwork is embedded. Member state is unchanged.
-ASSET_BRIEF.md specifies the replacement media. All placeholder interactions and exact motto are covered by static checks; JavaScript syntax passes. Browser/mobile/a11y/contrast and full app verification remain pending.
+The check uses Node built-ins and reads the canonical HTML. It checks all curriculum IDs/counts, initial resumes, completion/reversal, full completion, state reset and guest/unowned account boundaries. Extracted JavaScript syntax passes.
 
-## Guest cleanup pass
+Managed Chromium exercised the linked journey, recovery, catalogue return and keyboard outline. Responsive 375/390/768px frames and desktop were checked in light/dark. Focused computed text checks pass in inspected views; no claim of full accessibility certification, physical-device qualification or Next application CI.
 
-Applied the owner-supplied design principles: fewer redundant labels, specific section headings, one guest-only CTA accent, spacing-led groups, consistent arrows and rectangular portrait frames, cleaner placeholder panels, improved text contrast, radius/padding consistency, restrained useful feedback and reduced-motion support. The hero motto and substantial media spaces are preserved. Member styling is unchanged.
-No simulated loading or unnecessary monospace was introduced. JavaScript syntax and existing interaction/static checks pass. CTA colour calculation: 6.31:1 light, 8.64:1 dark. This is not a full accessibility/browser pass.
+Read the decision report J01–J06 and the two experimental page maps. Preserve the original baseline and existing server security, grading and feature gates during any later integration. No merge or deployment is included.

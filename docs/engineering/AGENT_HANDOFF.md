@@ -1,5 +1,11 @@
 # Agent handoff
 
+## Linked course-learning prototype (11 November 2026)
+
+Owner authorized one bounded course-learning journey. J01–J06 add full-page course details, lesson viewer and updated My learning in the existing standalone file. Shared curricula/IDs and session-only completion propagate to detail, library, lesson and homepage. Guest sample access, full-course unavailable state, browser Back, origin/filter preservation and missing-ID recovery are included. No new Next routes or production/security/data contracts changed.
+
+Read [the review guide](../../prototypes/marketplace-home/REVIEW_GUIDE.md) and [verification](../../prototypes/marketplace-home/COURSE_JOURNEY_QA.md). Syntax/model checks and focused managed Chromium UI/mobile/light-dark/contrast checks pass within the documented limits. Full application CI, provider/device and comprehensive accessibility qualification remain pending integration. Both maps and the decision report are updated. Next: owner reviews course-detail summary/CTA first, then lesson and library separately. Do not expand into checkout, creator tools or detailed Coaching/Arena without new scope.
+
 ## Dark appearance and Update interests (11 November 2026)
 
 L12/X04 implement the owner-requested Update interests label and complete paired dark colors for synthetic course art, portrait/media previews, logo, selection states, focus, shared menus and dialogs. Existing study/catalogue/preferences handlers and all page structure remain intact. JavaScript syntax/static checks and twelve token contrast checks pass (text minimum 5.72:1 in checked pairs, control borders 4.25:1). Chromium cannot launch due to denied process sockets, so no rendered/browser/mobile/full-app CI pass is claimed. Next: review the updated standalone preview, then visually verify desktop/mobile in both themes before integration. Prototype only, no production/auth/data changes.

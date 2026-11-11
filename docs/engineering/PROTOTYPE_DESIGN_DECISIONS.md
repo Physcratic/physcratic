@@ -123,3 +123,50 @@ JavaScript syntax and static check of the hidden block pass. Browser/a11y/build 
 - **Simpler alternative:** patch only the current homepage. Rejected because the same defects occur in shared catalogue, preferences and guest media.
 - **Expected check:** readable foreground/background pairs, selected states, visible focus and theme retained across state changes. Light theme and all existing actions preserved.
 - **Status:** implemented after recording. Shared paired tokens and theme-aware SVG/thumbnail colors cover the affected surfaces. JavaScript syntax and static replacement checks pass. Twelve foreground/background checks pass, including small text at 5.72:1 or higher and control borders at 4.25:1. These are token-pair checks, not a full rendered contrast audit. Chromium launch fails because process sockets are blocked in this environment, so visual/mobile/interaction verification and full application CI remain unverified.
+
+## J01 · Full-page course details
+- **Audience/trigger:** guests and members assessing a course. Owner authorized the course-learning journey.
+- **Change/reason:** replace the course dialog with a page containing intended learner, prerequisites, outcomes, curriculum, teaching preview, instructor and availability. Group these around the suitability decision rather than adding marketing sections.
+- **Tradeoff/alternative:** longer than a dialog, but gives curriculum and sample teaching room. Keep instructor details in the existing supporting dialog.
+- **Check:** course ID and catalogue filters survive a round trip. Enrolled members resume; others can try a sample. No checkout or fake enrolment.
+- **Status:** implemented after recording; owner review pending. See COURSE_JOURNEY_QA.md for actual checks and limits.
+
+## J02 · Focused lesson workspace
+- **Audience/trigger:** enrolled learner continuing study, guest evaluating a sample.
+- **Change/reason:** full lesson page with a large media slot, explanation, worked example, short practice prompt and course outline. Guest sample is visibly scoped to one unlocked lesson.
+- **Tradeoff/alternative:** more structure than a lesson modal. No fake media playback controls, distraction panels, notes system or unrelated recommendations.
+- **Check:** correct course/lesson, sample boundary, outline selection, previous/next and return context. Media remains explicitly placeholder.
+- **Status:** implemented after recording; owner review pending. See COURSE_JOURNEY_QA.md for actual checks and limits.
+
+## J03 · Consistent sample curriculum
+- **Audience/trigger:** all three linked pages need matching names, counts and progress.
+- **Change/reason:** central course plans and stable lesson IDs supply detail syllabus, lesson outline and My learning. Preserve existing 8/10/6 lesson totals and saved positions.
+- **Tradeoff/alternative:** illustrative curriculum is not final teaching content. A repeated generic lesson list would not support a useful review.
+- **Check:** counts match, saved lesson titles resolve, each course/lesson ID has an understandable unavailable state.
+- **Status:** implemented after recording; owner review pending. See COURSE_JOURNEY_QA.md for actual checks and limits.
+
+## J04 · Session-only study progress
+- **Audience/trigger:** enrolled learner reviewing resume and completion flow.
+- **Change/reason:** explicit Mark complete action updates the sample progress across lesson, My learning and homepage in this tab. Completion is a set of lesson IDs, not arbitrary increments.
+- **Tradeoff/alternative:** state resets on reload. A short visible prototype note explains this. Guest samples and unowned courses cannot mark completion.
+- **Check:** repeated completion does not double-count, completed-course review works, switching sample accounts clears study edits.
+- **Status:** implemented after recording; owner review pending. See COURSE_JOURNEY_QA.md for actual checks and limits.
+
+## J05 · My learning and return paths
+- **Audience/trigger:** member finding their active or completed course.
+- **Change/reason:** retain status filters, add matching course-detail access, accurate progress, an empty-account action and page hashes for course/lesson/learning navigation and browser Back.
+- **Tradeoff/alternative:** hash locations inside the standalone file, not real Next routes. Search/filter and origin scroll retained in session.
+- **Check:** browser Back, header/logo, sample-to-course and learner-to-library paths work. Missing/deleted IDs recover without a blank page.
+- **Status:** implemented after recording; owner review pending. See COURSE_JOURNEY_QA.md for actual checks and limits.
+
+## J06 · Reviewable boundaries and presentation
+- **Audience/trigger:** owner reviewing while leaving routine decisions to the agent.
+- **Change/reason:** reuse existing header, More, theme, cards and type; media gets generous placeholder space. Lesson footer is omitted to keep study focused, with course and learning return controls retained. Guest homepage composition stays accepted.
+- **Tradeoff/alternative:** no new independent visual system, real purchase, credentials, private service or media fetching. Full footer stays on commercial/library views.
+- **Check:** desktop/mobile, both themes, keyboard focus, one visible h1, no horizontal overflow, existing discovery/interest actions preserved. Record actual QA evidence and blockers.
+- **Status:** implemented after recording; owner review pending. See COURSE_JOURNEY_QA.md for actual checks and limits.
+
+### J06 outcome details
+Mobile review controls were compacted so the prototype strip does not crowd study. Repeated module/title text is suppressed when identical. New control boundaries use paired border colors. Superseded modal function definitions were removed rather than left as duplicate behavior. Guest composition and More navigation are preserved. The supported managed preview now works; the earlier browser limitation is superseded for this bounded batch.
+
+J04/J05 final outcome: all active lessons were completed through the UI; the homepage correctly replaced its resume panel with a review/discovery state. Completion reversal and sample-account reset were exercised. The initial-lesson counts remain 8/10/6, verified from source rather than the earlier assumed counts.

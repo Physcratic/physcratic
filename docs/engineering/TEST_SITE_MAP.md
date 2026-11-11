@@ -1,8 +1,38 @@
 # Physcratic experimental site map
 
+## Implemented course-learning journey
+
+Decisions J01–J06 extend the accepted homepage into three linked full-page fixture views. These are hash locations in the standalone HTML, not deployed Next routes.
+
+| Page | Implemented location | Purpose and primary action |
+| --- | --- | --- |
+| Course details | `#/course/[course-id]` | Assess audience, prerequisites, outcomes, curriculum and instructor. Try sample, or resume an owned course |
+| Lesson viewer | `#/lesson/[course-id]/[lesson-id]` | Study one lesson with large media placeholder, written explanation, worked example, practice and outline |
+| My learning | `#/learn` | Filter all/in-progress/completed enrolments, resume or review, open course details |
+| Catalogue | `#/catalogue` | Existing search, subject, level, format and competition context |
+| Homepage | `#/` | Existing audience-specific starting point |
+
+```mermaid
+flowchart TD
+  discovery["Catalogue"] --> detail["Course details"]
+  detail --> sample["First-lesson sample"]
+  sample --> detail
+  home["Learner homepage"] --> study["Enrolled lesson"]
+  library["My learning"] --> detail
+  library --> study
+  study --> library
+  study --> detail
+```
+
+One course plan supplies names, lesson IDs and counts across every view. Sample enrolments remain Mechanics 3/8, Number theory 2/10 and Vectors 6/6 initially. Manual completion/reversal updates this tab's lesson, library and homepage. Reload or switching sample accounts resets changes. No media playback, real progress write, purchase, enrolment or authentication is connected. Only the first lesson is available to guests and unowned sample accounts; the client-side guard is a demonstration, not security enforcement.
+
+Search/filter and originating-page state survive course/sample round trips. Browser Back is supported. Unknown course/lesson IDs have a recovery view. Instructor, support, Coaching and Arena remain explanatory dialogs. The lesson hides the promotional footer and retains course/library navigation.
+
+Managed Chromium now reaches the preview. Course/sample/resume/progress/filter/empty-account/return/keyboard-outline paths were exercised. Responsive frames of 375, 390 and 768px (content widths 360, 375 and 753px due to scrollbars), plus desktop, showed no horizontal overflow in checked journey views and one visible h1. Computed text checks passed after theme transitions in checked light/dark views; observed minima were 5.44:1 light and 6.01:1 dark. This is a focused Chromium review, not a full accessibility certification or application CI pass. Read [the review guide](../../prototypes/marketplace-home/REVIEW_GUIDE.md) for a small review sequence.
+
 ## Appearance and preference wording correction
 
-Decisions L12/X04: member recommendation action is **Update interests**. Shared dark appearance now covers thumbnail art, preview media, brand mark, selected filters/preferences, menus and dialogs with paired colors and native dark controls. Theme remains active across account/view changes. No page order, route, feature or account behavior changes. Syntax/static and twelve token contrast checks pass; rendered browser verification is blocked by process socket restrictions.
+Decisions L12/X04: member recommendation action is **Update interests**. Shared dark appearance now covers thumbnail art, preview media, brand mark, selected filters/preferences, menus and dialogs with paired colors and native dark controls. Theme remains active across account/view changes. No page order, route, feature or account behavior changes. Earlier token checks passed. The managed preview now supports focused rendered checks; see the implemented journey section for current evidence.
 
 ## Decision rationale and learner correction
 
@@ -21,9 +51,9 @@ The enrolled member homepage is now a study starting point rather than a catalog
 
 My learning is a full-page prototype view, not a modal, with All courses, In progress and Completed filters. Three sample enrolments include two active and one completed course. Only active courses appear on the homepage.
 Default member interests match Mathematics/Physics. Update interests opens optional controls rather than displaying all preferences permanently.
-Saved video/reading positions are illustrative fixtures. Resume opens the corresponding lesson preview and explains its position; no real media seek, progress write, enrolment or auth implementation is claimed.
+Saved video/reading positions are illustrative fixtures. Resume opens the matching full-page lesson viewer. Manual completion updates session-only sample state. No real media seek, server progress write, enrolment or auth implementation is claimed.
 The no-enrolment state has interest-based discovery and no fabricated recent learning. Catalogue filters, clear/reset and competition lookup are preserved. The guest landing is visually unchanged.
-My learning and catalogue are in-page views, not new application routes. Logo/back returns to the homepage.
+My learning and catalogue use in-file hash locations, not new application routes. Logo/back returns to the homepage.
 JS syntax/static checks pass. Browser, keyboard/mobile/accessibility and full application checks remain pending.
 
 ## Brand and navigation decision
@@ -74,7 +104,7 @@ For what exists today, use [CURRENT_SITE_MAP.md](CURRENT_SITE_MAP.md) and [CURRE
 
 Physcratic is an education marketplace where students learn from accomplished competitors across academic olympiads and, eventually, areas such as debate, MUN and chess.
 Academy is the long-term course business. Coaching is the initial commercial offering and bootstrapping channel. Arena supplies useful free practice, acquisition, retention and brand credibility.
-The homepage at `/test/` has two audience-specific compositions. Guests see a sales-focused introduction with instructor evidence, a teaching preview and compact subject relevance. Explore courses opens catalogue browsing as a separate in-prototype view, rather than displaying cards and filters immediately. Members see recently studied enrolled courses and interest-based suggestions before catalogue browsing. Coaching and free practice remain supporting destinations. There is no separate `/test/courses/` catalogue page. Course detail URLs remain `/test/courses/[slug]`.
+The homepage at `/test/` has two audience-specific compositions. Guests see a sales-focused introduction with instructor evidence, a teaching preview and compact subject relevance. Explore courses opens catalogue browsing as a separate in-prototype view, rather than displaying cards and filters immediately. Members see recently studied enrolled courses and interest-based suggestions before catalogue browsing. Coaching and free practice remain supporting destinations. There is no separate `/test/courses/` catalogue page. The intended application detail route remains `/test/courses/[slug]`; the implemented standalone view is `#/course/[course-id]`.
 Start with a curated offering and expand toward a marketplace. Do not imply that future subjects, courses, payments or instructor tools are available today.
 
 Authority: the owner's current conversation decisions, supported by the supplied October 2026 business proposal, especially sections 6–9, 12, 15–16, 46 and 54–56. The private proposal is not copied into this public repository. Its examples, financial figures and recommendations are not verified marketing claims or automatic implementation requirements.
@@ -94,7 +124,7 @@ Any invented instructor or offering must be clearly marked as sample throughout 
 - **Confirmed direction:** parallel experimental site at `/test/`, course-catalogue homepage without a separate catalogue route, iterative prototyping, existing site preserved.
 - **Proposed:** route names below, section order, primary actions and page contents. They are editable first drafts.
 - **Deferred:** production checkout, enrolment, lesson delivery, creator publishing and broader categories until their requirements are separately settled.
-- **Implementation:** `/test/` now embeds a standalone course-homepage fixture in local development only. It simulates guest, enrolled-member and member-without-enrolments states. No real auth, course access or cross-platform account integration exists. Other experimental routes remain unbuilt. The earlier practice prototype remains a separate exploration.
+- **Implementation:** `/test/` now embeds a standalone course-homepage fixture in local development only. It simulates guest, enrolled-member and member-without-enrolments states. No real auth, course access or cross-platform account integration exists. Course detail, lesson and My learning views are built inside this fixture. Other experimental application routes remain unbuilt. The earlier practice prototype remains a separate exploration.
 - Keep the experiment local-only initially. A future implementation must enforce a development boundary and exclude experimental routes from public navigation, indexing and sitemaps. Noindex alone is not access control. No deployment is authorized.
 
 ## Route hierarchy
@@ -134,14 +164,14 @@ flowchart TD
   course --> instructor["/test/instructors/[slug] · Shared profile"]
   instructor -->|Choose an offering| course
   course -->|Back with filters retained| catalog
-  course --> preview["Inline sample lesson"]
+  course --> preview["Full-page first-lesson sample"]
   preview -->|Close preview| course
   course --> availability{"Available to buy?"}
   availability -->|Not yet| interest["Interest action · Proposed, unsent"]
   availability -->|Future integration only| purchase["Purchase flow · Deferred"]
 ```
 
-A direct course URL must work without a catalogue visit. Preserve course context on instructor links. Interest collection, checkout and access delivery are not implemented or authorized by this diagram.
+A direct course URL must work without a catalogue visit. Preserve course context on instructor links. Interest collection, checkout and real access delivery are not implemented or authorized by this diagram. The sample lesson viewer is implemented only in the standalone fixture.
 
 ### Coaching enquiry
 
@@ -188,12 +218,12 @@ See [TEST_PAGE_HIERARCHIES.md](TEST_PAGE_HIERARCHIES.md) for a proposed content-
 
 ## Page specifications
 
-The homepage has a **sample-data implementation with browser verification pending**. Other routes below remain planned, not built. Course and instructor previews are dialogs, not implemented detail routes. Contents and priorities remain subject to review.
+The homepage and course-learning journey have **sample-data implementations with focused Chromium checks**. Course details and lessons are full-page hash views. Instructor and other destinations remain dialogs or planned application routes. Contents and priorities remain subject to owner review.
 
 | Page | Visitor's decision | Initial contents | Primary action | Connections and context |
 | --- | --- | --- | --- | --- |
-| `/test/` | Guest: understand Physcratic's value and explore. Member: resume enrolled learning or find a relevant course | Guest motto, portrait/competition-mark hero and teaching media preview; member recent enrolled courses and chosen-interest suggestions; shared multi-subject catalogue, filters and footer | Guest: Explore courses. Member: Continue lesson, or discover if no enrolments | Recently studied means enrolled and studied, not recently viewed. Detail previews remain dialogs. No separate catalogue route |
-| `/test/courses/[slug]` | Is this course suitable? | Intended outcomes, target learner, prerequisites, syllabus, instructor, sample lesson, delivery format, workload, price/access terms and availability when established | Try a sample, or register interest if not available | Shared instructor ID, preview lesson ID. Keep course vs scheduled cohort distinct. No fake purchase |
+| `/test/` | Guest: understand Physcratic's value and explore. Member: resume enrolled learning or find a relevant course | Guest motto, portrait/competition-mark hero and teaching media preview; member recent enrolled courses and chosen-interest suggestions; shared multi-subject catalogue, filters and footer | Guest: Explore courses. Member: Continue lesson, or discover if no enrolments | Recently studied means enrolled and studied, not recently viewed. Course and lesson previews are full-page fixture views. No separate application catalogue route |
+| `/test/courses/[slug]` | Is this course suitable? | Intended outcomes, target learner, prerequisites, syllabus, instructor, sample lesson, delivery format, workload, price/access terms and availability when established | Try a sample, or resume an enrolled course | Implemented as a hash view with stable course/lesson IDs. Instructor preview remains a dialog. No fake purchase or interest submission |
 | `/test/instructors/[slug]` | Do I trust this person to teach me? | Exact sourced competition achievements, role, teaching approach/experience, sample teaching and their offerings | View a relevant offering | Shared instructor ID to course IDs and coaching options. Never infer teaching quality from awards alone |
 | `/test/coaching` | Does live coaching fit my needs? | Existing formats and subjects, instructors, fit, how enquiry works, scheduling/pricing details only when confirmed | Enquire about coaching | Instructor/subject/offering context passed to enquiry. Current public coaching data must be inspected before reuse |
 | `/test/coaching/enquire` | How do I ask about an appropriate class? | Selected offering summary, minimal contact/goal fields, next-step expectations, errors and confirmation | Preview enquiry | Draft state only initially. Show “not sent” explicitly. No real submission or booking until integrated and verified |
@@ -203,7 +233,7 @@ The homepage has a **sample-data implementation with browser verification pendin
 | `/test/learn/[slug]` | Do I understand this concept and what can I try? | Guide content, worked examples, relevant practice and optional related offering | Try related practice | Stable guide/problem/offering IDs |
 
 Account, progress, contests, rankings, authoring, community, moderation and settings still exist in the original product. They are **unmapped for experimental redesign**, not approved removals. Consult UI_OVERHAUL_BASELINE.md before bringing them into this map.
-Future student learning/dashboard and instructor creator routes are deferred. Do not silently create a complete LMS or seller dashboard from this map.
+The bounded student lesson and My learning fixture is now implemented. Real lesson delivery, student-account integration and instructor creator routes remain deferred. Do not expand this into a full LMS or seller dashboard without scope.
 
 ## Cross-page link contracts
 
@@ -215,7 +245,7 @@ Future student learning/dashboard and instructor creator routes are deferred. Do
 | Course detail | Meet instructor | Instructor profile | Instructor ID and originating course | Back to that course |
 | Instructor | Explore their course | Course detail | Course slug | Instructor remains reachable |
 | Coaching | Enquire | Enquiry | Coaching option ID, optional instructor/subject | Back preserves selection |
-| Course detail | Sample lesson | Proposed inline preview first | Course and lesson IDs | Close returns to course |
+| Course detail | Sample lesson | `#/lesson/[course-id]/[lesson-id]` | Course and lesson IDs | Back returns to course; full-course lessons remain unavailable without a sample enrolment |
 | Free guide | Try a related problem | Problem reader | Problem identity, guide return path | Return to guide |
 | Problem reader | Explore related learning | Relevant course/coaching page | Subject and optional source problem | Easy return without losing work |
 
@@ -253,7 +283,7 @@ The looping rail belongs inside this coverage section. It shows labelled logo pl
 Find your competition opens a searchable example list. Search matches full names, abbreviations and subjects. Selecting an entry opens the catalogue view with its explicit sample course-ID mapping.
 Examples: IMO, IPhO, IChO, IBO, IOAI, IOI, a generic debate competition and a generic chess tournament. Debate/chess have no sample course mappings and honestly show an empty result.
 Mapped courses are illustrative related content, not confirmed preparation or real availability for those competitions.
-Changing subject or clearing filters clears competition-specific mapping. The selection/context is retained while viewing a course dialog.
+Changing subject or clearing filters clears competition-specific mapping. The selection/context is retained while viewing the course detail or lesson view.
 Rail pause/hover/focus and reduced-motion behaviour remain. Member learning presentation is unchanged apart from the shared catalogue supporting this filter context.
 After the course teaching preview, show separate full-width Coaching and Arena heroes, each with a large media slot and distinct action. Finish with one course-discovery CTA and the footer. Their destinations remain explanatory previews.
 Current guest order: hero → competition coverage/rail/search → teaching preview → Coaching hero → Arena hero → final course CTA → footer.
@@ -291,8 +321,8 @@ This is a product decision, not implemented real account integration.
 
 An Arena account must not be assigned a course automatically or redirected away from course discovery on the main homepage.
 Implementation: `prototypes/marketplace-home/index.html`, embedded by `app/test/page.tsx` only in local development, plus a directly openable standalone file.
-Simulated sign-in changes fixture state only. Course/instructor/lesson previews are dialogs. Coaching/Arena are explanatory navigation stubs.
-Search, subject chips, level/format filters, clear/no-match recovery, selectable interests, theme toggle and responsive CSS exist. The fixture covers Mathematics, Physics, Chemistry, Biology, AI and Informatics, with the broader scope being fields with international olympiads. Arena remains a physics-practice preview, not a promise of practice across all subjects. No real sign-in, enrolment, payment, persistence or lesson completion exists.
+Simulated sign-in changes fixture state only. Course and lesson views are full pages. Instructor previews remain dialogs. Coaching/Arena are explanatory navigation stubs.
+Search, subject chips, level/format filters, clear/no-match recovery, selectable interests, theme toggle and responsive CSS exist. The fixture covers Mathematics, Physics, Chemistry, Biology, AI and Informatics, with the broader scope being fields with international olympiads. Arena remains a physics-practice preview, not a promise of practice across all subjects. No real sign-in, enrolment, payment, durable progress or media playback exists. Manual lesson completion is a session-only simulation.
 Verification: JavaScript syntax and static fixture/isolation checks pass. Browser connection refused, so runtime, responsive/accessibility, Next build and application CI remain unverified.
 See `prototypes/marketplace-home/README.md` for review steps.
 
@@ -317,7 +347,7 @@ Never load production credentials, real enquiries or private learner data to mak
 
 ### 2. One complete commercial discovery flow
 
-- [ ] Homepage → offering → instructor → enquiry or sample lesson.
+- [x] Homepage → course details → sample/enrolled lesson, with My learning and return paths. Instructor dialog remains supporting; enquiry is deferred.
 - [ ] Make prototype-only actions explicit and keep enquiries unsent.
 - [ ] Check direct URLs, back navigation, shared data and mobile/keyboard access.
 - [ ] Observe likely users finding an appropriate offering without a tutorial.
