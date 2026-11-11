@@ -15,6 +15,7 @@ import {
   displayTitle,
   findProblemPage,
   relatedProblems,
+  topicPageCopy,
   topicSlug,
   topicsWithProblems,
 } from "./seo/problem-pages";
@@ -123,5 +124,24 @@ describe("problem pages", () => {
     }
     // A shared PDF that could not be split would repeat on every page. It must be thin, not indexable.
     for (const p of pages.filter((x) => x.kind === "archive" && x.indexable)) assert.ok(!p.thin, p.id);
+  });
+});
+
+describe("topic metadata titles", () => {
+  it("uses natural distinct titles for all six topics without changing descriptions", () => {
+    const expected = [
+      "Mechanics physics olympiad problems",
+      "Electromagnetism physics olympiad problems",
+      "Waves physics olympiad problems",
+      "Thermodynamics physics olympiad problems",
+      "Optics physics olympiad problems",
+      "Modern physics olympiad problems",
+    ];
+    const topics = topicsWithProblems();
+    assert.deepEqual(topics.map(({ name, count }) => topicPageCopy(name, count).title), expected);
+    assert.equal(new Set(expected).size, topics.length);
+    for (const { name, count } of topics) {
+      assert.equal(topicPageCopy(name, count).description, `${count} ${name.toLowerCase()} problems from IPhO, APhO, EuPhO, Physcratic Arena and practice sets, each with its own page and a checked answer where there is one.`);
+    }
   });
 });

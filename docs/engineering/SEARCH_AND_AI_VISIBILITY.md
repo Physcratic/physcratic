@@ -1,6 +1,6 @@
 # Search and AI visibility
 
-How Physcratic's public pages are built so that search engines and AI crawlers can read them with no JavaScript. Phase 8, written 7 November 2026.
+How Physcratic's public pages are built so that search engines and AI crawlers can read them with no JavaScript. Phase 8, written 7 November 2026. Technical SEO counts and crawl boundaries checked on 10 November 2026 against main `18ed7a48`.
 
 ## URLs
 
@@ -22,15 +22,15 @@ Archive problems keep the URL they already had (`/dashboard/problems/ipho-2025-t
 
 The owner confirmed on 7 November 2026 that reuse of the IPhO, APhO and EuPhO problems is allowed, because they are openly published and other sites such as Olimpicos reuse them. The catalogue records it: `rightsStatus` is `reuse-allowed` on every archive problem, with a `rightsNote` that says so, and the page's "Source credits and import details" box shows that note. No other problem data changed.
 
-`ARCHIVE_INDEXABLE` in `lib/seo/problem-pages.ts` is `true`. 98 of the 100 archive pages are indexable and in the sitemap, `llms.txt` examples and `llms-full.txt`. IPhO 2017 problems 2 and 3 stay noindex because their text is too thin (`thin`). Setting the switch to `false` puts every archive page back to noindex and out of all three files, which is the fast way to undo this.
+`ARCHIVE_INDEXABLE` in `lib/seo/problem-pages.ts` is `true`. At that check, 101 of the 103 archive pages are indexable and in the sitemap, `llms.txt` examples and `llms-full.txt`. IPhO 2017 problems 2 and 3 stay noindex because their text is too thin (`thin`). Setting the switch to `false` puts every archive page back to noindex and out of all three files, which is the fast way to undo this.
 
-Every archive page keeps its source line ("IPhO 2025, Problem 2. Official problem (PDF)") with the link to the official file, in the page and in the LearningResource data. The "Unofficial English translation" label applies to English drafts of Russian sources. No archive problem is a Russian source now (all 100 are English PDFs), so no page carries it. If a translated problem is added, label it that way in the page and in `LearningResource.translator` or `inLanguage`.
+Every archive page keeps its source line ("IPhO 2025, Problem 2. Official problem (PDF)") with the link to the official file, in the page and in the LearningResource data. The "Unofficial English translation" label applies to English drafts of Russian sources. No archive problem is a Russian source now (the current sources are English PDFs), so no page carries it. If a translated problem is added, label it that way in the page and in `LearningResource.translator` or `inLanguage`.
 
 `lib/seo-problem-pages.test.ts` fails if two archive pages share statement text or start the same way.
 
 ## One model for every problem
 
-`lib/seo/problem-pages.ts` builds a `ProblemPage` for each of the 130 problems (12 practice, 18 Arena, 100 archive). The sitemap, `llms.txt`, `llms-full.txt`, the library pages, the metadata and the structured data all read it, so a problem cannot be in one place and missing from another. `lib/seo/public-routes.ts` adds the other pages and is the single list behind the sitemap.
+`lib/seo/problem-pages.ts` builds a `ProblemPage` for every static practice, Arena and archive problem. At the dated check above there are 133 pages (12 practice, 18 Arena, 103 archive). The sitemap, `llms.txt`, `llms-full.txt`, the library pages, the metadata and the structured data all read it, so a problem cannot be in one place and missing from another. `lib/seo/public-routes.ts` adds the other pages and is the single list behind the sitemap.
 
 ## What the HTML holds before any script runs
 
@@ -61,9 +61,9 @@ Built in `lib/seo/json-ld.ts` from the same strings the page shows, and validate
 
 ## Sitemap, llms.txt, robots.txt
 
-- `/sitemap.xml`: every indexable page (147 with the archive), no query strings, `lastmod` from the data (a problem's import date, a guide's updated date). Practice problems, library pages and coaching pages have no date in the data, so they have no `lastmod`.
+- `/sitemap.xml`: every indexable page from `indexableRoutes` in `lib/seo/public-routes.ts` (150 URLs at the dated check above), no query strings, `lastmod` from the data (a problem's import date, a guide's updated date). Practice problems, library pages and coaching pages have no date in the data, so they have no `lastmod`.
 - `/llms.txt`: a short index under 5 KB, with example problems that are indexable (a test in `lib/public-discovery.test.ts` keeps it there). `/llms-full.txt` lists every page in the sitemap, one line each.
-- `/robots.txt`: explicit groups for Googlebot, Bingbot, OAI-SearchBot, GPTBot, ClaudeBot and PerplexityBot with the same rules as `*`. It is built at build time, so it needs `VERCEL_ENV=production` during `pnpm build`. There is no middleware, and the CSP is report-only.
+- `/robots.txt`: explicit groups for Googlebot, Bingbot, OAI-SearchBot, GPTBot, ClaudeBot and PerplexityBot with the same rules as `*`. It is built at build time, so it needs `VERCEL_ENV=production` during `pnpm build`. The authoring page is restricted with `/dashboard/author$`, `/dashboard/author?` and `/dashboard/author/`, covering exact, query and nested paths without blocking `/dashboard/authored/`. Authored reader pages still send `noindex, nofollow`. Non-production disallows all crawling. There is no middleware, and the CSP is report-only.
 
 ## The home page and caching
 

@@ -3,6 +3,10 @@
 ## B5 account deletion readiness
 
 The owner now approves account-wide erasure/de-identification while preserving appropriately licensed published content and other students’ work. B5 still stops before runtime implementation because mixed-subject immutable case/evidence text needs a verified redaction/adjudication mechanism or a defined limited-retention exception. See [the precise remaining privacy gate](ACCOUNT_DELETION_READINESS.md) and [the inactive prospective licence/consent design](PUBLICATION_LICENSE_PROPOSAL.md). PR #140 remains draft and unmerged. No deletion endpoint, migration, privilege, active Terms, flag or Production change.
+## SEO P1 technical corrections (10 November 2026)
+
+Branch `codex/seo-p1-technical` starts from `18ed7a48`. Corrects the authoring robots boundary and Modern physics title only, with dated SEO counts in SEARCH_AND_AI_VISIBILITY.md. Parser-based tests cover exact/query/nested authoring paths, authored-reader access, Googlebot and generic crawlers, and non-production denial. Authored noindex/nofollow, canonicals, sitemap policy and public anchors are preserved. `robots-parser` is a pinned test-only dependency. Local Node 22.23.1 verification: 84 focused SEO/render checks pass, Next typegen/TypeScript and zero-warning lint pass. Exact-head GitHub CI and merge remain pending publication of the P1 PR. No manual deployment or production operation. Stop after P1, no P2.
+
 ## Four rating bands (10 November 2026)
 
 Implementation `e36f20e5dcd0b52ef1f17d429afd529a6d97845f` starts from main `78abf9fbbb5ee603a465acade520dca2a8b9afb7` on `codex/four-rating-bands`. Beginner is 0 to 800, Intermediate 801 to 1,800, Advanced 1,801 to 2,600 and Mastery 2,601+. The 0 to 4000 scale, stable retained IDs, 1200 starting player rating and Studio presets 500/1200/2100/2800 remain unchanged. Retired fundamentals and numeric filter URLs retain their historical ranges without appearing as choices. No rating value, calculation, grading, schema or source content changes.
