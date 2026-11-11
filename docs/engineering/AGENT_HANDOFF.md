@@ -1,5 +1,16 @@
 # Agent handoff
 
+## Established-company design direction (11 November 2026)
+
+Owner explicitly authorized designing the future established company rather than limiting the concept to current inventory or team size.
+The guest fixture now uses a dark-green editorial hero, warm high-contrast primary action, a broader competition-coverage presentation and a substantial lesson demonstration.
+The course argument connects structured sequencing, explained methods and independent practice to learner benefits. Coaching is positioned around direct feedback and subject/level fit. Arena remains free physics practice, not a promise of practice support across every field.
+The illustrative scale row is 50+ competition pathways, 200+ instructors/coaches and eight fields. The concept toolbar and row label clearly identify these as illustrative, not audited current business facts. No testimonials, student outcomes or performance guarantees are invented.
+Owner-selected motto, approved section order, large media placeholders, competition lookup, catalogue and member experience remain.
+The final CTA is "Your next round starts here." followed by Explore courses and browse-without-account reassurance.
+Syntax/static checks pass. Browser, mobile/accessibility and application build/CI remain unverified.
+Next: review the complete established-brand composition, then refine assets and actual offer details. Do not publish illustrative claims as verified facts.
+
 ## Sales fundamentals research and working brief (11 November 2026)
 
 Owner identified weak sales fundamentals behind repeated section-level design changes. Studied April Dunford positioning, Joanna Wiebe/Copyhackers research and message hierarchy, Wiebe for CXL on awareness/voice of customer, and MECLABS motivation/value/friction/anxiety. SALES_AND_MESSAGING_BRIEF.md applies these to Physcratic, audits current gaps and defines objection/CTA/evidence rules. AGENTS.md and the whole-page layout now point to it. Documentation only, no new HTML revision or runtime claim. Next: apply the brief to supporting copy/transitions and course-destination suitability while preserving approved motto/order. Missing actual commercial facts must not be invented. Avoid repeating generic hypothesis disclaimers or making owner micromanage ordinary decisions.

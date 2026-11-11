@@ -1,5 +1,9 @@
 # Physcratic sales and messaging brief
 
+## Owner-authorized future-state concept
+
+The owner now explicitly asks us to design for the established company with broad competition coverage and a substantial instructor/coach network. Design and copy may depict that mature offering inside the labelled prototype. Illustrative scale figures must remain distinguishable from verified business facts. No invented customer testimonials, guarantees or real-person endorsements. This direction supersedes restricting design to current launch inventory; existing production/security restrictions remain.
+
 11 November 2026. Read this before changing commercial page copy or composition.
 This document records the sales reasoning; GUEST_HOMEPAGE_LAYOUT.md records the page arrangement. Do not make the owner direct every section removal or addition.
 

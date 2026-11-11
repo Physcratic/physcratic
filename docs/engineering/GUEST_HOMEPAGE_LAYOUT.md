@@ -1,5 +1,16 @@
 # Guest homepage: first structural iteration
 
+## Established-company design direction (11 November 2026)
+
+Owner explicitly authorized designing the future established company rather than limiting the concept to current inventory or team size.
+The guest fixture now uses a dark-green editorial hero, warm high-contrast primary action, a broader competition-coverage presentation and a substantial lesson demonstration.
+The course argument connects structured sequencing, explained methods and independent practice to learner benefits. Coaching is positioned around direct feedback and subject/level fit. Arena remains free physics practice, not a promise of practice support across every field.
+The illustrative scale row is 50+ competition pathways, 200+ instructors/coaches and eight fields. The concept toolbar and row label clearly identify these as illustrative, not audited current business facts. No testimonials, student outcomes or performance guarantees are invented.
+Owner-selected motto, approved section order, large media placeholders, competition lookup, catalogue and member experience remain.
+The final CTA is "Your next round starts here." followed by Explore courses and browse-without-account reassurance.
+Syntax/static checks pass. Browser, mobile/accessibility and application build/CI remain unverified.
+Next: review the complete established-brand composition, then refine assets and actual offer details. Do not publish illustrative claims as verified facts.
+
 Updated 11 November 2026. Branch: `codex/ui-overhaul`.
 This is the quick-review document for the **whole guest landing page**. Settle the message, section order and actions here before refining individual assets, colours or animation.
 Related: [TEST_SITE_MAP.md](TEST_SITE_MAP.md), [TEST_PAGE_HIERARCHIES.md](TEST_PAGE_HIERARCHIES.md).
@@ -55,7 +66,7 @@ flowchart TD
     arenaMedia ~~~ arenaText
   end
   subgraph close["6 · Final CTA"]
-    closeText["Ready to start preparing?"]
+    closeText["Your next round starts here."]
     closeAction["Explore courses · Browse without an account"]
     closeText ~~~ closeAction
   end
@@ -75,8 +86,8 @@ flowchart TD
 - Main commercial action remains **Explore courses**, repeated at the top and bottom. It opens the in-prototype catalogue, not a signup wall.
 - Competition lookup answers a concrete relevance question. It should not compete visually with the hero's main action.
 - Coaching and Arena have distinct sections and destinations, not two small cards inside a generic section.
-- Final heading: **Ready to start preparing?**
-- Final support text: **Explore a course, check the level and see what you will learn.**
+- Final heading: **Your next round starts here.**
+- Final support text: **Find a course for your competition and learn from someone who has been there.**
 - Final reassurance: **Browse before creating an account.**
 - Avoid equally prominent course/coaching/Arena buttons in the final CTA. Each alternative already has its own dedicated section.
 
