@@ -36,6 +36,8 @@ export const tours: Record<TourId, Tour> = {
     steps: [
       { id: "library", targets: ["nav-problems", "nav-open"], title: "The library", text: "Every problem lives in the library. Open it to browse, search and filter." },
       { id: "topics", targets: ["nav-topics"], title: "Topics", text: "Pick a topic to see only those problems." },
+      { id: "coaching", targets: ["nav-coaching"], title: "Coaching", text: "Want help from medallists? Coaching is up here." },
+      { id: "settings", targets: ["nav-settings", "nav-open"], title: "Settings", text: "Your account lives in Settings. You can replay this tour there too." },
       {
         id: "open",
         targets: ["problem-card"],
@@ -49,8 +51,6 @@ export const tours: Record<TourId, Tour> = {
       { id: "palette", targets: ["answer-palette"], path: onProblem, title: "Symbols", text: "These buttons drop a symbol or a function in where your cursor is." },
       { id: "check", targets: ["check-button"], path: onProblem, title: "Check", text: "Press Check to see if you got it. A wrong answer is fine, you can try again." },
       { id: "help", targets: ["hint-button", "solution-tab"], path: onProblem, title: "Hints and solutions", text: "Stuck? Take a hint or open the worked solution, but try first." },
-      { id: "coaching", targets: ["nav-coaching"], title: "Coaching", text: "Want help from medallists? Coaching is up here." },
-      { id: "settings", targets: ["nav-settings", "nav-open"], title: "Settings", text: "Your account lives in Settings. You can replay this tour there too." },
     ],
   },
   studio: {
@@ -67,7 +67,7 @@ export const tours: Record<TourId, Tour> = {
       { id: "answer", targets: ["studio-answer"], title: "Final Answer (Solution)", text: "This is the answer we check students against. We find the symbols for you." },
       { id: "try", targets: ["studio-try"], title: "Answer preview", text: "Type an answer here to see what a student would get. Only you see this." },
       { id: "source", targets: ["studio-source"], title: "Where it's from", text: "Say if you wrote it or adapted it. If you adapted it, add the source." },
-      { id: "difficulty", targets: ["studio-difficulty"], title: "Estimated difficulty", text: "Pick a band, or type your own rating. It is your guess and shows as an estimate." },
+      { id: "difficulty", targets: ["studio-difficulty"], title: "Estimated difficulty", text: "Pick a band, or type your own rating. It is only a guess, and it never changes anyone's rating." },
       { id: "publish", targets: ["studio-publish"], title: "Publish", text: "Happy with it? Tick the box above and press Publish." },
     ],
   },
