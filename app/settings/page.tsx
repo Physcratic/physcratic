@@ -1,3 +1,4 @@
+import {accountDeletionEnabled} from "@/lib/account-deletion/route";
 import React from "react";
 import type { Metadata } from "next";
 import { verificationUiEnabled } from "@/lib/community/medal-route";
@@ -10,5 +11,5 @@ import { authEmailReady } from "@/lib/auth-email-transport";
 export const metadata: Metadata = { title: "Account Settings", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 export default async function SettingsPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
-  return <AccountSettings moderationEnabled={communityModerationUiEnabled()} verificationEnabled={verificationUiEnabled()} profilesEnabled={communityProfilesEnabled()} mediaEnabled={profileMediaEnabled()} achievementsEnabled={communityAchievementsEnabled()} onboarding={(await searchParams).onboarding === "1"} emailReady={authEmailReady()} />;
+  return <AccountSettings deletionEnabled={accountDeletionEnabled()} moderationEnabled={communityModerationUiEnabled()} verificationEnabled={verificationUiEnabled()} profilesEnabled={communityProfilesEnabled()} mediaEnabled={profileMediaEnabled()} achievementsEnabled={communityAchievementsEnabled()} onboarding={(await searchParams).onboarding === "1"} emailReady={authEmailReady()} />;
 }
