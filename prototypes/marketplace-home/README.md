@@ -1,53 +1,35 @@
-# Marketplace homepage account-state prototype
+# Guest and member homepage prototypes
 
-Open index.html directly in a browser. No installation, environment variables, network connection or accounts are required.
-The same file is embedded by the development-only Next route at /test/ after pnpm dev in an initialized local checkout.
-The route returns notFound outside NODE_ENV=development and also refuses VERCEL=1. No asset is copied into public/. It is not added to navigation or the sitemap.
-The iframe is sandboxed with allow-scripts only. Real auth, cookies, storage, APIs, purchases, form sends and production data are not used.
+Canonical source: index.html. Open directly, no installation, environment variables or network needed.
+Guest default: index.html. Member default: index.html?view=member when served, or choose enrolled learner in View as.
+The development-only /test/ route embeds this source. Its local-only gate is unchanged.
 
-## Compare three states
+## Guest
 
-Use the View as selector:
-- Signed out: short explanation, sign-in/create-account actions and the course catalogue.
-- Signed in, enrolled learner: same catalogue, account controls and compact Continue learning.
-- Signed in, no enrolments: same catalogue, account controls and honest no-enrolment guidance.
-An Arena-origin account does not imply a course enrolment.
+Introductory hero explains the multi-subject olympiad course platform. Explore courses scrolls to the catalogue. Hero subject choices also filter it.
+Sample fields: Mathematics, Physics, Chemistry, Biology, AI and Informatics. Broader course scope includes fields with international olympiads.
+Course search, subject chips, level and format filtering, no-match/reset, sample course/instructor/lesson dialogs and grouped footer work as fixture interactions.
 
-Sign in and Create account open an explicitly simulated account chooser. Sign out affects only the preview state. There are no credential fields.
-Coaching and Arena navigation opens explanatory preview panels. It does not establish real cross-platform account integration.
-My learning opens sample progress or an empty state. Continue opens a short sample lesson, without saving completion.
-Course and instructor details use dialogs for the first experiment. They are not yet the planned /test/courses/[slug] or /test/instructors/[slug] routes.
-Search, level and format filters operate on six fictional physics courses. No courses are for sale. All profiles are fictional, with no asserted awards or reviews.
-Filters stay in place while switching account states or opening/closing previews. Reload resets the experiment. There is no persistent data.
-Light/dark toggle and responsive CSS are provided. Mobile layout, contrast, keyboard and screen-reader behaviour still need browser verification.
+## Signed-in learner
 
-## First review
+Recent courses are enrolled courses that were recently studied, never simply viewed courses.
+Two sample enrolments appear in recent-study order with next lessons and illustrative progress. Continue opens a sample lesson, without recording completion.
+For your interests uses explicitly selected subjects to filter fixture suggestions and excludes sample enrolled courses. No behavioural inference or real recommendation backend exists.
+The no-enrolment member variant hides recent courses and provides interest choices and browsing.
+The course catalogue remains accessible below personal learning, without redirecting to Arena.
 
-1. Try signed out. Can you tell what to browse and open a relevant course?
-2. Sign in through the sample chooser. Is the enrolled state useful without hiding discovery?
-3. Choose the no-enrolment state. Does an Arena-only user feel welcome without being assigned a course?
-4. Search for a missing topic. Check the no-results and clear-filter recovery.
-5. Open a course, instructor and sample lesson, then return to the catalogue.
-6. Compare narrow/wide layouts and light/dark. Check keyboard dialog open/close, focus and labels.
+## Shared behaviour and boundaries
 
-Open decisions: wording, amount of introduction, position/size of Continue learning and whether My learning deserves primary navigation.
-No design was validated with users yet.
+Simulated account switching across three states, My learning, sample course/instructor/lesson dialogs and appearance toggle remain available.
+Footer Support/Company/Policy actions are explicitly proposed previews. No real contact, policy publication or transactions.
+Coaching and Arena remain navigation previews. Arena is physics-focused initially, unlike the multi-subject course catalogue.
+All courses, instructors, progress and enrolments are fictional and labelled. No verified award, review, price, real availability or course access is asserted.
+No credential fields, APIs, network calls, browser storage, purchases or messages. Reload resets state.
+There is only one canonical HTML fixture in the repository. Separately supplied guest/member downloads use different initial states for convenience.
 
-## Verification
+## Verification and next review
 
-Extracted JavaScript passes node --check.
-Static source checks cover fixture count, three account states, lack of network/storage/credential fields and the development gate appearing before file IO.
-The cloud browser could not reach the local preview server (ERR_CONNECTION_REFUSED). No successful browser execution, screenshots, real Next build, app CI or security qualification is claimed.
-
-## Integration and security review
-
-Read docs/engineering/UI_OVERHAUL_BASELINE.md before integration.
-A future shared-account implementation must verify server-enforced roles and course entitlements, session/cookie behaviour, CSRF/origin checks, private-data/cache boundaries, validation/XSS, media access and submission idempotency/recovery. Browser tests must cover account switching, guest/member states and error paths.
-An unchanged backend is not proof that redesigned front-end code preserves those boundaries. No security bypass or activation is authorized by this fixture.
-
-## Footer iteration
-
-Grouped footer added: Learn, Support and Physcratic, with brand context and a separate policy/status row. Shared across guest and member states.
-Courses uses the catalogue action; Coaching/Arena reuse navigation previews. Seven support/company/policy entries have explicit preview dialogs. These are not newly implemented pages or published policies.
-Try each group, close with Escape or Close, and confirm keyboard focus returns appropriately. Check narrow layout and both appearances locally.
-Checks: all seven footer destinations have handlers, no network/storage introduced, extracted JavaScript syntax passes. Browser, accessibility and app build/CI remain unverified.
+Extracted JavaScript syntax and static checks for six subjects, two sample enrolments, member initialization, no network/storage and labelled states pass.
+Browser/mobile/keyboard/contrast and full Next build/CI remain unverified. The prior browser session could not reach the local server.
+Compare: does a guest understand what Physcratic is? Can a member resume an enrolled course immediately? Are suggestions understandable? Can either discover another subject?
+Read TEST_SITE_MAP.md and TEST_PAGE_HIERARCHIES.md for current planning. Preserve the fixed original baseline and existing security contracts before real integration.

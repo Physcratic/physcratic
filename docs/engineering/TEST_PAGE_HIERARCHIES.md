@@ -46,60 +46,66 @@ Remaining links are explicitly proposed-destination or policy-status dialogs, no
 On mobile the groups wrap into a compact grid with visible headings. This CSS exists but has not been browser-verified.
 Keep purchase/access/refund conditions visible on the relevant offering or transaction too. The footer does not replace those disclosures.
 
-### 1. Homepage and course catalogue
+### 1. Homepage: guest and member compositions
 
-Route: `/test/`. Visitor decision: **Find a course that fits my goal and level.**
-Owner decision: course discovery is the homepage's primary purpose. There is no separate catalogue page. Course detail routes remain `/test/courses/[slug]`.
-Keep the brand explanation brief. Do not make visitors pass through a marketing landing page to reach the catalogue. Course availability remains explicit, including samples or planned offerings.
+Route: `/test/`. Owner decision: guests need an introduction, while signed-in learners need recently studied enrolled courses and relevant discovery.
+“Recently studied” excludes courses merely viewed while browsing.
+There is no separate course-list route. Course detail URLs remain planned as `/test/courses/[slug]`.
+
+#### Guest homepage
 
 ```mermaid
 flowchart TD
-  page["Homepage and course catalogue"]
-  first["1 · Orient and discover"]
-  second["2 · Course results and main action"]
-  support["3 · Compare suitability"]
-  extra["4 · Supporting destinations"]
-  firstContent["Brief Physcratic explanation; search; useful subject, goal and level filters"]
-  secondContent["Curated course results; clear availability; view course"]
-  supportContent["Instructor; learner fit; format; language; established price"]
-  extraContent["Coaching; free practice; guides"]
-  page --> first
-  page --> second
+  page["Guest homepage"]
+  hero["1 · Introductory hero"]
+  discovery["2 · Explore courses"]
+  support["3 · Other ways to learn"]
+  footer["4 · Shared footer"]
+  page --> hero
+  page --> discovery
   page --> support
-  page --> extra
-  first --> firstContent
-  second --> secondContent
-  support --> supportContent
-  extra --> extraContent
+  page --> footer
+  hero --> identity["What Physcratic offers; olympiad subjects"]
+  hero --> action["Explore courses; sign in"]
+  discovery --> controls["Subject, search, level and format"]
+  discovery --> results["Course cards; sample status; instructor context"]
+  support --> options["Coaching and physics Arena"]
 ```
 
-Search and filters update results on `/test/`. Returning from a course restores search, filters and scroll position.
-Show useful no-match or no-available-course states without inventing inventory. Additional filters appear only when useful.
+Current concept: “Learn for your next olympiad.” Subject choices cover Mathematics, Physics, Chemistry, Biology, AI and Informatics. These are illustrative offerings, not confirmed availability or a complete list of future international olympiad fields.
+Explore courses moves to the catalogue on the same page. A subject choice filters it.
+Credibility content is limited to truthful sample status until real instructor evidence is available.
 
-### Homepage variations by account state
+#### Member homepage
 
 ```mermaid
 flowchart TD
-  home["/test/ · Same course catalogue"]
-  identity{"Sample account state"}
-  guest["Guest · Brief introduction and sign-in controls"]
-  enrolled["Member with course · Continue learning panel"]
-  empty["Member without course · Browse-first guidance"]
-  home --> identity
-  identity --> guest
-  identity --> enrolled
-  identity --> empty
-  enrolled --> resume["Course title, next lesson, progress, continue action"]
-  enrolled --> discover["Catalogue remains available"]
-  guest --> discover
-  empty --> discover
+  page["Member homepage"]
+  recent["1 · Continue learning"]
+  interest["2 · For your interests"]
+  browse["3 · Explore all courses"]
+  support["4 · Supporting destinations and footer"]
+  page --> recent
+  page --> interest
+  page --> browse
+  page --> support
+  recent --> enrolled["Recently studied enrolled courses; next lesson; progress"]
+  interest --> choices["Explicitly selected subjects; explain suggestions"]
+  interest --> suggestions["Matching sample courses"]
+  browse --> catalogue["Same subject/search/filter catalogue"]
 ```
 
-One account is the proposed identity across Academy, Coaching and Arena. Course access is separate from account existence.
-The current fixture provides three states, sample dialogs and a light/dark toggle. It does not authenticate or persist anything.
-Keep the Continue learning area compact so the homepage remains the catalogue.
-Account controls change with state, not the site's primary purpose.
-The separate sample toolbar is a research control, not a planned customer-facing account switcher.
+Two sample enrolled courses appear in recent-study order, each with a Continue lesson action.
+Suggestions match chosen subjects and exclude sample enrolled courses. No inferred behaviour model or numerical recommendation score is used.
+A member without enrolments sees no recent-course section. They can select subjects and explore suggestions/catalogue.
+My learning and account controls replace guest account actions. One identity is proposed across Academy, Coaching and Arena, with separate access and records.
+
+#### Prototype status
+
+The standalone fixture implements these presentations and can open directly as guest or with `?view=member`. The View as toolbar still allows all three states.
+App /test/ embeds the same file in local development only. Account state is simulated. There is no real auth, enrolment, progress write or course recommendation service.
+Course, instructor and lesson details remain dialogs. Light/dark and responsive CSS exist, but browser validation is pending.
+Search/filter state is kept when closing previews. Reload resets all fixture state.
 
 ### 2. Course details
 
@@ -313,7 +319,7 @@ flowchart TD
 
 ## What stays unresolved
 
-Homepage course discovery is confirmed. Its exact content order and how to represent limited current course inventory still need testing. Coaching remains a secondary destination.
+Guest introduction and member recent-learning priorities are confirmed. Hero copy, subject choices, course card density and how to represent limited actual inventory still need testing. Coaching remains secondary.
 Additional catalogue filters should only appear when the inventory makes them useful.
 Course purchase, student lesson delivery and creator workflows remain deferred.
 Problem reader integration must obey existing answer and recovery contracts. These diagrams are not permission to rebuild grading or bypass feature gates.

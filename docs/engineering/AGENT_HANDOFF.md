@@ -1,5 +1,10 @@
 # Agent handoff
 
+## Guest and member homepage redesign (11 November 2026)
+
+Owner clarified course scope: Mathematics, Physics, Chemistry, Biology, AI and any field with an international olympiad. Informatics is included as an illustrative additional fixture. Guests now get an introductory hero and subject browsing. Members lead with recently studied enrolled courses, then suggestions matching explicitly chosen interests. Recently viewed courses do not belong in Continue learning. The no-enrolment member state has no recent-course panel.
+`prototypes/marketplace-home/index.html` remains canonical, guest default with optional ?view=member. Two direct-open downloads use guest/member initial states. /test/ embeds the same source under the existing local-only gate. No real shared-account or marketplace integration. TEST_SITE_MAP.md and TEST_PAGE_HIERARCHIES.md were reconciled with this decision. Sample data and navigation/policy stubs remain explicit. Syntax/static checks only; browser, mobile/accessibility and application build/CI unverified. Next: user compares the two compositions before further pages.
+
 ## Homepage footer prototype (11 November 2026)
 
 The marketplace homepage fixture now includes grouped Learn, Support and Physcratic navigation plus brand context and policy/status row. The same footer appears in all three account states. Learning links reuse existing prototype actions. About, Contact, Teach with us, help and policy entries open explicitly proposed previews. No real contact/policy/application service or new route was created. TEST_SITE_MAP.md and TEST_PAGE_HIERARCHIES.md describe the footer and boundaries. Seven destination-handler checks and JavaScript syntax pass; browser/mobile/keyboard/contrast and full application checks remain pending. Next: user reviews footer contents and grouping locally.

@@ -11,7 +11,7 @@ For what exists today, use [CURRENT_SITE_MAP.md](CURRENT_SITE_MAP.md) and [CURRE
 
 Physcratic is an education marketplace where students learn from accomplished competitors across academic olympiads and, eventually, areas such as debate, MUN and chess.
 Academy is the long-term course business. Coaching is the initial commercial offering and bootstrapping channel. Arena supplies useful free practice, acquisition, retention and brand credibility.
-The homepage at `/test/` is the primary course catalogue for Physcratic. It represents the whole brand through course discovery, with coaching and free practice as supporting destinations. There is no separate `/test/courses/` catalogue page. Course detail URLs remain `/test/courses/[slug]`.
+The homepage at `/test/` has two audience-specific compositions. Guests see an introductory hero followed by multi-subject course discovery. Members see recently studied enrolled courses and interest-based suggestions before catalogue browsing. Coaching and free practice remain supporting destinations. There is no separate `/test/courses/` catalogue page. Course detail URLs remain `/test/courses/[slug]`.
 Start with a curated offering and expand toward a marketplace. Do not imply that future subjects, courses, payments or instructor tools are available today.
 
 Authority: the owner's current conversation decisions, supported by the supplied October 2026 business proposal, especially sections 6–9, 12, 15–16, 46 and 54–56. The private proposal is not copied into this public repository. Its examples, financial figures and recommendations are not verified marketing claims or automatic implementation requirements.
@@ -129,7 +129,7 @@ The homepage has a **sample-data implementation with browser verification pendin
 
 | Page | Visitor's decision | Initial contents | Primary action | Connections and context |
 | --- | --- | --- | --- | --- |
-| `/test/` | Which course fits my goal and level? | Brief brand orientation, course search and relevant subject/competition/level filters, curated course results, instructor and format context, truthful availability and price, empty-state recovery; secondary coaching/practice links | View a course | Course slug. Keep homepage filters, search and scroll position when returning from details. No separate catalogue route |
+| `/test/` | Guest: understand Physcratic and explore. Member: resume enrolled learning or find a relevant course | Guest hero and subject entry; member recent enrolled courses and chosen-interest suggestions; shared multi-subject catalogue, filters and footer | Guest: Explore courses. Member: Continue lesson, or discover if no enrolments | Recently studied means enrolled and studied, not recently viewed. Detail previews remain dialogs. No separate catalogue route |
 | `/test/courses/[slug]` | Is this course suitable? | Intended outcomes, target learner, prerequisites, syllabus, instructor, sample lesson, delivery format, workload, price/access terms and availability when established | Try a sample, or register interest if not available | Shared instructor ID, preview lesson ID. Keep course vs scheduled cohort distinct. No fake purchase |
 | `/test/instructors/[slug]` | Do I trust this person to teach me? | Exact sourced competition achievements, role, teaching approach/experience, sample teaching and their offerings | View a relevant offering | Shared instructor ID to course IDs and coaching options. Never infer teaching quality from awards alone |
 | `/test/coaching` | Does live coaching fit my needs? | Existing formats and subjects, instructors, fit, how enquiry works, scheduling/pricing details only when confirmed | Enquire about coaching | Instructor/subject/offering context passed to enquiry. Current public coaching data must be inspected before reuse |
@@ -184,14 +184,14 @@ This is a product decision, not implemented real account integration.
 
 | State at /test/ | First content | Account controls | Catalogue |
 | --- | --- | --- | --- |
-| Guest | Brief course-discovery introduction | Sign in and create account | Fully browsable sample catalogue |
-| Enrolled member | Compact Continue learning with sample course/progress | My learning and sample account menu | Still visible below |
-| Member without enrolments | Welcome and honest no-enrolment guidance | Same member controls | Primary way to start |
+| Guest | Prominent introductory hero, subject choices and Explore courses action | Sign in and create account | Multi-subject catalogue below introduction |
+| Enrolled member | Recently studied enrolled courses, followed by selected-interest suggestions | My learning and sample account menu | Additional browsing below personal learning |
+| Member without enrolments | No-enrolment guidance and selectable interests, no recent-course panel | Same member controls | Suggestions and multi-subject browsing |
 
 An Arena account must not be assigned a course automatically or redirected away from course discovery on the main homepage.
 Implementation: `prototypes/marketplace-home/index.html`, embedded by `app/test/page.tsx` only in local development, plus a directly openable standalone file.
 Simulated sign-in changes fixture state only. Course/instructor/lesson previews are dialogs. Coaching/Arena are explanatory navigation stubs.
-Search, filters, clear/no-match recovery, theme toggle and responsive CSS exist. No real sign-in, enrolment, payment, persistence or lesson completion exists.
+Search, subject chips, level/format filters, clear/no-match recovery, selectable interests, theme toggle and responsive CSS exist. The fixture covers Mathematics, Physics, Chemistry, Biology, AI and Informatics, with the broader scope being fields with international olympiads. Arena remains a physics-practice preview, not a promise of practice across all subjects. No real sign-in, enrolment, payment, persistence or lesson completion exists.
 Verification: JavaScript syntax and static fixture/isolation checks pass. Browser connection refused, so runtime, responsive/accessibility, Next build and application CI remain unverified.
 See `prototypes/marketplace-home/README.md` for review steps.
 
@@ -242,7 +242,7 @@ Never load production credentials, real enquiries or private learner data to mak
 | Question | Current hypothesis | Evidence |
 | --- | --- | --- |
 | Should discovery start with subject or competition goal? | Goal-oriented entry may make choices more relevant | Untested |
-| What leads the homepage? | Course discovery is the owner's decision. Coaching and practice remain secondary | Confirmed direction, layout and inventory still untested |
+| What leads the homepage? | Guest introduction and member recent enrolled learning are the owner's decision. Member suggestions use selected interests | Confirmed direction. Two sample homepage states implemented, not user-tested |
 | Do instructor credentials need a dedicated page? | Shared profiles help users assess suitability | Untested |
 | Is guided selection better than immediate browsing? | Depends on catalogue size and visitor experience | Earlier A/B practice sketch exists, no user results |
 
