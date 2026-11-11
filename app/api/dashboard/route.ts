@@ -1,6 +1,8 @@
 import { and, asc, count, countDistinct, eq, sql } from "drizzle-orm";
-import { dashboardAccountMatches, dashboardPracticeCounts } from "@/lib/dashboard-practice";
-import { db, pool } from "@/lib/db";
+import { dashboardAccountMatches } from "@/lib/dashboard-practice";
+import { problemProgressApi } from "@/lib/problem-progress-api";
+import { problemProgressSchema } from "@/lib/problem-progress-contracts";
+import { db } from "@/lib/db";
 import {
   archiveProgress,
   contests,
@@ -17,7 +19,11 @@ export async function GET(request: Request) {
   try {
     const user = await submissionUser(request);
     if (!dashboardAccountMatches(request, user?.id ?? null)) return Response.json({ error: "Your account changed. Refresh your sign-in." }, { status: 409, headers: { "Cache-Control": "private, no-store", Vary: "Cookie, X-Practice-Account" } });
-    const checked = await dashboardPracticeCounts(pool, user?.id ?? null);
+    const response = user?.emailVerified ? await problemProgressApi(request) : null;
+    const summary = response?.ok ? problemProgressSchema.parse(await response.json()) : null;
+    const complete = summary?.sources.practice && summary.sources.authored;
+    const checked = { practiceAttempts: complete ? summary.savedChecks : null, solvedProblems: complete ? summary.solvedProblems : null,
+      inProgressProblems: complete ? summary.inProgressProblems : null, practiceProgressAvailable: Boolean(complete) };
     const published = await db
       .select({
         id: contests.id,

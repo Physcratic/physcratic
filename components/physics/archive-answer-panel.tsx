@@ -123,7 +123,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
       if (receipt) {
         journal.accept(receipt);
         setSaveMessage(journal.book.pending ? "Saved to your account. Local retry cleanup failed. Retrying the same check is safe." : "Saved to your account. Your dashboard will update.");
-        void mutate(key => Array.isArray(key) && key[1] === account && ["/api/practice-progress", "/api/dashboard"].includes(key[0]));
+        void mutate(key => Array.isArray(key) && key[1] === account && ["/api/practice-progress", "/api/problem-progress", "/api/dashboard"].includes(key[0]));
       } else setSaveMessage("Checked without saving. This result does not update account progress.");
       const gradedAnswers = receipt?.attempt.answers ?? input.answers;
       const visible = data.parts.filter(part => part.kind !== "self-review" && currentAnswers.current[part.id]?.trim()).map(part => ({ partId: part.id, latex: currentAnswers.current[part.id] }));

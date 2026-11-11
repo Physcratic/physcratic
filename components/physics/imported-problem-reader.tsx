@@ -12,7 +12,10 @@ import {
   RotateCcw,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { ProblemHeading } from "./problem-heading";
+import { getEstimatedProblemElo } from "@/lib/problem-archive";
+import { getProblemTags } from "@/lib/problem-tags";
+import { AnswerWorkspace } from "./answer-workspace";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import {
   Card,
@@ -194,7 +197,6 @@ export function ImportedProblemReader({
   asPage?: boolean;
   initialData?: ImportedProblem
 }) {
-  const TitleTag = asPage ? "h1" : "h2";
   const { data, error, isLoading, mutate } = useSWRImmutable(
     problem.importPath,
     loadProblem,
@@ -237,25 +239,7 @@ export function ImportedProblemReader({
           </Button>
         )}
       </div>
-      <header className="flex flex-col gap-3">
-        <div className="flex flex-wrap items-center gap-2">
-          <Badge variant="secondary">
-            {problem.competition} {problem.year} · {problem.code}
-          </Badge>
-          <Badge variant="outline">Imported · Unrated</Badge>
-          <Badge variant="outline">
-            {problem.importLanguage === "ru"
-              ? "Russian source"
-              : "English source"}
-          </Badge>
-        </div>
-        <TitleTag
-          id="imported-problem-title"
-          lang={problem.titleLanguage}
-          className="text-balance text-2xl font-medium tracking-tight"
-        >
-          {problem.title}
-        </TitleTag>
+      <ProblemHeading id="imported-problem-title" as={asPage ? "h1" : "h2"} title={problem.title} lang={problem.titleLanguage} source={`${problem.competition} ${problem.year} · ${problem.code}`} estimate={String(getEstimatedProblemElo(problem.id))} tags={getProblemTags(problem)}>
         <p className="text-sm leading-relaxed text-muted-foreground">
           Complete statement and original diagrams stored in this app. Solution
           content is checked separately before it can become a grading
@@ -270,7 +254,7 @@ export function ImportedProblemReader({
           Original title source{" "}
           <span className="sr-only">(opens in a new tab)</span>
         </a>
-      </header>
+      </ProblemHeading>
       {translationRecord ? (
         <div className="flex flex-col gap-3">
           <Select value={language} onValueChange={setLanguage}>
@@ -359,6 +343,7 @@ export function ImportedProblemReader({
         </Alert>
       )}
       {readingData && (
+        <div className="grid min-w-0 items-start gap-6 xl:grid-cols-[minmax(0,1fr)_23rem]">
         <Tabs
           value={tab}
           onValueChange={setTab}
@@ -366,7 +351,6 @@ export function ImportedProblemReader({
         >
           <TabsList className="h-auto w-fit max-w-full flex-wrap" aria-label="Problem steps">
             <TabsTrigger className="min-h-11" value="statement"><StepNumber>1</StepNumber>Problem statement</TabsTrigger>
-            <TabsTrigger className="min-h-11" value="submission"><StepNumber>2</StepNumber>Your solution</TabsTrigger>
             <TabsTrigger className="min-h-11" value="solution">
               <StepNumber>4</StepNumber>{missingSolution ? "Source solution page" : "Worked solution"}
             </TabsTrigger>
@@ -417,12 +401,15 @@ export function ImportedProblemReader({
               </Card>
             </TabsContent>
           ))}
-          <TabsContent value="submission" className="min-w-0">
+        </Tabs>
+        <AnswerWorkspace>
+          <section aria-label="Your solution" className="min-w-0 rounded-xl border bg-card p-5">
             <StepHeading step={2} className="pb-2">Answer</StepHeading>
             <p className="pb-4 text-sm leading-relaxed text-muted-foreground">Write your solution below. This problem has no automatic check. Compare your work with the worked solution in step 4.</p>
             <SolutionSubmissionForm key={problem.id} problemId={problem.id} />
-          </TabsContent>
-        </Tabs>
+          </section>
+        </AnswerWorkspace>
+        </div>
       )}
       <details className="rounded-lg border border-border px-4 py-3">
         <summary className="flex min-h-11 cursor-pointer items-center text-sm font-medium">

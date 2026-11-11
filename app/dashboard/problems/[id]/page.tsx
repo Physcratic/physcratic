@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Layout from "@/components/kokonutui/layout";
+import { ProblemRoom } from "@/components/physics/problem-room";
 import { ProblemReader } from "@/components/physics/problem-reader";
 import { problems } from "@/lib/physics";
 import { catalogProblems } from "@/lib/corpus-catalog";
@@ -59,7 +59,7 @@ export default async function PracticeProblemPage({ params }: Props) {
   if (arenaProblem) {
     const text = arenaStatementText(id);
     return (
-      <Layout view="problems">
+      <ProblemRoom>
         {crumbs}
         <ArenaProblemReader
           moderationEnabled={communityModerationUiEnabled()}
@@ -69,7 +69,7 @@ export default async function PracticeProblemPage({ params }: Props) {
           statement={text ? <ArenaDocument content={text} staticFigures /> : undefined}
         />
         {related}
-      </Layout>
+      </ProblemRoom>
     );
   }
   const problem = problems.find((item) => item.id === id);
@@ -78,21 +78,21 @@ export default async function PracticeProblemPage({ params }: Props) {
     if (!imported) notFound();
     const view = archiveStatementView(page);
     return (
-      <Layout view="problems">
+      <ProblemRoom>
         {crumbs}
         <ImportedProblemRoute problem={imported.titleOrigin === "problem-identifier" ? { ...imported, title: page.title, titleLanguage: "en" } : imported} initialData={view?.native} />
         <div className="mx-auto mt-8 flex w-full max-w-4xl flex-col gap-8">
           {view && !view.native && <ArchiveStatementText page={page} view={view} />}
         </div>
         {related}
-      </Layout>
+      </ProblemRoom>
     );
   }
   return (
-    <Layout view="problems">
+    <ProblemRoom>
       {crumbs}
       <ProblemReader key={problem.id} problem={problem} />
       {related}
-    </Layout>
+    </ProblemRoom>
   );
 }

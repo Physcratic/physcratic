@@ -69,6 +69,7 @@ export function MathAnswerField({
   /** The last value this field reported, so only a change from outside is written back into MathLive. */
   const reported = useRef("");
   const [ready, setReady] = useState(false);
+  const [loadingEditor, setLoadingEditor] = useState(upgradeOnBlur);
   const wrapper = useRef<HTMLDivElement>(null);
   // The full palette opens under the field being typed in. The other fields keep only the problem's own symbols.
   const [active, setActive] = useState(false);
@@ -85,6 +86,7 @@ export function MathAnswerField({
 
   // Authored drafts can upgrade after blur. Other callers keep their original empty-field-only policy.
   useEffect(() => {
+    setLoadingEditor(upgradeOnBlur);
     let cancelled = false;
     let composing = false;
     let frame = 0;
@@ -179,11 +181,13 @@ export function MathAnswerField({
           element.addEventListener("focusin", apply);
         }
         setReady(true);
+        setLoadingEditor(false);
       } catch {
         // If the library cannot initialize this draft, keep the editable fallback.
         mounted?.remove();
         if (field.current === mounted) field.current = null;
         mounted = undefined;
+        if (!cancelled) setLoadingEditor(false);
       }
     };
     const scheduleMount = () => {
@@ -199,7 +203,7 @@ export function MathAnswerField({
     }
     import("mathlive")
       .then((module) => { Element = module.MathfieldElement; mount(); })
-      .catch(() => {});
+      .catch(() => { if (!cancelled) setLoadingEditor(false); });
     return () => {
       cancelled = true;
       cancelAnimationFrame(frame);
@@ -296,7 +300,8 @@ export function MathAnswerField({
           </span>
         )}
       </div>
-      {!ready && (
+      {!ready && loadingEditor && <p role="status" className="min-h-11 text-sm text-muted-foreground">Loading math editor…</p>}
+      {!ready && !loadingEditor && (
         <>
           <Input
             ref={plain}
@@ -314,6 +319,7 @@ export function MathAnswerField({
             onChange={(event) => onChange(event.target.value)}
           />
           <LatexAnswerPreview value={value} />
+          {upgradeOnBlur && <p className="text-sm text-muted-foreground">The math editor could not load. You can type plain expressions or LaTeX here. <button type="button" className="inline-flex min-h-11 items-center underline underline-offset-4" onClick={() => window.location.reload()}>Reload math editor</button></p>}
         </>
       )}
       {items.length > 0 && (
