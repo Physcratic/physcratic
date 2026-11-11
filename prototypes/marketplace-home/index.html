@@ -92,6 +92,33 @@
 @keyframes competition-logos{to{transform:translateX(-50%)}}
 @media(max-width:650px){.competition-strip{padding-bottom:25px;margin-top:0}.logo-window{padding:18px 0}.logo-group{gap:12px;padding-right:12px}.competition-logo-slot{min-width:148px;min-height:60px;padding:10px 13px;gap:9px}.logo-strip-heading{margin-bottom:8px}}
 @media(prefers-reduced-motion:reduce){.logo-track{animation:none;transform:none;width:auto}.logo-group{flex-wrap:wrap;padding-right:0;gap:12px}.logo-group[aria-hidden=true]{display:none}.logo-window{overflow:visible}.competition-logo-slot{min-width:140px;flex:1}.logo-strip-heading button{display:none}}
+
+.coverage-section{padding:38px 0 43px!important;margin-top:0!important;border-top:1px solid var(--line)}
+.coverage-intro{text-align:center;max-width:750px;margin:0 auto 28px}
+.coverage-intro h2{font-family:Georgia,serif;font-size:clamp(28px,3.5vw,40px);font-weight:500;line-height:1.2;letter-spacing:-1px;text-wrap:balance;margin:0 0 16px}
+.coverage-intro h2 span{color:var(--accent);font-variant-numeric:tabular-nums}
+.coverage-intro p{font-size:12px;color:var(--muted);line-height:2;margin:0}
+.coverage-section .competition-logo-slot{text-align:left;min-width:160px;border:0;padding:10px 20px;gap:12px}
+.competition-logo-slot strong{display:block;font-size:19px;letter-spacing:-.5px;font-weight:650;color:var(--ink)}
+.competition-logo-slot small{display:block;font-size:9px;color:var(--muted);margin-top:4px}
+.coverage-actions{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin:22px 0 0}
+.coverage-actions p{font-size:13px;margin:0;color:var(--muted)}
+.coverage-actions button{font-size:12px;min-height:44px}
+.coverage-note{text-align:center;font-size:10px;color:var(--muted);margin:14px 0 0}
+.competition-search-label{display:block;font-size:13px;font-weight:600;margin:10px 0}
+#competition-search{width:100%}
+.competition-search-note{font-size:12px;margin-top:12px}
+.competition-results{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.competition-result{display:flex;align-items:center;justify-content:space-between;gap:20px;text-align:left;width:100%;padding:15px;min-height:85px;border-radius:8px}
+.competition-result strong{font-size:15px;display:block}
+.competition-result>span>span{display:block;font-size:12px;color:var(--muted);margin-top:5px}
+.competition-result small{display:block;font-size:10px;color:var(--muted);margin-top:5px}
+.competition-availability{font-size:11px;color:var(--muted);max-width:120px;flex-shrink:0}
+.other-ways-heading{grid-column:1/-1;margin-top:8px}
+.other-ways-heading h2{font-size:24px;font-family:Georgia,serif;font-weight:500}
+.other-ways-heading p{margin:10px 0 0}
+#competition-context:empty{display:none}
+@media(max-width:650px){.coverage-section{padding:30px 0!important}.coverage-intro h2{font-size:30px}.coverage-actions{gap:10px}.coverage-actions p{width:100%;text-align:center}.competition-result{gap:10px;padding:12px}.competition-availability{max-width:85px;font-size:10px}.competition-result>span>span{font-size:11px}.coverage-intro p{font-size:11px}}
 </style>
 </head>
 <body>
@@ -106,11 +133,11 @@
 <div id="catalogue-shell">
 <button id="catalogue-back" class="text-button" hidden>← Back to introduction</button>
 <section class="catalogue-heading" id="catalogue-heading"><div><div class="eyebrow">Explore olympiad subjects</div><h2 id="catalogue-title">Find a course for your next goal</h2><p class="muted small">A sample catalogue across international olympiad fields.</p></div></section>
-<input id="subject-filter" type="hidden" value="all"><div id="subject-tabs" class="subject-tabs" role="group" aria-label="Browse courses by subject"></div>
+<input id="subject-filter" type="hidden" value="all"><p id="competition-context" class="muted small" role="status"></p><div id="subject-tabs" class="subject-tabs" role="group" aria-label="Browse courses by subject"></div>
 <section aria-label="Find a course"><div class="filters"><div class="search-field"><label for="search">What do you want to learn?</label><input type="search" id="search" placeholder="Search courses or topics" autocomplete="off"></div><div><label for="level">Your level</label><select id="level"><option value="all">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced (Olympiad)</option><option>Expert (Olympiad++)</option></select></div><div><label for="format">Course format</label><select id="format"><option value="all">All formats</option><option>Self-paced</option><option>Guided cohort</option></select></div></div></section>
 <section class="catalogue" aria-labelledby="results-title"><div class="filter-meta"><span id="results-title" role="status" aria-live="polite"></span><button class="text-button" id="clear">Clear filters</button></div><div class="cards" id="cards"></div></section>
 </div>
-<section class="secondary" aria-label="Other ways to learn"><article><div class="eyebrow">Coaching</div><h2>Looking for live support?</h2><p>Explore small-group and individual teaching alongside independent study.</p><button data-section="Coaching">Explore coaching →</button></article><article><div class="eyebrow">Arena</div><h2>Start with a physics problem.</h2><p>Practise a topic, try a challenge, or work through an explanation before choosing a course.</p><button data-section="Arena">Explore free practice →</button></article></section>
+<section class="secondary" aria-label="Other ways to prepare"><div class="other-ways-heading"><h2>Other ways to prepare</h2><p class="muted small">Live support when you need it. Free practice when you want to try a problem.</p></div><article><div class="eyebrow">Coaching</div><h2>Looking for live support?</h2><p>Explore small-group and individual teaching alongside independent study.</p><button data-section="Coaching">Explore coaching →</button></article><article><div class="eyebrow">Arena</div><h2>Start with a physics problem.</h2><p>Practise a topic, try a challenge, or work through an explanation before choosing a course.</p><button data-section="Arena">Explore free practice →</button></article></section>
 </main>
 <footer class="site-footer" aria-label="Physcratic footer"><div class="wrap">
 <div class="footer-grid">
@@ -135,6 +162,17 @@ const courses=[
  {id:'informatics',subject:'Informatics',title:'Algorithms and Problem Solving',topic:'Informatics · Algorithms',level:'Expert (Olympiad++)',format:'Self-paced',description:'Practise turning constraints into algorithms and checking their correctness.',teacher:'Sample instructor F',initial:'F',color:'#e5dfeb',ink:'#786288',art:'orbit',modules:['Modelling a problem','Designing an algorithm','Correctness and complexity'],lesson:'Modelling a problem'}
 ];
 const subjects=['Mathematics','Physics','Chemistry','Biology','AI','Informatics'];
+const competitions=[
+ {id:'imo',short:'IMO',name:'International Mathematical Olympiad',subject:'Mathematics',courseIds:['number-theory']},
+ {id:'ipho',short:'IPhO',name:'International Physics Olympiad',subject:'Physics',courseIds:['mechanics']},
+ {id:'icho',short:'IChO',name:'International Chemistry Olympiad',subject:'Chemistry',courseIds:['chemistry']},
+ {id:'ibo',short:'IBO',name:'International Biology Olympiad',subject:'Biology',courseIds:['biology']},
+ {id:'ioai',short:'IOAI',name:'International Olympiad in Artificial Intelligence',subject:'AI',courseIds:['ai']},
+ {id:'ioi',short:'IOI',name:'International Olympiad in Informatics',subject:'Informatics',courseIds:['informatics']},
+ {id:'debate',short:'Debate',name:'Debate competition example',subject:'Debate',courseIds:[]},
+ {id:'chess',short:'Chess',name:'Chess tournament example',subject:'Chess',courseIds:[]}
+];
+let selectedCompetition=null;
 const enrolled=[{id:'mechanics',completed:3,total:8,when:'Most recent'},{id:'number-theory',completed:2,total:10,when:'Previously studied'}];
 let interests=['AI','Biology'];
 let catalogueOpen=false;
@@ -145,7 +183,7 @@ function bindCourseButtons(){document.querySelectorAll('[data-course]').forEach(
 function updateSubjects(){
  const active=$('subject-filter')?.value||'all';
  $('subject-tabs').innerHTML=['all',...subjects].map(s=>`<button data-subject="${s}" aria-pressed="${s===active}">${s==='all'?'All subjects':s}</button>`).join('');
- document.querySelectorAll('[data-subject]').forEach(b=>b.onclick=()=>{$('subject-filter').value=b.dataset.subject;updateSubjects();renderCourses();});
+ document.querySelectorAll('[data-subject]').forEach(b=>b.onclick=()=>{selectedCompetition=null;$('subject-filter').value=b.dataset.subject;updateSubjects();renderCourses();});
 }
 function updateRecommendations(){
  if(view==='guest'){$('recommendations').innerHTML='';return;}
@@ -162,11 +200,13 @@ function updateAccount(){
  if(view==='guest'){$('signin').onclick=()=>accountDialog(false);$('signup').onclick=()=>accountDialog(true);}else{$('profile').onclick=profileDialog;$('my-learning').onclick=learningDialog;}
  if($('menu'))$('menu').onclick=menuDialog;
  $('welcome').innerHTML=view==='guest'?`<section class="editorial-hero" aria-labelledby="title"><div class="editorial-copy"><h1 id="title">For those who want to win.</h1><p>Olympiad courses taught by accomplished competitors. Follow their reasoning, work through examples and practise for your competition.</p><div class="hero-actions"><button class="primary sales-primary" data-explore>Explore courses →</button><a class="teaching-anchor" href="#teaching-title">See the teaching ↓</a></div><div class="hero-fields">Mathematics · Physics · Chemistry · Biology · AI · Informatics</div></div><div class="portrait-stage" aria-label="Editorial instructor portrait and competition logo placeholders"><div class="portrait-caption">Learn from international olympiad medallists</div><figure class="portrait-frame portrait-one"><div class="portrait-body" aria-hidden="true"><span></span></div><figcaption><span class="asset-label">Portrait 01</span><span class="competition-mark">Competition logo</span></figcaption></figure><figure class="portrait-frame portrait-two"><div class="portrait-body" aria-hidden="true"><span></span></div><figcaption><span class="asset-label">Portrait 02</span><span class="competition-mark">Competition logo</span></figcaption></figure><figure class="portrait-frame portrait-three"><div class="portrait-body" aria-hidden="true"><span></span></div><figcaption><span class="asset-label">Portrait 03</span><span class="competition-mark">Competition logo</span></figcaption></figure></div></section>`:`<section class="member-heading" aria-labelledby="title"><div class="eyebrow">Your learning</div><h1 id="title">Welcome back, Alex.</h1><p class="muted">${view==='learner'?'Pick up a course you have been studying, or explore something new.':'Choose your interests to discover courses. You have no enrolments yet.'}</p></section>`;
- $('guest-story').innerHTML=view==='guest'?`<section class="competition-strip" aria-labelledby="competition-strip-title"><div class="logo-strip-heading"><h2 id="competition-strip-title">Competition logo placeholders</h2><button id="logo-pause" class="text-button" aria-pressed="false">Pause logos</button></div><div class="logo-window"><div class="logo-track"><div class="logo-group" role="list" aria-label="Competition logo placeholders">${Array.from({length:8},(_,i)=>`<div class="competition-logo-slot" role="listitem"><span class="logo-image-reserve" aria-hidden="true"></span><span>Competition logo ${String(i+1).padStart(2,'0')}</span></div>`).join('')}</div><div class="logo-group" aria-hidden="true">${Array.from({length:8},(_,i)=>`<div class="competition-logo-slot"><span class="logo-image-reserve"></span><span>Competition logo ${String(i+1).padStart(2,'0')}</span></div>`).join('')}</div></div></div></section><section class="immersive-teaching" aria-labelledby="teaching-title"><div class="teaching-header"><div><h2 id="teaching-title">Watch how a problem is solved.</h2></div></div><div class="media-composition"><button class="video-reserve" id="teaching-video" aria-label="Open lesson video placeholder"><span class="media-overline">Lesson preview</span><span class="play-disc" aria-hidden="true">▶</span><span class="video-caption">Lesson video placeholder</span><span class="media-spec">Video asset · 16:9</span></button><button class="screenshot-reserve" id="teaching-image" aria-label="Open lesson screenshot placeholder"><span class="screenshot-toolbar"><span>Lesson notes</span><span>Image placeholder</span></span><span class="screenshot-paper"><span class="paper-title">Start with a model.</span><span class="paper-diagram" aria-hidden="true"><svg viewBox="0 0 300 120"><path d="M35 100H270L65 25Z" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="130" y="39" width="40" height="30" rx="2" transform="rotate(19 150 54)" fill="none" stroke="currentColor" stroke-width="2"/><path d="M150 54v48m-5-8 5 8 5-8" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><span class="note-lines" aria-hidden="true"></span><span class="annotation">Identify the forces before choosing an equation.</span></span></button></div><div class="teaching-bottom"><p>Preview an explanation and the notes that go with it.</p><button id="teaching-sample">Read a sample explanation →</button></div></section><section class="visual-subjects" aria-labelledby="subjects-title"><div class="subject-section-heading"><div><h2 id="subjects-title">Choose your olympiad subject.</h2></div></div><div class="subject-gallery">${subjects.map((subject,i)=>`<button class="subject-cover subject-cover-${i}" data-sales-subject="${subject}"><span class="cover-art" aria-hidden="true"><span class="cover-glyph">${['∑','φ','⇌','✳','◇','⌘'][i]}</span><span class="cover-placeholder">Subject artwork placeholder</span></span><span class="cover-title">${subject}<span aria-hidden="true">→</span></span></button>`).join('')}</div></section><section class="editorial-ending"><h2>Find a course for your next olympiad.</h2><p>Check the level, meet the instructor and try a sample.</p><button class="primary sales-primary" data-explore>Explore courses →</button></section>`:'';
+ $('guest-story').innerHTML=view==='guest'?`<section class="competition-strip coverage-section" aria-labelledby="competition-strip-title"><div class="coverage-intro"><h2 id="competition-strip-title">Preparation across <span>X+</span> competitions.</h2><p>Mathematics / Physics / Chemistry / Biology / AI / Informatics / Debate / Chess</p></div><div class="logo-window"><div class="logo-track"><div class="logo-group" role="list" aria-label="Sample competition marks">${competitions.map(c=>`<div class="competition-logo-slot" role="listitem"><span class="logo-image-reserve" aria-hidden="true"></span><span><strong>${c.short}</strong><small>Logo placeholder</small></span></div>`).join('')}</div><div class="logo-group" aria-hidden="true">${competitions.map(c=>`<div class="competition-logo-slot"><span class="logo-image-reserve"></span><span><strong>${c.short}</strong><small>Logo placeholder</small></span></div>`).join('')}</div></div></div><div class="coverage-actions"><p>Looking for your competition?</p><button class="primary" id="find-competition">Find your competition →</button><button id="logo-pause" class="text-button" aria-pressed="false">Pause logos</button></div><p class="coverage-note">X+ is a count placeholder. Competition entries and related courses below are examples.</p></section><section class="immersive-teaching" aria-labelledby="teaching-title"><div class="teaching-header"><div><h2 id="teaching-title">Watch how a problem is solved.</h2></div></div><div class="media-composition"><button class="video-reserve" id="teaching-video" aria-label="Open lesson video placeholder"><span class="media-overline">Lesson preview</span><span class="play-disc" aria-hidden="true">▶</span><span class="video-caption">Lesson video placeholder</span><span class="media-spec">Video asset · 16:9</span></button><button class="screenshot-reserve" id="teaching-image" aria-label="Open lesson screenshot placeholder"><span class="screenshot-toolbar"><span>Lesson notes</span><span>Image placeholder</span></span><span class="screenshot-paper"><span class="paper-title">Start with a model.</span><span class="paper-diagram" aria-hidden="true"><svg viewBox="0 0 300 120"><path d="M35 100H270L65 25Z" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="130" y="39" width="40" height="30" rx="2" transform="rotate(19 150 54)" fill="none" stroke="currentColor" stroke-width="2"/><path d="M150 54v48m-5-8 5 8 5-8" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><span class="note-lines" aria-hidden="true"></span><span class="annotation">Identify the forces before choosing an equation.</span></span></button></div><div class="teaching-bottom"><p>Preview an explanation and the notes that go with it.</p><button id="teaching-sample">Read a sample explanation →</button></div></section><section class="visual-subjects" aria-labelledby="subjects-title"><div class="subject-section-heading"><div><h2 id="subjects-title">Choose your olympiad subject.</h2></div></div><div class="subject-gallery">${subjects.map((subject,i)=>`<button class="subject-cover subject-cover-${i}" data-sales-subject="${subject}"><span class="cover-art" aria-hidden="true"><span class="cover-glyph">${['∑','φ','⇌','✳','◇','⌘'][i]}</span><span class="cover-placeholder">Subject artwork placeholder</span></span><span class="cover-title">${subject}<span aria-hidden="true">→</span></span></button>`).join('')}</div></section><section class="editorial-ending"><h2>Find a course for your next olympiad.</h2><p>Check the level, meet the instructor and try a sample.</p><button class="primary sales-primary" data-explore>Explore courses →</button></section>`:'';
  $('catalogue-shell').hidden=view==='guest'&&!catalogueOpen;
  $('welcome').hidden=view==='guest'&&catalogueOpen;
  $('guest-story').hidden=view==='guest'&&catalogueOpen;
- document.querySelector('.secondary').hidden=view==='guest';
+ document.querySelector('.secondary').hidden=false;
+ document.querySelectorAll('.secondary [data-section]').forEach(b=>b.onclick=()=>sectionDialog(b.dataset.section));
+ if($('find-competition'))$('find-competition').onclick=findCompetitionDialog;
  if($('hero-sample'))$('hero-sample').onclick=()=>lessonDialog(courses[0],false);
  if($('teaching-sample'))$('teaching-sample').onclick=()=>lessonDialog(courses[0],false);
  if($('logo-pause'))$('logo-pause').onclick=()=>{const paused=document.querySelector('.competition-strip').classList.toggle('is-paused');$('logo-pause').setAttribute('aria-pressed',String(paused));$('logo-pause').textContent=paused?'Resume logos':'Pause logos';};
@@ -182,8 +222,10 @@ function updateAccount(){
  updateRecommendations();
 }
 function courseCard(c){return `<article class="course"><div class="art" style="background:${c.color}"><span class="art-label">SAMPLE COURSE</span>${artwork(c)}</div><div class="course-body"><div class="course-topic">${esc(c.topic)}</div><h2 style="font-size:20px;margin:9px 0">${esc(c.title)}</h2><p class="description">${esc(c.description)}</p><p class="level">${esc(c.level)} · ${esc(c.format)}</p><div class="teacher"><span class="avatar" aria-hidden="true">${c.initial}</span><span>${esc(c.teacher)}<br><span class="muted">Illustrative profile</span></span></div></div><div class="card-footer"><span>Preview only · Not for sale</span><button data-course="${c.id}" aria-label="View ${esc(c.title)}">View course →</button></div></article>`;}
-function renderCourses(){const q=$('search').value.toLowerCase().trim(),level=$('level').value,format=$('format').value,subject=$('subject-filter').value;const list=courses.filter(c=>(subject==='all'||subject===c.subject)&&(level==='all'||level===c.level)&&(format==='all'||format===c.format)&&`${c.title} ${c.topic} ${c.description}`.toLowerCase().includes(q));$('results-title').textContent=`${list.length} sample course${list.length===1?'':'s'} · ${subject==='all'?'All subjects':subject}`;$('cards').innerHTML=list.length?list.map(courseCard).join(''):'<div class="empty"><h2>No sample courses match.</h2><p>Try another subject or clear your filters.</p><button id="reset-empty">Clear filters</button></div>';bindCourseButtons();if($('reset-empty'))$('reset-empty').onclick=resetFilters;}
-function resetFilters(){$('subject-filter').value='all';updateSubjects();$('search').value='';$('level').value='all';$('format').value='all';renderCourses();$('search').focus();}
+function renderCourses(){
+ $('competition-context').textContent=selectedCompetition?selectedCompetition.name+' · Illustrative course matches, not confirmed competition coverage.':'';
+const q=$('search').value.toLowerCase().trim(),level=$('level').value,format=$('format').value,subject=$('subject-filter').value;const list=courses.filter(c=>(!selectedCompetition||selectedCompetition.courseIds.includes(c.id))&&(subject==='all'||subject===c.subject)&&(level==='all'||level===c.level)&&(format==='all'||format===c.format)&&`${c.title} ${c.topic} ${c.description}`.toLowerCase().includes(q));$('results-title').textContent=`${list.length} sample course${list.length===1?'':'s'} · ${selectedCompetition?selectedCompetition.short:subject==='all'?'All subjects':subject}`;$('cards').innerHTML=list.length?list.map(courseCard).join(''):'<div class="empty"><h2>No sample courses match.</h2><p>Try another subject or clear your filters.</p><button id="reset-empty">Clear filters</button></div>';bindCourseButtons();if($('reset-empty'))$('reset-empty').onclick=resetFilters;}
+function resetFilters(){selectedCompetition=null;$('subject-filter').value='all';updateSubjects();$('search').value='';$('level').value='all';$('format').value='all';renderCourses();$('search').focus();}
 function show(title,body,label='Sample preview'){const wasOpen=$('modal').open;$('dialog-label').textContent=label;$('modal-body').innerHTML=`<h2 id="modal-title" tabindex="-1">${title}</h2>${body}`;if(!wasOpen)$('modal').showModal();$('modal-title').focus();}
 function courseDialog(c){openCourse=c;show(esc(c.title),`<span class="pill">${esc(c.level)} · ${esc(c.format)}</span><p>${esc(c.description)}</p><div class="notice">Sample course, not available to purchase. Curriculum, instructor and format are illustrative.</div><h3>What you would cover</h3><ul>${c.modules.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><h3>Instructor</h3><p>${esc(c.teacher)}. No competition credentials or teaching outcomes are asserted for this fictional profile.</p><p class="muted">Price, access period and ${c.format==='Guided cohort'?'cohort dates':'release date'} have not been set.</p><div class="dialog-actions"><button class="primary" id="sample">Try a sample lesson</button><button id="instructor">View sample instructor</button></div>`);$('sample').onclick=()=>lessonDialog(c,false);$('instructor').onclick=()=>instructorDialog(c);}
 function instructorDialog(c){show(esc(c.teacher),`<p>This fictional profile lets us test how instructor information connects to course discovery.</p><div class="notice">No real award, identity, review or teaching claim is represented.</div><h3>Sample offerings</h3><ul>${courses.filter(x=>x.teacher===c.teacher).map(x=>`<li>${esc(x.title)}</li>`).join('')}</ul><button id="back-course" class="primary">Back to course</button>`);$('back-course').onclick=()=>courseDialog(c);}
@@ -217,11 +259,27 @@ function footerDialog(key){
 document.querySelectorAll('[data-footer]').forEach(button=>button.onclick=()=>footerDialog(button.dataset.footer));
 
 
-function openCatalogue(subject){
+
+function findCompetitionDialog(){
+ show('Find your competition','<label class="competition-search-label" for="competition-search">Search by competition, abbreviation or subject</label><input id="competition-search" type="search" placeholder="Try IMO, physics or chess" autocomplete="off"><p class="muted small competition-search-note">Sample directory. Select an example to explore related sample courses.</p><div id="competition-results" class="competition-results"></div>','Competition discovery');
+ $('competition-search').oninput=renderCompetitionResults;
+ renderCompetitionResults();
+ $('competition-search').focus();
+}
+function renderCompetitionResults(){
+ const query=$('competition-search').value.trim().toLowerCase();
+ const found=competitions.filter(c=>(c.name+' '+c.short+' '+c.subject).toLowerCase().includes(query));
+ $('competition-results').innerHTML=found.length?found.map(c=>`<button class="competition-result" data-competition="${c.id}"><span><strong>${esc(c.short)}</strong><span>${esc(c.name)}</span><small>${esc(c.subject)}</small></span><span class="competition-availability">${c.courseIds.length?'Sample courses →':'No course examples yet'}</span></button>`).join(''):'<div class="empty"><h3>No examples match.</h3><p>Try a subject name or another abbreviation.</p><button id="clear-competition-search">Clear search</button></div>';
+ document.querySelectorAll('[data-competition]').forEach(b=>b.onclick=()=>{const c=competitions.find(x=>x.id===b.dataset.competition);$('modal').close();openCatalogue(c.subject,c);});
+ if($('clear-competition-search'))$('clear-competition-search').onclick=()=>{$('competition-search').value='';renderCompetitionResults();$('competition-search').focus();};
+}
+
+function openCatalogue(subject,competition=null){
+ selectedCompetition=competition;
  catalogueOpen=true;
  $('catalogue-shell').hidden=false;
  if(view==='guest'){$('welcome').hidden=true;$('guest-story').hidden=true;$('catalogue-back').hidden=false;}
- if(subject){$('subject-filter').value=subject;updateSubjects();renderCourses();}
+ if(subject){$('subject-filter').value=subject;updateSubjects();}renderCourses();
  $('catalogue-heading').scrollIntoView({block:'start'});$('search').focus({preventScroll:true});
 }
 function returnHome(){catalogueOpen=false;updateAccount();$('catalogue-back').hidden=true;$('main').focus();window.scrollTo({top:0});}

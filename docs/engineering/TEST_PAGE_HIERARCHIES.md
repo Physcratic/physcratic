@@ -90,17 +90,28 @@ Use specific teaching/subject headings, balanced text widths, consistent arrows 
 Hero motto stays exact. No simulated loading is added to immediate actions.
 Calculated primary CTA text contrast: 6.31:1 light, 8.64:1 dark. Full browser and accessibility review remains pending.
 
-#### Competition-logo rail
+#### Competition coverage section
 
-A continuously scrolling competition-logo placeholder rail now sits between the guest hero and teaching preview. It uses eight generic asset slots in two equal groups for a seamless loop. The duplicate is hidden from assistive technology. Pause/Resume, hover/focus pause and a static wrapped reduced-motion fallback are included. These are blank layout slots, not claims of partnerships or actual instructor awards. Member layout is unchanged. JS syntax/static loop/control checks pass; browser verification remains pending.
+Position: directly below the hero. Title: **Preparation across X+ competitions.** X+ remains a count placeholder.
+Subtitle: Mathematics / Physics / Chemistry / Biology / AI / Informatics / Debate / Chess.
+The logo rail communicates breadth; the explicit search lets visitors find a competition without waiting for a logo to pass.
 
 ```mermaid
 flowchart TD
-  hero["Hero"] --> rail["Competition-logo placeholder rail"]
-  rail --> teaching["Teaching video and notes"]
-  rail --> motion["Continuous loop with pause control"]
-  rail --> reduced["Reduced motion: static wrapped logos"]
+  hero["Hero"] --> coverage["Competition count and subject line"]
+  coverage --> rail["Continuously scrolling logo placeholders"]
+  coverage --> search["Find your competition"]
+  search --> match["Searchable names, abbreviations and subjects"]
+  match --> catalogue["Selected competition: sample related courses"]
+  catalogue --> empty["No mapped course: honest empty state"]
+  rail --> teaching["Teaching preview"]
+  teaching --> courses["Subject and course discovery"]
+  courses --> other["Other ways to prepare: Coaching and Arena"]
 ```
+
+Example directory entries and course mappings are explicitly sample data. Debate and Chess have no course examples yet. Logos do not imply sponsorship or endorsement.
+Search includes a useful no-match state and clear-search action. Catalogue clear/subject actions remove the competition context.
+Pause controls and a reduced-motion static rail remain. Coaching/Arena now appear after the course sections rather than being hidden for guests.
 
 #### Member homepage
 

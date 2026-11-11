@@ -182,9 +182,20 @@ Guest-only accent: rust on light, peach on dark. Calculated CTA text contrast is
 Spacing, inner radii, wrap widths, minimum control sizes, dialog feedback and reduced-motion handling are aligned. No synthetic loading delay is added because fixture actions are immediate.
 Member styling and behaviour are outside this guest-only refinement.
 
-## Competition-logo rail
+## Competition coverage and discovery
 
-A continuously scrolling competition-logo placeholder rail now sits between the guest hero and teaching preview. It uses eight generic asset slots in two equal groups for a seamless loop. The duplicate is hidden from assistive technology. Pause/Resume, hover/focus pause and a static wrapped reduced-motion fallback are included. These are blank layout slots, not claims of partnerships or actual instructor awards. Member layout is unchanged. JS syntax/static loop/control checks pass; browser verification remains pending.
+The guest section directly below the hero now reads **Preparation across X+ competitions.** X+ is an explicit count placeholder, not a computed or verified business claim.
+A compact subject line covers Mathematics, Physics, Chemistry, Biology, AI, Informatics, Debate and Chess.
+The looping rail belongs inside this coverage section. It shows labelled logo placeholders for the sample directory, not a supported-by or sponsor claim.
+Find your competition opens a searchable example list. Search matches full names, abbreviations and subjects. Selecting an entry opens the catalogue view with its explicit sample course-ID mapping.
+Examples: IMO, IPhO, IChO, IBO, IOAI, IOI, a generic debate competition and a generic chess tournament. Debate/chess have no sample course mappings and honestly show an empty result.
+Mapped courses are illustrative related content, not confirmed preparation or real availability for those competitions.
+Changing subject or clearing filters clears competition-specific mapping. The selection/context is retained while viewing a course dialog.
+Rail pause/hover/focus and reduced-motion behaviour remain. Member learning presentation is unchanged apart from the shared catalogue supporting this filter context.
+After course/subject sections, show **Other ways to prepare**, with Coaching and physics Arena entries before the footer. These remain explanatory navigation previews.
+Initial guest order: hero → competition coverage/rail/search → teaching preview → subject/course discovery → course action → Coaching/Arena → footer.
+Verification: JavaScript syntax and static mapping/reset/count/section checks pass. Browser and complete app verification remain pending.
+
 
 ## Shared footer experiment
 

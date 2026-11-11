@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Competition coverage and lookup (11 November 2026)
+
+Guest rail is now part of Preparation across X+ competitions, with the broad subject line including Debate/Chess. X+ is a placeholder, not a real count. Find your competition opens a searchable sample directory, then maps a selected example to sample course IDs. Debate/Chess map to no courses, with honest empty results. Subject changes and Clear filters remove the competition constraint. Shared catalogue gains this context; member learning hierarchy remains unchanged. Coaching/Arena section is visible after courses for guests. No sponsorship claim, new route or real course availability asserted. Maps updated; syntax/static checks pass, browser pending. Next: user reviews coverage copy, lookup and page order.
+
 ## Guest competition-logo rail (11 November 2026)
 
 A continuously scrolling competition-logo placeholder rail now sits between the guest hero and teaching preview. It uses eight generic asset slots in two equal groups for a seamless loop. The duplicate is hidden from assistive technology. Pause/Resume, hover/focus pause and a static wrapped reduced-motion fallback are included. These are blank layout slots, not claims of partnerships or actual instructor awards. Member layout is unchanged. JS syntax/static loop/control checks pass; browser verification remains pending.
