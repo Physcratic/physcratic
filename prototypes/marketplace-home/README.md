@@ -46,3 +46,8 @@ Latest owner-approved hero motto: For those who want to win.
 Guest design reserves three large editorial instructor portraits with paired competition-logo slots. Names and award details are not shown in the hero. This supersedes the earlier named-coach card composition.
 Immediately below are a large teaching video and overlapping lesson screenshot, both interactive placeholder previews, followed by large artwork-led subject covers. No actual recording, portrait, competition logo or final course artwork is embedded. Member state is unchanged.
 ASSET_BRIEF.md specifies the replacement media. All placeholder interactions and exact motto are covered by static checks; JavaScript syntax passes. Browser/mobile/a11y/contrast and full app verification remain pending.
+
+## Guest cleanup pass
+
+Applied the owner-supplied design principles: fewer redundant labels, specific section headings, one guest-only CTA accent, spacing-led groups, consistent arrows and rectangular portrait frames, cleaner placeholder panels, improved text contrast, radius/padding consistency, restrained useful feedback and reduced-motion support. The hero motto and substantial media spaces are preserved. Member styling is unchanged.
+No simulated loading or unnecessary monospace was introduced. JavaScript syntax and existing interaction/static checks pass. CTA colour calculation: 6.31:1 light, 8.64:1 dark. This is not a full accessibility/browser pass.

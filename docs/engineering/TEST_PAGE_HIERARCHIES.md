@@ -61,8 +61,8 @@ Supporting sentence explains the actual offer. Names, exact achievements and sub
 flowchart TD
   page["Guest landing"]
   hero["1 · Motto, offer and instructor imagery"]
-  teaching["2 · Teaching experience"]
-  subjects["3 · Subject artwork gallery"]
+  teaching["2 · Watch how a problem is solved"]
+  subjects["3 · Choose your olympiad subject"]
   ending["4 · Course action and footer"]
   page --> hero
   page --> teaching
@@ -81,6 +81,14 @@ Video and screenshot slots open labelled placeholder previews. Read a sample exp
 Explore courses opens catalogue browsing; subject artwork selects a matching subject.
 Use competition marks as evidence about instructors, not a claim of endorsement. Actual assets require accurate association, appropriate permissions, descriptive alt text and video captions/transcript.
 The supporting offer and concise subject line keep the aspirational motto understandable.
+
+#### Guest visual system
+
+The guest-only refinement uses a single rust accent for primary actions on light, peach on dark, consistent rectangular portrait frames and spacing-led grouping.
+Remove duplicate section labels, decorative rotations, ornamental circles and unnecessary numbers. Keep substantial portrait, video, screenshot and subject-artwork slots.
+Use specific teaching/subject headings, balanced text widths, consistent arrows and useful pressed/dialog feedback with reduced-motion support.
+Hero motto stays exact. No simulated loading is added to immediate actions.
+Calculated primary CTA text contrast: 6.31:1 light, 8.64:1 dark. Full browser and accessibility review remains pending.
 
 #### Member homepage
 

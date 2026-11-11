@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Guest design-principle refinement (11 November 2026)
+
+Applied owner's image checklist to the existing guest fixture. Simplified labels, removed decorative rotation/ornaments, aligned portrait frames and spacing, emphasised a guest-only rust/peach CTA accent, made teaching/subject headings specific and kept large media placeholders. Exact motto preserved. Member state unaffected. Added reduced-motion-aware pressed/dialog feedback. JS syntax/static checks pass; calculated CTA contrast is 6.31:1 light and 8.64:1 dark. Full browser/runtime/mobile/a11y still pending. Maps and README updated.
+
 ## Guest editorial-media layout (11 November 2026)
 
 Owner approved exact motto “For those who want to win.” and requested image/video-led design with generous reserved space. This overrides generic slogan restrictions for the hero headline only. Guest hero now has three editorial portrait and competition-logo slots, without names/achievement lists. Large teaching-video and overlapping lesson-screenshot placeholders lead into six subject artwork covers, final course CTA and existing footer. Media slots open labelled previews, not fake playback. Member presentation and original site remain unchanged. Asset requirements are in prototypes/marketplace-home/ASSET_BRIEF.md. JS syntax and static checks pass; no browser/build qualification. Maps and README updated. Next: user reviews visual composition, then supplies/selects final media.

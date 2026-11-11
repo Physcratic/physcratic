@@ -172,6 +172,16 @@ The guest landing contains no catalogue grid or filter form on entry. Explore co
 Member recent-learning, selected interests, course fixtures and account simulation remain unchanged.
 Asset dimensions, intended content and accessibility notes: `prototypes/marketplace-home/ASSET_BRIEF.md`.
 
+## Guest design refinement
+
+Applied the owner's supplied design checklist to the guest presentation: remove redundant labels, use spacing to group content, reserve accent colour for primary actions, make secondary headings specific, keep arrow treatments consistent, remove decorative frames/rotations and tighten text contrast.
+The exact hero motto remains **For those who want to win.**
+Hero portraits use consistent rectangular frames, spacing and paired competition-logo slots. Names and detailed achievements stay outside the hero. Large media and subject artwork areas remain.
+Teaching heading is now "Watch how a problem is solved." Subject heading is "Choose your olympiad subject."
+Guest-only accent: rust on light, peach on dark. Calculated CTA text contrast is 6.31:1 and 8.64:1 respectively. These calculations are not whole-page browser qualification.
+Spacing, inner radii, wrap widths, minimum control sizes, dialog feedback and reduced-motion handling are aligned. No synthetic loading delay is added because fixture actions are immediate.
+Member styling and behaviour are outside this guest-only refinement.
+
 ## Shared footer experiment
 
 Implemented in the homepage fixture, with contents still subject to review.
