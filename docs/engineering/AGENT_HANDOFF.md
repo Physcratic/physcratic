@@ -1,5 +1,9 @@
 # Agent handoff
 
+## SEO P2 public homepage (11 November 2026)
+
+Branch `codex/seo-p2-public-home` implements the server-rendered public product lobby from `b3912ce` and incorporates main `77ac5de` without changing upstream account-deletion code or activation prerequisites. The member session branch, root metadata/private-no-store, old dashboard queries, reader URLs and publication policy remain unchanged. See [checkpoint, verification and screenshots](SEO_P2_HOMEPAGE.md). The draft PR records the exact final head and GitHub checks. No merge or manual deployment. P3 must stack from the locally verified P2 head and preserve its shell/discovery/session contracts.
+
 ## B5 account deletion checkpoint
 
 The owner now approves account-wide erasure/de-identification while preserving appropriately licensed published content and other students’ work. B5 still stops before runtime implementation because mixed-subject immutable case/evidence text needs a verified redaction/adjudication mechanism or a defined limited-retention exception. See [the precise remaining privacy gate](ACCOUNT_DELETION_READINESS.md) and [the inactive prospective licence/consent design](PUBLICATION_LICENSE_PROPOSAL.md). PR #140 remains draft and unmerged. No deletion endpoint, migration, privilege, active Terms, flag or Production change.
