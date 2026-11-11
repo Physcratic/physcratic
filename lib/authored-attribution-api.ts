@@ -1,7 +1,7 @@
 import "server-only";
 import type { Pool } from "pg";
 import { authoredAttributionSelectionSchema, authoredAttributionSchema, attributionReply, type AuthoredAttributionSelection } from "./authored-attribution-contracts";
-export function createAuthoredAttributionApi(pool: Pool) {
+export function createAuthoredAttributionApi(pool: Pool, publicNamesEnabled: () => boolean = () => true) {
   return async (selection: AuthoredAttributionSelection) => {
     try {
       const parsed = authoredAttributionSelectionSchema.safeParse(selection);
@@ -9,9 +9,9 @@ export function createAuthoredAttributionApi(pool: Pool) {
       const { problemId, revisionId } = parsed.data;
       // One current-publication snapshot. Only the opted-in public name is selected.
       // Never join Better Auth identity or serialize the internal owner/profile row.
-      const query = { text: `SELECT cp.display_name AS "displayName" FROM authored_problem p
+      const query = { text: `SELECT CASE WHEN p.owner_id='__physcratic_deleted_principal_v1__' THEN 'Deleted user' ELSE ${publicNamesEnabled() ? 'cp.display_name' : 'NULL'} END AS "displayName" FROM authored_problem p
         JOIN authored_revision r ON r.problem_id=p.id AND r.id=p.published_revision_id
-        LEFT JOIN community_profile cp ON cp.user_id=p.owner_id AND cp.public_visibility=true
+        ${publicNamesEnabled() ? 'LEFT JOIN community_profile cp ON cp.user_id=p.owner_id AND cp.public_visibility=true' : ''}
         WHERE p.id=$1 AND p.state='published' AND r.id=$2 LIMIT 1`, values: [problemId, revisionId], query_timeout: 5000 };
       const { rows } = await pool.query<{ displayName: string | null }>(query);
       if (!rows[0]) return attributionReply({ error: "Current publication not found." }, 404);

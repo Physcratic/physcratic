@@ -20,6 +20,7 @@ import { AchievementSettings } from "./achievement-settings";
 import type { BadgeId, PublicMedal } from "@/lib/community/achievements";
 
 import {ModerationHistory} from "./moderation-history";
+import { AccountDeletionSection } from "@/components/account/account-deletion";
 import { AccountSecurity } from "@/components/account/account-security";
 
 type Form = PublicProfile & { publicVisibility: boolean };
@@ -108,8 +109,8 @@ function ProfileEditor({ userId, fallbackName, verified, mediaEnabled, achieveme
   </>;
 }
 
-export function AccountSettings({ emailReady = true, moderationEnabled=false,profilesEnabled, mediaEnabled, achievementsEnabled = false, verificationEnabled = false, onboarding = false }: {
-  emailReady?: boolean; moderationEnabled?:boolean;profilesEnabled: boolean; mediaEnabled: boolean; achievementsEnabled?: boolean; verificationEnabled?: boolean; onboarding?: boolean;
+export function AccountSettings({ deletionEnabled=false, emailReady = true, moderationEnabled=false,profilesEnabled, mediaEnabled, achievementsEnabled = false, verificationEnabled = false, onboarding = false }: {
+  deletionEnabled?: boolean; emailReady?: boolean; moderationEnabled?:boolean;profilesEnabled: boolean; mediaEnabled: boolean; achievementsEnabled?: boolean; verificationEnabled?: boolean; onboarding?: boolean;
 }) {
   const { data, isPending, error, refetch } = authClient.useSession();
   const user = data?.user;
@@ -130,6 +131,7 @@ export function AccountSettings({ emailReady = true, moderationEnabled=false,pro
           {user && <AccountSecurity key={user.id} email={user.email} emailReady={emailReady} />}
           {verificationEnabled && user && <VerificationSettings key={user.id} verified={user.emailVerified === true} />}
           {moderationEnabled && <ModerationHistory/>}
+          {deletionEnabled && <AccountDeletionSection accountId={user?.id} verified={user?.emailVerified === true} />}
           <AppearanceSettings />
           <ReplayTours />
         </div>
