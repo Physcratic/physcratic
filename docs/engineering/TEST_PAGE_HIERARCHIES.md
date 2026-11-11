@@ -1,5 +1,9 @@
 # Experimental page information hierarchies
 
+## Appearance and preference wording correction
+
+Decisions L12/X04: member recommendation action is **Update interests**. Shared dark appearance now covers thumbnail art, preview media, brand mark, selected filters/preferences, menus and dialogs with paired colors and native dark controls. Theme remains active across account/view changes. No page order, route, feature or account behavior changes. Syntax/static and twelve token contrast checks pass; rendered browser verification is blocked by process socket restrictions.
+
 ## Decision rationale and learner correction
 
 Read [PROTOTYPE_DESIGN_DECISIONS.md](PROTOTYPE_DESIGN_DECISIONS.md) for reasons, costs and owner corrections behind each prototype element. Record future changes there before implementing them. Decision L10 rejects the generic learner Other ways to prepare promotion: it is now hidden from the member homepage. Coaching/Arena remain in navigation and their dedicated guest heroes. No equivalent replacement promotion is added.
@@ -152,7 +156,7 @@ flowchart TD
   home --> discovery
   latest --> resume["Thumbnail; lesson; saved position; Resume"]
   others --> learning["My learning: all, in progress, completed"]
-  discovery --> interests["Edit interests when needed"]
+  discovery --> interests["Update interests when needed"]
   discovery --> catalogue["Explore all courses: separate catalogue view"]
 ```
 

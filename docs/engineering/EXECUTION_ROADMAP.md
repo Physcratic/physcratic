@@ -1,5 +1,10 @@
 # Execution roadmap
 
+## Dark appearance and Update interests (11 November 2026)
+
+L12/X04 implement the owner-requested Update interests label and complete paired dark colors for synthetic course art, portrait/media previews, logo, selection states, focus, shared menus and dialogs. Existing study/catalogue/preferences handlers and all page structure remain intact. JavaScript syntax/static checks and twelve token contrast checks pass (text minimum 5.72:1 in checked pairs, control borders 4.25:1). Chromium cannot launch due to denied process sockets, so no rendered/browser/mobile/full-app CI pass is claimed. Next: review the updated standalone preview, then visually verify desktop/mobile in both themes before integration. Prototype only, no production/auth/data changes.
+
+
 ## Homepage account-state prototype (11 November 2026)
 
 `prototypes/marketplace-home/index.html` implements a standalone course-catalogue homepage with guest, enrolled-member and no-enrolment member states. `app/test/page.tsx` embeds that file inside an allow-scripts-only sandbox after an explicit local-development/non-Vercel gate. Outside development it returns notFound. No public asset, real auth, data/provider access or transactions were added.

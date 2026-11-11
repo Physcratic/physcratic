@@ -1,5 +1,10 @@
 # Agent handoff
 
+## Dark appearance and Update interests (11 November 2026)
+
+L12/X04 implement the owner-requested Update interests label and complete paired dark colors for synthetic course art, portrait/media previews, logo, selection states, focus, shared menus and dialogs. Existing study/catalogue/preferences handlers and all page structure remain intact. JavaScript syntax/static checks and twelve token contrast checks pass (text minimum 5.72:1 in checked pairs, control borders 4.25:1). Chromium cannot launch due to denied process sockets, so no rendered/browser/mobile/full-app CI pass is claimed. Next: review the updated standalone preview, then visually verify desktop/mobile in both themes before integration. Prototype only, no production/auth/data changes.
+
+
 ## Learning-first navigation and More (11 November 2026)
 
 Decision L11: member header now prioritizes My learning and Explore courses. A separate More disclosure beside Account contains Coaching and Arena with short descriptions; mobile Menu keeps learning first, then More. Owner explicitly chose More. Guest navigation remains unchanged. Native disclosure supports Escape and outside-click dismissal. JS syntax/static structure checks pass; browser/build checks pending. Both maps and decision report updated.

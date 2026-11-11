@@ -104,3 +104,22 @@ JavaScript syntax and static check of the hidden block pass. Browser/a11y/build 
 - **Status:** implemented after recording this decision. Native disclosure, Escape/outside-click dismissal and mobile grouping added. Extension destinations retain modal previews; no new live routes or account integration. JavaScript syntax and static structure checks pass; browser interaction remains unverified.
 - **Owner correction:** use More, not More from Physcratic.
 
+
+## L12 · Update interests label
+
+- **Audience/location:** member recommendation action.
+- **Trigger/change:** owner requested Update interests in place of Edit interests.
+- **Reason:** use the owner's preferred action wording for revising subject preferences.
+- **Tradeoff/alternative:** small wording change only; keeping Edit would ignore the request.
+- **Expected check:** both member states show Update interests and still open/save the existing picker.
+- **Status:** implemented after recording. The visible label changed in both member states; the existing picker/save handlers are unchanged.
+
+## X04 · Complete the dark appearance
+
+- **Audience/location:** guest, enrolled and empty-account views, catalogue, menus and dialogs.
+- **Trigger:** owner reports broken dark mode.
+- **Change/reason:** give surfaces, media placeholders, selected controls, brand mark and focus indicators explicit paired colors. Remove fixed light preview backgrounds so dark appearance remains readable and visually consistent after navigation.
+- **Tradeoff:** placeholder art uses a quieter unified dark palette; real image assets will retain their own colors.
+- **Simpler alternative:** patch only the current homepage. Rejected because the same defects occur in shared catalogue, preferences and guest media.
+- **Expected check:** readable foreground/background pairs, selected states, visible focus and theme retained across state changes. Light theme and all existing actions preserved.
+- **Status:** implemented after recording. Shared paired tokens and theme-aware SVG/thumbnail colors cover the affected surfaces. JavaScript syntax and static replacement checks pass. Twelve foreground/background checks pass, including small text at 5.72:1 or higher and control borders at 4.25:1. These are token-pair checks, not a full rendered contrast audit. Chromium launch fails because process sockets are blocked in this environment, so visual/mobile/interaction verification and full application CI remain unverified.

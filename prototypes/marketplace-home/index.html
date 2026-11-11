@@ -244,6 +244,43 @@ body:not(.guest-view) .member-heading{padding:35px 0 24px}
 .mobile-nav-learning{display:flex;flex-direction:column;gap:9px}.mobile-nav-learning button{text-align:left;min-height:46px}
 .mobile-more-heading{font-size:13px!important;margin-top:25px!important}
 @media(max-width:650px){.more-products{display:none}}
+
+/* Paired appearance tokens cover every shared surface and synthetic media. */
+:root{color-scheme:light;--canvas:#f8f8f4;--on-accent:#fff;--focus:#357146;--brand-paper:#28543b;--brand-ink:#fff;--media-paper:#f5f3e9;--media-raised:#e7e7dc;--media-ink:#40513b;--media-muted:#56644d;--media-line:#829477;--progress-track:#cbd6c4}
+body{background:var(--canvas);color:var(--ink);min-height:100vh}
+.guest-view{--canvas:#f8f8f2;--brand-paper:#183c31}
+.theme-dark,.guest-view.theme-dark{color-scheme:dark;--canvas:#14231c;--paper:#203329;--ink:#e8eee5;--muted:#bbcbb9;--line:#82977c;--soft:#304637;--on-accent:#14251b;--focus:#efbf83;--brand-paper:#b6d9ae;--brand-ink:#14251b;--media-paper:#263d30;--media-raised:#324c3b;--media-ink:#dce8d4;--media-muted:#becfb4;--media-line:#82977c;--progress-track:#53694f;--course-surface:#2b4031;--course-art:#b6c9a7;--orange:#efb78b;background:var(--canvas);color:var(--ink)}
+.theme-dark{--accent:#acd4a7}
+.guest-view.theme-dark{--accent:#efaa82}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline-color:var(--focus)}
+.mark,.guest-view .mark{background:var(--brand-paper);color:var(--brand-ink)}
+.theme-dark .primary,.theme-dark .primary-link,.theme-dark .subject-tabs [aria-pressed=true],.theme-dark .interest-picks [aria-pressed=true],.theme-dark .learning-tabs [aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.theme-dark .primary:hover{background:#c4e5bd;color:var(--on-accent)}
+.guest-view.theme-dark .primary:hover{background:#f7bd99}
+.theme-dark .featured-learning,.theme-dark .course,.theme-dark .enrolled-card,.theme-dark dialog,.theme-dark .empty{border-color:var(--line)}
+.theme-dark .more-panel{box-shadow:0 12px 35px #0006}
+.progress{background:var(--progress-track)}
+.theme-dark .feature-preview-label{color:var(--media-ink)}
+.theme-dark .feature-play,.theme-dark .feature-time{background:var(--paper);color:var(--ink);border-color:var(--line)}
+.theme-dark .skip:focus{background:var(--paper);color:var(--ink)}
+.theme-dark .product-media,.guest-view.theme-dark .product-media,.theme-dark .coaching-scene,.guest-view.theme-dark .coaching-scene,.theme-dark .arena-scene,.guest-view.theme-dark .arena-scene{background:var(--media-raised);color:var(--media-ink);border-color:var(--media-line)}
+.theme-dark .session-working,.theme-dark .arena-screen,.theme-dark .screenshot-reserve,.guest-view.theme-dark .screenshot-reserve,.theme-dark .image-dialog-placeholder{background:var(--media-paper);color:var(--media-ink);border-color:var(--media-line)}
+.theme-dark .screenshot-reserve:hover{background:var(--media-raised)}
+.theme-dark .screenshot-toolbar,.guest-view.theme-dark .screenshot-toolbar,.theme-dark .arena-answer span{background:var(--media-raised);color:var(--media-ink);border-color:var(--media-line)}
+.theme-dark .session-faces div,.theme-dark .arena-answer{color:var(--media-ink);border-color:var(--media-line)}
+.theme-dark .note-label,.theme-dark .annotation,.guest-view.theme-dark .annotation,.theme-dark .screenshot-note,.theme-dark .paper-diagram{color:var(--media-muted)}
+.theme-dark .working-lines{background:repeating-linear-gradient(0deg,transparent,transparent 20px,var(--media-line) 20px,var(--media-line) 21px)}
+.theme-dark .note-lines{background:repeating-linear-gradient(0deg,transparent,transparent 10px,var(--media-line) 10px,var(--media-line) 11px)}
+.theme-dark .portrait-frame,.guest-view.theme-dark .portrait-frame{background:var(--media-raised);border-color:var(--media-line)}
+.theme-dark .portrait-two,.guest-view.theme-dark .portrait-two{background:#3b4c44}
+.theme-dark .portrait-three,.guest-view.theme-dark .portrait-three{background:#524836}
+.theme-dark .asset-label,.guest-view.theme-dark .asset-label{color:#e0e9d8}
+.theme-dark .competition-mark,.guest-view.theme-dark .competition-mark{background:var(--media-paper);color:var(--media-ink);border-color:var(--media-line)}
+.guest-view.theme-dark .logo-window,.guest-view.theme-dark .immersive-teaching,.theme-dark .learning-outcomes article,.guest-view.theme-dark .site-footer{border-color:var(--line)}
+.theme-dark .video-reserve,.guest-view.theme-dark .video-reserve{background:#20382d;border-color:var(--media-line)}
+.theme-dark .video-reserve:hover,.guest-view.theme-dark .video-reserve:hover{background:#294b38}
+.theme-dark .video-dialog-placeholder{background:#20382d;color:#edf2e8}
+
 </style>
 </head>
 <body>
@@ -313,7 +350,7 @@ let interests=['Physics','Mathematics'];
 let catalogueOpen=false,learningOpen=false,learningFilter='all';
 const $=id=>document.getElementById(id);let view=new URLSearchParams(window.location.search).get('view')==='member'?'learner':'guest',openCourse=null;
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function artwork(c){let shapes='';if(c.art==='orbit')shapes='<ellipse cx="190" cy="80" rx="92" ry="43" transform="rotate(-22 190 80)"/><ellipse cx="190" cy="80" rx="92" ry="43" transform="rotate(32 190 80)"/><circle cx="190" cy="80" r="7" fill="currentColor"/><circle cx="268" cy="39" r="5" fill="currentColor"/>';else if(c.art==='circuit')shapes='<path d="M90 50H150l8-12 14 24 14-24 14 24 8-12H270V120H90Z"/><path d="M80 76H100M75 90H105"/><circle cx="268" cy="83" r="16"/><path d="M258 83H278"/>';else if(c.art==='cycle')shapes='<path d="M100 125V30M100 125H290M130 100Q180 35 255 45L240 103Q180 116 130 100Z"/><path d="M180 56l10-4-4 10M204 108l-10 2 6-9"/>';else shapes='<path d="M35 90Q65 20 95 90T155 90T215 90T275 90T335 90"/><path opacity=".4" d="M35 75Q65 135 95 75T155 75T215 75T275 75T335 75"/><path opacity=".3" d="M35 90H345"/>';return `<svg viewBox="0 0 380 160" aria-hidden="true" focusable="false" style="color:${c.ink}"><g fill="none" stroke="currentColor" stroke-width="2">${shapes}</g></svg>`;}
+function artwork(c){let shapes='';if(c.art==='orbit')shapes='<ellipse cx="190" cy="80" rx="92" ry="43" transform="rotate(-22 190 80)"/><ellipse cx="190" cy="80" rx="92" ry="43" transform="rotate(32 190 80)"/><circle cx="190" cy="80" r="7" fill="currentColor"/><circle cx="268" cy="39" r="5" fill="currentColor"/>';else if(c.art==='circuit')shapes='<path d="M90 50H150l8-12 14 24 14-24 14 24 8-12H270V120H90Z"/><path d="M80 76H100M75 90H105"/><circle cx="268" cy="83" r="16"/><path d="M258 83H278"/>';else if(c.art==='cycle')shapes='<path d="M100 125V30M100 125H290M130 100Q180 35 255 45L240 103Q180 116 130 100Z"/><path d="M180 56l10-4-4 10M204 108l-10 2 6-9"/>';else shapes='<path d="M35 90Q65 20 95 90T155 90T215 90T275 90T335 90"/><path opacity=".4" d="M35 75Q65 135 95 75T155 75T215 75T275 75T335 75"/><path opacity=".3" d="M35 90H345"/>';return `<svg viewBox="0 0 380 160" aria-hidden="true" focusable="false" style="color:var(--course-art,${c.ink})"><g fill="none" stroke="currentColor" stroke-width="2">${shapes}</g></svg>`;}
 function bindCourseButtons(){document.querySelectorAll('[data-course]').forEach(b=>b.onclick=()=>courseDialog(courses.find(c=>c.id===b.dataset.course)));}
 function updateSubjects(){
  const active=$('subject-filter')?.value||'all';
@@ -324,7 +361,7 @@ function updateRecommendations(){
  if(view==='guest'){$('recommendations').innerHTML='';return;}
  const list=courses.filter(c=>interests.includes(c.subject)&&!enrolled.some(e=>view==='learner'&&e.id===c.id)).slice(0,2);
  const reason=c=>view==='learner'?(c.subject==='Physics'?'Builds on your mechanics studies':c.subject==='Mathematics'?'Related to your mathematics studies':'Matches your selected '+c.subject+' interest'):'Matches your selected subject';
- $('recommendations').innerHTML=`<section class="learner-discovery" aria-labelledby="interest-title"><div class="section-heading"><div><h2 id="interest-title">${view==='learner'?'Explore your next course':'Discover a starting point'}</h2><p class="muted small">Suggestions for ${interests.join(' and ')||'your chosen subjects'}.</p></div><button class="text-button" id="edit-interests">Edit interests</button></div><div class="cards recommendation-cards">${list.length?list.map(c=>'<div class="suggestion-wrap"><p class="suggestion-reason">'+esc(reason(c))+'</p>'+courseCard(c)+'</div>').join(''):'<p class="muted">Choose a subject or explore all courses.</p>'}</div><div class="browse-more"><h3>Looking for something else?</h3><button id="member-browse">Explore all courses →</button></div></section>`;
+ $('recommendations').innerHTML=`<section class="learner-discovery" aria-labelledby="interest-title"><div class="section-heading"><div><h2 id="interest-title">${view==='learner'?'Explore your next course':'Discover a starting point'}</h2><p class="muted small">Suggestions for ${interests.join(' and ')||'your chosen subjects'}.</p></div><button class="text-button" id="edit-interests">Update interests</button></div><div class="cards recommendation-cards">${list.length?list.map(c=>'<div class="suggestion-wrap"><p class="suggestion-reason">'+esc(reason(c))+'</p>'+courseCard(c)+'</div>').join(''):'<p class="muted">Choose a subject or explore all courses.</p>'}</div><div class="browse-more"><h3>Looking for something else?</h3><button id="member-browse">Explore all courses →</button></div></section>`;
  $('member-browse').onclick=()=>openCatalogue();
  $('edit-interests').onclick=editInterests;
  bindCourseButtons();
@@ -336,7 +373,7 @@ function editInterests(){
 }
 function enrolledCard(e){
  const c=courses.find(x=>x.id===e.id),done=e.completed===e.total;
- return `<article class="enrolled-card"><div class="enrolled-art" style="background:${c.color}">${artwork(c)}</div><div class="enrolled-info"><span class="muted small">${esc(c.subject)} · ${done?'Completed':esc(e.type)}</span><h3>${esc(c.title)}</h3><p class="muted small">${done?'All lessons completed':esc(c.lesson)+' · '+esc(e.resume)}</p><div class="progress" role="progressbar" aria-label="${esc(c.title)} progress" aria-valuemin="0" aria-valuemax="${e.total}" aria-valuenow="${e.completed}"><span style="width:${100*e.completed/e.total}%"></span></div><div class="enrolled-bottom"><span>${e.completed}/${e.total} lessons</span><button data-study="${c.id}">${done?'Review course':'Resume lesson'} →</button></div></div></article>`;
+ return `<article class="enrolled-card"><div class="enrolled-art" style="background:var(--course-surface,${c.color})">${artwork(c)}</div><div class="enrolled-info"><span class="muted small">${esc(c.subject)} · ${done?'Completed':esc(e.type)}</span><h3>${esc(c.title)}</h3><p class="muted small">${done?'All lessons completed':esc(c.lesson)+' · '+esc(e.resume)}</p><div class="progress" role="progressbar" aria-label="${esc(c.title)} progress" aria-valuemin="0" aria-valuemax="${e.total}" aria-valuenow="${e.completed}"><span style="width:${100*e.completed/e.total}%"></span></div><div class="enrolled-bottom"><span>${e.completed}/${e.total} lessons</span><button data-study="${c.id}">${done?'Review course':'Resume lesson'} →</button></div></div></article>`;
 }
 function bindStudyButtons(){
  document.querySelectorAll('[data-study]').forEach(b=>b.onclick=()=>{const e=enrolled.find(x=>x.id===b.dataset.study),c=courses.find(x=>x.id===e.id);e.completed===e.total?courseDialog(c):lessonDialog(c,true);});
@@ -377,14 +414,14 @@ function updateAccount(){
  document.querySelectorAll('[data-explore]').forEach(b=>b.onclick=()=>openCatalogue());
  document.querySelectorAll('[data-sales-subject]').forEach(b=>b.onclick=()=>openCatalogue(b.dataset.salesSubject));
  const active=enrolled.filter(e=>e.completed<e.total),latest=active[0],latestCourse=courses.find(c=>c.id===latest.id);
- $('personal').innerHTML=view==='learner'?`<section class="featured-learning" aria-labelledby="resume-title"><div class="feature-preview" style="background:${latestCourse.color}"><div class="feature-art">${artwork(latestCourse)}</div><span class="feature-preview-label">Lesson thumbnail placeholder</span><span class="feature-play" aria-hidden="true">▶</span><span class="feature-time">${latest.resume} / ${latest.duration}</span></div><div class="featured-info"><h2 id="resume-title">${latestCourse.title}</h2><p class="feature-lesson">${latestCourse.lesson}</p><p class="muted small">${latest.context}</p><button class="primary" data-study="${latest.id}">Resume at ${latest.resume} →</button><div class="featured-progress"><span>${latest.completed} of ${latest.total} lessons completed</span><div class="progress" role="progressbar" aria-label="Latest course progress" aria-valuemin="0" aria-valuemax="${latest.total}" aria-valuenow="${latest.completed}"><span style="width:${100*latest.completed/latest.total}%"></span></div></div></div></section><section class="other-enrolled"><div class="section-heading"><h2>Other courses you are studying</h2><button id="view-learning" class="text-button">View all learning →</button></div><div class="enrolled-grid">${active.slice(1).map(enrolledCard).join('')}</div></section>`:'';
+ $('personal').innerHTML=view==='learner'?`<section class="featured-learning" aria-labelledby="resume-title"><div class="feature-preview" style="background:var(--course-surface,${latestCourse.color})"><div class="feature-art">${artwork(latestCourse)}</div><span class="feature-preview-label">Lesson thumbnail placeholder</span><span class="feature-play" aria-hidden="true">▶</span><span class="feature-time">${latest.resume} / ${latest.duration}</span></div><div class="featured-info"><h2 id="resume-title">${latestCourse.title}</h2><p class="feature-lesson">${latestCourse.lesson}</p><p class="muted small">${latest.context}</p><button class="primary" data-study="${latest.id}">Resume at ${latest.resume} →</button><div class="featured-progress"><span>${latest.completed} of ${latest.total} lessons completed</span><div class="progress" role="progressbar" aria-label="Latest course progress" aria-valuemin="0" aria-valuemax="${latest.total}" aria-valuenow="${latest.completed}"><span style="width:${100*latest.completed/latest.total}%"></span></div></div></div></section><section class="other-enrolled"><div class="section-heading"><h2>Other courses you are studying</h2><button id="view-learning" class="text-button">View all learning →</button></div><div class="enrolled-grid">${active.slice(1).map(enrolledCard).join('')}</div></section>`:'';
  if($('view-learning'))$('view-learning').onclick=learningDialog;
  bindStudyButtons();
  if($('hero-signin'))$('hero-signin').onclick=()=>accountDialog(false);
  document.querySelectorAll('[data-hero-subject]').forEach(b=>b.onclick=()=>{$('subject-filter').value=b.dataset.heroSubject;updateSubjects();renderCourses();$('catalogue-heading').scrollIntoView({block:'start'});$('search').focus({preventScroll:true});});
  updateRecommendations();
 }
-function courseCard(c){return `<article class="course"><div class="art" style="background:${c.color}"><span class="art-label">SAMPLE COURSE</span>${artwork(c)}</div><div class="course-body"><div class="course-topic">${esc(c.topic)}</div><h2 style="font-size:20px;margin:9px 0">${esc(c.title)}</h2><p class="description">${esc(c.description)}</p><p class="level">${esc(c.level)} · ${esc(c.format)}</p><div class="teacher"><span class="avatar" aria-hidden="true">${c.initial}</span><span>${esc(c.teacher)}<br><span class="muted">Illustrative profile</span></span></div></div><div class="card-footer"><span>Preview only · Not for sale</span><button data-course="${c.id}" aria-label="View ${esc(c.title)}">View course →</button></div></article>`;}
+function courseCard(c){return `<article class="course"><div class="art" style="background:var(--course-surface,${c.color})"><span class="art-label">SAMPLE COURSE</span>${artwork(c)}</div><div class="course-body"><div class="course-topic">${esc(c.topic)}</div><h2 style="font-size:20px;margin:9px 0">${esc(c.title)}</h2><p class="description">${esc(c.description)}</p><p class="level">${esc(c.level)} · ${esc(c.format)}</p><div class="teacher"><span class="avatar" aria-hidden="true">${c.initial}</span><span>${esc(c.teacher)}<br><span class="muted">Illustrative profile</span></span></div></div><div class="card-footer"><span>Preview only · Not for sale</span><button data-course="${c.id}" aria-label="View ${esc(c.title)}">View course →</button></div></article>`;}
 function renderCourses(){
  $('competition-context').textContent=selectedCompetition?selectedCompetition.name+' · Illustrative course matches, not confirmed competition coverage.':'';
 const q=$('search').value.toLowerCase().trim(),level=$('level').value,format=$('format').value,subject=$('subject-filter').value;const list=courses.filter(c=>(!selectedCompetition||selectedCompetition.courseIds.includes(c.id))&&(subject==='all'||subject===c.subject)&&(level==='all'||level===c.level)&&(format==='all'||format===c.format)&&`${c.title} ${c.topic} ${c.description}`.toLowerCase().includes(q));$('results-title').textContent=`${list.length} sample course${list.length===1?'':'s'} · ${selectedCompetition?selectedCompetition.short:subject==='all'?'All subjects':subject}`;$('cards').innerHTML=list.length?list.map(courseCard).join(''):'<div class="empty"><h2>No sample courses match.</h2><p>Try another subject or clear your filters.</p><button id="reset-empty">Clear filters</button></div>';bindCourseButtons();if($('reset-empty'))$('reset-empty').onclick=resetFilters;}
@@ -471,3 +508,4 @@ updateSubjects();updateAccount();renderCourses();
 </script>
 </body>
 </html>
+

@@ -1,5 +1,9 @@
 # Physcratic experimental site map
 
+## Appearance and preference wording correction
+
+Decisions L12/X04: member recommendation action is **Update interests**. Shared dark appearance now covers thumbnail art, preview media, brand mark, selected filters/preferences, menus and dialogs with paired colors and native dark controls. Theme remains active across account/view changes. No page order, route, feature or account behavior changes. Syntax/static and twelve token contrast checks pass; rendered browser verification is blocked by process socket restrictions.
+
 ## Decision rationale and learner correction
 
 Read [PROTOTYPE_DESIGN_DECISIONS.md](PROTOTYPE_DESIGN_DECISIONS.md) for reasons, costs and owner corrections behind each prototype element. Record future changes there before implementing them. Decision L10 rejects the generic learner Other ways to prepare promotion: it is now hidden from the member homepage. Coaching/Arena remain in navigation and their dedicated guest heroes. No equivalent replacement promotion is added.
@@ -16,7 +20,7 @@ The enrolled member homepage is now a study starting point rather than a catalog
 | 4 | Broader browsing | Explore all courses opens catalogue as a separate in-page view |
 
 My learning is a full-page prototype view, not a modal, with All courses, In progress and Completed filters. Three sample enrolments include two active and one completed course. Only active courses appear on the homepage.
-Default member interests match Mathematics/Physics. Edit interests opens optional controls rather than displaying all preferences permanently.
+Default member interests match Mathematics/Physics. Update interests opens optional controls rather than displaying all preferences permanently.
 Saved video/reading positions are illustrative fixtures. Resume opens the corresponding lesson preview and explains its position; no real media seek, progress write, enrolment or auth implementation is claimed.
 The no-enrolment state has interest-based discovery and no fabricated recent learning. Catalogue filters, clear/reset and competition lookup are preserved. The guest landing is visually unchanged.
 My learning and catalogue are in-page views, not new application routes. Logo/back returns to the homepage.
