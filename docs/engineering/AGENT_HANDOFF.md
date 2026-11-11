@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Sales fundamentals research and working brief (11 November 2026)
+
+Owner identified weak sales fundamentals behind repeated section-level design changes. Studied April Dunford positioning, Joanna Wiebe/Copyhackers research and message hierarchy, Wiebe for CXL on awareness/voice of customer, and MECLABS motivation/value/friction/anxiety. SALES_AND_MESSAGING_BRIEF.md applies these to Physcratic, audits current gaps and defines objection/CTA/evidence rules. AGENTS.md and the whole-page layout now point to it. Documentation only, no new HTML revision or runtime claim. Next: apply the brief to supporting copy/transitions and course-destination suitability while preserving approved motto/order. Missing actual commercial facts must not be invented. Avoid repeating generic hypothesis disclaimers or making owner micromanage ordinary decisions.
+
 ## Guest structural first iteration (11 November 2026)
 
 Owner requested a faster marketing/CTA-first iteration and a whole-page Markdown layout. Read GUEST_HOMEPAGE_LAYOUT.md first for order, rough desktop/mobile composition and actions. Guest subject gallery and redundant course-promotion block removed. Separate Coaching and Arena heroes replace the old compact generic card pair, with large live-session/product media slots. Final CTA reads Ready to start preparing? with Explore courses and browse-without-account reassurance. Hero, competition lookup/rail and teaching preview remain. Catalogue filters and member layout preserved. New product actions reuse navigation previews. TEST_SITE_MAP.md and TEST_PAGE_HIERARCHIES.md reconciled. Syntax/static checks pass, browser/build qualification pending. Next: review page structure and CTA before more visual detail.

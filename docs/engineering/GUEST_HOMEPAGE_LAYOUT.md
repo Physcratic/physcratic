@@ -4,6 +4,10 @@ Updated 11 November 2026. Branch: `codex/ui-overhaul`.
 This is the quick-review document for the **whole guest landing page**. Settle the message, section order and actions here before refining individual assets, colours or animation.
 Related: [TEST_SITE_MAP.md](TEST_SITE_MAP.md), [TEST_PAGE_HIERARCHIES.md](TEST_PAGE_HIERARCHIES.md).
 
+## Sales reasoning before layout
+
+Read [SALES_AND_MESSAGING_BRIEF.md](SALES_AND_MESSAGING_BRIEF.md) before revising composition or copy. Each section must advance the customer's decision with relevance, value, evidence, objection handling or an appropriate next action. Preserve the owner-approved arrangement while making the argument convincing. Do not start another visual pass before checking that argument.
+
 ## Page at a glance
 
 | Order | Section and customer question | Rough desktop layout | Media space | Action |
