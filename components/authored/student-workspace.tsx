@@ -1,11 +1,12 @@
 "use client";
+import { useSWRConfig } from "swr";
 import {ProblemStatsPanel} from '@/components/community/problem-stats';
 import {ReportControl} from '@/components/community/report-controls';
 import {Discussions} from '@/components/community/discussions';
 import { ProblemHeading } from "@/components/physics/problem-heading";
 import { PublicAuthorName } from "./public-author-name";
-import { SkipLink } from "@/components/skip-link";
-import { studioTokens } from "@/components/authoring/studio-ui";
+import { AnswerWorkspace } from "@/components/physics/answer-workspace";
+import { ProblemRoom } from "@/components/physics/problem-room";
 import { WorkedSolution } from "./worked-solution";
 import {
   useCallback,
@@ -16,7 +17,6 @@ import {
   useSyncExternalStore,
 } from "react";
 import {
-  ArrowLeft,
   CheckCircle2,
   FileText,
   History,
@@ -215,44 +215,10 @@ export function StudentWorkspace({
   useEffect(() => setAuthDenied(false), [accountKey, viewer.state]);
   const denyAuth = useCallback(() => setAuthDenied(true), []);
   return (
-    <div className={`min-h-dvh bg-background text-foreground ${studioTokens}`}>
-      <SkipLink targetId="solver-main">Skip to problem content</SkipLink>
-      <header className="border-b bg-background">
-        <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-3 px-5 py-4 sm:px-8">
-          <a
-            href="/dashboard?view=problems&collection=authored"
-            className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold"
-          >
-            <ArrowLeft aria-hidden="true" className="size-4" /> Physcratic
-          </a>
-          <div className="flex items-center gap-4">
-            <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-              Problem room
-            </span>
-            <span className="rounded-md border bg-card px-3 py-2 text-xs">
-              {authDenied
-                ? "Recheck your account"
-                : viewer.state === "verified"
-                  ? "Verified learner"
-                  : viewer.state === "unverified"
-                    ? "Email verification needed"
-                    : viewer.state === "loading"
-                      ? "Checking account…"
-                      : viewer.state === "error"
-                        ? "Account unavailable"
-                        : "Public reading"}
-            </span>
-          </div>
-        </div>
-      </header>
-      <main
-        id="solver-main"
-        tabIndex={-1}
-        className="focus:outline-none mx-auto w-full min-w-0 max-w-[1440px] space-y-7 px-4 py-6 sm:px-8 sm:py-10"
-      >
+    <ProblemRoom status={<span className="rounded-md border bg-card px-3 py-2 text-xs">{authDenied ? "Recheck your account" : viewer.state === "verified" ? "Verified learner" : viewer.state === "unverified" ? "Email verification needed" : viewer.state === "loading" ? "Checking account…" : viewer.state === "error" ? "Account unavailable" : "Public reading"}</span>} footer="Practice has no permanent per-part cap. Submitting or receiving a grade does not reveal private answers, hints or worked solutions.">
         <div className="flex flex-wrap items-end justify-between gap-4 border-b pb-6">
           <ProblemHeading title={availability === "ready" ? revision?.content.title ?? "Physics problem" : "Physics problem"} source="Community-authored problem" estimate={availability === "ready" ? revision?.content.estimatedDifficulty : null} tags={availability === "ready" ? [...(revision?.content.topicTags ?? []), ...(revision?.content.methodTags ?? [])] : []}>
-            {availability === "ready" && revision && (attributionEnabled ? <PublicAuthorName key={`${problemId}:${revision.id}`} problemId={problemId} revisionId={revision.id} /> : <p className="text-sm text-muted-foreground">Published by Community author</p>)}
+            {availability === "ready" && revision && (attributionEnabled ? <PublicAuthorName key={`${problemId}:${revision.id}`} problemId={problemId} revisionId={revision.id} /> : null)}
           </ProblemHeading>
           <Button
             type="button"
@@ -319,12 +285,7 @@ export function StudentWorkspace({
           </>
         )}
         {commentsEnabled && availability === "ready" && <Discussions moderationEnabled={moderationEnabled} problemKey={`authored:${problemId}`}/>}
-      </main>
-      <footer className="mx-auto max-w-[1440px] border-t px-5 py-6 text-xs leading-relaxed text-muted-foreground sm:px-8">
-        Practice has no permanent per-part cap. Submitting or receiving a grade
-        does not reveal private answers, hints or worked solutions.
-      </footer>
-    </div>
+    </ProblemRoom>
   );
 }
 function PublicStatement({
@@ -429,6 +390,7 @@ function PrivateWorkspace({
   invalidate: () => void;
   denyAuth: () => void;
 }) {
+  const { mutate } = useSWRConfig();
   const [session] = useState(() => {
     let storage;
     try {
@@ -588,6 +550,7 @@ function PrivateWorkspace({
     const a = state.lastResult;
     if (!a || seenResult.current === a.id) return;
     seenResult.current = a.id;
+    void mutate(key => Array.isArray(key) && key[1] === userId && ["/api/problem-progress", "/api/dashboard"].includes(key[0]));
     setInfo((current) =>
       current && a.revisionId === current.revisionId
         ? {
@@ -611,7 +574,7 @@ function PrivateWorkspace({
     setHistoryEpoch((x) => x + 1);
     if (part?.id === a.partId && revisionId === a.revisionId)
       requestAnimationFrame(() => resultRef.current?.focus());
-  }, [state.lastResult, part?.id, revisionId]);
+  }, [state.lastResult, part?.id, revisionId, mutate, userId]);
   useEffect(() => {
     if ([401, 403].includes(state.lastStatus)) denyAuth();
   }, [state.lastStatus, denyAuth]);
@@ -905,10 +868,7 @@ function PrivateWorkspace({
             problemId={problemId}
             onAnswer={jump}
           />
-          <aside
-            id="answer-workspace"
-            className="min-w-0 scroll-mt-4 space-y-5 xl:sticky xl:top-5"
-          >
+          <AnswerWorkspace id="answer-workspace" className="scroll-mt-4">
             <section style={partStyle(partColour)} className={`space-y-5 rounded-xl border bg-card p-5 ${partBorder}`}>
               <div className="flex items-center gap-2">
                 <ShieldCheck
@@ -1086,7 +1046,7 @@ function PrivateWorkspace({
               )}
             </section>
             {availability === "ready" && revision && part && <WorkedSolution key={`${revision.id}:${part.id}`} partColour={partColour} partLabel={part.label || String(parts.indexOf(part) + 1)} problemId={problemId} revisionId={revision.id} partId={part.id} onStale={invalidate} onAuth={denyAuth} />}
-          </aside>
+          </AnswerWorkspace>
         </div>
       )}
     </div>

@@ -9,6 +9,7 @@ import { basename, join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { execFileSync } from 'node:child_process';
 import { Pool } from 'pg';
+import { createProblemProgressApi } from '../lib/problem-progress-api.ts';
 import { createPracticeCheckRoute } from '../lib/practice-check-route.ts';
 import { createPracticeCheckApi } from '../lib/practice-check-api.ts';
 import { practiceCheckCatalog } from '../lib/practice-check-catalog.ts';
@@ -27,6 +28,7 @@ const bodies=[],errors=[];
 const user=request=>{const id=request.headers.get('cookie')?.match(/viewer=([A-Za-z0-9]+)/)?.[1];return id?{id,emailVerified:id!=='U'}:null;};
 const api=createPracticeCheckApi({pool,user:async r=>user(r),origin:r=>isAllowedSubmissionOrigin(r,[origin])});
 const gatedApi=createPracticeCheckRoute(()=>enabled,async()=>({practiceCheckApi:api}));
+const combinedProgress=createProblemProgressApi(request=>gatedApi('progress',request),async()=>Response.json({error:'Authored fixtures are not installed'},{status:503}));
 async function actor(id){await pool.query('INSERT INTO "user" VALUES($1) ON CONFLICT DO NOTHING',[id]);}
 async function session(page,id,verified=true,pending=false){await actor(id||'unused');await page.evaluate(({id,verified,pending})=>window.__setPracticeSession(id,verified,pending),{id,verified,pending});}
 async function count(id){return Number((await pool.query('SELECT count(*) AS n FROM practice_check_attempt WHERE user_id=$1',[id])).rows[0].n);}
@@ -52,8 +54,8 @@ try{
    else if(unavailable)response=Response.json({error:'Save unavailable',saveState:'unconfirmed'},{status:503});
    else{
     if(req.method==='POST'){posts++;bodies.push(JSON.parse(Buffer.concat(chunks)));}
-    if(path==='/api/practice-progress')progressReads++;
-    response=await gatedApi(path==='/api/practice-progress'?'progress':req.method==='POST'?'submit':'history',request);
+    if(path==='/api/practice-progress'||path==='/api/problem-progress')progressReads++;
+    response=path==='/api/problem-progress'?await combinedProgress(request):await gatedApi(path==='/api/practice-progress'?'progress':req.method==='POST'?'submit':'history',request);
     if(req.method==='POST'&&holdNext){holdNext=false;await new Promise(r=>{releaseHeld=r;});}
     if(req.method==='POST'&&dropNext){dropNext=false;res.writeHead(200,{'content-type':'application/json'});res.end('{');return;}
    }

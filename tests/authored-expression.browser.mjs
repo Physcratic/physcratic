@@ -52,7 +52,7 @@ try {
   assert.ok(mathOutput, 'MathLive must remain a separate lazy import for delay/failure coverage');
   const mathPath = '/'+basename(mathOutput[0]);
   const assets = new Set(Object.keys(output.metafile.outputs).map(p=>'/'+basename(p)));
-  execFileSync('node_modules/.bin/tailwindcss',['-i','app/globals.css','-o',join(temp,'style.css')],{stdio:'pipe'});
+  execFileSync(process.execPath,[require.resolve('tailwindcss/lib/cli.js'),'-i','app/globals.css','-o',join(temp,'style.css')],{stdio:'pipe'});
   server = createServer(async(req,res)=>{
     try {
       const path = new URL(req.url,origin).pathname;
@@ -129,27 +129,16 @@ try {
     assert.deepEqual(axe.violations.filter(v=>['serious','critical'].includes(v.impact)),[]);checks++;
     await context.close();
   }
-  // Real lazy-import delay. Never swap a focused fallback or an ongoing composition.
-  for (const mobile of [false,true]) for (const composition of [false,true]) {
+  // A delayed import keeps a stable loading state. There is no transient text editor to begin typing into.
+  for (const mobile of [false,true]) {
     const context=await browser.newContext({viewport:{width:mobile?375:1440,height:900},isMobile:mobile,hasTouch:mobile});
-    let release,requested=false;const gate=new Promise(r=>release=r);
-    await context.route('**'+mathPath,async route=>{requested=true;await gate;await route.continue();});
+    let release;const gate=new Promise(r=>release=r);
+    await context.route('**'+mathPath,async route=>{await gate;await route.continue();});
     const page=await open(context);
-    const plain=page.getByLabel('Expression answer',{exact:true});
-    await plain.fill('x*x');await plain.evaluate(el=>el.setSelectionRange(1,2));
-    if(composition) await plain.dispatchEvent('compositionstart',{data:'x'});
-    assert.ok(requested);release();await page.waitForTimeout(300);
-    assert.equal(await plain.evaluate(el=>document.activeElement===el),true);
-    assert.deepEqual(await plain.evaluate(el=>[el.selectionStart,el.selectionEnd]),[1,2]);
-    assert.equal(await plain.inputValue(),'x*x');
-    assert.equal(await page.locator('math-field').count(),0);checks++;
-    await page.getByRole('heading',{name:'Submit an answer',exact:true}).focus();await page.waitForTimeout(100);
-    if(composition) {
-      assert.equal(await page.locator('math-field').count(),0,'composition must finish even after blur');
-      await plain.dispatchEvent('compositionend',{data:'x'});
-    }
-    await page.locator('math-field').waitFor();
-    assert.equal(await page.evaluate(recoveredExpression),'x*x');
+    await page.getByRole('status').filter({hasText:'Loading math editor…'}).waitFor();
+    assert.equal(await page.getByLabel('Expression answer',{exact:true}).count(),0);checks++;
+    release();await page.locator('math-field').waitFor();
+    await writeMath(page,'x*x');
     await page.getByRole('button',{name:'Submit answer',exact:true}).click();
     await page.getByRole('heading',{name:/Correct · saved attempt/}).waitFor();checks++;
     await context.close();
@@ -173,6 +162,11 @@ try {
   await plain.fill(expressionOfLength(210));await plain.blur();await page.reload();
   await page.getByLabel('Choose part',{exact:true}).selectOption({index:1});
   assert.equal(await page.getByLabel('Expression answer',{exact:true}).inputValue(),expressionOfLength(210));checks++;
+  await context.unroute('**'+mathPath);
+  await page.getByRole('button',{name:'Reload math editor',exact:true}).click();
+  await page.getByLabel('Choose part',{exact:true}).selectOption({index:1});
+  await page.locator('math-field').waitFor();
+  assert.equal(cleanLatex(await page.locator('math-field').evaluate(el=>el.value)),expressionOfLength(210));checks++;
   await context.close();
   assert.deepEqual(errors,[],'no uncaught input, recovery or transition errors');
   console.log(`PASS ${checks} expression recovery/browser checks, desktop/touch and light/dark. Physical OS keyboard behavior is not established.`);
