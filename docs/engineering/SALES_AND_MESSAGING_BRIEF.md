@@ -1,5 +1,21 @@
 # Physcratic sales and messaging brief
 
+## Audience familiarity and labels
+
+Owner direction: assume visitors have some existing familiarity with Physcratic and competition preparation. Do not explain every obvious category.
+Default to no eyebrow above a heading. Keep one only when it adds information the heading, image, adjacent text and navigation do not already provide.
+Remove repeated claims and generic organisational labels. The hero motto retains one offer explanation, but does not need a second medallist caption or selection-to-international-stage line.
+Coaching and Arena are important product destinations. Introduce them as prominent section titles, with a concrete benefit and short explanation, not as tiny category labels.
+Keep functional form labels, accessibility names, state/error feedback and necessary identification of sample media. These have a different purpose.
+Use the removal test: if deleting a line loses no useful meaning or orientation, delete it.
+
+Guidance:
+- NN/g, Rewriting Digital Content for Brevity: https://www.nngroup.com/articles/rewriting-content-brevity/
+- Australian Government Style Manual, Headings: https://www.stylemanual.gov.au/structuring-content/headings
+- Joanna Wiebe for CXL, awareness and copy: https://cxl.com/conversion-rate-optimization/how-to-write-copy-that-sells-like-a-mofo-by-joanna-wiebe/
+
+Application is contextual: the sources support concise, meaningful, audience-aware content, not a universal ban on labels.
+
 ## Owner-authorized future-state concept
 
 The owner now explicitly asks us to design for the established company with broad competition coverage and a substantial instructor/coach network. Design and copy may depict that mature offering inside the labelled prototype. Illustrative scale figures must remain distinguishable from verified business facts. No invented customer testimonials, guarantees or real-person endorsements. This direction supersedes restricting design to current launch inventory; existing production/security restrictions remain.
