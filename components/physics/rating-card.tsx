@@ -1,9 +1,9 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useId, useState } from "react";
 import { ArrowUpRight, TrendingUp } from "lucide-react";
-import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -13,12 +13,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-  type ChartConfig,
-} from "@/components/ui/chart";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useDashboard } from "@/hooks/use-dashboard";
 import { Button } from "@/components/ui/button";
@@ -32,12 +26,10 @@ import { RankTitle } from "./rank-title";
 import { cn } from "@/lib/utils";
 import { LoadingLines } from "@/components/loading-lines";
 
-const chartConfig = {
-  rating: { label: "ELO", color: "var(--chart-1)" },
-} satisfies ChartConfig;
-const horizontalChartConfig = {
-  rating: { label: "ELO", color: "var(--chart-2)" },
-} satisfies ChartConfig;
+const RatingHistoryChart = dynamic(
+  () => import("./rating-history-chart").then((m) => m.RatingHistoryChart),
+  { ssr: false },
+);
 const dateLabel = (date: string) =>
   new Date(date).toLocaleDateString("en-US", {
     month: "short",
@@ -222,97 +214,20 @@ export function RatingCard({
               ))}
             </ToggleGroup>
           </div>
-          <ChartContainer
-            config={horizontal ? horizontalChartConfig : chartConfig}
+          <div
             className={cn(
-              "w-full text-sm",
-              expanded
-                ? "h-56 aspect-auto"
-                : horizontal
-                  ? "h-32 aspect-auto"
-                  : "h-28 aspect-auto",
+              "w-full",
+              expanded ? "h-56" : horizontal ? "h-32" : "h-28",
             )}
-            aria-label={`ELO history, ${baseline.rating} to ${latestRating!}`}
           >
-            <AreaChart
-              accessibilityLayer
+            <RatingHistoryChart
               data={data}
-              margin={{ top: 8, right: 7, left: expanded ? 0 : 7, bottom: 0 }}
-            >
-              <defs>
-                <linearGradient id={chartId} x1="0" y1="0" x2="0" y2="1">
-                  <stop
-                    offset="0%"
-                    stopColor="var(--color-rating)"
-                    stopOpacity={0.19}
-                  />
-                  <stop
-                    offset="100%"
-                    stopColor="var(--color-rating)"
-                    stopOpacity={0.01}
-                  />
-                </linearGradient>
-              </defs>
-              <CartesianGrid
-                vertical={false}
-                stroke="hsl(var(--border))"
-                strokeDasharray="3 5"
-              />
-              <XAxis
-                dataKey="date"
-                tickLine={false}
-                axisLine={false}
-                interval="preserveStartEnd"
-                tickMargin={10}
-                minTickGap={expanded ? 40 : 28}
-                ticks={
-                  expanded
-                    ? undefined
-                    : [
-                        data[0].date,
-                        data[Math.floor(data.length / 2)].date,
-                        data[data.length - 1].date,
-                      ]
-                }
-                tickFormatter={dateLabel}
-                fontSize={14}
-              />
-              <YAxis
-                hide={!expanded}
-                domain={["dataMin - 35", "dataMax + 35"]}
-                tickLine={false}
-                axisLine={false}
-                width={45}
-                fontSize={14}
-              />
-              <ChartTooltip
-                cursor={false}
-                content={
-                  <ChartTooltipContent
-                    className="text-sm"
-                    labelFormatter={(_, payload) => {
-                      const point = payload[0]?.payload;
-                      return point ? (
-                        <span>
-                          {dateLabel(point.date)} · {point.contest}
-                        </span>
-                      ) : null;
-                    }}
-                  />
-                }
-              />
-              <Area
-                type="linear"
-                dataKey="rating"
-                stroke="var(--color-rating)"
-                strokeWidth={2}
-                fill={`url(#${chartId})`}
-                activeDot={{ r: 4, strokeWidth: 2 }}
-                dot={false}
-                isAnimationActive={false}
-              />
-            </AreaChart>
-          </ChartContainer>
+              expanded={expanded}
+              horizontal={horizontal}
+              chartId={chartId}
+              ariaLabel={`ELO history, ${baseline.rating} to ${latestRating!}`}
+            />
+          </div>
         </div>
         <span className="sr-only">
           {data
