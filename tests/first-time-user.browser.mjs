@@ -43,6 +43,23 @@ async function tapTarget(locator, where) {
   const box = await locator.first().boundingBox();
   ok(box && box.height >= 43.5 && box.width >= 43.5, `${where}: tap target is ${box?.width}x${box?.height}, needs 44x44`);
 }
+// Arena "Mind the Gap" has two parts: a is an expression and b is a plain numeric textbox. Part a is a math field only while
+// it is empty. A saved or earlier answer leaves it as the plain textbox, which also takes LaTeX, so use whichever is there.
+async function answerArenaRight(page, input, practice) {
+  const latex = String.raw`\sqrt{\frac{m\lambda}{1/R_1-1/R_0}}`;
+  const mathField = page.locator("#step-answer math-field").first();
+  const plain = page.locator("#step-answer").getByRole("textbox", { name: /Dark-ring radius/ });
+  await mathField.or(plain).first().waitFor({ state: "attached", timeout: 30000 });
+  if (await mathField.count()) {
+    await mathField.evaluate((field, value) => {
+      field.setValue(value);
+      field.dispatchEvent(new InputEvent("input", { bubbles: true }));
+    }, latex);
+  } else {
+    await plain.fill(latex);
+  }
+  await input.fill(practice.rightAnswer);
+}
 async function shot(page, name) {
   if (shotDir) await page.screenshot({ path: join(shotDir, `${name}.png`), fullPage: true });
 }
@@ -257,6 +274,7 @@ try {
     await input.waitFor();
     const check = page.getByRole("button", { name: "Check answer" });
     await shot(page, `04-arena-start-${tag}`);
+    await answerArenaRight(page, input, practice);
     await input.fill(practice.wrongAnswer);
     await tapTarget(input, `Arena answer input ${tag}`);
     await tapTarget(check, `Arena check ${tag}`);
@@ -265,15 +283,12 @@ try {
     ok(await input.inputValue() === practice.wrongAnswer, `wrong Arena work retained (${tag})`);
     await shot(page, `05-arena-wrong-${tag}`);
     await input.fill(practice.rightAnswer);
-    await page.locator("#step-answer math-field").first().evaluate((field, latex) => {
-      field.setValue(latex);
-      field.dispatchEvent(new InputEvent("input", { bubbles: true }));
-    }, String.raw`\sqrt{\frac{m\lambda}{1/R_1-1/R_0}}`);
-
     await check.click();
     await page.getByText("Correct", { exact: true }).first().waitFor();
     await page.reload({ waitUntil: "networkidle" });
-    ok(await input.inputValue() === practice.rightAnswer, `checked Arena work survives reload (${tag})`);
+    // A part checked correct is not kept as a saved answer (#148), so the box is empty after a reload. Enter it again to check.
+    ok(await input.inputValue() === "", `a correct Arena part is not kept as a draft after reload (${tag})`);
+    await answerArenaRight(page, input, practice);
     await check.click();
     await page.getByRole("link", { name: "Next problem", exact: true }).waitFor();
     const solution = page.getByRole("tab", { name: "Worked solution", exact: true });
