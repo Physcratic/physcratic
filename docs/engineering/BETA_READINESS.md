@@ -1,5 +1,9 @@
 # Beta readiness log
 
+## SEO P3 interactive public library (12 November 2026)
+
+Separately authorized P3 reuses the Dashboard shell and existing collections at `/problems`, with the registry-derived server directory and all 121 retained reader anchors. Shared URL filters/Guided selection support reload/history; archive/topic route-group moves preserve URLs and content, and the sitemap remains 138 URLs. Mounted account changes discard unsaved Guided drafts. See [architecture, verification and limits](SEO_P3_LIBRARY.md). Exact-head CI and screenshots are recorded on the focused draft PR. No homepage/auth/grading/publication/schema/operator changes, merge, deployment or P4.
+
 ## B6B-1 operator release preparation (12 November 2026)
 
 The owner reports Production ledger 0001–0006 plus 0016, with 0007–0015/0017/0018 absent. The companion [reviewed upgrade package](../../scripts/production-upgrade/README.md) preserves that noncontiguous baseline, validates canonical hashes and owner-approved schema/ACL/recovery fingerprints, uses the common advisory lock and one transaction for all eleven missing migrations and ledger records, and independently verifies postcommit on a new connection. The historical six-migration package and all migration bytes remain unchanged.

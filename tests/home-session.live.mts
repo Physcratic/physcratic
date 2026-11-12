@@ -7,13 +7,14 @@
 //   bash scripts/test-problem-authoring.sh pnpm exec tsx --conditions=react-server tests/home-session.live.mts
 //
 // scripts/test-problem-authoring.sh starts the disposable database and sets DATABASE_URL to it. This test refuses
-// to run against anything that is not a local database with "test" in its name. Not run by CI.
+// to run against anything that is not a local database with "test" in its name. The library browser workflow runs it with HOME_LIBRARY_BROWSER=1.
 import assert from "node:assert/strict";
 import { createHmac, randomBytes } from "node:crypto";
 import { spawn } from "node:child_process";
 import pg from "pg";
 import { retiredPracticeIds, ARENA_LIBRARY_HREF } from "../lib/legacy-practice";
 import { problems } from "../lib/physics";
+import { corpusProblems } from "../lib/corpus-pilot";
 
 const databaseUrl = process.env.DATABASE_URL ?? "";
 const parsed = new URL(databaseUrl || "http://invalid");
@@ -49,6 +50,15 @@ const secondToken = randomBytes(24).toString("hex");
 await pool.query(`INSERT INTO session(id,"expiresAt",token,"userId") VALUES($1, now() + interval '1 day', $2, $3)`, ["second-session-home-test", secondToken, secondUser.id]);
 const secondSigned = encodeURIComponent(`${secondToken}.${createHmac("sha256", secret).update(secondToken).digest("base64")}`);
 const secondCookie = `better-auth.session_token=${secondSigned}`;
+
+// The public-library gate reuses these real A/B sessions and an account-specific progress fixture.
+const libraryNotes = ["P3 synthetic private note A", "P3 synthetic private note B"];
+if (process.env.HOME_LIBRARY_BROWSER === "1") {
+  await pool.query(`CREATE TABLE archive_progress("userId" text NOT NULL, "taskId" text NOT NULL, reviewed boolean NOT NULL DEFAULT false,
+    notes text NOT NULL DEFAULT '', answer text NOT NULL DEFAULT '', "updatedAt" timestamptz NOT NULL DEFAULT now(), PRIMARY KEY("userId", "taskId"))`);
+  const taskId = `${corpusProblems[0].id}:${corpusProblems[0].parts[0].id}`;
+  for (const [index, member] of [user, secondUser].entries()) await pool.query(`INSERT INTO archive_progress("userId","taskId",notes) VALUES($1,$2,$3)`, [member.id, taskId, libraryNotes[index]]);
+}
 
 const server = spawn("corepack", ["pnpm", "exec", "next", "start", "-p", String(port), "-H", "127.0.0.1"], {
   env: { ...process.env, DATABASE_URL: databaseUrl, BETTER_AUTH_SECRET: secret, BETTER_AUTH_URL: origin, NODE_ENV: "production" },
@@ -115,6 +125,30 @@ try {
       const forbidden = actor === 0 ? [user.name, user.email, user.id, secondUser.name, secondUser.email, secondUser.id] : actor === 1 ? [secondUser.name, secondUser.email, secondUser.id] : [user.name, user.email, user.id];
       for (const value of [...forbidden, token, signed, secondToken, secondSigned, problems[0].hint, ...problems[0].solution.map(step => step.text).filter(text => text.length > 30)]) ok(!body.includes(value), "no cross-account or token data in representation");
     }
+  }
+
+  if (process.env.HOME_LIBRARY_BROWSER === "1") {
+    for (const rsc of [false, true]) for (const cookie of cases) {
+      const response = await fetch(`${origin}/problems?collection=pilot`, { headers: { ...(cookie ? { cookie } : {}), ...(rsc ? { RSC: "1" } : {}) } });
+      const body = await response.text();
+      ok(response.status === 200, "guest and members can read the public library");
+      for (const privateValue of [user.id, user.email, secondUser.id, secondUser.email, token, secondToken, ...libraryNotes]) ok(!body.includes(privateValue), "public library HTML/RSC excludes private identities and progress");
+    }
+    for (const [index, cookie] of [memberCookie, secondCookie].entries()) {
+      const response = await fetch(`${origin}/api/archive-progress`, { headers: { cookie } });
+      const body = await response.text();
+      ok(response.status === 200 && body.includes(libraryNotes[index]) && !body.includes(libraryNotes[1-index]), "real private progress API is account-isolated");
+      ok(/private/.test(response.headers.get("cache-control") ?? "") && /no-store/.test(response.headers.get("cache-control") ?? ""), "private progress is not cacheable");
+    }
+    const journey = spawn(process.execPath, ["--import", "tsx", "tests/public-library.browser.mjs"], {
+      env: { ...process.env, BROWSER_TEST_ORIGIN: origin, LIBRARY_SESSION_A: signed, LIBRARY_SESSION_B: secondSigned }, stdio: ["ignore", "pipe", "pipe"],
+    });
+    let output = "";
+    journey.stdout.on("data", chunk => { output += chunk; });
+    journey.stderr.on("data", chunk => { output += chunk; });
+    const code = await new Promise(resolve => journey.on("close", resolve));
+    console.log(output);
+    ok(code === 0, "public library browser and mounted account-switch journeys pass");
   }
 
   if (process.env.PLAYWRIGHT_MODULE) {

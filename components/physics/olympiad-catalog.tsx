@@ -14,6 +14,7 @@ export function OlympiadCatalog({
   difficulty,
   onReset,
   onOpenImported,
+  navigateToReader = false,
 }: {
   query: string;
   topic: string;
@@ -21,6 +22,7 @@ export function OlympiadCatalog({
   difficulty: string;
   onReset: () => void;
   onOpenImported: (id: string) => void;
+  navigateToReader?: boolean;
 }) {
   const topicProblems = filterProblemsByTag(catalogProblems, topic);
   const filtered = filterCatalog({
@@ -61,7 +63,7 @@ export function OlympiadCatalog({
       pagination={{ ...pagination, onChange: setPagination }}
       status="Self-review only"
       renderProblem={(problem) => (
-        <OlympiadProblemCard problem={problem} onOpen={setActiveProblemId} />
+        <OlympiadProblemCard problem={problem} onOpen={navigateToReader ? undefined : setActiveProblemId} />
       )}
       emptyTitle="No catalog problems match"
       emptyDescription="Try another competition, year, concept, topic or difficulty range."

@@ -35,6 +35,14 @@ export function CorpusCollection({
   const saved = useArchiveProgress();
   const [noteEdits, setNotes] = useState<Record<string, string>>({});
   const [reviewEdits, setReviewed] = useState<Record<string, boolean>>({});
+  // Discard unsaved edits before rendering a different account after a session refresh.
+  const accountId = saved.session.data?.user.id ?? null;
+  const [editOwner, setEditOwner] = useState(accountId);
+  if (editOwner !== accountId) {
+    setEditOwner(accountId);
+    setNotes({});
+    setReviewed({});
+  }
   const notes = {
     ...Object.fromEntries(
       Object.values(saved.stored).map((entry) => [entry.taskId, entry.notes]),
