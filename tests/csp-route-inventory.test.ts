@@ -74,3 +74,31 @@ test('unknown 404 HTML needs exact build evidence; status or path is never an ex
  assert.throws(()=>checkResponse(i,'/unknown',{...response,status:200},artifact),/Unclassified HTML/);
  assert.throws(()=>checkResponse(i,'/unknown',response),/Unclassified HTML/);
 });
+
+// Build-free guard: the source tree is compared with what was reviewed, so a new page or route handler fails here, in the
+// ordinary unit tests, before anyone builds. The build-based inventory (scripts/csp/architecture.mjs) stays the full check.
+test('every page and route handler in app/ has been reviewed for the CSP', async () => {
+  const {readdir,readFile}=await import('node:fs/promises');const {resolve,relative}=await import('node:path');
+  const {NONCE_MATCHERS}=await import('../scripts/csp/policy-artifact.mjs');
+  const root=resolve(process.cwd(),'app'),pages:string[]=[],handlers:string[]=[];
+  async function walk(dir:string):Promise<void>{for(const entry of await readdir(dir,{withFileTypes:true})){
+   const path=resolve(dir,entry.name);
+   if(entry.isDirectory())await walk(path);
+   else if(entry.name==='page.tsx')pages.push(appRoute(relative(root,dir)));
+   else if(entry.name==='route.ts')handlers.push(appRoute(relative(root,dir)));
+   // Next turns these metadata files into route handlers.
+   else if(/^opengraph-image\.tsx?$/.test(entry.name))handlers.push(appRoute(relative(root,dir)).replace(/\/$/,'')+'/opengraph-image');
+   else if(entry.name==='manifest.ts')handlers.push(appRoute(relative(root,dir)).replace(/\/$/,'')+'/manifest.webmanifest');
+   else if(entry.name==='robots.ts')handlers.push(appRoute(relative(root,dir)).replace(/\/$/,'')+'/robots.txt');
+   else if(entry.name==='sitemap.ts')handlers.push(appRoute(relative(root,dir)).replace(/\/$/,'')+'/sitemap.xml');
+  }}
+  await walk(root);
+  const reviewedHandlers:string[]=JSON.parse(await readFile(resolve(process.cwd(),'scripts/csp/non-document-routes.json'),'utf8'));
+  assert.deepEqual(handlers.sort(),[...reviewedHandlers].sort(),'Route handlers changed. Review the response contract and update scripts/csp/non-document-routes.json');
+  // Public pages that are prerendered, with a hash for each served HTML file. Everything else must be a request-nonce document.
+  const publicStatic=['/coaching/become-a-tutor','/coaching/consultation','/dashboard/contests/manage','/dashboard/problems/[id]','/learn','/learn/[slug]','/problems','/problems/archive','/problems/topics/[slug]','/terms'];
+  const nonce=(route:string)=>NONCE_MATCHERS.some((m:string)=>m.endsWith('/:path*')?route===m.slice(0,-7)||route.startsWith(m.slice(0,-7)+'/'):route===m&&!route.includes('['));
+  const unreviewed=pages.filter(route=>!publicStatic.includes(route)&&!nonce(route));
+  assert.deepEqual(unreviewed,[],'New page without a CSP strategy: add it to the nonce matchers or the reviewed public static pages');
+  for(const route of publicStatic)assert.ok(pages.includes(route),'Reviewed static page is gone from app/: '+route);
+});

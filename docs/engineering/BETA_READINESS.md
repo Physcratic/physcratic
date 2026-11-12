@@ -1085,3 +1085,11 @@ Separate draft stacked on revised P2 #143 (`0d929b3`), main `01757c0` incorporat
 - **Cause:** `MathAnswerField` only upgrades to MathLive when it mounts empty, unless `upgradeOnBlur` or `loadWithValue` is set. The archive and Arena answer panel set neither, so a restored draft never became a math field. The authored student workspace already used `upgradeOnBlur`.
 - **Fix:** `components/physics/archive-answer-panel.tsx` passes `upgradeOnBlur`. A restored draft shows "Loading math editor…", then opens as a math field with its value, and waits for focus to leave before swapping.
 - **Tests:** `first-time-user.browser.mjs` expects the math field and the Math Pad when a draft is restored, after a wrong check and after a reload (124 checks). `math-typing.browser.mjs` reads the restored value from the math field (597 checks).
+
+## 2026-11-12 - X3: CSP qualification rebuilt from #121 and #122
+
+- **What:** the fail-closed route inventory, document checks and tests from #122 (applied cleanly to current main, the conflicts were only in docs) and the readiness checklist from #121, updated for current routes. See [CSP_X3_READINESS.md](CSP_X3_READINESS.md). The production header is still report-only and no application code changed.
+- **Caught on the first run:** seven route handlers added since 4 November were not in the reviewed list, and two harness steps were stale (the Learn header no longer links to the Dashboard, and the Your solution tab became a page step in #137). Both fixed in the harness.
+- **Added:** browser cases for MathLive, the guided tour, the public library and the Tally link, and a build-free unit test that fails when a page or route handler is added without review.
+- **Result in Chromium:** 26 enforcement and report-only cases pass, the hybrid architecture qualifies all 27 HTML document routes, 39 focused tests pass. Firefox and WebKit run in GitHub CI.
+- **Under enforcement today:** nothing breaks with the current policy (eval and WASM fall back). Removing script `unsafe-inline` breaks hydration on every HTML route until nonces and hashes are published. Removing style `unsafe-inline` loses inline styles in KaTeX, MathLive, the tour and the PDF viewer.
