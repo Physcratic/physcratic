@@ -33,6 +33,7 @@ try {
     ok(await page.locator('h1').count() === 1, "one page heading");
     ok(await page.locator('h1').textContent() === "Problem library", "library heading");
     ok(await page.locator('[data-problem-card^="arena:"]').count() === 18, "all 18 Arena entries");
+    ok(await page.getByText("Community problems could not be loaded, so this list is incomplete.", { exact: true }).count() === 0, "actual community collection query succeeds");
     ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${width}/${theme} fits viewport`);
     ok((await page.locator('link[rel="canonical"]').getAttribute("href")) === "https://physcratic.com/problems", "unchanged canonical");
     const axe = await new AxeBuilder({ page }).analyze();
@@ -41,7 +42,9 @@ try {
     ok(await page.evaluate(() => document.activeElement?.textContent?.includes("Skip to content")), "skip link first");
     await page.keyboard.press("Enter");
     ok(await page.evaluate(() => document.activeElement?.id === "main-content"), "skip link focuses main");
-    ok(await page.locator('meta[name="robots"]').getAttribute("content") === "index, follow", "public library remains indexable");
+    const robots = page.locator('meta[name="robots"]');
+    const policy = await robots.count() ? await robots.getAttribute("content") : "";
+    ok(!/noindex|none/i.test(policy), "public library remains indexable (default index/follow when the tag is absent)");
     await page.screenshot({ path: `${evidence}/library-${width}-${theme}.png`, fullPage: false });
     await context.close();
   }

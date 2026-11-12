@@ -15,6 +15,7 @@ import pg from "pg";
 import { retiredPracticeIds, ARENA_LIBRARY_HREF } from "../lib/legacy-practice";
 import { problems } from "../lib/physics";
 import { corpusProblems } from "../lib/corpus-pilot";
+import { installAchievementFixtures } from "./community-achievement-fixtures";
 
 const databaseUrl = process.env.DATABASE_URL ?? "";
 const parsed = new URL(databaseUrl || "http://invalid");
@@ -54,6 +55,8 @@ const secondCookie = `better-auth.session_token=${secondSigned}`;
 // The public-library gate reuses these real A/B sessions and an account-specific progress fixture.
 const libraryNotes = ["P3 synthetic private note A", "P3 synthetic private note B"];
 if (process.env.HOME_LIBRARY_BROWSER === "1") {
+  // Canonical disposable authoring migrations keep the public collection healthy without mocking its API.
+  await installAchievementFixtures(pool, { userTableExists: true });
   await pool.query(`CREATE TABLE archive_progress("userId" text NOT NULL, "taskId" text NOT NULL, reviewed boolean NOT NULL DEFAULT false,
     notes text NOT NULL DEFAULT '', answer text NOT NULL DEFAULT '', "updatedAt" timestamptz NOT NULL DEFAULT now(), PRIMARY KEY("userId", "taskId"))`);
   const taskId = `${corpusProblems[0].id}:${corpusProblems[0].parts[0].id}`;

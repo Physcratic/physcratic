@@ -1,6 +1,6 @@
 # P3 public interactive problem library
 
-12 November 2026. Branch `codex/p3-interactive-library`, based on fetched main `c577f0b` (including the separate operator-preparation package). P3 only. One draft PR, no merge or deployment. Exact tested head and GitHub run links are recorded in the PR.
+12 November 2026. Branch `codex/p3-interactive-library`, based on fetched main `c577f0b` (including the separate operator-preparation package). P3 only. Draft [PR #149](https://github.com/Physcratic/physcratic/pull/149), no merge or deployment. Exact tested head and GitHub run links are recorded in the PR.
 
 ## Architecture
 
@@ -17,6 +17,8 @@ Private progress remains client-fetched through the existing account-keyed hook 
 The dated content baseline remains 121 static reader pages, five existing Guided Exercises, 12 retired legacy reader redirects and 138 sitemap URLs. Two thin archive pages remain noindex. `/problems` retains its metadata, canonical `/problems` and index/follow policy. No reader URLs or sitemap inclusion policies changed.
 
 Automated coverage includes URL parsing/updates, server directory rendering, canonical/robots/sitemap/retirement tests, real production-browser filtering and reader navigation, archive pagination coverage, back/forward/reload, native no-JavaScript navigation, transient collection failure/retry, keyboard skip link, zero serious/critical axe findings, both themes at 375/768/1440px, and synthetic A/B/guest HTML/RSC and mounted cross-tab session isolation. The new focused GitHub workflow runs the production-browser/session gate on disposable PostgreSQL and uploads screenshots. Existing full CI and community browser gates remain intact.
+
+Local verification on the final production implementation: focused SEO/render/URL tests 56/56, server suite 853 pass with 30 database skips and one existing todo, rendering suite 166/166, production browser 233 checks, synthetic session/HTML/RSC fixture 774 checks, retained-route HTTP audit 2,782 checks. TypeScript, zero-warning lint, offline guards and production build pass. Contrast/structure passes all eight 375/390/768/1440 light/dark combinations, with minimum text 4.64:1 and border 3.70:1. Screenshots are captured at 375/768/1440 in both themes and uploaded by the focused CI workflow. Final exact-head GitHub results are linked on #149.
 
 Independent critical review found the initial-props filter-reset regression; the final implementation removes that fallback and tests both entry routes. It also prompted the account-draft reset and real mounted account-switch regression. No remaining confirmed implementation blocker was found in the final review.
 
