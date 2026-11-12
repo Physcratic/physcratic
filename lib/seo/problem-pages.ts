@@ -1,6 +1,5 @@
 /**
- * One model of every public problem page: the 12 practice problems, the Arena problems and the 100 archive
- * problems. The sitemap, llms.txt, the library pages, metadata and structured data all read from it, so a
+ * One model of every public problem page: Arena and imported archive problems. The sitemap, llms.txt, the library pages, metadata and structured data all read from it, so a
  * problem cannot be listed in one place and missing from another. Published authored problems are not here on
  * purpose: they stay noindex and out of every list (see docs/engineering/SEARCH_AND_AI_VISIBILITY.md).
  */
@@ -9,9 +8,7 @@ import { importedProblemSchema, type ImportedProblem } from "../imported-corpus-
 import path from "node:path";
 import arena from "../arena/index.json";
 import { catalogProblems, type CatalogProblem } from "../corpus-catalog";
-import { problems as practiceProblems } from "../physics";
 import { physicsTopics, physicsTagLabel } from "../physics-taxonomy";
-import { practiceProblemDescription } from "../problem-meta";
 import { sentences, sharedSection, statementDescription, statementParagraphs } from "./statement-text";
 
 export type ProblemKind = "practice" | "arena" | "archive";
@@ -190,29 +187,11 @@ function arenaPage(entry: (typeof arena.problems)[number]): ProblemPage {
   };
 }
 
-function practicePage(problem: (typeof practiceProblems)[number]): ProblemPage {
-  const known = practiceProblemDescription(problem.id);
-  return {
-    id: problem.id,
-    kind: "practice",
-    path: problemPath(problem.id),
-    title: problem.title,
-    metaTitle: problem.title,
-    description: fit(known ?? problem.prompt, `A ${problem.topic.toLowerCase()} practice problem with a checked numerical answer.`),
-    topic: problem.topic,
-    topicSlug: topicSlug(problem.topic),
-    tags: [problem.concept],
-    lastmod: problem.addedAt,
-    indexable: true,
-    thin: false,
-  };
-}
-
 let cache: ProblemPage[] | undefined;
 
-/** Every public problem page: practice, then Arena, then the archive in catalogue order. */
+/** Every public problem page: Arena, then the archive in catalogue order. */
 export function allProblemPages(): ProblemPage[] {
-  cache ??= [...practiceProblems.map(practicePage), ...arena.problems.map(arenaPage), ...catalogProblems.map(archivePage)];
+  cache ??= [...arena.problems.map(arenaPage), ...catalogProblems.map(archivePage)];
   return cache;
 }
 
@@ -304,6 +283,6 @@ export function arenaStatementText(id: string): string | undefined {
 export function topicPageCopy(name: string, count: number) {
   return {
     title: `${name.endsWith("physics") ? name : `${name} physics`} olympiad problems`,
-    description: `${count} ${name.toLowerCase()} problems from IPhO, APhO, EuPhO, Physcratic Arena and practice sets, each with its own page and a checked answer where there is one.`,
+    description: `${count} ${name.toLowerCase()} problems from IPhO, APhO, EuPhO and Physcratic Arena, each with its own page and a checked answer where there is one.`,
   };
 }

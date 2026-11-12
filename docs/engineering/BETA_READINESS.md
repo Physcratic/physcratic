@@ -1,5 +1,19 @@
 # Beta readiness log
 
+## SEO P3 interactive public library (12 November 2026)
+
+Separately authorized P3 reuses the Dashboard shell and existing collections at `/problems`, with the registry-derived server directory and all 121 retained reader anchors. Shared URL filters/Guided selection support reload/history; archive/topic route-group moves preserve URLs and content, and the sitemap remains 138 URLs. Mounted account changes discard unsaved Guided drafts. See [architecture, verification and limits](SEO_P3_LIBRARY.md). Local focused56/browser233/session774/retained2782, TypeScript/lint/build and eight contrast combinations pass. Exact-head CI and screenshots are recorded on draft [#149](https://github.com/Physcratic/physcratic/pull/149). No homepage/auth/grading/publication/schema/operator changes, merge, deployment or P4.
+
+## B6B-1 operator release preparation (12 November 2026)
+
+The owner reports Production ledger 0001–0006 plus 0016, with 0007–0015/0017/0018 absent. The companion [reviewed upgrade package](../../scripts/production-upgrade/README.md) preserves that noncontiguous baseline, validates canonical hashes and owner-approved schema/ACL/recovery fingerprints, uses the common advisory lock and one transaction for all eleven missing migrations and ledger records, and independently verifies postcommit on a new connection. The historical six-migration package and all migration bytes remain unchanged.
+
+Focused disposable PG18.6 rehearsal passes upgrade, preserved authoring/contest/auth data, drift/unledgered-object rejection, mid-DDL rollback, lock competition and replay refusal. The reviewed grant template supports synthetic real sign-in, authoring publication, contest registration and server practice save/replay with denied immutable DELETE/deletion-service access/CREATE. Existing owner runtime is unchanged by this tool. Exact-head CI is the full-suite authority after push. No Production inspection, SQL, roles/grants, credentials, settings, flags, deployment or README trigger was performed. The missing actual Production row hashes, recovery/restore-erasure evidence, complete baseline fingerprint and explicit window authority remain execution gates.
+
+## SEO P2 public homepage (11 November 2026)
+
+Branch `codex/seo-p2-public-home` implements the server-rendered public product lobby from `b3912ce` and incorporates frozen main `01757c0` without changing upstream account-deletion, reader/progress code or activation prerequisites. The member session branch, root metadata/private-no-store, old dashboard queries, reader URLs and publication policy remain unchanged. See [checkpoint, verification and screenshots](SEO_P2_HOMEPAGE.md). The draft PR records the exact final head and GitHub checks. No merge or manual deployment. The owner cancelled P3. Stop after the P2 draft PR and report. Further library work needs separate authorization.
+
 ## 2026-11-10 - B5 account deletion readiness
 
 The owner now approves account-wide erasure/de-identification while preserving appropriately licensed published content and other students’ work. B5 still stops before runtime implementation because mixed-subject immutable case/evidence text needs a verified redaction/adjudication mechanism or a defined limited-retention exception. See [the precise remaining privacy gate](ACCOUNT_DELETION_READINESS.md) and [the inactive prospective licence/consent design](PUBLICATION_LICENSE_PROPOSAL.md). PR #140 remains draft and unmerged. No deletion endpoint, migration, privilege, active Terms, flag or Production change.
@@ -993,6 +1007,18 @@ New private GET /api/problem-progress aggregates the existing gated Practice/Are
 Verification on local Node24.17.0: frozen pnpm10.34.9 installation, Next type generation/TypeScript and zero-warning lint passed. Focused server tests36 pass with3 PostgreSQL-dependent skips, plus21 component/input checks. Chromium expression recovery47 and shared-room layout/keyboard/axe64 checks pass across desktop/mobile and light/dark. The new SQL integration scenario also passes on disposable PGlite0.5.16 using real PostgreSQL query semantics. This is not a full PostgreSQL18.6 migration/grant qualification. The tracked PostgreSQL test is available to normal CI.
 
 Full local suites were attempted: server721 pass,48 fail,29 skip,1 TODO; component151 pass,7 fail. They are NOT green: this partial source checkout lacks generated corpus/media/migration assets and Windows shell/path assumptions break existing tests, including the existing copy-test offender allowlist. Production build is blocked by the absent coaching cutout asset. No test was weakened to hide these limits. Final exact-head remote CI belongs to the draft PR. Full installed-schema progress browser, real providers/Preview, physical devices and independent review remain unverified. No merge or deployment is authorized by this work.
+
+## P2 Lobby design reversal (12 November 2026)
+
+Final review correction (12 November 2026): #143 now keeps four primary links and places all six crawlable topic anchors below the unchanged Lobby. Original Dashboard captures are preserved, homepage captures updated. Focused95/render24/browser205/session661 and eight contrast combinations pass, as do TypeScript/lint/build. Exact head and CI are on #143. #146 must incorporate this head and separately mark its changed marking guide pending owner editorial approval. Keep both draft and unmerged, no deployment/P3.
+
+Draft PR #143 replaces the rejected standalone homepage cards with the existing Dashboard/Overview and minimum public discovery header. Real Arena recommendation is present before hydration and existing unsolved selection remains. Auth/cache/metadata/database contracts are unchanged. See [checkpoint and tests](SEO_P2_HOMEPAGE.md). Exact final head and full CI are on the PR. Keep draft, do not merge or deploy. Next authorized batch is a separate draft PR retiring only the 12 legacy practice URLs, preserving their historical records and grading contracts. No P3.
+
+## Legacy practice retirement (12 November 2026)
+
+Final review correction (12 November 2026): #146 incorporates exact P2 `db2430ea` and main `8bb5941` through normal merges. The marking guide's changed revision is pending owner editorial approval, with no visible or structured-data reviewer attribution. Its explanation and sources are unchanged. Other reviewed guides retain their bylines. See LEGACY_PRACTICE_RETIREMENT.md and the exact-head CI on #146. Keep both drafts unmerged, no deployment/P3.
+
+Separate draft stacked on revised P2 #143 (`0d929b3`), main `01757c0` incorporated. All 12 legacy reader URLs permanently redirect to the existing Arena library. Registry yields 121 retained readers and 138 sitemap URLs. Arena/imported/authored identities, grading hashes, historical records, five Guided exercises, auth and schema remain intact. See [implementation, SEO consequences and verification](LEGACY_PRACTICE_RETIREMENT.md). Exact final head and CI are recorded on the draft PR. No operator installation. Keep both drafts unmerged, no deployment/settings/P3. The existing native IPhO 2026 source-label audit mismatch remains a separately recorded concern.
 
 ## 2026-11-11 - Phase 9c: Studio clean-up and the first-visit tour
 

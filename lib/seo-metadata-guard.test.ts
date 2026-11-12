@@ -4,7 +4,6 @@ import { describe, it } from "node:test";
 import { content as coaching } from "./coaching/content";
 import { findCopyProblems } from "./copy-rules";
 import { articles, learnPath } from "./learn/articles";
-import { practiceProblemDescription } from "./problem-meta";
 import { findProblemPage, problemsInTopic, topicName, topicPageCopy } from "./seo/problem-pages";
 import { publicRoutes, type PublicRoute } from "./seo/public-routes";
 import { SITE } from "./site";
@@ -38,14 +37,14 @@ function resolve(route: PublicRoute): Resolved {
     return { title: SITE.defaultTitle, description: SITE.description, canonical: declaredCanonical("app/page.tsx", route.path) };
   }
   if (route.kind === "library") {
-    const file = route.path === "/problems" ? "app/problems/page.tsx" : "app/problems/archive/page.tsx";
+    const file = route.path === "/problems" ? "app/problems/page.tsx" : "app/problems/(discovery)/archive/page.tsx";
     const source = read(file);
     return { title: source.match(/const TITLE = "([^"]+)"/)![1] + TEMPLATE, description: source.match(/const DESCRIPTION =\s*"([^"]+)"/)![1], canonical: declaredCanonical(file, route.path) };
   }
   if (route.kind === "topic") {
     const slug = route.path.split("/").pop()!;
     const copy = topicPageCopy(topicName(slug)!, problemsInTopic(slug).length);
-    return { title: copy.title + TEMPLATE, description: copy.description, canonical: declaredCanonical("app/problems/topics/[slug]/page.tsx", route.path) };
+    return { title: copy.title + TEMPLATE, description: copy.description, canonical: declaredCanonical("app/problems/(discovery)/topics/[slug]/page.tsx", route.path) };
   }
   if (route.kind === "problem") {
     const page = findProblemPage(route.path.split("/").pop()!)!;
@@ -116,8 +115,8 @@ describe("public route metadata", () => {
 
   it("uses the written problem descriptions on the page itself", () => {
     assert.match(read("app/dashboard/problems/[id]/page.tsx"), /canonical: page\.path/);
-    for (const id of ["first-law", "heat", "incline", "projectile", "spring"]) {
-      assert.equal(findProblemPage(id)!.description, practiceProblemDescription(id), id);
+    for (const id of ["arena-mind-the-gap", "ipho-2025-t2"]) {
+      assert.ok(findProblemPage(id)!.description.length >= 70, id);
     }
   });
 });

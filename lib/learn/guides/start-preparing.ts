@@ -7,7 +7,7 @@ export const startPreparing: ArticleDraft = {
   title: "How to start preparing for the Physics Olympiad",
   description:
     "A plain guide for students and parents. What to study first, how to use past papers, a 12-month outline and the mistakes to avoid.",
-  updated: "2026-11-02",
+  updated: "2026-11-12",
   published: true,
   reviewedBy: REVIEWER,
   sources: [
@@ -115,9 +115,9 @@ export const startPreparing: ArticleDraft = {
     },
     {
       type: "problemLink",
-      problemId: "incline",
-      label: "Try a starter mechanics problem: A block on an incline",
-      note: "A short problem on Newton's laws. Our marking guide uses it as a worked example.",
+      problemId: "arena-the-invisible-brake",
+      label: "Try a mechanics problem: The Invisible Brake",
+      note: "An Arena mechanics problem with a worked solution for comparison.",
     },
     { type: "heading", level: 2, text: "How to use past papers" },
     {

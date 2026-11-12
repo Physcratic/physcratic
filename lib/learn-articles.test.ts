@@ -4,7 +4,7 @@ import { articles, formatDate, publishedArticles } from "./learn/articles";
 import { renderMath } from "./learn/math";
 import { headingId, readingMinutes, wordCount } from "./learn/reading";
 import { CHECK_HOST_SITE, type Article } from "./learn/types";
-import { problems } from "./physics";
+import { findProblemPage } from "./seo/problem-pages";
 
 const citedIds = (a: Article): string[] => {
   const ids: string[] = [];
@@ -18,10 +18,14 @@ const citedIds = (a: Article): string[] => {
 };
 
 describe("learn articles", () => {
-  it("has unique slugs, four reviewed guides and two product guides", () => {
+  it("has unique slugs, three reviewed guides, one pending guide and two product guides", () => {
     const slugs = articles.map((a) => a.slug);
     assert.equal(new Set(slugs).size, slugs.length);
     assert.equal(articles.length, 6);
+    assert.deepEqual(articles.filter(a => a.reviewedBy).map(a => a.slug), [
+      "start-preparing-physics-olympiad", "ipho-apho-eupho-differences", "physics-olympiad-books-and-resources",
+    ]);
+    assert.deepEqual(articles.filter(a => a.kind !== "product" && !a.reviewedBy).map(a => a.slug), ["how-olympiad-solutions-are-marked"]);
   });
   for (const a of articles) {
     describe(a.slug, () => {
@@ -33,10 +37,11 @@ describe("learn articles", () => {
         assert.match(a.slug, /^[a-z0-9]+(-[a-z0-9]+)*$/);
       });
       it("records human review only for reviewed guides", () => {
-        if (a.kind === "product") {
+        if (a.kind === "product" || a.slug === "how-olympiad-solutions-are-marked") {
           assert.equal(a.reviewedBy, null);
           return;
         }
+        assert.ok(a.reviewedBy);
         assert.equal(a.reviewedBy.name, "Arrow Dunatos");
         assert.equal(a.reviewedBy.credential, "IPhO 2026 bronze medallist");
       });
@@ -79,7 +84,7 @@ describe("learn articles", () => {
       it("links only to problems that exist", () => {
         for (const b of a.body) {
           if (b.type === "problemLink") {
-            assert.ok(problems.some((p) => p.id === b.problemId), b.problemId);
+            assert.ok(findProblemPage(b.problemId)?.indexable, b.problemId);
           }
         }
       });

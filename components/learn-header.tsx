@@ -18,12 +18,12 @@ export function LearnHeader() {
     <header className="border-b">
       <div className="mx-auto flex h-16 w-full max-w-3xl items-center justify-between gap-3 px-4 sm:px-6">
         <Link
-          href="/dashboard"
+          href="/"
           className="flex min-h-11 min-w-0 items-center gap-2.5 rounded-md font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           <BrandMark size={32} className="shrink-0" />
           <span className="truncate text-lg">Physcratic</span>
-          <span className="sr-only">, back to the dashboard</span>
+          <span className="sr-only">, home</span>
         </Link>
         <nav aria-label="Site" className="flex shrink-0 items-center gap-2">
           <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">

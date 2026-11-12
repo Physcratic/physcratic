@@ -15,6 +15,8 @@ import { ArchiveAnswerPanel } from "./archive-answer-panel";
 import { clearSavedAnswers } from "./saved-answers";
 import { SolveSteps, StepHeading, proseWidth, solveTokens } from "./solve-ui";
 
+// Internal legacy compatibility fixture for progress and room browser harnesses.
+// Public reader generation excludes this model and exact legacy routes redirect to Arena.
 export function ProblemReader({ problem }: { problem: Problem }) {
   return <PracticeProblem key={problem.id} problem={problem} />;
 }

@@ -31,10 +31,14 @@ test("product guides are published through the existing registry with no invente
     assert.equal("reviewedBy" in graph[1], false);
     assert.doesNotMatch(JSON.stringify(graph), /Arrow Dunatos|bronze medallist/);
   }
-  for (const article of articles.filter((a) => a.kind !== "product")) {
+  for (const article of articles.filter((a) => a.kind !== "product" && a.slug !== "how-olympiad-solutions-are-marked")) {
     assert.equal(article.reviewedBy?.name, "Arrow Dunatos");
     assert.ok("reviewedBy" in articleGraph(article)[1]);
   }
+  const pending = findArticle("how-olympiad-solutions-are-marked")!;
+  assert.equal(pending.reviewedBy, null);
+  assert.equal("reviewedBy" in articleGraph(pending)[1], false);
+  assert.doesNotMatch(JSON.stringify(articleGraph(pending)), /Arrow Dunatos|bronze medallist/);
   assert.match(readFileSync("components/authoring/studio-ui.tsx", "utf8"), /HOW_IT_WORKS_HREF = "\/learn\/how-to-write-a-problem"/);
 });
 

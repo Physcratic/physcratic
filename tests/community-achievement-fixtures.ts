@@ -8,8 +8,8 @@ import { createAuthoredSolutionApi } from "../lib/authored-solution-api";
 import type { AuthoredDocument, PrivatePart } from "../lib/problem-authoring";
 
 export const achievementMigrations = ["0001_problem_authoring", "0002_authored_write_limit", "0003_author_media", "0004_authored_attempts", "0005_authored_solution_access", "0006_authored_discovery", "0007_community_profile"];
-export async function installAchievementFixtures(pool: Pool) {
-  await pool.query('CREATE TABLE "user"(id text PRIMARY KEY)');
+export async function installAchievementFixtures(pool: Pool, { userTableExists = false } = {}) {
+  if (!userTableExists) await pool.query('CREATE TABLE "user"(id text PRIMARY KEY)');
   for (const name of [...achievementMigrations, "0009_community_achievements"])
     await pool.query(`BEGIN; ${await readFile(`migrations/${name}.up.sql`, "utf8")} COMMIT;`);
 }

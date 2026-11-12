@@ -1,10 +1,9 @@
 // Single registry of URLs that resolve with 200 today. The sitemap, llms.txt and the metadata guard test all
 // derive from it. Every problem comes from lib/seo/problem-pages.ts. There are no query-string URLs here: topics
 // have their own paths (/problems/topics/<slug>) and /dashboard is the signed-in app, which is noindex.
+import { filterProblemsByTag } from "../problem-tags";
 import { content as coachingContent } from "../coaching/content";
-import { filterCatalog } from "../corpus-catalog";
 import { learnPath, publishedArticles } from "../learn/articles";
-import { problems, type Problem } from "../physics";
 import { allProblemPages, topicsWithProblems } from "./problem-pages";
 
 export type PublicRouteKind = "home" | "library" | "topic" | "problem" | "learn" | "coaching" | "legal";
@@ -25,16 +24,9 @@ export interface PublicRoute {
   indexable: boolean;
 }
 
-/**
- * True when a topic has problems: either lib/physics practice problems, or catalog problems via the same
- * filter (and tagLabel mapping, e.g. "Modern" → "Modern physics") the interactive library uses.
- */
+/** All public topic availability follows the same retained page registry as discovery. */
 export function topicHasProblems(topic: string): boolean {
-  return problems.some((problem) => problem.topic === topic) || filterCatalog({ topic }).length > 0;
-}
-
-export function findPublicProblem(id: string): Problem | null {
-  return problems.find((problem) => problem.id === id) ?? null;
+  return filterProblemsByTag(allProblemPages(), topic).length > 0;
 }
 
 export const publicRoutes: PublicRoute[] = [

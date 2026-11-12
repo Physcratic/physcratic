@@ -12,7 +12,7 @@ export function OlympiadProblemCard({
   onOpen,
 }: {
   problem: CatalogProblem;
-  onOpen: (id: string) => void;
+  onOpen?: (id: string) => void;
 }) {
   const description = [
     problem.titleLanguage === "ru" && "Source title in Russian",
@@ -37,7 +37,7 @@ export function OlympiadProblemCard({
       description={description}
       tags={getProblemTags(problem)}
       href={`/dashboard/problems/${problem.id}`}
-      onOpen={() => onOpen(problem.id)}
+      onOpen={onOpen ? () => onOpen(problem.id) : undefined}
     />
   );
 }
