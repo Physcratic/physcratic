@@ -86,7 +86,7 @@ describe("public library links", () => {
   it("keeps problem and topic anchors in the server-rendered library pages", async () => {
     const { PublicProblemDirectory: Library } = await import("../components/problems/public-problem-directory");
     const { ArchiveDirectory: Archive } = await import("../components/problems/archive-directory");
-    const { default: Topic } = await import("../app/problems/(discovery)/topics/[slug]/page");
+    const { TopicDirectory: Topic } = await import("../components/problems/topic-directory");
     const { topicsWithProblems } = await import("../lib/seo/problem-pages");
     const library = renderToStaticMarkup(createElement(Library));
     const archive = renderToStaticMarkup(createElement(Archive));
@@ -96,7 +96,7 @@ describe("public library links", () => {
     }
     for (const topic of topicsWithProblems()) {
       assert.ok(library.includes(`href="/problems/topics/${topic.slug}"`), topic.slug);
-      const html = renderToStaticMarkup(await Topic({ params: Promise.resolve({ slug: topic.slug }) }));
+      const html = renderToStaticMarkup(createElement(Topic, { name: topic.name, pages: allProblemPages().filter(p => p.topicSlug === topic.slug) }));
       for (const page of allProblemPages().filter(p => p.topicSlug === topic.slug)) {
         assert.ok(html.includes(`href="${page.path}"`), `${topic.slug}: ${page.path}`);
       }

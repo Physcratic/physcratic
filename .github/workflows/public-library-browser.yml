@@ -58,6 +58,8 @@ jobs:
           AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/library-tools
           HOME_LIBRARY_BROWSER: '1'
           HOME_ARCHIVE_BROWSER: '1'
+          HOME_TOPIC_BROWSER: '1'
+          TOPIC_SCREENSHOTS: ${{ runner.temp }}/library-screenshots/topics
           ARCHIVE_SCREENSHOTS: ${{ runner.temp }}/library-screenshots/archive
           LIBRARY_SCREENSHOTS: ${{ runner.temp }}/library-screenshots
         run: pnpm exec tsx --conditions=react-server tests/home-session.live.mts

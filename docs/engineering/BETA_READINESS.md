@@ -1,5 +1,9 @@
 # Beta readiness log
 
+## SEO P4B topics (12 November 2026)
+
+Six public topics reuse the Dashboard shell and existing Arena/Olympiad cards, with registry counts22/23/18/19/19/20 and all native server-rendered reader links. Metadata/OG/404 and sitemap138 are preserved. See [architecture, evidence and limitations](SEO_P4B_TOPICS.md). Exact-head checks/screenshots are on the focused draft PR. No homepage/library/archive/backend changes, merge, manual deployment or P5.
+
 ## SEO P4A archive (12 November 2026)
 
 Archive-only Dashboard shell and existing Olympiad cards, with server-rendered 103 reader entries and preserved grouping/year fragments, metadata and sitemap. Six topic pages and public library implementation are unchanged. See [architecture, verification and limitations](SEO_P4A_ARCHIVE.md). Exact-head results/screenshots are recorded on the focused draft PR. No merge, manual deployment, database/auth/grading/publication change or P4B.
