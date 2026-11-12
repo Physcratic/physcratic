@@ -33,7 +33,17 @@ try {
     ok(await page.locator('h1').count() === 1, "one page heading");
     const ratingHelp = page.getByRole("button", { name: "What do the ratings mean?" });
     ok(await ratingHelp.count() === 1 && await ratingHelp.isVisible(), `${width}/${theme} the ratings help is on the public library, under the rating filter`);
-    ok(await page.locator("#difficulty-filter").evaluate((filter, help) => filter.closest("[data-slot='card'], .rounded-xl, form, section")?.contains(help) ?? false, await ratingHelp.elementHandle()), `${width}/${theme} the ratings help sits with the rating filter`);
+    // Next to the filter: directly under it (within 60px), and in the same filter card, not just somewhere on the page.
+    const nextTo = await page.locator("#difficulty-filter").evaluate((filter) => {
+      const help = [...document.querySelectorAll("button")].find((el) => el.textContent?.includes("What do the ratings mean?"));
+      if (!help) return { ok: false, why: "no button" };
+      const gap = help.getBoundingClientRect().top - filter.getBoundingClientRect().bottom;
+      let shared = filter.parentElement;
+      while (shared && !shared.contains(help)) shared = shared.parentElement;
+      const height = shared ? shared.getBoundingClientRect().height : Infinity;
+      return { ok: gap >= 0 && gap <= 60 && height < 700, gap: Math.round(gap), height: Math.round(height) };
+    });
+    ok(nextTo.ok, `${width}/${theme} the ratings help sits with the rating filter (${JSON.stringify(nextTo)})`);
     ok(await page.locator('h1').textContent() === "Problem library", "library heading");
     ok(await page.locator('[data-problem-card^="arena:"]').count() === 18, "all 18 Arena entries");
     ok(await page.getByText("Community problems could not be loaded, so this list is incomplete.", { exact: true }).count() === 0, "actual community collection query succeeds");
