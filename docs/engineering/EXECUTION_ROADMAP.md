@@ -1,5 +1,9 @@
 # Execution roadmap
 
+## SEO P4A archive (12 November 2026)
+
+Archive-only Dashboard shell and existing Olympiad cards, with server-rendered 103 reader entries and preserved grouping/year fragments, metadata and sitemap. Six topic pages and public library implementation are unchanged. See [architecture, verification and limitations](SEO_P4A_ARCHIVE.md). Exact-head results/screenshots are recorded on the focused draft PR. No merge, manual deployment, database/auth/grading/publication change or P4B.
+
 ## SEO P3 interactive public library (12 November 2026)
 
 Separately authorized P3 reuses the Dashboard shell and existing collections at `/problems`, with the registry-derived server directory and all 121 retained reader anchors. Shared URL filters/Guided selection support reload/history; archive/topic route-group moves preserve URLs and content, and the sitemap remains 138 URLs. Mounted account changes discard unsaved Guided drafts. See [architecture, verification and limits](SEO_P3_LIBRARY.md). Local focused56/browser233/session774/retained2782, TypeScript/lint/build and eight contrast combinations pass. Exact-head CI and screenshots are recorded on draft [#149](https://github.com/Physcratic/physcratic/pull/149). No homepage/auth/grading/publication/schema/operator changes, merge, deployment or P4.

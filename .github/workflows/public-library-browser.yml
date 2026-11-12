@@ -52,11 +52,13 @@ jobs:
           BETTER_AUTH_SECRET: ci-build-only-physcratic-synthetic-secret-0000000000000000
           BETTER_AUTH_URL: http://127.0.0.1:3101
         run: pnpm build
-      - name: Public library, no-JS, accessibility and real session isolation
+      - name: Public library, archive, no-JS, accessibility and real session isolation
         env:
           DATABASE_URL: postgresql://postgres:local-test-only@127.0.0.1:5432/physcratic_library_test
           AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/library-tools
           HOME_LIBRARY_BROWSER: '1'
+          HOME_ARCHIVE_BROWSER: '1'
+          ARCHIVE_SCREENSHOTS: ${{ runner.temp }}/library-screenshots/archive
           LIBRARY_SCREENSHOTS: ${{ runner.temp }}/library-screenshots
         run: pnpm exec tsx --conditions=react-server tests/home-session.live.mts
       - name: Desktop and mobile visual evidence
