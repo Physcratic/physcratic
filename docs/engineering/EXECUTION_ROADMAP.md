@@ -1,5 +1,11 @@
 # Execution roadmap
 
+## Studio public removal (12 November 2026)
+
+The author management list now offers confirmed "Remove from public" for published problems through the existing versioned unpublish API. Success displays the archived state and retained-history notice. Failed or uncertain responses require a fresh list before another removal, including lost acknowledgements after commit. Actions wrap at mobile widths. No backend, schema, flags or pinned B6 package changes.
+
+Base `bc7ee7a7c5c55face89cdf4526667bf350fd20a1`. Focused PostgreSQL 32/32 passes owner/session/origin/version, discovery, submission races and retained-history contracts. The real Studio/API/browser regression passes cancellation, 503, stale409, keyboard/mobile axe/overflow, exact revision/attempt preservation and committed-response recovery. Server853/component166 pass, with30 database skips and one inherited TODO in the server-only run. Exact-head CI and guarded build results belong to the PR. No merge, deployment or Production action.
+
 ## SEO P4B topics (12 November 2026)
 
 Six public topics reuse the Dashboard shell and existing Arena/Olympiad cards, with registry counts22/23/18/19/19/20 and all native server-rendered reader links. Metadata/OG/404 and sitemap138 are preserved. See [architecture, evidence and limitations](SEO_P4B_TOPICS.md). Exact-head checks/screenshots are on the focused draft PR. No homepage/library/archive/backend changes, merge, manual deployment or P5.
