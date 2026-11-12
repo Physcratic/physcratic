@@ -4,7 +4,7 @@
 
 ## Architecture
 
-The anonymous homepage now renders the existing Dashboard and Overview directly. Featured contest, Arena recommendation, rating, coaching and history retain their existing components, order and guest states. The rejected standalone practice, suggestions, topics, guides and account cards are removed. Only the Lobby subtitle is replaced with a short public explanation and a compact navigation row for Arena, library, archive, guides and all six topics.
+The anonymous homepage now renders the existing Dashboard and Overview directly. Featured contest, Arena recommendation, rating, coaching and history retain their existing components, order and guest states. The rejected standalone practice, suggestions, topics, guides and account cards are removed. Only the Lobby subtitle is replaced with a short public explanation and four primary links for Arena, library, archive and guides. Six crawlable topic anchors sit in secondary navigation after the complete Lobby content.
 
 The shared recommendation starts with a stable real Arena entry on both server and first client render. Its title, summary and reader anchor are available without JavaScript. After hydration the existing `pickProblem` and browser-local solved history choose an unsolved problem. Another problem keeps its existing behaviour and requires JavaScript.
 
@@ -30,3 +30,11 @@ Local logs are `/tmp/lobby-{focused,focused-ui,render,tsc,lint,build-final,brows
 [Comparison screenshots](seo-p2/) now pair the existing dashboard reference (`before-*`) with the revised root (`after-*`) at 375 and 1440 in both themes. Captures use the same build, Arena solved-history fixture and synthetic healthy guest responses. Tablet comparisons remain in local browser evidence. The original dashboard is the visual reference.
 
 No Production data, provider, settings, flags or deployment operation. Physical devices, Firefox/WebKit, live providers and Google Search Console/indexation/rankings are unverified. No automatic merge or deployment is authorized.
+
+## Final visual correction (12 November 2026)
+
+From reviewed head `0d929b3`: move only the six topic anchors from the header into plain secondary navigation below the existing Lobby. The header keeps its four primary links. The Dashboard gets an optional server-rendered child slot after Content. No card, typography, recommendation, metadata, robot, session or cache change.
+
+Node22.23.1/pnpm10.34.9 frozen install, 95 SEO/copy checks, 24 render/selection/tour checks, typegen/TypeScript, zero-warning lint and production build `zsQQxs_XcioDnuIccoEYN` pass. Updated browser checks: 205 pass, including four-versus-six navigation, after-content order, all no-JavaScript topic anchors and exact original five-card geometry. Disposable A/B/guest session checks: 661 pass. Eight homepage contrast/keyboard/axe combinations pass with zero failures, minimum text5.25:1 and border3.79:1.
+
+The four `after-*` captures are replaced at375/1440 in both themes. The original Dashboard `before-*` files are preserved byte for byte. Comparison retains identical card sizes and order, with the first card88px higher on375px than the prior P2 header. Current exact-head CI links and final SHA are on draft #143. Keep both #143 and stacked #146 draft and unmerged. No deployment or P3.

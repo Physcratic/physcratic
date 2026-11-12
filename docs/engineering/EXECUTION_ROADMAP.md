@@ -7,6 +7,8 @@ Separate draft stacked on revised P2 #143 (`0d929b3`), main `01757c0` incorporat
 
 ## P2 Lobby design reversal (12 November 2026)
 
+Final review correction (12 November 2026): #143 now keeps four primary links and places all six crawlable topic anchors below the unchanged Lobby. Original Dashboard captures are preserved, homepage captures updated. Focused95/render24/browser205/session661 and eight contrast combinations pass, as do TypeScript/lint/build. Exact head and CI are on #143. #146 must incorporate this head and separately mark its changed marking guide pending owner editorial approval. Keep both draft and unmerged, no deployment/P3.
+
 Draft PR #143 replaces the rejected standalone homepage cards with the existing Dashboard/Overview and minimum public discovery header. Real Arena recommendation is present before hydration and existing unsolved selection remains. Auth/cache/metadata/database contracts are unchanged. See [checkpoint and tests](SEO_P2_HOMEPAGE.md). Exact final head and full CI are on the PR. Keep draft, do not merge or deploy. Next authorized batch is a separate draft PR retiring only the 12 legacy practice URLs, preserving their historical records and grading contracts. No P3.
 
 

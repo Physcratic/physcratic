@@ -18,11 +18,14 @@ export function HomeLanding() {
           <Link href="/problems" className={linkClass}>Problem library</Link>
           <Link href="/problems/archive" className={linkClass}>Olympiad archive</Link>
           <Link href="/learn" className={linkClass}>Guides</Link>
-          {topicsWithProblems().map((topic) => (
-            <Link key={topic.slug} href={`/problems/topics/${topic.slug}`} className={linkClass}>{topic.name}</Link>
-          ))}
         </nav>
       </div>
-    } />
+    }>
+      <nav aria-label="Problems by topic" className="mt-7 flex flex-wrap gap-x-5 text-sm text-muted-foreground">
+        {topicsWithProblems().map((topic) => (
+          <Link key={topic.slug} href={`/problems/topics/${topic.slug}`} className={linkClass}>{topic.name}</Link>
+        ))}
+      </nav>
+    </Dashboard>
   );
 }

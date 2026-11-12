@@ -50,6 +50,15 @@ try {
       for (const href of ["/problems", "/problems/archive", "/learn", "/coaching", "/dashboard?view=contests", "/dashboard?view=problems&collection=arena", `/dashboard/problems/${selected.id}`]) {
         ok(await page.locator(`main a[href="${href}"]`).count() > 0, `public action ${href}`);
       }
+      const primary = page.getByRole("navigation", { name: "Practice and guides", exact: true });
+      const secondary = page.getByRole("navigation", { name: "Problems by topic", exact: true });
+      ok(await primary.getByRole("link").count() === 4, "four primary discovery links");
+      ok(await primary.locator('a[href^="/problems/topics/"]').count() === 0, "topics do not clutter the primary navigation");
+      ok(await secondary.getByRole("link").count() === 6, "all six topic anchors in secondary navigation");
+      ok(await secondary.evaluate(nav => {
+        const history = document.querySelector('section[aria-label="Your problem history"]');
+        return history && (nav.compareDocumentPosition(history) & Node.DOCUMENT_POSITION_PRECEDING) !== 0;
+      }), "secondary navigation follows the full Lobby content");
       await page.keyboard.press("Tab");
       ok(await page.evaluate(() => document.activeElement?.textContent?.includes("Skip to content")), "skip link first");
       await page.keyboard.press("Enter");
@@ -64,9 +73,19 @@ try {
       ok(await practice.evaluate(el => { const s = getComputedStyle(el); return s.boxShadow !== "none" || s.outlineStyle !== "none"; }), "visible practice focus");
       await page.screenshot({ path: `${evidence}/home-${width}-${theme}.png`, fullPage: true });
       const lobbyHeadings = await page.locator("main h2").allTextContents();
+      const cardGeometry = await page.locator("main .bg-card").evaluateAll(cards => cards.map(card => {
+        const rect = card.getBoundingClientRect();
+        return { x: rect.x, width: rect.width, height: rect.height };
+      }));
       const reference = await context.newPage();
       await reference.goto(`${origin}/dashboard`, { waitUntil: "networkidle" });
       ok(JSON.stringify(await reference.locator("main h2").allTextContents()) === JSON.stringify(lobbyHeadings), "same Lobby sections and order as dashboard");
+      const referenceGeometry = await reference.locator("main .bg-card").evaluateAll(cards => cards.map(card => {
+        const rect = card.getBoundingClientRect();
+        return { x: rect.x, width: rect.width, height: rect.height };
+      }));
+      ok(cardGeometry.length === referenceGeometry.length && cardGeometry.length === 5, "same five original Lobby cards");
+      ok(cardGeometry.every((card, index) => ["x", "width", "height"].every(key => Math.abs(card[key] - referenceGeometry[index][key]) < 1)), "original Lobby card widths, heights and columns preserved");
       await reference.screenshot({ path: `${evidence}/dashboard-${width}-${theme}.png`, fullPage: true });
       await reference.close();
       await practice.click();
@@ -114,6 +133,7 @@ try {
   ok(await page.getByRole("link", { name: "Solve problem", exact: true }).isVisible(), "no-JS practice link");
   ok(await page.getByRole("link", { name: "Solve problem", exact: true }).getAttribute("href") === `/dashboard/problems/${arena[0].id}`, "stable Arena recommendation in HTML");
   ok(await page.locator('main a[href^="/problems/topics/"]').count() === 6, "six no-JS topic links");
+  ok(await page.getByRole("navigation", { name: "Problems by topic", exact: true }).getByRole("link").count() === 6, "secondary topic anchors remain available without JavaScript");
   await page.getByRole("link", { name: "Solve problem", exact: true }).click();
   ok(page.url() === `${origin}/dashboard/problems/${arena[0].id}`, "no-JS practice navigation");
   await context.close();
