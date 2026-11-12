@@ -1,5 +1,11 @@
 # Beta readiness log
 
+## B6B-1 operator release preparation (12 November 2026)
+
+The owner reports Production ledger 0001–0006 plus 0016, with 0007–0015/0017/0018 absent. The companion [reviewed upgrade package](../../scripts/production-upgrade/README.md) preserves that noncontiguous baseline, validates canonical hashes and owner-approved schema/ACL/recovery fingerprints, uses the common advisory lock and one transaction for all eleven missing migrations and ledger records, and independently verifies postcommit on a new connection. The historical six-migration package and all migration bytes remain unchanged.
+
+Focused disposable PG18.6 rehearsal passes upgrade, preserved authoring/contest/auth data, drift/unledgered-object rejection, mid-DDL rollback, lock competition and replay refusal. The reviewed grant template supports synthetic real sign-in, authoring publication, contest registration and server practice save/replay with denied immutable DELETE/deletion-service access/CREATE. Existing owner runtime is unchanged by this tool. Exact-head CI is the full-suite authority after push. No Production inspection, SQL, roles/grants, credentials, settings, flags, deployment or README trigger was performed. The missing actual Production row hashes, recovery/restore-erasure evidence, complete baseline fingerprint and explicit window authority remain execution gates.
+
 ## SEO P2 public homepage (11 November 2026)
 
 Branch `codex/seo-p2-public-home` implements the server-rendered public product lobby from `b3912ce` and incorporates frozen main `01757c0` without changing upstream account-deletion, reader/progress code or activation prerequisites. The member session branch, root metadata/private-no-store, old dashboard queries, reader URLs and publication policy remain unchanged. See [checkpoint, verification and screenshots](SEO_P2_HOMEPAGE.md). The draft PR records the exact final head and GitHub checks. No merge or manual deployment. The owner cancelled P3. Stop after the P2 draft PR and report. Further library work needs separate authorization.

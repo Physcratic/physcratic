@@ -1,0 +1,21 @@
+{
+  "target": {
+    "project": "divine-mode-82940461",
+    "branch": "br-quiet-dawn-b7m2zrt3",
+    "endpoint": "ep-snowy-heart-b7c1220y",
+    "database": "neondb",
+    "role": "neondb_owner",
+    "version": 180006
+  },
+  "candidate": "",
+  "baselineSchema": "",
+  "baselineRecords": "",
+  "approvalReference": "",
+  "recoveryReference": "",
+  "recoveryErasurePlan": "",
+  "writerHoldReference": "",
+  "recoveryVerifiedAt": "",
+  "start": "",
+  "end": "",
+  "disabledFeaturesReference": ""
+}

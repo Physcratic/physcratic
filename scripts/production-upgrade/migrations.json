@@ -1,0 +1,110 @@
+[
+  {
+    "id": "0001_problem_authoring",
+    "path": "migrations/0001_problem_authoring.up.sql",
+    "sha256": "83ec2e53f95829aa6932a327dfd0362a3c197e190ddbcfb00a67d24a05c93d09",
+    "wrapped": false
+  },
+  {
+    "id": "0002_authored_write_limit",
+    "path": "migrations/0002_authored_write_limit.up.sql",
+    "sha256": "c10cd7ecb9d6da65e0e95012a7dd199edac02e7a54b4fc8de86bb6c59bdc553b",
+    "wrapped": false
+  },
+  {
+    "id": "0003_author_media",
+    "path": "migrations/0003_author_media.up.sql",
+    "sha256": "db4e91998388dafd964507571fc408f2f74fdd8b1af466469674911dc4b6db3a",
+    "wrapped": false
+  },
+  {
+    "id": "0004_authored_attempts",
+    "path": "migrations/0004_authored_attempts.up.sql",
+    "sha256": "e52abd4fa47e2c8abdc609fdc79c32c2f78a284df90b859463ae217abed7e423",
+    "wrapped": false
+  },
+  {
+    "id": "0005_authored_solution_access",
+    "path": "migrations/0005_authored_solution_access.up.sql",
+    "sha256": "65dfc1a1137cf963b7e579931fde6d8c315d0bfb8dbd6c465a8cc70d741335e4",
+    "wrapped": false
+  },
+  {
+    "id": "0006_authored_discovery",
+    "path": "migrations/0006_authored_discovery.up.sql",
+    "sha256": "3ed763699a4e58512604fe6b738dc7e8440c1f2291501e1c29fa2da07dd8a37f",
+    "wrapped": false
+  },
+  {
+    "id": "0007_community_profile",
+    "path": "migrations/0007_community_profile.up.sql",
+    "sha256": "7fcba67760efa0d265c949f20dc3351a49721c9285c21e498b70013969e19f0e",
+    "wrapped": false
+  },
+  {
+    "id": "0008_community_profile_media",
+    "path": "migrations/0008_community_profile_media.up.sql",
+    "sha256": "02a7f6f1850e4092933426275e36431a967810dd1ce2644d6f09ee0780dd0e0b",
+    "wrapped": false
+  },
+  {
+    "id": "0009_community_achievements",
+    "path": "migrations/0009_community_achievements.up.sql",
+    "sha256": "e4c04a2ba7c3051d59283f782d09abc558b4f94b46efaff41b08bfd6099ba33b",
+    "wrapped": false
+  },
+  {
+    "id": "0010_community_medals",
+    "path": "migrations/0010_community_medals.up.sql",
+    "sha256": "37fbd076d7d65d92868e9aa19b9564707a6937d7484cd644dc05acf2c08b3c7c",
+    "wrapped": false
+  },
+  {
+    "id": "0011_community_medal_showcase",
+    "path": "migrations/0011_community_medal_showcase.up.sql",
+    "sha256": "d38abcc9f4efd5ed01e1f530e62d610e13ef91ef7ecf034c30bbce478ccd9802",
+    "wrapped": false
+  },
+  {
+    "id": "0012_community_problem_stats",
+    "path": "migrations/0012_community_problem_stats.up.sql",
+    "sha256": "22afa7324f6ba2b03a384fab0a4c9d2038639e5a96cf7aca6045b1d43bc9c94a",
+    "wrapped": false
+  },
+  {
+    "id": "0013_community_comments",
+    "path": "migrations/0013_community_comments.up.sql",
+    "sha256": "15e159dfc2874beef0971a2021790276d84aff796fe585474423558e305d8979",
+    "wrapped": false
+  },
+  {
+    "id": "0014_community_moderation",
+    "path": "migrations/0014_community_moderation.up.sql",
+    "sha256": "8484c7676c2d8aca1c385d88c2f1455c332811d5628bc22c64568e0fc894edbc",
+    "wrapped": false
+  },
+  {
+    "id": "0015_community_security_s1",
+    "path": "migrations/0015_community_security_s1.up.sql",
+    "sha256": "2f1a465ed7aa3da8b6089a089d364e0632e4352d3b37bf3d8e8e583402ce6357",
+    "wrapped": false
+  },
+  {
+    "id": "0016_contest_participation",
+    "path": "migrations/0016_contest_participation.up.sql",
+    "sha256": "fcfffcae2881a5b3d27dfadbefe78df0c868f571df30e138fda0c8e6941e3cb5",
+    "wrapped": true
+  },
+  {
+    "id": "0017_practice_checks",
+    "path": "migrations/0017_practice_checks.up.sql",
+    "sha256": "ed15c92d62a48eb03a46b9dd884579595143749f074bd2312f69f2d3f46c9e77",
+    "wrapped": false
+  },
+  {
+    "id": "0018_account_deletion",
+    "path": "migrations/0018_account_deletion.up.sql",
+    "sha256": "378ff9140a5eab9d62c70505eb764ad1f621ebe26f6d840c62826aee00d61cda",
+    "wrapped": true
+  }
+]
