@@ -1,6 +1,6 @@
 # Legacy practice retirement
 
-12 November 2026. Separate draft stacked on P2 #143 head `0d929b3ee81567b447c281436ed0ec3cf2ce9b3a`, incorporating main `01757c0abf152e891fb896b6d77f302a87febca6`. The PR body records exact final head and CI. No merge, deployment or settings change is authorized.
+12 November 2026. Separate draft stacked on P2 #143 head `c09ac0714843a34602172fba0f76d2bfaaec9767`, incorporating main `01757c0abf152e891fb896b6d77f302a87febca6`. The PR body records exact final head and CI. No merge, deployment or settings change is authorized.
 
 ## Boundary and implementation
 
@@ -35,3 +35,11 @@ Node22.23.1/pnpm10.34.9 frozen install, typegen/TypeScript, zero-warning lint an
 The broad historical live SEO script stops at the existing IPhO 2026 T1 source-label/visible-text mismatch. Native source data and reader are unchanged. This is recorded as an inherited concern, not a passing whole-site audit. The focused retirement audit verifies the unchanged structured resource identity and canonical on every retained reader. The broad older first-time script is updated away from retired fixtures but is not claimed as a full new acceptance run.
 
 No Production operation or manual deployment. Local browser fixture APIs use loopback synthetic guest data, real local reader/checker/collection requests and disposable auth sessions only. Physical devices, Firefox/WebKit and live-provider qualification are unverified. Stop after these two draft PRs, no P3.
+
+## Final review corrections (12 November 2026)
+
+This branch incorporates exact P2 head `c09ac0714843a34602172fba0f76d2bfaaec9767` through a normal merge. The retirement implementation remains distinct from the base branch, with no duplicate P2 commit or reversion. The primary/secondary navigation correction and refreshed screenshots are inherited unchanged.
+
+The revised marking guide now has `reviewedBy: null` and a visible pending-review note for this revision. Its WebPage JSON-LD omits `reviewedBy`. The three unchanged reviewed guides retain Arrow Dunatos attribution, and the two product guides retain their existing status. The Mind the Gap explanation, mathematical formulas and all three source citations are unchanged from `108a287`.
+
+Owner editorial approval is still required for the replacement worked example before a personal review attribution can be restored. Source/KaTeX validation and automated tests do not establish that approval. Focused model/render/structured-data assertions and a live guide browser check verify the status without changing the guide's canonical, publication or index policy. Final exact-head CI and combined browser/SEO results are recorded on draft #146. Keep both PRs draft and unmerged, no deployment or P3.
