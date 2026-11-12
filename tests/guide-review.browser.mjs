@@ -21,7 +21,10 @@ const webpage = graph.find(node => node["@type"] === "WebPage");
 const article = graph.find(node => node["@type"] === "Article");
 ok(webpage && !("reviewedBy" in webpage), "no invented reviewer in structured data");
 ok(article?.author?.["@type"] === "Organization", "article retains its organization author");
-ok(article.citation.length === 3, "all three original source citations retained");
+assert.deepEqual(article.citation.map(citation => citation.url), [
+  "https://www.ipho-new.org/statutes-syllabus/",
+  "https://olimpicos.net/files/ipho/IPhO_2026_TheoryInstructions.pdf",
+], "both exact original source citations retained"); checks++;
 ok(!/<meta name="robots" content="[^"]*noindex/.test(html), "guide index policy unchanged");
 for (const slug of ["start-preparing-physics-olympiad", "ipho-apho-eupho-differences", "physics-olympiad-books-and-resources"]) {
   const existing = await (await fetch(`${origin}/learn/${slug}`)).text();
