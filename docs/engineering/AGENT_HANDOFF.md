@@ -1,5 +1,12 @@
 # Agent handoff
 
+## Legacy practice retirement (12 November 2026)
+
+Final review correction (12 November 2026): #146 incorporates exact P2 `db2430ea` and main `8bb5941` through normal merges. The marking guide's changed revision is pending owner editorial approval, with no visible or structured-data reviewer attribution. Its explanation and sources are unchanged. Other reviewed guides retain their bylines. See LEGACY_PRACTICE_RETIREMENT.md and the exact-head CI on #146. Keep both drafts unmerged, no deployment/P3.
+
+Separate draft stacked on revised P2 #143 (`0d929b3`), main `01757c0` incorporated. All 12 legacy reader URLs permanently redirect to the existing Arena library. Registry yields 121 retained readers and 138 sitemap URLs. Arena/imported/authored identities, grading hashes, historical records, five Guided exercises, auth and schema remain intact. See [implementation, SEO consequences and verification](LEGACY_PRACTICE_RETIREMENT.md). Exact final head and CI are recorded on the draft PR. No operator installation. Keep both drafts unmerged, no deployment/settings/P3. The existing native IPhO 2026 source-label audit mismatch remains a separately recorded concern.
+
+
 ## P2 Lobby design reversal (12 November 2026)
 
 Final review correction (12 November 2026): #143 now keeps four primary links and places all six crawlable topic anchors below the unchanged Lobby. Original Dashboard captures are preserved, homepage captures updated. Focused95/render24/browser205/session661 and eight contrast combinations pass, as do TypeScript/lint/build. Exact head and CI are on #143. #146 must incorporate this head and separately mark its changed marking guide pending owner editorial approval. Keep both draft and unmerged, no deployment/P3.

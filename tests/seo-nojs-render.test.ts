@@ -70,7 +70,7 @@ describe("statements are in the server HTML", () => {
       assert.doesNotMatch(html, /Worked solution|Loading problem diagram/);
     }
   });
-  it("renders every practice problem's prompt, and keeps the hint and solution hidden", () => {
+  it("renders retained internal legacy fixtures without exposing hints or solutions", () => {
     for (const problem of problems) {
       const html = renderToStaticMarkup(createElement(ProblemReader, { problem }));
       const text = decode(html);

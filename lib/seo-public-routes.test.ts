@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { articles } from "./learn/articles";
-import { problems, topics } from "./physics";
-import { findPublicProblem, indexableRoutes, publicRoutes, topicHasProblems } from "./seo/public-routes";
+import { topics } from "./physics";
+import { indexableRoutes, publicRoutes, topicHasProblems } from "./seo/public-routes";
 import { allProblemPages, findProblemPage, topicsWithProblems } from "./seo/problem-pages";
 
 describe("public route registry", () => {
@@ -28,8 +28,7 @@ describe("public route registry", () => {
       assert.equal(r.path, `/dashboard/problems/${id}`);
     }
     assert.equal(findProblemPage("nope"), undefined);
-    assert.equal(findPublicProblem("nope"), null);
-    assert.ok(listed.filter((r) => r.group === "practice").length === problems.length);
+    assert.ok(listed.filter((r) => r.group === "practice").length === 0);
     assert.equal(listed.filter((r) => r.group === "archive").length, 103)
   });
   it("gives every topic with problems a path of its own", () => {
@@ -52,10 +51,6 @@ describe("public route registry", () => {
   it("takes lastmod from the data, as a date, and never invents one", () => {
     for (const r of publicRoutes) if (r.lastmod) assert.match(r.lastmod, /^\d{4}-\d{2}-\d{2}$/, r.path);
     for (const r of publicRoutes.filter((x) => x.kind === "coaching")) assert.equal(r.lastmod, undefined);
-    for (const r of publicRoutes.filter((x) => x.kind === "problem" && x.group === "practice")) {
-      const own = problems.find((p) => `/dashboard/problems/${p.id}` === r.path)!;
-      assert.equal(r.lastmod, own.addedAt);
-    }
     for (const r of publicRoutes.filter((x) => x.group === "archive" || x.group === "arena")) assert.ok(r.lastmod, r.path);
   });
   it("lists the coaching page and its two form pages, and not the removed training page", () => {

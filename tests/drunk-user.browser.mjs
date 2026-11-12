@@ -32,6 +32,7 @@ async function task(name, label, run, { signedIn = false } = {}) {
   if (signedIn) { const [cookieName, ...value] = sessionCookie.split("="); await context.addCookies([{ name: cookieName, value: value.join("="), url: origin }]); }
   await context.addInitScript(ids => localStorage.setItem("physcratic.solved.v1", JSON.stringify(ids)), arenaIds.slice(1));
   if (!signedIn) {
+    await context.route("**/api/auth/sign-up/email", route => route.fulfill({ status: 400, json: { message: "Synthetic test stops before account creation." } }));
     await context.route("**/api/auth/get-session*", route => route.fulfill({ json: null }));
     await context.route("**/api/dashboard", route => route.fulfill({ json: { user: null, savedAttempts: 0, practiceAttempts: null, solvedProblems: null, archiveReviewed: 0, ratings: [], contests: [] } }));
   }
@@ -82,31 +83,27 @@ await task("topic", "Arrive at / and open a Waves problem", async ({ page, tap }
 });
 
 await task("solve", "Wrong answer, then the right one", async ({ page, tap }) => {
-  await page.goto(`${origin}/dashboard/problems/incline`, { waitUntil: "networkidle" });
-  const field = page.getByRole("textbox", { name: /Final answer/ });
+  await page.goto(`${origin}/dashboard/problems/arena-mind-the-gap`, { waitUntil: "networkidle" });
+  const field = page.getByRole("textbox", { name: /Fitted lens radius/ });
   await tap(field, "answer field"); await page.keyboard.type("1");
   await tap(page.getByRole("button", { name: "Check answer" }), "Check answer");
-  await page.getByRole("button", { name: "Try again" }).waitFor();
-  await tap(field, "answer field again"); await page.keyboard.press("Control+A"); await page.keyboard.type("4.9");
+  await page.getByText(/Not correct/).first().waitFor();
+  await tap(field, "answer field again"); await page.keyboard.press("Control+A"); await page.keyboard.type("0.90");
   await tap(page.getByRole("button", { name: "Check answer" }), "Check answer");
-  await page.getByRole("link", { name: "Next problem" }).first().waitFor();
-  // Nothing typed is lost by tapping away (these taps are not counted). A correct part forgets its saved answer.
+  await page.getByText("Correct.", { exact: true }).first().waitFor();
+  // Arena recovery keeps typed work, including a correct checked value, without resubmitting on reload.
   await page.reload({ waitUntil: "networkidle" });
-  assert.equal(await field.inputValue(), "", "a part checked correct is not restored");
+  assert.equal(await field.inputValue(), "0.90", "checked Arena work survives reload");
   await field.fill("7");
   await page.reload({ waitUntil: "networkidle" });
-  assert.equal(await field.inputValue(), "7", "a typed answer survives a reload");
-  await page.goBack(); await page.goForward(); await page.waitForLoadState("networkidle");
-  assert.equal(await page.getByRole("textbox", { name: /Final answer/ }).inputValue(), "7", "a typed answer survives Back and Forward");
-  await page.getByRole("button", { name: "Start over" }).tap();
-  await page.reload({ waitUntil: "networkidle" });
-  assert.equal(await field.inputValue(), "", "Start over forgets the saved answer");
+  assert.equal(await field.inputValue(), "7", "typed Arena work survives reload");
+
 });
 
-await task("hint", "Stuck on a problem, read the hint", async ({ page, tap }) => {
-  await page.goto(`${origin}/dashboard/problems/incline`, { waitUntil: "networkidle" });
-  await tap(page.getByRole("button", { name: /^(Need a hint\?|Show hint)/ }), "hint button");
-  await page.locator("#problem-hint").waitFor();
+await task("hint", "Open the Arena worked solution", async ({ page, tap }) => {
+  await page.goto(`${origin}/dashboard/problems/arena-mind-the-gap`, { waitUntil: "networkidle" });
+  await tap(page.getByRole("tab", { name: "Worked solution", exact: true }), "Worked solution");
+  await page.getByText("Contains spoilers", { exact: false }).waitFor();
 });
 
 await task("signUp", "Create an account (up to the Create account tap)", async ({ page, tap }) => {

@@ -72,6 +72,9 @@ export interface Problem {
   solution: { title: string; text: string; formula?: string }[];
 }
 
+// Retired from public discovery and reader routes on 12 November 2026.
+// Keep this immutable legacy model for grading versions, saved progress and regression fixtures.
+// New public practice belongs in Arena.
 export const problems: Problem[] = [
   {
     id: "incline",

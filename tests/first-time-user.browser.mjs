@@ -249,59 +249,42 @@ try {
     await noSidewaysScroll(page, `archive ${tag}`);
     await shot(page, `03b-archive-${tag}`);
 
-    // 4. Practice problem: wrong answer, hint, right answer, solution, next problem.
+    // 4. Retained Arena numerical check, recovery, worked solution and next problem.
     const practice = fixtures.practice;
     await page.goto(`${origin}/dashboard/problems/${practice.id}`);
-    await page.getByRole("heading", { level: 1 }).waitFor();
-    const steps = page.getByRole("list", { name: "Steps" }).getByRole("listitem");
-    assert.equal(await steps.count(), 4); checks++;
-    await shot(page, `04-practice-start-${tag}`);
+    const input = page.getByRole("textbox", { name: /Fitted lens radius/ });
+    await input.waitFor();
     const check = page.getByRole("button", { name: "Check answer" });
-    // Nothing typed: the button still works and says what to do, instead of sitting disabled with a line of explanation.
-    await check.click();
-    await page.getByRole("alert").filter({ hasText: "Type an answer first." }).waitFor();
-    ok(await page.getByRole("alert").filter({ hasText: "Type an answer first." }).count() === 1, `Check answer with nothing typed says to type an answer (${tag})`);
-    const input = page.getByRole("textbox", { name: /Final answer/ });
-    await tapTarget(input, `answer input ${tag}`);
+    await shot(page, `04-arena-start-${tag}`);
     await input.fill(practice.wrongAnswer);
-    await tapTarget(check, `Check answer ${tag}`);
+    await tapTarget(input, `Arena answer input ${tag}`);
+    await tapTarget(check, `Arena check ${tag}`);
     await check.click();
-    const live = page.locator('#step-answer [aria-live="polite"]');
-    await live.getByText("Not correct yet").waitFor();
-    ok(await live.locator("svg").count() > 0, `feedback has an icon (${tag})`);
-    ok(await page.locator("#step-answer").getByText("Not correct.").count() > 0, `answer box shows words next to the input (${tag})`);
-    await live.getByRole("button", { name: "Try again" }).waitFor();
-    ok(await input.inputValue() === practice.wrongAnswer, `answer kept before Try again (${tag})`);
-    await live.getByRole("button", { name: "Try again" }).click();
-    ok(await input.evaluate((el) => el === document.activeElement), `Try again focuses the answer without clearing it (${tag})`);
-    ok(await input.inputValue() === practice.wrongAnswer, `Try again keeps the answer (${tag})`);
-    await shot(page, `05-practice-wrong-${tag}`);
-
-    ok(await page.locator("#problem-hint").count() === 0, `hint is collapsed at first (${tag})`);
-    await live.getByRole("button", { name: "See hint" }).click();
-    await page.locator("#problem-hint").waitFor();
-    ok((await page.locator("#problem-hint").innerText()).trim().length > 0, `hint has text (${tag})`);
-    ok(await page.locator("#worked-solution").count() === 0, `solution is collapsed until asked for or solved (${tag})`);
-    await shot(page, `06-practice-hint-${tag}`);
-
+    await page.getByText(/Not correct/).first().waitFor();
+    ok(await input.inputValue() === practice.wrongAnswer, `wrong Arena work retained (${tag})`);
+    await shot(page, `05-arena-wrong-${tag}`);
     await input.fill(practice.rightAnswer);
-    await check.click();
-    await live.getByText("Correct", { exact: true }).waitFor();
-    await page.locator("#worked-solution").waitFor();
-    await shot(page, `07-practice-correct-${tag}`);
-    const solutionToggle = page.getByRole("button", { name: /(Show|Hide) solution/ });
-    await solutionToggle.click();
-    await page.locator("#worked-solution").waitFor({ state: "detached" });
-    await solutionToggle.click();
-    await page.locator("#worked-solution").waitFor();
-    await tapTarget(solutionToggle, `solution button ${tag}`);
-    await noSidewaysScroll(page, `practice ${tag}`);
+    await page.locator("#step-answer math-field").first().evaluate((field, latex) => {
+      field.setValue(latex);
+      field.dispatchEvent(new InputEvent("input", { bubbles: true }));
+    }, String.raw`\sqrt{\frac{m\lambda}{1/R_1-1/R_0}}`);
 
+    await check.click();
+    await page.getByText("Correct", { exact: true }).first().waitFor();
+    await page.reload({ waitUntil: "networkidle" });
+    ok(await input.inputValue() === practice.rightAnswer, `checked Arena work survives reload (${tag})`);
+    await check.click();
+    await page.getByRole("link", { name: "Next problem", exact: true }).waitFor();
+    const solution = page.getByRole("tab", { name: "Worked solution", exact: true });
+    await solution.click();
+    await page.getByText("Contains spoilers", { exact: false }).waitFor();
+    await tapTarget(solution, `Arena solution tab ${tag}`);
+    await noSidewaysScroll(page, `Arena answer ${tag}`);
     const here = new URL(page.url()).pathname;
-    await live.getByRole("link", { name: "Next problem" }).click();
-    await page.waitForURL((url) => url.pathname !== here && url.pathname.startsWith("/dashboard/problems/"));
+    await page.getByRole("link", { name: "Next problem", exact: true }).click();
+    await page.waitForURL(url => url.pathname !== here && url.pathname.startsWith("/dashboard/problems/arena-"));
     await page.getByRole("heading", { level: 1 }).waitFor();
-    await shot(page, `08-next-problem-${tag}`);
+    await shot(page, `08-next-arena-${tag}`);
     // 5. Contests. The contest list and the sign-in session come from database-backed APIs, so only /api/dashboard
     // (the shape of DashboardData in lib/dashboard-data.ts) and a signed-out /api/auth/get-session are mocked here.
     // Nothing else is stubbed.
@@ -354,9 +337,9 @@ try {
     await top(page.getByRole("heading", { name: "Search & filters" }));
     await save("library-topic");
     await page.goto(`${origin}/dashboard/problems/${fixtures.practice.id}`);
-    await page.getByRole("textbox", { name: /Final answer/ }).fill(fixtures.practice.wrongAnswer);
+    await page.getByRole("textbox", { name: /Fitted lens radius/ }).fill(fixtures.practice.wrongAnswer);
     await page.getByRole("button", { name: "Check answer" }).click();
-    await page.getByText("Not correct yet").waitFor();
+    await page.getByText(/Not correct/).first().waitFor();
     await top(page.locator("#step-answer"));
     await save("practice-steps-feedback");
     await page.goto(`${origin}/dashboard/problems/${fixtures.arena.id}`);

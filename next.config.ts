@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { legacyPracticeRedirects } from "./lib/legacy-practice";
 import { buildCsp } from "./lib/security/csp";
 
 // Report-only: nothing is blocked. 'unsafe-eval' is added in development only (see lib/security/csp.ts).
@@ -17,6 +18,9 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/api/submissions": ["./public/corpus/problems/*.json"],
     "/api/submission-info/*": ["./public/corpus/problems/*.json"],
+  },
+  async redirects() {
+    return legacyPracticeRedirects();
   },
   async headers() {
     return [

@@ -8,7 +8,7 @@ export const booksAndResources: ArticleDraft = {
   title: "Best books and resources for Physics Olympiad",
   description:
     "Free handouts and books for physics olympiad preparation, picked by our reviewer Arrow Dunatos and grouped by stage and topic.",
-  updated: "2026-11-02",
+  updated: "2026-11-12",
   published: true,
   reviewedBy: REVIEWER,
   sources: [
