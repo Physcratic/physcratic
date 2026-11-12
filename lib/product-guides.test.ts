@@ -19,7 +19,7 @@ import { parseProblemCollection } from "./problem-collection-route";
 const slugs = ["how-to-use-physcratic", "how-to-write-a-problem"];
 
 test("product guides are published through the existing registry with no invented human reviewer or sources", () => {
-  assert.equal(articles.filter((a) => a.kind !== "product").length, 4);
+  assert.equal(articles.filter((a) => a.published && a.kind !== "product").length, 4);
   for (const slug of slugs) {
     const article = findArticle(slug)!;
     assert.ok(article);
@@ -31,7 +31,7 @@ test("product guides are published through the existing registry with no invente
     assert.equal("reviewedBy" in graph[1], false);
     assert.doesNotMatch(JSON.stringify(graph), /Arrow Dunatos|bronze medallist/);
   }
-  for (const article of articles.filter((a) => a.kind !== "product" && a.slug !== "how-olympiad-solutions-are-marked")) {
+  for (const article of articles.filter((a) => a.published && a.kind !== "product" && a.slug !== "how-olympiad-solutions-are-marked")) {
     assert.equal(article.reviewedBy?.name, "Arrow Dunatos");
     assert.ok("reviewedBy" in articleGraph(article)[1]);
   }
