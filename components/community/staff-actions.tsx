@@ -89,7 +89,7 @@ export function StaffActions() {
       {target.kind === 'problem' ? <p className="text-sm">Removal hides this question and stops new submissions. Revisions and student attempts remain. Restoration lets the author publish again, and keeps the question archived until they do.</p> : <p className="text-sm">Banning ends existing sessions and prevents another sign-in. It does not delete the account or its published questions. Unbanning requires a new sign-in.</p>}
       {target.protected ? <p className="text-sm">You cannot moderate your own questions, your own account or a staff account here.</p> : target.restricted && detail.role !== 'admin' ? <p className="text-sm">An administrator must restore this target.</p> : <fieldset disabled={busy || stale || older || Boolean(pending)} className="space-y-3">
         <legend className="font-medium">Record a decision</legend>
-        <label className="block space-y-2 text-sm">Reason<Textarea ref={reasonField} value={reason} maxLength={1000} rows={3} onChange={e => setReason(e.target.value)}/></label>
+        <label className="block space-y-2 text-sm">Reason<Textarea aria-label="Reason" ref={reasonField} value={reason} maxLength={1000} rows={3} onChange={e => setReason(e.target.value)}/></label>
         <p className="text-sm text-muted-foreground">Keep reporter identities and private evidence out of the reason.</p>
         <Button variant={target.restricted ? 'default' : 'destructive'} onClick={prepare}>{label}</Button>
       </fieldset>}

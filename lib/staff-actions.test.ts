@@ -135,7 +135,7 @@ test('0019 staff decisions, bans, publication enforcement, audit, rollback and r
     await pool.query(await readFile('migrations/0019_staff_actions.down.sql', 'utf8'));
     assert.equal((await pool.query("SELECT count(*)::int AS n FROM community_restriction")).rows[0].n, 2);
     await assert.rejects(pool.query("INSERT INTO \"session\" VALUES('rollback-blocked','student')"), (e: unknown) => (e as { code: string }).code === '42501');
-    await pool.query("UPDATE community_staff SET role='none' WHERE user_id='moderator'");
+    await admin.query(`UPDATE ${schema}.community_staff SET role='none' WHERE user_id='moderator'`);
     assert.equal((await read('moderator', 'user', 'student')).status, 403);
   } finally {
     await pool.query('RESET ROLE').catch(() => {});
