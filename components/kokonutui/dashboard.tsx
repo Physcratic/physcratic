@@ -8,11 +8,13 @@ export default function Dashboard({
   topic,
   query,
   discovery,
+  children,
 }: {
   view: View;
   topic?: string;
   query?: string;
   discovery?: ReactNode;
+  children?: ReactNode;
 }) {
   return (
     <Layout view={view} topic={topic} stickyHeader={!!discovery}>
@@ -23,6 +25,7 @@ export default function Dashboard({
         query={query}
         discovery={discovery}
       />
+      {children}
     </Layout>
   );
 }

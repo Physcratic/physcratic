@@ -70,9 +70,11 @@ await task("understand", "Arrive at / and open a problem to try", async ({ page,
 
 await task("topic", "Arrive at / and open a Waves problem", async ({ page, tap }) => {
   await home(page);
-  const waves = page.locator('nav[aria-label="Practice and guides"]').getByRole("link", { name: "Waves", exact: true });
-  const box = await waves.boundingBox();
-  assert.ok(box && box.y + box.height <= 667, `the topic links are below the fold at 375x667 (Waves bottom at ${box && Math.round(box.y + box.height)}px)`);
+  const waves = page.locator('nav[aria-label="Problems by topic"]').getByRole("link", { name: "Waves", exact: true });
+  assert.ok(await waves.evaluate(link => {
+    const history = document.querySelector('section[aria-label="Your problem history"]');
+    return history && (link.compareDocumentPosition(history) & Node.DOCUMENT_POSITION_PRECEDING) !== 0;
+  }), "topic navigation follows the original Lobby content");
   await tap(waves, "Waves link");
   await tap(page.locator("main a[href*='/dashboard/problems/']").first(), "first Waves problem");
   await page.waitForURL(/\/dashboard\/problems\//);
