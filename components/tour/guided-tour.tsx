@@ -89,14 +89,24 @@ export function GuidedTour({ tourId }: { tourId: TourId }) {
     }
     const automated = typeof navigator !== "undefined" && navigator.webdriver === true;
     if (hasSeen(tourId) || automated || !tour.autoStart.test(window.location.pathname)) return;
-    const timer = setTimeout(() => {
+    // Starts as soon as the page has finished loading, with a moment for the first paint. It never waits for a click.
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const begin = () => {
       if (document.querySelector('[role="dialog"][aria-modal="true"]')) return;
       markSeen(tourId);
       returnTo.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
       writeRunning(tourId, 0);
       setIndex(0);
-    }, 900);
-    return () => clearTimeout(timer);
+    };
+    const whenReady = () => {
+      timer = setTimeout(begin, 200);
+    };
+    if (document.readyState === "complete") whenReady();
+    else window.addEventListener("load", whenReady, { once: true });
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("load", whenReady);
+    };
   }, [tour, tourId]);
   useEffect(() => {
     const onStart = (event: Event) => {

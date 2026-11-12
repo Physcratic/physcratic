@@ -27,8 +27,6 @@ import {
   applyAnswer,
   blocksSpans,
   contextPictureOf,
-  deriveTitle,
-  difficultyLabel,
   difficultyRating,
   ensureSimpleShape,
   mathSymbols,
@@ -58,7 +56,7 @@ import {
   type Key,
 } from "./simple-model";
 
-export const TITLE_PLACEHOLDER = "2 to 5 words, such as Mind the Gap";
+export const TITLE_PLACEHOLDER = "Bending Beams";
 
 const labelClass = "block text-lg font-semibold leading-snug";
 const fieldClass = `${inputClass} min-h-12 border-2 text-base focus-visible:border-ring`;
@@ -99,8 +97,6 @@ export function SimpleEditor(props: SimpleProps) {
   const note = advancedNote(draft);
   const rights = rightsState(draft);
   const blocked = issues.length > 0 || otherIssues.length > 0;
-  const firstQuestion = parts[0] ? blocksSpans(parts[0].part.blocks) : [];
-  const titleIsMade = draft.content.title !== "" && draft.content.title === deriveTitle(firstQuestion);
 
   // A draft made in Advanced can have no part yet. Simple starts it with part a.
   const noParts = parts.length === 0;
@@ -177,11 +173,10 @@ export function SimpleEditor(props: SimpleProps) {
           maxLength={200}
           value={draft.content.title}
           aria-invalid={shown("title") ? true : undefined}
-          aria-describedby={shown("title") ? "simple-title-error" : titleIsMade ? "simple-title-help" : undefined}
+          aria-describedby={shown("title") ? "simple-title-error" : undefined}
           onBlur={() => touch("title")}
           onChange={(e) => edit((d) => void (d.content.title = e.target.value))}
         />
-        {titleIsMade && !shown("title") && <p id="simple-title-help" className="text-base text-muted-foreground">We made this from your question. Change it if you like.</p>}
         {shown("title") && <ErrorLine id="simple-title-error">{shown("title")!.message}</ErrorLine>}
       </div>
 
@@ -192,13 +187,7 @@ export function SimpleEditor(props: SimpleProps) {
       <TopicRow values={draft.content.topicTags} change={(v) => edit((d) => void (d.content.topicTags = v))} />
 
       <div className="space-y-5 border-t-2 pt-8">
-        {rights === "advanced" ? (
-          <p className="text-base text-muted-foreground">
-            {draft.content.provenance.kind === "authorized"
-              ? "This problem is marked as used with permission. You can change that in Advanced."
-              : "Your rights declaration from Advanced is kept."}
-          </p>
-        ) : (
+        {rights === "advanced" ? null : (
           <div className="space-y-2">
             <label className="flex min-h-11 items-start gap-3 text-base">
               <input
@@ -267,13 +256,12 @@ function MainQuestion({ draft, edit, provisional, touch, issue }: { draft: Edito
     <section aria-labelledby={`${id}-label`} className="space-y-6" data-tour="studio-main">
       <div className="space-y-3">
         <p id={`${id}-label`} className={labelClass}>Main question (optional)</p>
-        <p className="text-base text-muted-foreground">The setup every part shares. Leave it empty if you only have one question.</p>
         <RichMathText
           id={id}
           labelId={`${id}-label`}
           spans={blocksSpans(draft.content.context)}
           onChange={(spans) => edit((d) => setIntro(d, spans))}
-          placeholder="Two carts roll towards each other on a track."
+          placeholder=""
           minRows={3}
           onPasteFile={(file) => void upload.addFile(file)}
         />
@@ -361,7 +349,6 @@ function ImageField({
             <ImagePlus aria-hidden="true" className="mr-2 size-4" />
             Choose an image
           </Button>
-          <span className="text-base text-muted-foreground">or drop one here</span>
         </div>
       ) : (
         <div className="space-y-4 rounded-lg border-2 p-4">
@@ -371,7 +358,6 @@ function ImageField({
             <input
               id={`${base}-alt`}
               className={fieldClass}
-              placeholder="A ball thrown upwards from the ground"
               maxLength={1000}
               value={picture.alt}
               aria-invalid={issue ? true : undefined}
@@ -403,7 +389,6 @@ function ImageField({
           if (file) void addFile(file);
         }}
       />
-      {provisional && !picture && <p className="text-base text-muted-foreground">Write your question first, then add an image.</p>}
       <p role={media.error ? "alert" : "status"} className={`text-base ${media.error ? "text-destructive" : "text-muted-foreground"}`}>
         {media.busy ? "Uploading…" : media.error || note}
       </p>
@@ -419,11 +404,7 @@ function SourceField({ draft, edit, touch, issue }: { draft: EditorDraft; edit: 
     return (
       <div className="space-y-2" data-tour="studio-source">
         <p className={labelClass}>Where&apos;s it from?</p>
-        <p className="text-base text-muted-foreground">
-          {draft.content.provenance.kind === "authorized"
-            ? `Adapted from ${draft.content.provenance.source || "another source"}. You can change that in Advanced.`
-            : "Your rights declaration from Advanced is kept."}
-        </p>
+        {draft.content.provenance.kind === "authorized" && <p className="text-base">Adapted from {draft.content.provenance.source || "another source"}</p>}
       </div>
     );
   const options = [
@@ -454,7 +435,6 @@ function SourceField({ draft, edit, touch, issue }: { draft: EditorDraft; edit: 
             id={`${id}-source`}
             data-simple-field="source"
             className={fieldClass}
-            placeholder="IPhO 2019, Problem 2"
             maxLength={2000}
             autoComplete="off"
             value={state.source}
@@ -474,7 +454,6 @@ function SourceField({ draft, edit, touch, issue }: { draft: EditorDraft; edit: 
 function DifficultyField({ draft, edit }: { draft: EditorDraft; edit: SimpleProps["edit"] }) {
   const id = useId();
   const rating = difficultyRating(draft);
-  const label = difficultyLabel(draft);
   const [text, setText] = useState(rating === null ? "" : String(rating));
   const [error, setError] = useState("");
   // A band pressed, or a rating changed from outside, updates the box.
@@ -493,7 +472,6 @@ function DifficultyField({ draft, edit }: { draft: EditorDraft; edit: SimpleProp
   return (
     <div className="space-y-3" data-tour="studio-difficulty">
       <p id={`${id}-label`} className={labelClass}>Estimated difficulty (optional)</p>
-      <p className="text-base text-muted-foreground">Your best guess. It shows as an estimate and never changes anyone&apos;s rating.</p>
       <div role="radiogroup" aria-labelledby={`${id}-label`} className="grid gap-2 sm:grid-cols-2">
         {ratingBands.map((b) => {
           const on = band?.id === b.id;
@@ -532,7 +510,6 @@ function DifficultyField({ draft, edit }: { draft: EditorDraft; edit: SimpleProp
           onChange={(e) => typeRating(e.target.value)}
         />
         {error && <ErrorLine id={`${id}-rating-error`}>{error}</ErrorLine>}
-        {label && !error && <p className="text-base text-muted-foreground">Your Advanced label &ldquo;{label}&rdquo; is kept until you pick a band or type a rating.</p>}
       </div>
       <RatingBandsPopover />
     </div>
@@ -627,7 +604,7 @@ function PartEditor({
             labelId={`${base}-q-label`}
             spans={questionSpans}
             onChange={(spans) => edit((d) => setQuestion(d, partId, spans))}
-            placeholder="A ball is thrown up at 12 m/s. How high does it go?"
+            placeholder=""
             invalid={!!questionIssue}
             describedBy={questionIssue ? `${base}-q-error` : undefined}
             symbols={symbols}
@@ -660,7 +637,7 @@ function PartEditor({
             labelId={`${base}-s-label`}
             spans={blocksSpans(entry.solution)}
             onChange={(spans) => edit((d) => setSolution(d, partId, spans))}
-            placeholder="Start with energy. At the top the ball stops."
+            placeholder=""
             invalid={!!solutionIssue}
             describedBy={solutionIssue ? `${base}-s-error` : undefined}
             symbols={symbols}
@@ -672,7 +649,6 @@ function PartEditor({
 
       <div className="space-y-3" data-tour={first ? "studio-answer" : undefined}>
         <label id={`${base}-a-label`} htmlFor={`${base}-a`} className={labelClass}>Final Answer (Solution)</label>
-        <p className="text-base text-muted-foreground">We check students against this.</p>
         <div data-simple-field={`a:${partId}`}>
           <MathAnswerField
             id={`${base}-a`}
@@ -685,8 +661,7 @@ function PartEditor({
             symbols={symbols}
             invalid={!!answerIssue}
             describedBy={answerIssue ? `${base}-a-error` : undefined}
-            placeholder="v^2/(2g) or 7.3"
-            emptyHint="v^2/(2g) or 7.3"
+            placeholder=""
             maxLength={180}
           />
         </div>
@@ -746,7 +721,6 @@ function TryAnswer({ draft, partId, label, tour }: { draft: EditorDraft; partId:
         <p id={`${base}-label`} className={labelClass}>Answer preview</p>
         <span className="inline-flex min-h-7 items-center rounded-full border border-muted-foreground/70 bg-background px-3 text-sm font-medium">Only you see this</span>
       </div>
-      <p className="text-base text-muted-foreground">Type an answer to see what a student would get. It is not saved.</p>
       {key?.kind === "numeric" ? (
         <div className="grid gap-2 sm:grid-cols-[minmax(0,1fr)_9rem]">
           <input
@@ -762,10 +736,8 @@ function TryAnswer({ draft, partId, label, tour }: { draft: EditorDraft; partId:
           <input aria-label={`Unit for part ${label}`} className={fieldClass} autoComplete="off" maxLength={80} placeholder="m/s^2" value={units} onChange={(e) => setUnitsText(e.target.value)} />
         </div>
       ) : key?.kind === "expression" ? (
-        <MathAnswerField id={`${base}-t`} labelId={`${base}-label`} value={text} onChange={setText} symbols={symbols} maxLength={180} emptyHint="What a student might write" />
-      ) : (
-        <p className="text-base text-muted-foreground">Add the final answer above, then try one.</p>
-      )}
+        <MathAnswerField id={`${base}-t`} labelId={`${base}-label`} value={text} onChange={setText} symbols={symbols} maxLength={180} placeholder="" />
+      ) : null}
       <p role="status" aria-live="polite" data-test-result="" className="text-base">
         {result.kind === "checked" ? (
           <>

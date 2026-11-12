@@ -1,7 +1,7 @@
 # Physcratic — notes for Claude Code
 
 ## Working rules
-- Commit straight to main, after full local CI from a clean worktree (every step in `.github/workflows/ci.yml`, with the database tests on a throwaway Postgres). Never force-push.
+- main requires a pull request. Push a branch, open a PR, and wait for GitHub CI to pass. Never push to main directly or work around the rule.
 - Never buy anything, change a plan or seat, or redeploy a blocked commit on Vercel or any other service. Stop and ask the owner.
 - Never run a build, dev server or tests in the main checkout. It has .env.local. Always use a clean worktree.
 - Never touch the Vercel, Neon, auth, email or Blob settings, any real database, `lib/db/schema.ts`, `migrations/` or `.env` files without explicit approval for that task.
@@ -27,5 +27,5 @@ Codex may be working in lib/security/**, next.config.ts and the community modera
 - UI: compose components/ui primitives and theme tokens (bg-background, text-muted-foreground, border). Dark is the default theme; check light too.
 - Keep the existing a11y patterns: role="status"/"alert", aria-labels on icon buttons, the skip link, visible focus.
 - Pure logic gets a node:test file next to it in lib/.
-- Branches: claude/<topic> while working, then fast-forward main (see Working rules). Commits: conventional (feat:, fix:, ci:, docs:, chore:).
+- Branches: claude/<topic>, then open a PR into main (see Working rules). Commits: conventional (feat:, fix:, ci:, docs:, chore:).
 - Record each finished task as a dated section in docs/engineering/BETA_READINESS.md, never in WORK_STATUS.md.
