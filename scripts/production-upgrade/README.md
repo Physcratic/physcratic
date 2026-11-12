@@ -51,7 +51,11 @@ load or backup qualification.
 ## Later authorized operator procedure
 
 1. Obtain separate target-specific authority, a reviewed writer/DDL hold and a
-   provider-verified recovery point with restore-erasure procedure. Do not read
+   provider-verified recovery point with restore-erasure procedure. Require a
+   reviewed `disabledFeaturesReference` proving affected community, deletion and
+   practice flags remain OFF throughout the window. Installing schema while an
+   old true flag is present can activate behavior without changing that flag.
+   The tool cannot infer effective Vercel configuration and does not inspect it. Do not read
    or expose connection strings in logs. Do not restore deleted identities into
    live traffic. Resolve actual retention, independent staffing and cleanup
    requirements separately before feature activation.

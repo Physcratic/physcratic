@@ -39,7 +39,7 @@ export async function rehearse(raw) {
   await c.query("INSERT INTO contest_attempt(id,\"userId\",\"contestId\",\"problemId\",\"idempotencyKey\",version,answers,results) VALUES($1,'synthetic-user-0','synthetic-contest','synthetic-problem',$2,'v1','[]','[]')",[randomUUID(),randomUUID()]);
   const before=await snapshot(c),records=await fingerprints(c,before.report.tables.map(t=>t.name));
   const now=Date.now(),candidate='2'.repeat(40);
-  const a={target:binding,candidate,baselineSchema:before.schemaHash,baselineRecords:hash(canonical(records)),approvalReference:'synthetic-owner-review',recoveryReference:'synthetic-restorable-point',recoveryErasurePlan:'synthetic-reerase-before-traffic',writerHoldReference:'synthetic-exclusive-hold',recoveryVerifiedAt:new Date(now).toISOString(),start:new Date(now-1000).toISOString(),end:new Date(now+20*60000).toISOString()};
+  const a={target:binding,candidate,baselineSchema:before.schemaHash,baselineRecords:hash(canonical(records)),approvalReference:'synthetic-owner-review',recoveryReference:'synthetic-restorable-point',recoveryErasurePlan:'synthetic-reerase-before-traffic',writerHoldReference:'synthetic-exclusive-hold',disabledFeaturesReference:'synthetic-all-features-disabled',recoveryVerifiedAt:new Date(now).toISOString(),start:new Date(now-1000).toISOString(),end:new Date(now+20*60000).toISOString()};
   await preflight(c,p,a);checks.push('Noncontiguous baseline validates canonical 0001-0006 and 0016 without replay.');
   await assert.rejects(execute(c,p,{...a,baselineSchema:'0'.repeat(64)},candidate),/SCHEMA_DRIFT/);
   await c.query("UPDATE physcratic_production_migrations SET sha256=$1 WHERE id=$2",['0'.repeat(64),p.files[15].id]);

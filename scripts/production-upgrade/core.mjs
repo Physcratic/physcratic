@@ -38,7 +38,7 @@ export function approval(a,candidate,now=Date.now()) {
  assert.deepEqual(a.target,binding,'APPROVAL_TARGET_MISMATCH');
  assert.equal(a.candidate,candidate,'APPROVAL_CANDIDATE_MISMATCH');
  for(const k of ['baselineSchema','baselineRecords'])assert.match(a[k],/^[a-f0-9]{64}$/);
- for(const k of ['approvalReference','recoveryReference','recoveryErasurePlan','writerHoldReference'])assert.ok(typeof a[k]==='string'&&a[k].trim().length>=8,'APPROVAL_INCOMPLETE');
+ for(const k of ['approvalReference','recoveryReference','recoveryErasurePlan','writerHoldReference','disabledFeaturesReference'])assert.ok(typeof a[k]==='string'&&a[k].trim().length>=8,'APPROVAL_INCOMPLETE');
  for(const k of ['start','end','recoveryVerifiedAt'])assert.match(a[k],/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d+)?Z$/,'EXPLICIT_UTC_REQUIRED');
  assert.ok(Date.parse(a.recoveryVerifiedAt)<=now && now-Date.parse(a.recoveryVerifiedAt)<=30*60*1000,'RECOVERY_ATTESTATION_STALE');
  return windowOpen(a.start,a.end,now);

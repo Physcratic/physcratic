@@ -17,7 +17,7 @@ export function targetCheck(){
  assert.equal(target(url).database,'neondb');
  for(const bad of [url.replace('ep-snowy','ep-other'),url.replace('neondb?','wrong?'),url+'&options=evil',url+'&sslmode=require',url.replace('sslmode=require','sslmode=disable'),url.replace('heart-b7c1220y.','heart-b7c1220y-pooler.'),url.replace('neondb_owner','other')])assert.throws(()=>target(bad));
  assert.throws(()=>approval({},'1'.repeat(40)));
- const now=Date.now(),a={target:binding,candidate:'1'.repeat(40),baselineSchema:'a'.repeat(64),baselineRecords:'b'.repeat(64),approvalReference:'owner-reviewed',recoveryReference:'reviewed-recovery',recoveryErasurePlan:'reviewed-erasure',writerHoldReference:'approved-hold',recoveryVerifiedAt:new Date(now).toISOString(),start:new Date(now-1000).toISOString(),end:new Date(now+60000).toISOString()};
+ const now=Date.now(),a={target:binding,candidate:'1'.repeat(40),baselineSchema:'a'.repeat(64),baselineRecords:'b'.repeat(64),approvalReference:'owner-reviewed',recoveryReference:'reviewed-recovery',recoveryErasurePlan:'reviewed-erasure',writerHoldReference:'approved-hold',disabledFeaturesReference:'reviewed-features-off',recoveryVerifiedAt:new Date(now).toISOString(),start:new Date(now-1000).toISOString(),end:new Date(now+60000).toISOString()};
  approval(a,a.candidate,now);assert.throws(()=>approval({...a,target:{...binding,branch:'other'}},a.candidate,now));
  assert.throws(()=>approval({...a,end:new Date(now-1).toISOString()},a.candidate,now));
 }
