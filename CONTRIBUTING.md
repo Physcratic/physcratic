@@ -87,9 +87,9 @@ Before and after:
 
 ## Ratings and difficulty
 
-- The four visible rating bands live in `lib/rating-bands.ts`: Beginner (0 to 800), Intermediate (801 to 1,800), Advanced (IPhO level) (1,801 to 2,600) and Mastery (2,601+). The underlying scale remains 0 to 4000, including Mastery above 3200. Retained band IDs are unchanged. The retired `fundamentals` filter preserves 0 to 199 and the older numeric filter IDs preserve their original ranges, without appearing as new choices.
+- The four visible rating bands live in `lib/rating-bands.ts`: Beginner (0 to 800), Intermediate (801 to 1,800), Advanced (1,801 to 2,600) and Mastery (2,601+). What each feels like: Beginner is "Fundamental physics or first selection stage", Intermediate is "National finals level", Advanced is "IPhO level" and Mastery is "Hard IPhO, APhO and EuPhO problems". The underlying scale remains 0 to 4000, including Mastery above 3200. Retained band IDs are unchanged. The retired `fundamentals` filter preserves 0 to 199 and the older numeric filter IDs preserve their original ranges, without appearing as new choices.
 - Picking a band in Problem Studio retains its existing preset (500, 1200, 2100 or 2800). Players still start at 1200. The library, badges, Studio and rating-help popover use the shared band definitions.
-- A problem's rating shows with its band name, such as "2,250 · Advanced (IPhO level)". An author's estimate reads "~1,200 · Intermediate (estimate)" and stays a plain number in the existing difficulty field. It never changes a rating, result or contest.
+- A problem's rating shows with its band name, such as "2,250 · Advanced". An author's estimate reads "~1,200 · Intermediate (estimate)" and stays a plain number in the existing difficulty field. It never changes a rating, result or contest.
 - Answers: a student writes `ln` for the natural log and `\log_{10}`, `log10` or `log_10` for base 10. A bare `log` is refused with one message, "Write ln for the natural log, or log₁₀ for base 10." This applies to student answers and to a new key written in Problem Studio. A key that was saved earlier keeps reading `log` as `ln`.
 
 ## Production

@@ -15,7 +15,7 @@ const browser = await chromium.launch({ headless: true, ...(process.env.CHROMIUM
 let checks = 0;
 const failures = [];
 const ok = (condition, message) => { checks++; if (!condition) failures.push(message); };
-const bands = ["Beginner", "Intermediate", "Advanced (IPhO level)", "Mastery"];
+const bands = ["Beginner", "Intermediate", "Advanced", "Mastery"];
 const profiles = {
   desktop: { viewport: { width: 1440, height: 900 } },
   "iPhone 13": (({ defaultBrowserType, ...p }) => p)(devices["iPhone 13"]),
@@ -99,10 +99,10 @@ for (const [name, profile] of Object.entries(profiles)) {
   ok(rows.length === 4, `${name}: the popover table has four bands`);
   const text = rows.join("\n");
   for (const [band, range, like] of [
-    ["Beginner", "0 to 800", "first round"],
-    ["Intermediate", "801 to 1,800", "national final"],
-    ["Advanced (IPhO level)", "1,801 to 2,600", "IPhO theory problem"],
-    ["Mastery", "2,601+", "APhO 2021"],
+    ["Beginner", "0 to 800", "Fundamental physics or first selection stage"],
+    ["Intermediate", "801 to 1,800", "National finals level"],
+    ["Advanced", "1,801 to 2,600", "IPhO level"],
+    ["Mastery", "2,601+", "Hard IPhO, APhO and EuPhO problems"],
   ]) ok(text.includes(band) && text.includes(range) && text.includes(like), `${name}: the popover row for ${band}`);
   await page.keyboard.press("Escape");
   ok(errors.length === 0, `${name}: page errors ${errors}`);

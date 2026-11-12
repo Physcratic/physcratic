@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, statSync } from "node:fs";
 import { test } from "node:test";
 import {
   buildCoachingContent,
@@ -149,7 +149,27 @@ test("every country has a flag file and every photo-less coach has no image on d
     if (m.photo === false) assert.ok(!portrait("webp") && !portrait("png") && !portrait("webp", "-cutout"), `${m.slug} should have no image`);
     else assert.ok(portrait(m.photo ?? "webp"), `${m.slug} portrait`);
   }
-  assert.deepEqual(medallists.filter((m) => m.photo === false).map((m) => m.slug), ["nima", "yota", "ignat-riazanov"]);
+  assert.deepEqual(medallists.filter((m) => m.photo === false).map((m) => m.slug), ["nima", "yota"]);
+});
+
+test("Ignat has a card photo and its cutout under 150 KB, a custom alt text, and the original stays out of public", () => {
+  const root = new URL("../public/coaching/", import.meta.url);
+  const ignat = medallists.find((m) => m.slug === "ignat-riazanov");
+  assert.ok(ignat && ignat.photo !== false);
+  assert.equal(ignat.alt, "Ignat, Physcratic coach");
+  for (const file of ["medallists/ignat-riazanov.webp", "medallists/ignat-riazanov-cutout.webp"]) {
+    const size = statSync(new URL(file, root)).size;
+    assert.ok(size > 1000 && size < 150 * 1024, `${file} is ${size} bytes`);
+    // A VP8 or VP8X WebP carries its size in the header. Every card is 720 by 900.
+    const head = readFileSync(new URL(file, root)).subarray(0, 40);
+    assert.equal(head.toString("ascii", 0, 4), "RIFF");
+    const x = head.toString("ascii", 12, 16) === "VP8X";
+    const width = x ? 1 + head.readUIntLE(24, 3) : head.readUInt16LE(26) & 0x3fff;
+    const height = x ? 1 + head.readUIntLE(27, 3) : head.readUInt16LE(28) & 0x3fff;
+    assert.deepEqual([width, height], [720, 900], file);
+  }
+  assert.ok(!existsSync(new URL("ignat-original.png", root)) && !existsSync(new URL("medallists/ignat-original.png", root)));
+  assert.ok(existsSync(new URL("../../assets-src/coaching/ignat-original.png", root)), "original kept in assets-src");
 });
 
 test("hero headline and controls copy", () => {

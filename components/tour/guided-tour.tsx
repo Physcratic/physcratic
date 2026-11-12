@@ -21,6 +21,10 @@ function findTarget(names: readonly string[]): HTMLElement | null {
   }
   return null;
 }
+/** A step as it reads at this width. */
+function effective(step: TourStep, compact: boolean): TourStep {
+  return compact && step.compact ? { ...step, targets: step.compact.targets, text: step.compact.text } : step;
+}
 const editable = (el: EventTarget | null) =>
   el instanceof HTMLElement && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT|MATH-FIELD)$/.test(el.tagName));
 
@@ -38,12 +42,16 @@ export function GuidedTour({ tourId }: { tourId: TourId }) {
   const [cardBox, setCardBox] = useState<{ top: number; left: number } | null>(null);
   const [narrow, setNarrow] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [compact, setCompact] = useState(false);
+  /** Nothing could be found for this step. The card still shows, without a ring, so no step is skipped silently. */
+  const [missing, setMissing] = useState(false);
   const card = useRef<HTMLDivElement>(null);
   const heading = useRef<HTMLParagraphElement>(null);
   const returnTo = useRef<HTMLElement | null>(null);
   const titleId = useId();
   const textId = useId();
-  const step: TourStep | undefined = index === null ? undefined : tour.steps[index];
+  const base: TourStep | undefined = index === null ? undefined : tour.steps[index];
+  const step: TourStep | undefined = base && effective(base, compact);
   const matches = !!step && (!step.path || step.path.test(pathname));
 
   const finish = useCallback(() => {
@@ -61,6 +69,7 @@ export function GuidedTour({ tourId }: { tourId: TourId }) {
       if (to < 0) return;
       if (to >= tour.steps.length) return finish();
       writeRunning(tourId, to);
+      setMissing(false);
       setTarget(null);
       setBox(null);
       setCardBox(null);
@@ -72,13 +81,20 @@ export function GuidedTour({ tourId }: { tourId: TourId }) {
   /** The nearest earlier step that belongs on this page and has something to point at. Back never lands on a skipped step. */
   const previous = (from: number) => {
     for (let i = from - 1; i >= 0; i--) {
-      const { path, targets } = tour.steps[i];
+      const { path, targets } = effective(tour.steps[i], compact);
       if ((!path || path.test(pathname)) && findTarget(targets)) return i;
     }
     return -1;
   };
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+    const query = window.matchMedia("(max-width: 1023px)");
+    const sync = () => setCompact(query.matches);
+    sync();
+    query.addEventListener("change", sync);
+    return () => query.removeEventListener("change", sync);
+  }, []);
 
   // Start: resume one that is part way through, start on a first visit, or start when asked.
   useEffect(() => {
@@ -124,6 +140,8 @@ export function GuidedTour({ tourId }: { tourId: TourId }) {
   useEffect(() => {
     if (!step || !matches) return;
     let tries = 0;
+    setMissing(false);
+    setNarrow(window.innerWidth < 640);
     const look = () => {
       const found = findTarget(step.targets);
       if (found) {
@@ -133,16 +151,18 @@ export function GuidedTour({ tourId }: { tourId: TourId }) {
       return false;
     };
     if (look()) return;
+    // A slow phone can take several seconds to draw a page, so keep looking for about ten.
     const timer = setInterval(() => {
       tries++;
       if (look()) clearInterval(timer);
-      else if (tries > 14) {
+      else if (tries > 66) {
         clearInterval(timer);
-        go(index! + 1); // Nothing to point at here, so move on.
+        setMissing(true); // Say what the step is, without a ring. Never skip it silently.
       }
     }, 150);
     return () => clearInterval(timer);
-  }, [step, matches, index, go]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [base, compact, matches, index]);
 
   // Keep the ring and the card with the element while the page scrolls or resizes.
   useLayoutEffect(() => {
@@ -203,7 +223,7 @@ export function GuidedTour({ tourId }: { tourId: TourId }) {
 
   // Move focus to the card on each step, so a screen reader reads it and the keyboard starts there.
   // The card is drawn a moment after the target is found, so this waits for it.
-  const shown = !!(target && box && matches);
+  const shown = !!(target && box && matches) || (missing && !!matches);
   useEffect(() => {
     if (shown) heading.current?.focus({ preventScroll: true });
   }, [shown, index]);
@@ -226,22 +246,26 @@ export function GuidedTour({ tourId }: { tourId: TourId }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index, matches, finish, go, pathname]);
 
-  if (!mounted || index === null || !step || !matches || !target || !box) return null;
+  if (!mounted || index === null || !step || !matches || !((target && box) || missing)) return null;
   const last = index === tour.steps.length - 1;
   const total = tour.steps.length;
   const place: React.CSSProperties = narrow
     ? { left: 8, right: 8, bottom: 8 }
-    : { top: cardBox?.top ?? 0, left: cardBox?.left ?? 0, width: Math.min(352, window.innerWidth - 16), visibility: cardBox ? "visible" : "hidden" };
+    : missing && !target
+      ? { top: 72, right: 16, width: Math.min(352, window.innerWidth - 16) }
+      : { top: cardBox?.top ?? 0, left: cardBox?.left ?? 0, width: Math.min(352, window.innerWidth - 16), visibility: cardBox ? "visible" : "hidden" };
 
   return createPortal(
     <>
-      <div
-        aria-hidden="true"
-        data-tour-ring=""
-        className="pointer-events-none fixed rounded-md ring-2 ring-primary ring-offset-2 ring-offset-background"
-        data-tour-ring-layer={ringLayer(target)}
-        style={{ zIndex: ringLayer(target), top: box.top - 2, left: box.left - 2, width: box.width + 4, height: box.height + 4 }}
-      />
+      {target && box && (
+        <div
+          aria-hidden="true"
+          data-tour-ring=""
+          className="pointer-events-none fixed rounded-md ring-2 ring-primary ring-offset-2 ring-offset-background"
+          data-tour-ring-layer={ringLayer(target)}
+          style={{ zIndex: ringLayer(target), top: box.top - 2, left: box.left - 2, width: box.width + 4, height: box.height + 4 }}
+        />
+      )}
       <div
         ref={card}
         role="dialog"
@@ -249,6 +273,7 @@ export function GuidedTour({ tourId }: { tourId: TourId }) {
         aria-labelledby={titleId}
         aria-describedby={textId}
         data-tour-card=""
+        data-tour-missing={missing && !target ? "" : undefined}
         className="fixed z-[61] max-h-[60dvh] space-y-3 overflow-y-auto rounded-xl border-2 border-primary bg-card p-4 text-card-foreground shadow-lg"
         style={place}
       >

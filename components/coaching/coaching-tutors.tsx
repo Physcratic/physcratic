@@ -25,7 +25,7 @@ export function CoachingTutorCard({ tutor, priority = false, eager = false, coun
     <div className="coaching-portrait-frame">
       <div className={countryBackdrop ? "coaching-portrait-clip coaching-portrait-artwork" : "coaching-portrait-clip"}>
         {countryBackdrop && flagCode && <Image src={`/coaching/flags/${flagCode}.png`} alt="" aria-hidden="true" fill sizes="(min-width: 640px) 288px, 256px" className="coaching-country-flag" />}
-        {photo === false ? <CoachingAvatar variant="portrait" transparent={countryBackdrop} className="coaching-portrait-image" /> : <Image src={countryBackdrop ? cutout : `/coaching/medallists/${tutor.slug}.${photo}`} alt={coachImageAlt(tutor.name, tutor.country)} width={720} height={900} sizes="(min-width: 1280px) 288px, (min-width: 640px) 288px, 256px" priority={priority} loading={priority ? undefined : eager ? "eager" : "lazy"} className="coaching-portrait-image" />}
+        {photo === false ? <CoachingAvatar variant="portrait" transparent={countryBackdrop} className="coaching-portrait-image" /> : <Image src={countryBackdrop ? cutout : `/coaching/medallists/${tutor.slug}.${photo}`} alt={tutor.alt ?? coachImageAlt(tutor.name, tutor.country)} width={720} height={900} sizes="(min-width: 1280px) 288px, (min-width: 640px) 288px, 256px" priority={priority} loading={priority ? undefined : eager ? "eager" : "lazy"} className="coaching-portrait-image" />}
       </div>
     </div>
     <div className="coaching-portrait-copy">

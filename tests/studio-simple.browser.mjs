@@ -409,11 +409,11 @@ try {
 
   // Where it's from (I wrote it is the default), an estimated difficulty band, then the rights tick and Publish.
   assert.equal(await page.getByRole("radio", { name: "I wrote it" }).isChecked(), true, "I wrote it is the default");
-  await page.getByRole("radio", { name: /^Advanced \(IPhO level\)/ }).click();
-  assert.equal(await page.getByRole("radio", { name: /^Advanced \(IPhO level\)/ }).getAttribute("aria-checked"), "true", "the band is chosen");
+  await page.getByRole("radio", { name: /^Advanced/ }).click();
+  assert.equal(await page.getByRole("radio", { name: /^Advanced/ }).getAttribute("aria-checked"), "true", "the band is chosen");
   assert.equal(await page.getByLabel("Exact rating (optional)").inputValue(), "2100", "the band fills in its middle rating");
   await page.getByLabel("Exact rating (optional)").fill("2310");
-  assert.equal(await page.getByRole("radio", { name: /^Advanced \(IPhO level\)/ }).getAttribute("aria-checked"), "true", "an exact rating in the band keeps the band");
+  assert.equal(await page.getByRole("radio", { name: /^Advanced/ }).getAttribute("aria-checked"), "true", "an exact rating in the band keeps the band");
   await page.getByLabel("Exact rating (optional)").fill("abc");
   await page.getByText("Type a whole number from 0 to 4000, or pick a band.").waitFor();
   await page.getByLabel("Exact rating (optional)").fill("2310");
@@ -497,7 +497,7 @@ try {
   // The names turn into maths as you type, with hardware keys and with a phone keyboard (text without key presses).
   const typingCases = [["sin", "\\sin"], ["cos", "\\cos"], ["tan", "\\tan"], ["ln", "\\ln"], ["log", "\\log"], ["theta", "\\theta"], ["\\theta ", "\\theta"]];
   for (const [label, profile] of [["desktop", undefined], ["iPhone 13", (({ defaultBrowserType, ...p }) => p)(devices["iPhone 13"])], ["Pixel 7", (({ defaultBrowserType, ...p }) => p)(devices["Pixel 7"])]]) {
-    for (const soft of [false, true]) {
+    for (const soft of [false, true, "composition", "whole word"]) {
       for (const [typed, expected] of typingCases) {
         const { context: tctx, page: tp } = await newPage(1440, 1000, profile);
         await tp.goto(origin);
@@ -509,16 +509,26 @@ try {
         await tpanel.waitFor();
         const tfield = await mathField(tpanel);
         await tp.waitForTimeout(700);
-        if (soft) for (const ch of typed) { await tp.keyboard.insertText(ch); await tp.waitForTimeout(35); }
+        if (soft === "composition" || soft === "whole word") {
+          // An Android keyboard composes the word and commits it. Autocomplete sends the whole word at once. Both over CDP.
+          const cdp = await tctx.newCDPSession(tp);
+          const word = typed.replace(/ $/, "");
+          if (soft === "composition") {
+            for (let i = 1; i <= word.length; i++) await cdp.send("Input.imeSetComposition", { text: word.slice(0, i), selectionStart: i, selectionEnd: i });
+            await cdp.send("Input.insertText", { text: word });
+            if (word !== typed) await cdp.send("Input.insertText", { text: " " });
+          } else await cdp.send("Input.insertText", { text: typed });
+          await tp.waitForTimeout(120);
+        } else if (soft) for (const ch of typed) { await tp.keyboard.insertText(ch); await tp.waitForTimeout(35); }
         else await tp.keyboard.type(typed, { delay: 35 });
         const got = (await tfield.evaluate((e) => e.value)).replace(/\\left|\\right/g, "");
         const where = await tp.evaluate(() => { const a = document.activeElement; return `${a?.tagName}${a?.getAttribute?.("aria-hidden") ? "[aria-hidden]" : ""}${a?.shadowRoot ? " (shadow)" : ""}`; });
-        assert.equal(got, expected, `Studio equation, ${label}, ${soft ? "phone keyboard" : "keys"}: ${JSON.stringify(typed)} became ${got} (focus is on ${where})`);
+        assert.equal(got, expected, `Studio equation, ${label}, ${soft === true ? "phone keyboard" : soft || "keys"}: ${JSON.stringify(typed)} became ${got} (focus is on ${where})`);
         await tctx.close();
       }
     }
   }
-  log("Typing shortcuts in a Studio equation: desktop, iPhone and Pixel, keys and phone keyboard.");
+  log("Typing shortcuts in a Studio equation: desktop, iPhone and Pixel, keys, phone keyboard, composition and whole word.");
 
   // ------------------------------------------------------------------ 3. A number answer at 375px
   const small = await newPage(375, 800);
