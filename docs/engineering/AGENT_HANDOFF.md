@@ -1,5 +1,11 @@
 # Agent handoff
 
+## Moderator actions (12 November 2026)
+
+Code-only staff actions extend the existing dashboard with community-question removal/restoration and regular-account bans/unbans. Individual existing staff roles remain operator-assigned. Additive 0019 serializes versioned decisions, archives removed questions while preserving revisions/attempts, blocks republication, revokes banned users' sessions and rejects new sessions. Restoration requires an independent administrator and leaves questions archived for explicit author republication. Default-OFF COMMUNITY_ACTIONS_ENABLED also requires existing staff/moderation flags. No production discussion lock is removed.
+
+See [behaviour, tests, migration hash, grants and limitations](STAFF_ACTIONS.md). Focused PGlite SQL/API tests and changed-entrypoint TypeScript pass. Complete PostgreSQL/auth/reader integration and exact-head CI remain review gates. No merge, real account/role, SQL/grant, activation or deployment action. Owner approved the code-only merge. Production activation remains separate.
+
 ## SEO P5A Mechanics draft (12 November 2026)
 
 Final editorial correction: #154 adds two accessible Mechanics diagrams and explains both tempting energy errors, preserving all equations, assumptions, citations and practice links. Final exact-head evidence remains on the draft PR. Unpublished, no reviewer attribution, no merge or deployment.

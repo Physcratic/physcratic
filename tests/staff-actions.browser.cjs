@@ -1,0 +1,36 @@
+// Isolated transport mocks exercise the real component. SQL/API authorization is
+// covered independently in lib/staff-actions.test.ts on disposable PostgreSQL.
+const fs=require('node:fs/promises'),path=require('node:path'),assert=require('node:assert/strict');
+const {createRequire}=require('node:module');
+const root=process.cwd(),base=root,qa=process.env.AUTHORING_BROWSER_TOOLS;
+if(!qa)throw Error('Set AUTHORING_BROWSER_TOOLS to the external Playwright tooling directory.');
+const fromBase=createRequire(path.join(root,'package.json')),fromQa=createRequire(path.join(qa,'package.json'));
+const esbuild=createRequire(fromBase.resolve('tsx'))('esbuild');
+const {chromium}=fromQa('playwright'),{AxeBuilder}=fromQa('@axe-core/playwright');
+(async()=>{
+ const bundle=await esbuild.build({stdin:{contents:`import React,{useState} from 'react';import{createRoot}from'react-dom/client';import{StaffActions}from'./components/community/staff-actions';function App(){const[n,set]=useState(0);return <main className="mx-auto max-w-4xl p-5"><h1>Moderation</h1><button onClick={()=>set(n+1)}>Switch account</button><StaffActions key={n}/></main>}createRoot(document.getElementById('app')).render(<App/>);`,resolveDir:root,loader:'tsx'},bundle:true,write:false,platform:'browser',format:'iife',jsx:'automatic',nodePaths:[path.join(base,'node_modules')],alias:{'@':root},define:{'process.env.NODE_ENV':'"production"'},logLevel:'warning'});
+ const config=fromBase('tailwindcss/loadConfig')(path.join(root,'tailwind.config.js'));config.content=[path.join(root,'components/community/staff-actions.tsx'),path.join(root,'components/ui/{button,input,textarea}.tsx')];
+ const css=(await fromBase('postcss')([fromBase('tailwindcss')(config)]).process(await fs.readFile(path.join(root,'app/globals.css'),'utf8'),{from:undefined})).css;
+ const browser=await chromium.launch({headless:true,executablePath:process.env.STAFF_ACTIONS_CHROMIUM});let checks=0;
+ const id='11111111-1111-4111-8111-111111111111';
+ try{for(const width of [375,1440])for(const theme of ['light','dark']){
+ const context=await browser.newContext({viewport:{width,height:1050}}),page=await context.newPage();let role='moderator',restricted=false,version=0,fail=0,posts=[],delay=false;
+ await page.route('http://staff.test/**',route=>route.fulfill(route.request().url().endsWith('/bundle.js')?{contentType:'text/javascript',body:bundle.outputFiles[0].text}:route.request().url().endsWith('/style.css')?{contentType:'text/css',body:css}:{contentType:'text/html',body:'<!doctype html><html lang="en"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Staff actions QA</title><link rel="stylesheet" href="/style.css"><body><div id="app"></div><script src="/bundle.js"></script></body></html>'}));
+ const target=kind=>({role,target:{kind,id:kind==='user'?'student':id,label:kind==='user'?'@student':'Test Question',version,restricted,protected:false},audit:posts.map((p,i)=>({id:String(i+1),actorId:'staff',action:p.restricted?'remove':'restore',version:p.version+1,reason:p.reason,createdAt:'2026-11-12T10:00:00.000Z'})),nextAudit:null});
+ await page.route('**/api/community/actions**',async route=>{const request=route.request();if(request.method()==='POST'){const input=request.postDataJSON();posts.push(input);if(fail){const status=fail;fail=0;return route.fulfill({status,json:{error:'Synthetic failure'}})}restricted=input.restricted;version++;return route.fulfill({json:{id:input.id,version}})}if(delay)await new Promise(r=>setTimeout(r,300));const kind=new URL(request.url()).searchParams.get('kind');return route.fulfill({json:target(kind)}).catch(()=>{})});
+ await page.goto('http://staff.test/');await page.evaluate(theme=>document.documentElement.className=theme==='dark'?'dark':'',theme);
+ await page.getByLabel('Question ID',{exact:true}).fill(id);await page.getByRole('button',{name:'Load target',exact:true}).click();await page.getByText('Test Question',{exact:true}).waitFor();checks++;
+ await page.getByRole('button',{name:'Remove question',exact:true}).click();await page.getByRole('alert').filter({hasText:'Give a reason'}).waitFor();assert.equal(posts.length,0);checks++;
+ await page.getByLabel('Reason',{exact:true}).fill('<script>window.injected=true</script> Reviewed spam');await page.getByRole('button',{name:'Remove question',exact:true}).click();await page.getByRole('group',{name:'Confirm staff action'}).waitFor();assert.equal(await page.getByRole('group',{name:'Confirm staff action'}).evaluate(e=>e===document.activeElement),true);checks++;
+ await page.getByRole('button',{name:'Cancel action'}).click();assert.equal(posts.length,0);assert.equal(await page.getByLabel('Reason',{exact:true}).evaluate(e=>e===document.activeElement),true);checks++;
+ await page.getByRole('button',{name:'Remove question',exact:true}).click();await page.getByRole('button',{name:'Confirm remove question',exact:true}).press('Enter');await page.getByText('Decision recorded.',{exact:false}).waitFor();assert.equal(posts.length,1);assert.equal(posts[0].version,0);checks++;
+ await page.getByRole('button',{name:'Load target',exact:true}).click();await page.getByText('An administrator must restore this target.').waitFor();assert.equal(await page.getByRole('button',{name:'Restore question',exact:true}).count(),0);assert.equal(await page.evaluate(()=>window.injected),undefined);checks++;
+ role='admin';await page.getByRole('button',{name:'Load target',exact:true}).click();await page.getByRole('button',{name:'Restore question',exact:true}).waitFor();await page.getByLabel('Reason',{exact:true}).fill('Review complete');await page.getByRole('button',{name:'Restore question',exact:true}).click();fail=409;await page.getByRole('button',{name:'Confirm restore question',exact:true}).click();await page.getByRole('alert').filter({hasText:'Decision was not confirmed'}).waitFor();assert.equal(await page.getByRole('button',{name:'Restore question',exact:true}).isDisabled(),true);checks++;
+ await page.getByRole('button',{name:'Load target',exact:true}).click();await page.getByRole('button',{name:'Restore question',exact:true}).waitFor();
+ const violations=(await new AxeBuilder({page}).analyze()).violations;assert.equal(violations.length,0,JSON.stringify(violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)}))));assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);checks+=2;
+ await page.evaluate(()=>window.dispatchEvent(new Event('blur')));await page.getByText('Test Question',{exact:true}).waitFor({state:'hidden'});checks++;
+ delay=true;await page.getByRole('button',{name:'Load target',exact:true}).click();await page.getByRole('button',{name:'Switch account',exact:true}).click();await page.waitForTimeout(400);assert.equal(await page.getByText('Test Question',{exact:true}).count(),0);checks++;
+ await page.getByLabel('Staff action target').selectOption('user');await page.getByLabel('User ID or public @handle',{exact:true}).fill('@student');delay=false;restricted=false;await page.getByRole('button',{name:'Load target',exact:true}).click();await page.getByRole('button',{name:'Ban user',exact:true}).waitFor();checks++;
+ await context.close();
+ }console.log(`PASS ${checks} staff UI checks, desktop/mobile light/dark`);}finally{await browser.close();}
+})().catch(e=>{console.error(e);process.exitCode=1});

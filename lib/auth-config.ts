@@ -5,6 +5,7 @@ import { signupPolicy } from "@/lib/signup-policy";
 import { signupCaptcha } from "@/lib/signup-captcha";
 import { authoringStagingAuth } from "@/lib/authoring-staging";
 import { accountEmailOptions, accountSecurity, type Defer } from "@/lib/auth-account";
+import { assertAccountCanSignIn } from "@/lib/community/account-restriction";
 
 // One place for the auth settings, so the database tests run the same flows and limits as the app.
 export function createAuthOptions({ pool, defer, overrides = {} }: { pool: Pool; defer: Defer; overrides?: Partial<BetterAuthOptions> }) {
@@ -14,6 +15,13 @@ export function createAuthOptions({ pool, defer, overrides = {} }: { pool: Pool;
     database: pool,
     plugins: [signupCaptcha(), accountSecurity({ pool })],
     ...signupPolicy,
+    databaseHooks: {
+      ...signupPolicy.databaseHooks,
+      session: { create: { before: async session => {
+        await assertAccountCanSignIn(pool, session.userId);
+        return { data: session };
+      } } },
+    },
     user: {
       ...signupPolicy.user,
       // Strict mode: the current address approves, then the new address verifies. Only then does the email switch.

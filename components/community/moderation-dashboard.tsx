@@ -8,14 +8,15 @@ import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
 import {Textarea} from '@/components/ui/textarea';
 import {useModerationQuery} from './moderation-query';
+import {StaffActions} from './staff-actions';
 type Item='report'|'comment'|'thread'|'appeal';
-export function ModerationDashboard(){
+export function ModerationDashboard({actionsEnabled=false}:{actionsEnabled?:boolean}){
  const {data,isPending,error}=authClient.useSession();
  if(isPending)return <p role="status">Loading account…</p>;
  if(error||!data?.user.emailVerified)return <p role="alert">Use a verified staff account to review moderation cases.</p>;
- return <Workspace key={data.user.id}/>;
+ return <Workspace key={data.user.id} actionsEnabled={actionsEnabled}/>;
 }
-function Workspace(){
+function Workspace({actionsEnabled}:{actionsEnabled:boolean}){
  const [queue,setQueue]=useState<'reports'|'held'|'appeals'>('reports'),[pages,setPages]=useState<(string|null)[]>([null]),[refresh,setRefresh]=useState(0),[selected,setSelected]=useState<{item:Item;id:string}|null>(null),[lookup,setLookup]=useState(''),[item,setItem]=useState<Item>('report'),[error,setError]=useState('');
  const heading=useRef<HTMLDivElement>(null),after=pages.at(-1);
  const query=useModerationQuery('/api/community/moderation?'+new URLSearchParams({queue,...(after?{after}:{})}),casePageSchema,refresh);
@@ -28,6 +29,7 @@ function Workspace(){
   {query.data&&!query.error&&<div className="grid items-start gap-6 lg:grid-cols-[minmax(240px,1fr)_minmax(0,2fr)]"><section aria-label="Moderation cases" className="min-w-0 space-y-4"><h2 className="text-lg font-semibold">{queue==='held'?'Held comments':queue==='appeals'?'Appeals':'Reports'}</h2>{!query.data.cases.length&&<p className="text-sm text-muted-foreground">No cases on this page.</p>}<ul className="space-y-3">{query.data.cases.map(c=><li key={c.id}><button className="min-h-11 w-full space-y-2 rounded-xl border bg-card p-4 text-left hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring [overflow-wrap:anywhere]" onClick={()=>open(queue==='held'?'comment':queue==='appeals'?'appeal':'report',c.id)} aria-pressed={selected?.id===c.id}><span className="block font-medium">{caseTitle(c)}</span><span className="block text-sm capitalize">{c.state}</span><span className="block text-xs text-muted-foreground">{c.id}</span></button></li>)}</ul><nav aria-label="Moderation queue pages" className="flex flex-wrap gap-2"><Button variant="outline" disabled={pages.length===1} onClick={()=>{setSelected(null);setPages(v=>v.slice(0,-1));}}>Previous cases</Button><Button variant="outline" disabled={!query.data.nextCursor} onClick={()=>{setSelected(null);setPages(v=>[...v,query.data!.nextCursor]);}}>Next cases</Button></nav></section>
    <div ref={heading} tabIndex={-1} className="min-w-0 focus:outline-none">{selected?<ReviewPane key={selected.item+selected.id} {...selected} open={open} denied={()=>{setSelected(null);setError('Permission changed or an independent reviewer is required. Private detail was cleared.');setRefresh(n=>n+1);}}/>:<p className="rounded-xl border p-5 text-sm text-muted-foreground">Select a case to review its details, private evidence and audit.</p>}</div>
   </div>}
+ {actionsEnabled&&<StaffActions/>}
  </div>;
 }
 function ReviewPane({item,id,open,denied}:{item:Item;id:string;open:(item:Item,id:string)=>void;denied:()=>void}){

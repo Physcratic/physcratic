@@ -1,8 +1,9 @@
 import {z} from 'zod';
 import {commentKeySchema} from './comments-contracts';
 import {profileHandleSchema} from './profile-contracts';
+import {moderationNote} from './moderation-note';
+export {moderationNote} from './moderation-note';
 const uuid=z.uuid().transform(v=>v.toLowerCase());
-export const moderationNote=z.string().trim().min(1).max(1000).refine(v=>!/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/.test(v));
 export const reportSubject=z.discriminatedUnion('kind',[
  z.strictObject({kind:z.literal('comment'),key:commentKeySchema,id:uuid}),
  z.strictObject({kind:z.literal('profile'),handle:profileHandleSchema}),

@@ -65,3 +65,7 @@ jobs:
         env:
           AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/community-tools
         run: node --require ./tests/server-only-register.cjs --import tsx tests/moderation-ui.browser.mjs
+      - name: Staff action confirmations, recovery and accessibility
+        env:
+          AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/community-tools
+        run: node tests/staff-actions.browser.cjs

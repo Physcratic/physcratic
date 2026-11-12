@@ -2,6 +2,7 @@
 // integration tests inject sessions and a disposable PostgreSQL pool into these same handlers.
 import { replaceDraftMedia, MediaReferenceError } from "./author-media-references";
 import { randomUUID } from "node:crypto";
+import { communityActionsEnabled } from "./community/action-policy";
 import type { Pool, PoolClient } from "pg";
 import { z } from "zod";
 import { authoredDraftSchema, authoredDocumentSchema, privatePartSchema, publishableDraftSchema, publicAuthoredContent, publicAuthoredRevision, type AuthoredDocument, type PrivatePart } from "./problem-authoring";
@@ -109,6 +110,8 @@ export function createProblemAuthoringApi(deps: Dependencies) {
             await client.query("DELETE FROM authored_problem p WHERE id=$1 AND NOT EXISTS(SELECT 1 FROM authored_revision r WHERE r.problem_id=p.id) AND NOT EXISTS(SELECT 1 FROM author_media m WHERE m.problem_id=p.id)", [id]);
             status = 204;
           } else if (action === "publish") {
+            if (communityActionsEnabled() && (await client.query("SELECT 1 FROM community_restriction WHERE kind='problem' AND problem_id=$1 AND restricted", [id])).rows[0])
+              throw new HttpError(403, "This question was removed by moderation. Contact an administrator before publishing again.");
             const published = publishableDraftSchema.parse(draft);
             const mediaRefs = await replaceDraftMedia(client, id!, owner!, published.content, published.privateParts);
             const revisionId = randomUUID();
@@ -144,7 +147,9 @@ export function createProblemAuthoringApi(deps: Dependencies) {
       if (error instanceof RangeError) return reply({ error: "Authoring request too large." }, 413);
       if (error instanceof RequestBodyTimeoutError) return reply({ error: "Authoring request timed out." }, 408);
       if ((error as { code?: string }).code === "23505") return reply({ error: "Conflicting authoring change. Reload and retry." }, 409);
+      if ((error as { code?: string }).code === "42501") return reply({ error: "Publication is restricted. Contact an administrator for a review." }, 403);
       return reply({ error: "Authoring is temporarily unavailable. Retry without discarding your draft." }, 503);
     } finally { client?.release(); }
   };
 }
+
