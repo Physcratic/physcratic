@@ -1,5 +1,7 @@
 // Typing shortcuts in an answer field: sin, cos, tan, ln, log, theta and \theta become maths, on desktop and in iPhone and
-// Pixel emulation, with hardware keys (keydown) and with a phone keyboard (text without key presses). Also \ commands
+// Pixel emulation, with hardware keys (keydown) and with a phone keyboard (text without key presses): one character at a
+// time, an IME composition that ends in the word (Input.imeSetComposition then Input.insertText over CDP, as Android
+// keyboards do), and a whole word or word and space at once (autocomplete). Also \ commands
 // finishing on Space, Enter and Tab. Run against a local production build with no database:
 //   BROWSER_TEST_ORIGIN=http://127.0.0.1:3100 node tests/math-typing.browser.mjs
 // AUTHORING_BROWSER_TOOLS and CHROMIUM_PATH work as in the other browser tests. Not run by CI.
@@ -43,13 +45,25 @@ async function openField(name) {
 }
 
 for (const name of Object.keys(profiles)) {
-  for (const way of ["keys", "phone keyboard"]) {
+  for (const way of ["keys", "phone keyboard", "composition", "whole word", "word and space"]) {
     for (const [typed, expected] of cases) {
       const { context, page, field, errors } = await openField(name);
       if (way === "keys") await page.keyboard.type(typed, { delay: 35 });
-      else for (const ch of typed) { await page.keyboard.insertText(ch); await page.waitForTimeout(35); }
-      const value = (await field.evaluate((el) => el.value)).replace(/\\left|\\right/g, "");
-      ok(value.startsWith(expected), `${name}, ${way}: ${JSON.stringify(typed)} became ${value}, expected ${expected}`);
+      else if (way === "phone keyboard") for (const ch of typed) { await page.keyboard.insertText(ch); await page.waitForTimeout(35); }
+      else {
+        const cdp = await context.newCDPSession(page);
+        const word = typed.replace(/ $/, "");
+        if (way === "composition") {
+          for (let i = 1; i <= word.length; i++) await cdp.send("Input.imeSetComposition", { text: word.slice(0, i), selectionStart: i, selectionEnd: i });
+          await cdp.send("Input.insertText", { text: word });
+          if (word !== typed) await cdp.send("Input.insertText", { text: " " });
+        } else await cdp.send("Input.insertText", { text: way === "whole word" ? typed : `${word} ` });
+      }
+      await page.waitForTimeout(120);
+      // \sqrt and \frac keep their empty slots, which are not typed text.
+      const value = (await field.evaluate((el) => el.value)).replace(/\\left|\\right/g, "").replace(/\{(\\placeholder\{\})?\}/g, "");
+      // The new ways must give the shortcut and nothing else: the word is never typed twice.
+      ok(way === "keys" || way === "phone keyboard" ? value.startsWith(expected) : value === expected, `${name}, ${way}: ${JSON.stringify(typed)} became ${value}, expected ${expected}`);
       ok(errors.length === 0, `${name}, ${way}: page errors ${errors}`);
       await context.close();
     }

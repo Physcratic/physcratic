@@ -28,7 +28,7 @@ for (const file of [...sources("components"), ...sources("app")]) {
 
 test("every name a tour step points at is set as a data-tour attribute in the source", () => {
   const missing: string[] = [];
-  for (const id of tourIds) for (const step of tours[id].steps) for (const name of step.targets) if (!defined.has(name)) missing.push(`${id}/${step.id}: ${name}`);
+  for (const id of tourIds) for (const step of tours[id].steps) for (const name of [...step.targets, ...(step.compact?.targets ?? [])]) if (!defined.has(name)) missing.push(`${id}/${step.id}: ${name}`);
   assert.deepEqual(missing, []);
 });
 
@@ -38,11 +38,22 @@ test("each tour has unique step ids and short, plain steps", () => {
     assert.equal(new Set(tour.steps.map((s) => s.id)).size, tour.steps.length, `${id}: unique ids`);
     for (const step of tour.steps) {
       assert.ok(step.targets.length > 0, `${id}/${step.id}: has a target`);
-      const sentences = step.text.split(/(?<=[.!?])\s+/).filter(Boolean);
-      assert.ok(sentences.length <= 2, `${id}/${step.id}: one or two sentences`);
+      for (const text of [step.text, step.compact?.text ?? ""]) {
+        const sentences = text.split(/(?<=[.!?])\s+/).filter(Boolean);
+        assert.ok(sentences.length <= 2, `${id}/${step.id}: one or two sentences`);
+        assert.ok(!/[—–;]/.test(step.title + text), `${id}/${step.id}: no dashes or semicolons`);
+      }
       assert.ok(step.title.length <= 30, `${id}/${step.id}: short title`);
-      assert.ok(!/[—–;]/.test(step.title + step.text), `${id}/${step.id}: no dashes or semicolons`);
     }
+  }
+});
+
+test("every step that points into the sidebar says what to do on a phone, where the sidebar is a closed menu", () => {
+  const sidebar = new Set(["nav-problems", "nav-topics", "nav-settings"]);
+  for (const step of tours.welcome.steps) {
+    if (!step.targets.some((name) => sidebar.has(name))) continue;
+    assert.ok(step.compact && step.compact.targets.every((name) => !sidebar.has(name)), `welcome/${step.id}: needs a compact target outside the sidebar`);
+    assert.match(step.compact!.text, /menu/i, `welcome/${step.id}: the compact text says to open the menu`);
   }
 });
 

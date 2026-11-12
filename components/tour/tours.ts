@@ -1,7 +1,7 @@
 /**
  * The two guided tours. A step points at elements by `data-tour` name, never by class or text. It uses the first name
- * that is visible, so a sidebar hidden on a phone can fall back to the menu button. A step with no visible element is
- * skipped. tests/tour-targets.test.ts checks every name exists in the source.
+ * that is visible. Under 1024px a step can name its own `compact` targets and text, because the sidebar is a closed menu.
+ * A step is never skipped silently: if nothing can be found, the card shows without a ring. tests/tour-targets.test.ts checks every name exists in the source.
  */
 export type TourId = "welcome" | "studio";
 
@@ -11,6 +11,8 @@ export type TourStep = {
   targets: string[];
   title: string;
   text: string;
+  /** Under 1024px the sidebar is a closed menu. The step points at what is visible there instead, and says how to get to it. */
+  compact?: { targets: string[]; text: string };
   /** Only show this step on a path that matches. The tour waits on other pages. */
   path?: RegExp;
   /** A button that replaces Next and takes the author somewhere. */
@@ -35,10 +37,28 @@ export const tours: Record<TourId, Tour> = {
     name: "Welcome to Physcratic",
     autoStart: onDashboard,
     steps: [
-      { id: "library", targets: ["nav-problems", "nav-open"], title: "The library", text: "Every problem lives in the library. Open it to browse, search and filter." },
-      { id: "topics", targets: ["nav-topics"], title: "Topics", text: "Pick a topic to see only those problems." },
+      {
+        id: "library",
+        targets: ["nav-problems", "nav-open"],
+        title: "The library",
+        text: "Every problem lives in the library. Open it to browse, search and filter.",
+        compact: { targets: ["nav-open"], text: "Every problem lives in the library. Open the menu, then Problems, to browse, search and filter." },
+      },
+      {
+        id: "topics",
+        targets: ["nav-topics"],
+        title: "Topics",
+        text: "Pick a topic to see only those problems.",
+        compact: { targets: ["nav-open"], text: "Open the menu and pick a topic under Explore to see only those problems." },
+      },
       { id: "coaching", targets: ["nav-coaching"], title: "Coaching", text: "Want help from medallists? Coaching is up here." },
-      { id: "settings", targets: ["nav-settings", "nav-open"], title: "Settings", text: "Your account lives in Settings. You can replay this tour there too." },
+      {
+        id: "settings",
+        targets: ["nav-settings", "nav-open"],
+        title: "Settings",
+        text: "Your account lives in Settings. You can replay this tour there too.",
+        compact: { targets: ["nav-open"], text: "Your account lives in Settings, at the bottom of the menu. You can replay this tour there too." },
+      },
       {
         id: "open",
         targets: ["problem-card"],

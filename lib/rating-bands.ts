@@ -20,10 +20,10 @@ export type RatingBand = {
 };
 
 export const ratingBands: readonly RatingBand[] = [
-  { id: "beginner-olympiad", name: "Beginner", min: 0, max: 801, range: "0 to 800", example: "Like a school or national first round problem", middle: 500, variant: "elo-intermediate" },
-  { id: "intermediate-olympiad", name: "Intermediate", min: 801, max: 1801, range: "801 to 1,800", example: "Like a national final problem", middle: 1200, variant: "elo-intermediate" },
-  { id: "advanced", name: "Advanced (IPhO level)", min: 1801, max: 2601, range: "1,801 to 2,600", example: "Like an IPhO theory problem", middle: 2100, variant: "elo-advanced" },
-  { id: "mastery", name: "Mastery", min: 2601, max: Infinity, range: "2,601+", example: "Harder than IPhO, like APhO 2021 (Taiwan) or the APhO 2019 tippe top problem", middle: 2800, variant: "elo-advanced" },
+  { id: "beginner-olympiad", name: "Beginner", min: 0, max: 801, range: "0 to 800", example: "Fundamental physics or first selection stage", middle: 500, variant: "elo-intermediate" },
+  { id: "intermediate-olympiad", name: "Intermediate", min: 801, max: 1801, range: "801 to 1,800", example: "National finals level", middle: 1200, variant: "elo-intermediate" },
+  { id: "advanced", name: "Advanced", min: 1801, max: 2601, range: "1,801 to 2,600", example: "IPhO level", middle: 2100, variant: "elo-advanced" },
+  { id: "mastery", name: "Mastery", min: 2601, max: Infinity, range: "2,601+", example: "Hard IPhO, APhO and EuPhO problems", middle: 2800, variant: "elo-advanced" },
 ];
 
 /** The band a rating falls in. A rating under 0 counts as the lowest band. */
@@ -47,7 +47,7 @@ export function bandForEstimate(estimate: string | null | undefined): RatingBand
   return rating === null ? null : ratingBand(rating);
 }
 
-/** "~1,850 · Advanced (IPhO level) (estimate)" for a stored estimate, or the old label as written. */
+/** "~1,850 · Advanced (estimate)" for a stored estimate, or the old label as written. */
 export function describeEstimate(estimate: string | null | undefined): string {
   const text = (estimate ?? "").trim();
   if (!text) return "";

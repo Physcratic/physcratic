@@ -136,11 +136,22 @@ export function MathAnswerField({
         // MathLive focuses its sink from a timer, 60 ms after a click. Do it during the click, so the first key is not lost and
         // a phone opens its keyboard. pointerdown is for a mouse and a pen, click is the touch gesture iOS accepts.
         for (const type of ["pointerdown", "click"]) element.addEventListener(type, () => void focusSink(element), true);
-        // A phone keyboard can send text without key presses, which skips the shortcuts and turns \\ into a backslash sign.
-        // A hardware key press comes first, and MathLive reads it. Text with no key press just before it gets one made
-        // for it: MathLive reads that, and if it does not use it (no shortcut), the character goes in as usual.
+        // A phone keyboard can send text without key presses: one character, a whole word (autocomplete, dictation) or a
+        // composition that ends in a word. That skips the shortcuts and turns \\ into a backslash sign. A hardware key press
+        // comes first, and MathLive reads it. Text with no key press gets one made for it per character: MathLive reads that,
+        // and if it does not use it (no shortcut), the character goes in as usual.
         let keyedAt = -Infinity;
         let own = false;
+        const typeText = (sink: EventTarget, text: string) => {
+          for (const ch of Array.from(text)) {
+            own = true;
+            const press = new KeyboardEvent("keydown", { key: ch, bubbles: true, cancelable: true, composed: true });
+            sink.dispatchEvent(press);
+            own = false;
+            // The same text event a keyboard sends. executeCommand would clear MathLive's shortcut buffer between letters.
+            if (!press.defaultPrevented) sink.dispatchEvent(new InputEvent("input", { data: ch, inputType: "insertText", bubbles: true, cancelable: true }));
+          }
+        };
         element.addEventListener(
           "keydown",
           (event) => {
@@ -158,21 +169,52 @@ export function MathAnswerField({
           "beforeinput",
           (event) => {
             const input = event as InputEvent;
-            if (input.inputType !== "insertText" || !input.data || input.data.length !== 1 || input.isComposing || performance.now() - keyedAt < 60) return;
+            // MathLive sends its own beforeinput events from the host as it edits. Only the keyboard's (trusted) ones count.
+            if (!input.isTrusted || input.isComposing || !input.data || (input.inputType !== "insertText" && input.inputType !== "insertReplacementText")) return;
             const sink = input.composedPath()[0];
-            if (!(sink instanceof EventTarget)) return;
-            own = true;
-            const press = new KeyboardEvent("keydown", { key: input.data, bubbles: true, cancelable: true, composed: true });
-            sink.dispatchEvent(press);
-            own = false;
-            // MathLive used the key (a shortcut, a LaTeX command, a space that finishes one): the character must not go in again.
-            if (press.defaultPrevented) {
-              input.preventDefault();
-              input.stopImmediatePropagation();
+            if (!(sink instanceof EventTarget) || sink === element) return;
+            const chars = Array.from(input.data);
+            if (chars.length === 1 && input.inputType === "insertText") {
+              if (performance.now() - keyedAt < 60) return;
+              own = true;
+              const press = new KeyboardEvent("keydown", { key: input.data, bubbles: true, cancelable: true, composed: true });
+              sink.dispatchEvent(press);
+              own = false;
+              // MathLive used the key (a shortcut, a LaTeX command, a space that finishes one): the character must not go in again.
+              if (press.defaultPrevented) {
+                input.preventDefault();
+                input.stopImmediatePropagation();
+              }
+              return;
             }
+            // A whole word, or an autocomplete replacement. Never typed by key, so it goes in one character at a time.
+            input.preventDefault();
+            input.stopImmediatePropagation();
+            typeText(sink, input.data);
           },
           true,
         );
+        // A composition (Android keyboards, and IMEs) ends with the word. MathLive types it in and then adds it again, so put
+        // the field back as it was when the composition began, and type the word the same way as the cases above.
+        let before: { value: string; selection: typeof element.selection; mode: typeof element.mode } | null = null;
+        let lastWord = "";
+        element.addEventListener("compositionstart", () => { before = { value: element.value, selection: element.selection, mode: element.mode }; lastWord = ""; }, true);
+        element.addEventListener("compositionupdate", (event) => { lastWord = (event as CompositionEvent).data || lastWord; }, true);
+        element.addEventListener("compositionend", (event) => {
+          const word = (event as CompositionEvent).data || lastWord;
+          const sink = event.composedPath()[0];
+          const start = before;
+          before = null;
+          if (!word || !start || !(sink instanceof EventTarget) || sink === element) return;
+          // Inside a LaTeX command MathLive types the word once and has nothing to convert, so leave it.
+          if (start.mode === "latex") return;
+          // Back to how the field was. Leave LaTeX mode first (a word that starts with a backslash opens it), then reset the value.
+          element.mode = "math";
+          element.value = start.value;
+          element.mode = start.mode;
+          element.selection = start.selection;
+          typeText(sink, word);
+        });
 
         // Phones: let the phone's own keyboard open for this field. MathLive builds the sink as it connects, so try again a moment later.
         if (isTouchDevice()) {

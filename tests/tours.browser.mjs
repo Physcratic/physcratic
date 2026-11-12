@@ -56,6 +56,7 @@ async function inspect(page, label) {
     return {
       title: c.querySelector("p[tabindex='-1']")?.textContent ?? "",
       cards: document.querySelectorAll("[data-tour-card]").length,
+      missing: c.hasAttribute("data-tour-missing"),
       overlap,
       ring: rr ? { top: rr.top, bottom: rr.bottom, left: rr.left, right: rr.right, h: rr.height } : null,
       cardBox: { top: cr.top, bottom: cr.bottom, left: cr.left, right: cr.right },
@@ -70,6 +71,9 @@ async function inspect(page, label) {
     };
   });
   ok(info.cards === 1, `${label}: one card`);
+  // A step whose target cannot be found still shows its card (never skipped silently), but without a ring. That fails here.
+  ok(!info.missing, `${label}: the target is visible (the card says it could not find one)`);
+  if (info.ring) ok(info.ring.h > 0 && info.ring.bottom > 0 && info.ring.top < info.vh, `${label}: the ringed target is on screen`);
   ok(!!info.ring, `${label}: a ring marks the target`);
   ok(info.overlap === 0, `${label}: the card never covers the target (overlap ${info.overlap}px)`);
   ok(info.cardBox.top >= 0 && info.cardBox.bottom <= info.vh && info.cardBox.left >= 0 && info.cardBox.right <= info.vw, `${label}: the card is inside the screen`);
@@ -139,7 +143,8 @@ for (const theme of ["light", "dark"]) {
       ok((await inspect(page, `${tag} welcome back`)).title === first.title, `${tag} welcome: Back returns`);
       const titles = await walk(page, `${tag} welcome`);
       log(`${tag} welcome:`, titles.join(" > "));
-      ok(titles.length >= 6, `${tag} welcome: at least 6 steps are shown (${titles.length})`);
+      // No step is skipped, on a phone or on a desktop. At 375 the Topics and Settings steps point at the Menu button.
+      ok(titles.join("|") === "The library|Topics|Coaching|Settings|Open a problem|Your answer|Type it like you say it|Symbols|Check|Hints and solutions", `${tag} welcome: all ten steps are shown, none skipped (${titles.join(", ")})`);
       ok(titles.includes("Your answer") && titles.includes("Check") && titles.includes("Hints and solutions"), `${tag} welcome: the solving steps are shown`);
       ok((await card(page).count()) === 0, `${tag} welcome: Done closes it`);
       ok((await page.evaluate(() => localStorage.getItem("physcratic.tour.welcome.v1"))) === "seen", `${tag} welcome: remembered as seen`);

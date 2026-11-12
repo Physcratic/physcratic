@@ -13,6 +13,8 @@ export type Medallist = {
   achievements: Achievement[]
   /** Portrait file type in public/coaching/medallists, or false for the silhouette placeholder. Default 'webp'. */
   photo?: 'webp' | 'png' | false
+  /** Alt text for the portrait when the default, name and country, is not what the owner asked for. */
+  alt?: string
 }
 
 export const medalLabel: Record<Medal, string> = {
@@ -55,7 +57,7 @@ export const medallists: Medallist[] = [
   { name: 'Ahmed', slug: 'ahmed-abylaev', country: 'Kyrgyzstan', achievements: [{ contest: 'IPhO', year: '2026', medal: 'bronze' }] },
   { name: 'Ali Hamdaan', slug: 'ali-hamdaan', country: 'Pakistan', achievements: [{ contest: 'IPhO', year: '2026', medal: 'bronze' }] },
   { name: 'Mohammed', slug: 'mohammed-alramil', country: 'Saudi Arabia', achievements: [{ contest: 'IPhO', year: '2026', medal: 'bronze' }, { contest: 'APhO', year: '2026', medal: 'hm' }] },
-  { name: 'Ignat', slug: 'ignat-riazanov', country: 'Portugal', achievements: [{ contest: 'IPhO', year: '2026', medal: 'bronze' }], photo: false },
+  { name: 'Ignat', slug: 'ignat-riazanov', country: 'Portugal', achievements: [{ contest: 'IPhO', year: '2026', medal: 'bronze' }], alt: 'Ignat, Physcratic coach' },
   { name: 'Daffa', slug: 'daffa-virwandy', country: 'Indonesia', achievements: [{ contest: 'IPhO', year: '2025', medal: 'bronze' }, { contest: 'APhO', year: '2025', medal: 'bronze' }] },
   { name: 'Bagas', slug: 'bagas-sibarani', country: 'Indonesia', achievements: [{ contest: 'APhO', year: '2026', medal: 'bronze' }] },
   { name: 'Santiago', slug: 'santiago-calvo', country: 'Costa Rica', achievements: [{ contest: 'IPhO', year: '2026', medal: 'hm' }] },
