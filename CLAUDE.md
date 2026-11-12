@@ -27,5 +27,5 @@ Codex may be working in lib/security/**, next.config.ts and the community modera
 - UI: compose components/ui primitives and theme tokens (bg-background, text-muted-foreground, border). Dark is the default theme; check light too.
 - Keep the existing a11y patterns: role="status"/"alert", aria-labels on icon buttons, the skip link, visible focus.
 - Pure logic gets a node:test file next to it in lib/.
-- Branches: claude/<topic> while working, then fast-forward main (see Working rules). Commits: conventional (feat:, fix:, ci:, docs:, chore:).
+- Branches: claude/<topic>, then open a PR into main (see Working rules). Commits: conventional (feat:, fix:, ci:, docs:, chore:).
 - Record each finished task as a dated section in docs/engineering/BETA_READINESS.md, never in WORK_STATUS.md.
