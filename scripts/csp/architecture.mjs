@@ -7,16 +7,22 @@ import { execFileSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { gzipSync } from 'node:zlib';
 import { productionBuild, startLocal } from './local.mjs';
-import { digest, publicArtifact, verifyArtifact, nonceMiddleware, staticHeaderProposal } from './policy-artifact.mjs';
+import { digest, publicArtifact, verifyArtifact, nonceMiddleware, staticHeaderProposal, NONCE_MATCHERS } from './policy-artifact.mjs';
+import {routeInventory,assertQualified} from './route-inventory.mjs';
 import { sourceRegistry, attribution } from './attribution.mjs';
-import { safeViolation } from './support.mjs';
+import { safeViolation, browserSelection } from './support.mjs';
 import { evalAttribution } from './attribute.mjs';
+import { installDocumentFixtures } from './document-fixtures.mjs';
+import {documentHeaders,documentBrowsers} from './document-checks.mjs';
 const metricsOnly = process.env.CSP_METRICS_ONLY === '1';
+const browserNames = browserSelection(process.env, {metricsOnly});
 const root = process.cwd(), output = resolve('build/csp', metricsOnly ? 'architecture-performance.json' : 'architecture-results.json');
 const require = createRequire(import.meta.url);
 const tools = process.env.AUTHORING_BROWSER_TOOLS ? createRequire(join(process.env.AUTHORING_BROWSER_TOOLS, 'package.json')) : require;
 const engines = tools('playwright');
 const baseArtifact = await publicArtifact(root);
+const inventory = await routeInventory(root,{matchers:NONCE_MATCHERS,hashRoutes:Object.keys(baseArtifact.routes)});
+assertQualified(inventory);
 const reuse = process.env.CSP_REUSE_EXPERIMENT;
 const experiment = reuse ? await realpath(reuse) : await mkdtemp(join(tmpdir(), 'physcratic-x3c-'));
 assert.ok(experiment.startsWith(join(tmpdir(), 'physcratic-x3c-')), 'Only dedicated temporary experiments are accepted');
@@ -30,10 +36,11 @@ try {
   if (!reuse) {
     execFileSync('git', ['worktree', 'add', '--detach', experiment, 'HEAD'], { stdio: 'pipe' });
     await symlink(await realpath(resolve(root, 'node_modules')), resolve(experiment, 'node_modules'));
-    await writeFile(resolve(experiment, 'middleware.ts'), nonceMiddleware(baseArtifact.themeHash));
+    await writeFile(resolve(experiment, 'middleware.ts'), nonceMiddleware(baseArtifact.themeHash, Object.keys(baseArtifact.routes)));
+    await installDocumentFixtures(experiment);
   } else {
     assert.equal(execFileSync('git', ['-C', experiment, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), result.base);
-    assert.equal(await readFile(resolve(experiment, 'middleware.ts'), 'utf8'), nonceMiddleware(baseArtifact.themeHash));
+    assert.equal(await readFile(resolve(experiment, 'middleware.ts'), 'utf8'), nonceMiddleware(baseArtifact.themeHash, Object.keys(baseArtifact.routes)));
   }
   assert.equal(await readFile(resolve(experiment, 'app/layout.tsx'), 'utf8'), await readFile(resolve(root, 'app/layout.tsx'), 'utf8'));
   // Only generated cache is removed, to fit two builds in small workspaces.
@@ -48,22 +55,26 @@ try {
   const hybridArtifact = await publicArtifact(experiment);
   assert.equal(hybridArtifact.themeHash, baseArtifact.themeHash);
   assert.equal(await staticCount(root), await staticCount(experiment), 'Public prerendering must be retained');
+  assert.deepEqual(Object.keys(hybridArtifact.routes).sort(),Object.keys(baseArtifact.routes).sort(),'Public static route set changed');
+  assertQualified(await routeInventory(experiment,{matchers:NONCE_MATCHERS,hashRoutes:Object.keys(hybridArtifact.routes)}));
   await verifyArtifact(experiment, hybridArtifact);
   await writeFile(resolve(root, 'build/csp/static-header-proposal.json'), JSON.stringify({ buildId: hybridArtifact.buildId, routes: staticHeaderProposal(hybridArtifact) }, null, 2));
   await assert.rejects(verifyArtifact(experiment, { ...hybridArtifact, buildId: 'stale-build' }), /mismatch/);
   for (const [variant, path, artifact] of [['report-only', root, baseArtifact], ['hybrid', experiment, hybridArtifact]]) {
-    const local = await startLocal('native', path, { staticPolicies: variant === 'hybrid' ? Object.fromEntries(Object.entries(artifact.routes).map(([route, data]) => [route, data.policy])) : {} });
+    const local = await startLocal('native', path, variant === 'hybrid' ? { staticArtifact: artifact } : {});
+    const fixtureLocal = variant==='hybrid'&&!metricsOnly ? await startLocal('native',path,{staticArtifact:artifact,documentFixtures:true}) : null;
     try {
       const metrics = { variant, staticRoutes: await staticCount(path), compileMs: variant === 'hybrid' ? compileMs : null, maximumStaticHeaderBytes: Math.max(...Object.values(artifact.routes).map(data => Buffer.byteLength(data.policy))), paths: [], client: [] };
       const sources = await sourceRegistry(path);
       metrics.sourceIdentifiers = sources.size;
       assert.ok(metrics.maximumStaticHeaderBytes < 8192, 'Local policy header budget exceeded');
       metrics.verifiedStaticDocuments = 0;
+      metrics.documentHeaders=await documentHeaders(local,artifact,inventory,variant==='hybrid');
       for (const [route, data] of Object.entries(artifact.routes)) {
-        const response = await fetch(local.origin + route + '?source=synthetic');
-        assert.equal(response.status, 200);
+        const response = await fetch(local.origin + route + '?source=synthetic', {redirect:'manual'});
+        assert.equal(response.status, data.status);
         assert.equal(digest(await response.text()), data.htmlDigest, 'Served HTML/build mismatch');
-        assert.ok(response.headers.get('cache-control').includes('s-maxage'));
+        if (data.status === 200) assert.ok(response.headers.get('cache-control').includes('s-maxage'));
         metrics.verifiedStaticDocuments++;
       }
       for (const route of ['/learn', '/terms', '/dashboard']) {
@@ -85,11 +96,13 @@ try {
         if (route !== '/dashboard') assert.ok(cache.includes('s-maxage'), 'Public caching must remain');
         if (variant === 'hybrid' && route === '/dashboard') assert.ok(fresh);
       }
-      for (const name of (metricsOnly ? [] : (process.env.CSP_BROWSERS || 'chromium,firefox,webkit').split(','))) {
+      for (const name of browserNames) {
         let browser;
         try { browser = await engines[name].launch({ headless: true, ...(name === 'chromium' ? { args: ['--no-sandbox'], ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}) } : {}) }); }
         catch { if (process.env.CSP_REQUIRE_ALL === '1') throw Error('Required browser unavailable: ' + name); result.browsers.push({ variant, browser: name, limitation: 'Executable unavailable' }); continue; }
         try {
+          result.browsers.push(...await documentBrowsers({browser,name,local,root:path,artifact,inventory,enforced:variant==='hybrid'}));
+          if(fixtureLocal)result.browsers.push(...await documentBrowsers({browser,name,local:fixtureLocal,root:path,artifact,inventory,enforced:true,fixtures:true}));
           for (const initial of ['/learn?source=synthetic', '/dashboard']) {
             const context = await browser.newContext({ serviceWorkers: 'block', viewport: { width: 1440, height: 1000 } });
             context.setDefaultTimeout(20000);
@@ -144,7 +157,7 @@ try {
         } finally { await browser.close(); }
       }
       result.variants.push(metrics);
-    } finally { await local.close(); }
+    } finally { if(fixtureLocal)await fixtureLocal.close(); await local.close(); }
   }
   if (result.variants.every(variant => variant.client.length)) result.clientDelta = result.variants[1].client.map((metric, i) => ({ route: metric.route, chunks: metric.chunks - result.variants[0].client[i].chunks, raw: metric.raw - result.variants[0].client[i].raw, gzip: metric.gzip - result.variants[0].client[i].gzip }));
 } finally {

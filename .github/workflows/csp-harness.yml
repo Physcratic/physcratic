@@ -2,9 +2,26 @@ name: Local CSP harness
 on:
   pull_request:
     paths:
+      # HTML, scripts, shared rendering/validation and policy dependencies.
+      - 'app/**'
+      - 'components/**'
+      - 'lib/**'
+      - 'public/**'
+      - 'next.config.*'
+      - 'middleware.*'
+      - 'proxy.*'
+      - 'vercel.json'
+      - 'src/**'
+      - '.github/workflows/ci.yml'
+      - '*config*'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+      - '.npmrc'
+      - '.node-version'
+      - '.nvmrc'
+      - 'tests/**'
       - 'scripts/csp/**'
-      - 'tests/csp-harness.test.ts'
-      - 'tests/csp-architecture.test.ts'
       - '.github/workflows/csp-harness.yml'
   workflow_dispatch:
 permissions:
@@ -25,6 +42,8 @@ jobs:
         run: |
           npm install --prefix "$RUNNER_TEMP/csp-tools" --no-audit --no-fund playwright@1.64.1
           "$RUNNER_TEMP/csp-tools/node_modules/.bin/playwright" install --with-deps chromium firefox webkit
+      - name: Focused CSP regression tests
+        run: node --require ./tests/server-only-register.cjs --import tsx --test tests/csp-*.test.ts lib/security-csp*.test.ts
       - name: Build with synthetic environment and server egress guard
         run: node --import tsx scripts/csp/local.mjs --build
       - name: Compare report-only and actual local enforcement
@@ -32,7 +51,7 @@ jobs:
           AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/csp-tools
           CSP_REQUIRE_ALL: '1'
         run: node --import tsx scripts/csp/browser.mjs
-      - name: Verify isolated hybrid architecture and public caching
+      - name: Inventory and qualify hybrid HTML coverage (fail closed)
         env:
           AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/csp-tools
           CSP_REQUIRE_ALL: '1'

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { digest, hashPolicy, inlineScripts, nonceMiddleware, staticHeaderProposal } from '../scripts/csp/policy-artifact.mjs';
+import { digest, hashPolicy, inlineScripts, nonceMiddleware, staticHeaderProposal,publicArtifact,verifyArtifact,verifyStaticResponse,decodeStaticBody } from '../scripts/csp/policy-artifact.mjs';
 import { AttributionBudget, attribution, routeTemplate } from '../scripts/csp/attribution.mjs';
 import { providerReadiness } from '../scripts/csp/providers.mjs';
 
@@ -54,7 +54,39 @@ test('provider preflight fails closed and never claims mocked or configured serv
 test('nonce prototype uses scoped middleware without reading headers in the root layout', () => {
   const source = nonceMiddleware(digest('fixed theme'));
   assert.ok(source.includes('crypto.getRandomValues'));
-  assert.ok(source.includes('/dashboard/:path*'));
+  assert.ok(source.includes('/dashboard/authored/:path*'));
   assert.ok(!source.includes('/learn'));
   assert.ok(!source.includes('unsafe-eval'));
+});
+
+test('trusted static artifacts reject stale builds and mismatched bytes, never hash private documents',async()=>{
+ const {mkdtemp,mkdir,writeFile,rm}=await import('node:fs/promises'),{tmpdir}=await import('node:os'),{join}=await import('node:path');
+ const root=await mkdtemp(join(tmpdir(),'csp-artifact-'));
+ try{
+  await mkdir(join(root,'.next/server/app'),{recursive:true});
+  await writeFile(join(root,'.next/BUILD_ID'),'synthetic-build');
+  await writeFile(join(root,'.next/prerender-manifest.json'),JSON.stringify({routes:{'/learn':{},'/terms':{},'/_not-found':{},'/settings':{},'/admin/moderation':{},'/':{}}}));
+  const html='<script>localStorage; colorScheme;</script><script>trusted framework</script>';
+  for(const name of ['learn','terms','_not-found'])await writeFile(join(root,'.next/server/app/'+name+'.html'),html);
+  const a=await publicArtifact(root);
+  assert.deepEqual(Object.keys(a.routes),['/learn','/terms','/_not-found']);
+  await verifyArtifact(root,a);
+  await assert.rejects(verifyArtifact(root,{...a,buildId:'old-build'}),/mismatch/);
+  verifyStaticResponse(a.routes['/_not-found'],404,html);
+  const {gzipSync,brotliCompressSync}=await import('node:zlib');
+  for(const [encoding,bytes]of [['gzip',gzipSync(html)],['br',brotliCompressSync(html)]] as const)verifyStaticResponse(a.routes['/_not-found'],404,decodeStaticBody(bytes,encoding));
+  assert.throws(()=>decodeStaticBody(Buffer.from(html),'unsupported'),/encoding/);
+  assert.throws(()=>verifyStaticResponse(a.routes['/_not-found'],200,html),/status mismatch/);
+  assert.throws(()=>verifyStaticResponse(a.routes['/learn'],200,html+' '),/build mismatch/);
+  assert.throws(()=>verifyStaticResponse({...a.routes['/learn'],hashes:[digest('other build')]},200,html),/hashes\/build mismatch/);
+  await writeFile(join(root,'.next/server/app/learn.html'),html+'<script>new framework</script>');
+  await assert.rejects(verifyArtifact(root,a),/differs from trusted build/);
+ }finally{await rm(root,{recursive:true,force:true});}
+});
+
+test('synthetic document gates cannot be activated outside their detached fixture',async()=>{
+ const {documentFixtureEnvironment}=await import('../scripts/csp/document-fixtures.mjs');
+ await assert.rejects(documentFixtureEnvironment(process.cwd()),/Only detached/);
+ const source=nonceMiddleware(digest('theme'),['/dashboard/contests/manage']);
+ assert.ok(source.includes('["/dashboard/contests/manage"].includes(request.nextUrl.pathname)'));
 });

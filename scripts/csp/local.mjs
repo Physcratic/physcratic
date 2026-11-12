@@ -11,6 +11,8 @@ import { buildCsp } from '../../lib/security/csp.ts';
 import { childEnvironment, localOrigin, safeViolation } from './support.mjs';
 import { codecPdf } from './fixtures.mjs';
 import { collectionFixture } from './collection-fixture.mjs';
+import { verifyStaticResponse,decodeStaticBody } from './policy-artifact.mjs';
+import { documentFixtureEnvironment } from './document-fixtures.mjs';
 const require = createRequire(import.meta.url);
 const { build } = createRequire(require.resolve('tsx'))('esbuild');
 const dashboard = { user: null, savedAttempts: 0, practiceAttempts: 0, solvedProblems: 0, archiveReviewed: 0, ratings: [], contests: [] };
@@ -40,7 +42,8 @@ export async function startLocal(mode, root = process.cwd(), options = {}) {
   // Reserve a loopback port. Next binds only to loopback, never 0.0.0.0.
   const reservation = createServer(); const upstreamPort = await listen(reservation);
   await new Promise(resolve => reservation.close(resolve));
-  const child = spawn(process.execPath, [require.resolve('next/dist/bin/next'), 'start', '-H', '127.0.0.1', '-p', String(upstreamPort)], { cwd: root, env: childEnvironment(root, upstreamPort), stdio: ['ignore', 'pipe', 'pipe'] });
+  const fixtureEnv = options.documentFixtures ? await documentFixtureEnvironment(root) : {};
+  const child = spawn(process.execPath, [require.resolve('next/dist/bin/next'), 'start', '-H', '127.0.0.1', '-p', String(upstreamPort)], { cwd: root, env: {...childEnvironment(root, upstreamPort), ...fixtureEnv}, stdio: ['ignore', 'pipe', 'pipe'] });
   let log = ''; child.stdout.on('data', b => { log = (log + b).slice(-100000); }); child.stderr.on('data', b => { log = (log + b).slice(-100000); });
   try {
     for (let i = 0; ; i++) {
@@ -110,7 +113,12 @@ export async function startLocal(mode, root = process.cwd(), options = {}) {
       }
       if (url.pathname.startsWith('/api/')) {
         if (url.pathname === '/api/arena/collection') return send('application/json', JSON.stringify(collectionFixture(url.searchParams)));
-        if (url.pathname === '/api/auth/get-session') return send('application/json', 'null');
+        if (url.pathname === '/api/auth/get-session') {
+          const state=options.documentFixtures && req.headers['x-csp-document-fixture'];
+          if(state==='error')return send('application/json','{"error":"Synthetic session failure"}',503);
+          const session=state&&state!=='anonymous'?{user:{id:'synthetic-csp-user',name:'Synthetic CSP user',email:'csp@example.invalid',emailVerified:state!=='unverified',createdAt:new Date(0),updatedAt:new Date(0)},session:{id:'synthetic-session',token:'synthetic',userId:'synthetic-csp-user',expiresAt:new Date('2099-01-01'),createdAt:new Date(0),updatedAt:new Date(0)}}:null;
+          return send('application/json', JSON.stringify(session));
+        }
         if (url.pathname === '/api/dashboard') return send('application/json', JSON.stringify(dashboard));
         if (url.pathname === '/api/rankings') return send('application/json', '{"rankings":[]}');
         if (url.pathname === '/api/authored-problems/library') return send('application/json', '{"problems":[],"nextCursor":null}');
@@ -121,14 +129,29 @@ export async function startLocal(mode, root = process.cwd(), options = {}) {
         const result = { ...response.headers };
         // Trusted, build-bound policies supplied only by isolated experiments.
         // Intersect with a route's existing stricter policy; never replace it.
-        const staticPolicy = options.staticPolicies?.[url.pathname];
-        if (staticPolicy) result['content-security-policy'] = result['content-security-policy'] ? `${result['content-security-policy']}, ${staticPolicy}` : staticPolicy;
+        const html = String(response.headers['content-type'] || '').startsWith('text/html');
+        const staticDocument = html && (options.staticArtifact?.routes[url.pathname] ||
+          (response.statusCode === 404 && !result['content-security-policy'] ? options.staticArtifact?.routes['/_not-found'] : undefined));
         if (mode === 'enforce') {
           // Intersection, never replacement, of existing restrictive media CSP.
           result['content-security-policy'] = result['content-security-policy'] ? `${result['content-security-policy']}, ${policy}` : policy;
           delete result['content-security-policy-report-only'];
         }
-        res.writeHead(response.statusCode, result); response.pipe(res);
+        if (staticDocument) {
+          // Local test assertion, not a publication adapter. Never hash a
+          // response to make it pass: only exact trusted build bytes qualify.
+          const chunks = []; let bytes = 0;
+          response.on('data', chunk => { bytes += chunk.length; if (bytes > 4 * 1024 * 1024) response.destroy(new Error('Static fixture too large')); else chunks.push(chunk); });
+          response.on('end', () => {
+            try {
+              const body = Buffer.concat(chunks);
+              verifyStaticResponse(staticDocument, response.statusCode, decodeStaticBody(body,response.headers['content-encoding']));
+              result['content-security-policy'] = result['content-security-policy'] ? `${result['content-security-policy']}, ${staticDocument.policy}` : staticDocument.policy;
+              res.writeHead(response.statusCode, result); res.end(body);
+            } catch { res.writeHead(502, {'Content-Type':'text/plain','Cache-Control':'no-store'}); res.end('Trusted static document mismatch'); }
+          });
+          response.on('error', () => { if (!res.headersSent) res.writeHead(502); res.end(); });
+        } else { res.writeHead(response.statusCode, result); response.pipe(res); }
       });
       upstream.on('error', () => { if (!res.headersSent) res.writeHead(502); res.end(); });
       req.pipe(upstream);

@@ -5,15 +5,20 @@ import { createRequire } from 'node:module';
 import { join, resolve } from 'node:path';
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { startLocal } from './local.mjs';
-import { safeViolation } from './support.mjs';
+import { safeViolation, browserSelection } from './support.mjs';
+import {routeInventory,checkResponse} from './route-inventory.mjs';
+import {publicArtifact,NONCE_MATCHERS} from './policy-artifact.mjs';
 import { evalAttribution } from './attribute.mjs';
 const require = createRequire(import.meta.url);
 const tools = process.env.AUTHORING_BROWSER_TOOLS ? createRequire(join(process.env.AUTHORING_BROWSER_TOOLS, 'package.json')) : require;
 const playwright = tools('playwright');
+const browserNames = browserSelection();
 const results = [], availability = [], output = resolve('build/csp/browser-results.json');
 await mkdir(resolve('build/csp'), { recursive: true });
+const artifact=await publicArtifact(process.cwd());
+const inventory=await routeInventory(process.cwd(),{matchers:NONCE_MATCHERS,hashRoutes:Object.keys(artifact.routes)});
 let failures = 0;
-for (const name of (process.env.CSP_BROWSERS || 'chromium,firefox,webkit').split(',')) {
+for (const name of browserNames) {
   assert.ok(['chromium', 'firefox', 'webkit'].includes(name));
   let browser;
   try {
@@ -31,7 +36,7 @@ for (const name of (process.env.CSP_BROWSERS || 'chromium,firefox,webkit').split
         async function check(workflow, action) {
           const context = await browser.newContext({ serviceWorkers: 'block', reducedMotion: 'reduce' });
           context.setDefaultTimeout(20000);
-          const network = [], errors = [], startReports = local.reports.length, start = performance.now();
+          const network = [], errors = [], representations = [], startReports = local.reports.length, start = performance.now();
           await context.route('**/*', route => {
             const url = new URL(route.request().url());
             // All foreign requests are answered locally or aborted BEFORE any
@@ -53,6 +58,9 @@ for (const name of (process.env.CSP_BROWSERS || 'chromium,firefox,webkit').split
           page.on('pageerror', error => errors.push(error.name));
           page.on('response', response => {
             const url = new URL(response.url());
+            if(url.origin===local.origin&&!url.pathname.startsWith('/__csp/')){
+              try{representations.push(checkResponse(inventory,url.pathname,{status:response.status(),contentType:response.headers()['content-type'],headers:response.request().headers(),location:response.headers().location}));}catch(e){errors.push(e.message);}
+            }
             if (url.origin === local.origin && url.pathname.startsWith('/_next/') && /\.m?js$/.test(url.pathname)) network.push({ asset: url.pathname, status: response.status() });
           });
           let classification = 'functional success', detail;
@@ -77,7 +85,7 @@ for (const name of (process.env.CSP_BROWSERS || 'chromium,firefox,webkit').split
           });
           if (classification !== 'confirmed functional breakage' && unexpected.length) { classification = 'unexplained violation'; failures++; }
           if (classification === 'functional success' && (detail?.blockedWithFallback || [...violations, ...local.reports.slice(startReports)].some(event => event.disposition === 'enforce'))) classification = 'expected blocked operation with successful fallback';
-          results.push({ browser: name, mode, workflow, classification, detail, durationMs: performance.now() - start, violations, delivered: local.reports.slice(startReports), chunks: [...new Map(network.map(item => [item.asset, item])).values()] });
+          results.push({ browser: name, mode, workflow, classification, representations: [...new Set(representations)], detail, durationMs: performance.now() - start, violations, delivered: local.reports.slice(startReports), chunks: [...new Map(network.map(item => [item.asset, item])).values()] });
           console.log(JSON.stringify(results.at(-1)));
           await context.close();
         }
