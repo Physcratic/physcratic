@@ -60,6 +60,9 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
   const [journal, setJournal] = useState(() => new PracticeCheckJournal(account, problemId, data.version, practiceSessionStorage()));
   const [answers, setAnswers] = useState<Record<string, string>>(() => journal.book.answers);
   const currentAnswers = useRef(answers);
+  /** Answers a check marked correct. They stay on screen, but are not kept for a reload. */
+  const correctAnswers = useRef<Record<string, string>>({});
+  const worthKeeping = (all: Record<string, string>) => Object.fromEntries(Object.entries(all).filter(([id, latex]) => correctAnswers.current[id] !== latex));
   const typedWhileResolving = useRef(false);
   const [conflict, setConflict] = useState(false);
   const [result, setResult] = useState<ArchiveGradeResponse | null>(null);
@@ -75,7 +78,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
   useEffect(() => () => pending.current?.abort(), []);
   useEffect(() => {
     if (journal.account === account) return;
-    pending.current?.abort(); pending.current = null; setBusy(false); setResult(null); setError(""); setSaveMessage("");
+    pending.current?.abort(); pending.current = null; setBusy(false); setResult(null); setError(""); setSaveMessage(""); correctAnswers.current = {};
     const next = new PracticeCheckJournal(account, problemId, data.version, practiceSessionStorage());
     setJournal(next);
     if (journal.account === "guest" && typedWhileResolving.current && Object.keys(currentAnswers.current).length) {
@@ -88,7 +91,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
     if (previousReset.current === resetToken) return;
     previousReset.current = resetToken;
     pending.current?.abort(); pending.current = null; setBusy(false);
-    currentAnswers.current = {}; if (!conflict) journal.edit({}); setAnswers({}); setResult(null); setError(""); setSaveMessage(""); redraw(n => n + 1);
+    currentAnswers.current = {}; correctAnswers.current = {}; if (!conflict) journal.edit({}); setAnswers({}); setResult(null); setError(""); setSaveMessage(""); redraw(n => n + 1);
   }, [resetToken, journal, conflict]);
 
   async function checkAnswers(event?: React.FormEvent, withoutSaving = false, retry = false) {
@@ -134,6 +137,8 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
       }
       setResultSaved(Boolean(receipt));
       setResult(checked);
+      for (const item of checked.results) if (item.status === "correct" && currentAnswers.current[item.partId]) correctAnswers.current[item.partId] = currentAnswers.current[item.partId];
+      if (!conflict && journal.account === account) journal.edit(worthKeeping(currentAnswers.current));
       if (checked.results.every(part => part.status === "correct")) onCorrect?.();
       if (account === "guest" && checked.results.some(part => part.status === "correct") && checked.results.every(part => part.status === "correct" || part.status === "self-review")) markSolved(problemId);
     } catch (reason) {
@@ -150,7 +155,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
     const target = data?.parts.find((part) => part.kind !== "self-review" && result?.results.find((item) => item.partId === part.id)?.status !== "correct");
     if (target) document.getElementById(`${fieldPrefix}-${target.id}`)?.focus();
   };
-  const set = (partId: string, value: string) => { const next = { ...currentAnswers.current, [partId]: value }; currentAnswers.current = next; if (resolving) typedWhileResolving.current = true; setAnswers(next); if (!conflict) journal.edit(next); redraw(n => n + 1); setResult(null); setError(""); setSaveMessage(""); };
+  const set = (partId: string, value: string) => { const next = { ...currentAnswers.current, [partId]: value }; currentAnswers.current = next; if (resolving) typedWhileResolving.current = true; setAnswers(next); if (!conflict) journal.edit(worthKeeping(next)); redraw(n => n + 1); setResult(null); setError(""); setSaveMessage(""); };
   const notes = data?.parts.filter((part) => part.kind !== "self-review" && part.help && !(part.kind === "numeric" && part.help.length <= shortHelp)) ?? [];
 
   return <section id="step-answer" aria-labelledby="step-answer-title" className="flex min-w-0 scroll-mt-24 flex-col gap-6">

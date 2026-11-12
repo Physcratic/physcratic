@@ -101,6 +101,41 @@ for (const name of Object.keys(profiles)) {
   await context.close();
 }
 
+// A bare log is refused with one message that names ln and log10, under the field and after Check.
+{
+  const { context, page } = await openField("desktop");
+  await page.keyboard.type("log(kz)", { delay: 35 });
+  const message = "Write ln for the natural log, or log₁₀ for base 10.";
+  await page.locator('#step-answer [data-field] [role="status"]').filter({ hasText: message }).first().waitFor({ timeout: 8000 }).then(() => ok(true, ""), () => ok(false, "a bare log shows the ln or log10 hint under the field"));
+  await page.getByRole("button", { name: "Check answer" }).click();
+  const result = page.locator('[id$="a.trajectory-result"]');
+  await result.waitFor({ timeout: 20000 });
+  ok((await result.innerText()).includes(message), `a bare log is refused after Check with the ln or log10 message: ${await result.innerText()}`);
+  await context.close();
+}
+
+// Saved answers: a wrong answer comes back after a reload, a part marked correct does not, and its field starts empty.
+for (const name of Object.keys(profiles)) {
+  const { context, page, field } = await openField(name);
+  for (const key of ["r", "_", "0", "ArrowRight", "cos(kz)", "+", "theta", "_", "0", "ArrowRight", "sin(kz)", "/", "k"]) {
+    if (key === "ArrowRight") await page.keyboard.press(key); else await page.keyboard.type(key, { delay: 35 });
+  }
+  await page.getByRole("button", { name: "Check answer" }).click();
+  await page.locator('[id$="a.trajectory-result"]').waitFor({ timeout: 20000 });
+  ok(/^Correct/.test((await page.locator('[id$="a.trajectory-result"]').innerText()).trim()), `${name}: the typed answer is marked correct`);
+  const second = page.locator("#step-answer math-field").nth(1);
+  await (name === "desktop" ? second.click() : second.tap());
+  await page.waitForTimeout(500);
+  await page.keyboard.type("k+1", { delay: 35 });
+  await page.reload();
+  const first = page.locator("#step-answer math-field").first();
+  await first.waitFor({ timeout: 30000 });
+  ok((await first.evaluate((el) => el.id)).endsWith("a.trajectory") && (await first.evaluate((el) => el.value)) === "", `${name}: the correct part was cleared from the saved answers`);
+  const restored = await page.locator("#step-answer input[type=text], #step-answer input:not([type])").evaluateAll((els) => els.map((el) => el.value));
+  ok(restored.some((value) => value.includes("k+1")), `${name}: the unfinished answer in another part survived the reload (${JSON.stringify(restored)})`);
+  await context.close();
+}
+
 await browser.close();
 if (failures.length) { console.error(failures.join("\n")); process.exit(1); }
 console.log(`math-typing: ${checks} checks passed`);
