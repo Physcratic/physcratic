@@ -386,7 +386,7 @@ export function RichMathText({
             loadWithValue
             checkSymbols={false}
             padMode="full"
-            placeholder="Type it like you would write it, such as \frac{1}{2}mv^2"
+            placeholder=""
           />
           <div className="flex flex-wrap gap-2">
             <Button type="button" className="min-h-11" onClick={() => closeEditor(false)}>

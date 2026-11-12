@@ -415,11 +415,6 @@ export function ProblemEditor({
             <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
               Problem Studio
             </h1>
-            {mode === "advanced" && (
-              <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
-                Write a problem, add a solution, then publish.
-              </p>
-            )}
           </div>
           <StatusBar
             compact={mode === "simple"}
@@ -686,11 +681,11 @@ export function ProblemEditor({
               Student preview
             </Button>
           </div>
-          <p className="text-xs text-muted-foreground">
-            {dirty
-              ? "Preview includes unsaved local edits"
-              : "Native text + LaTeX"}
-          </p>
+          {dirty && (
+            <p className="text-xs text-muted-foreground">
+              Preview includes unsaved local edits
+            </p>
+          )}
         </div>
         {tab === "preview" ? (
           !safePreview ? (
@@ -767,14 +762,13 @@ export function ProblemEditor({
                 id="step-statement"
                 step={1}
                 title="Statement"
-                hint="The title, difficulty and the context shared by every part."
               >
                 <Field label="Problem title">
                   {(id) => (
                     <input
                       id={id}
                       className={`${inputClass} py-3 text-xl font-medium sm:text-2xl`}
-                      placeholder="2 to 5 words, such as Mind the Gap"
+                      placeholder="Bending Beams"
                       maxLength={200}
                       value={draft.content.title}
                       onChange={(e) =>
@@ -787,7 +781,6 @@ export function ProblemEditor({
                 </Field>
                 <Field
                   label="Estimated difficulty (optional)"
-                  help="An author estimate, not an Elo rating."
                 >
                   {(id) => (
                     <input
@@ -806,10 +799,6 @@ export function ProblemEditor({
                 </Field>
                 <div id="common-context" className="scroll-mt-24 space-y-3">
                   <h3 className="text-base font-semibold">Set the scene</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Shared context for every part. Add inline equations inside
-                    text, or give an equation its own block.
-                  </p>
                 <BlocksEditor
                   label="Common context"
                   blocks={draft.content.context}
@@ -825,7 +814,6 @@ export function ProblemEditor({
                 id="step-parts"
                 step={2}
                 title="Parts and answers"
-                hint="Each part has its own statement, answer key, hints and worked solution. Answer keys stay private."
               >
               {draft.content.sections.map((section, si) => (
                 <section
@@ -1090,7 +1078,6 @@ export function ProblemEditor({
                 id="step-tags"
                 step={3}
                 title="Tags"
-                hint="Tags help students find the problem in the library. Choose from the same list the library uses."
               >
                 <div className="grid gap-6 lg:grid-cols-2">
                   <TagPicker
@@ -1122,7 +1109,6 @@ export function ProblemEditor({
                 id="publication"
                 step={5}
                 title="Publish"
-                hint="Publish only original or properly authorized material. New publications create immutable revisions. Your earlier published version stays visible while you edit."
               >
                 <Field label="Content provenance">
                   {(id) => (
@@ -1145,7 +1131,6 @@ export function ProblemEditor({
                 </Field>
                 <Field
                   label="Source / permission reference"
-                  help="Required for authorized material. Include where permission was granted."
                 >
                   {(id) => (
                     <input
@@ -1163,7 +1148,6 @@ export function ProblemEditor({
                 </Field>
                 <Field
                   label="Rights declaration"
-                  help="State that you own this work or have permission to publish it."
                 >
                   {(id) => (
                     <textarea
@@ -1295,10 +1279,6 @@ export function ProblemEditor({
                     </a>
                   </li>
                 </ol>
-                <p className="border-t pt-4 text-xs leading-relaxed text-muted-foreground">
-                  Use the arrow buttons to reorder with a keyboard. No uploads
-                  are needed. Native content comes first.
-                </p>
               </nav>
             </aside>
           </div>

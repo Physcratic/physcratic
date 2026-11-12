@@ -144,9 +144,6 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
             <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
               Problem Studio
             </h1>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
-              Write a problem, add a solution, then publish.
-            </p>
           </div>
           <Button
             type="button"

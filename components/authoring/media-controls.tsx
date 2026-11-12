@@ -128,7 +128,7 @@ export function UploadControl({
         id={id}
         type="file"
         className="block min-h-11 w-full min-w-0 text-sm file:mr-3 file:rounded-md file:border file:bg-background file:px-3 file:py-2 file:text-sm"
-        aria-describedby={`${id}-help ${id}-status`}
+        aria-describedby={`${id}-status`}
         accept={
           purpose.endsWith("pdf")
             ? "application/pdf"
@@ -144,12 +144,6 @@ export function UploadControl({
           if (result) onUploaded(result);
         }}
       />
-      <p id={`${id}-help`} className="text-xs text-muted-foreground">
-        {purpose.endsWith("pdf")
-          ? "PDF attachment. Downloaded safely rather than embedded."
-          : "PNG, JPEG or static WebP. Add descriptive alt text after upload."}{" "}
-        Up to 3 MiB.
-      </p>
       <p
         id={`${id}-status`}
         role={error ? "alert" : "status"}
@@ -266,7 +260,6 @@ export function MediaAttachments({
       id="author-assets"
       step={4}
       title="Images and optional PDFs"
-      hint="Add images where they belong in the statement, hints or worked solution. All uploads stay in private storage. Statement files become readable only when pinned to a published revision. Solution files remain author-only."
     >
       <div className="grid gap-6 sm:grid-cols-2">
         {(["statement-pdf", "solution-pdf"] as const).map((purpose) => (
@@ -341,12 +334,6 @@ export function MediaAttachments({
         <summary className="min-h-11 cursor-pointer text-sm font-medium">
           Manage uploaded files and safe cleanup
         </summary>
-        <p className="my-3 text-xs leading-relaxed text-muted-foreground">
-          Removing a block or attachment removes only its draft reference after
-          saving. Published history keeps its files permanently. Cleanup removes
-          unlinked uploads older than 24 hours, or failed-upload traces older
-          than one hour, across your own problems.
-        </p>
         {files.map((file) => (
           <div
             key={file.id}

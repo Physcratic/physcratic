@@ -1,6 +1,6 @@
 # Legacy practice retirement
 
-12 November 2026. Separate draft stacked on P2 #143 head `c09ac0714843a34602172fba0f76d2bfaaec9767`, incorporating main `01757c0abf152e891fb896b6d77f302a87febca6`. The PR body records exact final head and CI. No merge, deployment or settings change is authorized.
+12 November 2026. Separate draft stacked on P2 #143 head `db2430ea8dfa6bab29dcadc83500855cf555e648`, incorporating main `01757c0abf152e891fb896b6d77f302a87febca6`. The PR body records exact final head and CI. No merge, deployment or settings change is authorized.
 
 ## Boundary and implementation
 
@@ -38,8 +38,10 @@ No Production operation or manual deployment. Local browser fixture APIs use loo
 
 ## Final review corrections (12 November 2026)
 
-This branch incorporates exact P2 head `c09ac0714843a34602172fba0f76d2bfaaec9767` through a normal merge. The retirement implementation remains distinct from the base branch, with no duplicate P2 commit or reversion. The primary/secondary navigation correction and refreshed screenshots are inherited unchanged.
+This branch incorporates exact P2 head `db2430ea8dfa6bab29dcadc83500855cf555e648` through a normal merge. The retirement implementation remains distinct from the base branch, with no duplicate P2 commit or reversion. The primary/secondary navigation correction and refreshed screenshots are inherited unchanged.
 
 The revised marking guide now has `reviewedBy: null` and a visible pending-review note for this revision. Its WebPage JSON-LD omits `reviewedBy`. The three unchanged reviewed guides retain Arrow Dunatos attribution, and the two product guides retain their existing status. The Mind the Gap explanation, mathematical formulas and all three source citations are unchanged from `108a287`.
 
 Owner editorial approval is still required for the replacement worked example before a personal review attribution can be restored. Source/KaTeX validation and automated tests do not establish that approval. Focused model/render/structured-data assertions and a live guide browser check verify the status without changing the guide's canonical, publication or index policy. Final exact-head CI and combined browser/SEO results are recorded on draft #146. Keep both PRs draft and unmerged, no deployment or P3.
+
+Final integration also incorporates main `8bb5941057ab837fed2ade319d36e2380c0f3be6` (#145). Upstream Studio, reader-tour and repository-rule changes remain intact. The BETA_READINESS append conflict retains both evidence sections. P2 root/card/navigation files and screenshots match the new base exactly; retirement routing/registry code is unchanged from `108a287`. The browser follows the upstream tour order and verifies its resumed reader state. Final combined validation and exact SHA are on #146.
