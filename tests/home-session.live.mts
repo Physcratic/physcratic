@@ -12,6 +12,7 @@ import assert from "node:assert/strict";
 import { createHmac, randomBytes } from "node:crypto";
 import { spawn } from "node:child_process";
 import pg from "pg";
+import { retiredPracticeIds, ARENA_LIBRARY_HREF } from "../lib/legacy-practice";
 import { problems } from "../lib/physics";
 
 const databaseUrl = process.env.DATABASE_URL ?? "";
@@ -159,6 +160,22 @@ try {
     } finally { await browser.close(); }
     // Restore the HTTP expiry fixture's session removed by the browser logout.
     await pool.query(`INSERT INTO session(id,"expiresAt",token,"userId") VALUES($1, now() + interval '1 day', $2, $3)`, ["session-home-test", token, user.id]);
+  }
+
+  for (const id of retiredPracticeIds) for (const cookie of [undefined, memberCookie, secondCookie]) {
+    const response = await fetch(`${origin}/dashboard/problems/${id}`, { redirect: "manual", headers: { ...(cookie ? { cookie } : {}), RSC: "1" } });
+    ok(response.status === 308, "guest and synthetic members receive the same legacy redirect");
+    ok(new URL(response.headers.get("location")!, origin).href === new URL(ARENA_LIBRARY_HREF, origin).href, "legacy redirect destination does not contain account data");
+  }
+
+  if (process.env.HOME_BROWSER_JOURNEYS === "1") {
+    const journey = spawn(process.execPath, ["tests/drunk-user.browser.mjs"], { env: { ...process.env, BROWSER_TEST_ORIGIN: origin }, stdio: ["ignore", "pipe", "pipe"] });
+    let output = "";
+    journey.stdout.on("data", chunk => { output += chunk; });
+    journey.stderr.on("data", chunk => { output += chunk; });
+    const code = await new Promise(resolve => journey.on("close", resolve));
+    console.log(output);
+    ok(code === 0, "first-time browser journeys pass on disposable auth database");
   }
 
   // 4. A bad, expired or tampered cookie is a visitor, not an error.

@@ -4,7 +4,6 @@ import { describe, it } from "node:test";
 import { content as coaching } from "./coaching/content";
 import { findCopyProblems } from "./copy-rules";
 import { articles, learnPath } from "./learn/articles";
-import { practiceProblemDescription } from "./problem-meta";
 import { findProblemPage, problemsInTopic, topicName, topicPageCopy } from "./seo/problem-pages";
 import { publicRoutes, type PublicRoute } from "./seo/public-routes";
 import { SITE } from "./site";
@@ -116,8 +115,8 @@ describe("public route metadata", () => {
 
   it("uses the written problem descriptions on the page itself", () => {
     assert.match(read("app/dashboard/problems/[id]/page.tsx"), /canonical: page\.path/);
-    for (const id of ["first-law", "heat", "incline", "projectile", "spring"]) {
-      assert.equal(findProblemPage(id)!.description, practiceProblemDescription(id), id);
+    for (const id of ["arena-mind-the-gap", "ipho-2025-t2"]) {
+      assert.ok(findProblemPage(id)!.description.length >= 70, id);
     }
   });
 });

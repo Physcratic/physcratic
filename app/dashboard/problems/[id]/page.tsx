@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ProblemRoom } from "@/components/physics/problem-room";
-import { ProblemReader } from "@/components/physics/problem-reader";
-import { problems } from "@/lib/physics";
 import { catalogProblems } from "@/lib/corpus-catalog";
 import { ImportedProblemRoute } from "@/components/physics/imported-problem-route";
 import { ArenaProblemReader } from "@/components/physics/arena-problem-reader";
@@ -19,6 +17,7 @@ import {
   findProblemPage,
   relatedProblems,
 } from "@/lib/seo/problem-pages";
+import { isRetiredPracticeProblem } from "@/lib/legacy-practice";
 import { baseOpenGraph } from "@/lib/site";
 
 import {communityModerationUiEnabled} from '@/lib/community/moderation-route';
@@ -26,7 +25,7 @@ import {communityProblemStatsEnabled} from '@/lib/community/problem-stats-route'
 import {communityDiscussionReady as communityCommentsEnabled} from '@/lib/community/comments-route';
 type Props = { params: Promise<{ id: string }> };
 
-// Every practice, Arena and archive problem is built once, at build time, so the statement is in the HTML.
+// Every Arena and archive problem is built once, at build time, so the statement is in the HTML.
 // Published authored problems have their own route and stay dynamic.
 export const dynamicParams = false;
 
@@ -37,7 +36,10 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const page = findProblemPage(id);
-  if (!page) return { title: "Problem not found" };
+  if (!page) return {
+    title: "Problem not found",
+    ...(isRetiredPracticeProblem(id) ? { robots: { index: false, follow: true } } : {}),
+  };
   return {
     title: page.metaTitle,
     description: page.description,
@@ -72,26 +74,16 @@ export default async function PracticeProblemPage({ params }: Props) {
       </ProblemRoom>
     );
   }
-  const problem = problems.find((item) => item.id === id);
-  if (!problem) {
-    const imported = catalogProblems.find((item) => item.id === id);
-    if (!imported) notFound();
-    const view = archiveStatementView(page);
-    return (
-      <ProblemRoom>
-        {crumbs}
-        <ImportedProblemRoute problem={imported.titleOrigin === "problem-identifier" ? { ...imported, title: page.title, titleLanguage: "en" } : imported} initialData={view?.native} />
-        <div className="mx-auto mt-8 flex w-full max-w-4xl flex-col gap-8">
-          {view && !view.native && <ArchiveStatementText page={page} view={view} />}
-        </div>
-        {related}
-      </ProblemRoom>
-    );
-  }
+  const imported = catalogProblems.find((item) => item.id === id);
+  if (!imported) notFound();
+  const view = archiveStatementView(page);
   return (
     <ProblemRoom>
       {crumbs}
-      <ProblemReader key={problem.id} problem={problem} />
+      <ImportedProblemRoute problem={imported.titleOrigin === "problem-identifier" ? { ...imported, title: page.title, titleLanguage: "en" } : imported} initialData={view?.native} />
+      <div className="mx-auto mt-8 flex w-full max-w-4xl flex-col gap-8">
+        {view && !view.native && <ArchiveStatementText page={page} view={view} />}
+      </div>
       {related}
     </ProblemRoom>
   );

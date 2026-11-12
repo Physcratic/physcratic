@@ -4,10 +4,10 @@
  * problem page and that every guide has at least two.
  */
 export const practiceProblemIds: Readonly<Record<string, readonly string[]>> = {
-  "start-preparing-physics-olympiad": ["incline", "projectile", "ipho-2025-t1"],
+  "start-preparing-physics-olympiad": ["arena-the-invisible-brake", "arena-the-phantom-charge", "ipho-2025-t1"],
   "ipho-apho-eupho-differences": ["ipho-2025-t1", "apho-2025-t1", "eupho-2025-t1"],
-  "how-olympiad-solutions-are-marked": ["incline", "first-law", "ipho-2025-t3"],
-  "physics-olympiad-books-and-resources": ["spring", "heat", "ipho-2024-t1"],
-  "how-to-use-physcratic": ["incline", "circuit", "arena-mind-the-gap"],
-  "how-to-write-a-problem": ["arena-mind-the-gap", "projectile"],
+  "how-olympiad-solutions-are-marked": ["arena-the-invisible-brake", "arena-the-gas-with-elbows", "ipho-2025-t3"],
+  "physics-olympiad-books-and-resources": ["arena-the-string-that-answered-back", "arena-the-bubble-treaty", "ipho-2024-t1"],
+  "how-to-use-physcratic": ["arena-the-invisible-brake", "arena-the-infinite-v", "arena-mind-the-gap"],
+  "how-to-write-a-problem": ["arena-mind-the-gap", "arena-the-phantom-charge"],
 };

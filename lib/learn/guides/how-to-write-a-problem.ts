@@ -7,7 +7,7 @@ export const howToWriteAProblem: ArticleDraft = {
   slug: "how-to-write-a-problem",
   title: "How to write a problem in Problem Studio",
   description: "Write a physics problem in Problem Studio's Simple mode, add the final answer and a picture, try an answer, publish it, and know when to use Advanced.",
-  updated: "2026-11-05",
+  updated: "2026-11-12",
   reviewedBy: null,
   sources: [],
   published: true,

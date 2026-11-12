@@ -19,8 +19,8 @@ const header = (base: string) => [
   "",
 ];
 
-/** Latest paper of each olympiad plus one practice problem, so an agent can see what a problem page looks like. */
-const EXAMPLES = ["ipho-2025-t2", "apho-2025-t1", "eupho-2025-t1", "incline"];
+/** Latest paper of each olympiad plus one Arena problem, so an agent can see what a problem page looks like. */
+const EXAMPLES = ["ipho-2025-t2", "apho-2025-t1", "eupho-2025-t1", "arena-mind-the-gap"];
 
 export function llmsIndex(base: string): string {
   const abs = (path: string) => `${base}${path}`;
@@ -66,7 +66,6 @@ export function llmsFull(base: string): string {
     ...[...pick("library"), ...pick("topic")].map((route) => `- [${route.title}](${abs(route.path)})`),
     ...section("Olympiad archive", "archive"),
     ...section("Physcratic Arena", "arena"),
-    ...section("Practice problems", "practice"),
     "",
     "## Guides",
     "",

@@ -4,7 +4,7 @@ import { articles, formatDate, publishedArticles } from "./learn/articles";
 import { renderMath } from "./learn/math";
 import { headingId, readingMinutes, wordCount } from "./learn/reading";
 import { CHECK_HOST_SITE, type Article } from "./learn/types";
-import { problems } from "./physics";
+import { findProblemPage } from "./seo/problem-pages";
 
 const citedIds = (a: Article): string[] => {
   const ids: string[] = [];
@@ -79,7 +79,7 @@ describe("learn articles", () => {
       it("links only to problems that exist", () => {
         for (const b of a.body) {
           if (b.type === "problemLink") {
-            assert.ok(problems.some((p) => p.id === b.problemId), b.problemId);
+            assert.ok(findProblemPage(b.problemId)?.indexable, b.problemId);
           }
         }
       });

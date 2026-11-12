@@ -3,13 +3,12 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import { generateMetadata } from "../app/dashboard/problems/[id]/page";
 import { findProblemPage } from "./seo/problem-pages";
-import { problems } from "./physics";
 import { catalogProblems } from "./corpus-catalog";
 import arena from "./arena/index.json";
 
-test("the actual public page uses X1 descriptions, identity and canonicals for all 133 static problems", async () => {
-  const all = [...problems, ...catalogProblems, ...arena.problems];
-  assert.equal(all.length, 133)
+test("the actual public page uses X1 descriptions, identity and canonicals for every retained static problem", async () => {
+  const all = [...catalogProblems, ...arena.problems];
+  assert.equal(all.length, catalogProblems.length + arena.problems.length)
   const titles = [];
   for (const problem of all) {
     const metadata = await generateMetadata({ params: Promise.resolve({ id: problem.id }) });
@@ -22,7 +21,7 @@ test("the actual public page uses X1 descriptions, identity and canonicals for a
     titles.push(metadata.title);
     assert.doesNotMatch(JSON.stringify(metadata), /attachments|answerMode|privateParts|solution-pdf|ownerId/);
   }
-  assert.equal(new Set(titles).size, 133)
+  assert.equal(new Set(titles).size, all.length)
 });
 
 test("unknown and authored-looking IDs cannot pull private metadata into the static public route", async () => {

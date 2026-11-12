@@ -8,7 +8,7 @@ import { SITE, baseOpenGraph } from "@/lib/site";
 
 const TITLE = "Physics olympiad problem library";
 const DESCRIPTION =
-  "Every Physcratic problem in one list: practice problems, Physcratic Arena problems and the IPhO, APhO and EuPhO archive, each with its own page.";
+  "Every Physcratic problem in one list: Physcratic Arena problems and the IPhO, APhO and EuPhO archive, each with its own page.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -19,7 +19,6 @@ export const metadata: Metadata = {
 
 export default function ProblemLibraryPage() {
   const pages = allProblemPages();
-  const practice = pages.filter((page) => page.kind === "practice");
   const arena = pages.filter((page) => page.kind === "arena");
   const archive = pages.filter((page) => page.kind === "archive");
   const crumbs = [
@@ -64,10 +63,6 @@ export default function ProblemLibraryPage() {
             Browse the archive by olympiad and year
           </Link>
         </p>
-      </section>
-      <section aria-labelledby="practice-heading" className="mt-8">
-        <h2 id="practice-heading" className="text-xl font-semibold tracking-tight">Practice problems</h2>
-        <ProblemLinkList pages={practice} />
       </section>
       <section aria-labelledby="arena" className="mt-8">
         <h2 id="arena" className="text-xl font-semibold tracking-tight">Physcratic Arena</h2>

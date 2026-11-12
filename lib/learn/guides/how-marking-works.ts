@@ -2,13 +2,13 @@ import { REVIEWER } from "../reviewer";
 import type { ArticleDraft } from "../types";
 
 // Facts come from the fact sheet for Batch 6.1 (S1 marking rules, S3 exam instructions).
-// The worked example uses our own "incline" problem from lib/physics.ts.
+// The worked example uses the published Arena Mind the Gap solution.
 export const howMarkingWorks: ArticleDraft = {
   slug: "how-olympiad-solutions-are-marked",
   title: "How Olympiad physics solutions are marked",
   description:
     "How marks are given for IPhO theory solutions, why method and units matter, and how to write work a marker can follow.",
-  updated: "2026-11-01",
+  updated: "2026-11-12",
   published: true,
   reviewedBy: REVIEWER,
   sources: [
@@ -112,51 +112,19 @@ export const howMarkingWorks: ArticleDraft = {
       type: "paragraph",
       text: "A rough estimate at the start also helps. If you expect an answer near 5 and you get 5000, stop and look for the slip.",
     },
-    { type: "heading", level: 2, text: "A worked example: the incline" },
-    {
-      type: "paragraph",
-      text: "This is one of our own practice problems. A 2 kg block rests on a smooth, frictionless incline at 30° to the horizontal. What is the magnitude of its acceleration down the incline? Use a gravitational acceleration of 9.8 m/s². It is far shorter than an olympiad problem, but it shows the habits that earn marks.",
-    },
-    {
-      type: "problemLink",
-      problemId: "incline",
-      label: "Try it yourself first: A block on an incline",
-    },
-    {
-      type: "heading",
-      level: 3,
-      text: "Result 1: the force along the slope",
-    },
-    {
-      type: "paragraph",
-      text: "On a frictionless incline, only the part of the weight along the slope speeds the block up. The normal force cancels the part perpendicular to the slope. Write the law and the symbols first.",
-    },
-    { type: "math", tex: "F_{\\parallel} = m g \\sin\\theta" },
-    { type: "heading", level: 3, text: "Result 2: Newton's second law" },
-    {
-      type: "paragraph",
-      text: "Divide the net force by the mass. The mass cancels, so the answer does not depend on the 2 kg. Keep this symbolic result on its own line.",
-    },
-    { type: "math", tex: "a = \\frac{F_{\\parallel}}{m} = g \\sin\\theta" },
-    { type: "heading", level: 3, text: "Result 3: the number, with its unit" },
-    {
-      type: "paragraph",
-      text: "Now substitute, and write the unit on the answer.",
-    },
-    {
-      type: "math",
-      tex: "a = 9.8 \\times \\sin 30^{\\circ} = 4.9\\ \\mathrm{m/s^2}",
-    },
-    { type: "heading", level: 3, text: "What the marker sees" },
-    {
-      type: "paragraph",
-      text: "There are three separate results on the page, and each is easy to find. Suppose a student writes the same two equations but uses sin 30° = 0.6. They get 5.9 m/s² (to two significant figures) and the final number is wrong. The two correct equations are still there, and under the IPhO rule that marks are added for every correct intermediate result, a marker has something to credit. If the student had written only the wrong number, the marker would have nothing to credit.",
-      cite: ["s1"],
-    },
-    {
-      type: "paragraph",
-      text: "Now run the checks. The unit m/s² is the unit of acceleration. At 0° the answer is 0, which is right for a flat surface. At 90° it is g, which is right for free fall. And sin 30° is one half, so the answer should be half of 9.8, which is 4.9.",
-    },
+    { type: "heading", level: 2, text: "A worked example: Mind the Gap" },
+    { type: "paragraph", text: "Use the Arena optics problem Mind the Gap to practise presenting a derivation and a fitted numerical result. Arena is unrated and does not award exam marks. The example below illustrates how to make your reasoning visible." },
+    { type: "problemLink", problemId: "arena-mind-the-gap", label: "Open Mind the Gap before reading the example" },
+    { type: "heading", level: 3, text: "Result 1: write the physical relation" },
+    { type: "paragraph", text: "For the reflected dark rings, write the gap geometry and interference condition before substituting numbers. State the near-normal incidence approximation and the ordering of the two positive curvature radii." },
+    { type: "math", tex: "2t \\simeq r_m^2(1/R_1 - 1/R_0) = m\\lambda" },
+    { type: "heading", level: 3, text: "Result 2: isolate the quantity" },
+    { type: "paragraph", text: "Rearrange for the ring radius and keep the symbolic result separate. A marker can inspect this step even if a later arithmetic result is wrong." },
+    { type: "math", tex: "r_m = \\sqrt{\\frac{m\\lambda}{1/R_1 - 1/R_0}}" },
+    { type: "paragraph", text: "Successive rings differ by one in order. Subtract the squared-radius equations before fitting so that the unknown order of the first measured ring drops out. Explain which measurements you used, convert the ring radii into metres, and show the quantity plotted on each axis. If your fitted radius differs from the published result, the plotted points and conversion steps help a marker distinguish a calculation slip from an incorrect model." },
+    { type: "heading", level: 3, text: "Result 3: report the fit and its unit" },
+    { type: "paragraph", text: "The published worked solution fits the consecutive ring measurements and obtains a lens curvature radius of 0.89895 m, rounded to 0.90 m at the precision of the data. Show the fit method, the numerical result and the unit. A final number alone does not show the method." },
+    { type: "paragraph", text: "Check that the denominator in the squared-radius expression has units of inverse length. The result then has units of length squared, as required. Explain this check in your working instead of only writing a number." },
     { type: "heading", level: 2, text: "A checklist before you hand in" },
     {
       type: "list",

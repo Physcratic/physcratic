@@ -1,5 +1,10 @@
 # Agent handoff
 
+## Legacy practice retirement (12 November 2026)
+
+Separate draft stacked on revised P2 #143 (`0d929b3`), main `01757c0` incorporated. All 12 legacy reader URLs permanently redirect to the existing Arena library. Registry yields 121 retained readers and 138 sitemap URLs. Arena/imported/authored identities, grading hashes, historical records, five Guided exercises, auth and schema remain intact. See [implementation, SEO consequences and verification](LEGACY_PRACTICE_RETIREMENT.md). Exact final head and CI are recorded on the draft PR. No operator installation. Keep both drafts unmerged, no deployment/settings/P3. The existing native IPhO 2026 source-label audit mismatch remains a separately recorded concern.
+
+
 ## P2 Lobby design reversal (12 November 2026)
 
 Draft PR #143 replaces the rejected standalone homepage cards with the existing Dashboard/Overview and minimum public discovery header. Real Arena recommendation is present before hydration and existing unsolved selection remains. Auth/cache/metadata/database contracts are unchanged. See [checkpoint and tests](SEO_P2_HOMEPAGE.md). Exact final head and full CI are on the PR. Keep draft, do not merge or deploy. Next authorized batch is a separate draft PR retiring only the 12 legacy practice URLs, preserving their historical records and grading contracts. No P3.
