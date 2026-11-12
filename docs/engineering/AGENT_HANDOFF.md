@@ -1,5 +1,11 @@
 # Agent handoff
 
+## Moderator actions (12 November 2026)
+
+Code-only staff actions extend the existing dashboard with community-question removal/restoration and regular-account bans/unbans. Individual existing staff roles remain operator-assigned. Additive 0019 serializes versioned decisions, archives removed questions while preserving revisions/attempts, blocks republication, revokes banned users' sessions and rejects new sessions. Restoration requires an independent administrator and leaves questions archived for explicit author republication. Default-OFF COMMUNITY_ACTIONS_ENABLED also requires existing staff/moderation flags. No production discussion lock is removed.
+
+See [behaviour, tests, migration hash, grants and limitations](STAFF_ACTIONS.md). Focused PGlite SQL/API tests and changed-entrypoint TypeScript pass. Complete PostgreSQL/auth/reader integration and exact-head CI remain review gates. No merge, real account/role, SQL/grant, activation or deployment action. Stop after the draft PR and report its exact checks.
+
 ## Studio public removal (12 November 2026)
 
 The author management list now offers confirmed "Remove from public" for published problems through the existing versioned unpublish API. Success displays the archived state and retained-history notice. Failed or uncertain responses require a fresh list before another removal, including lost acknowledgements after commit. Actions wrap at mobile widths. No backend, schema, flags or pinned B6 package changes.

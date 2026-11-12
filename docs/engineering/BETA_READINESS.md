@@ -1,5 +1,11 @@
 # Beta readiness log
 
+## Moderator actions (12 November 2026)
+
+Code-only staff actions extend the existing dashboard with community-question removal/restoration and regular-account bans/unbans. Individual existing staff roles remain operator-assigned. Additive 0019 serializes versioned decisions, archives removed questions while preserving revisions/attempts, blocks republication, revokes banned users' sessions and rejects new sessions. Restoration requires an independent administrator and leaves questions archived for explicit author republication. Default-OFF COMMUNITY_ACTIONS_ENABLED also requires existing staff/moderation flags. No production discussion lock is removed.
+
+See [behaviour, tests, migration hash, grants and limitations](STAFF_ACTIONS.md). Focused PGlite SQL/API tests and changed-entrypoint TypeScript pass. Complete PostgreSQL/auth/reader integration and exact-head CI remain review gates. No merge, real account/role, SQL/grant, activation or deployment action. Stop after the draft PR and report its exact checks.
+
 ## SEO P4B topics (12 November 2026)
 
 Six public topics reuse the Dashboard shell and existing Arena/Olympiad cards, with registry counts22/23/18/19/19/20 and all native server-rendered reader links. Metadata/OG/404 and sitemap138 are preserved. See [architecture, evidence and limitations](SEO_P4B_TOPICS.md). Exact-head checks/screenshots are on the focused draft PR. No homepage/library/archive/backend changes, merge, manual deployment or P5.

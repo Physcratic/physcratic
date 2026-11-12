@@ -1,9 +1,15 @@
 import { auth } from "@/lib/auth";
 import { isAllowedSubmissionOrigin } from "@/lib/submission-security";
 import { authoringStagingAuth } from "@/lib/authoring-staging";
+import { communityActionsEnabled } from "@/lib/community/action-policy";
 
 export async function submissionUser(request: Request) {
-  return (await auth.api.getSession({ headers: request.headers }))?.user;
+  const user = (await auth.api.getSession({ headers: request.headers }))?.user;
+  if (user && communityActionsEnabled()) {
+    const [{ pool }, { accountIsBanned }] = await Promise.all([import('@/lib/db'), import('@/lib/community/account-restriction')]);
+    if (await accountIsBanned(pool, user.id)) return null;
+  }
+  return user;
 }
 export function isSubmissionOrigin(request: Request) {
   try {
