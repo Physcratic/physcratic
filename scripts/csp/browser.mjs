@@ -118,6 +118,52 @@ for (const name of browserNames) {
           assert.ok(additional.length > 0, 'Engine must load after opening calculator');
           return { additional: [...new Set(additional)] };
         });
+        await check('MathLive answer field and Math Pad', async (page, server) => {
+          await page.goto(server.origin + '/dashboard/problems/arena-a-grin-and-a-wiggle', { waitUntil: 'networkidle' });
+          const field = page.locator('#step-answer math-field').first();
+          await field.waitFor({ state: 'attached', timeout: 30000 });
+          await field.click();
+          await page.waitForTimeout(700);
+          await page.keyboard.type('sin', { delay: 35 });
+          await page.waitForTimeout(900);
+          assert.equal(await field.evaluate(element => element.value), '\\sin');
+          assert.ok(await page.locator('#step-answer [aria-label="Insert symbols and functions"]').first().isVisible());
+          return 'MathLive loads on demand, takes keys, turns sin into the command and shows the Math Pad. Its styles are in its shadow root and its fonts are bundled.';
+        });
+        await check('guided tour card, ring and navigation', async (page, server) => {
+          // The tour stays off under automation, so tell the page it is not automated, as the tours suite does.
+          await page.addInitScript(() => Object.defineProperty(navigator, 'webdriver', { get: () => false }));
+          await page.goto(server.origin + '/dashboard', { waitUntil: 'networkidle' });
+          const card = page.locator('[data-tour-card]');
+          await card.waitFor({ timeout: 10000 });
+          const title = async () => (await card.locator('[role="status"]').first().innerText()).trim();
+          const first = await title();
+          await page.keyboard.press('ArrowRight');
+          await page.waitForTimeout(600);
+          assert.notEqual(await title(), first, 'The tour must move to the next step');
+          // The card is placed with an inline style attribute, so style-src has to keep allowing inline styles for the tour.
+          assert.ok((await card.getAttribute('style')).includes('top:'));
+          return 'The Welcome tour starts, shows its card and ring, and moves between steps.';
+        });
+        await check('public problem library', async (page, server) => {
+          await page.goto(server.origin + '/problems', { waitUntil: 'networkidle' });
+          await page.getByRole('heading', { name: 'Problem library', exact: true }).waitFor();
+          await page.getByLabel('Find a problem', { exact: true }).fill('Mind the Gap');
+          await page.locator('a[href="/dashboard/problems/arena-mind-the-gap"]').first().waitFor();
+          await page.getByRole('button', { name: 'What do the ratings mean?' }).click();
+          await page.getByText('Rating bands').first().waitFor();
+          return 'The public library renders, filters in the page and opens the ratings help.';
+        });
+        await check('coaching booking link to Tally', async (page, server) => {
+          await page.goto(server.origin + '/coaching', { waitUntil: 'networkidle' });
+          const link = page.locator('a[href^="https://tally.so/"]').first();
+          await link.waitFor({ state: 'attached' });
+          assert.equal(await link.getAttribute('target'), '_blank');
+          assert.match(await link.getAttribute('rel'), /noopener/);
+          // Tally is a link to another site, never an embed, so the policy needs no Tally source.
+          assert.equal(await page.locator('iframe, script[src*="tally"]').count(), 0);
+          return 'The booking form is an outbound link that opens in a new tab. No Tally script or frame loads in the page.';
+        });
         await check('PDF.js actual reader and worker', async (page, server) => {
           await page.goto(server.origin + '/dashboard/problems/ipho-2025-t1', { waitUntil: 'networkidle' });
           await page.locator('[data-pdf-rendered="true"]').first().waitFor({ timeout: 45000 });
