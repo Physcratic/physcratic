@@ -37,14 +37,14 @@ function resolve(route: PublicRoute): Resolved {
     return { title: SITE.defaultTitle, description: SITE.description, canonical: declaredCanonical("app/page.tsx", route.path) };
   }
   if (route.kind === "library") {
-    const file = route.path === "/problems" ? "app/problems/page.tsx" : "app/problems/archive/page.tsx";
+    const file = route.path === "/problems" ? "app/problems/page.tsx" : "app/problems/(discovery)/archive/page.tsx";
     const source = read(file);
     return { title: source.match(/const TITLE = "([^"]+)"/)![1] + TEMPLATE, description: source.match(/const DESCRIPTION =\s*"([^"]+)"/)![1], canonical: declaredCanonical(file, route.path) };
   }
   if (route.kind === "topic") {
     const slug = route.path.split("/").pop()!;
     const copy = topicPageCopy(topicName(slug)!, problemsInTopic(slug).length);
-    return { title: copy.title + TEMPLATE, description: copy.description, canonical: declaredCanonical("app/problems/topics/[slug]/page.tsx", route.path) };
+    return { title: copy.title + TEMPLATE, description: copy.description, canonical: declaredCanonical("app/problems/(discovery)/topics/[slug]/page.tsx", route.path) };
   }
   if (route.kind === "problem") {
     const page = findProblemPage(route.path.split("/").pop()!)!;

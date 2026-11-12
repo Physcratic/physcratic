@@ -84,14 +84,15 @@ describe("statements are in the server HTML", () => {
 
 describe("public library links", () => {
   it("keeps problem and topic anchors in the server-rendered library pages", async () => {
-    const { default: Library } = await import("../app/problems/page");
-    const { default: Archive } = await import("../app/problems/archive/page");
-    const { default: Topic } = await import("../app/problems/topics/[slug]/page");
+    const { PublicProblemDirectory: Library } = await import("../components/problems/public-problem-directory");
+    const { default: Archive } = await import("../app/problems/(discovery)/archive/page");
+    const { default: Topic } = await import("../app/problems/(discovery)/topics/[slug]/page");
     const { topicsWithProblems } = await import("../lib/seo/problem-pages");
     const library = renderToStaticMarkup(createElement(Library));
     const archive = renderToStaticMarkup(createElement(Archive));
+    for (const page of allProblemPages().filter(page => page.kind === "archive")) assert.ok(archive.includes(`href="${page.path}"`), page.path);
     for (const page of allProblemPages()) {
-      assert.ok((page.kind === "archive" ? archive : library).includes(`href="${page.path}"`), page.path);
+      assert.ok(library.includes(`href="${page.path}"`), page.path);
     }
     for (const topic of topicsWithProblems()) {
       assert.ok(library.includes(`href="/problems/topics/${topic.slug}"`), topic.slug);

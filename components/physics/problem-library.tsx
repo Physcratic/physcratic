@@ -1,13 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { parseProblemCollection, problemCollectionHref } from "@/lib/problem-collection-route";
+import { libraryFilterHref, parseLibraryFilters } from "@/lib/problem-library-route";
 import { corpusProblems } from "@/lib/corpus-pilot";
 import {
   filterProblemsByTag,
   getTagOptions,
-  tagLabel,
 } from "@/lib/problem-tags";
 import { Input } from "@/components/ui/input";
 import { physicsTopicLabels } from "@/lib/physics-taxonomy";
@@ -31,7 +30,7 @@ import {
 import { type Problem } from "@/lib/physics";
 import { ratingBands } from "@/lib/rating-bands";
 import { RatingBandsPopover } from "./rating-bands-popover";
-import { TagFilterContext, tagFilterHref } from "./tag-filter";
+import { TagFilterContext } from "./tag-filter";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CorpusCollection } from "./corpus-collection";
@@ -41,52 +40,35 @@ import arena from "@/lib/arena/index.json";
 import { UnifiedArenaCollection } from "./unified-arena-collection";
 
 export function ProblemLibrary({
-  topic,
-  query,
   onReadingChange,
+  readerTitleAs,
+  navigateToReader = false,
 }: {
   topic?: string;
   query?: string;
-  onOpen: (problem: Problem) => void;
+  onOpen?: (problem: Problem) => void;
+  /** Public library keeps its server-rendered page heading while a guided exercise is open. */
+  readerTitleAs?: "h1" | "h2";
+  /** Keep public archive entries as ordinary reader navigation. Dashboard inline reading is unchanged. */
+  navigateToReader?: boolean;
   /** Tells the page when a guided problem is open, so its title can be the page heading. */
   onReadingChange?: (reading: boolean) => void;
 }) {
   const params = useSearchParams();
-  const requestedCollection = params.get("collection");
-  const [collection, setCollection] = useState(() => parseProblemCollection(requestedCollection));
-  useEffect(() => {
-    setCollection(parseProblemCollection(requestedCollection));
-  }, [requestedCollection]);
+  const { collection, search, topic: selectedTopic, tagInput, competition, difficulty, exercise } = parseLibraryFilters(params);
+  const pilotProblemId = corpusProblems.find(problem => problem.id === exercise)?.id;
 
+  function updateFilters(changes: Parameters<typeof libraryFilterHref>[1], replace = false) {
+    const href = libraryFilterHref(window.location.href, changes);
+    if (href === `${window.location.pathname}${window.location.search}${window.location.hash}`) return;
+    window.history[replace ? "replaceState" : "pushState"](null, "", href);
+  }
   function changeCollection(value: string) {
-    setCollection(parseProblemCollection(value));
-    window.history.replaceState(null, "", problemCollectionHref(window.location.href, value));
+    updateFilters({ collection: value, exercise: "" });
   }
-  const [competition, setCompetition] = useState("");
-  const [pilotProblemId, setPilotProblemId] = useState<string | undefined>();
-  const [search, setSearch] = useState(query || "");
-  // The tag filter lives in the address (?tag= or the sidebar's ?topic=), so it can be shared and survives a reload.
-  const urlTag = params.get("tag");
-  const urlTopic = params.get("topic");
-  const fromAddress = () => {
-    const value = (urlTag ?? urlTopic ?? topic ?? "").trim().slice(0, 80);
-    return value ? tagLabel(value) : "all";
-  };
-  const [selectedTopic, setSelectedTopic] = useState(fromAddress);
-  useEffect(() => {
-    setSelectedTopic(fromAddress());
-    // fromAddress reads the same two values.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [urlTag, urlTopic]);
-  function commitTag(value: string) {
-    window.history.replaceState(null, "", tagFilterHref(window.location.href, value));
+  function chooseTag(value: string) {
+    updateFilters({ tag: value.trim().slice(0, 80) || "all" });
   }
-  function chooseTag(next: string) {
-    const value = next.trim().slice(0, 80) || "all";
-    setSelectedTopic(value);
-    commitTag(value);
-  }
-  const [difficulty, setDifficulty] = useState("all");
   // While a guided problem is open, the collection tabs and filters are not shown, only the problem.
   const reading = collection === "pilot" && Boolean(pilotProblemId);
   useEffect(() => {
@@ -101,10 +83,7 @@ export function ProblemLibrary({
   ]);
 
   function reset() {
-    setSearch("");
-    chooseTag("all");
-    setDifficulty("all");
-    setCompetition("");
+    updateFilters({ q: "", tag: "all", difficulty: "all", competition: "" });
   }
 
   return (
@@ -152,7 +131,7 @@ export function ProblemLibrary({
                   maxLength={200}
                   placeholder="Search by problem or tag…"
                   value={search}
-                  onChange={(event) => setSearch(event.target.value)}
+                  onChange={(event) => updateFilters({ q: event.target.value }, true)}
                 />
               </Field>
               {collection === "catalog" && (
@@ -167,20 +146,21 @@ export function ProblemLibrary({
                     placeholder="e.g. IPhO 2025"
                     aria-controls="catalog-results"
                     value={competition}
-                    onChange={(event) => setCompetition(event.target.value)}
+                    maxLength={100}
+                    onChange={(event) => updateFilters({ competition: event.target.value }, true)}
                   />
                 </Field>
               )}
               <Field className="sm:w-48">
                 <FieldLabel htmlFor="topic-filter">Tag</FieldLabel>
-                <Input id="topic-filter" className="h-11" list="problem-tag-options" maxLength={80} value={selectedTopic === "all" ? "" : selectedTopic} placeholder="All tags" onChange={e => setSelectedTopic(e.target.value || "all")} onBlur={() => commitTag(selectedTopic)} />
+                <Input id="topic-filter" className="h-11" list="problem-tag-options" maxLength={80} value={tagInput === "all" ? "" : tagInput} placeholder="All tags" onChange={e => updateFilters({ tag: e.target.value.slice(0, 80) || "all" }, true)} />
                 <datalist id="problem-tag-options">{tagOptions.map(tag => <option key={tag} value={tag} />)}</datalist>
               </Field>
               <Field className="sm:w-60">
                 <FieldLabel htmlFor="difficulty-filter">
                   Rating band
                 </FieldLabel>
-                <Select value={difficultyForCollection} onValueChange={setDifficulty}>
+                <Select value={difficultyForCollection} onValueChange={value => updateFilters({ difficulty: value })}>
                   <SelectTrigger id="difficulty-filter" className="h-11">
                     <SelectValue>
                       {difficultyForCollection === "unrated" ? "Unrated / author labels" : ratingBands.find((band) => band.id === difficultyForCollection)?.name ?? (difficultyForCollection === "all" ? "All ratings" : "Rating band")}
@@ -227,14 +207,14 @@ export function ProblemLibrary({
         </TabsContent>
         <TabsContent value="catalog" className="min-w-0">
           <OlympiadCatalog
+            navigateToReader={navigateToReader}
             query={search}
             topic={selectedTopic}
             competition={competition}
             difficulty={difficultyForCollection}
             onReset={reset}
             onOpenImported={(id) => {
-              setPilotProblemId(id);
-              changeCollection("pilot");
+              updateFilters({ collection: "pilot", exercise: id });
             }}
           />
         </TabsContent>
@@ -245,9 +225,9 @@ export function ProblemLibrary({
           className="min-w-0"
         >
           <CorpusCollection
-            titleAs={reading ? "h1" : "h2"}
+            titleAs={readerTitleAs ?? (reading ? "h1" : "h2")}
             activeProblemId={pilotProblemId}
-            onActiveProblemChange={setPilotProblemId}
+            onActiveProblemChange={id => updateFilters({ exercise: id ?? "" })}
             query={search}
             topic={selectedTopic}
             difficulty={difficultyForCollection}
