@@ -83,7 +83,7 @@ function ProfileEditor({ userId, fallbackName, verified, mediaEnabled, achieveme
   if (loadFailed) return <section id="profile-settings" className="space-y-4 rounded-2xl border bg-card p-7"><h2 className="text-lg font-semibold">Profile</h2><p role="alert" className="text-sm">{error}</p><Button variant="outline" onClick={() => setReload(n => n + 1)}>Retry profile</Button></section>;
   return <>
     <section id="profile-settings" aria-labelledby="profile-heading" className="scroll-mt-6 space-y-6">
-      {onboarding && !saved && <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border bg-muted/30 p-4 text-sm"><p>Profile setup is optional. Share only what you choose.</p><Link href="/dashboard" onClick={() => dismissProfileSetup(userId)} className="rounded px-2 py-2 font-medium underline underline-offset-4">Skip for now</Link></div>}
+      {onboarding && !saved && <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border bg-muted/30 p-4 text-sm"><p>Profile setup is optional.</p><Link href="/dashboard" onClick={() => dismissProfileSetup(userId)} className="rounded px-2 py-2 font-medium underline underline-offset-4">Skip for now</Link></div>}
       <div className="grid items-start gap-6 xl:grid-cols-[minmax(0,1fr)_300px]">
         <form onSubmit={save} className="min-w-0 space-y-6 rounded-2xl border bg-card p-5 sm:p-7">
           <header className="space-y-1"><h2 id="profile-heading" className="text-lg font-semibold">Profile</h2><p className="text-sm leading-6 text-muted-foreground">Choose your public identity and what others can see.</p></header>
