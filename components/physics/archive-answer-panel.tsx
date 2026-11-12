@@ -102,6 +102,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
     if (shouldSave && (conflict || journal.account !== account)) { setError("Choose which draft to use before saving."); return; }
     let request = retry ? journal.retry() : null;
     if (retry && (!request || !saveAccount)) { setError("Sign in to the original account to retry this save."); return; }
+    if (!retry && !input.answers.length) { setError("Type an answer first."); return; }
     if (!retry && !practiceCheckInputSchema.safeParse(input).success) { setError("Type a supported answer within the input limit first."); return; }
     try {
       if (shouldSave && !retry) request = journal.begin(input);
