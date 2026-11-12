@@ -1,7 +1,7 @@
 # Physcratic — notes for Claude Code
 
 ## Working rules
-- Commit straight to main, after full local CI from a clean worktree (every step in `.github/workflows/ci.yml`, with the database tests on a throwaway Postgres). Never force-push.
+- main requires a pull request. Push a branch, open a PR, and wait for GitHub CI to pass. Never push to main directly or work around the rule.
 - Never buy anything, change a plan or seat, or redeploy a blocked commit on Vercel or any other service. Stop and ask the owner.
 - Never run a build, dev server or tests in the main checkout. It has .env.local. Always use a clean worktree.
 - Never touch the Vercel, Neon, auth, email or Blob settings, any real database, `lib/db/schema.ts`, `migrations/` or `.env` files without explicit approval for that task.
