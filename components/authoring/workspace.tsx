@@ -197,12 +197,12 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
               "Private uploads removed from drafts can be cleaned after 24 hours. Historical files are retained."}
           </p>
         </div>
-        {error && (
+        {(error || refreshRequired) && (
           <div
             role="alert"
             className="my-6 rounded-lg border border-destructive p-4"
           >
-            <ErrorText>{error}</ErrorText>
+            <ErrorText>{error || "Reload the list to check the removal status before retrying."}</ErrorText>
             <Button
               type="button"
               variant="outline"
