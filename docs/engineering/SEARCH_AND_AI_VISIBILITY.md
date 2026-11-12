@@ -67,7 +67,7 @@ Built in `lib/seo/json-ld.ts` from the same strings the page shows, and validate
 
 ## The home page and caching
 
-P2 (11 November 2026): the public product lobby uses the existing dashboard shell and server-rendered practice, library, archive, topic and guide links. Its primary practice action works before hydration and needs no login. Verified members still get the existing dashboard Lobby. The optional public sticky header reserves space for the mobile/tablet menu without changing existing reader or dashboard headers.
+P2 revision (12 November 2026): the public homepage renders the existing dashboard Lobby directly, with a short server-rendered discovery header and the shared Arena recommendation. Its primary practice action works before hydration and needs no login. Verified members still get the existing dashboard Lobby. The optional public sticky header reserves space for the mobile/tablet menu without changing existing reader or dashboard headers.
 
 `app/page.tsx` reads the session cookie. With no cookie it never touches the database. Next sends `Cache-Control: private, no-cache, no-store, max-age=0, must-revalidate` for it, and `lib/seo-home-audience.test.ts` fails if the page or `next.config.ts` ever makes it cacheable. `tests/home-session.live.mts` proves it on a real build with a disposable database: a signed-in fetch gets the Lobby, a signed-out fetch straight after (and 24 alternating concurrent ones) gets the public product lobby with none of the user's name, email, id or token.
 

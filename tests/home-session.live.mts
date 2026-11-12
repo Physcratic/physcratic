@@ -65,7 +65,7 @@ async function home(cookie?: string) {
   return { status: response.status, cache: response.headers.get("cache-control") ?? "", body: await response.text() };
 }
 const isLobby = (body: string) => /<h1[^>]*>Lobby<\/h1>/.test(body) && !body.includes("data-home-sentence");
-const isLanding = (body: string) => body.includes("data-home-sentence") && /<h1[^>]*>Free physics olympiad practice<\/h1>/.test(body) && !/<h1[^>]*>Lobby<\/h1>/.test(body);
+const isLanding = (body: string) => body.includes("data-home-sentence") && /<h1[^>]*>Lobby<\/h1>/.test(body);
 
 try {
   for (let attempt = 0; attempt < 60; attempt++) {
@@ -88,7 +88,7 @@ try {
     ok(!visitor.body.includes(secretValue), `the signed-out response must not contain "${secretValue}"`);
     ok(!decodeURIComponent(visitor.body).includes(secretValue), `the signed-out response must not contain "${secretValue}" (decoded)`);
   }
-  ok(!/Welcome back|My attempts|Sign out/.test(visible(visitor.body)) && !/<h1[^>]*>Lobby<\/h1>/.test(visitor.body), "no signed-in content on the landing page");
+  ok(!/Welcome back|My attempts|Sign out/.test(visible(visitor.body)), "no signed-in content on the landing page");
 
   // 3. Alternating and concurrent fetches never cross over.
   const results = await Promise.all(Array.from({ length: 24 }, (_, index) => home(index % 2 === 0 ? memberCookie : undefined).then((r) => ({ member: index % 2 === 0, ...r }))));
@@ -144,9 +144,16 @@ try {
         } else await page.locator('aside a[aria-label="Physcratic home"]').click();
         await page.waitForURL(`${origin}/`);
         await page.locator("[data-public-home]").waitFor();
-        ok(await page.locator("h1").textContent() === "Free physics olympiad practice", "client cache clears member home after actual sign out");
+        ok(await page.locator("h1").textContent() === "Lobby", "client cache clears member home after actual sign out");
         const rendered = await page.content();
         for (const value of [user.name, user.email, secondUser.name, secondUser.email]) ok(!rendered.includes(value), "no former account data in guest browser");
+        if (mobile) await page.getByRole("button", { name: "Menu", exact: true }).click();
+        await page.getByRole("link", { name: "Sign in", exact: true }).first().click();
+        await page.waitForURL(/\/sign-in/);
+        ok(await page.getByRole("heading", { name: "Sign in", exact: true }).isVisible(), "guest can reach the actual sign-in page");
+        await page.getByRole("link", { name: "Create an account", exact: true }).click();
+        await page.waitForURL(/\/sign-up/);
+        ok(await page.getByRole("heading", { name: "Create an account", exact: true }).isVisible(), "existing Lobby account path reaches sign-up");
         await context.close();
       }
     } finally { await browser.close(); }

@@ -1,5 +1,10 @@
 # Execution roadmap
 
+## P2 Lobby design reversal (12 November 2026)
+
+Draft PR #143 replaces the rejected standalone homepage cards with the existing Dashboard/Overview and minimum public discovery header. Real Arena recommendation is present before hydration and existing unsolved selection remains. Auth/cache/metadata/database contracts are unchanged. See [checkpoint and tests](SEO_P2_HOMEPAGE.md). Exact final head and full CI are on the PR. Keep draft, do not merge or deploy. Next authorized batch is a separate draft PR retiring only the 12 legacy practice URLs, preserving their historical records and grading contracts. No P3.
+
+
 ## SEO P2 public homepage (11 November 2026)
 
 Branch `codex/seo-p2-public-home` implements the server-rendered public product lobby from `b3912ce` and incorporates frozen main `01757c0` without changing upstream account-deletion, reader/progress code or activation prerequisites. The member session branch, root metadata/private-no-store, old dashboard queries, reader URLs and publication policy remain unchanged. See [checkpoint, verification and screenshots](SEO_P2_HOMEPAGE.md). The draft PR records the exact final head and GitHub checks. No merge or manual deployment. The owner cancelled P3. Stop after the P2 draft PR and report. Further library work needs separate authorization.

@@ -1,8 +1,10 @@
 // Focused public-home UX against a local production build. No live providers or writes.
 // PLAYWRIGHT_MODULE=/absolute/path/to/playwright-core/index.mjs BROWSER_TEST_ORIGIN=http://127.0.0.1:3122 node tests/public-home.browser.mjs
 import assert from "node:assert/strict";
-import { mkdir } from "node:fs/promises";
+import { readFile, mkdir } from "node:fs/promises";
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE ?? "playwright");
+const arena = JSON.parse(await readFile(new URL("../lib/arena/index.json", import.meta.url), "utf8")).problems;
+const selected = arena[1];
 const origin = process.env.BROWSER_TEST_ORIGIN ?? "http://127.0.0.1:3122";
 assert.ok(["127.0.0.1", "localhost"].includes(new URL(origin).hostname));
 const evidence = process.env.HOME_EVIDENCE_DIR ?? "work/p2/screenshots";
@@ -17,6 +19,7 @@ try {
   ok(/private/.test(response.headers.get("cache-control") ?? "") && /no-store/.test(response.headers.get("cache-control") ?? ""), "root private/no-store");
   ok(html.includes(`rel="canonical" href="${process.env.HOME_CANONICAL_ORIGIN ?? "https://physcratic.com"}"`), "root canonical");
   ok(!/<meta name="robots" content="[^"]*noindex/.test(html), "root indexable");
+  ok(html.includes(`href="/dashboard/problems/${arena[0].id}"`), "server-rendered Arena reader link");
   ok(html.includes('"@type":"WebSite"') && html.includes('"@type":"Organization"'), "home structured data");
   const visible = body => body.replace(/<script[\s\S]*?<\/script>/g, " ").replace(/<style[\s\S]*?<\/style>/g, " ").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
   const crawler = await fetch(origin, { headers: { "user-agent": "Googlebot" } });
@@ -24,15 +27,27 @@ try {
   for (const theme of ["light", "dark"]) {
     for (const width of [375, 768, 1440]) {
       const context = await browser.newContext({ viewport: { width, height: 1000 }, colorScheme: theme });
-      await context.addInitScript(theme => localStorage.setItem("theme", theme), theme);
+      await context.addInitScript(({ theme, solved }) => {
+        localStorage.setItem("theme", theme);
+        localStorage.setItem("physcratic.tour.welcome.v1", "seen");
+        localStorage.setItem("physcratic.solved.v1", JSON.stringify(solved));
+      }, { theme, solved: arena.filter(p => p.id !== selected.id).map(p => p.id) });
       await context.route("**/*", route => new URL(route.request().url()).origin === origin ? route.continue() : route.abort());
+      // Synthetic healthy guest data exercises the normal empty Lobby. Session isolation uses real local sessions separately.
+      await context.route("**/api/auth/get-session*", route => route.fulfill({ json: null }));
+      await context.route("**/api/dashboard", route => route.fulfill({ json: { user: null, savedAttempts: 0, practiceAttempts: null, solvedProblems: null, archiveReviewed: 0, ratings: [], contests: [] } }));
       const page = await context.newPage();
+      const hydrationErrors = [];
+      page.on("console", message => { if (/hydration|did not match|server rendered HTML/i.test(message.text())) hydrationErrors.push(message.text()); });
+      page.on("pageerror", error => hydrationErrors.push(error.message));
       await page.goto(origin, { waitUntil: "networkidle" });
+      ok(hydrationErrors.length === 0, `no hydration errors: ${hydrationErrors.join("\n")}`);
+      ok(await page.getByRole("link", { name: "Solve problem", exact: true }).getAttribute("href") === `/dashboard/problems/${selected.id}`, "existing unsolved selection runs after hydration");
       ok(await page.locator("h1").count() === 1, "one h1");
       ok(await page.locator("header").first().evaluate(el => { const style = getComputedStyle(el); return style.zIndex === "40" && style.position === "sticky"; }), "public sticky header retains tour layer 40");
-      ok(await page.locator("h1").textContent() === "Free physics olympiad practice", "meaningful h1");
+      ok(await page.locator("h1").textContent() === "Lobby", "meaningful h1");
       ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), "no horizontal overflow");
-      for (const href of ["/problems", "/problems/archive", "/learn", "/coaching", "/dashboard?view=contests", "/dashboard/problems/incline"]) {
+      for (const href of ["/problems", "/problems/archive", "/learn", "/coaching", "/dashboard?view=contests", "/dashboard?view=problems&collection=arena", `/dashboard/problems/${selected.id}`]) {
         ok(await page.locator(`main a[href="${href}"]`).count() > 0, `public action ${href}`);
       }
       await page.keyboard.press("Tab");
@@ -44,13 +59,19 @@ try {
         ok(await page.getByRole("button", { name: "Menu", exact: true }).evaluate(el => { const menu = el.getBoundingClientRect(); const header = document.querySelector("header").getBoundingClientRect(); return menu.top >= header.top && menu.bottom <= header.bottom; }), "mobile menu stays inside header after skip");
         if (width >= 640) ok(await page.getByRole("button", { name: "Menu", exact: true }).evaluate(el => el.getBoundingClientRect().right <= document.querySelector('nav[aria-label="Breadcrumb"]').getBoundingClientRect().left), "tablet menu clears breadcrumb");
       }
-      const practice = page.getByRole("link", { name: "Try a problem", exact: true });
+      const practice = page.getByRole("link", { name: "Solve problem", exact: true });
       await practice.focus();
       ok(await practice.evaluate(el => { const s = getComputedStyle(el); return s.boxShadow !== "none" || s.outlineStyle !== "none"; }), "visible practice focus");
       await page.screenshot({ path: `${evidence}/home-${width}-${theme}.png`, fullPage: true });
+      const lobbyHeadings = await page.locator("main h2").allTextContents();
+      const reference = await context.newPage();
+      await reference.goto(`${origin}/dashboard`, { waitUntil: "networkidle" });
+      ok(JSON.stringify(await reference.locator("main h2").allTextContents()) === JSON.stringify(lobbyHeadings), "same Lobby sections and order as dashboard");
+      await reference.screenshot({ path: `${evidence}/dashboard-${width}-${theme}.png`, fullPage: true });
+      await reference.close();
       await practice.click();
-      await page.waitForURL(`${origin}/dashboard/problems/incline`);
-      ok(await page.locator("h1").textContent() === "A block on an incline", "guest practice opens actual reader");
+      await page.waitForURL(`${origin}/dashboard/problems/${selected.id}`);
+      ok(await page.locator("h1").textContent() === selected.title, "guest practice opens actual reader");
       await page.goto(origin);
       if (width < 1024) {
         await page.getByRole("button", { name: "Menu", exact: true }).click();
@@ -71,7 +92,7 @@ try {
         ok(true, "manual Help reaches root practice action");
         await page.keyboard.press("Escape");
       }
-      await page.getByRole("link", { name: "All guides", exact: true }).click();
+      await page.getByRole("link", { name: "Guides", exact: true }).click();
       await page.waitForURL(`${origin}/learn`);
       await page.getByRole("link", { name: /Physcratic.*home/ }).click();
       await page.waitForURL(`${origin}/`);
@@ -79,7 +100,7 @@ try {
       // The practice action survives account/session API failure.
       await context.route("**/api/auth/get-session**", route => route.fulfill({ status: 503, contentType: "application/json", body: JSON.stringify({ error: "Synthetic unavailable" }) }));
       await page.reload({ waitUntil: "networkidle" });
-      ok(await page.getByRole("link", { name: "Try a problem", exact: true }).isVisible(), "practice remains available with failed account API");
+      ok(await page.getByRole("link", { name: "Solve problem", exact: true }).isVisible(), "practice remains available with failed account API");
       if (width < 640) await page.getByRole("button", { name: "Menu", exact: true }).click();
       await page.getByRole("button", { name: "Retry account", exact: true }).first().waitFor();
       ok(await page.getByRole("button", { name: "Retry account", exact: true }).first().isVisible(), "account error has recovery");
@@ -90,10 +111,11 @@ try {
   await context.route("**/*", route => new URL(route.request().url()).origin === origin ? route.continue() : route.abort());
   const page = await context.newPage();
   await page.goto(origin);
-  ok(await page.getByRole("link", { name: "Try a problem", exact: true }).isVisible(), "no-JS practice link");
+  ok(await page.getByRole("link", { name: "Solve problem", exact: true }).isVisible(), "no-JS practice link");
+  ok(await page.getByRole("link", { name: "Solve problem", exact: true }).getAttribute("href") === `/dashboard/problems/${arena[0].id}`, "stable Arena recommendation in HTML");
   ok(await page.locator('main a[href^="/problems/topics/"]').count() === 6, "six no-JS topic links");
-  await page.getByRole("link", { name: "Try a problem", exact: true }).click();
-  ok(page.url() === `${origin}/dashboard/problems/incline`, "no-JS practice navigation");
+  await page.getByRole("link", { name: "Solve problem", exact: true }).click();
+  ok(page.url() === `${origin}/dashboard/problems/${arena[0].id}`, "no-JS practice navigation");
   await context.close();
   const defaultContext = await browser.newContext();
   await defaultContext.route("**/*", route => new URL(route.request().url()).origin === origin ? route.continue() : route.abort());

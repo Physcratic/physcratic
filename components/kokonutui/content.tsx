@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { Field, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { viewTitles, type Problem, type View } from "@/lib/physics";
@@ -24,10 +24,12 @@ export default function Content({
   view,
   topic,
   query,
+  discovery,
 }: {
   view: View;
   topic?: string;
   query?: string;
+  discovery?: ReactNode;
 }) {
   const router = useRouter();
   const [rankingSearch, setRankingSearch] = useState("");
@@ -45,9 +47,9 @@ export default function Content({
           <PageTitle className="text-2xl font-medium tracking-[-0.04em] sm:text-[27px]">
             {topic || viewTitles[view]}
           </PageTitle>
-          <p className="text-sm leading-relaxed text-muted-foreground">
+          {discovery ?? <p className="text-sm leading-relaxed text-muted-foreground">
             {subtitles[view]}
-          </p>
+          </p>}
         </div>
         {view === "rankings" && (
           <Field className="w-full sm:w-72">
