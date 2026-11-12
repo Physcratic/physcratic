@@ -78,14 +78,14 @@ export function LearningGuide() {
           </p>
           <p>
             <strong className="font-medium text-foreground">
-              Think in units.
+              Units.
             </strong>{" "}
             Enter a number in the unit requested. Follow the conditions and
             precision stated for each answer.
           </p>
           <p>
             <strong className="font-medium text-foreground">
-              Open practice.
+              Accounts.
             </strong>{" "}
             Browse without an account. Sign in to save checked practice answers,
             full solution attempts and archive progress privately across

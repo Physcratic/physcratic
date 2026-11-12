@@ -101,7 +101,7 @@ export function ProblemEditor({
       async (draft) => {
         if (creating) {
           // Only the first save creates. A later save from this session would race the saved draft that replaces it.
-          if (created) throw new Error("Your first draft was saved. Keep typing.");
+          if (created) throw new Error("Your first draft was saved.");
           const saved = editorDraftSchema.parse(await draftRequest(editorBase, "POST", draftPayload(draft)));
           created = true;
           try {
