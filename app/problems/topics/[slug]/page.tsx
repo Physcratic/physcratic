@@ -1,8 +1,7 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { CrumbTrail } from "@/components/problems/problem-links";
-import { ProblemLinkList, problemLinkClass } from "@/components/problems/problem-list-links";
+import Layout from "@/components/kokonutui/layout";
+import { TopicDirectory } from "@/components/problems/topic-directory";
 import { jsonLdScript, problemListGraph } from "@/lib/seo/json-ld";
 import { problemsInTopic, topicName, topicPageCopy, topicsWithProblems } from "@/lib/seo/problem-pages";
 import { SITE, baseOpenGraph } from "@/lib/site";
@@ -42,17 +41,7 @@ export default async function TopicPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdScript(problemListGraph({ crumbs, name: title, description, path, items: pages })) }}
       />
-      <CrumbTrail crumbs={crumbs} />
-      <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">{name} problems</h1>
-      <p className="mt-4 max-w-prose text-lg text-muted-foreground">{pages.length} problems on {name.toLowerCase()}.</p>
-      <div className="mt-6">
-        <ProblemLinkList pages={pages} />
-      </div>
-      <p className="mt-8">
-        <Link href="/problems" className={problemLinkClass}>
-          All problems
-        </Link>
-      </p>
+      <Layout view="problems" stickyHeader><TopicDirectory name={name} pages={pages} /></Layout>
     </>
   );
 }

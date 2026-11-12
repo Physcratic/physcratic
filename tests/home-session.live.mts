@@ -152,6 +152,10 @@ try {
     const code = await new Promise(resolve => journey.on("close", resolve));
     console.log(output);
     ok(code === 0, "public library browser and mounted account-switch journeys pass");
+    if (process.env.HOME_TOPIC_BROWSER === "1") {
+      const topics = spawn(process.execPath, ["--import", "tsx", "tests/topics.browser.mjs"], { env: { ...process.env, BROWSER_TEST_ORIGIN: origin }, stdio: "inherit" });
+      ok(await new Promise(resolve => topics.on("close", resolve)) === 0, "production topic browsers pass");
+    }
     if (process.env.HOME_ARCHIVE_BROWSER === "1") {
       const archive = spawn(process.execPath, ["--import", "tsx", "tests/archive.browser.mjs"], { env: { ...process.env, BROWSER_TEST_ORIGIN: origin }, stdio: "inherit" });
       ok(await new Promise(resolve => archive.on("close", resolve)) === 0, "production archive browser passes");

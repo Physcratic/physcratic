@@ -44,7 +44,7 @@ function resolve(route: PublicRoute): Resolved {
   if (route.kind === "topic") {
     const slug = route.path.split("/").pop()!;
     const copy = topicPageCopy(topicName(slug)!, problemsInTopic(slug).length);
-    return { title: copy.title + TEMPLATE, description: copy.description, canonical: declaredCanonical("app/problems/(discovery)/topics/[slug]/page.tsx", route.path) };
+    return { title: copy.title + TEMPLATE, description: copy.description, canonical: declaredCanonical("app/problems/topics/[slug]/page.tsx", route.path) };
   }
   if (route.kind === "problem") {
     const page = findProblemPage(route.path.split("/").pop()!)!;

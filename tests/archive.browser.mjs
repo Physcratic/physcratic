@@ -55,7 +55,7 @@ try {
  for(const c of ['IPhO','APhO','EuPhO'])for(const y of new Set(pages.filter(p=>p.competition===c).map(p=>p.year)))ok(await page.locator(`[id="${c.toLowerCase()}-${y}"]`).count()===1,`${c} ${y} preserved fragment`);
  const graph=JSON.parse(await page.locator('script[type="application/ld+json"]').first().textContent());ok(JSON.stringify(graph).includes('ItemList'),'structured list');
  await page.locator('a[href="/dashboard/problems/ipho-2025-t2"]').click();ok(page.url().endsWith('/dashboard/problems/ipho-2025-t2'),'no-JS reader navigation');
- // Topic route retains its original discovery shell, not the Dashboard sidebar.
- await page.goto(origin+'/problems/topics/mechanics');ok(await page.locator('aside').count()===0,'topic shell unchanged');
+ // Topic routes now share the Dashboard shell, with their own registry-derived directory.
+ await page.goto(origin+'/problems/topics/mechanics');ok(await page.locator('aside').count()===1,'topic Dashboard shell');
  await context.close();console.log(`archive.browser: ${checks} checks passed; 103 reader URLs verified; ${output}`);
 }finally{await browser.close();}
