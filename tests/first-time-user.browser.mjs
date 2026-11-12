@@ -243,9 +243,10 @@ try {
     const archiveTabs = page.getByRole("tablist", { name: "Problem steps" });
     await archiveTabs.waitFor({ timeout: 30000 });
     const tabNames = await archiveTabs.getByRole("tab").allInnerTexts();
-    ok(tabNames.length === 3 && /^1\s*Problem statement/.test(tabNames[0].replace(/\n/g, " ")), `archive tabs follow the steps (${tag})`);
+    // The unified workspace (#137) keeps Your solution on the page as step 2, so the tabs are the statement (1) and the worked solution (4).
+    ok(tabNames.length === 2 && /^1\s*Problem statement/.test(tabNames[0].replace(/\n/g, " ")) && /^4\s*Worked solution/.test(tabNames[1].replace(/\n/g, " ")), `archive tabs follow the steps (${tag})`);
     await tapTarget(archiveTabs.getByRole("tab").first(), `archive tab ${tag}`);
-    ok(await page.getByRole("tab", { name: "Your solution", exact: true }).count() === 1, `Your solution tab keeps its name (${tag})`);
+    ok(await page.getByRole("region", { name: "Your solution", exact: true }).count() === 1, `Your solution stays on the page, named (${tag})`);
     await noSidewaysScroll(page, `archive ${tag}`);
     await shot(page, `03b-archive-${tag}`);
 

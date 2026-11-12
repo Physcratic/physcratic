@@ -157,7 +157,8 @@ try {
     const c = await context(), p = await c.newPage(), before = new Set();
     p.on('response', r => { if (r.url().includes('/_next/') && r.url().endsWith('.js')) before.add(r.url()); });
     await p.goto(origin + '/dashboard/problems/ipho-2025-t1', { waitUntil: 'networkidle' });
-    await p.getByRole('tab', { name: 'Your solution', exact: true }).click();
+    // The unified workspace (#137) shows Your solution on the page. It is no longer a tab.
+    await p.getByRole('region', { name: 'Your solution', exact: true }).waitFor();
     await p.getByRole('link', { name: 'Sign in to submit', exact: true }).waitFor();
     await p.waitForLoadState('networkidle');
     const initial = new Set(before), extra = [];
@@ -200,7 +201,8 @@ try {
     const c = await context(), p = await c.newPage(), loaded = new Set();
     p.on('response', r => { if (r.url().includes('/_next/') && r.url().endsWith('.js')) loaded.add(r.url()); });
     await p.goto(origin + '/dashboard/problems/ipho-2025-t1', { waitUntil: 'networkidle' });
-    await p.getByRole('tab', { name: 'Your solution', exact: true }).click();
+    // The unified workspace (#137) shows Your solution on the page. It is no longer a tab.
+    await p.getByRole('region', { name: 'Your solution', exact: true }).waitFor();
     await p.waitForLoadState('networkidle');
     const initial = new Set(loaded);
     let fail = true;
