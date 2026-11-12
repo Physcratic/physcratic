@@ -68,9 +68,9 @@ interface ArticleFields {
   published: boolean;
 }
 
-/** Product documentation records no human review. Existing guides still require one. */
+/** Review attribution applies to the current revision. Null means review is pending. */
 export type ArticleDraft = ArticleFields & (
-  | { kind?: "guide"; reviewedBy: Reviewer }
+  | { kind?: "guide"; reviewedBy: Reviewer | null }
   | { kind: "product"; reviewedBy: null }
 );
 

@@ -96,7 +96,9 @@ export default async function LearnArticlePage({ params }: Props) {
               {article.reviewedBy.name}
             </Link>
             , {article.reviewedBy.credential}
-          </p> : <p className="mt-1 text-sm text-muted-foreground">Product documentation. No independent human review is recorded.</p>}
+          </p> : <p className="mt-1 text-sm text-muted-foreground">{article.kind === "product"
+            ? "Product documentation. No independent human review is recorded."
+            : "Editorial review pending. No independent human review is recorded for this revision."}</p>}
         </header>
         <div className="mt-8">
           <ArticleBody blocks={article.body} sources={article.sources} />

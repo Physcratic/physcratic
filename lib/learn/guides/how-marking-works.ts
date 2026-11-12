@@ -1,4 +1,3 @@
-import { REVIEWER } from "../reviewer";
 import type { ArticleDraft } from "../types";
 
 // Facts come from the fact sheet for Batch 6.1 (S1 marking rules, S3 exam instructions).
@@ -10,7 +9,8 @@ export const howMarkingWorks: ArticleDraft = {
     "How marks are given for IPhO theory solutions, why method and units matter, and how to write work a marker can follow.",
   updated: "2026-11-12",
   published: true,
-  reviewedBy: REVIEWER,
+  // The replacement Mind the Gap example awaits explicit owner editorial approval.
+  reviewedBy: null,
   sources: [
     {
       id: "s1",
