@@ -1,5 +1,11 @@
 # Agent handoff
 
+## Studio public removal (12 November 2026)
+
+The author management list now offers confirmed "Remove from public" for published problems through the existing versioned unpublish API. Success displays the archived state and retained-history notice. Failed or uncertain responses require a fresh list before another removal, including lost acknowledgements after commit. Actions wrap at mobile widths. No backend, schema, flags or pinned B6 package changes.
+
+Base `bc7ee7a7c5c55face89cdf4526667bf350fd20a1`. Focused PostgreSQL 32/32 passes owner/session/origin/version, discovery, submission races and retained-history contracts. The real Studio/API/browser regression passes cancellation, 503, stale409, keyboard/mobile axe/overflow, exact revision/attempt preservation and committed-response recovery. Server853/component166 pass, with30 database skips and one inherited TODO in the server-only run. Exact-head CI and guarded build results belong to the PR. No merge, deployment or Production action.
+
 ## SEO P4A archive (12 November 2026)
 
 Archive-only Dashboard shell and existing Olympiad cards, with server-rendered 103 reader entries and preserved grouping/year fragments, metadata and sitemap. Six topic pages and public library implementation are unchanged. See [architecture, verification and limitations](SEO_P4A_ARCHIVE.md). Exact-head results/screenshots are recorded on the focused draft PR. No merge, manual deployment, database/auth/grading/publication change or P4B.
