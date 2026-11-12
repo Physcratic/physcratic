@@ -27,7 +27,10 @@ Only this missing order is allowed:
 match the owner-approved baseline, including the independently installed auth
 rate limiter. A missing prerequisite, partial install, unknown ledger row,
 unledgered object or catalog/ACL/owner/configuration drift stops the release.
-No inferred ledger entries, IF NOT EXISTS drift repair or automatic down exists.
+Creator default ACLs granting other roles access are rejected before DDL, even
+if present in the supplied catalog hash. Their removal requires separate review,
+never silent repair. No inferred ledger entries, IF NOT EXISTS drift repair or
+automatic down exists.
 
 All eleven migrations and eleven ledger rows execute in one transaction, after
 the historical common advisory lock and SHARE ROW EXCLUSIVE locks on all baseline

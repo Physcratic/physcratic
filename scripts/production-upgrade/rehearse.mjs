@@ -49,6 +49,15 @@ export async function rehearse(raw) {
   const orphanSnapshot=await snapshot(c);
   await assert.rejects(execute(c,p,{...a,baselineSchema:orphanSnapshot.schemaHash},candidate),/UNLEDGERED_MIGRATION_OBJECT/);await c.query('DROP TABLE public.community_profile');
   checks.push('Ledger checksum, catalog drift and objects without ledger stop before installation.');
+  const defaultRole='upgrade_default_'+randomUUID().replaceAll('-','');
+  await admin.query(`CREATE ROLE "${defaultRole}" NOLOGIN`);
+  try{
+   await c.query(`ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO "${defaultRole}"`);
+   const leaked=await snapshot(c);
+   await assert.rejects(execute(c,p,{...a,baselineSchema:leaked.schemaHash},candidate),/UNREVIEWED_DEFAULT_PRIVILEGES/);
+   await c.query(`ALTER DEFAULT PRIVILEGES IN SCHEMA public REVOKE SELECT ON TABLES FROM "${defaultRole}"`);
+  }finally{await admin.query(`DROP ROLE "${defaultRole}"`);}
+  checks.push('Creator default ACLs cannot silently give another role access to new private deletion tables.');
   await other.query("BEGIN;SELECT pg_advisory_xact_lock(hashtextextended('physcratic:authoring:migrations:v1',0))");
   await assert.rejects(execute(c,p,a,candidate),/COMPETING_MIGRATION/);await other.query('ROLLBACK');checks.push('Common advisory lock prevents competing releases.');
   // DDL event-trigger fault is local diagnostic injection, never a modified migration.

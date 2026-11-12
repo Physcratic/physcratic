@@ -69,7 +69,8 @@ export async function snapshot(c) {
  'relations',(SELECT jsonb_agg(jsonb_build_object('name',relname,'acl',relacl::text,'owner',relowner::regrole::text) ORDER BY relname) FROM pg_class WHERE relnamespace='public'::regnamespace),
  'functions',(SELECT jsonb_agg(jsonb_build_object('name',oid::regprocedure::text,'owner',proowner::regrole::text,'acl',proacl::text,'config',proconfig) ORDER BY oid::regprocedure::text) FROM pg_proc WHERE pronamespace='public'::regnamespace),
  'events',(SELECT jsonb_agg(jsonb_build_object('name',evtname,'owner',evtowner::regrole::text,'enabled',evtenabled,'routine',evtfoid::regprocedure::text,'tags',evttags) ORDER BY evtname) FROM pg_event_trigger),
- 'extensions',(SELECT jsonb_agg(jsonb_build_object('name',extname,'version',extversion,'schema',extnamespace::regnamespace::text) ORDER BY extname) FROM pg_extension)
+ 'extensions',(SELECT jsonb_agg(jsonb_build_object('name',extname,'version',extversion,'schema',extnamespace::regnamespace::text) ORDER BY extname) FROM pg_extension),
+ 'default_acl',(SELECT jsonb_agg(jsonb_build_object('owner',defaclrole::regrole::text,'schema',defaclnamespace,'kind',defaclobjtype,'acl',defaclacl::text) ORDER BY defaclrole,defaclnamespace,defaclobjtype) FROM pg_default_acl)
  ) AS metadata`)).rows[0].metadata;
  const schemaHash=hash(canonical({catalog:{...report,identity:undefined},security}));
  return {report,rows,schemaHash};
@@ -101,6 +102,11 @@ export async function preflight(c,p,a) {
  assert.equal(hash(canonical(records)),a.baselineRecords,'RECOVERY_RECORDS_CHANGED');
  const publicCreate=(await c.query("SELECT count(*)::int AS n FROM pg_namespace n CROSS JOIN LATERAL aclexplode(coalesce(n.nspacl,acldefault('n',n.nspowner))) a WHERE n.nspname='public' AND a.grantee=0 AND a.privilege_type='CREATE'")).rows[0].n;
  assert.equal(publicCreate,0,'UNTRUSTED_SCHEMA_CREATE');
+ const defaultLeak=(await c.query(`SELECT EXISTS(SELECT 1 FROM pg_default_acl d
+ CROSS JOIN LATERAL aclexplode(d.defaclacl) a
+ WHERE d.defaclrole=current_user::regrole AND d.defaclnamespace IN(0,'public'::regnamespace)
+ AND a.grantee<>d.defaclrole) AS present`)).rows[0].present;
+ assert.equal(defaultLeak,false,'UNREVIEWED_DEFAULT_PRIVILEGES');
  return {...s,tables,records};
 }
 export async function execute(c,p,a,candidate) {
