@@ -40,6 +40,13 @@ test("the Mechanics editorial pilot is registered but has no public route or dis
 
 test("the existing server renderer produces equations, citations and real Mechanics problem anchors", () => {
   const html = renderToStaticMarkup(React.createElement(ArticleBody, { blocks: article.body, sources: article.sources }));
+  const figures = article.body.filter(b => b.type === "image");
+  assert.equal(figures.length, 2);
+  for (const figure of figures) {
+    assert.ok(html.includes(figure.alt));
+    assert.ok(html.includes(figure.caption!));
+    assert.ok(html.includes(encodeURIComponent(figure.src)));
+  }
   const formulaCount = article.body.filter(b => b.type === "math").length;
   assert.equal(formulaCount, 10);
   assert.equal((html.match(/class="katex"/g) ?? []).length, formulaCount);
