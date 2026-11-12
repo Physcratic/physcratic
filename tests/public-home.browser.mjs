@@ -105,11 +105,16 @@ try {
       if (width === 1440) {
         await page.getByRole("button", { name: "Help: Welcome to Physcratic", exact: true }).click();
         await page.locator("[data-tour-card]").waitFor();
-        await page.getByRole("button", { name: "Next", exact: true }).click();
-        await page.getByRole("button", { name: "Next", exact: true }).click();
+        // Upstream #145 puts Coaching and Settings before the practice step.
+        for (let step = 0; step < 4; step++) await page.getByRole("button", { name: "Next", exact: true }).click();
         await page.getByRole("button", { name: "Open one for me", exact: true }).waitFor();
-        ok(true, "manual Help reaches root practice action");
+        ok(true, "manual Help reaches root practice action in the current upstream order");
+        await page.getByRole("button", { name: "Open one for me", exact: true }).click();
+        await page.waitForURL(`${origin}/dashboard/problems/${arena[0].id}`);
+        await page.locator("[data-tour-card]").waitFor();
+        ok(await page.locator("[data-tour-card]").count() === 1, "upstream Welcome tour resumes once in the reader");
         await page.keyboard.press("Escape");
+        await page.goto(origin);
       }
       await page.getByRole("link", { name: "Guides", exact: true }).click();
       await page.waitForURL(`${origin}/learn`);

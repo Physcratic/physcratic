@@ -1,6 +1,5 @@
 "use client";
 import { BlocksEditor, Field, inputClass, NumberInput } from "./editor-fields";
-import { numericUnitsHelp } from "@/lib/authored-grading-contracts";
 import type { EditorDraft } from "@/lib/problem-authoring-editor";
 type Entry = EditorDraft["privateParts"][number];
 export function AnswerPanel({
@@ -17,10 +16,6 @@ export function AnswerPanel({
   const key = entry.key;
   return (
     <div className="space-y-6">
-      <p className="text-xs leading-relaxed text-muted-foreground">
-        Private author content · never included in the student preview. These
-        settings define a future checker. No mathematical grading runs here.
-      </p>
       <Field label="Answer type">
         {(id) => (
           <select
@@ -57,7 +52,7 @@ export function AnswerPanel({
               )}
             </Field>
           ))}
-          <Field label="Units" help={numericUnitsHelp}>
+          <Field label="Units">
             {(id) => (
               <input
                 id={id}
@@ -76,7 +71,6 @@ export function AnswerPanel({
         <div className="space-y-5">
           <Field
             label="Expected expression"
-            help="Plain text: g*sin(3*theta)^(1/2). Use explicit * multiplication. Units are separate from expression input."
           >
             {(id) => (
               <input
@@ -246,7 +240,6 @@ export function AnswerPanel({
           </button>
           <Field
             label="Domain exclusions"
-            help="One exclusion per line, for example x != 0. Mathematical validity is not checked by this editor."
           >
             {(id) => (
               <textarea

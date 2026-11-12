@@ -129,7 +129,6 @@ function EquationInput({
     <div className="space-y-3">
       <Field
         label={label}
-        help="LaTeX only, without dollar delimiters. Shortcuts insert at your cursor."
       >
         {(id) => (
           <textarea
@@ -461,7 +460,6 @@ export function BlocksEditor({
               />
               <Field
                 label={`${label} image ${index + 1} alt text`}
-                help="Describe the image for readers who cannot see it. Required to publish."
               >
                 {(id) => (
                   <input

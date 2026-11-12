@@ -366,7 +366,6 @@ try {
   const id = draftId(page);
   await saved(page);
   assert.equal(await page.getByLabel("Title", { exact: true }).inputValue(), "A Ball is Thrown Up", "the title comes from the question");
-  assert.ok(await page.getByText("We made this from your question. Change it if you like.").isVisible());
 
   // Clicking the equation edits it.
   await question.locator("[data-math-id]").click();

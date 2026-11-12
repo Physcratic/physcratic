@@ -178,6 +178,59 @@ for (const theme of ["light", "dark"]) {
   }
 }
 
+// ---------------------------------------------------------------- First visit: the tour opens on its own
+// Browser automation (navigator.webdriver) keeps the first-visit start off, and the other blocks turn that off to test the
+// tours themselves. This block checks both sides on a fresh browser, with nothing clicked.
+for (const width of [375, 1440]) {
+  const tag = `light ${width}`;
+  const pages = [["welcome", "/dashboard", false], ...(cookie ? [["studio", "/dashboard/author", true]] : [])];
+  for (const [id, path, signedIn] of pages) {
+    // Under automation (navigator.webdriver is true, which is Playwright's own default) nothing starts by itself.
+    {
+      const context = await browser.newContext({ viewport: { width, height: width === 375 ? 800 : 900 } });
+      if (signedIn) { const [name, ...rest] = cookie.split("="); await context.addCookies([{ name, value: rest.join("="), url: origin }]); }
+      const page = await context.newPage();
+      await page.goto(origin + path, { waitUntil: "networkidle" });
+      ok((await page.evaluate(() => navigator.webdriver)) === true, `${tag} ${id}: this browser reports navigator.webdriver`);
+      await page.waitForTimeout(1500);
+      ok((await card(page).count()) === 0, `${tag} ${id}: stays off under automation`);
+      ok((await page.evaluate((key) => localStorage.getItem(key), `physcratic.tour.${id}.v1`)) === null, `${tag} ${id}: and is not marked as seen`);
+      await context.close();
+    }
+    // With that turned off, a fresh visit opens the tour with no click, within a moment of the page loading.
+    {
+      const { context, page } = await open("light", width, signedIn);
+      ok((await page.evaluate(() => navigator.webdriver)) === false, `${tag} ${id}: navigator.webdriver is turned off`);
+      await page.goto(origin + path, { waitUntil: "load" });
+      const began = Date.now();
+      await card(page).waitFor({ timeout: 4000 });
+      ok(Date.now() - began < 3000, `${tag} ${id}: opens on its own on a fresh visit (${Date.now() - began}ms after load, no click)`);
+      ok((await page.evaluate((key) => localStorage.getItem(key), `physcratic.tour.${id}.v1`)) === "seen", `${tag} ${id}: remembered in localStorage`);
+      // Skip works at the first step, and it does not start again after a reload.
+      await page.getByRole("button", { name: "Skip tour" }).click();
+      ok((await card(page).count()) === 0, `${tag} ${id}: Skip closes it at step one`);
+      await page.reload({ waitUntil: "networkidle" });
+      await page.waitForTimeout(1500);
+      ok((await card(page).count()) === 0, `${tag} ${id}: plays once per browser`);
+      // Help replays it.
+      await page.getByRole("button", { name: id === "welcome" ? /^Help: Welcome to Physcratic/ : /^Help: Write your first problem/ }).click();
+      await card(page).waitFor({ timeout: 5000 });
+      ok(true, `${tag} ${id}: Help replays it`);
+      await page.keyboard.press("Escape");
+      // Settings resets both, and the next visit starts it again by itself.
+      if (cookie) {
+        await page.goto(`${origin}/settings`, { waitUntil: "networkidle" });
+        await page.getByRole("button", { name: "Replay tours" }).click();
+        ok((await page.evaluate((key) => localStorage.getItem(key), `physcratic.tour.${id}.v1`)) === null, `${tag} ${id}: Settings clears the seen mark`);
+        await page.goto(origin + path, { waitUntil: "load" });
+        await card(page).waitFor({ timeout: 4000 });
+        ok(true, `${tag} ${id}: after Settings, the next visit starts it again`);
+      }
+      await context.close();
+    }
+  }
+}
+
 function log(...a) { console.log(...a); }
 await browser.close();
 console.log(`${checks} checks, ${failures.length} failures`);

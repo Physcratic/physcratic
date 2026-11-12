@@ -388,7 +388,8 @@ try {
     await page.getByLabel("Expected value", { exact: true }).inputValue(),
     "-0.5",
   );
-  await page.getByText(numericUnitsHelp, { exact: true }).waitFor();
+  // The Units help line is gone from the editor (Phase 9c). The box is still there, and "1" still means dimensionless.
+  assert.equal(await page.getByText(numericUnitsHelp, { exact: true }).count(), 0);
   await page.getByLabel("Units", { exact: true }).fill("1");
   await page
     .getByRole("button", { name: "Add text to worked solution", exact: true })

@@ -163,11 +163,7 @@ export function SolutionPermissions({ problemId }: { problemId: string }) {
       className="space-y-4 rounded-xl border p-5"
     >
       <h2 className="text-lg font-semibold">Student worked-solution access</h2>
-      <p className="text-sm">
-        Private by default. Controls target an immutable published revision,
-        independently of draft autosave. Previously downloaded content cannot be
-        recalled.
-      </p>
+      <p className="text-sm">Previously downloaded content cannot be recalled.</p>
       <Button
         type="button"
         variant="outline"
@@ -264,7 +260,6 @@ export function SolutionPermissions({ problemId }: { problemId: string }) {
           ))}
           <Field
             label="Solution expiry (UTC ISO 8601, optional)"
-            help="Leave blank for no expiry, or use 2027-01-01T00:00:00.000Z."
           >
             {(id) => (
               <input

@@ -82,17 +82,15 @@ export function TagPicker({
             className={`${inputClass} pl-9`}
             placeholder={`Filter ${noun}`}
             value={query}
-            aria-describedby={`${id}-help`}
+            aria-describedby={full ? `${id}-help` : undefined}
             onChange={(e) => setQuery(e.target.value)}
           />
         </div>
-        <p id={`${id}-help`} className="text-xs leading-relaxed text-muted-foreground">
-          {full
-            ? `You have reached the limit of ${MAX_TAGS} tags.`
-            : kind === "method"
-              ? "Methods for the topics you picked come first. Type to search all of them."
-              : "Pick the topics this problem belongs to."}
-        </p>
+        {full && (
+          <p id={`${id}-help`} role="status" className="text-xs leading-relaxed text-muted-foreground">
+            You have reached the limit of {MAX_TAGS} tags.
+          </p>
+        )}
       </div>
       <div
         role="group"
