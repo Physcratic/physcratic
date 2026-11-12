@@ -1,5 +1,11 @@
 # Execution roadmap
 
+## B6B-1 operator release preparation (12 November 2026)
+
+The owner reports Production ledger 0001–0006 plus 0016, with 0007–0015/0017/0018 absent. The companion [reviewed upgrade package](../../scripts/production-upgrade/README.md) preserves that noncontiguous baseline, validates canonical hashes and owner-approved schema/ACL/recovery fingerprints, uses the common advisory lock and one transaction for all eleven missing migrations and ledger records, and independently verifies postcommit on a new connection. The historical six-migration package and all migration bytes remain unchanged.
+
+Focused disposable PG18.6 rehearsal passes upgrade, preserved authoring/contest/auth data, drift/unledgered-object rejection, mid-DDL rollback, lock competition and replay refusal. The reviewed grant template supports synthetic real sign-in, authoring publication, contest registration and server practice save/replay with denied immutable DELETE/deletion-service access/CREATE. Existing owner runtime is unchanged by this tool. Exact-head CI is the full-suite authority after push. No Production inspection, SQL, roles/grants, credentials, settings, flags, deployment or README trigger was performed. The missing actual Production row hashes, recovery/restore-erasure evidence, complete baseline fingerprint and explicit window authority remain execution gates.
+
 ## B5 account deletion readiness
 
 The owner now approves account-wide erasure/de-identification while preserving appropriately licensed published content and other students’ work. B5 still stops before runtime implementation because mixed-subject immutable case/evidence text needs a verified redaction/adjudication mechanism or a defined limited-retention exception. See [the precise remaining privacy gate](ACCOUNT_DELETION_READINESS.md) and [the inactive prospective licence/consent design](PUBLICATION_LICENSE_PROPOSAL.md). PR #140 remains draft and unmerged. No deletion endpoint, migration, privilege, active Terms, flag or Production change.
