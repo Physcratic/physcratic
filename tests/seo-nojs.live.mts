@@ -68,9 +68,10 @@ async function pool<T>(items: T[], size: number, work: (item: T) => Promise<void
   ok(/private/.test(home.headers.get("cache-control") ?? "") && /no-store/.test(home.headers.get("cache-control") ?? ""), `home is private, no-store: ${home.headers.get("cache-control")}`);
   const h1 = tagText(home.body, "h1");
   same(h1.length, 1, "home has one h1");
-  ok(/free physics olympiad practice/i.test(h1[0]), `home h1: ${h1[0]}`);
-  ok(visible(home.body).includes("Physcratic is free physics olympiad practice with IPhO, APhO and EuPhO problems and checked answers."), "home sentence");
+  same(h1[0], "Lobby", "home uses the existing Lobby heading");
+  ok(visible(home.body).includes("Physcratic offers free physics Olympiad practice with Arena, IPhO, APhO and EuPhO problems."), "home sentence");
   const links = hrefs(home.body);
+  ok(links.includes(`/dashboard/problems/${arena.problems[0].id}`), "Arena recommendation in initial HTML");
   for (const link of ["/problems", "/problems/archive", "/learn", "/coaching"]) ok(links.includes(link), `home links to ${link}`);
   const types = jsonLd(home.body).flat().map((n: any) => n["@type"]);
   ok(types.includes("WebSite") && types.includes("Organization"), `home JSON-LD: ${types}`);

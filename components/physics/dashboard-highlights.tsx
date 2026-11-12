@@ -90,8 +90,9 @@ function FeaturedContest() {
 }
 
 function ProblemToCheckOut() {
-  const [id, setId] = useState<string | null>(null);
-  // Chosen after the page loads, because what this browser has solved is only known here. The server sends the heading.
+  // A stable Arena choice makes the primary link usable in HTML and matches the first client render.
+  // Browser-local unsolved selection still runs after hydration.
+  const [id, setId] = useState<string | null>(arenaIds[0] ?? null);
   useEffect(() => {
     setId(pickProblem(arenaIds, readSolved()) ?? null);
   }, []);

@@ -6,7 +6,7 @@ How Physcratic's public pages are built so that search engines and AI crawlers c
 
 | Page | URL | Built |
 | --- | --- | --- |
-| Home | `/` | On every request. Signed-out visitors and crawlers get the landing page. Signed-in users get the Lobby. |
+| Home | `/` | On every request. Signed-out visitors and crawlers get the public product lobby. Signed-in users get the Lobby. |
 | Problem library | `/problems` | Static |
 | Olympiad archive | `/problems/archive` | Static |
 | Topic | `/problems/topics/<slug>` (`mechanics`, `electromagnetism`, `waves`, `thermodynamics`, `optics`, `modern-physics`) | Static |
@@ -67,7 +67,9 @@ Built in `lib/seo/json-ld.ts` from the same strings the page shows, and validate
 
 ## The home page and caching
 
-`app/page.tsx` reads the session cookie. With no cookie it never touches the database. Next sends `Cache-Control: private, no-cache, no-store, max-age=0, must-revalidate` for it, and `lib/seo-home-audience.test.ts` fails if the page or `next.config.ts` ever makes it cacheable. `tests/home-session.live.mts` proves it on a real build with a disposable database: a signed-in fetch gets the Lobby, a signed-out fetch straight after (and 24 alternating concurrent ones) gets the landing page with none of the user's name, email, id or token.
+P2 revision (12 November 2026): the public homepage renders the existing dashboard Lobby directly, with a short server-rendered discovery header and the shared Arena recommendation. Its primary practice action works before hydration and needs no login. Verified members still get the existing dashboard Lobby. The optional public sticky header reserves space for the mobile/tablet menu without changing existing reader or dashboard headers.
+
+`app/page.tsx` reads the session cookie. With no cookie it never touches the database. Next sends `Cache-Control: private, no-cache, no-store, max-age=0, must-revalidate` for it, and `lib/seo-home-audience.test.ts` fails if the page or `next.config.ts` ever makes it cacheable. `tests/home-session.live.mts` proves it on a real build with a disposable database: a signed-in fetch gets the Lobby, a signed-out fetch straight after (and 24 alternating concurrent ones) gets the public product lobby with none of the user's name, email, id or token.
 
 ## Published authored problems
 

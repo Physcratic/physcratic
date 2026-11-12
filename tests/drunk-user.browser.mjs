@@ -8,6 +8,8 @@
 import assert from "node:assert/strict";
 import { createRequire } from "node:module";
 import { join } from "node:path";
+import { readFileSync } from "node:fs";
+const arenaIds = JSON.parse(readFileSync(new URL("../lib/arena/index.json", import.meta.url), "utf8")).problems.map(p => p.id);
 
 const require = process.env.AUTHORING_BROWSER_TOOLS ? createRequire(join(process.env.AUTHORING_BROWSER_TOOLS, "package.json")) : createRequire(import.meta.url);
 const { chromium } = require("playwright");
@@ -18,7 +20,8 @@ const sessionCookie = process.env.SESSION_COOKIE;
 /** Taps before Phase 9, measured on 6b6abab. */
 const BEFORE = { understand: 3, topic: 2, solve: 4, hint: 1, signUp: 6, publish: 8, coaching: 3 };
 /** Taps allowed now. A task over its budget fails the run. */
-const BUDGET = { understand: 1, topic: 2, solve: 4, hint: 1, signUp: 6, publish: 8, coaching: 2 };
+// Account creation follows the restored Lobby menu, Sign in and Create an account path.
+const BUDGET = { understand: 1, topic: 2, solve: 4, hint: 1, signUp: 8, publish: 8, coaching: 2 };
 
 const browser = await chromium.launch({ headless: true, ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : { executablePath: "/opt/pw-browsers/chromium" }) });
 const results = [];
@@ -27,6 +30,11 @@ async function task(name, label, run, { signedIn = false } = {}) {
   if (signedIn && !sessionCookie) { results.push({ name, label, taps: "skipped (no SESSION_COOKIE)", ok: true }); return; }
   const context = await browser.newContext({ viewport: { width: 375, height: 760 }, hasTouch: true, isMobile: true });
   if (signedIn) { const [cookieName, ...value] = sessionCookie.split("="); await context.addCookies([{ name: cookieName, value: value.join("="), url: origin }]); }
+  await context.addInitScript(ids => localStorage.setItem("physcratic.solved.v1", JSON.stringify(ids)), arenaIds.slice(1));
+  if (!signedIn) {
+    await context.route("**/api/auth/get-session*", route => route.fulfill({ json: null }));
+    await context.route("**/api/dashboard", route => route.fulfill({ json: { user: null, savedAttempts: 0, practiceAttempts: null, solvedProblems: null, archiveReviewed: 0, ratings: [], contests: [] } }));
+  }
   const page = await context.newPage();
   let taps = 0;
   const log = [];
@@ -55,16 +63,18 @@ const home = async (page) => { await page.goto(origin + "/", { waitUntil: "netwo
 await task("understand", "Arrive at / and open a problem to try", async ({ page, tap }) => {
   await home(page);
   assert.equal(await page.getByRole("heading", { level: 1 }).count(), 1);
-  await tap(page.getByRole("link", { name: "Try a problem", exact: true }), "Try a problem");
+  await tap(page.getByRole("link", { name: "Solve problem", exact: true }), "Solve problem");
   await page.waitForURL(/\/dashboard\/problems\//);
   await page.getByRole("button", { name: "Check answer" }).waitFor();
 });
 
 await task("topic", "Arrive at / and open a Waves problem", async ({ page, tap }) => {
   await home(page);
-  const waves = page.getByRole("link", { name: /^Waves \(\d+\)$/ });
-  const box = await waves.boundingBox();
-  assert.ok(box && box.y + box.height <= 667, `the topic links are below the fold at 375x667 (Waves bottom at ${box && Math.round(box.y + box.height)}px)`);
+  const waves = page.locator('nav[aria-label="Problems by topic"]').getByRole("link", { name: "Waves", exact: true });
+  assert.ok(await waves.evaluate(link => {
+    const history = document.querySelector('section[aria-label="Your problem history"]');
+    return history && (link.compareDocumentPosition(history) & Node.DOCUMENT_POSITION_PRECEDING) !== 0;
+  }), "topic navigation follows the original Lobby content");
   await tap(waves, "Waves link");
   await tap(page.locator("main a[href*='/dashboard/problems/']").first(), "first Waves problem");
   await page.waitForURL(/\/dashboard\/problems\//);
@@ -101,7 +111,9 @@ await task("hint", "Stuck on a problem, read the hint", async ({ page, tap }) =>
 
 await task("signUp", "Create an account (up to the Create account tap)", async ({ page, tap }) => {
   await home(page);
-  await tap(page.getByRole("link", { name: "Make a free account" }), "Make a free account");
+  await tap(page.getByRole("button", { name: "Menu", exact: true }), "Menu");
+  await tap(page.getByRole("dialog").getByRole("link", { name: "Sign in", exact: true }), "Sign in");
+  await tap(page.getByRole("link", { name: "Create an account", exact: true }), "Create an account");
   await page.waitForURL(/\/sign-up/);
   await tap(page.getByLabel("Name"), "name"); await page.keyboard.type("Test Person");
   await tap(page.getByLabel("Email"), "email"); await page.keyboard.type("test.person@example.invalid");

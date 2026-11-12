@@ -56,7 +56,7 @@ export default function Sidebar({
   const navigation = (
     <div className="flex h-full flex-col bg-sidebar text-foreground">
       <Link
-        href="/dashboard"
+        href="/"
         onClick={() => setMobileOpen(false)}
         className="flex h-[76px] shrink-0 items-center gap-2.5 px-6"
         aria-label="Physcratic home"
@@ -89,7 +89,7 @@ export default function Sidebar({
               return (
                 <Link
                   key={itemView}
-                  href={`/dashboard${itemView === "overview" ? "" : `?view=${itemView}`}`}
+                  href={itemView === "overview" ? "/" : `/dashboard?view=${itemView}`}
                   onClick={() => setMobileOpen(false)}
                   aria-current={active ? "page" : undefined}
                   data-tour={itemView === "problems" ? "nav-problems" : undefined}
