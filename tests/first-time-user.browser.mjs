@@ -43,6 +43,25 @@ async function tapTarget(locator, where) {
   const box = await locator.first().boundingBox();
   ok(box && box.height >= 43.5 && box.width >= 43.5, `${where}: tap target is ${box?.width}x${box?.height}, needs 44x44`);
 }
+// Arena "Mind the Gap" has two parts: a is an expression (always a math field) and b is a plain numeric textbox.
+async function answerArenaRight(page, input, practice) {
+  const mathField = page.locator("#step-answer math-field").first();
+  await mathField.waitFor({ state: "attached", timeout: 30000 });
+  await mathField.evaluate((field, latex) => {
+    field.setValue(latex);
+    field.dispatchEvent(new InputEvent("input", { bubbles: true }));
+  }, String.raw`\sqrt{\frac{m\lambda}{1/R_1-1/R_0}}`);
+  await input.fill(practice.rightAnswer);
+}
+// The math field and its Math Pad are both still there, and the plain fallback box is not.
+async function mathFieldIsThere(page, where) {
+  const field = page.locator("#step-answer math-field").first();
+  await field.waitFor({ state: "attached", timeout: 30000 });
+  ok(await page.locator("#step-answer math-field").count() === 1, `${where}: part a is a math field`);
+  ok(await page.locator("#step-answer").getByText("The math editor could not load").count() === 0, `${where}: no plain fallback box`);
+  ok(await page.locator('#step-answer [aria-label="Insert symbols and functions"]').first().isVisible(), `${where}: the Math Pad is shown`);
+  return field.evaluate((element) => element.value);
+}
 async function shot(page, name) {
   if (shotDir) await page.screenshot({ path: join(shotDir, `${name}.png`), fullPage: true });
 }
@@ -257,23 +276,25 @@ try {
     await input.waitFor();
     const check = page.getByRole("button", { name: "Check answer" });
     await shot(page, `04-arena-start-${tag}`);
+    // Step 3 left a draft in part a, so it is restored non-empty. It must still open as a math field.
+    ok((await mathFieldIsThere(page, `restored draft (${tag})`)) !== "", `the restored draft is in the math field (${tag})`);
+    await answerArenaRight(page, input, practice);
     await input.fill(practice.wrongAnswer);
     await tapTarget(input, `Arena answer input ${tag}`);
     await tapTarget(check, `Arena check ${tag}`);
     await check.click();
     await page.getByText(/Not correct/).first().waitFor();
     ok(await input.inputValue() === practice.wrongAnswer, `wrong Arena work retained (${tag})`);
+    ok((await mathFieldIsThere(page, `after a wrong check (${tag})`)).includes("sqrt"), `part a keeps its value after a wrong check (${tag})`);
     await shot(page, `05-arena-wrong-${tag}`);
     await input.fill(practice.rightAnswer);
-    await page.locator("#step-answer math-field").first().evaluate((field, latex) => {
-      field.setValue(latex);
-      field.dispatchEvent(new InputEvent("input", { bubbles: true }));
-    }, String.raw`\sqrt{\frac{m\lambda}{1/R_1-1/R_0}}`);
-
     await check.click();
     await page.getByText("Correct", { exact: true }).first().waitFor();
     await page.reload({ waitUntil: "networkidle" });
-    ok(await input.inputValue() === practice.rightAnswer, `checked Arena work survives reload (${tag})`);
+    // A part checked correct is not kept as a saved answer (#148), so the box is empty after a reload. Enter it again to check.
+    ok(await input.inputValue() === "", `a correct Arena part is not kept as a draft after reload (${tag})`);
+    await mathFieldIsThere(page, `after reload (${tag})`);
+    await answerArenaRight(page, input, practice);
     await check.click();
     await page.getByRole("link", { name: "Next problem", exact: true }).waitFor();
     const solution = page.getByRole("tab", { name: "Worked solution", exact: true });

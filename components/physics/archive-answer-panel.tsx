@@ -186,7 +186,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
                 </div>
                 {part.help.length <= shortHelp && <FieldDescription id={`${id}-help`}>{part.help}</FieldDescription>}
               </>
-              : <MathAnswerField id={id} labelId={`${id}-label`} value={answers[part.id] ?? ""} onChange={(latex) => set(part.id, latex)} symbols={part.symbols} extraItems={part.kind === "special" ? [infinity] : undefined} disabled={busy} invalid={invalid} describedBy={`${id}-result`} maxLength={archiveAnswerLimit} />}
+              : <MathAnswerField id={id} labelId={`${id}-label`} value={answers[part.id] ?? ""} onChange={(latex) => set(part.id, latex)} symbols={part.symbols} extraItems={part.kind === "special" ? [infinity] : undefined} upgradeOnBlur disabled={busy} invalid={invalid} describedBy={`${id}-result`} maxLength={archiveAnswerLimit} />}
             {feedback && <ResultLine id={`${id}-result`} status={feedback.status} message={feedback.message} />}
           </Field></div>;
         })}

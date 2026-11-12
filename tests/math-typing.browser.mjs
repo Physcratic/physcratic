@@ -145,8 +145,11 @@ for (const name of Object.keys(profiles)) {
   const first = page.locator("#step-answer math-field").first();
   await first.waitFor({ timeout: 30000 });
   ok((await first.evaluate((el) => el.id)).endsWith("a.trajectory") && (await first.evaluate((el) => el.value)) === "", `${name}: the correct part was cleared from the saved answers`);
-  const restored = await page.locator("#step-answer input[type=text], #step-answer input:not([type])").evaluateAll((els) => els.map((el) => el.value));
+  // A restored draft opens as a math field too, so its value is read from the field, with plain boxes as a fallback.
+  await page.locator("#step-answer math-field").nth(1).waitFor({ timeout: 30000 });
+  const restored = await page.locator("#step-answer math-field, #step-answer input[type=text], #step-answer input:not([type])").evaluateAll((els) => els.map((el) => el.value));
   ok(restored.some((value) => value.includes("k+1")), `${name}: the unfinished answer in another part survived the reload (${JSON.stringify(restored)})`);
+  ok(await page.locator("#step-answer math-field").count() >= 2, `${name}: the restored part is a math field, not the plain box`);
   await context.close();
 }
 
