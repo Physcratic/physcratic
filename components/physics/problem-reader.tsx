@@ -56,7 +56,7 @@ function PracticeProblem({ problem }: { problem: Problem }) {
       <Card id="step-solution" className="min-w-0 scroll-mt-24 shadow-none xl:col-start-1">
         <CardHeader className="gap-4">
           <StepHeading step={4}>Solution</StepHeading>
-          <p className="text-sm text-muted-foreground">Try the problem first. The solution shows every step.</p>
+          <p className="text-sm text-muted-foreground">The solution stays hidden until you show it.</p>
           <Button variant="outline" data-tour="solution-tab" className="min-h-11 w-fit justify-between gap-3" onClick={() => setShowSolution(!showSolution)} aria-expanded={showSolution} aria-controls="worked-solution">{showSolution ? "Hide solution" : "Show solution"}{showSolution ? <ChevronUp /> : <ChevronDown />}</Button>
         </CardHeader>
         {showSolution && <CardContent><section id="worked-solution" aria-label="Worked solution" className={`flex flex-col gap-6 rounded-lg border p-5 ${proseWidth}`}>{problem.solution.map((step, index) => <div key={step.title} className="flex min-w-0 flex-col gap-2"><h3 className="text-base font-medium">{index + 1}. {step.title}</h3><p className="text-base leading-relaxed text-foreground">{step.text}</p>{step.formula && <MathFormula formula={step.formula} />}</div>)}</section></CardContent>}

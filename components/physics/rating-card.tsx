@@ -105,7 +105,7 @@ export function RatingCard({
                 <EmptyTitle>
                   {dashboard.data?.user
                     ? "Not rated yet"
-                    : "Your rating starts with you"}
+                    : "No rating yet"}
                 </EmptyTitle>
                 <EmptyDescription>
                   {dashboard.data?.user
@@ -143,11 +143,6 @@ export function RatingCard({
           </CardTitle>
           <Badge variant="outline">Rated results</Badge>
         </div>
-        {expanded && (
-          <CardDescription>
-            Progress is rarely a straight line. Keep showing up.
-          </CardDescription>
-        )}
       </CardHeader>
       <CardContent
         className={cn(

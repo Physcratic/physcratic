@@ -264,7 +264,7 @@ export function StudentWorkspace({
               <h2 className="text-xl font-semibold">
                 {viewer.state === "unverified"
                   ? "Verify your email to submit"
-                  : "Read freely. Sign in to practise."}
+                  : "Sign in to practise"}
               </h2>
               <p className="text-sm leading-relaxed text-muted-foreground">
                 {viewer.state === "loading"
