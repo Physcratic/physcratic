@@ -4,6 +4,7 @@ import { howMarkingWorks } from "./guides/how-marking-works";
 import { startPreparing } from "./guides/start-preparing";
 import { howToUsePhyscratic } from "./guides/how-to-use-physcratic";
 import { howToWriteAProblem } from "./guides/how-to-write-a-problem";
+import { mechanicsProblemSolving } from "./guides/mechanics-problem-solving";
 import { withReadingMinutes } from "./reading";
 import type { Article } from "./types";
 
@@ -18,6 +19,7 @@ export const articles: Article[] = [
   booksAndResources,
   howToUsePhyscratic,
   howToWriteAProblem,
+  mechanicsProblemSolving,
 ].map(withReadingMinutes);
 
 export const publishedArticles: Article[] = articles.filter((a) => a.published);

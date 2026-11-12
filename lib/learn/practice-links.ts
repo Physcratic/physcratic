@@ -4,6 +4,7 @@
  * problem page and that every guide has at least two.
  */
 export const practiceProblemIds: Readonly<Record<string, readonly string[]>> = {
+  "mechanics-olympiad-problem-solving": ["ipho-2016-t1", "ipho-2009-t1", "arena-the-invisible-brake"],
   "start-preparing-physics-olympiad": ["arena-the-invisible-brake", "arena-the-phantom-charge", "ipho-2025-t1"],
   "ipho-apho-eupho-differences": ["ipho-2025-t1", "apho-2025-t1", "eupho-2025-t1"],
   "how-olympiad-solutions-are-marked": ["arena-the-invisible-brake", "arena-the-gas-with-elbows", "ipho-2025-t3"],
