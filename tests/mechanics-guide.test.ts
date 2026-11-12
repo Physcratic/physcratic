@@ -18,24 +18,34 @@ const slug = "mechanics-olympiad-problem-solving";
 const article = articles.find(a => a.slug === slug)!;
 const props = () => ({ params: Promise.resolve({ slug }) });
 
-test("the Mechanics editorial pilot is registered but has no public route or discovery entry", async () => {
-  assert.ok(article);
-  assert.equal(article.published, false);
+test("the approved Mechanics guide is publicly discoverable without reviewer attribution", async () => {
+  assert.equal(article.published, true);
   assert.equal(article.reviewedBy, null);
-  assert.equal(findArticle(slug), null);
+  assert.equal(findArticle(slug), article);
   assert.equal(dynamicParams, false);
-  assert.equal(generateStaticParams().some(p => p.slug === slug), false);
-  assert.deepEqual(await generateMetadata(props()), {});
-  await assert.rejects(LearnArticlePage(props()), { digest: "NEXT_HTTP_ERROR_FALLBACK;404" });
-  const discovery = JSON.stringify([
-    renderToStaticMarkup(React.createElement(LearnPage)), publicRoutes,
-    llmsIndex("https://physcratic.com"), llmsFull("https://physcratic.com"),
-  ]);
-  for (const text of [slug, article.title, "Example 1: A slider on a moving ramp"]) {
-    assert.ok(!discovery.includes(text), text);
+  assert.ok(generateStaticParams().some(p => p.slug === slug));
+  assert.equal(publishedArticles.length, 7);
+  assert.equal(indexableRoutes.length, 139);
+  assert.ok(publicRoutes.some(r => r.path === learnPath(slug) && r.indexable));
+  for (const text of [renderToStaticMarkup(React.createElement(LearnPage)), llmsIndex("https://physcratic.com"), llmsFull("https://physcratic.com")]) {
+    assert.ok(text.includes(slug));
   }
-  assert.equal(publishedArticles.length, 6);
-  assert.equal(indexableRoutes.length, 138);
+});
+
+test("an unpublished fixture remains excluded from lookup, routing and discovery", async () => {
+  const draft = { ...article, slug: "unpublished-mechanics-test", published: false };
+  articles.push(draft);
+  try {
+    assert.deepEqual(publishedArticles, articles.filter(a => a.published));
+    assert.equal(findArticle(draft.slug), null);
+    assert.ok(!generateStaticParams().some(p => p.slug === draft.slug));
+    const params = { params: Promise.resolve({ slug: draft.slug }) };
+    assert.deepEqual(await generateMetadata(params), {});
+    await assert.rejects(LearnArticlePage(params), { digest: "NEXT_HTTP_ERROR_FALLBACK;404" });
+    for (const text of [renderToStaticMarkup(React.createElement(LearnPage)), JSON.stringify(publicRoutes), llmsIndex("https://physcratic.com"), llmsFull("https://physcratic.com")]) {
+      assert.ok(!text.includes(draft.slug));
+    }
+  } finally { assert.equal(articles.pop(), draft); }
 });
 
 test("the existing server renderer produces equations, citations and real Mechanics problem anchors", () => {
@@ -66,12 +76,10 @@ test("the existing server renderer produces equations, citations and real Mechan
   }
 });
 
-test("a future publication fixture uses existing canonical metadata and pending-review markup", async () => {
-  // In-memory only. Never modify the source publication flag or public route registry.
-  const fixture = { ...article, published: true };
+test("the published article retains canonical metadata and pending-review markup", async () => {
+  const fixture = article;
   const previousOrigin = process.env.NEXT_PUBLIC_SITE_URL;
   process.env.NEXT_PUBLIC_SITE_URL = "https://physcratic.com";
-  publishedArticles.push(fixture);
   try {
     const metadata = await generateMetadata(props());
     assert.equal(metadata.title, article.title);
@@ -88,10 +96,9 @@ test("a future publication fixture uses existing canonical metadata and pending-
     assert.equal(graph[2].mainEntityOfPage, graph[1].url);
     assert.equal(graph[2].citation?.length, 6);
   } finally {
-    publishedArticles.pop();
     if (previousOrigin === undefined) delete process.env.NEXT_PUBLIC_SITE_URL;
     else process.env.NEXT_PUBLIC_SITE_URL = previousOrigin;
   }
-  assert.equal(article.published, false);
-  assert.equal(findArticle(slug), null);
+  assert.equal(article.published, true);
+  assert.equal(findArticle(slug), article);
 });

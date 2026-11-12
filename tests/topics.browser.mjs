@@ -54,7 +54,7 @@ try{
   await context.close();
  }
  ok((await fetch(origin+'/problems/topics/no-such-topic')).status===404,'invalid slug 404');
- const xml=await(await fetch(origin+'/sitemap.xml')).text();ok((xml.match(/<loc>/g)??[]).length===138,'138 sitemap URLs');
+ const xml=await(await fetch(origin+'/sitemap.xml')).text();ok((xml.match(/<loc>/g)??[]).length===139,'139 sitemap URLs including the approved Mechanics guide');
  await writeFile(`${output}/performance.json`,JSON.stringify(performance,null,2));
  console.log(`topics.browser: ${checks} checks passed; counts ${JSON.stringify(topicsWithProblems())}`);
 }finally{await browser.close();}

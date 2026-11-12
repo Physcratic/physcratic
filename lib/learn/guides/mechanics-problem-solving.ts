@@ -6,7 +6,7 @@ export const mechanicsProblemSolving: ArticleDraft = {
   title: "Solving Physics Olympiad Mechanics Problems",
   description: "Choose systems, constraints and conservation laws in mechanics, with two derived examples and checks for signs, units and limiting cases.",
   updated: "2026-11-12",
-  published: false,
+  published: true,
   reviewedBy: null,
   sources: [
     { id: "s1", title: "Classical Mechanics, Chapter 7: Newton's Laws of Motion", publisher: "Peter Dourmashkin, MIT OpenCourseWare", url: "https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/resources/mit8_01scs22_chapter7/", accessed: "2026-11-12" },

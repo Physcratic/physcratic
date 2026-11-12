@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Approved Mechanics publication proposal (12 November 2026)
+
+Owner-authorized publication follows merged #154. Branch `codex/publish-mechanics-guide` starts at `7631395a78d0821b36074f46a0cfccdff35d34c9`. Only the Mechanics guide's publication flag changes to true. `reviewedBy: null`, all scientific/editorial content, figures, metadata and practice links remain unchanged. Existing machinery yields seven published guides and139 sitemap URLs. Tests retain an unpublished fixture regression. Publication PR records executed QA and exact-head CI. This is a code proposal only, not a claim of live publication. No merge, deployment, Production setting, SQL or P5B.
+
 ## Moderator actions (12 November 2026)
 
 Code-only staff actions extend the existing dashboard with community-question removal/restoration and regular-account bans/unbans. Individual existing staff roles remain operator-assigned. Additive 0019 serializes versioned decisions, archives removed questions while preserving revisions/attempts, blocks republication, revokes banned users' sessions and rejects new sessions. Restoration requires an independent administrator and leaves questions archived for explicit author republication. Default-OFF COMMUNITY_ACTIONS_ENABLED also requires existing staff/moderation flags. No production discussion lock is removed.
