@@ -973,15 +973,44 @@ try {
       .count(),
     0,
   );
-  await page
-    .getByRole("button", { name: "Unpublish problem", exact: true })
-    .click();
-  await until(
-    async () =>
-      (await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id]))
-        .rows[0].state === "archived",
-    "workflow unpublish",
-  );
+  // Remove through the management list on mobile, retaining immutable history.
+  await page.getByRole("button", { name: "← My drafts", exact: true }).click();
+  await page.setViewportSize({ width: 375, height: 812 });
+  const remove = page.getByRole("button", { name: /^Remove from public Keep local conflict work$/ });
+  await remove.waitFor();
+  const retained = async () => (await pool.query(
+    `SELECT (SELECT jsonb_agg(to_jsonb(r) ORDER BY r.id) FROM authored_revision r WHERE problem_id=$1) AS revisions,
+            (SELECT jsonb_agg(to_jsonb(a) ORDER BY a.id) FROM authored_attempt a WHERE problem_id=$1) AS attempts`, [id],
+  )).rows[0];
+  const beforeRemoval = await retained();
+  page.removeAllListeners("dialog");
+  page.once("dialog", d => d.dismiss());
+  await remove.click();
+  assert.equal((await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state, "published");
+  page.on("dialog", d => d.accept());
+  const removalUrl = `**/drafts/${id}/unpublish`;
+  await page.route(removalUrl, route => route.fulfill({ status: 503, json: { error: "Unavailable" } }), { times: 1 });
+  await remove.click();
+  await page.getByRole("alert").getByText(/Removal was not confirmed/).waitFor();
+  assert.equal(await remove.isDisabled(), true);
+  await page.getByRole("button", { name: "Retry loading drafts", exact: true }).click();
+  await until(async () => await remove.isEnabled(), "reload after removal failure");
+  // Another tab changed the draft after this list loaded. A stale removal must fail.
+  await pool.query("UPDATE authored_draft SET version=version+1 WHERE problem_id=$1", [id]);
+  const stale = page.waitForResponse(r => r.url().endsWith(`/${id}/unpublish`) && r.status() === 409);
+  await remove.click();
+  await stale;
+  await page.getByRole("alert").getByText(/Removal was not confirmed/).waitFor();
+  assert.equal((await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state, "published");
+  await page.getByRole("button", { name: "Retry loading drafts", exact: true }).click();
+  await until(async () => await remove.isEnabled(), "reload stale version");
+  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+  assert.deepEqual((await new AxeBuilder({ page }).analyze()).violations.map(v => v.id), []);
+  await remove.focus();
+  await page.keyboard.press("Enter");
+  await page.getByRole("status").filter({ hasText: /removed from public/ }).waitFor();
+  assert.equal(await remove.count(), 0);
+  assert.deepEqual(await retained(), beforeRemoval, "unpublishing preserves revisions and student records byte for byte");
   await learner.reload();
   await learner
     .getByText(/This problem is unpublished, deleted or unavailable/)
@@ -990,7 +1019,23 @@ try {
   console.log(
     "PASS unified editor → library → numerical/symbolic/manual submissions → immutable history → explicit solution/media → assisted attempts → revoke/unpublish workflow (injected verified sessions).",
   );
+  // An acknowledged failure can still have committed. Reload must recover its true status.
+  const archivedVersion = (await pool.query("SELECT version FROM authored_draft WHERE problem_id=$1", [id])).rows[0].version;
+  assert.equal((await api("publish", new Request(`${origin}/api/authored-problems/drafts/${id}/publish`, {
+    method: "POST", headers: { origin, "Content-Type": "application/json" }, body: JSON.stringify({ version: archivedVersion }),
+  }), id)).status, 200);
+  await page.reload();
   await page.getByRole("button", { name: "← My drafts", exact: true }).click();
+  await remove.waitFor();
+  await page.route(removalUrl, async route => {
+    const committed = await route.fetch();
+    assert.equal(committed.status(), 200);
+    await route.fulfill({ status: 503, json: { error: "Lost acknowledgement" } });
+  }, { times: 1 });
+  await remove.click();
+  await page.getByRole("alert").getByText(/Removal was not confirmed/).waitFor();
+  await page.getByRole("button", { name: "Retry loading drafts", exact: true }).click();
+  await until(async () => await remove.count() === 0, "reload committed removal");
   await page
     .getByRole("button", { name: /^Delete Keep local conflict work$/ })
     .click();

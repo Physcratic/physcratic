@@ -46,6 +46,8 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
   const [busy, setBusy] = useState(true),
     [error, setError] = useState("");
   const [cleanupNotice, setCleanupNotice] = useState("");
+  const [removalNotice, setRemovalNotice] = useState("");
+  const [refreshRequired, setRefreshRequired] = useState(false);
   async function list(after?: string) {
     setBusy(true);
     setError("");
@@ -57,6 +59,7 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
         after ? [...previous, ...result.drafts] : result.drafts,
       );
       setCursor(result.nextCursor);
+      if (!after) setRefreshRequired(false);
     } catch (e) {
       setError(e instanceof Error ? e.message : "Could not load drafts.");
     } finally {
@@ -204,6 +207,7 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
               type="button"
               variant="outline"
               className="mt-3"
+              disabled={busy}
               onClick={() => void list()}
             >
               Retry loading drafts
@@ -213,6 +217,7 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
         <p role="status" className="my-6 text-sm text-muted-foreground">
           {busy && !items.length ? "Loading your drafts…" : busy ? "Working…" : `${items.length} drafts loaded`}
         </p>
+        {removalNotice && <p role="status" className="my-4 text-sm">{removalNotice}</p>}
         <div className="divide-y rounded-xl border bg-card">
           {busy && !items.length ? (
             // The page already has its headings and buttons. The list shows the shape of what is coming.
@@ -240,7 +245,7 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <Button
                       type="button"
                       variant="outline"
@@ -252,6 +257,40 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
                         {item.title || "untitled problem"}
                       </span>
                     </Button>
+                    {item.state === "published" && (
+                      <Button
+                        type="button"
+                        variant="outline"
+                        disabled={busy || refreshRequired}
+                        onClick={async () => {
+                          if (!window.confirm(
+                            `Remove "${item.title || "Untitled problem"}" from public? It will leave public discovery and stop accepting new submissions. Earlier revisions and student records are retained. You can publish it again from Studio.`,
+                          )) return;
+                          setBusy(true);
+                          setError("");
+                          setRemovalNotice("");
+                          try {
+                            const result = await draftRequest(
+                              `${editorBase}/${item.problemId}/unpublish`,
+                              "POST",
+                              { version: item.version },
+                            );
+                            setItems(previous => previous.map(row => row.problemId === item.problemId
+                              ? { ...row, state: result.state, version: result.version }
+                              : row));
+                            setRemovalNotice(`"${item.title || "Untitled problem"}" removed from public. Earlier revisions and student records are retained.`);
+                          } catch {
+                            setRefreshRequired(true);
+                            setError("Removal was not confirmed. Reload the list to check its current status before retrying.");
+                          } finally {
+                            setBusy(false);
+                          }
+                        }}
+                      >
+                        Remove from public
+                        <span className="sr-only"> {item.title || "untitled problem"}</span>
+                      </Button>
+                    )}
                     <span aria-hidden="true" className="mx-2 h-6 w-px bg-border" />
                     <Button
                       type="button"
@@ -315,7 +354,7 @@ export function AuthoringWorkspace({ userId }: { userId: string }) {
             type="button"
             className="mt-6"
             variant="outline"
-            disabled={busy}
+            disabled={busy || refreshRequired}
             onClick={() => void list(cursor)}
           >
             Load more drafts
