@@ -12,6 +12,8 @@ import assert from "node:assert/strict";
 import { createHmac, randomBytes } from "node:crypto";
 import { spawn } from "node:child_process";
 import pg from "pg";
+import { retiredPracticeIds, ARENA_LIBRARY_HREF } from "../lib/legacy-practice";
+import { problems } from "../lib/physics";
 
 const databaseUrl = process.env.DATABASE_URL ?? "";
 const parsed = new URL(databaseUrl || "http://invalid");
@@ -41,8 +43,14 @@ await pool.query(`INSERT INTO session(id,"expiresAt",token,"userId") VALUES($1, 
 // Better Auth sets "<token>.<base64 HMAC-SHA256 of the token>", URL-encoded.
 const signed = encodeURIComponent(`${token}.${createHmac("sha256", secret).update(token).digest("base64")}`);
 const memberCookie = `better-auth.session_token=${signed}`;
+const secondUser = { id: "second-home-session-test", name: "Milo Starling", email: "milo.starling@example.test" };
+await pool.query(`INSERT INTO "user"(id,name,email,"emailVerified") VALUES($1,$2,$3,true)`, [secondUser.id, secondUser.name, secondUser.email]);
+const secondToken = randomBytes(24).toString("hex");
+await pool.query(`INSERT INTO session(id,"expiresAt",token,"userId") VALUES($1, now() + interval '1 day', $2, $3)`, ["second-session-home-test", secondToken, secondUser.id]);
+const secondSigned = encodeURIComponent(`${secondToken}.${createHmac("sha256", secret).update(secondToken).digest("base64")}`);
+const secondCookie = `better-auth.session_token=${secondSigned}`;
 
-const server = spawn("pnpm", ["exec", "next", "start", "-p", String(port), "-H", "127.0.0.1"], {
+const server = spawn("corepack", ["pnpm", "exec", "next", "start", "-p", String(port), "-H", "127.0.0.1"], {
   env: { ...process.env, DATABASE_URL: databaseUrl, BETTER_AUTH_SECRET: secret, BETTER_AUTH_URL: origin, NODE_ENV: "production" },
   stdio: ["ignore", "pipe", "pipe"],
 });
@@ -58,7 +66,7 @@ async function home(cookie?: string) {
   return { status: response.status, cache: response.headers.get("cache-control") ?? "", body: await response.text() };
 }
 const isLobby = (body: string) => /<h1[^>]*>Lobby<\/h1>/.test(body) && !body.includes("data-home-sentence");
-const isLanding = (body: string) => body.includes("data-home-sentence") && /<h1[^>]*>Free physics olympiad practice<\/h1>/.test(body) && !/<h1[^>]*>Lobby<\/h1>/.test(body);
+const isLanding = (body: string) => body.includes("data-home-sentence") && /<h1[^>]*>Lobby<\/h1>/.test(body);
 
 try {
   for (let attempt = 0; attempt < 60; attempt++) {
@@ -81,7 +89,7 @@ try {
     ok(!visitor.body.includes(secretValue), `the signed-out response must not contain "${secretValue}"`);
     ok(!decodeURIComponent(visitor.body).includes(secretValue), `the signed-out response must not contain "${secretValue}" (decoded)`);
   }
-  ok(!/Welcome back|My attempts|Sign out|Lobby/.test(visible(visitor.body)), "no signed-in content on the landing page");
+  ok(!/Welcome back|My attempts|Sign out/.test(visible(visitor.body)), "no signed-in content on the landing page");
 
   // 3. Alternating and concurrent fetches never cross over.
   const results = await Promise.all(Array.from({ length: 24 }, (_, index) => home(index % 2 === 0 ? memberCookie : undefined).then((r) => ({ member: index % 2 === 0, ...r }))));
@@ -89,6 +97,85 @@ try {
     ok(result.member ? isLobby(result.body) : isLanding(result.body), `${result.member ? "signed-in" : "signed-out"} fetch got the wrong page`);
     ok(/private/.test(result.cache) && /no-store/.test(result.cache), `Cache-Control ${result.cache}`);
     if (!result.member) ok(!result.body.includes(user.email) && !result.body.includes(token), "no user data in a signed-out response");
+  }
+
+  // Both HTML and RSC requests distinguish guest/member audiences without crossing account boundaries.
+  const cases = [undefined, memberCookie, secondCookie];
+  for (const rsc of [false, true]) {
+    const representations = await Promise.all(Array.from({ length: 18 }, async (_, index) => {
+      const actor = index % cases.length;
+      const response = await fetch(`${origin}/`, { headers: { ...(cases[actor] ? { cookie: cases[actor]! } : {}), ...(rsc ? { RSC: "1" } : {}) } });
+      return { actor, response, body: await response.text() };
+    }));
+    for (const { actor, response, body } of representations) {
+      ok(response.status === 200, `${rsc ? "RSC" : "HTML"} status`);
+      ok(/private/.test(response.headers.get("cache-control") ?? "") && /no-store/.test(response.headers.get("cache-control") ?? ""), "representations are private/no-store");
+      if (rsc) ok(/text\/x-component/.test(response.headers.get("content-type") ?? ""), "RSC response content type");
+      ok(body.includes("data-home-sentence") === (actor === 0), "A/B/guest audience in representation");
+      const forbidden = actor === 0 ? [user.name, user.email, user.id, secondUser.name, secondUser.email, secondUser.id] : actor === 1 ? [secondUser.name, secondUser.email, secondUser.id] : [user.name, user.email, user.id];
+      for (const value of [...forbidden, token, signed, secondToken, secondSigned, problems[0].hint, ...problems[0].solution.map(step => step.text).filter(text => text.length > 30)]) ok(!body.includes(value), "no cross-account or token data in representation");
+    }
+  }
+
+  if (process.env.PLAYWRIGHT_MODULE) {
+    const { chromium } = await import(process.env.PLAYWRIGHT_MODULE);
+    const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_EXECUTABLE_PATH ?? "/usr/bin/chromium", headless: true, args: ["--no-sandbox", "--disable-dev-shm-usage"] });
+    try {
+      for (const cookie of [signed, secondSigned]) {
+        const mobile = cookie === secondSigned;
+        const context = await browser.newContext({ viewport: { width: mobile ? 375 : 1440, height: 1000 } });
+        await context.route("**/*", (route: any) => new URL(route.request().url()).origin === origin ? route.continue() : route.abort());
+        await context.addCookies([{ name: "better-auth.session_token", value: cookie, url: origin }]);
+        const page = await context.newPage();
+        await page.goto(origin);
+        if (mobile) await page.getByRole("button", { name: "Menu", exact: true }).click();
+        await page.getByRole("button", { name: "Sign out", exact: true }).waitFor();
+        ok(await page.locator("h1").textContent() === "Lobby", "member browser receives dashboard");
+        await page.getByRole("link", { name: "Learn", exact: true }).first().click();
+        await page.waitForURL(`${origin}/learn`);
+        await page.getByRole("link", { name: /Physcratic.*home/ }).click();
+        await page.waitForURL(`${origin}/`);
+        ok(await page.locator("h1").textContent() === "Lobby", "client navigation returns member home");
+        if (mobile) await page.getByRole("button", { name: "Menu", exact: true }).click();
+        await page.getByRole("button", { name: "Sign out", exact: true }).click();
+        await page.waitForURL(`${origin}/dashboard`);
+        if (mobile) {
+          if (await page.getByRole("dialog").isVisible()) await page.keyboard.press("Escape");
+          await page.locator('header a[aria-label="Physcratic home"]').click();
+        } else await page.locator('aside a[aria-label="Physcratic home"]').click();
+        await page.waitForURL(`${origin}/`);
+        await page.locator("[data-public-home]").waitFor();
+        ok(await page.locator("h1").textContent() === "Lobby", "client cache clears member home after actual sign out");
+        const rendered = await page.content();
+        for (const value of [user.name, user.email, secondUser.name, secondUser.email]) ok(!rendered.includes(value), "no former account data in guest browser");
+        if (mobile) await page.getByRole("button", { name: "Menu", exact: true }).click();
+        await page.getByRole("link", { name: "Sign in", exact: true }).first().click();
+        await page.waitForURL(/\/sign-in/);
+        ok(await page.getByRole("heading", { name: "Sign in", exact: true }).isVisible(), "guest can reach the actual sign-in page");
+        await page.getByRole("link", { name: "Create an account", exact: true }).click();
+        await page.waitForURL(/\/sign-up/);
+        ok(await page.getByRole("heading", { name: "Create an account", exact: true }).isVisible(), "existing Lobby account path reaches sign-up");
+        await context.close();
+      }
+    } finally { await browser.close(); }
+    // Restore the HTTP expiry fixture's session removed by the browser logout.
+    await pool.query(`INSERT INTO session(id,"expiresAt",token,"userId") VALUES($1, now() + interval '1 day', $2, $3)`, ["session-home-test", token, user.id]);
+  }
+
+  for (const id of retiredPracticeIds) for (const cookie of [undefined, memberCookie, secondCookie]) {
+    const response = await fetch(`${origin}/dashboard/problems/${id}`, { redirect: "manual", headers: { ...(cookie ? { cookie } : {}), RSC: "1" } });
+    ok(response.status === 308, "guest and synthetic members receive the same legacy redirect");
+    ok(new URL(response.headers.get("location")!, origin).href === new URL(ARENA_LIBRARY_HREF, origin).href, "legacy redirect destination does not contain account data");
+  }
+
+  if (process.env.HOME_BROWSER_JOURNEYS === "1") {
+    const journey = spawn(process.execPath, ["tests/drunk-user.browser.mjs"], { env: { ...process.env, BROWSER_TEST_ORIGIN: origin }, stdio: ["ignore", "pipe", "pipe"] });
+    let output = "";
+    journey.stdout.on("data", chunk => { output += chunk; });
+    journey.stderr.on("data", chunk => { output += chunk; });
+    const code = await new Promise(resolve => journey.on("close", resolve));
+    console.log(output);
+    ok(code === 0, "first-time browser journeys pass on disposable auth database");
   }
 
   // 4. A bad, expired or tampered cookie is a visitor, not an error.

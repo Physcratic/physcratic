@@ -1,5 +1,5 @@
 {
-  "note": "Inputs for tests/first-time-user.browser.mjs. No database. Grading is the real /api/archive-grade route, which is a pure function. The practice problem is lib/physics.ts incline: a = g sin 30 = 4.9 m/s2.",
+  "note": "Public browser fixtures use retained Arena identities and the real stateless /api/archive-grade route. The lens-radius numerical answer is from the published Mind the Gap worked solution.",
   "widths": [
     375,
     1440
@@ -13,9 +13,10 @@
     "wrongAnswer": "1"
   },
   "practice": {
-    "id": "incline",
+    "id": "arena-mind-the-gap",
+    "fieldLabel": "Fitted lens radius",
     "wrongAnswer": "1",
-    "rightAnswer": "4.9"
+    "rightAnswer": "0.90"
   },
   "archive": {
     "id": "ipho-2025-t1"
@@ -76,10 +77,6 @@
       {
         "name": "arena problem page",
         "path": "/dashboard/problems/arena-mind-the-gap"
-      },
-      {
-        "name": "practice problem page",
-        "path": "/dashboard/problems/incline"
       },
       {
         "name": "terms",

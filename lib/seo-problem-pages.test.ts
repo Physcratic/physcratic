@@ -5,7 +5,6 @@ import { articles } from "./learn/articles";
 import { practiceProblemIds } from "./learn/practice-links";
 import { catalogProblems } from "./corpus-catalog";
 import arena from "./arena/index.json";
-import { problems } from "./physics";
 import {
   ARCHIVE_INDEXABLE,
   META_TITLE_BUDGET,
@@ -23,8 +22,8 @@ import {
 const pages = allProblemPages();
 
 describe("problem pages", () => {
-  it("covers every practice, Arena and archive problem exactly once", () => {
-    assert.equal(pages.length, problems.length + arena.problems.length + catalogProblems.length);
+  it("covers every retained Arena and archive problem exactly once", () => {
+    assert.equal(pages.length, arena.problems.length + catalogProblems.length);
     assert.equal(new Set(pages.map((p) => p.id)).size, pages.length);
     assert.equal(pages.filter((p) => p.kind === "archive").length, 103)
     for (const p of pages) assert.equal(p.path, `/dashboard/problems/${p.id}`);
@@ -141,7 +140,7 @@ describe("topic metadata titles", () => {
     assert.deepEqual(topics.map(({ name, count }) => topicPageCopy(name, count).title), expected);
     assert.equal(new Set(expected).size, topics.length);
     for (const { name, count } of topics) {
-      assert.equal(topicPageCopy(name, count).description, `${count} ${name.toLowerCase()} problems from IPhO, APhO, EuPhO, Physcratic Arena and practice sets, each with its own page and a checked answer where there is one.`);
+      assert.equal(topicPageCopy(name, count).description, `${count} ${name.toLowerCase()} problems from IPhO, APhO, EuPhO and Physcratic Arena, each with its own page and a checked answer where there is one.`);
     }
   });
 });

@@ -1,16 +1,16 @@
 # Search and AI visibility
 
-How Physcratic's public pages are built so that search engines and AI crawlers can read them with no JavaScript. Phase 8, written 7 November 2026. Technical SEO counts and crawl boundaries checked on 10 November 2026 against main `18ed7a48`.
+How Physcratic's public pages are built so that search engines and AI crawlers can read them with no JavaScript. Phase 8, written 7 November 2026. Retirement counts checked on 12 November 2026 against the registry on the separate legacy-retirement draft, stacked on revised P2. Crawl boundaries remain as verified in P1.
 
 ## URLs
 
 | Page | URL | Built |
 | --- | --- | --- |
-| Home | `/` | On every request. Signed-out visitors and crawlers get the landing page. Signed-in users get the Lobby. |
+| Home | `/` | On every request. Signed-out visitors and crawlers get the public product lobby. Signed-in users get the Lobby. |
 | Problem library | `/problems` | Static |
 | Olympiad archive | `/problems/archive` | Static |
 | Topic | `/problems/topics/<slug>` (`mechanics`, `electromagnetism`, `waves`, `thermodynamics`, `optics`, `modern-physics`) | Static |
-| Practice, Arena and archive problem | `/dashboard/problems/<id>` | Static, from `generateStaticParams` |
+| Arena and archive problem | `/dashboard/problems/<id>` | Static, from `generateStaticParams` |
 | Published authored problem | `/dashboard/authored/<uuid>` | Dynamic, `noindex`, not in the sitemap |
 | Learn | `/learn`, `/learn/<slug>` | Static |
 | Coaching | `/coaching` and its two form pages | As before |
@@ -24,9 +24,17 @@ The owner confirmed on 7 November 2026 that reuse of the IPhO, APhO and EuPhO pr
 
 `ARCHIVE_INDEXABLE` in `lib/seo/problem-pages.ts` is `true`. At that check, 101 of the 103 archive pages are indexable and in the sitemap, `llms.txt` examples and `llms-full.txt`. IPhO 2017 problems 2 and 3 stay noindex because their text is too thin (`thin`). Setting the switch to `false` puts every archive page back to noindex and out of all three files, which is the fast way to undo this.
 
-Every archive page keeps its source line ("IPhO 2025, Problem 2. Official problem (PDF)") with the link to the official file, in the page and in the LearningResource data. The "Unofficial English translation" label applies to English drafts of Russian sources. No archive problem is a Russian source now (the current sources are English PDFs), so no page carries it. If a translated problem is added, label it that way in the page and in `LearningResource.translator` or `inLanguage`.
+Archive pages use source provenance in their reader and structured data. The broad historical live audit currently stops at the existing native IPhO 2026 T1 visible source-label mismatch, which is not changed by retirement. The PDF-based archive reader keeps its source line ("IPhO 2025, Problem 2. Official problem (PDF)") with the link to the official file, in the page and in the LearningResource data. The "Unofficial English translation" label applies to English drafts of Russian sources. No archive problem is a Russian source now (the current sources are English PDFs), so no page carries it. If a translated problem is added, label it that way in the page and in `LearningResource.translator` or `inLanguage`.
 
 `lib/seo-problem-pages.test.ts` fails if two archive pages share statement text or start the same way.
+
+## Legacy practice retirement (12 November 2026)
+
+The 12 legacy problems in `lib/physics.ts` are excluded from public discovery, static reader generation, topics, related links, sitemap and AI discovery documents. Exact permanent redirects send their old reader URLs to `/dashboard?view=problems&collection=arena`. Arena was already the default interactive collection and remains so. No individual Arena, Olympiad or authored identity changes.
+
+The current registry yields 121 static problem pages: 18 Arena and 103 archive, of which 101 archive pages are indexable. The sitemap yields 138 URLs. These are dated observations, not independent inclusion rules. Derive future counts from `allProblemPages()` and `indexableRoutes`.
+
+The destination dashboard remains noindex. These redirects retire the old search pages rather than replacing them with indexable individual problems. No retired canonical or LearningResource is generated. Historical saved records and grading definitions remain intact. Search Console, actual Google indexation and ranking effects are UNKNOWN. See [implementation and verification](LEGACY_PRACTICE_RETIREMENT.md).
 
 ## One model for every problem
 
@@ -61,13 +69,15 @@ Built in `lib/seo/json-ld.ts` from the same strings the page shows, and validate
 
 ## Sitemap, llms.txt, robots.txt
 
-- `/sitemap.xml`: every indexable page from `indexableRoutes` in `lib/seo/public-routes.ts` (150 URLs at the dated check above), no query strings, `lastmod` from the data (a problem's import date, a guide's updated date). Practice problems, library pages and coaching pages have no date in the data, so they have no `lastmod`.
+- `/sitemap.xml`: every indexable page from `indexableRoutes` in `lib/seo/public-routes.ts` (138 URLs at the dated check above), no query strings, `lastmod` from the data (a problem's import date, a guide's updated date). Library pages and coaching pages have no date in the data, so they have no `lastmod`.
 - `/llms.txt`: a short index under 5 KB, with example problems that are indexable (a test in `lib/public-discovery.test.ts` keeps it there). `/llms-full.txt` lists every page in the sitemap, one line each.
 - `/robots.txt`: explicit groups for Googlebot, Bingbot, OAI-SearchBot, GPTBot, ClaudeBot and PerplexityBot with the same rules as `*`. It is built at build time, so it needs `VERCEL_ENV=production` during `pnpm build`. The authoring page is restricted with `/dashboard/author$`, `/dashboard/author?` and `/dashboard/author/`, covering exact, query and nested paths without blocking `/dashboard/authored/`. Authored reader pages still send `noindex, nofollow`. Non-production disallows all crawling. There is no middleware, and the CSP is report-only.
 
 ## The home page and caching
 
-`app/page.tsx` reads the session cookie. With no cookie it never touches the database. Next sends `Cache-Control: private, no-cache, no-store, max-age=0, must-revalidate` for it, and `lib/seo-home-audience.test.ts` fails if the page or `next.config.ts` ever makes it cacheable. `tests/home-session.live.mts` proves it on a real build with a disposable database: a signed-in fetch gets the Lobby, a signed-out fetch straight after (and 24 alternating concurrent ones) gets the landing page with none of the user's name, email, id or token.
+P2 revision (12 November 2026): the public homepage renders the existing dashboard Lobby directly, with a short server-rendered discovery header and the shared Arena recommendation. Its primary practice action works before hydration and needs no login. Verified members still get the existing dashboard Lobby. The optional public sticky header reserves space for the mobile/tablet menu without changing existing reader or dashboard headers.
+
+`app/page.tsx` reads the session cookie. With no cookie it never touches the database. Next sends `Cache-Control: private, no-cache, no-store, max-age=0, must-revalidate` for it, and `lib/seo-home-audience.test.ts` fails if the page or `next.config.ts` ever makes it cacheable. `tests/home-session.live.mts` proves it on a real build with a disposable database: a signed-in fetch gets the Lobby, a signed-out fetch straight after (and 24 alternating concurrent ones) gets the public product lobby with none of the user's name, email, id or token.
 
 ## Published authored problems
 

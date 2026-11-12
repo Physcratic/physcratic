@@ -22,7 +22,8 @@ permissions:
   contents: read
 jobs:
   browser:
-    runs-on: ubuntu-latest
+    # Keep Playwright system dependencies on an explicit Ubuntu image.
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     services:
       postgres:

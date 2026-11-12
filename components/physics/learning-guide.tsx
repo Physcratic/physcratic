@@ -28,7 +28,7 @@ export function LearningGuide() {
             icon: BookOpen,
             title: "Find a problem",
             description:
-              "Browse imported olympiad problems and introductory quick practice across physics topics. Filter by subject, or search for a concept.",
+              "Browse Physcratic Arena and imported olympiad problems across physics topics. Filter by subject, or search for a concept.",
             href: "/dashboard?view=problems",
             action: "Browse problems",
           },
@@ -71,17 +71,17 @@ export function LearningGuide() {
         <div className="flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
           <p>
             <strong className="font-medium text-foreground">
-              Hints.
+              Worked solutions.
             </strong>{" "}
-            Each practice problem includes a hint and a complete worked
-            solution.
+            Arena problems include a worked solution. Guided exercises
+            also provide reading notes.
           </p>
           <p>
             <strong className="font-medium text-foreground">
               Think in units.
             </strong>{" "}
-            Enter a number in the unit requested. Numerical answers within 0.5%
-            of the expected value are accepted.
+            Enter a number in the unit requested. Follow the conditions and
+            precision stated for each answer.
           </p>
           <p>
             <strong className="font-medium text-foreground">
