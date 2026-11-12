@@ -1,5 +1,10 @@
 # Execution roadmap
 
+## Authorized P2 and legacy release (12 November 2026)
+
+PRs #143 and #146 merged sequentially with exact-head guards. Final main677ccec and its automatic Vercel production deployment match, state READY with physcratic.com assigned. Main CI passes. Conclusion PARTIAL: outbound proxy403/browser tunnel failure blocks production smoke, which remains UNKNOWN. See [merge/deployment evidence and remaining read-only verification](P2_LEGACY_RELEASE_2026-11-12.md). Owner action is approved-network access for smoke testing, not a redeploy. No Production SQL/settings, manual deployment or P3. Historical draft-only instructions below are superseded by this specific owner release authorization.
+
+
 ## Legacy practice retirement (12 November 2026)
 
 Final review correction (12 November 2026): #146 incorporates exact P2 `db2430ea` and main `8bb5941` through normal merges. The marking guide's changed revision is pending owner editorial approval, with no visible or structured-data reviewer attribution. Its explanation and sources are unchanged. Other reviewed guides retain their bylines. See LEGACY_PRACTICE_RETIREMENT.md and the exact-head CI on #146. Keep both drafts unmerged, no deployment/P3.
