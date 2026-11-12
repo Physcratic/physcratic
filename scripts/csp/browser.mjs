@@ -105,7 +105,7 @@ for (const name of browserNames) {
         });
         await check('deferred MathJS and calculator results', async (page, server) => {
           await page.goto(server.origin + '/dashboard/problems/ipho-2025-t1', { waitUntil: 'networkidle' });
-          await page.getByRole('tab', { name: 'Your solution', exact: true }).click();
+          // Since the unified workspace, Your solution is a step on the page, not a tab.
           const before = await page.evaluate(() => performance.getEntriesByType('resource').filter(e => /\.js/.test(e.name)).map(e => e.name));
           await page.getByText('Equation calculator', { exact: true }).first().click();
           for (const [equation, bindings, expected] of [['a=g*sin(theta)', 'g=9.81\ntheta=pi/6', 'a = 4.905'], ['2^(½)', '', '1.41421356237'], ['sqrt(-1)', '', 'finite and real'], ['2+2', '', 'result = 4']]) {
