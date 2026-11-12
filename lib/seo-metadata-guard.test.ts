@@ -37,7 +37,7 @@ function resolve(route: PublicRoute): Resolved {
     return { title: SITE.defaultTitle, description: SITE.description, canonical: declaredCanonical("app/page.tsx", route.path) };
   }
   if (route.kind === "library") {
-    const file = route.path === "/problems" ? "app/problems/page.tsx" : "app/problems/(discovery)/archive/page.tsx";
+    const file = route.path === "/problems" ? "app/problems/page.tsx" : "app/problems/archive/page.tsx";
     const source = read(file);
     return { title: source.match(/const TITLE = "([^"]+)"/)![1] + TEMPLATE, description: source.match(/const DESCRIPTION =\s*"([^"]+)"/)![1], canonical: declaredCanonical(file, route.path) };
   }
