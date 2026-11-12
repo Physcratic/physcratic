@@ -129,11 +129,14 @@ try {
               // Learn has no Dashboard link on desktop. Its header links to the public Problems library, which has the app navigation.
               await page.locator('header a[href="/problems"]').first().click();
               await page.getByRole('heading', { name: 'Problem library', exact: true }).waitFor();
+              // Public library to the app (a nonce document) without a reload.
+              await page.locator('nav[aria-label="Main navigation"] a[href="/dashboard?view=contests"]:visible').click();
+              await page.waitForURL('**/dashboard?view=contests');
             }
             await page.locator('nav[aria-label="Main navigation"] a[href="/dashboard?view=problems"]:visible').click();
             await page.getByLabel('Find a problem', { exact: true }).fill('Mind the Gap');
             // SPA history boundary back to the original public document.
-            if (initial.startsWith('/learn')) { await page.goBack(); await page.goBack(); await page.waitForURL('**/learn?source=synthetic'); }
+            if (initial.startsWith('/learn')) { for (let back = 0; back < 3; back++) await page.goBack(); await page.waitForURL('**/learn?source=synthetic'); }
             else { await page.locator('a[href="/learn"]:visible').first().click(); await page.waitForURL('**/learn'); }
             await page.locator('header a[href="/problems"]').first().waitFor();
             const interactionMs = performance.now() - interactionStart;
