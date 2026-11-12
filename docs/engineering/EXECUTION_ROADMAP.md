@@ -1,5 +1,9 @@
 # Execution roadmap
 
+## SEO P5A Mechanics draft (12 November 2026)
+
+One original Mechanics guide is registered with `published: false` and `reviewedBy: null`. The existing Learn renderer and published-only discovery machinery are reused. The six published guides and sitemap138 remain unchanged. Independent automated physics critique and exact symbolic checks agree on both derivations, with the initial-rest assumption clarified. See [editorial/source audit and publication boundary](SEO_P5A_MECHANICS.md). The focused draft PR contains complete article text, verification and exact-head CI. Owner editorial approval remains required. No publication, merge, deployment or P5B.
+
 ## Studio public removal (12 November 2026)
 
 The author management list now offers confirmed "Remove from public" for published problems through the existing versioned unpublish API. Success displays the archived state and retained-history notice. Failed or uncertain responses require a fresh list before another removal, including lost acknowledgements after commit. Actions wrap at mobile widths. No backend, schema, flags or pinned B6 package changes.

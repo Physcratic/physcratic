@@ -1,5 +1,9 @@
 # Beta readiness log
 
+## SEO P5A Mechanics draft (12 November 2026)
+
+One original Mechanics guide is registered with `published: false` and `reviewedBy: null`. The existing Learn renderer and published-only discovery machinery are reused. The six published guides and sitemap138 remain unchanged. Independent automated physics critique and exact symbolic checks agree on both derivations, with the initial-rest assumption clarified. See [editorial/source audit and publication boundary](SEO_P5A_MECHANICS.md). The focused draft PR contains complete article text, verification and exact-head CI. Owner editorial approval remains required. No publication, merge, deployment or P5B.
+
 ## SEO P4B topics (12 November 2026)
 
 Six public topics reuse the Dashboard shell and existing Arena/Olympiad cards, with registry counts22/23/18/19/19/20 and all native server-rendered reader links. Metadata/OG/404 and sitemap138 are preserved. See [architecture, evidence and limitations](SEO_P4B_TOPICS.md). Exact-head checks/screenshots are on the focused draft PR. No homepage/library/archive/backend changes, merge, manual deployment or P5.
