@@ -29,17 +29,22 @@ for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
   if(!process.env.LEARN_EQUATION_BASELINE){
    assert.equal(await groups.count(),10);
    for(const group of await groups.all()){
-    await group.focus();await page.keyboard.press('Tab');await page.keyboard.press('Shift+Tab');
+    await group.focus();await page.keyboard.press('Tab');
+    assert.ok(await group.evaluate(e=>e!==document.activeElement),'Tab exits the equation');
+    await page.keyboard.press('Shift+Tab');
     assert.ok(await group.evaluate(e=>e===document.activeElement));
     const outline=await group.evaluate(e=>({width:getComputedStyle(e).outlineWidth,style:getComputedStyle(e).outlineStyle}));
     assert.notEqual(outline.width,'0px');assert.notEqual(outline.style,'none');
     if(await group.evaluate(e=>e.scrollWidth>e.clientWidth+1)){
      await group.evaluate(e=>e.scrollLeft=0);await page.keyboard.press('ArrowRight');await page.waitForTimeout(250);
      assert.ok(await group.evaluate(e=>e.scrollLeft>0),'ArrowRight scrolls the equation');
-     await page.keyboard.press('ArrowLeft');scrolling++;
+     const right=await group.evaluate(e=>e.scrollLeft);
+     await page.keyboard.press('ArrowLeft');await page.waitForTimeout(250);
+     assert.ok(await group.evaluate((e,x)=>e.scrollLeft<x,right),'ArrowLeft scrolls back');scrolling++;
     }
    }
   }
+  if(!process.env.LEARN_EQUATION_BASELINE&&width===375)assert.ok(scrolling>0,'Mobile scrolling was exercised');
   assert.ok(await page.locator('body').evaluate(e=>e.scrollWidth<=innerWidth));
   for(const image of await page.locator('article figure img').all()){await image.scrollIntoViewIfNeeded();await image.evaluate(e=>e.decode());}
   await page.screenshot({path:join(out,`${name}-${width}-${theme}-${js}.png`),fullPage:true});
