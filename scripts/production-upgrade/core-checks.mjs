@@ -1,9 +1,11 @@
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {materials,target,approval,binding,interior,ledger,hash} from './core.mjs';
+import {materials,target,approval,binding,interior,ledger,hash,snapshot,missingNumbers} from './core.mjs';
 export async function packageCheck(){
  const digest=hash(await readFile(new URL('PACKAGE_SHA256SUMS',import.meta.url)));
  const p=await materials(digest);
+ assert.deepEqual(JSON.parse(await readFile(new URL('approval-template.json',import.meta.url),'utf8')).target,binding);
+ assert.deepEqual(missingNumbers,[7,8,9,10,11,12,13,14,15,17,18]);
  const rows=p.files.filter((_,i)=>[1,2,3,4,5,6,16].includes(i+1)).map(f=>({id:f.id,sha256:f.sha256,result:'verified',source_commit:'1'.repeat(40),applied_by:'synthetic',applied_at:new Date()}));
  ledger(rows,p.files);
  assert.throws(()=>ledger([...rows,...[{...rows[0],id:'0017_unknown'}]],p.files));
@@ -19,5 +21,15 @@ export function targetCheck(){
  assert.throws(()=>approval({},'1'.repeat(40)));
  const now=Date.now(),a={target:binding,candidate:'1'.repeat(40),baselineSchema:'a'.repeat(64),baselineRecords:'b'.repeat(64),approvalReference:'owner-reviewed',recoveryReference:'reviewed-recovery',recoveryErasurePlan:'reviewed-erasure',writerHoldReference:'approved-hold',disabledFeaturesReference:'reviewed-features-off',recoveryVerifiedAt:new Date(now).toISOString(),start:new Date(now-1000).toISOString(),end:new Date(now+60000).toISOString()};
  approval(a,a.candidate,now);assert.throws(()=>approval({...a,target:{...binding,branch:'other'}},a.candidate,now));
+ for(const version of [180006,180008,170007])assert.throws(()=>approval({...a,target:{...binding,version}},a.candidate,now),/APPROVAL_TARGET_MISMATCH/);
  assert.throws(()=>approval({...a,end:new Date(now-1).toISOString()},a.candidate,now));
+}
+export async function versionCheck(){
+ const inspect=version=>{
+  const report={identity:{database:'neondb',current_user:'neondb_owner',session_user:'neondb_owner',server_version_num:version,replication_role:'origin'},tables:[{name:'physcratic_production_migrations'}]};
+  const replies=[{}, {rows:[{report}]}, {rows:[]}, {rows:[{metadata:{}}]}];
+  return snapshot({query:async()=>replies.shift()});
+ };
+ assert.equal((await inspect(180007)).report.identity.server_version_num,180007);
+ for(const version of [180006,180008,170007])await assert.rejects(inspect(version),/PG_VERSION/);
 }

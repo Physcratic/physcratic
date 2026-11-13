@@ -1,5 +1,9 @@
 # Execution roadmap
 
+## B6 PostgreSQL 18.7 compatibility (13 November 2026)
+
+Branch `codex/b6-pg187` updates B6's exact version binding/template to 180007 after owner-reported read-only inspection. The legacy operator and all 18 canonical SQL hashes remain unchanged. Scope stays 0007–0015, 0017, 0018; never replay 0016 or install 0019. Node22 focused integrity/identity/approval and disposable PG18.7 operator tests pass 4/4. CI isolates B6 on 18.7 while preserving the legacy 18.6 suite. [Windows corrections](../../scripts/production-upgrade/WINDOWS_RUNBOOK.md) require new candidate/package bindings and separate explicit final approval-file SHA-256 authorization. Package SHA-256 `c410533f44d68d4f708faebc20655b026e19080c296dc5acaf42992aa2b2bb08`. GitHub API access is blocked (Forbidden); remote PR/CI status must be established separately. No Production access/change, firewall action or deployment.
+
 ## Moderator actions (12 November 2026)
 
 Code-only staff actions extend the existing dashboard with community-question removal/restoration and regular-account bans/unbans. Individual existing staff roles remain operator-assigned. Additive 0019 serializes versioned decisions, archives removed questions while preserving revisions/attempts, blocks republication, revokes banned users' sessions and rejects new sessions. Restoration requires an independent administrator and leaves questions archived for explicit author republication. Default-OFF COMMUNITY_ACTIONS_ENABLED also requires existing staff/moderation flags. No production discussion lock is removed.

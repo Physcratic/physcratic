@@ -113,6 +113,6 @@ export async function rehearse(raw) {
 
    checks.push('Restricted runtime reads existing authoring/contests and uses ledger rate writes, but cannot DELETE immutable attempts, execute deletion or CREATE. Service/operator grants remain distinct without table DML.');
   } finally {/* Roles are removed after the owned test database below. */}
-  return {status:'PASS',postgresql:'18.6',productionConnections:0,checks,baseline:before.rows.map(r=>({id:r.id,sha256:r.sha256})),installed:result.installed};
+  return {status:'PASS',postgresql:'18.7',productionConnections:0,checks,baseline:before.rows.map(r=>({id:r.id,sha256:r.sha256})),installed:result.installed};
  }finally{if(c)await c.end().catch(()=>{});if(other)await other.end().catch(()=>{});if(created){await admin.query('DROP DATABASE neondb WITH (FORCE)');await admin.query('DROP ROLE neondb_owner');for(const role of temporaryRoles)await admin.query('DROP ROLE '+JSON.stringify(role));}await admin.end();}
 }
