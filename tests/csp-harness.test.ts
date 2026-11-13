@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { spawnSync } from 'node:child_process';
-import { childEnvironment, localOrigin, safeViolation } from '../scripts/csp/support.mjs';
+import { childEnvironment, localOrigin, safeViolation, browserSelection } from '../scripts/csp/support.mjs';
 import { collectionFixture } from '../scripts/csp/collection-fixture.mjs';
 import { evalAttribution } from '../scripts/csp/attribute.mjs';
 
@@ -9,6 +9,16 @@ test('an unrelated eval is not attributed to Zod just because Zod is loaded', ()
   const event = { blocked: 'eval', asset: '/_next/static/chunks/x.js', line: 1, column: 1 };
   assert.equal(evalAttribution(event, 'eval("something")'), 'unexplained eval');
   assert.equal(evalAttribution(event, 'try{return Function(""),!0}catch(t){return!1}'), 'Zod allowsEval caught probe');
+});
+
+test('required qualification rejects metrics-only, scoped and duplicate engine selections', () => {
+  assert.deepEqual(browserSelection({CSP_REQUIRE_ALL:'1'}), ['chromium','firefox','webkit']);
+  assert.throws(() => browserSelection({CSP_REQUIRE_ALL:'1'}, {metricsOnly:true}), /metrics-only/);
+  assert.throws(() => browserSelection({CSP_REQUIRE_ALL:'1',CSP_BROWSERS:'chromium'}), /all three engines/);
+  assert.throws(() => browserSelection({CSP_REQUIRE_ALL:'1',CSP_BROWSERS:'chromium,chromium,chromium'}), /Duplicate/);
+  assert.throws(() => browserSelection({CSP_BROWSERS:'unknown'}), /Unknown/);
+  assert.deepEqual(browserSelection({CSP_BROWSERS:'webkit'}), ['webkit']);
+  assert.deepEqual(browserSelection({}, {metricsOnly:true}), []);
 });
 
 test('CSP harness rejects remote, credentialed and decorated origins', () => {

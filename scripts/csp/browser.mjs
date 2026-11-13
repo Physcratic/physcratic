@@ -5,15 +5,20 @@ import { createRequire } from 'node:module';
 import { join, resolve } from 'node:path';
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { startLocal } from './local.mjs';
-import { safeViolation } from './support.mjs';
+import { safeViolation, browserSelection } from './support.mjs';
+import {routeInventory,checkResponse} from './route-inventory.mjs';
+import {publicArtifact,NONCE_MATCHERS} from './policy-artifact.mjs';
 import { evalAttribution } from './attribute.mjs';
 const require = createRequire(import.meta.url);
 const tools = process.env.AUTHORING_BROWSER_TOOLS ? createRequire(join(process.env.AUTHORING_BROWSER_TOOLS, 'package.json')) : require;
 const playwright = tools('playwright');
+const browserNames = browserSelection();
 const results = [], availability = [], output = resolve('build/csp/browser-results.json');
 await mkdir(resolve('build/csp'), { recursive: true });
+const artifact=await publicArtifact(process.cwd());
+const inventory=await routeInventory(process.cwd(),{matchers:NONCE_MATCHERS,hashRoutes:Object.keys(artifact.routes)});
 let failures = 0;
-for (const name of (process.env.CSP_BROWSERS || 'chromium,firefox,webkit').split(',')) {
+for (const name of browserNames) {
   assert.ok(['chromium', 'firefox', 'webkit'].includes(name));
   let browser;
   try {
@@ -31,7 +36,7 @@ for (const name of (process.env.CSP_BROWSERS || 'chromium,firefox,webkit').split
         async function check(workflow, action) {
           const context = await browser.newContext({ serviceWorkers: 'block', reducedMotion: 'reduce' });
           context.setDefaultTimeout(20000);
-          const network = [], errors = [], startReports = local.reports.length, start = performance.now();
+          const network = [], errors = [], representations = [], startReports = local.reports.length, start = performance.now();
           await context.route('**/*', route => {
             const url = new URL(route.request().url());
             // All foreign requests are answered locally or aborted BEFORE any
@@ -53,6 +58,9 @@ for (const name of (process.env.CSP_BROWSERS || 'chromium,firefox,webkit').split
           page.on('pageerror', error => errors.push(error.name));
           page.on('response', response => {
             const url = new URL(response.url());
+            if(url.origin===local.origin&&!url.pathname.startsWith('/__csp/')){
+              try{representations.push(checkResponse(inventory,url.pathname,{status:response.status(),contentType:response.headers()['content-type'],headers:response.request().headers(),location:response.headers().location}));}catch(e){errors.push(e.message);}
+            }
             if (url.origin === local.origin && url.pathname.startsWith('/_next/') && /\.m?js$/.test(url.pathname)) network.push({ asset: url.pathname, status: response.status() });
           });
           let classification = 'functional success', detail;
@@ -77,7 +85,7 @@ for (const name of (process.env.CSP_BROWSERS || 'chromium,firefox,webkit').split
           });
           if (classification !== 'confirmed functional breakage' && unexpected.length) { classification = 'unexplained violation'; failures++; }
           if (classification === 'functional success' && (detail?.blockedWithFallback || [...violations, ...local.reports.slice(startReports)].some(event => event.disposition === 'enforce'))) classification = 'expected blocked operation with successful fallback';
-          results.push({ browser: name, mode, workflow, classification, detail, durationMs: performance.now() - start, violations, delivered: local.reports.slice(startReports), chunks: [...new Map(network.map(item => [item.asset, item])).values()] });
+          results.push({ browser: name, mode, workflow, classification, representations: [...new Set(representations)], detail, durationMs: performance.now() - start, violations, delivered: local.reports.slice(startReports), chunks: [...new Map(network.map(item => [item.asset, item])).values()] });
           console.log(JSON.stringify(results.at(-1)));
           await context.close();
         }
@@ -97,7 +105,7 @@ for (const name of (process.env.CSP_BROWSERS || 'chromium,firefox,webkit').split
         });
         await check('deferred MathJS and calculator results', async (page, server) => {
           await page.goto(server.origin + '/dashboard/problems/ipho-2025-t1', { waitUntil: 'networkidle' });
-          await page.getByRole('tab', { name: 'Your solution', exact: true }).click();
+          // Since the unified workspace, Your solution is a step on the page, not a tab.
           const before = await page.evaluate(() => performance.getEntriesByType('resource').filter(e => /\.js/.test(e.name)).map(e => e.name));
           await page.getByText('Equation calculator', { exact: true }).first().click();
           for (const [equation, bindings, expected] of [['a=g*sin(theta)', 'g=9.81\ntheta=pi/6', 'a = 4.905'], ['2^(½)', '', '1.41421356237'], ['sqrt(-1)', '', 'finite and real'], ['2+2', '', 'result = 4']]) {
@@ -109,6 +117,52 @@ for (const name of (process.env.CSP_BROWSERS || 'chromium,firefox,webkit').split
           const additional = await page.evaluate(before => performance.getEntriesByType('resource').filter(e => /\.js/.test(e.name) && !before.includes(e.name)).map(e => new URL(e.name).pathname), before);
           assert.ok(additional.length > 0, 'Engine must load after opening calculator');
           return { additional: [...new Set(additional)] };
+        });
+        await check('MathLive answer field and Math Pad', async (page, server) => {
+          await page.goto(server.origin + '/dashboard/problems/arena-a-grin-and-a-wiggle', { waitUntil: 'networkidle' });
+          const field = page.locator('#step-answer math-field').first();
+          await field.waitFor({ state: 'attached', timeout: 30000 });
+          await field.click();
+          await page.waitForTimeout(700);
+          await page.keyboard.type('sin', { delay: 35 });
+          await page.waitForTimeout(900);
+          assert.equal(await field.evaluate(element => element.value), '\\sin');
+          assert.ok(await page.locator('#step-answer [aria-label="Insert symbols and functions"]').first().isVisible());
+          return 'MathLive loads on demand, takes keys, turns sin into the command and shows the Math Pad. Its styles are in its shadow root and its fonts are bundled.';
+        });
+        await check('guided tour card, ring and navigation', async (page, server) => {
+          // The tour stays off under automation, so tell the page it is not automated, as the tours suite does.
+          await page.addInitScript(() => Object.defineProperty(navigator, 'webdriver', { get: () => false }));
+          await page.goto(server.origin + '/dashboard', { waitUntil: 'networkidle' });
+          const card = page.locator('[data-tour-card]');
+          await card.waitFor({ timeout: 10000 });
+          const title = async () => (await card.locator('[role="status"]').first().innerText()).trim();
+          const first = await title();
+          await page.keyboard.press('ArrowRight');
+          await page.waitForTimeout(600);
+          assert.notEqual(await title(), first, 'The tour must move to the next step');
+          // The card is placed with an inline style attribute, so style-src has to keep allowing inline styles for the tour.
+          assert.ok((await card.getAttribute('style')).includes('top:'));
+          return 'The Welcome tour starts, shows its card and ring, and moves between steps.';
+        });
+        await check('public problem library', async (page, server) => {
+          await page.goto(server.origin + '/problems', { waitUntil: 'networkidle' });
+          await page.getByRole('heading', { name: 'Problem library', exact: true }).waitFor();
+          await page.getByLabel('Find a problem', { exact: true }).fill('Mind the Gap');
+          await page.locator('a[href="/dashboard/problems/arena-mind-the-gap"]').first().waitFor();
+          await page.getByRole('button', { name: 'What do the ratings mean?' }).click();
+          await page.getByText('Rating bands').first().waitFor();
+          return 'The public library renders, filters in the page and opens the ratings help.';
+        });
+        await check('coaching booking link to Tally', async (page, server) => {
+          await page.goto(server.origin + '/coaching', { waitUntil: 'networkidle' });
+          const link = page.locator('a[href^="https://tally.so/"]').first();
+          await link.waitFor({ state: 'attached' });
+          assert.equal(await link.getAttribute('target'), '_blank');
+          assert.match(await link.getAttribute('rel'), /noopener/);
+          // Tally is a link to another site, never an embed, so the policy needs no Tally source.
+          assert.equal(await page.locator('iframe, script[src*="tally"]').count(), 0);
+          return 'The booking form is an outbound link that opens in a new tab. No Tally script or frame loads in the page.';
         });
         await check('PDF.js actual reader and worker', async (page, server) => {
           await page.goto(server.origin + '/dashboard/problems/ipho-2025-t1', { waitUntil: 'networkidle' });
