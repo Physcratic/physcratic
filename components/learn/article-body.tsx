@@ -186,7 +186,10 @@ export function ArticleBody({
             return (
               <figure key={index} className={prose}>
                 <div
-                  className="overflow-x-auto py-1"
+                  tabIndex={0}
+                  role="group"
+                  aria-label="Equation"
+                  className="overflow-x-auto rounded-sm py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                   dangerouslySetInnerHTML={{ __html: renderMath(block.tex) }}
                 />
                 {block.caption ? (
