@@ -47,7 +47,7 @@ function ProfileEditor({ userId, fallbackName, verified, mediaEnabled, achieveme
   useEffect(() => {
     const controller = new AbortController();
     setLoading(true); setLoadFailed(false); setError("");
-    profileRequest("/api/community/profile", { signal: controller.signal }).then(data => {
+    profileRequest("/api/community/profile", { headers: { "X-Community-Account": userId }, signal: controller.signal }).then(data => {
       if (controller.signal.aborted) return;
       const profile = ownProfileResponse.parse(data).profile;
       if (profile && profile.userId !== userId) throw new Error("Profile identity mismatch");
@@ -70,7 +70,7 @@ function ProfileEditor({ userId, fallbackName, verified, mediaEnabled, achieveme
     const controller = new AbortController(); saveController.current = controller;
     try {
       const response = await profileRequest("/api/community/profile", { method: "PATCH",
-        headers: { "Content-Type": "application/json" }, body: JSON.stringify(parsed.data),
+        headers: { "Content-Type": "application/json", "X-Community-Account": userId }, body: JSON.stringify(parsed.data),
         signal: AbortSignal.any([controller.signal, AbortSignal.timeout(20000)]) });
       if (!alive.current) return;
       const profile = ownProfileResponse.parse(response).profile;

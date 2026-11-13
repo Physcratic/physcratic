@@ -14,8 +14,11 @@ test('activation LOGIN binding, real sessions and minimal favourites delta on PG
  assert.equal(u.hostname,'127.0.0.1');
  assert.equal(u.pathname,'/physcratic_authoring_test');
  assert.equal(u.search,'');assert.equal(u.hash,'');
+ let tearingDown=false;
+ const idleErrors:Error[]=[];
+ const onIdleError=(error:Error)=>{if(!tearingDown)idleErrors.push(error);};
  const admin=new Pool({connectionString:raw,max:1});
- admin.on('error',()=>{});
+ admin.on('error',onIdleError);
  const name='activation_'+randomUUID().replaceAll('-',''),owner=name+'_owner',runtime=name+'_app';
  let setup:Pool|undefined,app:Pool|undefined,created=false,roles=false;
  try {
@@ -29,7 +32,7 @@ test('activation LOGIN binding, real sessions and minimal favourites delta on PG
   await admin.query(`CREATE DATABASE ${name} OWNER ${owner}`);created=true;
   const databaseUrl=new URL(raw!);databaseUrl.pathname='/'+name;
   setup=new Pool({connectionString:databaseUrl.href,options:`-c role=${owner} -c search_path=public,pg_catalog`,max:1});
-  setup.on('error',()=>{});
+  setup.on('error',onIdleError);
   const {fixtureDDL,seed}=await import('../authoring-release-production/package/test-fixture.mjs');
   for(const ddl of fixtureDDL())await setup.query(ddl);
   await seed(setup);
@@ -58,7 +61,7 @@ test('activation LOGIN binding, real sessions and minimal favourites delta on PG
    BETTER_AUTH_URL:'http://localhost:3000',BETTER_AUTH_SECRET:'synthetic-activation-auth-secret-at-least-32-characters',
    AUTH_EMAIL_TRANSPORT:'memory',COMMUNITY_PROBLEM_STATS_ENABLED:'true'});
   ({pool:app}=await import('../../lib/db'));
-  app!.on('error',()=>{});
+  app!.on('error',onIdleError);
   assert.deepEqual((await app.query('SELECT current_user,session_user')).rows[0],{current_user:runtime,session_user:runtime});
   const {auth}=await import('../../lib/auth');
   const request=(path:string,cookie='',body?:unknown,account?:string,method=body===undefined?'GET':'POST')=>new Request('http://localhost:3000'+path,{method,headers:{origin:'http://localhost:3000',cookie,'content-type':'application/json',...(account?{'x-community-account':account}:{})},body:body===undefined?undefined:JSON.stringify(body)});
@@ -81,6 +84,15 @@ test('activation LOGIN binding, real sessions and minimal favourites delta on PG
   await check(await stats.PUT(request('/api/community/problem-stats',b,{key,favourite:true},'synthetic-user-0','PUT')),409);
   assert.equal(Number((await setup.query('SELECT count(*) FROM community_favourite_limit WHERE user_id=$1',['synthetic-user-1'])).rows[0].count),0);
   assert.equal((await check(await stats.GET(request(query,b,undefined,'synthetic-user-1')))).problems[0].favourite,false);
+  await t.test('signup account-link failure rolls back without ordinary user DELETE',async()=>{
+   assert.equal((await setup!.query("SELECT has_table_privilege($1,'public.user','DELETE') AS allowed",[runtime])).rows[0].allowed,false);
+   await setup!.query("CREATE FUNCTION activation_account_fault() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RAISE EXCEPTION 'synthetic-account-link-failure'; END $$; CREATE TRIGGER activation_account_fault BEFORE INSERT ON account FOR EACH ROW EXECUTE FUNCTION activation_account_fault()");
+   try {
+    const {TERMS_VERSION}=await import('../../lib/terms');
+    await assert.rejects(auth.api.signUpEmail({body:{name:'Synthetic rollback',email:'rollback@example.invalid',password:'synthetic-password-123',termsAccepted:true,termsVersion:TERMS_VERSION} as never}),/synthetic-account-link-failure/);
+    assert.equal((await setup!.query('SELECT count(*)::int n FROM "user" WHERE email=$1',['rollback@example.invalid'])).rows[0].n,0);
+   } finally {await setup!.query('DROP TRIGGER activation_account_fault ON account; DROP FUNCTION activation_account_fault()');}
+  });
   await t.test('existing authoring, grading and contest routes retain access',async()=>{
    const part=randomUUID(),text=()=>({id:randomUUID(),kind:'text',spans:[{kind:'text',text:'Synthetic activation problem'}]});
    const content={title:'Synthetic activation',topicTags:[],methodTags:[],estimatedDifficulty:'1200',
@@ -100,6 +112,40 @@ test('activation LOGIN binding, real sessions and minimal favourites delta on PG
    const contests=await import('../../app/api/contests/registration/route');
    await check(await contests.POST(request('/api/contests/registration',a,{contestId:'synthetic-contest',registered:true})));
   });
+  await t.test('text-profile consent and actual authorship routes with the LOGIN role',async()=>{
+   await setup!.query((await readFile('scripts/activation/profiles-grants.review.sql','utf8')).replaceAll(':"runtime_role"',runtime));
+   process.env.COMMUNITY_PROFILES_ENABLED='true';
+   const profiles=await import('../../app/api/community/profile/route');
+   const profile='/api/community/profile';
+   assert.equal((await check(await profiles.GET(request(profile,a,undefined,'synthetic-user-0')))).profile,null);
+   await check(await profiles.PATCH(request(profile,b,{handle:'stale_handle',displayName:'A private draft',publicVisibility:true},'synthetic-user-0','PATCH')),409);
+   assert.equal((await setup!.query('SELECT count(*)::int n FROM community_profile WHERE user_id=$1',['synthetic-user-1'])).rows[0].n,0);
+   assert.equal((await setup!.query('SELECT count(*)::int n FROM community_profile_write_limit WHERE user_id=$1',['synthetic-user-1'])).rows[0].n,0);
+   const made=await check(await profiles.PATCH(request(profile,a,{handle:'runtime_author',displayName:'Synthetic Public Name'},'synthetic-user-0','PATCH')),201);
+   assert.equal(made.profile.publicVisibility,false);
+   const publicProfile=await import('../../app/api/community/profile/[handle]/route');
+   const params={params:Promise.resolve({handle:'runtime_author'})};
+   await check(await publicProfile.GET(request(profile+'/runtime_author'),params),404);
+   await check(await profiles.PATCH(request(profile,a,{publicVisibility:true},'synthetic-user-0','PATCH')));
+   const publicBody=await check(await publicProfile.GET(request(profile+'/runtime_author'),params));
+   assert.deepEqual(Object.keys(publicBody.profile).sort(),['bio','displayName','educationLevel','favoriteTopicIds','handle'].sort());
+   process.env.COMMUNITY_AUTHORSHIP_ENABLED='true';
+   const published=(await setup!.query("SELECT id,published_revision_id FROM authored_problem WHERE state='published' AND owner_id=$1 LIMIT 1",['synthetic-user-0'])).rows[0];
+   const attribution=await import('../../app/api/authored-problems/[id]/attribution/route');
+   const attr=()=>attribution.GET(request('/api/authored-problems/'+published.id+'/attribution?revisionId='+published.published_revision_id),{params:Promise.resolve({id:published.id})});
+   assert.deepEqual((await check(await attr())).author,{displayName:'Synthetic Public Name'});
+   const collection=await import('../../app/api/arena/collection/route');
+   const authors=async()=>check(await collection.GET(request('/api/arena/collection?q=Synthetic%20activation')));
+   assert.equal((await authors()).problems.find((p:{id:string})=>p.id===published.id).author.displayName,'Synthetic Public Name');
+   await check(await profiles.PATCH(request(profile,a,{publicVisibility:false},'synthetic-user-0','PATCH')));
+   await check(await publicProfile.GET(request(profile+'/runtime_author'),params),404);
+   assert.equal((await check(await attr())).author,null);
+   assert.equal((await authors()).problems.find((p:{id:string})=>p.id===published.id).author,null);
+   await setup!.query(`REVOKE SELECT ON community_profile FROM ${runtime}`);
+   await check(await profiles.GET(request(profile,a,undefined,'synthetic-user-0')),503);
+   await setup!.query(`GRANT SELECT ON community_profile TO ${runtime}`);
+   delete process.env.COMMUNITY_PROFILES_ENABLED;delete process.env.COMMUNITY_AUTHORSHIP_ENABLED;
+  });
   await t.test('fail closed on missing rights and forbidden privilege checks',async()=>{
    for(const sql of ['UPDATE community_problem_total SET favourites=99','CREATE TABLE public.activation_forbidden(x int)','DELETE FROM authored_attempt',"SELECT account_deletion_execute('x','x','x','x')"])
     await assert.rejects(app!.query(sql),{code:'42501'});
@@ -110,10 +156,12 @@ test('activation LOGIN binding, real sessions and minimal favourites delta on PG
    await check(await stats.GET(request(query)),503);
    assert.equal((await setup!.query('SELECT count(*)::int n FROM community_favourite')).rows[0].n,2);
   });
+  assert.deepEqual(idleErrors,[],'No background pool failures during the rehearsal');
  } catch(error) {
   console.error('Synthetic activation rehearsal failed:',error);
   throw error;
  } finally {
+  tearingDown=true; // DROP DATABASE FORCE can terminate an idle teardown socket.
   await app?.end();await setup?.end();
   if(created)await admin.query(`DROP DATABASE ${name} WITH (FORCE)`);
   if(roles)await admin.query(`DROP ROLE ${runtime}; DROP ROLE ${owner}`);

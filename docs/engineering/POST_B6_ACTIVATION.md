@@ -2,7 +2,7 @@
 
 14 November 2026. **Prepared for owner review, not authorized to activate.**
 Supersedes temporary `/workspace` activation notes for this first batch. B6 is
-owner-confirmed complete: all18 records verified,0016 preserved,0019 absent.
+owner-confirmed complete: all 18 records verified, 0016 preserved, 0019 absent.
 Do not run migration SQL, B6 preflight or either historical operator again.
 
 Scope is only `COMMUNITY_PROBLEM_STATS_ENABLED=true`. The code correction in this
@@ -103,7 +103,7 @@ try {
    deployment mechanism. Do not trigger a README deployment, buy a seat or
    redeploy a blocked commit. Record actual serving SHA/alias afterward. It must
    match the selected reviewed release. Old clients without the account header
-   will fail with409 when authenticated; require a page reload. Do not temporarily
+   will fail with 409 when authenticated; require a page reload. Do not temporarily
    weaken the guard to support stale JavaScript.
 5. **Activation approval.** Owner approves the completed release note, exact
    configuration delta, deployment-wide exposure, test identities and rollback.

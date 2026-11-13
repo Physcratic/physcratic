@@ -100,7 +100,7 @@ test("community profile API, constraints and migration on disposable PostgreSQL"
   });
   const request = (body?: unknown, session = "owner", extra: Record<string, string> = {}, query = "") => new Request(`https://physcratic.test/api/community/profile${query}`, {
     method: body === undefined ? "GET" : "PATCH",
-    headers: { "x-test-session": session, origin: "https://physcratic.test", "content-type": "application/json", ...extra },
+    headers: { "x-test-session": session, "X-Community-Account": session === "unverified" ? "owner" : session, origin: "https://physcratic.test", "content-type": "application/json", ...extra },
     body: body === undefined ? undefined : JSON.stringify(body),
   });
   const own = (body?: unknown, session = "owner", instance = 0) => instances[instance]("own", request(body, session));
@@ -238,4 +238,28 @@ test("community profile API, constraints and migration on disposable PostgreSQL"
     assert.equal((await setup.query("SELECT handle FROM community_profile")).rows[0].handle, "survivor");
     assert.deepEqual((await setup.query('SELECT * FROM "user" ORDER BY id')).rows, before);
   });
+});
+
+test("stale profile account rejects own reads and first-profile writes before any query", async () => {
+  let queries = 0;
+  const pool = { query: async () => { queries++; throw Error("No quota writes"); }, connect: async () => { queries++; throw Error("No profile transaction"); } };
+  const api = createCommunityProfileApi({ pool: pool as unknown as Pool, user: async () => ({ id: "B", emailVerified: true }), origin: () => true });
+  for (const method of ["GET", "PATCH"]) {
+    const response = await api("own", new Request("https://test/api/community/profile", { method, headers: { "X-Community-Account": "A" } }));
+    assert.equal(response.status, 409);
+    assert.equal((await response.json()).code, "ACCOUNT_CHANGED");
+    assert.equal(response.headers.get("Vary"), "Cookie, X-Community-Account");
+  }
+  assert.equal(queries, 0);
+});
+
+test("profile client distinguishes account changes from handle conflicts", async () => {
+  const { profileRequest } = await import("./community/profile-client");
+  const original = globalThis.fetch;
+  try {
+    globalThis.fetch = async () => Response.json({ error: "Rejected", code: "ACCOUNT_CHANGED" }, { status: 409 });
+    await assert.rejects(profileRequest("https://test/api/community/profile"), /Your account changed\. Reload/);
+    globalThis.fetch = async () => Response.json({ error: "Handle unavailable" }, { status: 409 });
+    await assert.rejects(profileRequest("https://test/api/community/profile"), /That username is unavailable/);
+  } finally { globalThis.fetch = original; }
 });

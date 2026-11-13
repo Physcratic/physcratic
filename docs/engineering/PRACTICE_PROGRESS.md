@@ -1,5 +1,11 @@
 # Practice and Arena progress
 
+Post-B6 update, 14 November 2026: the owner confirms0017/0018 installed and
+verified. Controlled erasure is implemented in current code. Older statements
+below describing it as unimplemented are historical, not a new code blocker.
+Practice remains OFF pending the precise [erasure delivery, policy and provider
+decision](POST_B6_PROFILES_PRACTICE.md). This does not activate account deletion.
+
 Friday release B2A, 10 November 2026. Original base main `ab8881007fa6fe040b87a1b0fdb6a85e2d12b295`, reconciled with main `942be99148870b834767fbc212e649127abb3b93`. This is the persistence/API batch. Dashboard and solving UI integration is B2B PR #134, which must reconcile with the final B2A merge before its own review. No migration is run by application startup, build or deployment.
 
 ## Default-OFF activation boundary

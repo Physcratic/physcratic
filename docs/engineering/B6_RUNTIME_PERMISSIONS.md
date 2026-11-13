@@ -2,7 +2,7 @@
 
 14 November 2026. Source base main `31941d0ea1feca6bac93834d1b8fa75ce051ca5c`.
 Preparation only. No Production SQL, role, grant, ownership or credential action.
-The owner reports all18 B6 migrations verified on PG18.7, flags OFF, Production
+The owner reports all 18 B6 migrations verified on PG18.7, flags OFF, Production
 firewall Log. Integration may remain Deny. Inspect that state before using it.
 
 ## Runtime identity and what is actually known
@@ -81,14 +81,12 @@ inventory and dependency rights, not REASSIGN OWNED or blanket grants.
    enable features or change credentials in the same step. Qualify the proposed
    LOGIN role on isolated resources first. Retain owner-controlled recovery
    outside the application and record the approved previous binding securely.
-4. The focused rehearsal below covers the representative real route path. Reuse
-   CI's existing auth/account/browser coverage. Before a broad runtime cutover,
-   separately review signup failure compensation: existing auth-account tests
-   grant user DELETE while the proposed bridge template deliberately does not.
-   Successful sign-in is not proof of every auth compensation branch. Do not
-   grant ordinary user DELETE to hide this difference. This is a remaining
-   cutover qualification limit, not a demonstrated Production defect or a reason
-   to modify authentication in this batch.
+4. The focused rehearsal below covers representative real routes and explicitly
+   injects a credential-link failure during signup. The installed Better Auth
+   transaction rolls the new user back with no ordinary user DELETE grant. This
+   closes the earlier speculative compensation gap rather than widening rights.
+   Existing broad account-flow CI remains the baseline; live sessions, provider
+   delivery and complete deployed configuration still require owner evidence.
 5. Only after exact role/binding approval, the owner performs a separately scoped
    current-feature cutover with all new flags OFF and checks live sign-in,
    existing account settings, authoring, grading, contests and provider access.
@@ -99,12 +97,13 @@ inventory and dependency rights, not REASSIGN OWNED or blanket grants.
 
 `scripts/activation/runtime.pg.test.ts` creates a uniquely named disposable
 database on guarded loopback PG18.7, trusted NOLOGIN owner and real LOGIN runtime.
-It installs the unchanged18-migration graph and reuses only the review template's
+It installs the unchanged 18-migration graph and reuses only the review template's
 existing-feature grants plus the narrow favourites delta. Actual route exports
 use the real singleton DATABASE_URL and Better Auth sessions. No injected user
 adapter or owner SET ROLE substitutes for runtime authentication.
 
-The test covers guest/stat reads, own favourites, stale-account rejection before
+The test covers signup transaction failure without user DELETE, guest/stat reads,
+own favourites, stale-account rejection before
 quota, actual draft/create/publish/graded submission, verified authored solve
 count and contest registration. It proves runtime denial of totals writes,
 schema CREATE, immutable DELETE and privileged erasure EXECUTE, and unavailable
@@ -117,4 +116,4 @@ Existing `community-problem-stats.test.ts` already covers exact-version solves,
 assistance, publication races, query budgets and idempotent totals. Existing B6
 rehearsal covers representative grants through API factories. Those suites are
 cited, not rerun. The new script stays outside the legacy PG18.6 CI test glob and
-is explicitly run on18.7 as documented in the activation runbook.
+is explicitly run on 18.7 as documented in the activation runbook.
