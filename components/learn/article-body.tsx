@@ -189,7 +189,7 @@ export function ArticleBody({
                   tabIndex={0}
                   role="group"
                   aria-label="Equation"
-                  className="overflow-x-auto rounded-sm py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                  className="overflow-x-auto rounded-sm py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
                   dangerouslySetInnerHTML={{ __html: renderMath(block.tex) }}
                 />
                 {block.caption ? (

@@ -11,7 +11,7 @@ test("every Learn equation retains server MathML in a named keyboard-scrollable 
     const count = article.body.filter(b => b.type === "math").length;
     assert.equal((html.match(/tabindex="0" role="group" aria-label="Equation"/g) ?? []).length, count);
     assert.equal((html.match(/<math /g) ?? []).length, count);
-    if (count) assert.match(html, /focus-visible:outline-offset-2/);
+    if (count) assert.match(html, /focus-visible:outline-foreground/);
     assert.doesNotMatch(html, /role="region" aria-label="Equation"|katex-error/);
   }
 });

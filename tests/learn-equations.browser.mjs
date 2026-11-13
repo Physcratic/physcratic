@@ -10,6 +10,7 @@ const origin=process.env.BROWSER_TEST_ORIGIN??'http://127.0.0.1:3138';
 assert.ok(['127.0.0.1','localhost'].includes(new URL(origin).hostname));
 const out=process.env.LEARN_EQUATION_EVIDENCE??'/tmp/learn-equation-evidence';mkdirSync(out,{recursive:true});
 const results=[];let unavailable=[];
+const luminance=s=>{const c=s.match(/[\d.]+/g).slice(0,3).map(Number).map(x=>{x/=255;return x<=0.04045?x/12.92:((x+0.055)/1.055)**2.4;});return .2126*c[0]+.7152*c[1]+.0722*c[2];};
 for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
  let browser;
  try{browser=await engine.launch({headless:true,...(name==='chromium'&&process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{})});}
@@ -35,6 +36,8 @@ for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
     assert.ok(await group.evaluate(e=>e===document.activeElement));
     const outline=await group.evaluate(e=>({width:getComputedStyle(e).outlineWidth,style:getComputedStyle(e).outlineStyle}));
     assert.notEqual(outline.width,'0px');assert.notEqual(outline.style,'none');
+    const colors=await group.evaluate(e=>[getComputedStyle(e).outlineColor,getComputedStyle(document.body).backgroundColor]);
+    const levels=colors.map(luminance).sort((a,b)=>b-a);assert.ok((levels[0]+.05)/(levels[1]+.05)>=3,'Focus outline contrast is at least3:1');
     if(await group.evaluate(e=>e.scrollWidth>e.clientWidth+1)){
      await group.evaluate(e=>e.scrollLeft=0);await page.keyboard.press('ArrowRight');await page.waitForTimeout(250);
      assert.ok(await group.evaluate(e=>e.scrollLeft>0),'ArrowRight scrolls the equation');
