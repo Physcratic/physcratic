@@ -1,5 +1,9 @@
 # Beta readiness log
 
+## Post-B6 Batch A activation engineering (14 November 2026)
+
+[Owner release package](POST_B6_ACTIVATION.md) and [runtime permission proposal](B6_RUNTIME_PERMISSIONS.md) replace the temporary first-batch notes. Real LOGIN/actual-route rehearsal found and fixes stale-account favourites/statistics retargeting with a rejection-only account header. Focused PG18.7 checks pass 3/3 and the no-DB guard regression passes 1/1. Narrow delta SQL and metadata inspection are proposals only. No live target/role/grants/deployment/flags changed, no migration bytes changed, no broad CI repeated. Actual deployed identity, role separation, owner approvals and GitHub API/CI evidence remain external gates. Profiles/practice follow separately.
+
 ## Mechanics publication reconciliation (14 November 2026)
 
 PR #158 incorporates fresh main `fa8d4931dacc3aa9d4a1b1411197b349a2246dd9`, including merged equation keyboard accessibility fix #162. Only the approved Mechanics publication flag and directly related tests/docs differ from main. All approved content/assets and `reviewedBy: null` remain unchanged. Seven published guides and139 sitemap URLs derive from the current registry. Exact-head QA, independent review and release/deployment evidence belong to #158. No B6 SQL, provider configuration, manual deployment or P5B.

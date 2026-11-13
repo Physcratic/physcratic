@@ -5,7 +5,8 @@ import {readFile} from 'node:fs/promises';
 import {Pool} from 'pg';
 import {createProblemStatsApi} from './community/problem-stats-api';
 import {createProblemStatsRoute,communityProblemStatsEnabled} from './community/problem-stats-route';
-import {achievementFixtures,achievementMigrations,achievementRequest as req,achievementParsed as parsed} from '../tests/community-achievement-fixtures';
+import {achievementFixtures,achievementMigrations,achievementRequest as rawRequest,achievementParsed as parsed} from '../tests/community-achievement-fixtures';
+const req=(...args:Parameters<typeof rawRequest>)=>{const r=rawRequest(...args);if(args[0])r.headers.set('X-Community-Account',args[0]);return r;};
 const staticKey='arena:arena-mind-the-gap';
 test('default-off statistics gate cannot import missing schema/session bindings',async()=>{
  assert.equal(communityProblemStatsEnabled({}),false);let loaded=false;const route=createProblemStatsRoute(()=>false,async()=>{loaded=true;throw Error();});assert.equal((await route(new Request('https://test'))).status,503);assert.equal(loaded,false);
@@ -65,4 +66,18 @@ test('0012 favourites, exact solve eligibility, isolation and concurrency on dis
  await assert.rejects(pool.query('BEGIN;'+down+'COMMIT;'));await pool.query('ROLLBACK');
  await pool.query('DELETE FROM community_favourite_limit WHERE user_id=$1',[student]);for(let i=0;i<60;i++)assert.equal((await write(student,staticKey)).status,200);assert.equal((await write(student,staticKey)).status,429);
  }finally{await runtime?.end();await pool.end();await admin.query(`DROP SCHEMA ${schema} CASCADE;DROP ROLE ${role}`);await admin.end();}
+});
+
+test('stale displayed account rejects stats reads and writes before database access',async()=>{
+ let calls=0;
+ const pool={query:async()=>{calls++;throw Error('must not charge quota');},connect:async()=>{calls++;throw Error('must not read stats');}};
+ for(const user of [{id:'B',emailVerified:true},null]){
+  const api=createProblemStatsApi({pool:pool as unknown as Pool,user:async()=>user,origin:()=>true});
+  for(const method of ['GET','PUT']){
+   const response=await api(new Request('https://test/api/community/problem-stats',{method,headers:{'X-Community-Account':'A'}}));
+   assert.equal(response.status,409);assert.equal(response.headers.get('Vary'),'Cookie, X-Community-Account');
+   assert.ok(!JSON.stringify(await response.json()).includes('B'));
+  }
+ }
+ assert.equal(calls,0);
 });
