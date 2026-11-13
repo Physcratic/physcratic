@@ -9,9 +9,15 @@ migration SQL are unchanged. Do not use the frozen six-migration executor here.
 
 Owner-supplied inspected baseline: Neon `divine-mode-82940461`, branch
 `br-quiet-dawn-b7m2zrt3`, direct endpoint `ep-snowy-heart-b7c1220y`, database
-`neondb`, existing operator/application role `neondb_owner`, PG18.6, ledger
+`neondb`, existing operator/application role `neondb_owner`, PG18.7, ledger
 `public.physcratic_production_migrations`. Source main was fetched on 12 November
 2026. Target identity comes from the owner, not a name-based inference.
+
+The owner reports independent read-only verification of PostgreSQL 18.7
+(`server_version_num = 180007`). B6 requires this exact version; the historical
+six-migration operator remains unchanged. Old approval files targeting 180006
+are invalid. Use the updated template and obtain separate approval of the final
+approval-file SHA-256. See [Windows compatibility instructions](WINDOWS_RUNBOOK.md).
 
 Installed IDs are exactly 0001-0006 and 0016. Their canonical SHA-256 values are
 in `migrations.json`. The owner's inspection reports verified entries, but did
@@ -148,7 +154,7 @@ Do not switch all connections or revoke the owner in the same unqualified step.
 
 ## Rehearsal and release decision
 
-`lib/production-upgrade.pg.test.ts` runs only when the existing disposable
+`lib/production-upgrade.pg.test.ts` runs on PostgreSQL 18.7 only when the existing disposable
 `AUTHORING_TEST_DATABASE_URL` identifies loopback `physcratic_authoring_test`,
 without query/host overrides. It refuses an existing neondb/owner, creates its own
 synthetic database and removes only its owned resources. Existing fixture schema
@@ -156,7 +162,8 @@ and canonical 0001-0006 plus0016 construct the noncontiguous baseline. It exerci
 checksum/catalog/unledgered drift, competing common locks, actual mid-DDL failure
 and atomic ledger rollback, original data preservation, successful eleven-file
 upgrade, independent postcommit read, replay refusal, and the separate grants.
-It never accepts the Production target. CI's existing database glob runs it.
+It never accepts the Production target. CI runs this B6 test separately on 18.7;
+the historical database suite remains on 18.6.
 
 GO for a code-only tooling merge after executed exact-head CI and this rehearsal
 pass. NO-GO for executing a Production window until baseline hash reconciliation,

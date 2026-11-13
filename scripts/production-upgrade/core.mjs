@@ -7,7 +7,7 @@ export function target(raw){const u=new URL(raw);for(const k of u.searchParams.k
 export const root = new URL('../../', import.meta.url);
 export const installedNumbers = [1,2,3,4,5,6,16];
 export const missingNumbers = [7,8,9,10,11,12,13,14,15,17,18];
-export const binding = Object.freeze({project:'divine-mode-82940461',branch:'br-quiet-dawn-b7m2zrt3',endpoint:'ep-snowy-heart-b7c1220y',database:'neondb',role:'neondb_owner',version:180006});
+export const binding = Object.freeze({project:'divine-mode-82940461',branch:'br-quiet-dawn-b7m2zrt3',endpoint:'ep-snowy-heart-b7c1220y',database:'neondb',role:'neondb_owner',version:180007});
 export const ident = x => '"'+x.replaceAll('"','""')+'"';
 export async function materials(expected) {
  const lines = await readFile(new URL('PACKAGE_SHA256SUMS',import.meta.url),'utf8');
