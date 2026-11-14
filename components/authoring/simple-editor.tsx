@@ -110,11 +110,17 @@ export function SimpleEditor(props: SimpleProps) {
   function publish() {
     setAttempted(true);
     if (blocked) {
-      const first = issues[0]?.field ?? "";
-      const [kind, id] = first.split(":");
-      const target = kind === "question" ? `q:${id}` : kind === "answer" ? `a:${id}` : kind === "units" ? `u:${id}` : kind === "picture" ? `p:${id}` : kind === "solution" ? `s:${id}` : kind;
+      // Every missing item shows its message at once. Focus goes to the one highest on the page.
+      const targets = issues.map((issue) => {
+        const [kind, id] = issue.field.split(":");
+        return kind === "question" ? `q:${id}` : kind === "answer" ? `a:${id}` : kind === "units" ? `u:${id}` : kind === "picture" ? `p:${id}` : kind === "solution" ? `s:${id}` : kind;
+      });
       requestAnimationFrame(() => {
-        const host = document.querySelector<HTMLElement>(`[data-simple-field="${CSS.escape(target)}"]`);
+        const hosts = targets
+          .map((target) => document.querySelector<HTMLElement>(`[data-simple-field="${CSS.escape(target)}"]`))
+          .filter((host): host is HTMLElement => Boolean(host))
+          .sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));
+        const host = hosts[0];
         const control = host?.matches("input,textarea") ? host : host?.querySelector<HTMLElement>("input,textarea,[contenteditable=true],math-field");
         (control ?? host)?.focus();
         (control ?? host)?.scrollIntoView({ block: "center" });
@@ -180,7 +186,7 @@ export function SimpleEditor(props: SimpleProps) {
 
       <SourceField draft={draft} edit={edit} touch={touch} issue={shown("source")?.message} />
 
-      <DifficultyRatingField stored={draft.content.estimatedDifficulty} save={(text) => { let saved = false; edit((d) => void (saved = setDifficulty(d, text))); return saved; }} tour />
+      <DifficultyRatingField stored={draft.content.estimatedDifficulty} save={(text) => { let saved = false; edit((d) => void (saved = setDifficulty(d, text))); return saved; }} tour attempted={attempted} />
 
       <TopicRow values={draft.content.topicTags} change={(v) => edit((d) => void (d.content.topicTags = v))} />
 
@@ -217,7 +223,7 @@ export function SimpleEditor(props: SimpleProps) {
           size="lg"
           data-tour="studio-publish"
           className="min-h-12 w-full text-base sm:w-auto sm:px-10"
-          disabled={locked || (provisional && !blocked) || issues.some((i) => i.field === "difficulty")}
+          disabled={locked || (provisional && !blocked)}
           onClick={publish}
         >
           {publishing ? "Working…" : provisional && !blocked ? "Saving your first draft…" : draft.state === "published" ? "Publish new version" : "Publish"}

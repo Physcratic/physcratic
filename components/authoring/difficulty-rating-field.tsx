@@ -12,7 +12,7 @@ export const difficultyMessage = `Add a difficulty rating from 0 to ${maxRating.
  * it falls in shown beside it. The band buttons only fill in a number. `stored` is the saved rating text (or null) and
  * `save` stores what was typed, returning false when it is not a rating.
  */
-export function DifficultyRatingField({ stored, save, tour }: { stored: string | null | undefined; save: (text: string) => boolean; tour?: boolean }) {
+export function DifficultyRatingField({ stored, save, tour, attempted }: { stored: string | null | undefined; save: (text: string) => boolean; tour?: boolean; attempted?: boolean }) {
   const id = useId();
   const rating = parseRating(stored ?? "");
   const [text, setText] = useState(rating === null ? "" : String(rating));
@@ -24,7 +24,7 @@ export function DifficultyRatingField({ stored, save, tour }: { stored: string |
   const typed = parseRating(text);
   const band = typed === null ? null : ratingBand(typed);
   const invalid = typed === null;
-  const showError = invalid && (touched || text.trim() !== "");
+  const showError = invalid && (attempted || touched || text.trim() !== "");
   function type(value: string) {
     setText(value);
     setTouched(true);
@@ -44,6 +44,7 @@ export function DifficultyRatingField({ stored, save, tour }: { stored: string |
           maxLength={6}
           placeholder="2100"
           required
+          data-simple-field="difficulty"
           value={text}
           aria-invalid={showError ? true : undefined}
           aria-describedby={`${id}-rating-help`}
