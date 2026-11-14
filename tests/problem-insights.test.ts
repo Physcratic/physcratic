@@ -39,11 +39,9 @@ test("editorial render has native closed spoiler disclosure and server-rendered 
 
 test("the publication gate renders only the matching approved insight", () => {
   for (const insight of problemInsights) {
-    {
-      assert.equal(insight.published, true);
-      const html = renderToStaticMarkup(React.createElement(PublishedProblemInsight, { problemId: insight.problemId }));
-      assert.ok(html.includes(insight.title));
-      for (const other of problemInsights.filter(i => i !== insight)) assert.ok(!html.includes(other.title));
-    }
+    assert.equal(insight.published, true);
+    const html = renderToStaticMarkup(React.createElement(PublishedProblemInsight, { problemId: insight.problemId }));
+    assert.ok(html.includes(insight.title));
+    for (const other of problemInsights.filter(i => i !== insight)) assert.ok(!html.includes(other.title));
   }
 });

@@ -12,7 +12,7 @@ Before editing flags, both target pages were fetched from the existing isolated 
 | Canonical | `https://physcratic.com/dashboard/problems/ipho-2009-t1` and `/ipho-2010-t1` | Unchanged |
 | Metadata/indexing directives | Existing descriptions/OG text, no noindex/nofollow meta or header | Unchanged |
 | Crawl access | Production robots has no restriction on either reader | Unchanged for Googlebot and generic crawler |
-| Sitemap |139 URLs, both readers already included | Same registry/policy/count |
+| Sitemap |139 URLs at initial base7fee152, both readers already included | Same current registry and policy, no URL added by publication |
 | Internal links |2009 linked by Mechanics Learn guide and topic,2010 by Electromagnetism topic | Existing links retained; supplements link back to relevant learning |
 | Source availability | All four statement/solution PDFs200, byte-identical to audited local source hashes | Same PDFs and hashes |
 | Supplement | Absent from public HTML/RSC | Exactly one matching section per target, meaningful server HTML/MathML |
@@ -20,6 +20,8 @@ Before editing flags, both target pages were fetched from the existing isolated 
 | Reviewer | Both null | Both null, no expert-review claim |
 
 Technical index eligibility is not actual Google indexation. The new educational prose uses the existing reader URLs, not new pages or a new sitemap category. Closed native details remain accessible to users without JavaScript. Source/physics provenance and previous independent critique are in SEO_P5B_INSIGHTS.md. Further independent review must verify this flag-only application diff, not invent a new human reviewer attribution.
+
+Concurrent integration: main advanced to1e8790a with the separate nine-problem archive import (#166). It was merged normally without conflicts. Its registry determines the current sitemap count, independent of this two-flag publication. Initial baseline139 remains the measured historical baseline. Final production-mode QA and exact-head CI must include that upstream import.
 
 ## Search and engagement evidence
 
