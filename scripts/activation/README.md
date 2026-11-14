@@ -44,5 +44,16 @@ requires PostgreSQL 18.7, creates its own uniquely named database and identities
 and cleans only those resources. It uses synthetic passwords/accounts and actual
 route exports, including real Better Auth sessions and LOGIN binding. Run its
 documented command only with disposable local PostgreSQL and real service secrets
-removed. It is outside the legacy 18.6 CI database glob intentionally. Broad CI
-remains the full-suite authority; this package does not change CI workflows.
+removed. It stays outside the legacy 18.6 CI database glob and now runs in its
+own process/step after the existing operator tests in CI's PostgreSQL18.7 job.
+That step also verifies this activation manifest. The existing community browser
+job retains statistics coverage and reuses its tooling and isolated PostgreSQL
+service for the profile suite's focused `COMMUNITY_PROFILE_ACCOUNT_GUARD_ONLY=1`
+mode. No second harness or broad local QA sweep is required.
+
+The new CI browser step sets `COMMUNITY_PROFILE_ACCOUNT_GUARD_ONLY=1` and runs
+`node --require ./tests/server-only-register.cjs --import tsx tests/community-profile.browser.mjs`.
+It reuses the suite's existing Settings/setup harness once and skips unrelated
+media/theme/axe sweeps. The default full profile suite remains available. With
+`CHROMIUM_PATH` unset/empty it selects CI's installed Playwright browser; local
+runs may explicitly select an installed Chromium via `CHROMIUM_PATH`.

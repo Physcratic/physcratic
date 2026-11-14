@@ -14,7 +14,8 @@ exists. Authorization must acknowledge that the setting is deployment-wide.
 
 ## Release evidence to complete before any mutation
 
-The reviewed source base is `31941d0ea1feca6bac93834d1b8fa75ce051ca5c`.
+The initial source base was `31941d0ea1feca6bac93834d1b8fa75ce051ca5c`.
+The reviewed integration base is main `1189ab02878bf607cdf653d3ebdf33b250d1911e`.
 The new code must be reviewed/merged through the owner process before selecting
 its final deployable SHA. The **currently deployed SHA and runtime role are
 unknown**, not inferred from main or the successful migration. Complete this
@@ -182,3 +183,6 @@ Use Node22 and existing frozen pnpm10 dependencies. Strip real service credentia
 from the rehearsal shell first. The runner supplies only its disposable loopback
 URL. Do not set AUTHORING_TEST_DATABASE_URL to a shared/Production target.
 No comprehensive unit, browser, database, lint or build sweep is requested here.
+CI now runs the LOGIN rehearsal in a separate step of its existing PG18.7 job
+and the profile account-header browser case in the existing community browser
+job. Statistics browser coverage is retained. This does not authorize deployment.

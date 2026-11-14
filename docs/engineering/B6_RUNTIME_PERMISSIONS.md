@@ -1,6 +1,7 @@
 # Post-B6 runtime permissions and transition proposal
 
-14 November 2026. Source base main `31941d0ea1feca6bac93834d1b8fa75ce051ca5c`.
+14 November 2026. Initial source base `31941d0ea1feca6bac93834d1b8fa75ce051ca5c`.
+Final integration is rebased onto main `1189ab02878bf607cdf653d3ebdf33b250d1911e`.
 Preparation only. No Production SQL, role, grant, ownership or credential action.
 The owner reports all 18 B6 migrations verified on PG18.7, flags OFF, Production
 firewall Log. Integration may remain Deny. Inspect that state before using it.
@@ -115,5 +116,8 @@ Blob OIDC, mail delivery, every legacy path or Production volume.
 Existing `community-problem-stats.test.ts` already covers exact-version solves,
 assistance, publication races, query budgets and idempotent totals. Existing B6
 rehearsal covers representative grants through API factories. Those suites are
-cited, not rerun. The new script stays outside the legacy PG18.6 CI test glob and
-is explicitly run on 18.7 as documented in the activation runbook.
+cited, not rerun. The script stays outside the legacy PG18.6 CI test glob and now
+runs in a separate process/step in the existing PG18.7 CI job. Its uniquely named
+database/roles and local-only URL checks preserve isolation from the preceding
+operator rehearsal. The community browser job separately runs the existing
+profile harness in its account-header mode and preserves statistics coverage.

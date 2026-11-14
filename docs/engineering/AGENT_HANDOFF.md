@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Post-B6 final integration (14 November 2026)
+
+Rebased `codex/b6-activation-engineering` through PR #162 and onto latest PR #158 main `1189ab02878bf607cdf653d3ebdf33b250d1911e`, preserving both account guards, Learn accessibility and Mechanics publication evidence below. The LOGIN rehearsal now has a separate process/step in existing PG18.7 CI, with activation-manifest verification. Existing statistics browser coverage is unchanged; the shared community browser job adds the existing profile harness's focused account-header mode. Focused local results: PG18.7 5/5 and profile browser 21 assertions pass. No broad verification repeated. The [review package](POST_B6_RELEASE_REVIEW.md) records remaining exact-head CI/API and owner-merge gates. No Production, migration, credential, grant, flag or deployment action.
+
 ## Post-B6 Batch B profile and practice readiness (14 November 2026)
 
 [Profile/practice package](POST_B6_PROFILES_PRACTICE.md) and [release review](POST_B6_RELEASE_REVIEW.md) complete the second bounded batch, stacked on Batch A commit `792425deaa61c65f309706d7273ee9f26a77959b`. A real cookie switch reproduced first-profile publication for the wrong displayed account. Own GET/PATCH now rejects the mismatch before reads/quota/writes, with focused Settings/setup transport and error handling. Combined LOGIN PG18.7 rehearsal passes 5/5, including actual consent/collection/reader withdrawal and signup failure rollback without user DELETE. Three focused guard/client regressions pass. Practice code/erasure exists, but the OFF deletion routes provide no qualified erasure delivery channel; policy/provider/backup and owner process remain explicit gates. No live mutation, migration edit, activation, merge, deploy or broad CI sweep. Independent code/owner approval and actual served-role/flags evidence remain required.

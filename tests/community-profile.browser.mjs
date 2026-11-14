@@ -25,7 +25,8 @@ const pool = new Pool({ connectionString: target.href, options: `-c search_path=
 await mkdir(join(process.cwd(), "work"), { recursive: true });
 const temp = await mkdtemp(join(process.cwd(), "work/community-browser-"));
 let server, browser, origin, failPut = false, failProfiles = false;
-const flags = { profiles: true, media: true }, objects = new Map(), requests = [], bodies = [];
+const accountGuardOnly = process.env.COMMUNITY_PROFILE_ACCOUNT_GUARD_ONLY === "1";
+const flags = { profiles: true, media: !accountGuardOnly }, objects = new Map(), requests = [], bodies = [];
 const storage = {
   async put(path, bytes) { if (failPut) throw new Error("PRIVATE_STORAGE_SENTINEL"); objects.set(path, bytes); },
   async get(path) { const bytes = objects.get(path); return bytes ? new ReadableStream({ start(controller) { controller.enqueue(bytes); controller.close(); } }) : null; },
@@ -40,8 +41,8 @@ const profileApi = createCommunityProfileApi(deps), mediaApi = createProfileMedi
 const profiles = createCommunityProfileRoute(() => flags.profiles, async () => ({ communityProfileApi: profileApi }));
 const images = createProfileMediaRoute(() => flags.profiles && flags.media, async () => ({ profileMediaApi: mediaApi }));
 const resetLimits = () => pool.query("TRUNCATE community_profile_write_limit,community_profile_media_limit");
-const png = await sharp({ create: { width: 320, height: 160, channels: 3, background: "#628b9a" } }).png().toBuffer();
-const replacement = await sharp({ create: { width: 320, height: 160, channels: 3, background: "#9a7162" } }).jpeg().toBuffer();
+const png = accountGuardOnly ? null : await sharp({ create: { width: 320, height: 160, channels: 3, background: "#628b9a" } }).png().toBuffer();
+const replacement = accountGuardOnly ? null : await sharp({ create: { width: 320, height: 160, channels: 3, background: "#9a7162" } }).jpeg().toBuffer();
 let assertions = 0;
 const check = (actual, expected, note) => { assert.deepEqual(actual, expected, note); assertions++; };
 try {
@@ -74,7 +75,8 @@ try {
         res.setHeader("Content-Type","application/json"); res.end(JSON.stringify(session)); return;
       }
       if (url.pathname.startsWith("/api/community/")) {
-        requests.push({ path:url.pathname, method:req.method, sessionId });
+        const recorded = { path:url.pathname, method:req.method, sessionId, accountId:req.headers["x-community-account"] };
+        requests.push(recorded);
         const chunks = []; for await (const chunk of req) chunks.push(chunk);
         const headers = new Headers(Object.entries(req.headers).flatMap(([key,value]) => typeof value === "string" ? [[key,value]] : []));
         headers.set("x-test-session",sessionId);
@@ -86,6 +88,7 @@ try {
         else if (url.pathname.startsWith("/api/community/profile-media/image/")) response = await images("image",request,url.pathname.split("/").at(-1));
         else if (url.pathname === "/api/community/profile-media/cleanup") response = await images("cleanup",request);
         else response = await images(req.method === "PUT" ? "upload" : "remove",request,url.pathname.split("/").at(-1));
+        recorded.status = response.status;
         const body = new Uint8Array(await response.arrayBuffer());
         if (response.headers.get("content-type")?.includes("json")) bodies.push(Buffer.from(body).toString());
         res.writeHead(response.status,Object.fromEntries(response.headers));res.end(body);return;
@@ -95,12 +98,62 @@ try {
     } catch(e) { console.error(e);res.writeHead(500);res.end("Harness failure"); }
   });
   await new Promise(resolve => server.listen(0,"127.0.0.1",resolve)); origin = `http://127.0.0.1:${server.address().port}`;
-  browser = await chromium.launch({ executablePath:process.env.CHROMIUM_PATH || "/usr/bin/chromium", headless:true });
+  browser = await chromium.launch({ ...(process.env.CHROMIUM_PATH ? { executablePath:process.env.CHROMIUM_PATH } : {}), headless:true });
   const context = await browser.newContext({ viewport:{width:1440,height:1000}, reducedMotion:"reduce" });
   await context.addCookies([{ name:"test_user",value:"owner",url:origin }]);
   const page = await context.newPage(), errors = [];
   page.setDefaultTimeout(15000);page.on("pageerror",error => errors.push(error.message));page.on("dialog",dialog=>dialog.accept());
   const waitText = text => page.getByText(text,{exact:true}).waitFor();
+  if (accountGuardOnly) {
+    // Reuse the existing real Settings/setup UI and API server. No media,
+    // viewport, axe or theme sweep is repeated in this focused CI mode.
+    const ownResponse = method => page.waitForResponse(r => new URL(r.url()).pathname === "/api/community/profile" && r.request().method() === method);
+    await page.goto(`${origin}/dashboard`);
+    await page.getByRole("heading",{name:"Set up your community profile"}).waitFor();
+    check(requests.some(r=>r.path==="/api/community/profile"&&r.method==="GET"&&r.accountId==="owner"&&r.status===200),true,"setup sends displayed-account header");
+    await page.goto(`${origin}/settings?onboarding=1`);
+    await page.getByLabel("Permanent username").waitFor();
+    check(requests.filter(r=>r.path==="/api/community/profile"&&r.method==="GET").every(r=>r.accountId==="owner"),true,"own editor GETs carry the account header");
+    check(await page.getByLabel("Make my profile public").isChecked(),false,"new profile stays private");
+    await page.getByLabel("Permanent username").fill("guard_owner");
+    await page.getByLabel("Display name",{exact:true}).fill("Owner draft");
+    // Change only the cookie, leaving the visible session/form as owner.
+    await context.addCookies([{name:"test_user",value:"other",url:origin}]);
+    const rejected = ownResponse("PATCH");
+    await page.getByRole("button",{name:"Create profile",exact:true}).click();
+    const stale = await rejected;
+    check(stale.request().headers()["x-community-account"],"owner","PATCH binds the displayed account");
+    check(stale.status(),409,"stale-cookie PATCH is rejected");
+    check((await stale.json()).code,"ACCOUNT_CHANGED");
+    await page.getByRole("alert").filter({hasText:"Your account changed. Reload the page before continuing."}).waitFor();
+    check((await pool.query("SELECT count(*)::int n FROM community_profile WHERE user_id='other'")).rows[0].n,0,"no profile published for the new cookie account");
+    check((await pool.query("SELECT count(*)::int n FROM community_profile_write_limit WHERE user_id='other'")).rows[0].n,0,"rejected write consumes no other-account quota");
+    check((await context.request.get(`${origin}/api/community/profile`,{headers:{"X-Community-Account":"owner"}})).status(),409,"stale own GET rejected");
+    check((await context.request.get(`${origin}/api/community/profile`)).status(),409,"old authenticated client fails closed without the header");
+    await context.addCookies([{name:"test_user",value:"owner",url:origin}]);
+    await page.reload();await page.getByLabel("Permanent username").waitFor();
+    await page.getByLabel("Permanent username").fill("guard_owner");
+    await page.getByLabel("Display name",{exact:true}).fill("Owner profile");
+    const accepted = ownResponse("PATCH");
+    await page.getByRole("button",{name:"Create profile",exact:true}).click();
+    check((await accepted).status(),201,"matching displayed account saves");
+    await waitText("Profile saved.");
+    check((await pool.query("SELECT public_visibility FROM community_profile WHERE user_id='owner'")).rows[0].public_visibility,false);
+    const guest = await browser.newContext();
+    try {
+      check((await guest.request.get(`${origin}/api/community/profile/guard_owner`)).status(),404);
+      await page.getByLabel("Make my profile public").check();
+      const published = ownResponse("PATCH");
+      await page.getByRole("button",{name:"Save changes",exact:true}).click();
+      check((await published).status(),200,"explicit visibility change is committed");
+      await waitText("Profile saved.");
+      const publicProfile = await guest.request.get(`${origin}/api/community/profile/guard_owner`);
+      check(publicProfile.status(),200,"public projection needs no private account header");
+      check(Object.keys((await publicProfile.json()).profile).sort(),["bio","displayName","educationLevel","favoriteTopicIds","handle"].sort());
+    } finally { await guest.close(); }
+    check(errors,[],"no unhandled browser errors");
+    console.log(`Community profile account-header browser: ${assertions} assertions passed.`);
+  } else {
   await page.goto(`${origin}/dashboard`);await page.getByRole("heading",{name:"Set up your community profile"}).waitFor();
   await page.getByRole("button",{name:"Skip for now",exact:true}).click();await page.reload();
   check(await page.getByRole("heading",{name:"Set up your community profile"}).count(),0,"dismissal survives reload");
@@ -185,6 +238,7 @@ try {
   check(errors,[],"no unhandled browser errors");
   console.log(`Community profile browser: ${assertions} assertions passed, including PostgreSQL-backed save/reload, privacy/media lifecycle, onboarding, keyboard, light/dark, 375px and axe.`);
   console.log(`Screenshots: ${temp}`);
+  }
 } finally {
   await browser?.close();await new Promise(resolve=>server ? server.close(resolve) : resolve());
   await pool.end();await admin.query(`DROP SCHEMA IF EXISTS ${schema} CASCADE`);await admin.end();

@@ -28,7 +28,7 @@ or passing local test authorizes live SQL, grants, credentials or activation.
    must be separately approved/qualified before enabling new features.
 2. **Code release:** both reproduced account-binding fixes need independent
    review, normal merge/deployment authorization and existing exact-head CI.
-   This task neither merges nor deploys. GitHub API access is unavailable here.
+    This task neither merges nor deploys. GitHub API access is unavailable here.
 3. **Batch A:** owner must approve its precise flag delta, global exposure,
    synthetic-write scope, privacy/support/recovery facts, observation budgets and
    tested rollback ownership. Integration's possible Deny is a separate decision.
@@ -46,7 +46,8 @@ Batch A commit contains stats account isolation, narrow permissions proposal,
 metadata SQL and operator runbook. Batch B contains profile account isolation,
 the profile grant proposal and next-stage/practice decision. No historical
 migration, frozen B6 operator package, auth implementation, grader, schema file,
-dependency manifest or feature-selection rule was rewritten.
+dependency manifest or feature-selection rule was rewritten. Final integration
+adds only focused steps to the existing PG18.7 and community-browser CI jobs.
 
 GO for owner/code review of these prepared packages. NO-GO for all live
 activations until their stated evidence and separate approvals close. Saved
@@ -65,3 +66,29 @@ batch, speculative feature or broad CI replacement is proposed.
   Exact-head GitHub CI and independent review remain external release evidence.
 - Canonical SQL and frozen B6 package integrity are compared with base main
   before delivery. No live environment has been probed or changed.
+
+## Final integration through PR #162 and PR #158
+
+The owner's independent review approved the architecture and requested CI/main
+integration before merge. Both runtime security fixes are byte-identical to the
+reviewed candidate `18fb851`. Rebase onto `1189ab02878bf607cdf653d3ebdf33b250d1911e` preserves main's Learn accessibility
+and Mechanics publication changes and their entries in all three shared
+engineering documents.
+
+- Existing PG18.7 CI now verifies the activation manifest and runs the LOGIN
+  rehearsal as a separate process/step after the operator tests. Local result:
+  5/5 pass. No database or environment state is shared through a Node process.
+- Existing community browser CI keeps every statistics regression and adds the
+  profile suite's `COMMUNITY_PROFILE_ACCOUNT_GUARD_ONLY=1` mode using the same
+  browser tooling and disposable PostgreSQL service. Local result: 21 assertions
+  pass for setup/editor headers, stale-cookie read/write rejection before quota,
+  correct-account save, private default and public projection without a private
+  account header. This mode skips the full media/theme/axe/viewport sweep.
+- New browser code passes focused ESLint/syntax checks. Workflow YAML and step
+  isolation/coverage are checked. The full exact-head suite remains CI's job.
+- Manifest now also binds both changed workflows and the profile browser script.
+  Its previous digest is superseded. Use only the final handoff's candidate and
+  activation-manifest digest. The frozen B6 package remains unchanged.
+
+GitHub API availability and actual exact-head CI/PR status must be reported at
+handoff. Architectural approval is not a merge, deployment or activation grant.
