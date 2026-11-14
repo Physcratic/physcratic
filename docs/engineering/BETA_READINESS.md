@@ -1257,3 +1257,9 @@ Separate draft stacked on revised P2 #143 (`0d929b3`), main `01757c0` incorporat
 - **Behaviour to know:** in Simple, Publish stays disabled while the rating is missing, so the other missing-field messages appear once a rating is in and Publish is clicked.
 - **Text:** the Studio tour step is "Difficulty rating", and the how-to-write-a-problem guide says a rating is needed.
 - **Tests:** `simple-model.test.ts` (required rule, bad values, labels), `studio-simple.browser.mjs`, `problem-authoring.browser.mjs`, `tours.browser.mjs`, the publish fixtures in the authored API tests, and the product guide test.
+
+## 2026-11-14 - Studio Simple: Publish stays enabled and lists everything missing
+
+- **Change:** in Simple, Publish is no longer disabled while the difficulty rating is missing. Pressing it with anything missing (rating, question, worked solution, final answer, title, source, rights tick) shows every message at once, each next to its field, and moves focus to the one highest on the page. Advanced still disables Publish until the draft passes the check.
+- **Not changed:** what is required, the server check, the saved format.
+- **Tests:** `studio-simple.browser.mjs` checks Publish is enabled, all six messages appear together on an empty draft, focus lands on the question, and with only the rating and rights tick missing focus lands on the rating and nothing publishes. Run on a throwaway PostgreSQL.

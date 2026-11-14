@@ -409,9 +409,13 @@ try {
 
   // Where it's from (I wrote it is the default), an estimated difficulty band, then the rights tick and Publish.
   assert.equal(await page.getByRole("radio", { name: "I wrote it" }).isChecked(), true, "I wrote it is the default");
-  // The difficulty rating is required: Publish stays disabled until a valid number is in the box.
-  assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).isDisabled(), true, "Publish waits for a difficulty rating");
-  await page.getByText("Add a difficulty rating from 0 to 4,000.", { exact: true }).waitFor();
+  // The difficulty rating is required. Publish stays enabled: pressing it lists everything missing at once and moves focus to the first.
+  assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).isDisabled(), false, "Publish stays enabled");
+  await page.getByRole("button", { name: "Publish", exact: true }).click();
+  await page.getByText("Add a difficulty rating from 0 to 4,000.", { exact: true }).waitFor({ timeout: 3000 });
+  await page.getByText("Tick the box to say you wrote this problem.", { exact: true }).waitFor({ timeout: 3000 });
+  assert.equal(await page.evaluate(() => document.activeElement?.getAttribute("data-simple-field")), "difficulty", "focus moves to the first missing item, the rating");
+  assert.equal((await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state !== "published", true, "nothing was published");
   await page.getByRole("radio", { name: /^Advanced/ }).click();
   assert.equal(await page.getByRole("radio", { name: /^Advanced/ }).getAttribute("aria-checked"), "true", "the band is chosen");
   assert.equal(await page.getByLabel("Difficulty rating", { exact: true }).inputValue(), "2100", "the band fills in its middle rating");
@@ -422,7 +426,7 @@ try {
   for (const bad of ["abc", "4001", ""]) {
     await page.getByLabel("Difficulty rating", { exact: true }).fill(bad);
     await page.getByText("Add a difficulty rating from 0 to 4,000.", { exact: true }).waitFor();
-    assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).isDisabled(), true, `Publish is disabled for "${bad}"`);
+    assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).isDisabled(), false, `Publish stays enabled for "${bad}"`);
   }
   await page.getByLabel("Difficulty rating", { exact: true }).fill("2310");
   await click(page.getByLabel(/I wrote this problem and I'm happy to share it on Physcratic/));
@@ -476,8 +480,10 @@ try {
   await f.goto(origin);
   await f.getByRole("button", { name: /Continue your last draft/ }).waitFor();
   assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 1 + spacingDrafts, "no draft is created before the first edit");
-  assert.equal(await f.getByRole("button", { name: "Publish", exact: true }).isDisabled(), true, "Publish is disabled without a difficulty rating");
-  await f.getByText("Add a difficulty rating from 0 to 4,000.", { exact: true }).waitFor({ timeout: 3000 });
+  await f.getByRole("button", { name: "Publish", exact: true }).click();
+  for (const text of ["Write the question first.", "Add the worked solution.", "Add the final answer.", "Give it a title, or write the question and we'll make one.", "Add a difficulty rating from 0 to 4,000.", "Tick the box to say you wrote this problem."])
+    await f.getByText(text, { exact: true }).waitFor({ timeout: 3000 });
+  assert.match(await f.evaluate(() => document.activeElement?.closest("[data-simple-field]")?.getAttribute("data-simple-field") ?? ""), /^q:/, "focus goes to the question, the first missing item");
   assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 1 + spacingDrafts, "still no draft");
   // Fast typing across the first save keeps every character.
   const fq = f.getByRole("region", { name: "Part a", exact: true }).getByRole("textbox", { name: "What's the question?" });
