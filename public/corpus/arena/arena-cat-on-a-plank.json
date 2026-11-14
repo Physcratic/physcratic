@@ -1,0 +1,32 @@
+{
+  "id": "arena-cat-on-a-plank",
+  "title": "Cat on a Plank",
+  "topic": "Mechanics",
+  "tags": [
+    "Torque",
+    "Stability"
+  ],
+  "summary": "Find how far a cat can walk along an overhanging plank before the plank tips off the table.",
+  "statement": "A uniform plank of length $$L$$ and mass $$M$$ lies on a horizontal table, at right angles to the table’s edge. One third of the plank sticks out past the edge. A cat of mass $$m$$ walks slowly from the table out along the plank. Treat the cat as a point mass. The plank does not slide.\n\n![A plank on a table with one third of its length past the edge. A cat stands on the overhanging part, a distance x past the edge.](/corpus/arena/figures/cat-on-a-plank-statement.svg)\n\n## (a)\n\nThe plank starts to tip when the cat is a distance $$x$$ past the table’s edge. Find $$x$$ in terms of $$M$$, $$m$$ and $$L$$.\n\n## (b)\n\nTake $$M=12\\ \\mathrm{kg}$$, $$L=3.0\\ \\mathrm m$$ and $$m=8.0\\ \\mathrm{kg}$$. Find $$x$$.\n\n## (c)\n\nA light enough cat can walk to the very end of the plank and the plank stays put. Find the cat mass for which the plank starts to tip just as the cat reaches the end. Give it in terms of $$M$$.",
+  "solution": "## (a)\n\nWhile the plank rests flat, the table pushes up on it over the whole contact length. As the cat walks out, that push shifts toward the edge. At the moment the plank starts to tip, the plank touches the table only at the edge, so the whole support force acts there.\n\nTake torques about the edge. The support force has no torque about that point. The centre of the plank is on the table side, at a distance\n\n$$\\frac L2-\\frac L3=\\frac L6$$\n\nfrom the edge. The plank’s weight turns the plank one way and the cat’s weight turns it the other way. At the tipping point they balance:\n\n$$Mg\\,\\frac L6=mg\\,x.$$\n\n$$\\boxed{x=\\frac{ML}{6m}.}$$\n\n## (b)\n\n$$x=\\frac{(12\\ \\mathrm{kg})(3.0\\ \\mathrm m)}{6(8.0\\ \\mathrm{kg})}=0.75\\ \\mathrm m.$$\n\nThe overhang is $$L/3=1.0\\ \\mathrm m$$ long, so this point is on the plank and the plank does tip.\n\n$$\\boxed{x=0.75\\ \\mathrm m.}$$\n\n## (c)\n\nThe cat cannot be farther out than the end of the plank, which is at $$x=L/3$$. Put that into the result of part (a):\n\n$$\\frac{ML}{6m}=\\frac L3.$$\n\n$$\\boxed{m=\\frac M2.}$$\n\nA lighter cat would need to stand past the end to tip the plank, so it reaches the end safely. With $$M=12\\ \\mathrm{kg}$$ the limit is $$6\\ \\mathrm{kg}$$, and the $$8.0\\ \\mathrm{kg}$$ cat of part (b) is above it.",
+  "statementFile": "F1_Cat_on_a_Plank_Problem.pdf",
+  "solutionFile": "F1_Cat_on_a_Plank_Solution.pdf",
+  "importedOn": "2026-11-14",
+  "hints": {
+    "a": [
+      "As the cat walks out, the table’s support force on the plank shifts toward the edge. Where does it act at the moment the plank starts to tip?",
+      "Take torques about the table’s edge. The support force acts there, so it has no torque. Only the plank’s weight and the cat’s weight are left.",
+      "The centre of the plank is $$L/2-L/3=L/6$$ from the edge, on the table side. Balance $$Mg\\,(L/6)$$ against $$mg\\,x$$."
+    ],
+    "b": [
+      "Use your result from part (a), $$x=ML/(6m)$$, with the numbers given.",
+      "The two masses appear as a ratio, so the kilograms cancel and $$x$$ comes out in metres.",
+      "Compare your answer with the length of the overhang, $$L/3=1.0\\ \\mathrm m$$. The tipping point has to be on the plank."
+    ],
+    "c": [
+      "The cat cannot stand farther out than the end of the plank. How far past the edge is the end?",
+      "For the limiting cat, the tipping point of part (a) is exactly at the end, so $$x=L/3$$.",
+      "Set $$ML/(6m)=L/3$$ and solve for $$m$$. The length cancels."
+    ]
+  }
+}

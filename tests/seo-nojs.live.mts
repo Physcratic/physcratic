@@ -144,7 +144,7 @@ await pool(pages, 8, async (page) => {
     const solution = (JSON.parse(readFileSync(join(process.cwd(), "public", arenaById.get(page.id)!.path), "utf8")) as { solution: string }).solution;
     const lead = parseArenaDocument(solution).flatMap((s) => s.blocks).find((b) => b.type === "paragraph" && b.text.length > 60 && !b.text.includes("$$"));
     if (lead && lead.type === "paragraph") ok(!text.includes(lead.text.slice(0, 60)), `${tag} solution stays hidden`);
-    for (const [, alt] of source.matchAll(/!\[([^\]]+)\]\(\/corpus\/arena\/figures\/[a-z-]+\.png\)/g)) ok(response.body.includes(`alt="${alt.replace(/'/g, "&#x27;")}"`), `${tag} figure alt "${alt}"`);
+    for (const [, alt] of source.matchAll(/!\[([^\]]+)\]\(\/corpus\/arena\/figures\/[a-z-]+\.(?:png|svg)\)/g)) ok(response.body.includes(`alt="${alt.replace(/'/g, "&#x27;")}"`), `${tag} figure alt "${alt}"`);
     if (source.includes("$$")) ok(/class="katex"/.test(response.body) && /<math/.test(response.body), `${tag} KaTeX HTML and MathML`);
   } else {
     const view = archiveStatementView(page)!;

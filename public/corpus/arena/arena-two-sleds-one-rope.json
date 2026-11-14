@@ -1,0 +1,28 @@
+{
+  "id": "arena-two-sleds-one-rope",
+  "title": "Two Sleds, One Rope",
+  "topic": "Mechanics",
+  "tags": [
+    "Momentum conservation",
+    "Energy conservation",
+    "Newton’s laws"
+  ],
+  "summary": "Two sleds on frictionless ice are pulled together by a rope. Find where they meet and how fast they close.",
+  "statement": "Two sleds rest on frictionless ice, a distance $$L$$ apart. Ayu sits on sled A. Sled A with Ayu has mass $$m_A$$. Sled B carries cargo and has total mass $$m_B$$. A light rope is tied to sled B, and Ayu holds its other end. She pulls the rope in hand over hand, keeping its tension at a constant value $$F$$, until the sleds meet. Treat the sleds as points.\n\n## (a)\n\nHow far has sled A moved when the sleds meet? Give the distance in terms of $$m_A$$, $$m_B$$ and $$L$$.\n\n## (b)\n\nFind the speed at which the sleds approach each other just before they meet. This is the sum of their two speeds. Give it in terms of $$F$$, $$L$$, $$m_A$$ and $$m_B$$.",
+  "solution": "## (a)\n\nThe rope pulls sled A toward B and sled B toward A with the same tension. These two forces are inside the system of both sleds. Nothing outside pushes the system along the ice, and it starts at rest. So its centre of mass never moves, and the sleds meet at the centre of mass.\n\nLet sled A move a distance $$d_A$$ and sled B a distance $$d_B$$. Then\n\n$$m_Ad_A=m_Bd_B,\\qquad d_A+d_B=L.$$\n\n$$\\boxed{d_A=\\frac{m_BL}{m_A+m_B}.}$$\n\nCheck: a very heavy sled B hardly moves, and then $$d_A$$ is close to $$L$$.\n\n## (b)\n\nEach sled feels a constant force $$F$$, so the accelerations are $$F/m_A$$ and $$F/m_B$$, toward each other. The gap closes with acceleration\n\n$$a=\\frac F{m_A}+\\frac F{m_B}=\\frac{F(m_A+m_B)}{m_Am_B}.$$\n\nThe gap starts at $$L$$ with closing speed zero. From $$u^2=2aL$$,\n\n$$\\boxed{u=\\sqrt{\\frac{2FL(m_A+m_B)}{m_Am_B}}.}$$\n\nEnergy check. Ayu pulls in a length $$L$$ of rope against tension $$F$$, so her hands do work $$FL$$. Momentum conservation gives $$m_Av_A=m_Bv_B$$, and $$u=v_A+v_B$$, so\n\n$$v_A=\\frac{m_Bu}{m_A+m_B},\\qquad v_B=\\frac{m_Au}{m_A+m_B}.$$\n\nThe kinetic energy is then\n\n$$\\frac12m_Av_A^2+\\frac12m_Bv_B^2=\\frac12\\,\\frac{m_Am_B}{m_A+m_B}\\,u^2=FL,$$\n\nwhich gives the same $$u$$.",
+  "statementFile": "F1_Two_Sleds_One_Rope_Problem.pdf",
+  "solutionFile": "F1_Two_Sleds_One_Rope_Solution.pdf",
+  "importedOn": "2026-11-14",
+  "hints": {
+    "a": [
+      "Look at both sleds as one system. Is there any horizontal force on it from outside? The rope pulls on both sleds, but it is part of the system.",
+      "No outside force and a start from rest mean the centre of mass stays where it is. So the sleds meet at the centre of mass.",
+      "Write $$m_Ad_A=m_Bd_B$$ and $$d_A+d_B=L$$, then solve for $$d_A$$."
+    ],
+    "b": [
+      "The rope pulls each sled with the same force $$F$$. Each sled has a constant acceleration toward the other, $$F/m_A$$ and $$F/m_B$$.",
+      "The gap between the sleds closes with an acceleration equal to the sum of the two. It starts at $$L$$ with no closing speed.",
+      "Use $$u^2=2aL$$ with $$a=F/m_A+F/m_B$$. You can check with energy: Ayu’s hands do work $$FL$$ in total."
+    ]
+  }
+}

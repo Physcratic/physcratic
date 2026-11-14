@@ -190,6 +190,7 @@ export const physicsMethods = [
   { id: "quasars", label: "Quasars", kind: "method", aliases: [] },
   { id: "radial-thrust", label: "Radial thrust", kind: "method", aliases: [] },
   { id: "radiation-pressure", label: "Radiation pressure", kind: "method", aliases: [] },
+  { id: "radioactive-decay", label: "Radioactive decay", kind: "method", aliases: ["Half-life"] },
   { id: "radiative-equilibrium", label: "Radiative equilibrium", kind: "method", aliases: [] },
   { id: "rainbows", label: "Rainbows", kind: "method", aliases: [] },
   { id: "ray-tracing", label: "Ray tracing", kind: "method", aliases: [] },

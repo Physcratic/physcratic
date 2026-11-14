@@ -15,6 +15,7 @@ import { getEstimatedProblemElo } from "@/lib/problem-archive";
 import { ArenaDocument } from "./arena-document";
 import { AnswerWorkspace } from "./answer-workspace";
 import { ArchiveAnswerPanel } from "./archive-answer-panel";
+import { ArenaHints } from "./arena-hints";
 import arenaIndex from "@/lib/arena/index.json";
 import { SolveSteps, StepNumber, solveTokens } from "./solve-ui";
 
@@ -54,7 +55,7 @@ function ArenaReader({ problem,statement,statsEnabled=false,commentsEnabled=fals
       {(["statement", "solution"] as const).map((kind) => <TabsContent key={kind} value={kind} forceMount={kind === "statement" ? true : undefined} className="min-w-0 data-[state=inactive]:hidden">
         <div className="flex min-w-0 flex-col gap-6"><Card className="min-w-0 shadow-none"><CardHeader><CardTitle><h2>{kind === "statement" ? "Problem statement" : "Worked solution"}</h2></CardTitle><CardDescription>{kind === "statement" ? "Transcribed text and LaTeX, with original diagrams." : "Contains spoilers. Transcribed from the supplied worked solution, including its assumptions and qualifications."}</CardDescription></CardHeader><CardContent className="min-w-0">{kind === "statement" && statement ? statement : data ? <ArenaDocument content={data[kind]} /> : error ? <Alert variant="destructive"><AlertTitle>Could not load the worked solution</AlertTitle><AlertDescription><Button variant="outline" className="min-h-11" onClick={() => mutate()}><RotateCcw data-icon="inline-start" />Retry</Button></AlertDescription></Alert> : <div role="status" className="flex flex-col gap-3"><span className="text-sm text-muted-foreground">Loading typeset problem…</span><Skeleton className="h-96 w-full" /></div>}</CardContent></Card></div>
       </TabsContent>)}
-    </Tabs><AnswerWorkspace><Card className="min-w-0 shadow-none"><CardContent className="pt-6"><ArchiveAnswerPanel key={problem.id} problemId={problem.id} nextHref={nextProblem ? `/dashboard/problems/${nextProblem.id}` : undefined} /></CardContent></Card><nav aria-label="Problem documents" className="flex flex-wrap gap-3"><Button asChild variant="outline" className="min-h-11"><a href="#arena-document" onClick={() => setView("statement")}>Back to statement</a></Button><Button asChild variant="outline" className="min-h-11"><a href="#arena-document" onClick={() => setView("solution")}>View worked solution</a></Button></nav></AnswerWorkspace></div>}
+    </Tabs><AnswerWorkspace><Card className="min-w-0 shadow-none"><CardContent className="pt-6"><ArchiveAnswerPanel key={problem.id} problemId={problem.id} onSeeHint={data?.hints ? () => document.getElementById("arena-hints")?.focus() : undefined} nextHref={nextProblem ? `/dashboard/problems/${nextProblem.id}` : undefined} /></CardContent></Card>{data?.hints && <ArenaHints hints={data.hints} />}<nav aria-label="Problem documents" className="flex flex-wrap gap-3"><Button asChild variant="outline" className="min-h-11"><a href="#arena-document" onClick={() => setView("statement")}>Back to statement</a></Button><Button asChild variant="outline" className="min-h-11"><a href="#arena-document" onClick={() => setView("solution")}>View worked solution</a></Button></nav></AnswerWorkspace></div>}
     {commentsEnabled&&<Discussions moderationEnabled={moderationEnabled} problemKey={`arena:${problem.id}`}/>}
   </section>;
 }

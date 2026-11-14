@@ -1,0 +1,59 @@
+{
+  "problemId": "arena-the-loading-voltmeter",
+  "version": "ce7c65b384c10e16377a0f7666c5dd54f44e90dd9c6eecbfe9ce87a950fe6cd4",
+  "parts": [
+    {
+      "id": "a.reading",
+      "sourcePart": "a",
+      "label": "Voltmeter reading across one resistor",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "V_0",
+        "R",
+        "R_V"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "V_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R_V",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use V_0 for the battery voltage and R_V for the voltmeter’s resistance. All three are positive."
+    },
+    {
+      "id": "b.resistance",
+      "sourcePart": "b",
+      "label": "Voltmeter resistance",
+      "kind": "numeric",
+      "unit": "k\\Omega",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    },
+    {
+      "id": "c.reading",
+      "sourcePart": "c",
+      "label": "Reading on each of the two voltmeters",
+      "kind": "numeric",
+      "unit": "V",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    }
+  ]
+}

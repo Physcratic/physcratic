@@ -23,9 +23,11 @@ export const arenaProblemSchema = z.object({
   statementFile: z.string().endsWith("_Problem.pdf"),
   solutionFile: z.string().endsWith("_Solution.pdf"),
   importedOn: z.string().date(),
+  /** Three hints for each lettered part, from a nudge to the last step before the answer. Keyed by the part letter. */
+  hints: z.record(z.string().regex(/^[a-z]$/), z.array(z.string().min(20)).length(3)).optional(),
 });
 export type ArenaProblem = z.infer<typeof arenaProblemSchema>;
-export type ArenaSeed = Omit<ArenaProblem, "importedOn" | "solutionFile"> & { solutionFile?: string };
+export type ArenaSeed = Omit<ArenaProblem, "importedOn" | "solutionFile"> & { solutionFile?: string; importedOn?: string };
 export type ArenaCatalogEntry = Omit<ArenaProblem, "statement" | "solution"> & { path: string };
 
 export function filterArena(problems: ArenaCatalogEntry[], { query = "", topic = "all", difficulty = "all" }: { query?: string; topic?: string; difficulty?: string }) {

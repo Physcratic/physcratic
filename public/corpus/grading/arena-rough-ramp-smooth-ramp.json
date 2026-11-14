@@ -1,0 +1,61 @@
+{
+  "problemId": "arena-rough-ramp-smooth-ramp",
+  "version": "a33d524baba2d14e66769e76843b35fdd9981e6cd617f040cd3329a85889bd63",
+  "parts": [
+    {
+      "id": "a.speed",
+      "sourcePart": "a",
+      "label": "Speed of the ball’s centre on the floor",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "g",
+        "H"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "H",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Uniform solid ball that rolls without slipping. g and H are positive."
+    },
+    {
+      "id": "b.height",
+      "sourcePart": "b",
+      "label": "Greatest height gained on the frictionless ramp",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "H"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "H",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Height of the centre above its level on the floor. H is positive."
+    },
+    {
+      "id": "c.fraction",
+      "sourcePart": "c",
+      "label": "Rotational share of the starting energy",
+      "kind": "numeric",
+      "unit": "1",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter a number between 0 and 1, as a decimal or a fraction."
+    }
+  ]
+}

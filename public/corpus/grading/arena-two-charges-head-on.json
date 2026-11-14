@@ -1,0 +1,84 @@
+{
+  "problemId": "arena-two-charges-head-on",
+  "version": "ec8c369fb08d4a6aa4339b01a4cd03d018bb576edb6ea123355dd8605947f31c",
+  "parts": [
+    {
+      "id": "a.speed",
+      "sourcePart": "a",
+      "label": "Speed of the beads at closest approach",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "v"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Bead B is free to move. v is positive."
+    },
+    {
+      "id": "b.distance",
+      "sourcePart": "b",
+      "label": "Closest distance between the beads",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "k",
+        "q",
+        "m",
+        "v"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "q",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use k for the Coulomb constant. k, q, m and v are positive."
+    },
+    {
+      "id": "c.speed",
+      "sourcePart": "c",
+      "label": "Final speed of bead B",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "v"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Long after, with the beads far apart again. v is positive."
+    }
+  ]
+}

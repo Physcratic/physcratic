@@ -7,7 +7,7 @@
     "reviewStatus": "Independent physics review pending.",
     "grading": "Unrated self-review; no marks or ELO awarded."
   },
-  "count": 18,
+  "count": 29,
   "problems": [
     {
       "id": "arena-mind-the-gap",
@@ -278,6 +278,350 @@
       "solutionFile": "03_The_Infinite_V_Solution.pdf",
       "importedOn": "2026-10-31",
       "path": "/corpus/arena/arena-the-infinite-v.json"
+    },
+    {
+      "id": "arena-cat-on-a-plank",
+      "title": "Cat on a Plank",
+      "topic": "Mechanics",
+      "tags": [
+        "Torque",
+        "Stability"
+      ],
+      "summary": "Find how far a cat can walk along an overhanging plank before the plank tips off the table.",
+      "statementFile": "F1_Cat_on_a_Plank_Problem.pdf",
+      "solutionFile": "F1_Cat_on_a_Plank_Solution.pdf",
+      "importedOn": "2026-11-14",
+      "hints": {
+        "a": [
+          "As the cat walks out, the table’s support force on the plank shifts toward the edge. Where does it act at the moment the plank starts to tip?",
+          "Take torques about the table’s edge. The support force acts there, so it has no torque. Only the plank’s weight and the cat’s weight are left.",
+          "The centre of the plank is $$L/2-L/3=L/6$$ from the edge, on the table side. Balance $$Mg\\,(L/6)$$ against $$mg\\,x$$."
+        ],
+        "b": [
+          "Use your result from part (a), $$x=ML/(6m)$$, with the numbers given.",
+          "The two masses appear as a ratio, so the kilograms cancel and $$x$$ comes out in metres.",
+          "Compare your answer with the length of the overhang, $$L/3=1.0\\ \\mathrm m$$. The tipping point has to be on the plank."
+        ],
+        "c": [
+          "The cat cannot stand farther out than the end of the plank. How far past the edge is the end?",
+          "For the limiting cat, the tipping point of part (a) is exactly at the end, so $$x=L/3$$.",
+          "Set $$ML/(6m)=L/3$$ and solve for $$m$$. The length cancels."
+        ]
+      },
+      "path": "/corpus/arena/arena-cat-on-a-plank.json"
+    },
+    {
+      "id": "arena-two-sleds-one-rope",
+      "title": "Two Sleds, One Rope",
+      "topic": "Mechanics",
+      "tags": [
+        "Momentum conservation",
+        "Energy conservation",
+        "Newton’s laws"
+      ],
+      "summary": "Two sleds on frictionless ice are pulled together by a rope. Find where they meet and how fast they close.",
+      "statementFile": "F1_Two_Sleds_One_Rope_Problem.pdf",
+      "solutionFile": "F1_Two_Sleds_One_Rope_Solution.pdf",
+      "importedOn": "2026-11-14",
+      "hints": {
+        "a": [
+          "Look at both sleds as one system. Is there any horizontal force on it from outside? The rope pulls on both sleds, but it is part of the system.",
+          "No outside force and a start from rest mean the centre of mass stays where it is. So the sleds meet at the centre of mass.",
+          "Write $$m_Ad_A=m_Bd_B$$ and $$d_A+d_B=L$$, then solve for $$d_A$$."
+        ],
+        "b": [
+          "The rope pulls each sled with the same force $$F$$. Each sled has a constant acceleration toward the other, $$F/m_A$$ and $$F/m_B$$.",
+          "The gap between the sleds closes with an acceleration equal to the sum of the two. It starts at $$L$$ with no closing speed.",
+          "Use $$u^2=2aL$$ with $$a=F/m_A+F/m_B$$. You can check with energy: Ayu’s hands do work $$FL$$ in total."
+        ]
+      },
+      "path": "/corpus/arena/arena-two-sleds-one-rope.json"
+    },
+    {
+      "id": "arena-rough-ramp-smooth-ramp",
+      "title": "Rough Ramp, Smooth Ramp",
+      "topic": "Mechanics",
+      "tags": [
+        "Rolling motion",
+        "Energy conservation",
+        "Friction"
+      ],
+      "summary": "A ball rolls down a rough ramp and then climbs a frictionless one. Find its speed and how high it gets.",
+      "statementFile": "F1_Rough_Ramp_Smooth_Ramp_Problem.pdf",
+      "solutionFile": "F1_Rough_Ramp_Smooth_Ramp_Solution.pdf",
+      "importedOn": "2026-11-14",
+      "hints": {
+        "a": [
+          "A ball that rolls has two kinds of kinetic energy, one from the motion of its centre and one from its spin.",
+          "Rolling without slipping links them through $$v=\\omega r$$. Static friction does no work, so $$mgH$$ equals the total kinetic energy.",
+          "The spin energy is $$\\tfrac12\\cdot\\tfrac25mr^2\\omega^2=\\tfrac15mv^2$$. So $$mgH=\\tfrac7{10}mv^2$$."
+        ],
+        "b": [
+          "Which forces act on the ball on the frictionless ramp? Ask whether either of them can change how fast the ball spins.",
+          "Gravity and the normal force both act along lines through the centre, so there is no torque. The spin stays the same all the way up.",
+          "Only $$\\tfrac12mv^2$$ can turn into height. Set $$mgh=\\tfrac12mv^2$$ with $$v$$ from part (a)."
+        ],
+        "c": [
+          "At the highest point the centre of the ball is at rest for a moment. Is the ball still spinning?",
+          "The spin energy at the top is the same as it was on the floor, $$\\tfrac15mv^2$$.",
+          "Put in $$v^2=10gH/7$$ and divide by $$mgH$$. You can also subtract the answer to part (b) from 1."
+        ]
+      },
+      "path": "/corpus/arena/arena-rough-ramp-smooth-ramp.json"
+    },
+    {
+      "id": "arena-hosing-the-wall",
+      "title": "Hosing the Wall",
+      "topic": "Mechanics",
+      "tags": [
+        "Projectile motion",
+        "Kinematics"
+      ],
+      "summary": "Find the aim that lets a water jet reach the highest point on a wall, and how high that point is.",
+      "statementFile": "F1_Hosing_the_Wall_Problem.pdf",
+      "solutionFile": "F1_Hosing_the_Wall_Solution.pdf",
+      "importedOn": "2026-11-14",
+      "hints": {
+        "a": [
+          "First find the height at which water aimed at angle $$\\theta$$ hits the wall. The time to reach the wall is $$d/(v\\cos\\theta)$$.",
+          "You should get $$y=d\\tan\\theta-gd^2/(2v^2\\cos^2\\theta)$$. Use $$1/\\cos^2\\theta=1+\\tan^2\\theta$$ so that only $$\\tan\\theta$$ appears.",
+          "Now $$y$$ is a quadratic in $$\\tan\\theta$$ that opens downward. Its highest value is at the vertex."
+        ],
+        "b": [
+          "Put the value of $$\\tan\\theta$$ from part (a) back into your expression for the height on the wall.",
+          "With $$T=v^2/(gd)$$, the term $$dT$$ becomes $$v^2/g$$ and the term with $$T^2$$ becomes $$v^2/(2g)$$.",
+          "Check your result at $$d=0$$. It should be the height of water shot straight up, $$v^2/(2g)$$."
+        ],
+        "c": [
+          "Use your result from part (b) with the numbers given.",
+          "Work out the two terms one at a time: $$v^2/(2g)$$ and $$gd^2/(2v^2)$$.",
+          "Here $$v^2=196\\ \\mathrm{m^2/s^2}$$, so the first term is $$10\\ \\mathrm m$$. The second term is smaller than that."
+        ]
+      },
+      "path": "/corpus/arena/arena-hosing-the-wall.json"
+    },
+    {
+      "id": "arena-the-loading-voltmeter",
+      "title": "The Loading Voltmeter",
+      "topic": "Electromagnetism",
+      "tags": [
+        "Ohm’s law",
+        "Series circuits",
+        "Electric current"
+      ],
+      "summary": "A real voltmeter changes the voltage it measures. Find its reading and work back to its resistance.",
+      "statementFile": "F1_The_Loading_Voltmeter_Problem.pdf",
+      "solutionFile": "F1_The_Loading_Voltmeter_Solution.pdf",
+      "importedOn": "2026-11-14",
+      "hints": {
+        "a": [
+          "A real voltmeter is a resistor. Connected across one resistor, it makes a parallel pair with it.",
+          "The pair has resistance $$R_p=RR_V/(R+R_V)$$. It is in series with the other resistor.",
+          "The battery voltage divides in proportion to resistance. The reading is $$V_0R_p/(R+R_p)$$. Simplify it."
+        ],
+        "b": [
+          "Use your result from part (a). The reading divided by $$V_0$$ is $$4.0/9.0$$.",
+          "Write $$s=R_V/R$$. Your result from part (a) becomes $$s/(1+2s)$$.",
+          "Solve $$s/(1+2s)=4/9$$, which gives $$9s=4+8s$$. Then multiply by $$R$$."
+        ],
+        "c": [
+          "Draw the new circuit. Each resistor now has the same kind of voltmeter across it.",
+          "The two halves of the circuit are identical and in series. How does the battery voltage divide between them?",
+          "Each half gets half of $$9.0\\ \\mathrm V$$. You do not need $$R_V$$ for this part."
+        ]
+      },
+      "path": "/corpus/arena/arena-the-loading-voltmeter.json"
+    },
+    {
+      "id": "arena-the-magnetic-slab",
+      "title": "The Magnetic Slab",
+      "topic": "Electromagnetism",
+      "tags": [
+        "Magnetic forces",
+        "Charged-particle motion",
+        "Circular motion"
+      ],
+      "summary": "A charged particle enters a slab of uniform magnetic field. Find when it gets through, how far it turns and how long it takes.",
+      "statementFile": "F1_The_Magnetic_Slab_Problem.pdf",
+      "solutionFile": "F1_The_Magnetic_Slab_Solution.pdf",
+      "importedOn": "2026-11-14",
+      "hints": {
+        "a": [
+          "The magnetic force is always at right angles to the velocity. What kind of path does that give, and what happens to the speed?",
+          "The path is a circle of radius $$r=mv/(qB)$$. The particle enters at right angles to the face, so the centre of the circle lies in that face.",
+          "The circle reaches a depth $$r$$ into the slab at most. The particle gets through when $$r$$ is larger than $$d$$."
+        ],
+        "b": [
+          "Twice the speed means twice the radius. So $$r=2d$$.",
+          "When the velocity has turned through an angle $$\\theta$$, the particle is at a depth $$r\\sin\\theta$$ inside the slab. A sketch of the circle and its centre helps.",
+          "The particle leaves at depth $$d$$, so $$\\sin\\theta=d/r=1/2$$."
+        ],
+        "c": [
+          "The speed is constant on the arc. You can use arc length divided by speed, or the turning angle divided by the angular rate.",
+          "The angular rate is $$\\omega=v/r=qB/m$$. It does not depend on the speed.",
+          "Use $$t=\\theta/\\omega$$ with the angle of part (b) in radians, $$\\theta=\\pi/6$$."
+        ]
+      },
+      "path": "/corpus/arena/arena-the-magnetic-slab.json"
+    },
+    {
+      "id": "arena-two-charges-head-on",
+      "title": "Two Charges Head On",
+      "topic": "Electromagnetism",
+      "tags": [
+        "Electrostatics",
+        "Collisions",
+        "Momentum conservation",
+        "Energy conservation"
+      ],
+      "summary": "One charged bead is fired at another that is free to move. Find their closest approach and the final speeds.",
+      "statementFile": "F1_Two_Charges_Head_On_Problem.pdf",
+      "solutionFile": "F1_Two_Charges_Head_On_Solution.pdf",
+      "importedOn": "2026-11-14",
+      "hints": {
+        "a": [
+          "Think about the gap between the beads. It shrinks while bead A is faster than bead B and grows once bead B is faster.",
+          "So at the closest approach both beads have the same velocity. Bead B is not at rest then.",
+          "Momentum is conserved because the only forces are between the beads. Write $$mv=(m+3m)u$$."
+        ],
+        "b": [
+          "Energy is conserved. Compare the start, where the beads are very far apart, with the moment of closest approach.",
+          "At closest approach both beads move at $$v/4$$, so the kinetic energy then is $$\\tfrac12(4m)(v/4)^2=\\tfrac18mv^2$$.",
+          "The rest of the starting kinetic energy is stored as $$kq^2/r$$. So $$kq^2/r=\\tfrac12mv^2-\\tfrac18mv^2$$."
+        ],
+        "c": [
+          "Long after, the beads are far apart and the potential energy is zero again. Which two quantities are back at their starting values?",
+          "Momentum and kinetic energy are both conserved from start to end. That is a head-on elastic collision between masses $$m$$ and $$3m$$.",
+          "Use $$mv=mv_A+3mv_B$$ together with $$v_B-v_A=v$$, the rule that the beads separate as fast as they approached."
+        ]
+      },
+      "path": "/corpus/arena/arena-two-charges-head-on.json"
+    },
+    {
+      "id": "arena-the-rectangular-cycle",
+      "title": "The Rectangular Cycle",
+      "topic": "Thermodynamics",
+      "tags": [
+        "Heat engines",
+        "Ideal gas",
+        "First law of thermodynamics"
+      ],
+      "summary": "A monatomic ideal gas goes round a rectangle on the pressure and volume diagram. Find the work, the heat taken in and the efficiency.",
+      "statementFile": "F1_The_Rectangular_Cycle_Problem.pdf",
+      "solutionFile": "F1_The_Rectangular_Cycle_Solution.pdf",
+      "importedOn": "2026-11-14",
+      "hints": {
+        "a": [
+          "The gas does work only on the legs where its volume changes. Which two legs are those?",
+          "At constant pressure the work done by the gas is $$p\\,\\Delta V$$. It is positive on the expansion and negative on the compression.",
+          "Add $$2p_0(3V_0-V_0)$$ and $$-p_0(3V_0-V_0)$$. The result is the area of the rectangle."
+        ],
+        "b": [
+          "Treat each leg on its own with the first law, $$Q=\\Delta U+W$$, and $$U=\\tfrac32pV$$.",
+          "Decide the sign of $$Q$$ on each leg. Heat flows in where the product $$pV$$ rises, which here is on AB and BC.",
+          "You should find $$Q_{AB}=\\tfrac32p_0V_0$$ and $$Q_{BC}=6p_0V_0+4p_0V_0$$. Add these two only."
+        ],
+        "c": [
+          "The efficiency is the net work of part (a) divided by the heat taken in of part (b).",
+          "Do not divide by the net heat of the whole cycle. That always equals the work.",
+          "The factors $$p_0V_0$$ cancel, leaving $$2$$ divided by $$23/2$$."
+        ]
+      },
+      "path": "/corpus/arena/arena-the-rectangular-cycle.json"
+    },
+    {
+      "id": "arena-a-lamp-under-a-raft",
+      "title": "A Lamp Under a Raft",
+      "topic": "Optics",
+      "tags": [
+        "Refraction",
+        "Geometric optics"
+      ],
+      "summary": "A raft floats above an underwater lamp. Find how large the raft must be to stop all the lamp’s light leaving the water.",
+      "statementFile": "F1_A_Lamp_Under_a_Raft_Problem.pdf",
+      "solutionFile": "F1_A_Lamp_Under_a_Raft_Solution.pdf",
+      "importedOn": "2026-11-14",
+      "hints": {
+        "a": [
+          "Follow rays from the lamp that hit the surface farther and farther from the point above the lamp. How does their angle to the normal change?",
+          "Past the critical angle the light is totally reflected. So light leaves the water only inside a circle of radius $$h\\tan\\theta_c$$, and the raft has to cover it.",
+          "The critical angle has $$\\sin\\theta_c=1/n$$. Turn that into $$\\tan\\theta_c=1/\\sqrt{n^2-1}$$."
+        ],
+        "b": [
+          "Use your result from part (a) with the numbers given.",
+          "With $$n=4/3$$, $$n^2-1=7/9$$.",
+          "The square root of $$7/9$$ is about $$0.882$$. Divide the depth by it."
+        ],
+        "c": [
+          "The same relation links the radius and the depth. Now the radius is known and the depth is not.",
+          "A deeper lamp lights a wider circle on the surface. So the raft works for every depth up to a limit.",
+          "Solve the result of part (a) for the depth, $$h=R\\sqrt{n^2-1}$$."
+        ]
+      },
+      "path": "/corpus/arena/arena-a-lamp-under-a-raft.json"
+    },
+    {
+      "id": "arena-walking-past-two-speakers",
+      "title": "Walking Past Two Speakers",
+      "topic": "Waves",
+      "tags": [
+        "Interference",
+        "Sound propagation",
+        "Acoustics"
+      ],
+      "summary": "Two speakers play the same tone. Count the quiet points on a walk away from one of them and find the last one.",
+      "statementFile": "F1_Walking_Past_Two_Speakers_Problem.pdf",
+      "solutionFile": "F1_Walking_Past_Two_Speakers_Solution.pdf",
+      "importedOn": "2026-11-14",
+      "hints": {
+        "a": [
+          "The listener, $$S_1$$ and $$S_2$$ make a right-angled triangle. How far is the listener from $$S_2$$?",
+          "The path difference is $$\\Delta=\\sqrt{x^2+d^2}-x$$. To solve for $$x$$, move $$x$$ to the other side before you square.",
+          "Squaring $$\\Delta+x=\\sqrt{x^2+d^2}$$ gives $$\\Delta^2+2\\Delta x=d^2$$. The $$x^2$$ terms cancel."
+        ],
+        "b": [
+          "Find the wavelength first. Then ask which path differences make the two sounds cancel.",
+          "The sounds cancel when $$\\Delta$$ is half a wavelength, one and a half wavelengths, and so on. Which values does $$\\Delta$$ take along the walk?",
+          "The path difference starts at $$d=3.0\\ \\mathrm m$$ and falls toward zero without reaching it. Count the cancelling values in that range."
+        ],
+        "c": [
+          "The path difference keeps falling along the walk. So the last quiet point has the smallest cancelling path difference.",
+          "That value is half a wavelength, $$\\Delta=0.5\\ \\mathrm m$$.",
+          "Put $$d=3.0\\ \\mathrm m$$ and $$\\Delta=0.5\\ \\mathrm m$$ into your result from part (a)."
+        ]
+      },
+      "path": "/corpus/arena/arena-walking-past-two-speakers.json"
+    },
+    {
+      "id": "arena-two-isotopes-one-sample",
+      "title": "Two Isotopes, One Sample",
+      "topic": "Modern physics",
+      "tags": [
+        "Radioactive decay",
+        "Nuclear stability"
+      ],
+      "summary": "A sample holds two isotopes with different half-lives. Compare their numbers of nuclei and their activities as time passes.",
+      "statementFile": "F1_Two_Isotopes_One_Sample_Problem.pdf",
+      "solutionFile": "F1_Two_Isotopes_One_Sample_Solution.pdf",
+      "importedOn": "2026-11-14",
+      "hints": {
+        "a": [
+          "After each half-life, half of the nuclei that were there are left.",
+          "Count the half-lives in $$6.0\\ \\mathrm h$$. Isotope X has had three and isotope Y has had one.",
+          "The fractions left are $$1/8$$ and $$1/2$$. The starting numbers are equal, so divide one fraction by the other."
+        ],
+        "b": [
+          "Activity is decays per second. It depends on how many nuclei there are and on how likely each one is to decay.",
+          "Use $$A=\\lambda N$$ with $$\\lambda=\\ln2/T$$, where $$T$$ is the half-life. The shorter half-life has the larger decay constant.",
+          "The ratio is $$(T_Y/T_X)(N_X/N_Y)$$. The first factor is 3 and the second is your answer to part (a)."
+        ],
+        "c": [
+          "Write the activity ratio at a general time $$t$$ in hours, using $$N=N_02^{-t/T}$$ for each isotope.",
+          "The ratio is $$3\\times2^{-t/2}/2^{-t/6}=3\\times2^{-t/3}$$. It starts at 3 and falls.",
+          "Set the ratio equal to 1, so $$2^{t/3}=3$$. Take logarithms to get $$t=3\\ln3/\\ln2$$."
+        ]
+      },
+      "path": "/corpus/arena/arena-two-isotopes-one-sample.json"
     }
   ]
 }

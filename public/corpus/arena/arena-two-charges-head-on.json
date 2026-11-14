@@ -1,0 +1,34 @@
+{
+  "id": "arena-two-charges-head-on",
+  "title": "Two Charges Head On",
+  "topic": "Electromagnetism",
+  "tags": [
+    "Electrostatics",
+    "Collisions",
+    "Momentum conservation",
+    "Energy conservation"
+  ],
+  "summary": "One charged bead is fired at another that is free to move. Find their closest approach and the final speeds.",
+  "statement": "Two small beads each carry the same positive charge $$q$$. Bead A has mass $$m$$ and bead B has mass $$3m$$. They are in empty space, very far apart, and gravity can be ignored. Bead B is at rest and free to move. Bead A is fired straight at bead B with speed $$v$$. The Coulomb constant is $$k$$, so two charges $$q$$ a distance $$r$$ apart have potential energy $$kq^2/r$$. Speeds are far below the speed of light.\n\n## (a)\n\nFind the speed of the beads at the moment they are closest together, in terms of $$v$$.\n\n## (b)\n\nFind the closest distance between the beads, in terms of $$k$$, $$q$$, $$m$$ and $$v$$.\n\n## (c)\n\nFind the speed of bead B a long time later, when the beads are very far apart again. Give it in terms of $$v$$.",
+  "solution": "## (a)\n\nWhile bead A moves faster than bead B, the gap between them shrinks. Once bead B is the faster one, the gap grows. So at the closest approach the two beads have the same velocity, $$u$$. The only forces are the ones the beads put on each other, so momentum is conserved:\n\n$$mv=(m+3m)u.$$\n\n$$\\boxed{u=\\frac v4.}$$\n\n## (b)\n\nThe electric force is conservative. At the start the beads are very far apart and the potential energy is zero. At the closest distance $$r_{\\min}$$,\n\n$$\\frac12mv^2=\\frac12(4m)\\left(\\frac v4\\right)^2+\\frac{kq^2}{r_{\\min}}.$$\n\nThe kinetic energy left at that moment is $$\\tfrac18mv^2$$, so\n\n$$\\frac{kq^2}{r_{\\min}}=\\frac12mv^2-\\frac18mv^2=\\frac38mv^2.$$\n\n$$\\boxed{r_{\\min}=\\frac{8kq^2}{3mv^2}.}$$\n\nIf bead B were fixed, all of $$\\tfrac12mv^2$$ would be stored and the distance would be $$2kq^2/(mv^2)$$. A free bead B keeps the beads farther apart.\n\n## (c)\n\nLong after, the potential energy is zero again. Momentum and kinetic energy both have their starting values, so the whole event is a head-on elastic collision between masses $$m$$ and $$3m$$. Let the final velocities be $$v_A$$ and $$v_B$$, measured along the first direction of bead A:\n\n$$mv=mv_A+3mv_B,\\qquad\\frac12mv^2=\\frac12mv_A^2+\\frac32mv_B^2.$$\n\nFor a head-on elastic collision the speed of separation equals the speed of approach, $$v_B-v_A=v$$. With the momentum equation this gives $$v=(v_B-v)+3v_B$$.\n\n$$\\boxed{v_B=\\frac v2.}$$\n\nBead A ends with $$v_A=-v/2$$. It comes back the way it came.",
+  "statementFile": "F1_Two_Charges_Head_On_Problem.pdf",
+  "solutionFile": "F1_Two_Charges_Head_On_Solution.pdf",
+  "importedOn": "2026-11-14",
+  "hints": {
+    "a": [
+      "Think about the gap between the beads. It shrinks while bead A is faster than bead B and grows once bead B is faster.",
+      "So at the closest approach both beads have the same velocity. Bead B is not at rest then.",
+      "Momentum is conserved because the only forces are between the beads. Write $$mv=(m+3m)u$$."
+    ],
+    "b": [
+      "Energy is conserved. Compare the start, where the beads are very far apart, with the moment of closest approach.",
+      "At closest approach both beads move at $$v/4$$, so the kinetic energy then is $$\\tfrac12(4m)(v/4)^2=\\tfrac18mv^2$$.",
+      "The rest of the starting kinetic energy is stored as $$kq^2/r$$. So $$kq^2/r=\\tfrac12mv^2-\\tfrac18mv^2$$."
+    ],
+    "c": [
+      "Long after, the beads are far apart and the potential energy is zero again. Which two quantities are back at their starting values?",
+      "Momentum and kinetic energy are both conserved from start to end. That is a head-on elastic collision between masses $$m$$ and $$3m$$.",
+      "Use $$mv=mv_A+3mv_B$$ together with $$v_B-v_A=v$$, the rule that the beads separate as fast as they approached."
+    ]
+  }
+}

@@ -1263,3 +1263,30 @@ Separate draft stacked on revised P2 #143 (`0d929b3`), main `01757c0` incorporat
 - **Change:** in Simple, Publish is no longer disabled while the difficulty rating is missing. Pressing it with anything missing (rating, question, worked solution, final answer, title, source, rights tick) shows every message at once, each next to its field, and moves focus to the one highest on the page. Advanced still disables Publish until the draft passes the check.
 - **Not changed:** what is required, the server check, the saved format.
 - **Tests:** `studio-simple.browser.mjs` checks Publish is enabled, all six messages appear together on an empty draft, focus lands on the question, and with only the rating and rights tick missing focus lands on the rating and nothing publishes. Run on a throwaway PostgreSQL.
+
+## 2026-11-14 - Beginner Arena set F1: 11 of 15 problems
+
+- **Change:** 11 original Arena problems for new olympiad students, first selection stage level, in `lib/arena/source-07.ts` and `source-08.ts` with keys in `lib/archive-grading/source-07.ts` and `source-08.ts`. Arena now has 29 problems. Each has 2 or 3 lettered parts, one answer box for each part (32 boxes: 16 expressions, 16 numbers), a worked solution and three hints for each part. The other four of the set (Ice in the Flask, Round the Funnel, The Unknown Pipe, Two Colours, One Cathode) wait for the owner's OK on their revised rows.
+- **Originality:** every setup, number and twist was written for this set. No exam problem was copied, translated or paraphrased.
+- **Ratings, owner to confirm:** these are the author's targets, not measured and not owner-set. They sit in `calibratedProblemElos` in `lib/problem-archive.ts`, each marked "owner to confirm", and are not in `lib/owner-ratings.ts` or the difficulty review ledger.
+
+| Problem | Topic | Rating (owner to confirm) |
+| --- | --- | --- |
+| arena-cat-on-a-plank | Mechanics | 500 |
+| arena-two-sleds-one-rope | Mechanics | 600 |
+| arena-the-loading-voltmeter | Electromagnetism | 650 |
+| arena-a-lamp-under-a-raft | Optics | 700 |
+| arena-two-isotopes-one-sample | Modern physics | 750 |
+| arena-the-magnetic-slab | Electromagnetism | 800 |
+| arena-rough-ramp-smooth-ramp | Mechanics | 850 |
+| arena-the-rectangular-cycle | Thermodynamics | 900 |
+| arena-walking-past-two-speakers | Waves | 900 |
+| arena-two-charges-head-on | Electromagnetism | 950 |
+| arena-hosing-the-wall | Mechanics | 1000 |
+
+- **Hints, new for Arena:** `hints` is an optional field of an Arena problem, three strings for each part letter. The problem page shows a Hints card under the answer boxes (`components/physics/arena-hints.tsx`). Nothing is shown until asked for, and each press shows one more hint. "See hint" after a wrong answer moves focus to the card. The 18 older problems have no hints and show no card.
+- **Figures:** five original SVG diagrams in one style (white panel, dark lines, blue for paths and rays), for Cat on a Plank, The Magnetic Slab, The Rectangular Cycle, A Lamp Under a Raft and Walking Past Two Speakers. Each has alt text, a title and a description. The white panel keeps them readable in light and dark. The Arena reader and its tests now accept `.svg` beside `.png`. A test checks that each of these statements says in words what its figure shows.
+- **Two independent checks, both in `lib/arena-beginner.test.ts`:** check A recomputes every key without the algebra of the worked solution (time stepping, angle scans, ray tracing with Snell's law, a current balance, adding up heat along the cycle). Check B types a second derivation of each answer, and the usual wrong answers, into the site's own checker. All 32 keys agree with check A, and check B marks 68 second-route forms correct and refuses 97 wrong ones.
+- **Also changed:** `importedOn` can be set on a seed (the new ones say 2026-11-14, the older ones keep 2026-10-31). A "Radioactive decay" tag was added to the taxonomy. Tests that pinned 18 Arena problems, 30 grading files or ratings of 800 and above now expect the new set. The check snapshot gained 11 entries and the 30 older ones are unchanged. The graded-fields fixture of the first 18 problems is untouched.
+- **Not changed:** no database, schema, migration, auth or deployment setting. `statementFile` on the new problems is a placeholder name, because the schema asks for one and no PDF exists.
+- **Sweep:** `SWEEP=1 node tests/solve-contrast.browser.mjs` on a local production build, guest pass, with the new page and a stage that opens every hint added to it.

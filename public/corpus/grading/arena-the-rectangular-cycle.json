@@ -1,0 +1,68 @@
+{
+  "problemId": "arena-the-rectangular-cycle",
+  "version": "960392dce2aa133a28f651ef5c9908e8df17f3c818125699252262680473546b",
+  "parts": [
+    {
+      "id": "a.work",
+      "sourcePart": "a",
+      "label": "Net work done by the gas in one cycle",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "p_0",
+        "V_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "p_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Work done by the gas, counted positive. p_0 and V_0 are positive."
+    },
+    {
+      "id": "b.heat",
+      "sourcePart": "b",
+      "label": "Heat that flows into the gas in one cycle",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "p_0",
+        "V_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "p_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Count only the legs where heat flows in. p_0 and V_0 are positive."
+    },
+    {
+      "id": "c.efficiency",
+      "sourcePart": "c",
+      "label": "Efficiency of the cycle",
+      "kind": "numeric",
+      "unit": "1",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter a number between 0 and 1, as a decimal or a fraction."
+    }
+  ]
+}

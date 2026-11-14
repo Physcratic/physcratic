@@ -1,0 +1,33 @@
+{
+  "id": "arena-the-rectangular-cycle",
+  "title": "The Rectangular Cycle",
+  "topic": "Thermodynamics",
+  "tags": [
+    "Heat engines",
+    "Ideal gas",
+    "First law of thermodynamics"
+  ],
+  "summary": "A monatomic ideal gas goes round a rectangle on the pressure and volume diagram. Find the work, the heat taken in and the efficiency.",
+  "statement": "A fixed amount of a monatomic ideal gas is taken round the cycle A, B, C, D and back to A. The four states are\n\n$$A:(p_0,\\ V_0),\\qquad B:(2p_0,\\ V_0),\\qquad C:(2p_0,\\ 3V_0),\\qquad D:(p_0,\\ 3V_0).$$\n\nEach leg is a straight line on the pressure and volume diagram, so the cycle is a rectangle. The internal energy of a monatomic ideal gas is $$U=\\tfrac32pV$$.\n\n![A pressure and volume diagram with a rectangular cycle. A is at volume V0 and pressure p0, B at V0 and 2p0, C at 3V0 and 2p0, D at 3V0 and p0. Arrows run from A to B to C to D and back to A.](/corpus/arena/figures/the-rectangular-cycle-statement.svg)\n\n## (a)\n\nFind the net work done by the gas in one cycle, in terms of $$p_0$$ and $$V_0$$.\n\n## (b)\n\nOn some legs heat flows into the gas and on others heat flows out. Find the total heat that flows into the gas in one cycle, counting only the legs where it flows in. Give it in terms of $$p_0$$ and $$V_0$$.\n\n## (c)\n\nFind the efficiency of the cycle, the net work divided by the heat that flows in. Give a number.",
+  "solution": "## (a)\n\nThe gas does work only when its volume changes. On leg BC it expands at pressure $$2p_0$$ and on leg DA it is compressed at pressure $$p_0$$:\n\n$$W=2p_0(3V_0-V_0)-p_0(3V_0-V_0).$$\n\n$$\\boxed{W=2p_0V_0.}$$\n\nThis is the area of the rectangle.\n\n## (b)\n\nUse the first law on each leg, $$Q=\\Delta U+W$$, with $$U=\\tfrac32pV$$.\n\nLeg AB, constant volume: $$W=0$$, so $$Q_{AB}=\\tfrac32(2p_0V_0-p_0V_0)=\\tfrac32p_0V_0$$. Heat flows in.\n\nLeg BC, constant pressure: $$\\Delta U=\\tfrac32(6p_0V_0-2p_0V_0)=6p_0V_0$$ and $$W=4p_0V_0$$, so $$Q_{BC}=10p_0V_0$$. Heat flows in.\n\nLeg CD, constant volume: $$Q_{CD}=\\tfrac32(3p_0V_0-6p_0V_0)=-\\tfrac92p_0V_0$$. Heat flows out.\n\nLeg DA, constant pressure: $$\\Delta U=\\tfrac32(p_0V_0-3p_0V_0)=-3p_0V_0$$ and $$W=-2p_0V_0$$, so $$Q_{DA}=-5p_0V_0$$. Heat flows out.\n\nHeat flows in on AB and BC only:\n\n$$\\boxed{Q_{\\mathrm{in}}=\\frac32p_0V_0+10p_0V_0=\\frac{23}{2}p_0V_0.}$$\n\nCheck: over the whole cycle the heat adds up to $$\\tfrac{23}2p_0V_0-\\tfrac{19}2p_0V_0=2p_0V_0$$, equal to the net work, as it must be when the gas returns to its starting state.\n\n## (c)\n\n$$\\eta=\\frac{W}{Q_{\\mathrm{in}}}=\\frac{2p_0V_0}{\\tfrac{23}{2}p_0V_0}=\\frac4{23}.$$\n\n$$\\boxed{\\eta\\approx0.174.}$$\n\nDividing the work by the net heat would give 1 for any cycle, which says nothing. The efficiency compares the work with the heat that has to be supplied.",
+  "statementFile": "F1_The_Rectangular_Cycle_Problem.pdf",
+  "solutionFile": "F1_The_Rectangular_Cycle_Solution.pdf",
+  "importedOn": "2026-11-14",
+  "hints": {
+    "a": [
+      "The gas does work only on the legs where its volume changes. Which two legs are those?",
+      "At constant pressure the work done by the gas is $$p\\,\\Delta V$$. It is positive on the expansion and negative on the compression.",
+      "Add $$2p_0(3V_0-V_0)$$ and $$-p_0(3V_0-V_0)$$. The result is the area of the rectangle."
+    ],
+    "b": [
+      "Treat each leg on its own with the first law, $$Q=\\Delta U+W$$, and $$U=\\tfrac32pV$$.",
+      "Decide the sign of $$Q$$ on each leg. Heat flows in where the product $$pV$$ rises, which here is on AB and BC.",
+      "You should find $$Q_{AB}=\\tfrac32p_0V_0$$ and $$Q_{BC}=6p_0V_0+4p_0V_0$$. Add these two only."
+    ],
+    "c": [
+      "The efficiency is the net work of part (a) divided by the heat taken in of part (b).",
+      "Do not divide by the net heat of the whole cycle. That always equals the work.",
+      "The factors $$p_0V_0$$ cancel, leaving $$2$$ divided by $$23/2$$."
+    ]
+  }
+}

@@ -71,6 +71,50 @@
   "cases": 11,
   "digest": "3397be22ff4e2ca91a6266d4066a10bb498420fc490c3184b427b54609a87653"
  },
+ "arena-cat-on-a-plank": {
+  "cases": 43,
+  "digest": "23ad41f0c0a1a615c11282d7226a95079eb268ed6a8cbddaae2fa8379891410b"
+ },
+ "arena-two-sleds-one-rope": {
+  "cases": 32,
+  "digest": "5bfe972fd0534760868e8dc0bf9748cfd1f245434e446fc983ba451f2df4c695"
+ },
+ "arena-rough-ramp-smooth-ramp": {
+  "cases": 43,
+  "digest": "ae2169a06b430205212b55b569fffbf03e0d16135678e9212c9e89992422c415"
+ },
+ "arena-hosing-the-wall": {
+  "cases": 43,
+  "digest": "234737a0d1f992a92a87383e4abb3505a3a5a74546fe43d722cf0d72d65beb01"
+ },
+ "arena-the-loading-voltmeter": {
+  "cases": 38,
+  "digest": "3e771a5c1d8c57ae98f63efa55b89f08f53231d289375a9037499bd88f262270"
+ },
+ "arena-the-magnetic-slab": {
+  "cases": 43,
+  "digest": "a38ada7a4e053f62846943078333e2add30e91d675ac6c7d2b86aef0984345c5"
+ },
+ "arena-two-charges-head-on": {
+  "cases": 48,
+  "digest": "7332161df7ff8f63be1f2020873feda56ca6b4252d780fa741d9683e2dfdf0b2"
+ },
+ "arena-the-rectangular-cycle": {
+  "cases": 43,
+  "digest": "be9dd38283531ae5158b3edb3373bb1fafc15483546e9489cd06529d60356b04"
+ },
+ "arena-a-lamp-under-a-raft": {
+  "cases": 38,
+  "digest": "0f80ea9ce3c98c0323347abfc3e21f71edce519dd38857950cbc0012b58d0a3d"
+ },
+ "arena-walking-past-two-speakers": {
+  "cases": 38,
+  "digest": "f36f52efa810840b135725184a6c4e6fe1c9dc0ba25b77131bb6abb11c82cc7e"
+ },
+ "arena-two-isotopes-one-sample": {
+  "cases": 33,
+  "digest": "c0b8103fc8a5166c9de8cd0e989c7069868ee1ac8d0f482f067ba98e3092792a"
+ },
  "incline": {
   "cases": 11,
   "digest": "b5c864fe18e7b398c72905427c8f71ee25ece6758ec1da3e796a9f8f1f8c646f"

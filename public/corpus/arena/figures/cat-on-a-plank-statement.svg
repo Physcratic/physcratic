@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" role="img" aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#0f172a">
+<title id="t">Cat on an overhanging plank</title>
+<desc id="d">A plank of length L and mass M lies on a table with one third of its length past the edge. A cat of mass m stands on the overhanging part, a distance x past the edge.</desc>
+<defs>
+<marker id="tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0f172a"/></marker>
+<marker id="tipb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d4ed8"/></marker>
+</defs>
+<rect x="1" y="1" width="558" height="298" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<rect x="50" y="170" width="250" height="14" fill="#e2e8f0" stroke="#0f172a" stroke-width="2" />
+<path d="M70 184V262M280 184V262" stroke="#0f172a" stroke-width="2" fill="none"/>
+<rect x="120" y="156" width="270" height="14" fill="#fde68a" stroke="#0f172a" stroke-width="2" />
+<circle cx="360" cy="145" r="10" fill="#1d4ed8"/>
+<text x="288" y="140" >cat, <tspan font-style="italic">m</tspan></text>
+<text x="130" y="140" >plank, <tspan font-style="italic">M</tspan></text>
+<text x="120" y="214" >table</text>
+<path d="M300 190V250M390 176V222M360 176V250" stroke="#475569" stroke-width="1.2" stroke-dasharray="5 4" fill="none"/>
+<path d="M302 214H388" stroke="#0f172a" stroke-width="1.2" fill="none" marker-start="url(#tip)" marker-end="url(#tip)"/>
+<text x="398" y="219" font-style="italic" >L<tspan font-style="normal">/3</tspan></text>
+<path d="M302 242H358" stroke="#0f172a" stroke-width="1.2" fill="none" marker-start="url(#tip)" marker-end="url(#tip)"/>
+<text x="325" y="262" font-style="italic" >x</text>
+<path d="M122 104H388" stroke="#0f172a" stroke-width="1.2" fill="none" marker-start="url(#tip)" marker-end="url(#tip)"/>
+<path d="M120 150V96M390 150V96" stroke="#475569" stroke-width="1.2" stroke-dasharray="5 4" fill="none"/>
+<text x="250" y="96" font-style="italic" >L</text>
+</svg>

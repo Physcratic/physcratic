@@ -1,0 +1,89 @@
+{
+  "problemId": "arena-the-magnetic-slab",
+  "version": "d344ea6c793eb75b3c149f0be1ddbdfc49319818c26025879c891d8aa5f31cb1",
+  "parts": [
+    {
+      "id": "a.speed",
+      "sourcePart": "a",
+      "label": "Entry speed above which the particle gets through",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q",
+        "B",
+        "d",
+        "m"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "q",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Entry at right angles to the face and to the field. q, B, d and m are positive."
+    },
+    {
+      "id": "b.angle",
+      "sourcePart": "b",
+      "label": "Angle between the exit and entry velocities",
+      "kind": "numeric",
+      "unit": "degrees",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    },
+    {
+      "id": "c.time",
+      "sourcePart": "c",
+      "label": "Time spent inside the slab",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "q",
+        "B"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "q",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "For the particle of part (b). Write pi for π. m, q and B are positive."
+    }
+  ]
+}

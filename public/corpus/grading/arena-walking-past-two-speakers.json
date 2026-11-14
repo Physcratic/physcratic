@@ -1,0 +1,52 @@
+{
+  "problemId": "arena-walking-past-two-speakers",
+  "version": "54b10dbe2ff459cf0a9bcfe7fc7794c8f2dba442cca1b3131487c131a806a7fd",
+  "parts": [
+    {
+      "id": "a.distance",
+      "sourcePart": "a",
+      "label": "Listener’s distance x from the first speaker",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "d",
+        "\\Delta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\Delta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use Δ for the path difference. d and Δ are positive, and Δ is less than d."
+    },
+    {
+      "id": "b.count",
+      "sourcePart": "b",
+      "label": "Number of quiet points on the walk",
+      "kind": "numeric",
+      "unit": "1",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter a whole number."
+    },
+    {
+      "id": "c.distance",
+      "sourcePart": "c",
+      "label": "Distance of the last quiet point from the first speaker",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    }
+  ]
+}

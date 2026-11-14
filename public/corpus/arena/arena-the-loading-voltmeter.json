@@ -1,0 +1,33 @@
+{
+  "id": "arena-the-loading-voltmeter",
+  "title": "The Loading Voltmeter",
+  "topic": "Electromagnetism",
+  "tags": [
+    "Ohm’s law",
+    "Series circuits",
+    "Electric current"
+  ],
+  "summary": "A real voltmeter changes the voltage it measures. Find its reading and work back to its resistance.",
+  "statement": "Two equal resistors, each of resistance $$R$$, are connected in series across a battery. The battery has voltage $$V_0$$ and no internal resistance. A voltmeter has internal resistance $$R_V$$. It shows the voltage across its own terminals.\n\n## (a)\n\nThe voltmeter is connected across one of the resistors. Find its reading in terms of $$V_0$$, $$R$$ and $$R_V$$.\n\n## (b)\n\nWith $$V_0=9.0\\ \\mathrm V$$ and $$R=10\\ \\mathrm{k\\Omega}$$, the voltmeter of part (a) reads $$4.0\\ \\mathrm V$$. Find $$R_V$$.\n\n## (c)\n\nA second, identical voltmeter is now connected across the other resistor, with the first one still in place. What does each voltmeter read, for the values of part (b)?",
+  "solution": "## (a)\n\nA real voltmeter is a resistor that shows the voltage across itself. Connected across one resistor, it makes a parallel pair with resistance\n\n$$R_p=\\frac{RR_V}{R+R_V}.$$\n\nThis pair is in series with the other resistor. The same current flows through both, so the battery voltage divides in proportion to the resistances:\n\n$$V=V_0\\,\\frac{R_p}{R+R_p}=V_0\\,\\frac{RR_V}{R(R+R_V)+RR_V}.$$\n\n$$\\boxed{V=\\frac{V_0R_V}{R+2R_V}.}$$\n\nCheck: a very large $$R_V$$ gives $$V_0/2$$, the voltage without the meter. Any real meter reads less than that.\n\n## (b)\n\nWrite $$s=R_V/R$$. Then\n\n$$\\frac{V}{V_0}=\\frac{s}{1+2s}=\\frac{4.0}{9.0},$$\n\nso $$9s=4+8s$$ and $$s=4$$.\n\n$$\\boxed{R_V=40\\ \\mathrm{k\\Omega}.}$$\n\n## (c)\n\nEach resistor now has an identical voltmeter across it. The circuit is two identical parallel pairs in series, so the battery voltage divides equally between them:\n\n$$\\boxed{V=4.5\\ \\mathrm V\\ \\text{on each meter}.}$$\n\nThe value of $$R_V$$ does not matter here. With one meter, the reading was low because the meter made its half of the circuit different from the other half.",
+  "statementFile": "F1_The_Loading_Voltmeter_Problem.pdf",
+  "solutionFile": "F1_The_Loading_Voltmeter_Solution.pdf",
+  "importedOn": "2026-11-14",
+  "hints": {
+    "a": [
+      "A real voltmeter is a resistor. Connected across one resistor, it makes a parallel pair with it.",
+      "The pair has resistance $$R_p=RR_V/(R+R_V)$$. It is in series with the other resistor.",
+      "The battery voltage divides in proportion to resistance. The reading is $$V_0R_p/(R+R_p)$$. Simplify it."
+    ],
+    "b": [
+      "Use your result from part (a). The reading divided by $$V_0$$ is $$4.0/9.0$$.",
+      "Write $$s=R_V/R$$. Your result from part (a) becomes $$s/(1+2s)$$.",
+      "Solve $$s/(1+2s)=4/9$$, which gives $$9s=4+8s$$. Then multiply by $$R$$."
+    ],
+    "c": [
+      "Draw the new circuit. Each resistor now has the same kind of voltmeter across it.",
+      "The two halves of the circuit are identical and in series. How does the battery voltage divide between them?",
+      "Each half gets half of $$9.0\\ \\mathrm V$$. You do not need $$R_V$$ for this part."
+    ]
+  }
+}

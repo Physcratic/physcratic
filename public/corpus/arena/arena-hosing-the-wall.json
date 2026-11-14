@@ -1,0 +1,32 @@
+{
+  "id": "arena-hosing-the-wall",
+  "title": "Hosing the Wall",
+  "topic": "Mechanics",
+  "tags": [
+    "Projectile motion",
+    "Kinematics"
+  ],
+  "summary": "Find the aim that lets a water jet reach the highest point on a wall, and how high that point is.",
+  "statement": "A hose nozzle sits at ground level, a horizontal distance $$d$$ from a tall vertical wall. Water leaves the nozzle at speed $$v$$, and you can aim it at any angle $$\\theta$$ above the horizontal. Treat each bit of water as a projectile and ignore air resistance. The free-fall acceleration is $$g$$. Assume $$v^2>gd$$.\n\n## (a)\n\nFind the value of $$\\tan\\theta$$ for which the jet hits the wall at the highest possible point. Give it in terms of $$v$$, $$g$$ and $$d$$.\n\n## (b)\n\nFind the height of that highest point, in terms of $$v$$, $$g$$ and $$d$$.\n\n## (c)\n\nTake $$v=14\\ \\mathrm{m/s}$$, $$d=10\\ \\mathrm m$$ and $$g=9.8\\ \\mathrm{m/s^2}$$. Find the height.",
+  "solution": "## (a)\n\nWater aimed at angle $$\\theta$$ reaches the wall after a time $$t=d/(v\\cos\\theta)$$. Its height there is\n\n$$y=v\\sin\\theta\\,t-\\frac12gt^2=d\\tan\\theta-\\frac{gd^2}{2v^2\\cos^2\\theta}.$$\n\nUse $$1/\\cos^2\\theta=1+\\tan^2\\theta$$ and write $$T=\\tan\\theta$$:\n\n$$y=dT-\\frac{gd^2}{2v^2}\\left(1+T^2\\right).$$\n\nThis is a quadratic in $$T$$ that opens downward. Its highest value is at the vertex,\n\n$$\\boxed{\\tan\\theta=\\frac{v^2}{gd}.}$$\n\nAiming steeper than this makes the water come down too early. Aiming flatter wastes speed on horizontal motion. The condition $$v^2>gd$$ makes this angle steeper than $$45^\\circ$$.\n\n## (b)\n\nPut $$T=v^2/(gd)$$ into the expression for $$y$$:\n\n$$y_{\\max}=\\frac{v^2}{g}-\\frac{gd^2}{2v^2}-\\frac{v^2}{2g}.$$\n\n$$\\boxed{y_{\\max}=\\frac{v^2}{2g}-\\frac{gd^2}{2v^2}.}$$\n\nChecks. For $$d=0$$ this is $$v^2/(2g)$$, the height of water shot straight up. It falls to zero at $$d=v^2/g$$, the greatest range on level ground.\n\n## (c)\n\n$$\\frac{v^2}{2g}=\\frac{196}{19.6}\\ \\mathrm m=10\\ \\mathrm m,\\qquad\\frac{gd^2}{2v^2}=\\frac{980}{392}\\ \\mathrm m=2.5\\ \\mathrm m.$$\n\n$$\\boxed{y_{\\max}=7.5\\ \\mathrm m.}$$\n\nHere $$\\tan\\theta=196/98=2$$, an angle of about $$63^\\circ$$.",
+  "statementFile": "F1_Hosing_the_Wall_Problem.pdf",
+  "solutionFile": "F1_Hosing_the_Wall_Solution.pdf",
+  "importedOn": "2026-11-14",
+  "hints": {
+    "a": [
+      "First find the height at which water aimed at angle $$\\theta$$ hits the wall. The time to reach the wall is $$d/(v\\cos\\theta)$$.",
+      "You should get $$y=d\\tan\\theta-gd^2/(2v^2\\cos^2\\theta)$$. Use $$1/\\cos^2\\theta=1+\\tan^2\\theta$$ so that only $$\\tan\\theta$$ appears.",
+      "Now $$y$$ is a quadratic in $$\\tan\\theta$$ that opens downward. Its highest value is at the vertex."
+    ],
+    "b": [
+      "Put the value of $$\\tan\\theta$$ from part (a) back into your expression for the height on the wall.",
+      "With $$T=v^2/(gd)$$, the term $$dT$$ becomes $$v^2/g$$ and the term with $$T^2$$ becomes $$v^2/(2g)$$.",
+      "Check your result at $$d=0$$. It should be the height of water shot straight up, $$v^2/(2g)$$."
+    ],
+    "c": [
+      "Use your result from part (b) with the numbers given.",
+      "Work out the two terms one at a time: $$v^2/(2g)$$ and $$gd^2/(2v^2)$$.",
+      "Here $$v^2=196\\ \\mathrm{m^2/s^2}$$, so the first term is $$10\\ \\mathrm m$$. The second term is smaller than that."
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" role="img" aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#0f172a">
+<title id="t">Walking away from one of two speakers</title>
+<desc id="d">Top view. Speakers S1 and S2 are a distance d apart. The listener walks away from S1 along a line at right angles to the line joining the speakers and is a distance x from S1. The distance from S2 to the listener is the square root of x squared plus d squared.</desc>
+<defs>
+<marker id="tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0f172a"/></marker>
+<marker id="tipb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d4ed8"/></marker>
+</defs>
+<rect x="1" y="1" width="558" height="298" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<path d="M120 220H500" stroke="#0f172a" stroke-width="2" fill="none" marker-end="url(#tip)"/>
+<path d="M120 60V220" stroke="#475569" stroke-width="1.2" stroke-dasharray="5 4" fill="none"/>
+<path d="M120 60L380 220" stroke="#1d4ed8" stroke-width="2.5" fill="none"/>
+<path d="M134 200H154V220" stroke="#0f172a" stroke-width="1.2" fill="none"/>
+<rect x="106" y="46" width="28" height="28" rx="4" fill="#0f172a"/>
+<rect x="106" y="206" width="28" height="28" rx="4" fill="#0f172a"/>
+<text x="60" y="66" font-style="italic" >S<tspan font-style="normal" font-size="12" dy="4">2</tspan></text>
+<text x="60" y="226" font-style="italic" >S<tspan font-style="normal" font-size="12" dy="4">1</tspan></text>
+<circle cx="380" cy="220" r="8" fill="#f59e0b" stroke="#0f172a" stroke-width="2"/>
+<text x="352" y="200" >listener</text>
+<path d="M90 78V202" stroke="#0f172a" stroke-width="1.2" fill="none" marker-start="url(#tip)" marker-end="url(#tip)"/>
+<text x="72" y="145" font-style="italic" >d</text>
+<path d="M138 250H370" stroke="#0f172a" stroke-width="1.2" fill="none" marker-start="url(#tip)" marker-end="url(#tip)"/>
+<text x="250" y="272" font-style="italic" >x</text>
+<text x="240" y="118" >√(<tspan font-style="italic">x</tspan>² + <tspan font-style="italic">d</tspan>²)</text>
+<text x="440" y="208" >walk</text>
+</svg>

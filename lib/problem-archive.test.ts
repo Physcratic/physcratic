@@ -45,12 +45,17 @@ test("ELO bands match the filter boundaries", () => {
   for (const elo of [1600, 1700, 3000]) assert.equal(getEloBand(elo).variant, "elo-advanced");
 });
 
+// The beginner Arena set F1 was added on 14 November 2026, after the difficulty review. Its ratings are the author's
+// targets from 500 to 1,000 and wait for the owner to confirm them, so they have no ledger entry and no owner rating.
+const beginnerSet = new Set(arena.problems.filter((problem) => problem.importedOn === "2026-11-14").map((problem) => problem.id));
+
 test("every Arena, archive and guided problem has an explicit editorial difficulty estimate", () => {
   const entries = [...arena.problems, ...catalogProblems, ...corpusProblems];
   assert.equal(new Set(entries.map((problem) => problem.id)).size, arena.problems.length + catalogProblems.length)
   const estimates = entries.map((problem) => {
     const elo = getEstimatedProblemElo(problem.id);
-    assert.ok(Number.isInteger(elo) && elo >= 800 && elo <= maxRating, problem.id);
+    // The beginner Arena set of 14 November 2026 starts at 500. Everything else is 800 or more.
+    assert.ok(Number.isInteger(elo) && elo >= (beginnerSet.has(problem.id) ? 500 : 800) && elo <= maxRating, problem.id);
     assert.equal(elo % 50, 0, problem.id);
     assert.ok(matchesEstimatedDifficulty(problem.id, getEloBand(elo).id));
     assert.ok(matchesEstimatedDifficulty(problem.id, "all"));
@@ -82,12 +87,17 @@ test("difficulty review covers exactly the imported and original identities", ()
   const importedIds = new Set(catalogProblems.filter((p) => p.year < 2026).map((problem) => problem.id))
   const originalIds = new Set(arena.problems.map((problem) => problem.id))
   assert.equal(importedIds.size, catalogProblems.filter((p) => p.year < 2026).length)
-  assert.equal(originalIds.size, 18)
+  assert.equal(originalIds.size, 29)
+  assert.equal(beginnerSet.size, 11)
+  for (const id of beginnerSet) {
+    assert.ok(!(id in ownerRatings) && !difficultyReview.problems.some((problem) => problem.id === id), id)
+    assert.ok(getEstimatedProblemElo(id) >= 500 && getEstimatedProblemElo(id) <= 1000, id)
+  }
   assert.ok([...originalIds].every((id) => !importedIds.has(id)))
   // Nine problems were imported on 14 November 2026, after the review. They have an owner-set rating and no ledger entry.
   const addedAfterReview = [...importedIds].filter((id) => !difficultyReview.problems.some((problem) => problem.id === id))
   for (const id of addedAfterReview) assert.ok(id in ownerRatings, id)
-  const expectedIds = [...importedIds, ...originalIds].filter((id) => !addedAfterReview.includes(id)).sort()
+  const expectedIds = [...importedIds, ...originalIds].filter((id) => !addedAfterReview.includes(id) && !beginnerSet.has(id)).sort()
   assert.deepEqual(difficultyReview.problems.map((problem) => problem.id).sort(), expectedIds)
   for (const problem of difficultyReview.problems) {
     assert.equal(getEstimatedProblemElo(problem.id), ownerRatings[problem.id] ?? problem.proposed, problem.id)

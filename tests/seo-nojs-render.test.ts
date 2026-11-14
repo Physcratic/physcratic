@@ -64,7 +64,7 @@ describe("statements are in the server HTML", () => {
       assert.ok(decode(html).includes(lead), `${page.id}: "${lead.slice(0, 50)}"`);
       if (source.includes("$$")) assert.match(html, /class="katex"/, `${page.id}: KaTeX HTML`);
       if (source.includes("$$")) assert.match(html, /<math/, `${page.id}: MathML`);
-      for (const [, alt] of source.matchAll(/!\[([^\]]+)\]\(\/corpus\/arena\/figures\/[a-z-]+\.png\)/g)) {
+      for (const [, alt] of source.matchAll(/!\[([^\]]+)\]\(\/corpus\/arena\/figures\/[a-z-]+\.(?:png|svg)\)/g)) {
         assert.ok(new RegExp(`<img[^>]+alt="${alt.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/'/g, "&#x27;")}"`).test(html), `${page.id}: figure "${alt}"`);
       }
       assert.doesNotMatch(html, /Worked solution|Loading problem diagram/);

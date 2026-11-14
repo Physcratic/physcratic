@@ -1,0 +1,79 @@
+{
+  "problemId": "arena-two-sleds-one-rope",
+  "version": "27d044a590f63c9700431256dfe0eea20e39fe059596eea21f8e5c2f48392607",
+  "parts": [
+    {
+      "id": "a.distance",
+      "sourcePart": "a",
+      "label": "Distance sled A moves",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m_A",
+        "m_B",
+        "L"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m_A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Frictionless ice and a start from rest. The masses and L are positive."
+    },
+    {
+      "id": "b.speed",
+      "sourcePart": "b",
+      "label": "Closing speed just before the sleds meet",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "F",
+        "L",
+        "m_A",
+        "m_B"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "F",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m_A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m_B",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "The sum of the two sled speeds. F, L and the masses are positive."
+    }
+  ]
+}
