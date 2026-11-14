@@ -47,13 +47,13 @@ export function bandForEstimate(estimate: string | null | undefined): RatingBand
   return rating === null ? null : ratingBand(rating);
 }
 
-/** "~1,850 · Advanced (estimate)" for a stored estimate, or the old label as written. */
+/** "1,850 · Advanced" for a stored rating, or the old label as written. */
 export function describeEstimate(estimate: string | null | undefined): string {
   const text = (estimate ?? "").trim();
   if (!text) return "";
   const rating = parseRating(text);
   if (rating === null) return text;
-  return `~${rating.toLocaleString("en-US")} · ${ratingBand(rating).name} (estimate)`;
+  return `${rating.toLocaleString("en-US")} · ${ratingBand(rating).name}`;
 }
 
 /** Retired filter ids retain their historical ranges without appearing as new choices. */

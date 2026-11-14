@@ -42,7 +42,7 @@ function ArenaReader({ problem,statement,statsEnabled=false,commentsEnabled=fals
     <div><Button variant="ghost" className="min-h-11" asChild><Link href="/dashboard?view=problems&collection=arena"><ArrowLeft data-icon="inline-start" />Back to Physcratic Arena</Link></Button></div>
     <ProblemHeading id="arena-problem-title" title={problem.title} source="Physcratic Arena" estimate={String(getEstimatedProblemElo(problem.id))} tags={[problem.topic, ...problem.tags]}>
       <p className="text-pretty leading-relaxed text-muted-foreground">{problem.summary}</p>
-      <p className="text-sm text-muted-foreground">Unrated · Published by Physcratic</p>
+      <p className="text-sm text-muted-foreground">Published by Physcratic</p>
     </ProblemHeading>
     {moderationEnabled&&<ReportControl subject={{kind:'problem',key:`arena:${problem.id}`}}/>}
     {statsEnabled&&<ProblemStatsPanel problemKey={`arena:${problem.id}`}/>}

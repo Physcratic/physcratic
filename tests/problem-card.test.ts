@@ -51,7 +51,7 @@ test("cards without extra metadata retain their title, difficulty, tags and open
     onOpen() {},
   });
   assert.match(html, /Champagne!/);
-  assert.match(html, /Estimated difficulty 2,500/);
+  assert.match(html, /Rating 2,500/);
   assert.match(html, /Newton’s laws/);
   assert.match(html, /Open problem: Quick practice, Champagne!/);
   assert.doesNotMatch(html, /border-destructive|5 min|Hint \+ worked solution|scored subparts|Official solution/);
@@ -72,7 +72,7 @@ test("each card has one control, so keyboard users get one tab stop per problem"
 test("cards without a supplied difficulty never invent an estimate", () => {
   const html = render({ ...base, source: "Physcratic Arena", href: "/dashboard/problems/test-problem" });
   assert.match(html, /Unrated/);
-  assert.doesNotMatch(html, /Estimated difficulty|~[\d,]+ ELO/);
+  assert.doesNotMatch(html, /Rating \d|~[\d,]+ ELO/);
   assert.match(html, /href="\/dashboard\/problems\/test-problem"/);
   assert.doesNotMatch(html, /<button/);
 });
@@ -93,7 +93,7 @@ test("practice cards identify difficulty ratings as estimates and preserve ratin
     const html = render({ ...base, elo, onOpen() {} });
     const formatted = elo.toLocaleString("en-US");
     assert.ok(html.includes(`>${formatted}</span>`));
-    assert.ok(html.includes(`Estimated difficulty ${formatted}, ${band}`));
+    assert.ok(html.includes(`Rating ${formatted}, ${band}`));
     // The band name is shown next to the rating, not only read out.
     assert.ok(html.includes(`<span class="text-sm">${band}</span>`), `${band} is shown on the card`);
     assert.ok(html.includes("rounded-md"));
@@ -132,9 +132,9 @@ test("Arena cards use the archive template and retain their individual difficult
     query: "", topic: "all", difficulty: "all", onReset() {},
   }));
   assert.equal([...html.matchAll(/data-problem-card=/g)].length, 10);
-  assert.equal([...html.matchAll(/aria-label="Estimated difficulty /g)].length, 10);
+  assert.equal([...html.matchAll(/aria-label="Rating /g)].length, 10);
   for (const problem of arena.problems.slice(0, 10)) {
-    assert.ok(html.includes(`Estimated difficulty ${getEstimatedProblemElo(problem.id).toLocaleString("en-US")},`));
+    assert.ok(html.includes(`Rating ${getEstimatedProblemElo(problem.id).toLocaleString("en-US")},`));
     assert.ok(html.includes(`href="/dashboard/problems/${problem.id}"`));
   }
   assert.doesNotMatch(html, /Unrated|Self-review|Statement \+ worked solution/);
@@ -215,7 +215,7 @@ test("all imported archive cards display their individual estimate using the sha
   for (const problem of catalogProblems) {
     const html = renderToStaticMarkup(createElement(OlympiadProblemCard, { problem, onOpen() {} }));
     const elo = getEstimatedProblemElo(problem.id).toLocaleString("en-US");
-    assert.ok(html.includes(`Estimated difficulty ${elo},`), problem.id);
+    assert.ok(html.includes(`Rating ${elo},`), problem.id);
     assert.ok(html.includes(`>${elo}</span>`), problem.id);
     assert.doesNotMatch(html, /Unrated/);
   }

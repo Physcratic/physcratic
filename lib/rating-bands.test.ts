@@ -73,7 +73,7 @@ test("estimate descriptions show current names without changing numeric or legac
     [1600, "Intermediate"], [1800, "Intermediate"], [1801, "Advanced"],
     [2600, "Advanced"], [2601, "Mastery"], [3201, "Mastery"], [4000, "Mastery"],
   ] as const) {
-    assert.equal(describeEstimate(String(value)), `~${value.toLocaleString("en-US")} · ${name} (estimate)`)
+    assert.equal(describeEstimate(String(value)), `${value.toLocaleString("en-US")} · ${name}`)
   }
   assert.equal(describeEstimate("Hard"), "Hard")
   assert.equal(describeEstimate(null), "")

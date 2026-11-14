@@ -243,7 +243,7 @@ export function ImportedProblemReader({
         <p className="text-sm leading-relaxed text-muted-foreground">
           Complete statement and original diagrams stored in this app. Solution
           content is checked separately before it can become a grading
-          reference. Unrated. Automatic grading is not enabled.
+          reference. Automatic grading is not enabled.
         </p>
         <a
           href={problem.titleSourceUrl}
