@@ -7,7 +7,7 @@
     "reviewStatus": "Independent physics review pending.",
     "grading": "Unrated self-review; no marks or ELO awarded."
   },
-  "count": 29,
+  "count": 33,
   "problems": [
     {
       "id": "arena-mind-the-gap",
@@ -288,8 +288,7 @@
         "Stability"
       ],
       "summary": "Find how far a cat can walk along an overhanging plank before the plank tips off the table.",
-      "statementFile": "F1_Cat_on_a_Plank_Problem.pdf",
-      "solutionFile": "F1_Cat_on_a_Plank_Solution.pdf",
+      "original": true,
       "importedOn": "2026-11-14",
       "hints": {
         "a": [
@@ -320,8 +319,7 @@
         "Newton’s laws"
       ],
       "summary": "Two sleds on frictionless ice are pulled together by a rope. Find where they meet and how fast they close.",
-      "statementFile": "F1_Two_Sleds_One_Rope_Problem.pdf",
-      "solutionFile": "F1_Two_Sleds_One_Rope_Solution.pdf",
+      "original": true,
       "importedOn": "2026-11-14",
       "hints": {
         "a": [
@@ -347,8 +345,7 @@
         "Friction"
       ],
       "summary": "A ball rolls down a rough ramp and then climbs a frictionless one. Find its speed and how high it gets.",
-      "statementFile": "F1_Rough_Ramp_Smooth_Ramp_Problem.pdf",
-      "solutionFile": "F1_Rough_Ramp_Smooth_Ramp_Solution.pdf",
+      "original": true,
       "importedOn": "2026-11-14",
       "hints": {
         "a": [
@@ -378,8 +375,7 @@
         "Kinematics"
       ],
       "summary": "Find the aim that lets a water jet reach the highest point on a wall, and how high that point is.",
-      "statementFile": "F1_Hosing_the_Wall_Problem.pdf",
-      "solutionFile": "F1_Hosing_the_Wall_Solution.pdf",
+      "original": true,
       "importedOn": "2026-11-14",
       "hints": {
         "a": [
@@ -410,8 +406,7 @@
         "Electric current"
       ],
       "summary": "A real voltmeter changes the voltage it measures. Find its reading and work back to its resistance.",
-      "statementFile": "F1_The_Loading_Voltmeter_Problem.pdf",
-      "solutionFile": "F1_The_Loading_Voltmeter_Solution.pdf",
+      "original": true,
       "importedOn": "2026-11-14",
       "hints": {
         "a": [
@@ -442,8 +437,7 @@
         "Circular motion"
       ],
       "summary": "A charged particle enters a slab of uniform magnetic field. Find when it gets through, how far it turns and how long it takes.",
-      "statementFile": "F1_The_Magnetic_Slab_Problem.pdf",
-      "solutionFile": "F1_The_Magnetic_Slab_Solution.pdf",
+      "original": true,
       "importedOn": "2026-11-14",
       "hints": {
         "a": [
@@ -475,8 +469,7 @@
         "Energy conservation"
       ],
       "summary": "One charged bead is fired at another that is free to move. Find their closest approach and the final speeds.",
-      "statementFile": "F1_Two_Charges_Head_On_Problem.pdf",
-      "solutionFile": "F1_Two_Charges_Head_On_Solution.pdf",
+      "original": true,
       "importedOn": "2026-11-14",
       "hints": {
         "a": [
@@ -498,6 +491,36 @@
       "path": "/corpus/arena/arena-two-charges-head-on.json"
     },
     {
+      "id": "arena-round-the-funnel",
+      "title": "Round the Funnel",
+      "topic": "Mechanics",
+      "tags": [
+        "Circular motion",
+        "Newton’s laws"
+      ],
+      "summary": "Two balls circle inside a smooth funnel at different heights. Find the speed, compare the periods and find when the balls line up again.",
+      "original": true,
+      "importedOn": "2026-11-14",
+      "hints": {
+        "a": [
+          "Two forces act on the ball, its weight and the normal force from the wall. Which way does the normal force point?",
+          "The normal force makes an angle $$\\alpha$$ with the horizontal. Its vertical part balances the weight and its horizontal part keeps the ball on the circle: $$N\\sin\\alpha=mg$$ and $$N\\cos\\alpha=mv^2/r$$.",
+          "Divide one equation by the other and use $$r=h\\tan\\alpha$$ for the radius of the circle. The angle cancels."
+        ],
+        "b": [
+          "The period is the distance round the circle divided by the speed, $$T=2\\pi r/v$$.",
+          "Both $$r$$ and $$v$$ depend on the height. Use $$r=h\\tan\\alpha$$ and $$v=\\sqrt{gh}$$ to see how $$T$$ depends on $$h$$.",
+          "The period is proportional to $$\\sqrt h$$. The upper ball is four times as high."
+        ],
+        "c": [
+          "The two balls go round at different rates. Which one goes round faster?",
+          "The lower ball has angular rate $$\\omega=2\\pi/T$$ and the upper ball has half of that. They line up again when the lower ball has gained one full turn.",
+          "The lower ball gains at the rate $$\\omega/2$$, so the time is $$2\\pi/(\\omega/2)=2T$$, with $$T=2\\pi\\tan\\alpha\\sqrt{h/g}$$."
+        ]
+      },
+      "path": "/corpus/arena/arena-round-the-funnel.json"
+    },
+    {
       "id": "arena-the-rectangular-cycle",
       "title": "The Rectangular Cycle",
       "topic": "Thermodynamics",
@@ -507,8 +530,7 @@
         "First law of thermodynamics"
       ],
       "summary": "A monatomic ideal gas goes round a rectangle on the pressure and volume diagram. Find the work, the heat taken in and the efficiency.",
-      "statementFile": "F1_The_Rectangular_Cycle_Problem.pdf",
-      "solutionFile": "F1_The_Rectangular_Cycle_Solution.pdf",
+      "original": true,
       "importedOn": "2026-11-14",
       "hints": {
         "a": [
@@ -538,8 +560,7 @@
         "Geometric optics"
       ],
       "summary": "A raft floats above an underwater lamp. Find how large the raft must be to stop all the lamp’s light leaving the water.",
-      "statementFile": "F1_A_Lamp_Under_a_Raft_Problem.pdf",
-      "solutionFile": "F1_A_Lamp_Under_a_Raft_Solution.pdf",
+      "original": true,
       "importedOn": "2026-11-14",
       "hints": {
         "a": [
@@ -570,8 +591,7 @@
         "Acoustics"
       ],
       "summary": "Two speakers play the same tone. Count the quiet points on a walk away from one of them and find the last one.",
-      "statementFile": "F1_Walking_Past_Two_Speakers_Problem.pdf",
-      "solutionFile": "F1_Walking_Past_Two_Speakers_Solution.pdf",
+      "original": true,
       "importedOn": "2026-11-14",
       "hints": {
         "a": [
@@ -601,8 +621,7 @@
         "Nuclear stability"
       ],
       "summary": "A sample holds two isotopes with different half-lives. Compare their numbers of nuclei and their activities as time passes.",
-      "statementFile": "F1_Two_Isotopes_One_Sample_Problem.pdf",
-      "solutionFile": "F1_Two_Isotopes_One_Sample_Solution.pdf",
+      "original": true,
       "importedOn": "2026-11-14",
       "hints": {
         "a": [
@@ -622,6 +641,98 @@
         ]
       },
       "path": "/corpus/arena/arena-two-isotopes-one-sample.json"
+    },
+    {
+      "id": "arena-ice-in-the-flask",
+      "title": "Ice in the Flask",
+      "topic": "Thermodynamics",
+      "tags": [
+        "Latent heat",
+        "Specific heat capacity",
+        "Heat capacity"
+      ],
+      "summary": "Cold ice goes into a flask of warm water. Work out the final state, with the flask’s own heat capacity included.",
+      "original": true,
+      "importedOn": "2026-11-14",
+      "hints": {
+        "a": [
+          "You do not know the final state yet. It could be all water, ice and water together at $$0\\ ^\\circ\\mathrm C$$, or all ice. Test them against the heat available.",
+          "The water and the flask cool together and give up $$1330\\ \\mathrm J$$ for each kelvin. Cooling to $$0\\ ^\\circ\\mathrm C$$ gives $$39\\,900\\ \\mathrm J$$. The ice needs $$6300\\ \\mathrm J$$ to warm to $$0\\ ^\\circ\\mathrm C$$ before any of it melts.",
+          "The heat left for melting is $$39\\,900-6300=33\\,600\\ \\mathrm J$$. Divide by the latent heat to get the mass that melts, then subtract from $$150\\ \\mathrm g$$."
+        ],
+        "b": [
+          "In the limiting case all the ice has just melted and everything ends as water at $$0\\ ^\\circ\\mathrm C$$.",
+          "The ice needs $$6300\\ \\mathrm J$$ to warm up and $$50\\,400\\ \\mathrm J$$ to melt, $$56\\,700\\ \\mathrm J$$ in all.",
+          "The water and the flask give up $$1330\\ \\mathrm J$$ for each kelvin they cool. Set $$1330\\,T=56\\,700$$."
+        ],
+        "c": [
+          "The heat available is the same as in part (a), $$39\\,900\\ \\mathrm J$$. Now the mass of ice is the unknown.",
+          "Each kilogram of ice needs $$42\\,000\\ \\mathrm J$$ to warm to $$0\\ ^\\circ\\mathrm C$$ and $$336\\,000\\ \\mathrm J$$ to melt.",
+          "Divide $$39\\,900\\ \\mathrm J$$ by $$378\\,000\\ \\mathrm{J/kg}$$ and convert to grams."
+        ]
+      },
+      "path": "/corpus/arena/arena-ice-in-the-flask.json"
+    },
+    {
+      "id": "arena-the-unknown-pipe",
+      "title": "The Unknown Pipe",
+      "topic": "Waves",
+      "tags": [
+        "Standing waves",
+        "Acoustics",
+        "Sound propagation"
+      ],
+      "summary": "Two resonances of a pipe are known, with one more between them. Work out what kind of pipe it is, its fundamental and its length.",
+      "original": true,
+      "importedOn": "2026-11-14",
+      "hints": {
+        "a": [
+          "There are two kinds of pipe to test. One open at both ends resonates at every whole-number multiple of its fundamental. One closed at one end resonates at the odd multiples only.",
+          "With exactly one resonance between them, the two given frequencies are two steps apart. A step is $$f_1$$ for an open pipe and $$2f_1$$ for a pipe closed at one end.",
+          "The open pipe would give $$f_1=170\\ \\mathrm{Hz}$$, but $$255/170$$ is not a whole number. Try the pipe closed at one end and check that both frequencies are odd multiples."
+        ],
+        "b": [
+          "Part (a) also told you what kind of pipe this is. How much of a wavelength fits in that kind of pipe in its fundamental?",
+          "For a pipe closed at one end, a quarter of a wavelength fits, so $$L=\\lambda/4$$.",
+          "Use $$\\lambda=v/f_1$$ with $$f_1=85\\ \\mathrm{Hz}$$, then divide by 4."
+        ],
+        "c": [
+          "With the cap off the pipe is open at both ends. Its length has not changed.",
+          "In the fundamental of a pipe open at both ends, half a wavelength fits in the pipe.",
+          "Use $$f=v/(2L)$$ with the length from part (b)."
+        ]
+      },
+      "path": "/corpus/arena/arena-the-unknown-pipe.json"
+    },
+    {
+      "id": "arena-two-colours-one-cathode",
+      "title": "Two Colours, One Cathode",
+      "topic": "Modern physics",
+      "tags": [
+        "Photoelectric effect",
+        "Energy conservation"
+      ],
+      "summary": "One cathode is lit by two kinds of light. Use one stopping voltage and a wavelength ratio to find the work function and the wavelength.",
+      "original": true,
+      "importedOn": "2026-11-14",
+      "hints": {
+        "a": [
+          "Write the photoelectric equation once for each light: photon energy equals work function plus the kinetic energy of the fastest electrons. The stopping voltage gives that kinetic energy as $$eV_1$$.",
+          "Twice the speed means four times the kinetic energy. The second photon has $$\\tfrac53$$ of the energy of the first, because its wavelength is $$\\tfrac35$$ as long.",
+          "You now have $$hc/\\lambda=\\phi+eV_1$$ and $$\\tfrac53\\,hc/\\lambda=\\phi+4eV_1$$. Put the first into the second and solve for $$\\phi$$."
+        ],
+        "b": [
+          "Use your result from part (a) with $$V_1=0.60\\ \\mathrm V$$.",
+          "An electron that crosses $$0.60\\ \\mathrm V$$ gains or loses $$0.60\\ \\mathrm{eV}$$, so $$eV_1=0.60\\ \\mathrm{eV}$$.",
+          "Multiply $$0.60\\ \\mathrm{eV}$$ by $$7/2$$."
+        ],
+        "c": [
+          "Find the photon energy of the first light from its photoelectric equation.",
+          "The photon energy is the work function plus $$eV_1$$, which is $$2.10\\ \\mathrm{eV}+0.60\\ \\mathrm{eV}$$.",
+          "Divide $$hc=1240\\ \\mathrm{eV\\,nm}$$ by the photon energy in electronvolts."
+        ]
+      },
+      "path": "/corpus/arena/arena-two-colours-one-cathode.json"
     }
   ]
 }

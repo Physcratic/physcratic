@@ -8,7 +8,7 @@ import { getEstimatedProblemElo } from "./problem-archive";
 import { source07 } from "./arena/source-07";
 import { source08 } from "./arena/source-08";
 
-// The beginner Arena set F1. Three kinds of test:
+// The beginner Arena set F1, all 15 problems. Three kinds of test:
 // 1. Shape: one answer box and three hints for each lettered part, and a statement that stands without its figure.
 // 2. Check A, numerical: every key is recomputed by a simulation, a scan or a numerical solve that does not use the
 //    algebra of the worked solution, and has to agree with the key.
@@ -44,8 +44,8 @@ function root(f: (x: number) => number, low: number, high: number): number {
   return (a + b) / 2;
 }
 
-test("shape: 11 problems, one answer box and three hints for each lettered part", () => {
-  assert.equal(seeds.length, 11);
+test("shape: 15 problems, one answer box and three hints for each lettered part", () => {
+  assert.equal(seeds.length, 15);
   let parts = 0;
   for (const seed of seeds) {
     const definition = getArchiveDefinition(seed.id);
@@ -66,11 +66,16 @@ test("shape: 11 problems, one answer box and three hints for each lettered part"
     assert.ok(words >= 2 && words <= 5, `${seed.id}: title length`);
     const rating = getEstimatedProblemElo(seed.id);
     assert.ok(rating >= 500 && rating <= 1000 && rating % 50 === 0, `${seed.id}: rating`);
+    // An original Physcratic problem has no source document, so nothing can link to a PDF.
+    assert.equal(seed.original, true, seed.id);
+    assert.equal(seed.statementFile, undefined, seed.id);
+    assert.equal(seed.solutionFile, undefined, seed.id);
+    assert.ok(definition.parts.every((item) => !/\.pdf/i.test(item.sourceReference ?? "")), seed.id);
     parts += letters.length;
   }
-  assert.equal(parts, 32);
+  assert.equal(parts, 44);
   assert.deepEqual(seeds.reduce<Record<string, number>>((count, seed) => ({ ...count, [seed.topic]: (count[seed.topic] ?? 0) + 1 }), {}),
-    { Mechanics: 4, Electromagnetism: 3, Thermodynamics: 1, Optics: 1, Waves: 1, "Modern physics": 1 });
+    { Mechanics: 5, Electromagnetism: 3, Thermodynamics: 2, Optics: 1, Waves: 2, "Modern physics": 2 });
 });
 
 test("shape: a statement with a figure says everything the figure shows", () => {
@@ -80,6 +85,7 @@ test("shape: a statement with a figure says everything the figure shows", () => 
     "arena-the-rectangular-cycle": [/A:\(p_0,\\ V_0\)/, /C:\(2p_0,\\ 3V_0\)/, /A, B, C, D and back to A/],
     "arena-a-lamp-under-a-raft": [/depth \$\$h\$\$ below the flat surface/, /centre directly above the lamp/],
     "arena-walking-past-two-speakers": [/a distance \$\$d\$\$ apart/, /at right angles to the line joining the speakers/],
+    "arena-round-the-funnel": [/vertical axis and its tip at the bottom/, /makes an angle \$\$\\alpha\$\$ with the axis/, /height \$\$h\$\$ above the tip/, /height \$\$4h\$\$ above the tip/],
   };
   const withFigure = seeds.filter((seed) => seed.statement.includes("!["));
   assert.deepEqual(withFigure.map((seed) => seed.id).sort(), Object.keys(needed).sort());
@@ -264,6 +270,95 @@ test("check A: Two Isotopes, One Sample, stepping the decays in time", () => {
   close(equal, keyValue("two-isotopes-one-sample", "c.time"), 1e-3, "c");
 });
 
+test("check A: Round the Funnel, stepping both balls on the cone with the equations of motion along the wall", () => {
+  const g = 9.8, h = 0.3, alpha = 0.6;
+  /** A ball on the cone at distance s from the tip along the wall. Returns the path after a start on a circle at this height and speed. */
+  const run = (height: number, speed: number, until: (angle: number, t: number) => boolean) => {
+    let s = height / Math.cos(alpha), sDot = 0, angle = 0, t = 0;
+    const momentum = s * Math.sin(alpha) * speed, dt = 2e-6;
+    let lowest = s, highest = s;
+    while (!until(angle, t)) {
+      const radius = s * Math.sin(alpha), rate = momentum / (radius * radius);
+      // Along the wall: s'' = s sin²α φ'² - g cos α. Angular momentum about the axis is conserved.
+      sDot += (s * Math.sin(alpha) ** 2 * rate * rate - g * Math.cos(alpha)) * dt;
+      s += sDot * dt; angle += rate * dt; t += dt;
+      lowest = Math.min(lowest, s); highest = Math.max(highest, s);
+    }
+    return { t, wobble: (highest - lowest) / s };
+  };
+  const speed = keyValue("round-the-funnel", "a.speed", { g, h });
+  const lower = run(h, speed, (angle) => angle >= 2 * Math.PI);
+  assert.ok(lower.wobble < 1e-4, `the key speed keeps the ball on its circle (${lower.wobble})`);
+  assert.ok(run(h, 1.05 * speed, (angle) => angle >= 2 * Math.PI).wobble > 0.05, "a different speed does not");
+  const upper = run(4 * h, keyValue("round-the-funnel", "a.speed", { g, h: 4 * h }), (angle) => angle >= 2 * Math.PI);
+  assert.ok(upper.wobble < 1e-4);
+  close(upper.t / lower.t, keyValue("round-the-funnel", "b.ratio"), 1e-3, "b");
+  // The lower ball has gained one full turn when its angle leads by 2π.
+  const rateLower = 2 * Math.PI / lower.t, rateUpper = 2 * Math.PI / upper.t;
+  close(root((t) => (rateLower - rateUpper) * t - 2 * Math.PI, 0, 100), keyValue("round-the-funnel", "c.time", { h, g, [String.raw`\alpha`]: alpha }), 1e-3, "c");
+});
+
+test("check A: Ice in the Flask, passing heat from the warm side to the cold side one joule at a time", () => {
+  /** Returns the ice left in grams. The cold body is the ice and later its meltwater. The warm body is the water and the flask. */
+  const iceLeft = (start: number, iceMass: number) => {
+    const warmCapacity = 0.250 * 4200 + 280, dq = 0.5;
+    let warm = start, cold = -20, melted = 0;
+    while (warm > cold) {
+      warm -= dq / warmCapacity;
+      if (cold < 0) cold = Math.min(0, cold + dq / (iceMass * 2100));
+      else if (melted < iceMass) melted = Math.min(iceMass, melted + dq / 3.36e5);
+      else cold += dq / (iceMass * 4200);
+    }
+    return (iceMass - melted) * 1000;
+  };
+  close(iceLeft(30, 0.150), keyValue("ice-in-the-flask", "a.mass"), 1e-3, "a");
+  close(root((start) => (iceLeft(start, 0.150) > 1e-6 ? -1 : 1), 30, 90), keyValue("ice-in-the-flask", "b.temperature"), 1e-3, "b");
+  close(1000 * root((mass) => (iceLeft(30, mass) > 1e-6 ? 1 : -1), 0.01, 0.150), keyValue("ice-in-the-flask", "c.mass"), 1e-3, "c");
+});
+
+test("check A: The Unknown Pipe, trying every harmonic pair for both kinds of pipe", () => {
+  const fits: { kind: string; fundamental: number }[] = [];
+  for (const kind of ["open", "closed"] as const) {
+    const allowed = (n: number) => kind === "open" || n % 2 === 1;
+    for (let low = 1; low <= 60; low++) {
+      if (!allowed(low)) continue;
+      const fundamental = 255 / low, high = 595 / fundamental;
+      if (Math.abs(high - Math.round(high)) > 1e-9 || !allowed(Math.round(high))) continue;
+      let between = 0;
+      for (let n = low + 1; n < Math.round(high); n++) if (allowed(n)) between++;
+      if (between === 1) fits.push({ kind, fundamental });
+    }
+  }
+  assert.deepEqual(fits, [{ kind: "closed", fundamental: 85 }]);
+  close(fits[0].fundamental, keyValue("the-unknown-pipe", "a.fundamental"), 1e-9, "a");
+  // Closed at one end: pressure node at the open end and antinode at the cap, so cos(2π f L / v) = 0. Shortest pipe.
+  let length = 0;
+  for (let L = 1e-5; L < 5; L += 1e-5) if (Math.cos(2 * Math.PI * 85 * L / 340) <= 0) { length = L; break; }
+  close(length, keyValue("the-unknown-pipe", "b.length"), 1e-4, "b");
+  // Open at both ends: sin(2π f L / v) = 0. Lowest frequency above zero.
+  let lowest = 0;
+  for (let f = 1; f < 1000; f += 0.001) if (Math.sin(2 * Math.PI * f * length / 340) <= 0) { lowest = f; break; }
+  close(lowest, keyValue("the-unknown-pipe", "c.fundamental"), 1e-4, "c");
+});
+
+test("check A: Two Colours, One Cathode, solving for the work function numerically", () => {
+  /** Speed ratio of the fastest electrons, second light over first, for a trial work function. Energies in eV. */
+  const speedRatio = (work: number, stop: number) => {
+    const firstPhoton = work + stop, secondPhoton = firstPhoton / (3 / 5);
+    return Math.sqrt((secondPhoton - work) / (firstPhoton - work));
+  };
+  const work = root((trial) => speedRatio(trial, 0.60) - 2, 0.01, 20);
+  close(work, keyValue("two-colours-one-cathode", "b.work"), 1e-6, "b");
+  close(1240 / (work + 0.60), keyValue("two-colours-one-cathode", "c.wavelength"), 1e-6, "c");
+  const e = 1.7, V_1 = 0.9;
+  close(root((trial) => speedRatio(trial, e * V_1) - 2, 0.01, 50), keyValue("two-colours-one-cathode", "a.work", { e, V_1 }), 1e-6, "a");
+  // The statement says the second light has the shorter wavelength and gives the faster electrons.
+  const statement = seeds.find((seed) => seed.id === "arena-two-colours-one-cathode")!.statement;
+  assert.match(statement, /The second light has the shorter wavelength/);
+  assert.match(statement, /it gives the faster electrons/);
+  assert.ok(1240 / (work + 0.60) * 3 / 5 < 1240 / (work + 0.60) && speedRatio(work, 0.60) > 1);
+});
+
 // Check B. `right` holds forms from a second route (energy where the solution used forces, a ratio where it used a
 // formula, and so on) and other ways a student may type the answer. `wrong` holds the usual mistakes.
 const S = String.raw;
@@ -317,6 +412,26 @@ const secondRoute: Record<string, Record<string, { right: string[]; wrong: strin
     "b.count": { right: ["3", "3.0"], wrong: ["2", "4", "6", "3.01"] },
     "c.distance": { right: ["8.75"], wrong: ["0.55", "2.25", "4.0", "9.0"] },
   },
+  "round-the-funnel": {
+    "a.speed": { right: [S`\sqrt{hg}`, S`(gh)^{1/2}`], wrong: [S`\sqrt{2gh}`, S`\sqrt{\frac{g}{h}}`, "gh"] },
+    "b.ratio": { right: ["2", "2.0"], wrong: ["4", "0.5", "1.41"] },
+    "c.time": { right: [S`2\cdot2\pi\tan(\alpha)\sqrt{\frac{h}{g}}`, S`\frac{4\pi h\tan(\alpha)}{\sqrt{gh}}`], wrong: [S`2\pi\tan(\alpha)\sqrt{\frac{h}{g}}`, S`4\pi\sqrt{\frac{h}{g}}`, S`\frac{4\pi\tan(\alpha)}{3}\sqrt{\frac{h}{g}}`] },
+  },
+  "ice-in-the-flask": {
+    "a.mass": { right: ["50", "50.0"], wrong: ["0", "75", "100", "150"] },
+    "b.temperature": { right: ["42.6", "42.63"], wrong: ["54", "37.9", "30"] },
+    "c.mass": { right: ["106", "105.6"], wrong: ["119", "100", "150"] },
+  },
+  "the-unknown-pipe": {
+    "a.fundamental": { right: ["85", "85.0"], wrong: ["170", "340", "42.5"] },
+    "b.length": { right: ["1.00", "1"], wrong: ["2.0", "0.5", "4"] },
+    "c.fundamental": { right: ["170", "170.0"], wrong: ["85", "340", "255"] },
+  },
+  "two-colours-one-cathode": {
+    "a.work": { right: [S`3.5eV_1`, S`\frac{7eV_1}{2}`], wrong: [S`\frac{1}{2}eV_1`, S`2eV_1`, S`4eV_1`, S`\frac{7}{2}V_1`] },
+    "b.work": { right: ["2.10", "2.1"], wrong: ["0.30", "1.20", "2.70"] },
+    "c.wavelength": { right: ["459", "459.3"], wrong: ["276", "590", "1033"] },
+  },
   "two-isotopes-one-sample": {
     "a.nuclei": { right: ["0.25", S`\frac{1}{4}`, "1/4"], wrong: ["4", "0.5", "0.75"] },
     "b.activity": { right: ["0.75", S`\frac{3}{4}`], wrong: ["0.25", "3", "1.33"] },
@@ -337,6 +452,6 @@ test("check B: a second route to each answer is marked correct and the usual mis
       parts++;
     }
   }
-  assert.equal(parts, 32);
+  assert.equal(parts, 44);
   assert.equal(Object.keys(secondRoute).length, seeds.length);
 });

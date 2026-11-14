@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" role="img" aria-labelledby="t d" font-family="Helvetica, Arial, sans-serif" font-size="16" fill="#0f172a">
+<title id="t">Two balls circling inside a funnel</title>
+<desc id="d">Side view of a cone with its tip at the bottom and a vertical axis. The wall makes an angle alpha with the axis. One ball circles at height h above the tip and a second ball circles at height 4h. Dashed ellipses show the two circles.</desc>
+<defs>
+<marker id="tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0f172a"/></marker>
+<marker id="tipb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1d4ed8"/></marker>
+</defs>
+<rect x="1" y="1" width="558" height="298" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<path d="M82.0 35L250 275L418.0 35" stroke="#0f172a" stroke-width="2" fill="none"/>
+<path d="M250 275V22" stroke="#475569" stroke-width="1.2" stroke-dasharray="5 4" fill="none"/>
+<ellipse cx="250" cy="223" rx="36.4" ry="5.8" stroke="#1d4ed8" stroke-width="2" stroke-dasharray="6 4" fill="none"/>
+<circle cx="286.4" cy="223" r="8" fill="#f59e0b" stroke="#0f172a" stroke-width="2"/>
+<ellipse cx="250" cy="67" rx="145.6" ry="23.3" stroke="#1d4ed8" stroke-width="2" stroke-dasharray="6 4" fill="none"/>
+<circle cx="395.6" cy="67" r="8" fill="#f59e0b" stroke="#0f172a" stroke-width="2"/>
+<path d="M298.4 223H478M407.6 67H518M258 275H518" stroke="#475569" stroke-width="1.2" stroke-dasharray="5 4" fill="none"/>
+<path d="M470 273V225" stroke="#0f172a" stroke-width="1.2" fill="none" marker-start="url(#tip)" marker-end="url(#tip)"/>
+<text x="454" y="254.0" font-style="italic">h</text>
+<path d="M510 273V69" stroke="#0f172a" stroke-width="1.2" fill="none" marker-start="url(#tip)" marker-end="url(#tip)"/>
+<text x="518" y="176.0">4<tspan font-style="italic">h</tspan></text>
+<path d="M250 205A70 70 0 0 1 290.2 217.7" stroke="#0f172a" stroke-width="1.2" fill="none"/>
+<text x="262" y="197" font-style="italic">α</text>
+<text x="34" y="150">smooth wall</text>
+<text x="216" y="20">axis</text>
+<text x="230" y="293">tip</text>
+</svg>

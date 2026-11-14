@@ -1,0 +1,31 @@
+{
+  "id": "arena-two-colours-one-cathode",
+  "title": "Two Colours, One Cathode",
+  "topic": "Modern physics",
+  "tags": [
+    "Photoelectric effect",
+    "Energy conservation"
+  ],
+  "summary": "One cathode is lit by two kinds of light. Use one stopping voltage and a wavelength ratio to find the work function and the wavelength.",
+  "statement": "A clean metal cathode in a vacuum tube is lit by light of a single wavelength, and electrons leave it. A voltage across the tube that is just large enough to stop the fastest electrons is called the stopping voltage.\n\nWith the first light, of wavelength $$\\lambda$$, the stopping voltage is $$V_1$$.\n\nThe second light has the shorter wavelength, $$\\tfrac35\\lambda$$. Its photons carry more energy, and it gives the faster electrons. With the second light, the fastest electrons leave the cathode at twice the speed of the fastest electrons with the first light.\n\nThe size of the electron’s charge is $$e$$. The electrons are far slower than light.\n\n## (a)\n\nFind the work function of the cathode, in terms of $$e$$ and $$V_1$$.\n\n## (b)\n\nTake $$V_1=0.60\\ \\mathrm V$$. Find the work function in electronvolts.\n\n## (c)\n\nFind the wavelength $$\\lambda$$ of the first light. Use $$hc=1240\\ \\mathrm{eV\\,nm}$$.",
+  "solution": "## (a)\n\nA photon of wavelength $$\\lambda$$ has energy $$hc/\\lambda$$. An electron that leaves the cathode has used at least the work function $$\\phi$$ to get out, so the fastest electrons have kinetic energy $$hc/\\lambda-\\phi$$. The stopping voltage measures this energy. For the first light,\n\n$$\\frac{hc}{\\lambda}=\\phi+eV_1.$$\n\nWith the second light the fastest electrons are twice as fast. Kinetic energy goes as the speed squared, so it is four times as large, $$4eV_1$$. The photon energy is $$\\tfrac53$$ of the first one, because the wavelength is $$\\tfrac35$$ as long:\n\n$$\\frac53\\,\\frac{hc}{\\lambda}=\\phi+4eV_1.$$\n\nPut the first equation into the second. The photon energy drops out:\n\n$$\\frac53\\left(\\phi+eV_1\\right)=\\phi+4eV_1,\\qquad\\frac23\\phi=\\frac73eV_1.$$\n\n$$\\boxed{\\phi=\\frac72eV_1.}$$\n\n## (b)\n\n$$\\phi=\\frac72(0.60\\ \\mathrm{eV}).$$\n\n$$\\boxed{\\phi=2.10\\ \\mathrm{eV}.}$$\n\n## (c)\n\nFrom the first equation, the photon energy of the first light is\n\n$$\\frac{hc}{\\lambda}=2.10\\ \\mathrm{eV}+0.60\\ \\mathrm{eV}=2.70\\ \\mathrm{eV}.$$\n\n$$\\lambda=\\frac{1240\\ \\mathrm{eV\\,nm}}{2.70\\ \\mathrm{eV}}.$$\n\n$$\\boxed{\\lambda=459\\ \\mathrm{nm}.}$$\n\nCheck: the second light has wavelength $$276\\ \\mathrm{nm}$$ and photon energy $$4.50\\ \\mathrm{eV}$$. Its fastest electrons have $$4.50-2.10=2.40\\ \\mathrm{eV}$$, four times $$0.60\\ \\mathrm{eV}$$.",
+  "original": true,
+  "importedOn": "2026-11-14",
+  "hints": {
+    "a": [
+      "Write the photoelectric equation once for each light: photon energy equals work function plus the kinetic energy of the fastest electrons. The stopping voltage gives that kinetic energy as $$eV_1$$.",
+      "Twice the speed means four times the kinetic energy. The second photon has $$\\tfrac53$$ of the energy of the first, because its wavelength is $$\\tfrac35$$ as long.",
+      "You now have $$hc/\\lambda=\\phi+eV_1$$ and $$\\tfrac53\\,hc/\\lambda=\\phi+4eV_1$$. Put the first into the second and solve for $$\\phi$$."
+    ],
+    "b": [
+      "Use your result from part (a) with $$V_1=0.60\\ \\mathrm V$$.",
+      "An electron that crosses $$0.60\\ \\mathrm V$$ gains or loses $$0.60\\ \\mathrm{eV}$$, so $$eV_1=0.60\\ \\mathrm{eV}$$.",
+      "Multiply $$0.60\\ \\mathrm{eV}$$ by $$7/2$$."
+    ],
+    "c": [
+      "Find the photon energy of the first light from its photoelectric equation.",
+      "The photon energy is the work function plus $$eV_1$$, which is $$2.10\\ \\mathrm{eV}+0.60\\ \\mathrm{eV}$$.",
+      "Divide $$hc=1240\\ \\mathrm{eV\\,nm}$$ by the photon energy in electronvolts."
+    ]
+  }
+}

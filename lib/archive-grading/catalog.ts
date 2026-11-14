@@ -25,7 +25,7 @@ export const archiveDefinitions: ArchiveDefinition[] = [
   ...[...source01, ...source02, ...source03, ...source04, ...source05, ...source06, ...source07, ...source08].map((seed) => {
     const parts = arenaKeys[seed.id];
     if (!parts?.length) throw new Error(`Missing Arena grading disposition: ${seed.id}`);
-    return { problemId: seed.id, keyVersion: 1, content: JSON.stringify(seed), parts: parts.map((part) => ({ ...part, sourceReference: `${seed.solutionFile ?? seed.statementFile.replace("_Problem.pdf", "_Solution.pdf")} § ${part.sourcePart}` })) };
+    return { problemId: seed.id, keyVersion: 1, content: JSON.stringify(seed), parts: parts.map((part) => ({ ...part, sourceReference: `${seed.solutionFile ?? seed.statementFile?.replace("_Problem.pdf", "_Solution.pdf") ?? `Physcratic worked solution, ${seed.id}`} § ${part.sourcePart}` })) };
   }),
   ...problems.map((problem) => ({ problemId: problem.id, keyVersion: 1, content: JSON.stringify(problem), parts: [
     { ...numeric("answer", "Final answer", problem.answer, problem.unit, { sourcePart: "Answer", help: "Answers within 1% are accepted." }), sourceReference: `lib/physics.ts: ${problem.id}, worked solution` },

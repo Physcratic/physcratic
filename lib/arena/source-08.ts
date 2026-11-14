@@ -1,13 +1,13 @@
 import type { ArenaSeed } from "../arena-schema";
 
 // Beginner Arena set F1, thermodynamics, waves, optics and modern physics. Original Physcratic problems written on
-// 14 November 2026. There is no PDF behind these. statementFile only keeps the shape the schema asks for.
+// 14 November 2026. They have no source PDF.
 const importedOn = "2026-11-14";
 
 export const source08: ArenaSeed[] = [
   {
-    id: "arena-the-rectangular-cycle", title: "The Rectangular Cycle", topic: "Thermodynamics", tags: ["Heat engines", "Ideal gas", "First law of thermodynamics"], importedOn,
-    summary: "A monatomic ideal gas goes round a rectangle on the pressure and volume diagram. Find the work, the heat taken in and the efficiency.", statementFile: "F1_The_Rectangular_Cycle_Problem.pdf",
+    id: "arena-the-rectangular-cycle", title: "The Rectangular Cycle", topic: "Thermodynamics", tags: ["Heat engines", "Ideal gas", "First law of thermodynamics"], importedOn, original: true,
+    summary: "A monatomic ideal gas goes round a rectangle on the pressure and volume diagram. Find the work, the heat taken in and the efficiency.",
     statement: String.raw`A fixed amount of a monatomic ideal gas is taken round the cycle A, B, C, D and back to A. The four states are
 
 $$A:(p_0,\ V_0),\qquad B:(2p_0,\ V_0),\qquad C:(2p_0,\ 3V_0),\qquad D:(p_0,\ 3V_0).$$
@@ -81,8 +81,8 @@ Dividing the work by the net heat would give 1 for any cycle, which says nothing
     },
   },
   {
-    id: "arena-a-lamp-under-a-raft", title: "A Lamp Under a Raft", topic: "Optics", tags: ["Refraction", "Geometric optics"], importedOn,
-    summary: "A raft floats above an underwater lamp. Find how large the raft must be to stop all the lamp’s light leaving the water.", statementFile: "F1_A_Lamp_Under_a_Raft_Problem.pdf",
+    id: "arena-a-lamp-under-a-raft", title: "A Lamp Under a Raft", topic: "Optics", tags: ["Refraction", "Geometric optics"], importedOn, original: true,
+    summary: "A raft floats above an underwater lamp. Find how large the raft must be to stop all the lamp’s light leaving the water.",
     statement: String.raw`A small lamp sits at a depth $$h$$ below the flat surface of a lake and shines in all directions. The water has refractive index $$n$$ and the air has refractive index 1. A thin, opaque, circular raft floats on the surface with its centre directly above the lamp. Ignore light scattered by the water and the lake bed.
 
 ![Side view of a lake. A lamp is at depth h below the centre of a floating raft of radius R. One ray reaches the surface just past the rim of the raft, at the critical angle to the normal, and is reflected back down.](/corpus/arena/figures/a-lamp-under-a-raft-statement.svg)
@@ -144,8 +144,8 @@ $$\boxed{h=0.88\ \mathrm m.}$$`,
     },
   },
   {
-    id: "arena-walking-past-two-speakers", title: "Walking Past Two Speakers", topic: "Waves", tags: ["Interference", "Sound propagation", "Acoustics"], importedOn,
-    summary: "Two speakers play the same tone. Count the quiet points on a walk away from one of them and find the last one.", statementFile: "F1_Walking_Past_Two_Speakers_Problem.pdf",
+    id: "arena-walking-past-two-speakers", title: "Walking Past Two Speakers", topic: "Waves", tags: ["Interference", "Sound propagation", "Acoustics"], importedOn, original: true,
+    summary: "Two speakers play the same tone. Count the quiet points on a walk away from one of them and find the last one.",
     statement: String.raw`Two small speakers $$S_1$$ and $$S_2$$ stand a distance $$d$$ apart in an open field. They play the same pure tone, in step with each other. A listener starts right next to $$S_1$$ and walks slowly away from it in a straight line at right angles to the line joining the speakers. Call the listener’s distance from $$S_1$$ $$x$$. Ignore reflections from the ground, and take the two sounds to be about equally loud along the walk.
 
 ![Top view. Speakers S1 and S2 are a distance d apart on a vertical line. The listener walks horizontally away from S1 and is a distance x from it. A slanted line joins the listener to S2.](/corpus/arena/figures/walking-past-two-speakers-statement.svg)
@@ -213,8 +213,8 @@ The other two are at $$x=0.55\ \mathrm m$$ and $$x=2.25\ \mathrm m$$. Beyond $$8
     },
   },
   {
-    id: "arena-two-isotopes-one-sample", title: "Two Isotopes, One Sample", topic: "Modern physics", tags: ["Radioactive decay", "Nuclear stability"], importedOn,
-    summary: "A sample holds two isotopes with different half-lives. Compare their numbers of nuclei and their activities as time passes.", statementFile: "F1_Two_Isotopes_One_Sample_Problem.pdf",
+    id: "arena-two-isotopes-one-sample", title: "Two Isotopes, One Sample", topic: "Modern physics", tags: ["Radioactive decay", "Nuclear stability"], importedOn, original: true,
+    summary: "A sample holds two isotopes with different half-lives. Compare their numbers of nuclei and their activities as time passes.",
     statement: String.raw`A freshly made sample holds equal numbers of nuclei of two radioactive isotopes. Isotope X has a half-life of $$2.0\ \mathrm h$$ and isotope Y has a half-life of $$6.0\ \mathrm h$$. Neither decays into the other, and all the decay products are stable. The activity of an isotope is the number of its nuclei that decay per second.
 
 ## (a)
@@ -276,6 +276,225 @@ Check with part (b): at $$6.0\ \mathrm h$$ the ratio has already fallen to $$0.7
         String.raw`Write the activity ratio at a general time $$t$$ in hours, using $$N=N_02^{-t/T}$$ for each isotope.`,
         String.raw`The ratio is $$3\times2^{-t/2}/2^{-t/6}=3\times2^{-t/3}$$. It starts at 3 and falls.`,
         String.raw`Set the ratio equal to 1, so $$2^{t/3}=3$$. Take logarithms to get $$t=3\ln3/\ln2$$.`,
+      ],
+    },
+  },
+  {
+    id: "arena-ice-in-the-flask", title: "Ice in the Flask", topic: "Thermodynamics", tags: ["Latent heat", "Specific heat capacity", "Heat capacity"], importedOn, original: true,
+    summary: "Cold ice goes into a flask of warm water. Work out the final state, with the flask’s own heat capacity included.",
+    statement: String.raw`A metal flask with a heat capacity of $$280\ \mathrm{J/K}$$ holds $$250\ \mathrm g$$ of water. The flask and the water are both at $$30.0\ ^\circ\mathrm C$$. Then $$150\ \mathrm g$$ of ice at $$-20.0\ ^\circ\mathrm C$$ is dropped in and the lid is closed. No heat passes between the flask and its surroundings.
+
+Use these values. Specific heat capacity of water: $$4200\ \mathrm{J/(kg\,K)}$$. Specific heat capacity of ice: $$2100\ \mathrm{J/(kg\,K)}$$. Latent heat of melting of ice: $$3.36\times10^5\ \mathrm{J/kg}$$.
+
+## (a)
+
+Find the mass of ice left when everything in the flask has reached one temperature. Give it in grams.
+
+## (b)
+
+The same ice is dropped into the same flask with the same amount of water, but the water and the flask start warmer. Find the lowest starting temperature for which all the ice melts.
+
+## (c)
+
+The water and the flask start at $$30.0\ ^\circ\mathrm C$$ again. Find the greatest mass of ice at $$-20.0\ ^\circ\mathrm C$$ that they can melt completely. Give it in grams.`,
+    solution: String.raw`## (a)
+
+The final state is not known in advance, so test the possibilities against the heat that is available.
+
+The water and the flask cool together. For each kelvin they give up
+
+$$(0.250)(4200)+280=1330\ \mathrm J.$$
+
+Cooling all the way to $$0\ ^\circ\mathrm C$$ gives up $$1330\times30.0=39\,900\ \mathrm J$$.
+
+The ice has to warm to $$0\ ^\circ\mathrm C$$ before any of it melts. That takes
+
+$$(0.150)(2100)(20.0)=6300\ \mathrm J.$$
+
+Melting all of it would take a further $$(0.150)(3.36\times10^5)=50\,400\ \mathrm J$$.
+
+Compare: $$39\,900\ \mathrm J$$ is more than $$6300\ \mathrm J$$, so the ice does reach $$0\ ^\circ\mathrm C$$. It is less than $$6300+50\,400=56\,700\ \mathrm J$$, so not all the ice melts. The final state is ice and water together at $$0\ ^\circ\mathrm C$$.
+
+The heat left for melting is $$39\,900-6300=33\,600\ \mathrm J$$, which melts
+
+$$\frac{33\,600}{3.36\times10^5}\ \mathrm{kg}=0.100\ \mathrm{kg}.$$
+
+$$\boxed{50\ \mathrm g\ \text{of ice is left}.}$$
+
+## (b)
+
+All the ice melts when the water and the flask can supply the full $$56\,700\ \mathrm J$$ by cooling to $$0\ ^\circ\mathrm C$$. At the lowest such starting temperature $$T$$ everything ends as water at $$0\ ^\circ\mathrm C$$:
+
+$$1330\,T=56\,700.$$
+
+$$\boxed{T=42.6\ ^\circ\mathrm C.}$$
+
+## (c)
+
+Each kilogram of ice needs $$(2100)(20.0)=42\,000\ \mathrm J$$ to warm to $$0\ ^\circ\mathrm C$$ and $$336\,000\ \mathrm J$$ to melt, $$378\,000\ \mathrm J$$ in all. The water and the flask can supply $$39\,900\ \mathrm J$$:
+
+$$m=\frac{39\,900}{378\,000}\ \mathrm{kg}=0.1056\ \mathrm{kg}.$$
+
+$$\boxed{m=106\ \mathrm g.}$$
+
+This agrees with part (a), where $$150\ \mathrm g$$ was too much to melt.`,
+    hints: {
+      a: [
+        String.raw`You do not know the final state yet. It could be all water, ice and water together at $$0\ ^\circ\mathrm C$$, or all ice. Test them against the heat available.`,
+        String.raw`The water and the flask cool together and give up $$1330\ \mathrm J$$ for each kelvin. Cooling to $$0\ ^\circ\mathrm C$$ gives $$39\,900\ \mathrm J$$. The ice needs $$6300\ \mathrm J$$ to warm to $$0\ ^\circ\mathrm C$$ before any of it melts.`,
+        String.raw`The heat left for melting is $$39\,900-6300=33\,600\ \mathrm J$$. Divide by the latent heat to get the mass that melts, then subtract from $$150\ \mathrm g$$.`,
+      ],
+      b: [
+        String.raw`In the limiting case all the ice has just melted and everything ends as water at $$0\ ^\circ\mathrm C$$.`,
+        String.raw`The ice needs $$6300\ \mathrm J$$ to warm up and $$50\,400\ \mathrm J$$ to melt, $$56\,700\ \mathrm J$$ in all.`,
+        String.raw`The water and the flask give up $$1330\ \mathrm J$$ for each kelvin they cool. Set $$1330\,T=56\,700$$.`,
+      ],
+      c: [
+        String.raw`The heat available is the same as in part (a), $$39\,900\ \mathrm J$$. Now the mass of ice is the unknown.`,
+        String.raw`Each kilogram of ice needs $$42\,000\ \mathrm J$$ to warm to $$0\ ^\circ\mathrm C$$ and $$336\,000\ \mathrm J$$ to melt.`,
+        String.raw`Divide $$39\,900\ \mathrm J$$ by $$378\,000\ \mathrm{J/kg}$$ and convert to grams.`,
+      ],
+    },
+  },
+  {
+    id: "arena-the-unknown-pipe", title: "The Unknown Pipe", topic: "Waves", tags: ["Standing waves", "Acoustics", "Sound propagation"], importedOn, original: true,
+    summary: "Two resonances of a pipe are known, with one more between them. Work out what kind of pipe it is, its fundamental and its length.",
+    statement: String.raw`A straight pipe lies in a store room. You do not know its length, and you do not know whether it is open at both ends or closed at one end. A small loudspeaker near one end plays a pure tone whose frequency you can change. The pipe resonates at $$255\ \mathrm{Hz}$$ and at $$595\ \mathrm{Hz}$$, and at exactly one frequency between these two. The speed of sound is $$340\ \mathrm{m/s}$$. Ignore end corrections.
+
+## (a)
+
+Find the lowest frequency at which the pipe resonates.
+
+## (b)
+
+Find the length of the pipe.
+
+## (c)
+
+One end of the pipe turns out to have a cap on it. The cap is taken off. Find the lowest frequency at which the pipe resonates now.`,
+    solution: String.raw`## (a)
+
+A pipe open at both ends resonates at every whole-number multiple of its fundamental $$f_1$$. A pipe closed at one end resonates at the odd multiples only. Test each kind against the facts.
+
+Open at both ends. Neighbouring resonances are $$f_1$$ apart. With exactly one resonance between them, $$255\ \mathrm{Hz}$$ and $$595\ \mathrm{Hz}$$ are two steps apart:
+
+$$2f_1=595-255=340\ \mathrm{Hz},\qquad f_1=170\ \mathrm{Hz}.$$
+
+But $$255/170=1.5$$ is not a whole number, so this kind of pipe does not fit.
+
+Closed at one end. Neighbouring resonances are $$2f_1$$ apart, so two steps give
+
+$$4f_1=340\ \mathrm{Hz},\qquad f_1=85\ \mathrm{Hz}.$$
+
+Now $$255/85=3$$ and $$595/85=7$$, both odd, and the one resonance between them is $$5\times85=425\ \mathrm{Hz}$$. This fits. The pipe is closed at one end.
+
+$$\boxed{f_1=85\ \mathrm{Hz}.}$$
+
+## (b)
+
+In the fundamental of a pipe closed at one end, a quarter of a wavelength fits in the pipe:
+
+$$L=\frac\lambda4=\frac{v}{4f_1}=\frac{340}{4(85)}\ \mathrm m.$$
+
+$$\boxed{L=1.00\ \mathrm m.}$$
+
+## (c)
+
+With the cap off the pipe is open at both ends. Half a wavelength now fits in the pipe in the fundamental:
+
+$$f=\frac{v}{2L}=\frac{340}{2(1.00)}\ \mathrm{Hz}.$$
+
+$$\boxed{f=170\ \mathrm{Hz}.}$$
+
+Taking the cap off doubles the lowest frequency.`,
+    hints: {
+      a: [
+        String.raw`There are two kinds of pipe to test. One open at both ends resonates at every whole-number multiple of its fundamental. One closed at one end resonates at the odd multiples only.`,
+        String.raw`With exactly one resonance between them, the two given frequencies are two steps apart. A step is $$f_1$$ for an open pipe and $$2f_1$$ for a pipe closed at one end.`,
+        String.raw`The open pipe would give $$f_1=170\ \mathrm{Hz}$$, but $$255/170$$ is not a whole number. Try the pipe closed at one end and check that both frequencies are odd multiples.`,
+      ],
+      b: [
+        String.raw`Part (a) also told you what kind of pipe this is. How much of a wavelength fits in that kind of pipe in its fundamental?`,
+        String.raw`For a pipe closed at one end, a quarter of a wavelength fits, so $$L=\lambda/4$$.`,
+        String.raw`Use $$\lambda=v/f_1$$ with $$f_1=85\ \mathrm{Hz}$$, then divide by 4.`,
+      ],
+      c: [
+        String.raw`With the cap off the pipe is open at both ends. Its length has not changed.`,
+        String.raw`In the fundamental of a pipe open at both ends, half a wavelength fits in the pipe.`,
+        String.raw`Use $$f=v/(2L)$$ with the length from part (b).`,
+      ],
+    },
+  },
+  {
+    id: "arena-two-colours-one-cathode", title: "Two Colours, One Cathode", topic: "Modern physics", tags: ["Photoelectric effect", "Energy conservation"], importedOn, original: true,
+    summary: "One cathode is lit by two kinds of light. Use one stopping voltage and a wavelength ratio to find the work function and the wavelength.",
+    statement: String.raw`A clean metal cathode in a vacuum tube is lit by light of a single wavelength, and electrons leave it. A voltage across the tube that is just large enough to stop the fastest electrons is called the stopping voltage.
+
+With the first light, of wavelength $$\lambda$$, the stopping voltage is $$V_1$$.
+
+The second light has the shorter wavelength, $$\tfrac35\lambda$$. Its photons carry more energy, and it gives the faster electrons. With the second light, the fastest electrons leave the cathode at twice the speed of the fastest electrons with the first light.
+
+The size of the electron’s charge is $$e$$. The electrons are far slower than light.
+
+## (a)
+
+Find the work function of the cathode, in terms of $$e$$ and $$V_1$$.
+
+## (b)
+
+Take $$V_1=0.60\ \mathrm V$$. Find the work function in electronvolts.
+
+## (c)
+
+Find the wavelength $$\lambda$$ of the first light. Use $$hc=1240\ \mathrm{eV\,nm}$$.`,
+    solution: String.raw`## (a)
+
+A photon of wavelength $$\lambda$$ has energy $$hc/\lambda$$. An electron that leaves the cathode has used at least the work function $$\phi$$ to get out, so the fastest electrons have kinetic energy $$hc/\lambda-\phi$$. The stopping voltage measures this energy. For the first light,
+
+$$\frac{hc}{\lambda}=\phi+eV_1.$$
+
+With the second light the fastest electrons are twice as fast. Kinetic energy goes as the speed squared, so it is four times as large, $$4eV_1$$. The photon energy is $$\tfrac53$$ of the first one, because the wavelength is $$\tfrac35$$ as long:
+
+$$\frac53\,\frac{hc}{\lambda}=\phi+4eV_1.$$
+
+Put the first equation into the second. The photon energy drops out:
+
+$$\frac53\left(\phi+eV_1\right)=\phi+4eV_1,\qquad\frac23\phi=\frac73eV_1.$$
+
+$$\boxed{\phi=\frac72eV_1.}$$
+
+## (b)
+
+$$\phi=\frac72(0.60\ \mathrm{eV}).$$
+
+$$\boxed{\phi=2.10\ \mathrm{eV}.}$$
+
+## (c)
+
+From the first equation, the photon energy of the first light is
+
+$$\frac{hc}{\lambda}=2.10\ \mathrm{eV}+0.60\ \mathrm{eV}=2.70\ \mathrm{eV}.$$
+
+$$\lambda=\frac{1240\ \mathrm{eV\,nm}}{2.70\ \mathrm{eV}}.$$
+
+$$\boxed{\lambda=459\ \mathrm{nm}.}$$
+
+Check: the second light has wavelength $$276\ \mathrm{nm}$$ and photon energy $$4.50\ \mathrm{eV}$$. Its fastest electrons have $$4.50-2.10=2.40\ \mathrm{eV}$$, four times $$0.60\ \mathrm{eV}$$.`,
+    hints: {
+      a: [
+        String.raw`Write the photoelectric equation once for each light: photon energy equals work function plus the kinetic energy of the fastest electrons. The stopping voltage gives that kinetic energy as $$eV_1$$.`,
+        String.raw`Twice the speed means four times the kinetic energy. The second photon has $$\tfrac53$$ of the energy of the first, because its wavelength is $$\tfrac35$$ as long.`,
+        String.raw`You now have $$hc/\lambda=\phi+eV_1$$ and $$\tfrac53\,hc/\lambda=\phi+4eV_1$$. Put the first into the second and solve for $$\phi$$.`,
+      ],
+      b: [
+        String.raw`Use your result from part (a) with $$V_1=0.60\ \mathrm V$$.`,
+        String.raw`An electron that crosses $$0.60\ \mathrm V$$ gains or loses $$0.60\ \mathrm{eV}$$, so $$eV_1=0.60\ \mathrm{eV}$$.`,
+        String.raw`Multiply $$0.60\ \mathrm{eV}$$ by $$7/2$$.`,
+      ],
+      c: [
+        String.raw`Find the photon energy of the first light from its photoelectric equation.`,
+        String.raw`The photon energy is the work function plus $$eV_1$$, which is $$2.10\ \mathrm{eV}+0.60\ \mathrm{eV}$$.`,
+        String.raw`Divide $$hc=1240\ \mathrm{eV\,nm}$$ by the photon energy in electronvolts.`,
       ],
     },
   },

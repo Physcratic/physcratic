@@ -99,6 +99,10 @@
   "cases": 48,
   "digest": "7332161df7ff8f63be1f2020873feda56ca6b4252d780fa741d9683e2dfdf0b2"
  },
+ "arena-round-the-funnel": {
+  "cases": 43,
+  "digest": "29604c9012931de473c1a4816408efeaf764d7e4e1bcd302f23690a94f13329d"
+ },
  "arena-the-rectangular-cycle": {
   "cases": 43,
   "digest": "be9dd38283531ae5158b3edb3373bb1fafc15483546e9489cd06529d60356b04"
@@ -114,6 +118,18 @@
  "arena-two-isotopes-one-sample": {
   "cases": 33,
   "digest": "c0b8103fc8a5166c9de8cd0e989c7069868ee1ac8d0f482f067ba98e3092792a"
+ },
+ "arena-ice-in-the-flask": {
+  "cases": 33,
+  "digest": "858cc42370b091fba7d8975c5091b4b19e7d9ccc4876d025d926c282858e8269"
+ },
+ "arena-the-unknown-pipe": {
+  "cases": 33,
+  "digest": "c8ad11f8de97e9c7fbfa314b63b0ff6a4dc52f094440a3f8721c129a12f50b71"
+ },
+ "arena-two-colours-one-cathode": {
+  "cases": 38,
+  "digest": "bda0294005bf98b5c1a1a62bef897a48d7a5e1def67a50b5e3552a1cfe37e6de"
  },
  "incline": {
   "cases": 11,

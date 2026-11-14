@@ -75,8 +75,12 @@ test("source provenance remains in the internal manifest after removing reader d
   assert.deepEqual(arena.provenance, arenaProvenance);
   assert.ok(
     arena.problems.every(
+      // The 15 original Physcratic problems have no source PDF, so no file names either.
       (problem) =>
-        problem.statementFile && problem.solutionFile && problem.importedOn,
+        problem.importedOn &&
+        ("original" in problem && problem.original
+          ? !("statementFile" in problem) && !("solutionFile" in problem)
+          : "statementFile" in problem && problem.statementFile && problem.solutionFile),
     ),
   );
 });

@@ -18,6 +18,21 @@ export const keys08: Record<string, ArchiveKeyPart[]> = {
     n("b.count", "Number of quiet points on the walk", 3, "1", { absTol: 0, relTol: 0, help: "Enter a whole number." }),
     n("c.distance", "Distance of the last quiet point from the first speaker", 8.75, "m"),
   ],
+  "arena-ice-in-the-flask": [
+    n("a.mass", "Mass of ice left", 50, "g"),
+    n("b.temperature", "Lowest starting temperature that melts all the ice", 56700 / 1330, "°C", { canonical: "42.6" }),
+    n("c.mass", "Greatest mass of ice that melts completely", 39900 / 378, "g", { canonical: "106" }),
+  ],
+  "arena-the-unknown-pipe": [
+    n("a.fundamental", "Lowest resonant frequency", 85, "Hz"),
+    n("b.length", "Length of the pipe", 1.0, "m", { canonical: "1.00" }),
+    n("c.fundamental", "Lowest resonant frequency with the cap off", 170, "Hz"),
+  ],
+  "arena-two-colours-one-cathode": [
+    e("a.work", "Work function of the cathode", S`\frac{7}{2}eV_1`, "e V_1", "Here e is the size of the electron’s charge, not the number 2.718. e and V_1 are positive.", { positive: ["e", "V_1"] }),
+    n("b.work", "Work function", 2.1, "eV", { canonical: "2.10" }),
+    n("c.wavelength", "Wavelength of the first light", 1240 / 2.7, "nm", { canonical: "459" }),
+  ],
   "arena-two-isotopes-one-sample": [
     n("a.nuclei", "Ratio of nuclei left, X to Y, after 6.0 h", 0.25, "1", { help: "Enter a number, as a decimal or a fraction." }),
     n("b.activity", "Ratio of activities, X to Y, after 6.0 h", 0.75, "1", { help: "Enter a number, as a decimal or a fraction." }),

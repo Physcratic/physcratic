@@ -22,7 +22,7 @@ const seeds = [...source01, ...source02, ...source03, ...source04, ...source05, 
 const folder = join(process.cwd(), "public/corpus/arena");
 mkdirSync(folder, { recursive: true });
 const problems = seeds.map((seed) => {
-  const problem = arenaProblemSchema.parse({ ...seed, solutionFile: seed.solutionFile ?? seed.statementFile.replace("_Problem.pdf", "_Solution.pdf"), importedOn: seed.importedOn ?? "2026-10-31" });
+  const problem = arenaProblemSchema.parse({ ...seed, solutionFile: seed.solutionFile ?? seed.statementFile?.replace("_Problem.pdf", "_Solution.pdf"), importedOn: seed.importedOn ?? "2026-10-31" });
   writeFileSync(join(folder, `${problem.id}.json`), JSON.stringify(problem, null, 2) + "\n");
   const { statement, solution, ...metadata } = problem;
   return { ...metadata, path: `/corpus/arena/${problem.id}.json` };

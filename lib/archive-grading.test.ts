@@ -39,11 +39,15 @@ const coverage: Record<string, string[]> = {
   "a-lamp-under-a-raft": ["a.radius", "b.radius", "c.depth"],
   "walking-past-two-speakers": ["a.distance", "b.count", "c.distance"],
   "two-isotopes-one-sample": ["a.nuclei", "b.activity", "c.time"],
+  "round-the-funnel": ["a.speed", "b.ratio", "c.time"],
+  "ice-in-the-flask": ["a.mass", "b.temperature", "c.mass"],
+  "the-unknown-pipe": ["a.fundamental", "b.length", "c.fundamental"],
+  "two-colours-one-cathode": ["a.work", "b.work", "c.wavelength"],
 };
 test("explicit disposition for every requested Arena result and all 12 Quick practice problems", () => {
-  assert.equal(archiveDefinitions.length, 41);
-  assert.equal(new Set(archiveDefinitions.map((item) => item.problemId)).size, 41);
-  assert.equal(Object.keys(coverage).length, 29);
+  assert.equal(archiveDefinitions.length, 45);
+  assert.equal(new Set(archiveDefinitions.map((item) => item.problemId)).size, 45);
+  assert.equal(Object.keys(coverage).length, 33);
   for (const [id, parts] of Object.entries(coverage)) {
     const definition = getArchiveDefinition(`arena-${id}`)!;
     assert.deepEqual(definition.parts.map((part) => part.id), parts, id);
@@ -72,7 +76,7 @@ for (const definition of archiveDefinitions) {
   });
 }
 test("public generator output uses an explicit allowlist and contains no structured keys", () => {
-  assert.equal(readdirSync(join(process.cwd(), "public/corpus/grading")).length, 41);
+  assert.equal(readdirSync(join(process.cwd(), "public/corpus/grading")).length, 45);
   for (const definition of archiveDefinitions) {
     const metadata = publicArchiveMetadata(definition);
     const published = JSON.parse(readFileSync(join(process.cwd(), `public/corpus/grading/${definition.problemId}.json`), "utf8"));

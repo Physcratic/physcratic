@@ -1,13 +1,13 @@
 import type { ArenaSeed } from "../arena-schema";
 
 // Beginner Arena set F1, mechanics and electromagnetism. Original Physcratic problems written on 14 November 2026.
-// There is no PDF behind these. statementFile only keeps the shape the schema asks for.
+// They have no source PDF.
 const importedOn = "2026-11-14";
 
 export const source07: ArenaSeed[] = [
   {
-    id: "arena-cat-on-a-plank", title: "Cat on a Plank", topic: "Mechanics", tags: ["Torque", "Stability"], importedOn,
-    summary: "Find how far a cat can walk along an overhanging plank before the plank tips off the table.", statementFile: "F1_Cat_on_a_Plank_Problem.pdf",
+    id: "arena-cat-on-a-plank", title: "Cat on a Plank", topic: "Mechanics", tags: ["Torque", "Stability"], importedOn, original: true,
+    summary: "Find how far a cat can walk along an overhanging plank before the plank tips off the table.",
     statement: String.raw`A uniform plank of length $$L$$ and mass $$M$$ lies on a horizontal table, at right angles to the table’s edge. One third of the plank sticks out past the edge. A cat of mass $$m$$ walks slowly from the table out along the plank. Treat the cat as a point mass. The plank does not slide.
 
 ![A plank on a table with one third of its length past the edge. A cat stands on the overhanging part, a distance x past the edge.](/corpus/arena/figures/cat-on-a-plank-statement.svg)
@@ -73,8 +73,8 @@ A lighter cat would need to stand past the end to tip the plank, so it reaches t
     },
   },
   {
-    id: "arena-two-sleds-one-rope", title: "Two Sleds, One Rope", topic: "Mechanics", tags: ["Momentum conservation", "Energy conservation", "Newton’s laws"], importedOn,
-    summary: "Two sleds on frictionless ice are pulled together by a rope. Find where they meet and how fast they close.", statementFile: "F1_Two_Sleds_One_Rope_Problem.pdf",
+    id: "arena-two-sleds-one-rope", title: "Two Sleds, One Rope", topic: "Mechanics", tags: ["Momentum conservation", "Energy conservation", "Newton’s laws"], importedOn, original: true,
+    summary: "Two sleds on frictionless ice are pulled together by a rope. Find where they meet and how fast they close.",
     statement: String.raw`Two sleds rest on frictionless ice, a distance $$L$$ apart. Ayu sits on sled A. Sled A with Ayu has mass $$m_A$$. Sled B carries cargo and has total mass $$m_B$$. A light rope is tied to sled B, and Ayu holds its other end. She pulls the rope in hand over hand, keeping its tension at a constant value $$F$$, until the sleds meet. Treat the sleds as points.
 
 ## (a)
@@ -129,8 +129,8 @@ which gives the same $$u$$.`,
     },
   },
   {
-    id: "arena-rough-ramp-smooth-ramp", title: "Rough Ramp, Smooth Ramp", topic: "Mechanics", tags: ["Rolling motion", "Energy conservation", "Friction"], importedOn,
-    summary: "A ball rolls down a rough ramp and then climbs a frictionless one. Find its speed and how high it gets.", statementFile: "F1_Rough_Ramp_Smooth_Ramp_Problem.pdf",
+    id: "arena-rough-ramp-smooth-ramp", title: "Rough Ramp, Smooth Ramp", topic: "Mechanics", tags: ["Rolling motion", "Energy conservation", "Friction"], importedOn, original: true,
+    summary: "A ball rolls down a rough ramp and then climbs a frictionless one. Find its speed and how high it gets.",
     statement: String.raw`A uniform solid ball of mass $$m$$ and radius $$r$$ is released from rest on a rough ramp, with its centre a height $$H$$ above its level on the floor. It rolls down without slipping, crosses a short horizontal floor and then climbs a second ramp that is frictionless. The ramps join the floor smoothly, so nothing is lost at the corners. The moment of inertia of the ball about its centre is $$\tfrac25mr^2$$. Ignore air resistance and rolling resistance.
 
 ## (a)
@@ -192,8 +192,8 @@ The two shares add up: $$\tfrac57mgH$$ as height and $$\tfrac27mgH$$ as spin.`,
     },
   },
   {
-    id: "arena-hosing-the-wall", title: "Hosing the Wall", topic: "Mechanics", tags: ["Projectile motion", "Kinematics"], importedOn,
-    summary: "Find the aim that lets a water jet reach the highest point on a wall, and how high that point is.", statementFile: "F1_Hosing_the_Wall_Problem.pdf",
+    id: "arena-hosing-the-wall", title: "Hosing the Wall", topic: "Mechanics", tags: ["Projectile motion", "Kinematics"], importedOn, original: true,
+    summary: "Find the aim that lets a water jet reach the highest point on a wall, and how high that point is.",
     statement: String.raw`A hose nozzle sits at ground level, a horizontal distance $$d$$ from a tall vertical wall. Water leaves the nozzle at speed $$v$$, and you can aim it at any angle $$\theta$$ above the horizontal. Treat each bit of water as a projectile and ignore air resistance. The free-fall acceleration is $$g$$. Assume $$v^2>gd$$.
 
 ## (a)
@@ -259,8 +259,8 @@ Here $$\tan\theta=196/98=2$$, an angle of about $$63^\circ$$.`,
     },
   },
   {
-    id: "arena-the-loading-voltmeter", title: "The Loading Voltmeter", topic: "Electromagnetism", tags: ["Ohm’s law", "Series circuits", "Electric current"], importedOn,
-    summary: "A real voltmeter changes the voltage it measures. Find its reading and work back to its resistance.", statementFile: "F1_The_Loading_Voltmeter_Problem.pdf",
+    id: "arena-the-loading-voltmeter", title: "The Loading Voltmeter", topic: "Electromagnetism", tags: ["Ohm’s law", "Series circuits", "Electric current"], importedOn, original: true,
+    summary: "A real voltmeter changes the voltage it measures. Find its reading and work back to its resistance.",
     statement: String.raw`Two equal resistors, each of resistance $$R$$, are connected in series across a battery. The battery has voltage $$V_0$$ and no internal resistance. A voltmeter has internal resistance $$R_V$$. It shows the voltage across its own terminals.
 
 ## (a)
@@ -324,8 +324,8 @@ The value of $$R_V$$ does not matter here. With one meter, the reading was low b
     },
   },
   {
-    id: "arena-the-magnetic-slab", title: "The Magnetic Slab", topic: "Electromagnetism", tags: ["Magnetic forces", "Charged-particle motion", "Circular motion"], importedOn,
-    summary: "A charged particle enters a slab of uniform magnetic field. Find when it gets through, how far it turns and how long it takes.", statementFile: "F1_The_Magnetic_Slab_Problem.pdf",
+    id: "arena-the-magnetic-slab", title: "The Magnetic Slab", topic: "Electromagnetism", tags: ["Magnetic forces", "Charged-particle motion", "Circular motion"], importedOn, original: true,
+    summary: "A charged particle enters a slab of uniform magnetic field. Find when it gets through, how far it turns and how long it takes.",
     statement: String.raw`A uniform magnetic field of strength $$B$$ fills a slab of thickness $$d$$. The field is parallel to the faces of the slab. There is no field outside. A particle of mass $$m$$ and positive charge $$q$$ enters the slab moving at right angles to its face, and at right angles to the field. Ignore gravity. Speeds are far below the speed of light.
 
 ![A slab of thickness d filled with magnetic field pointing out of the page. A particle enters at right angles to the left face, follows a circular arc and leaves through the right face at an angle to its first direction.](/corpus/arena/figures/the-magnetic-slab-statement.svg)
@@ -389,8 +389,8 @@ Check: the arc length is $$r\theta=2d\cdot\pi/6$$ and the speed is $$2qBd/m$$. T
     },
   },
   {
-    id: "arena-two-charges-head-on", title: "Two Charges Head On", topic: "Electromagnetism", tags: ["Electrostatics", "Collisions", "Momentum conservation", "Energy conservation"], importedOn,
-    summary: "One charged bead is fired at another that is free to move. Find their closest approach and the final speeds.", statementFile: "F1_Two_Charges_Head_On_Problem.pdf",
+    id: "arena-two-charges-head-on", title: "Two Charges Head On", topic: "Electromagnetism", tags: ["Electrostatics", "Collisions", "Momentum conservation", "Energy conservation"], importedOn, original: true,
+    summary: "One charged bead is fired at another that is free to move. Find their closest approach and the final speeds.",
     statement: String.raw`Two small beads each carry the same positive charge $$q$$. Bead A has mass $$m$$ and bead B has mass $$3m$$. They are in empty space, very far apart, and gravity can be ignored. Bead B is at rest and free to move. Bead A is fired straight at bead B with speed $$v$$. The Coulomb constant is $$k$$, so two charges $$q$$ a distance $$r$$ apart have potential energy $$kq^2/r$$. Speeds are far below the speed of light.
 
 ## (a)
@@ -452,6 +452,81 @@ Bead A ends with $$v_A=-v/2$$. It comes back the way it came.`,
         String.raw`Long after, the beads are far apart and the potential energy is zero again. Which two quantities are back at their starting values?`,
         String.raw`Momentum and kinetic energy are both conserved from start to end. That is a head-on elastic collision between masses $$m$$ and $$3m$$.`,
         String.raw`Use $$mv=mv_A+3mv_B$$ together with $$v_B-v_A=v$$, the rule that the beads separate as fast as they approached.`,
+      ],
+    },
+  },
+  {
+    id: "arena-round-the-funnel", title: "Round the Funnel", topic: "Mechanics", tags: ["Circular motion", "Newton’s laws"], importedOn, original: true,
+    summary: "Two balls circle inside a smooth funnel at different heights. Find the speed, compare the periods and find when the balls line up again.",
+    statement: String.raw`A smooth funnel has the shape of a cone with a vertical axis and its tip at the bottom. Its wall makes an angle $$\alpha$$ with the axis. A small ball slides without friction on the inside of the wall and moves in a horizontal circle at a height $$h$$ above the tip. A second, identical ball circles the same way round at a height $$4h$$ above the tip. The free-fall acceleration is $$g$$.
+
+![Side view of a cone with its tip at the bottom and a vertical axis. The wall makes an angle alpha with the axis. One ball circles at height h above the tip and a second ball circles at height 4h.](/corpus/arena/figures/round-the-funnel-statement.svg)
+
+## (a)
+
+Find the speed of the lower ball, in terms of $$g$$ and $$h$$.
+
+## (b)
+
+Find the ratio of the upper ball’s period to the lower ball’s period. Give a number.
+
+## (c)
+
+At one moment the two balls are lined up, with the upper ball straight up the wall from the lower one. Find the time until they are next lined up like this. Give it in terms of $$h$$, $$g$$ and $$\alpha$$.`,
+    solution: String.raw`## (a)
+
+Two forces act on a ball: its weight $$mg$$ and the normal force $$N$$ from the wall. The wall makes an angle $$\alpha$$ with the vertical, so the normal force makes an angle $$\alpha$$ with the horizontal. It points inward and upward.
+
+The ball stays at one height, so the vertical forces balance. The horizontal part of $$N$$ keeps the ball on its circle of radius $$r$$:
+
+$$N\sin\alpha=mg,\qquad N\cos\alpha=\frac{mv^2}{r}.$$
+
+Divide the second equation by the first:
+
+$$\frac{v^2}{gr}=\frac{\cos\alpha}{\sin\alpha}.$$
+
+At height $$h$$ the radius of the circle is $$r=h\tan\alpha$$, so the angle cancels:
+
+$$v^2=gr\,\frac{\cos\alpha}{\sin\alpha}=gh.$$
+
+$$\boxed{v=\sqrt{gh}.}$$
+
+The speed depends on the height only, not on how wide the funnel is.
+
+## (b)
+
+The period is the distance round the circle divided by the speed:
+
+$$T=\frac{2\pi r}{v}=\frac{2\pi h\tan\alpha}{\sqrt{gh}}=2\pi\tan\alpha\sqrt{\frac hg}.$$
+
+The period grows as the square root of the height. The upper ball is four times as high, so its period is $$\sqrt4$$ times as long.
+
+$$\boxed{\frac{T_{\mathrm{upper}}}{T_{\mathrm{lower}}}=2.}$$
+
+## (c)
+
+The lower ball goes round at the angular rate $$\omega=2\pi/T$$ and the upper ball at $$\omega/2$$. The lower ball gains on the upper one at the rate $$\omega-\omega/2=\omega/2$$. They are lined up again when the lower ball has gained one full turn:
+
+$$t=\frac{2\pi}{\omega/2}=2T.$$
+
+$$\boxed{t=4\pi\tan\alpha\sqrt{\frac hg}.}$$
+
+In that time the lower ball goes round twice and the upper ball once.`,
+    hints: {
+      a: [
+        String.raw`Two forces act on the ball, its weight and the normal force from the wall. Which way does the normal force point?`,
+        String.raw`The normal force makes an angle $$\alpha$$ with the horizontal. Its vertical part balances the weight and its horizontal part keeps the ball on the circle: $$N\sin\alpha=mg$$ and $$N\cos\alpha=mv^2/r$$.`,
+        String.raw`Divide one equation by the other and use $$r=h\tan\alpha$$ for the radius of the circle. The angle cancels.`,
+      ],
+      b: [
+        String.raw`The period is the distance round the circle divided by the speed, $$T=2\pi r/v$$.`,
+        String.raw`Both $$r$$ and $$v$$ depend on the height. Use $$r=h\tan\alpha$$ and $$v=\sqrt{gh}$$ to see how $$T$$ depends on $$h$$.`,
+        String.raw`The period is proportional to $$\sqrt h$$. The upper ball is four times as high.`,
+      ],
+      c: [
+        String.raw`The two balls go round at different rates. Which one goes round faster?`,
+        String.raw`The lower ball has angular rate $$\omega=2\pi/T$$ and the upper ball has half of that. They line up again when the lower ball has gained one full turn.`,
+        String.raw`The lower ball gains at the rate $$\omega/2$$, so the time is $$2\pi/(\omega/2)=2T$$, with $$T=2\pi\tan\alpha\sqrt{h/g}$$.`,
       ],
     },
   },

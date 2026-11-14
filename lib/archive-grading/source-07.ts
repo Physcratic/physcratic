@@ -32,6 +32,11 @@ export const keys07: Record<string, ArchiveKeyPart[]> = {
     n("b.angle", "Angle between the exit and entry velocities", 30, "degrees"),
     e("c.time", "Time spent inside the slab", S`\frac{\pi m}{6qB}`, "m q B", "For the particle of part (b). Write pi for π. m, q and B are positive.", { positive: ["m", "q", "B"] }),
   ],
+  "arena-round-the-funnel": [
+    e("a.speed", "Speed of the lower ball", S`\sqrt{gh}`, "g h", "The ball at height h. g and h are positive.", { positive: ["g", "h"] }),
+    n("b.ratio", "Upper ball’s period divided by the lower ball’s period", 2, "1", { help: "Enter a number." }),
+    e("c.time", "Time until the balls are lined up again", S`4\pi\tan(\alpha)\sqrt{\frac{h}{g}}`, S`h g \alpha`, "Write pi for π and alpha for α. The angle is in radians and between 0 and a right angle. h and g are positive.", { positive: ["h", "g"], ranges: { [S`\alpha`]: [0.2, 1.3] } }),
+  ],
   "arena-two-charges-head-on": [
     e("a.speed", "Speed of the beads at closest approach", S`\frac{v}{4}`, "v", "Bead B is free to move. v is positive.", { positive: ["v"] }),
     e("b.distance", "Closest distance between the beads", S`\frac{8kq^2}{3mv^2}`, "k q m v", "Use k for the Coulomb constant. k, q, m and v are positive.", { positive: ["k", "q", "m", "v"] }),

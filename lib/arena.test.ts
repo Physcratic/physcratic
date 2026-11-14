@@ -9,11 +9,18 @@ import catalog from "./arena/index.json";
 const entries = catalog.problems as ArenaCatalogEntry[];
 const problems = entries.map((entry) => arenaProblemSchema.parse(JSON.parse(readFileSync(join(process.cwd(), "public", entry.path), "utf8"))));
 
-test("all 29 problem/solution pairs have native content and unique source identities", () => {
-  assert.equal(catalog.count, 29);
-  assert.equal(problems.length, 29);
-  assert.equal(new Set(problems.map((problem) => problem.id)).size, 29);
-  assert.equal(new Set(problems.flatMap((problem) => [problem.statementFile, problem.solutionFile])).size, 58);
+test("all 33 problem/solution pairs have native content and unique source identities", () => {
+  assert.equal(catalog.count, 33);
+  assert.equal(problems.length, 33);
+  assert.equal(new Set(problems.map((problem) => problem.id)).size, 33);
+  // The first 18 problems came from PDFs. The 15 original Physcratic problems have none.
+  assert.equal(new Set(problems.filter((problem) => !problem.original).flatMap((problem) => [problem.statementFile, problem.solutionFile])).size, 36);
+  assert.equal(problems.filter((problem) => problem.original).length, 15);
+  for (const problem of problems.filter((item) => item.original)) {
+    assert.equal(problem.statementFile, undefined, problem.id);
+    assert.equal(problem.solutionFile, undefined, problem.id);
+    assert.doesNotMatch(JSON.stringify(problem) + JSON.stringify(entries.find((item) => item.id === problem.id)), /\.pdf/i, problem.id);
+  }
   for (const problem of problems) {
     assert.ok(problem.statement.includes("$$"), problem.id);
     assert.ok(problem.solution.includes("$$"), problem.id);
@@ -48,8 +55,8 @@ test("only local, existing diagram crops are referenced, never full-page viewers
       referenced.add(match[2]);
     }
   }
-  assert.equal(referenced.size, 38);
-  assert.equal(readdirSync(join(process.cwd(), "public/corpus/arena/figures")).length, 38);
+  assert.equal(referenced.size, 39);
+  assert.equal(readdirSync(join(process.cwd(), "public/corpus/arena/figures")).length, 39);
 });
 
 test("long documents retain every source subpart and important qualifications", () => {
@@ -81,9 +88,9 @@ test("Arena search, tags and estimated difficulty filters compose independently 
   assert.equal(filterArena(entries, { query: "dodecahedron", difficulty: "advanced" }).length, 0)
   assert.equal(filterArena(entries, { topic: "Optics", difficulty: "1200-1599" })[0]?.id, "arena-mind-the-gap");
   assert.equal(filterArena(entries, { query: "quantum", difficulty: "1200-1599" }).length, 0);
-  // The beginner set of 14 November 2026: 11 problems from 500 to 1,000, six of them in the Beginner band.
-  assert.equal(filterArena(entries, { difficulty: "under-1200" }).length, 11);
-  assert.equal(filterArena(entries, { difficulty: "beginner-olympiad" }).length, 6);
+  // The beginner set of 14 November 2026: 15 problems from 500 to 1,000, eight of them in the Beginner band.
+  assert.equal(filterArena(entries, { difficulty: "under-1200" }).length, 15);
+  assert.equal(filterArena(entries, { difficulty: "beginner-olympiad" }).length, 8);
   assert.equal(filterArena(entries, { difficulty: "unrated" }).length, 0);
   assert.equal(filterArena(entries, { difficulty: "expert" }).length, 0);
   assert.equal(filterArena(entries, { query: "does-not-exist" }).length, 0);

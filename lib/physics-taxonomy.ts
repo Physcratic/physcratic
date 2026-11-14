@@ -172,6 +172,7 @@ export const physicsMethods = [
   { id: "peltier-effect", label: "Peltier effect", kind: "method", aliases: [] },
   { id: "phase-space", label: "Phase space", kind: "method", aliases: [] },
   { id: "phase-transitions", label: "Phase transitions", kind: "method", aliases: [] },
+  { id: "photoelectric-effect", label: "Photoelectric effect", kind: "method", aliases: ["Stopping voltage"] },
   { id: "planetary-physics", label: "Planetary physics", kind: "method", aliases: [] },
   { id: "plasmons", label: "Plasmons", kind: "method", aliases: [] },
   { id: "poiseuille-flow", label: "Poiseuille flow", kind: "method", aliases: [] },

@@ -16,7 +16,7 @@ import { authoredDocumentSchema, publicAuthoredContent, publicAuthoredMetadata }
 
 test("taxonomy IDs and kind-scoped aliases are unique; every spelling resolves idempotently", () => {
   assert.equal(physicsTopics.length, 6);
-  assert.equal(physicsMethods.length, 235);
+  assert.equal(physicsMethods.length, 236);
   assert.equal(new Set(physicsTags.map((tag) => tag.id)).size, physicsTags.length);
   const aliases = new Map<string, string>();
   for (const tag of physicsTags) {
@@ -62,7 +62,7 @@ test("unknown tags and meaningful scientific distinctions survive", () => {
 
 test("all actual collection values are inventoried and all shared filters agree", () => {
   const collections = [problems, arena.problems, corpusProblems, catalogProblems];
-  assert.deepEqual(collections.map((ps) => ps.length), [12, 29, 5, catalogProblems.length])
+  assert.deepEqual(collections.map((ps) => ps.length), [12, 33, 5, catalogProblems.length])
   const methods = new Set<string>();
   for (const ps of collections) {
     for (const p of ps) {

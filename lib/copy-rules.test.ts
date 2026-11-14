@@ -104,11 +104,11 @@ describe("Arena problem text obeys the copy rules", () => {
     }
     return out;
   };
-  it("covers all 29 problems and their answer boxes", () => {
-    assert.equal(arenaSeeds.length, 29);
+  it("covers all 33 problems and their answer boxes", () => {
+    assert.equal(arenaSeeds.length, 33);
     const parts = archiveDefinitions.filter((d) => d.problemId.startsWith("arena-")).reduce((sum, d) => sum + d.parts.length, 0);
-    assert.equal(parts, 185);
-    assert.ok(arenaTexts().length >= 29 * 4 + parts * 2 + 32 * 3);
+    assert.equal(parts, 197);
+    assert.ok(arenaTexts().length >= 33 * 4 + parts * 2 + 44 * 3);
   });
   it("has no dashes, semicolons, banned words or banned phrases in titles, statements, solutions, part headings, answer help or condition lines", () => {
     const failures: string[] = [];
