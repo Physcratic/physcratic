@@ -152,6 +152,10 @@ try {
     const code = await new Promise(resolve => journey.on("close", resolve));
     console.log(output);
     ok(code === 0, "public library browser and mounted account-switch journeys pass");
+    if (process.env.HOME_PDF_BROWSER === "1") {
+      const pdf = spawn(process.execPath, ["tests/pdf-accessibility.browser.mjs"], { env: { ...process.env, BROWSER_TEST_ORIGIN: origin, LIBRARY_SESSION_A: signed }, stdio: "inherit" });
+      ok(await new Promise(resolve => pdf.on("close", resolve)) === 0, "PDF accessibility, text selection and navigation pass");
+    }
     if (process.env.HOME_TOPIC_BROWSER === "1") {
       const topics = spawn(process.execPath, ["--import", "tsx", "tests/topics.browser.mjs"], { env: { ...process.env, BROWSER_TEST_ORIGIN: origin }, stdio: "inherit" });
       ok(await new Promise(resolve => topics.on("close", resolve)) === 0, "production topic browsers pass");

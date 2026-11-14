@@ -1,5 +1,9 @@
 # Execution roadmap
 
+## PDF reader structure accessibility (14 November 2026)
+
+Fresh main d95b861 reproduces four invalid ARIA nodes in the tagged 2010 PDF. A version-bound React-PDF patch preserves every content owner/order and existing cells while repairing trailing inline tags and redundant bare lists. [Root cause, limits and regression design](PDF_READER_ACCESSIBILITY.md). The draft PR records actual production-build/browser QA, independent review and exact-head CI. No merge/deployment, original document, publication, SEO policy, provider or database change.
+
 ## Approved two-insight pilot publication (14 November 2026)
 
 Owner authorizes only publishing existing IPhO2009T1/2010T1 insights, with null reviewers and unchanged approved content. Application diff is two publication flags. See [read-only baseline and P7 monitoring plan](SEO_P5B_P7_PILOT.md). Publication PR holds actual QA, independent review, merge and deployment evidence. Search Console/indexing/performance data are UNKNOWN. No new content, tracking, provider configuration, SQL or manual deployment.
