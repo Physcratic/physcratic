@@ -48,6 +48,12 @@ try {
     await context.addInitScript(theme => localStorage.setItem("theme", theme), item.theme);
     if (item.member) await context.addCookies([{ name: "better-auth.session_token", value: process.env.LIBRARY_SESSION_A, url: origin }]);
     const page = await context.newPage();
+    if (item.member) {
+      const response = await page.request.get(`${origin}/api/auth/get-session`);
+      assert.equal(response.status(), 200);
+      const session = await response.json();
+      assert.ok(session?.user?.id && session?.session?.id, "Synthetic member cookie is actually authenticated");
+    }
     const response = await page.goto(`${origin}/dashboard/problems/${item.id}`, { waitUntil: "networkidle" });
     assert.equal(response.status(), 200);
     const pdf = await loaded(page, 1);
