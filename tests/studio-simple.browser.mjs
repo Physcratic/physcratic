@@ -529,6 +529,30 @@ try {
     }
   }
   log("Typing shortcuts in a Studio equation: desktop, iPhone and Pixel, keys, phone keyboard, composition and whole word.");
+  // The field looks at its own text after every input, so text set directly (a phone keyboard that sends no key presses),
+  // sin(kz) and a name that a longer one starts with (sin, as sinh may follow) convert too, with the cursor after the command.
+  for (const [label, profile] of [["desktop", undefined], ["iPhone 13", (({ defaultBrowserType, ...p }) => p)(devices["iPhone 13"])], ["Pixel 7", (({ defaultBrowserType, ...p }) => p)(devices["Pixel 7"])]]) {
+    for (const [typed, expected] of [["sin", "\\sin"], ["theta", "\\theta"], ["sin(kz)", "\\sin(kz)"], ["sinh", "\\sinh"]]) {
+      const { context: tctx, page: tp } = await newPage(1440, 1000, profile);
+      await tp.goto(origin);
+      await tp.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
+      const tq = tp.getByRole("region", { name: "Part a", exact: true }).getByRole("textbox", { name: "What's the question?" });
+      await (profile ? tq.tap() : tq.click());
+      await tp.keyboard.type("$");
+      const tpanel = tp.getByRole("group", { name: "Type your equation" });
+      await tpanel.waitFor();
+      const tfield = await mathField(tpanel);
+      await tp.waitForTimeout(700);
+      await tfield.evaluate((e, value) => { e.value = value; e.dispatchEvent(new InputEvent("input", { bubbles: true, inputType: "insertText", data: value })); }, typed);
+      await tp.waitForTimeout(1000);
+      const got = (await tfield.evaluate((e) => e.value)).replace(/\\left|\\right/g, "");
+      assert.equal(got, expected, `Studio equation, ${label}, set directly: ${JSON.stringify(typed)} became ${got}`);
+      const caret = await tfield.evaluate((e) => [e.position, e.lastOffset]);
+      assert.equal(caret[0], caret[1], `Studio equation, ${label}, set directly: ${JSON.stringify(typed)} leaves the cursor at the end`);
+      await tctx.close();
+    }
+  }
+  log("Studio equation: text set directly converts sin, theta, sin(kz) and sinh, with the cursor after the command.");
 
   // ------------------------------------------------------------------ 3. A number answer at 375px
   const small = await newPage(375, 800);

@@ -1,8 +1,16 @@
 # Agent handoff
 
-## Approved Mechanics publication proposal (12 November 2026)
+## Mechanics publication reconciliation (14 November 2026)
 
-Owner-authorized publication follows merged #154. Branch `codex/publish-mechanics-guide` starts at `7631395a78d0821b36074f46a0cfccdff35d34c9`. Only the Mechanics guide's publication flag changes to true. `reviewedBy: null`, all scientific/editorial content, figures, metadata and practice links remain unchanged. Existing machinery yields seven published guides and139 sitemap URLs. Tests retain an unpublished fixture regression. Publication PR records executed QA and exact-head CI. This is a code proposal only, not a claim of live publication. No merge, deployment, Production setting, SQL or P5B.
+PR #158 incorporates fresh main `fa8d4931dacc3aa9d4a1b1411197b349a2246dd9`, including merged equation keyboard accessibility fix #162. Only the approved Mechanics publication flag and directly related tests/docs differ from main. All approved content/assets and `reviewedBy: null` remain unchanged. Seven published guides and139 sitemap URLs derive from the current registry. Exact-head QA, independent review and release/deployment evidence belong to #158. No B6 SQL, provider configuration, manual deployment or P5B.
+
+## Learn equation keyboard accessibility (14 November 2026)
+
+Scoped release work starts at `31941d0ea1feca6bac93834d1b8fa75ce051ca5c`. Equation scroll wrappers gain server-rendered keyboard focus, a visible theme-token outline and named group semantics, not landmarks. Native arrow scrolling and MathML remain. All equations are focusable because SSR cannot safely determine overflow across fonts, viewport and zoom. No client measurement or hydration dependency is added. Accessibility PR records baseline/after browser, independent review and exact-head CI. Mechanics publication remains separate in #158. No B6 operator, SQL, CSP, flag, provider or deployment changes.
+
+## B6 PostgreSQL 18.7 compatibility (13 November 2026)
+
+Branch `codex/b6-pg187` updates B6's exact version binding/template to 180007 after owner-reported read-only inspection. The legacy operator and all 18 canonical SQL hashes remain unchanged. Scope stays 0007–0015, 0017, 0018; never replay 0016 or install 0019. Node22 focused integrity/identity/approval and disposable PG18.7 operator tests pass 4/4. CI isolates B6 on 18.7 while preserving the legacy 18.6 suite. [Windows corrections](../../scripts/production-upgrade/WINDOWS_RUNBOOK.md) require new candidate/package bindings and separate explicit final approval-file SHA-256 authorization. Package SHA-256 `c410533f44d68d4f708faebc20655b026e19080c296dc5acaf42992aa2b2bb08`. GitHub API access is blocked (Forbidden); remote PR/CI status must be established separately. No Production access/change, firewall action or deployment.
 
 ## Moderator actions (12 November 2026)
 

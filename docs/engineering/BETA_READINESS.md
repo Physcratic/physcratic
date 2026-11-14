@@ -1,8 +1,16 @@
 # Beta readiness log
 
-## Approved Mechanics publication proposal (12 November 2026)
+## Mechanics publication reconciliation (14 November 2026)
 
-Owner-authorized publication follows merged #154. Branch `codex/publish-mechanics-guide` starts at `7631395a78d0821b36074f46a0cfccdff35d34c9`. Only the Mechanics guide's publication flag changes to true. `reviewedBy: null`, all scientific/editorial content, figures, metadata and practice links remain unchanged. Existing machinery yields seven published guides and139 sitemap URLs. Tests retain an unpublished fixture regression. Publication PR records executed QA and exact-head CI. This is a code proposal only, not a claim of live publication. No merge, deployment, Production setting, SQL or P5B.
+PR #158 incorporates fresh main `fa8d4931dacc3aa9d4a1b1411197b349a2246dd9`, including merged equation keyboard accessibility fix #162. Only the approved Mechanics publication flag and directly related tests/docs differ from main. All approved content/assets and `reviewedBy: null` remain unchanged. Seven published guides and139 sitemap URLs derive from the current registry. Exact-head QA, independent review and release/deployment evidence belong to #158. No B6 SQL, provider configuration, manual deployment or P5B.
+
+## Learn equation keyboard accessibility (14 November 2026)
+
+Scoped release work starts at `31941d0ea1feca6bac93834d1b8fa75ce051ca5c`. Equation scroll wrappers gain server-rendered keyboard focus, a visible theme-token outline and named group semantics, not landmarks. Native arrow scrolling and MathML remain. All equations are focusable because SSR cannot safely determine overflow across fonts, viewport and zoom. No client measurement or hydration dependency is added. Accessibility PR records baseline/after browser, independent review and exact-head CI. Mechanics publication remains separate in #158. No B6 operator, SQL, CSP, flag, provider or deployment changes.
+
+## B6 PostgreSQL 18.7 compatibility (13 November 2026)
+
+Branch `codex/b6-pg187` updates B6's exact version binding/template to 180007 after owner-reported read-only inspection. The legacy operator and all 18 canonical SQL hashes remain unchanged. Scope stays 0007–0015, 0017, 0018; never replay 0016 or install 0019. Node22 focused integrity/identity/approval and disposable PG18.7 operator tests pass 4/4. CI isolates B6 on 18.7 while preserving the legacy 18.6 suite. [Windows corrections](../../scripts/production-upgrade/WINDOWS_RUNBOOK.md) require new candidate/package bindings and separate explicit final approval-file SHA-256 authorization. Package SHA-256 `c410533f44d68d4f708faebc20655b026e19080c296dc5acaf42992aa2b2bb08`. GitHub API access is blocked (Forbidden); remote PR/CI status must be established separately. No Production access/change, firewall action or deployment.
 
 ## Moderator actions (12 November 2026)
 
@@ -1082,3 +1090,26 @@ Separate draft stacked on revised P2 #143 (`0d929b3`), main `01757c0` incorporat
 - **Bundle:** the rating history chart moved to `components/physics/rating-history-chart.tsx` and loads with `next/dynamic`, so recharts (about 390 kB) leaves the dashboard first load. `/dashboard` 502 kB to 395 kB. `/problems` (382 kB), a problem page (341 kB) and Studio (325 kB) are unchanged. What is left in them is KaTeX (about 310 kB), the original-titles JSON (237 kB) and zod (100 kB), which render synchronously inside problem content and the library, so deferring them would change behaviour. MathLive, mathjs and the PDF viewer were already lazy.
 - **Verified:** CI steps from a clean worktree (offline guards, typecheck, lint, 854 server tests, 167 UI tests, build). On a throwaway PostgreSQL 16 on loopback: `tours.browser.mjs` 734 checks, `math-typing.browser.mjs` 594, `SWEEP=1 solve-contrast.browser.mjs` signed out and signed in, 0 failures each.
 - **Not passing, not from this change:** `first-time-user.browser.mjs` times out at line 268 waiting for a `math-field` on `arena-mind-the-gap`, which has a plain numeric field. It fails the same way on unmodified `origin/main`.
+
+## 2026-11-12 - Restored Arena answers keep the math field
+
+- **Bug:** on a production build at 375 and 1440, typing an expression into a part, filling the other part and pressing Check with a wrong answer all kept the math field, its value and the Math Pad. After a reload, a saved expression came back in the plain fallback box, and so did any field that mounted with a draft. The fallback is meant for when MathLive fails to load.
+- **Cause:** `MathAnswerField` only upgrades to MathLive when it mounts empty, unless `upgradeOnBlur` or `loadWithValue` is set. The archive and Arena answer panel set neither, so a restored draft never became a math field. The authored student workspace already used `upgradeOnBlur`.
+- **Fix:** `components/physics/archive-answer-panel.tsx` passes `upgradeOnBlur`. A restored draft shows "Loading math editor…", then opens as a math field with its value, and waits for focus to leave before swapping.
+- **Tests:** `first-time-user.browser.mjs` expects the math field and the Math Pad when a draft is restored, after a wrong check and after a reload (124 checks). `math-typing.browser.mjs` reads the restored value from the math field (597 checks).
+
+## 2026-11-12 - Phase 12: names convert from what the field holds, not from key presses
+
+- **Why:** sin and theta still did not convert on the owner's real phone after Phase 10. That fix replayed key events, which a phone keyboard may not send in an order MathLive reads.
+- **Change:** `components/physics/mathfield-convert.ts` looks at the atoms of a MathLive field after every input (and after a selection change, the end of a composition, a pause and blur). A run of plain letters that spells sin, cos, tan, sec, csc, cot, the arc and hyperbolic forms, ln, log, log10, exp, sqrt, pi, infinity or a Greek name becomes the command, with the cursor right after it. A run that is part of a longer word (tangent) is left alone. A declared symbol is left alone, so a variable called pi stays letters, and a declared symbol next to a name stays too (sinx with x declared becomes \sin x). A declared Greek name still becomes its letter. A name that a longer one starts with (sin, as sinh may follow) waits 600 ms, or until typing moves on or focus leaves. Nothing converts twice, because a converted name is no longer plain letters. The key shortcuts on desktop are unchanged. `MathAnswerField` is the only place a MathLive field is made, so answer fields and Studio equations both get it.
+- **Tests:** `tests/mathfield-convert.test.ts` (14 tests, with a fake field). `math-typing.browser.mjs` sets the text directly, types one letter at a time, inserts a whole word and pastes from the clipboard on desktop, iPhone 13 and Pixel 7: sin, theta, sinx with x declared, sin(kz), sinh and cos(theta), with the cursor at the end. `studio-simple.browser.mjs` checks the same in a Studio equation.
+- **Verified:** math-typing 824 checks, phase2-phones 46, first-time-user 124, studio-simple on a throwaway PostgreSQL 16, lint, 184 UI tests.
+- **Not checked:** a real phone. A declared symbol named pi is covered by the unit test only, because no Arena problem declares one.
+
+## 2026-11-12 - X3: CSP qualification rebuilt from #121 and #122
+
+- **What:** the fail-closed route inventory, document checks and tests from #122 (applied cleanly to current main, the conflicts were only in docs) and the readiness checklist from #121, updated for current routes. See [CSP_X3_READINESS.md](CSP_X3_READINESS.md). The production header is still report-only and no application code changed.
+- **Caught on the first run:** seven route handlers added since 4 November were not in the reviewed list, and two harness steps were stale (the Learn header no longer links to the Dashboard, and the Your solution tab became a page step in #137). Both fixed in the harness.
+- **Added:** browser cases for MathLive, the guided tour, the public library and the Tally link, and a build-free unit test that fails when a page or route handler is added without review.
+- **Result in Chromium:** 26 enforcement and report-only cases pass, the hybrid architecture qualifies all 27 HTML document routes, 39 focused tests pass. Firefox and WebKit run in GitHub CI.
+- **Under enforcement today:** nothing breaks with the current policy (eval and WASM fall back). Removing script `unsafe-inline` breaks hydration on every HTML route until nonces and hashes are published. Removing style `unsafe-inline` loses inline styles in KaTeX, MathLive, the tour and the PDF viewer.

@@ -145,8 +145,86 @@ for (const name of Object.keys(profiles)) {
   const first = page.locator("#step-answer math-field").first();
   await first.waitFor({ timeout: 30000 });
   ok((await first.evaluate((el) => el.id)).endsWith("a.trajectory") && (await first.evaluate((el) => el.value)) === "", `${name}: the correct part was cleared from the saved answers`);
-  const restored = await page.locator("#step-answer input[type=text], #step-answer input:not([type])").evaluateAll((els) => els.map((el) => el.value));
+  // A restored draft opens as a math field too, so its value is read from the field, with plain boxes as a fallback.
+  await page.locator("#step-answer math-field").nth(1).waitFor({ timeout: 30000 });
+  const restored = await page.locator("#step-answer math-field, #step-answer input[type=text], #step-answer input:not([type])").evaluateAll((els) => els.map((el) => el.value));
   ok(restored.some((value) => value.includes("k+1")), `${name}: the unfinished answer in another part survived the reload (${JSON.stringify(restored)})`);
+  ok(await page.locator("#step-answer math-field").count() >= 2, `${name}: the restored part is a math field, not the plain box`);
+  await context.close();
+}
+
+// Conversion that does not depend on key presses. After any input the field looks at what it holds, and plain letters that
+// spell a function or Greek name become the command: the text set directly (as a phone keyboard does), one letter at a time,
+// a whole word at once (autocomplete, predictive text, dictation) and a real paste. Names that a longer one starts with (sin,
+// as sinh may follow) wait a moment. A declared symbol next to a name stays (sinx with x declared). The cursor ends right after.
+const grin = "arena-a-grin-and-a-wiggle";
+const atom = "arena-an-atom-with-stage-fright";
+const convertCases = [
+  { text: "sin", problem: grin, expected: "\\sin" },
+  { text: "theta", problem: grin, expected: "\\theta" },
+  { text: "sinx", problem: atom, field: "d.function", expected: "\\sin x" },
+  { text: "sin(kz)", problem: grin, expected: "\\sin(kz)" },
+  { text: "sinh", problem: grin, expected: "\\sinh" },
+  { text: "cos(theta)", problem: grin, expected: "\\cos(\\theta)" },
+];
+const stripLeftRight = (value) => value.replace(/\\left|\\right/g, "");
+for (const name of Object.keys(profiles)) {
+  for (const way of ["set directly", "one letter at a time", "whole word", "paste"]) {
+    for (const { text, problem, field: fieldId, expected } of convertCases) {
+      const context = await browser.newContext({ ...profiles[name], permissions: ["clipboard-read", "clipboard-write"] });
+      const page = await context.newPage();
+      const errors = [];
+      page.on("pageerror", (e) => errors.push(e.message));
+      await page.goto(`${origin}/dashboard/problems/${problem}`);
+      const field = fieldId ? page.locator(`#step-answer math-field[id$="${fieldId}"]`) : page.locator("#step-answer math-field").first();
+      await field.waitFor({ timeout: 30000 });
+      await field.scrollIntoViewIfNeeded();
+      await (name === "desktop" ? field.click() : field.tap());
+      await page.waitForTimeout(700);
+      if (way === "set directly") await field.evaluate((el, value) => { el.value = value; el.dispatchEvent(new InputEvent("input", { bubbles: true, inputType: "insertText", data: value })); }, text);
+      else if (way === "one letter at a time") for (const ch of text) { await page.keyboard.insertText(ch); await page.waitForTimeout(40); }
+      else if (way === "whole word") await (await context.newCDPSession(page)).send("Input.insertText", { text });
+      else { await page.evaluate((value) => navigator.clipboard.writeText(value), text); await page.keyboard.press("Control+V"); }
+      // A name that a longer one starts with waits a moment, so wait past it.
+      await page.waitForTimeout(1000);
+      const state = await field.evaluate((el) => ({ value: el.value, position: el.position, last: el.lastOffset }));
+      ok(stripLeftRight(state.value) === expected, `${name}, ${way}: ${JSON.stringify(text)} became ${state.value}, expected ${expected}`);
+      ok(state.position === state.last, `${name}, ${way}: ${JSON.stringify(text)} leaves the cursor at the end (${state.position} of ${state.last})`);
+      ok(errors.length === 0, `${name}, ${way}: ${JSON.stringify(text)} page errors ${errors}`);
+      await context.close();
+    }
+  }
+}
+
+// Never twice: more input after a conversion leaves the command alone, and typing on goes after it. sinh typed letter by
+// letter is sinh, not sin and h.
+for (const name of Object.keys(profiles)) {
+  const { context, page, field } = await openField(name);
+  await field.evaluate((el) => { el.value = "sin"; el.dispatchEvent(new InputEvent("input", { bubbles: true, inputType: "insertText", data: "n" })); });
+  await page.waitForTimeout(1000);
+  await field.evaluate((el) => el.dispatchEvent(new InputEvent("input", { bubbles: true, inputType: "insertText", data: "n" })));
+  await page.waitForTimeout(300);
+  ok(await field.evaluate((el) => el.value) === "\\sin", `${name}: input again after a conversion leaves \\sin as one command`);
+  await page.keyboard.insertText("(");
+  await page.keyboard.insertText("k");
+  await page.waitForTimeout(300);
+  ok(stripLeftRight(await field.evaluate((el) => el.value)).startsWith("\\sin(k"), `${name}: typing on goes after the command`);
+  await context.close();
+}
+for (const name of Object.keys(profiles)) {
+  const { context, page, field } = await openField(name);
+  for (const ch of "sinh") { await page.keyboard.insertText(ch); await page.waitForTimeout(80); }
+  await page.waitForTimeout(1000);
+  ok(await field.evaluate((el) => el.value) === "\\sinh", `${name}: sinh typed one letter at a time is one command`);
+  await context.close();
+}
+
+// A longer word is left alone, and a name inside a longer word is not taken out of it.
+for (const word of ["tangent", "using"]) {
+  const { context, page, field } = await openField("iPhone 13");
+  await field.evaluate((el, value) => { el.value = value; el.dispatchEvent(new InputEvent("input", { bubbles: true, inputType: "insertText", data: value })); }, word);
+  await page.waitForTimeout(1000);
+  ok(await field.evaluate((el) => el.value) === word, `${word} is left as typed`);
   await context.close();
 }
 

@@ -5,7 +5,7 @@
     "endpoint": "ep-snowy-heart-b7c1220y",
     "database": "neondb",
     "role": "neondb_owner",
-    "version": 180006
+    "version": 180007
   },
   "candidate": "",
   "baselineSchema": "",

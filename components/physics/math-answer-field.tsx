@@ -8,7 +8,11 @@ import { cleanLatex, paletteItems, plainInsertion, type PaletteItem } from "./an
 import { enableTouchKeyboard, focusSink, isTouchDevice, releasePrimedKeyboard } from "./mathfield-touch";
 import { MathPad, useKeyboardDock, type PadMode } from "./math-pad";
 import { shortcutsFor } from "./math-typing";
+import { convertPlainNames, type ConvertibleField } from "./mathfield-convert";
 import { LatexAnswerPreview } from "./latex-answer-preview";
+
+/** How long a name that a longer one starts with (sin, as sinh may follow) waits before it turns into the command. */
+const NAME_SETTLE_MS = 600;
 
 /**
  * One expression answer. MathLive is loaded only when the field mounts, never with the page. Until it is ready, or if it
@@ -92,6 +96,7 @@ export function MathAnswerField({
     let frame = 0;
     let Element: typeof MathfieldElement | undefined;
     let mounted: MathfieldElement | undefined;
+    let settleTimer = 0;
     const inputArea = wrapper.current;
     const start = upgradeOnBlur || loadWithValue || value.trim() === "";
     if (!start || !host.current) return;
@@ -115,6 +120,37 @@ export function MathAnswerField({
           reported.current = cleanLatex(element.value);
           change.current(reported.current);
         });
+        // Whatever the keyboard sent, look at the field afterwards. Plain letters that spell sin, theta and the like become the
+        // command, so this does not depend on key presses. A name that a longer one starts with (sin, sinh) waits a moment.
+        let converting = false;
+        let composingNow = false;
+        const convert = (settled: boolean) => {
+          if (converting || composingNow || element.mode === "latex" || element.disabled) return;
+          try {
+            if (!/[A-Za-z]{2}/.test(element.getValue("latex"))) return;
+          } catch {
+            return;
+          }
+          converting = true;
+          try {
+            const result = convertPlainNames(element as unknown as ConvertibleField, declared.current, settled);
+            if (result.changed) {
+              reported.current = cleanLatex(element.value);
+              change.current(reported.current);
+            }
+            clearTimeout(settleTimer);
+            if (result.pending) settleTimer = window.setTimeout(() => convert(true), NAME_SETTLE_MS);
+          } catch {
+            // A field that will not convert keeps what was typed.
+          } finally {
+            converting = false;
+          }
+        };
+        element.addEventListener("input", () => convert(false));
+        element.addEventListener("selection-change", () => convert(false));
+        element.addEventListener("focusout", () => convert(true));
+        element.addEventListener("compositionstart", () => { composingNow = true; }, true);
+        element.addEventListener("compositionend", () => { composingNow = false; clearTimeout(settleTimer); settleTimer = window.setTimeout(() => convert(false), 60); }, true);
         element.addEventListener(
           "keydown",
           (event) => {
@@ -249,6 +285,7 @@ export function MathAnswerField({
     return () => {
       cancelled = true;
       cancelAnimationFrame(frame);
+      clearTimeout(settleTimer);
       inputArea?.removeEventListener("focusout", scheduleMount);
       inputArea?.removeEventListener("compositionstart", beginComposition);
       inputArea?.removeEventListener("compositionend", endComposition);
