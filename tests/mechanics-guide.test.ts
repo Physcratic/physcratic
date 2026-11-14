@@ -26,7 +26,7 @@ test("the approved Mechanics guide is publicly discoverable without reviewer att
   assert.equal(dynamicParams, false);
   assert.ok(generateStaticParams().some(p => p.slug === slug));
   assert.equal(publishedArticles.length, 7);
-  assert.equal(indexableRoutes.length, 139);
+  assert.equal(indexableRoutes.length, 148);
   assert.ok(publicRoutes.some(r => r.path === learnPath(slug) && r.indexable));
   for (const text of [renderToStaticMarkup(React.createElement(LearnPage)), llmsIndex("https://physcratic.com"), llmsFull("https://physcratic.com")]) {
     assert.ok(text.includes(slug));

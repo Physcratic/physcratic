@@ -81,6 +81,27 @@ export const catalogSelection: Record<Competition, readonly Selection[]> = {
       ["Surface tension", "Capillarity", "Hydrostatics"],
     ],
     [
+      2022,
+      "T1",
+      "Permanent magnets",
+      "Electromagnetism",
+      ["Magnetic fields", "Magnetic forces", "Magnetic dipoles"],
+    ],
+    [
+      2022,
+      "T2",
+      "James Webb Space Telescope",
+      "Optics",
+      ["Image formation", "Radiative equilibrium", "Heat engines"],
+    ],
+    [
+      2022,
+      "T3",
+      "Scaling laws",
+      "Mechanics",
+      ["Scaling laws", "Mechanical stress", "Terminal velocity"],
+    ],
+    [
       2021,
       "T1",
       "Planetary physics",
@@ -93,6 +114,13 @@ export const catalogSelection: Record<Competition, readonly Selection[]> = {
       "An electrostatic lens",
       "Electromagnetism",
       ["Electrostatics", "Charged-particle motion", "Electron optics"],
+    ],
+    [
+      2021,
+      "T3",
+      "Particles and Waves",
+      "Modern physics",
+      ["de Broglie waves", "Optical absorption", "Statistical mechanics"],
     ],
     [
       2019,
@@ -326,6 +354,20 @@ export const catalogSelection: Record<Competition, readonly Selection[]> = {
     ],
     [
       2024,
+      "T1",
+      "Geometry of Water Fountain",
+      "Mechanics",
+      ["Projectile motion", "Kinematics", "Fluid flow"],
+    ],
+    [
+      2024,
+      "T2",
+      "Snell's Law",
+      "Optics",
+      ["Refraction", "Reflection", "Geometric optics"],
+    ],
+    [
+      2024,
       "T3",
       "The first quasar: the secrets of 3C 273",
       "Modern physics",
@@ -344,6 +386,13 @@ export const catalogSelection: Record<Competition, readonly Selection[]> = {
       "A ball on a rotating disc",
       "Mechanics",
       ["Rotating frames", "Friction", "Rolling motion"],
+    ],
+    [
+      2023,
+      "T3",
+      "Cavitation",
+      "Thermodynamics",
+      ["Bubble dynamics", "Vapour pressure", "Diffusion"],
     ],
     [
       2011,
@@ -601,6 +650,13 @@ export const catalogSelection: Record<Competition, readonly Selection[]> = {
     ],
     [
       2023,
+      "T2",
+      "Brick between two planes",
+      "Mechanics",
+      ["Friction", "Rigid-body dynamics", "Stability"],
+    ],
+    [
+      2023,
       "T3",
       "Plate between magnets",
       "Electromagnetism",
@@ -633,6 +689,13 @@ export const catalogSelection: Record<Competition, readonly Selection[]> = {
       "Leaking cylinder",
       "Thermodynamics",
       ["Ideal gases", "Adiabatic processes", "First law of thermodynamics"],
+    ],
+    [
+      2021,
+      "T2",
+      "Thread around a cylinder",
+      "Mechanics",
+      ["Friction", "Constraints", "Newton’s laws"],
     ],
     [
       2021,

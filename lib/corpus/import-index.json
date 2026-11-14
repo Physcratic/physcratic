@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
-  "importedOn": "2026-10-31",
-  "count": 103,
+  "importedOn": "2026-11-14",
+  "count": 112,
   "problems": [
     {
       "id": "ipho-2026-t1",
@@ -232,6 +232,63 @@
       ]
     },
     {
+      "id": "ipho-2022-t1",
+      "path": "/corpus/english-problems/ipho-2022-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2022_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        },
+        {
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2022_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        }
+      ]
+    },
+    {
+      "id": "ipho-2022-t2",
+      "path": "/corpus/english-problems/ipho-2022-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2022_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        },
+        {
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2022_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        }
+      ]
+    },
+    {
+      "id": "ipho-2022-t3",
+      "path": "/corpus/english-problems/ipho-2022-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2022_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        },
+        {
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2022_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        }
+      ]
+    },
+    {
       "id": "ipho-2021-t1",
       "path": "/corpus/english-problems/ipho-2021-t1.json",
       "language": "en",
@@ -265,6 +322,25 @@
         {
           "kind": "solution",
           "url": "https://olimpicos.net/files/ipho/IPhO_2021_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        }
+      ]
+    },
+    {
+      "id": "ipho-2021-t3",
+      "path": "/corpus/english-problems/ipho-2021-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2021_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        },
+        {
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2021_S3.pdf",
           "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
@@ -878,6 +954,44 @@
       ]
     },
     {
+      "id": "apho-2024-t1",
+      "path": "/corpus/english-problems/apho-2024-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2024_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        },
+        {
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2024_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        }
+      ]
+    },
+    {
+      "id": "apho-2024-t2",
+      "path": "/corpus/english-problems/apho-2024-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2024_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        },
+        {
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2024_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        }
+      ]
+    },
+    {
       "id": "apho-2024-t3",
       "path": "/corpus/english-problems/apho-2024-t3.json",
       "language": "en",
@@ -930,6 +1044,25 @@
         {
           "kind": "solution",
           "url": "https://olimpicos.net/files/apho/APhO_2023_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        }
+      ]
+    },
+    {
+      "id": "apho-2023-t3",
+      "path": "/corpus/english-problems/apho-2023-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2023_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        },
+        {
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2023_S3.pdf",
           "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
@@ -1605,6 +1738,23 @@
       ]
     },
     {
+      "id": "eupho-2023-t2",
+      "path": "/corpus/problems/eupho-2023-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2023/06/EuPhO_2023_theory.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2023/06/EuPhO_2023_theo_sol.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
       "id": "eupho-2023-t3",
       "path": "/corpus/problems/eupho-2023-t3.json",
       "language": "en",
@@ -1675,6 +1825,23 @@
     {
       "id": "eupho-2021-t1",
       "path": "/corpus/problems/eupho-2021-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2021/06/EuPhO_2021-theory.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2021/06/EuPhO_2021_Solutions-2.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2021-t2",
+      "path": "/corpus/problems/eupho-2021-t2.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",

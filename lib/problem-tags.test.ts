@@ -62,7 +62,7 @@ test("practice problems expose subject and concept as reusable tags", () => {
 
 test("catalog statement language is available as a tag and filter", () => {
   assert.ok(getTagOptions(catalogProblems).includes("English"));
-  assert.equal(filterCatalog({ topic: "English" }).length, 103)
+  assert.equal(filterCatalog({ topic: "English" }).length, 112)
   assert.equal(filterCatalog({ topic: "Russian" }).length, 0);
 });
 

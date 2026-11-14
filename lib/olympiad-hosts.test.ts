@@ -11,7 +11,7 @@ test("all current imported editions have verified host metadata", () => {
     assert.match(host.flag, /^(?:[\u{1F1E6}-\u{1F1FF}]{2})+$/u)
     editions.add(`${problem.competition}-${problem.year}`)
   }
-  assert.equal(editions.size, 45)
+  assert.equal(editions.size, 46)
 })
 
 test("hosts depend on both competition and year", () => {

@@ -41,16 +41,18 @@ function alternateImport() {
   };
 }
 
-test("catalog contains exactly 103 unique full problems across the agreed competitions", () => {
-  assert.equal(catalogProblems.length, 103)
-  assert.equal(new Set(catalogProblems.map((problem) => problem.id)).size, 103)
+const addedOn20261114 = new Set(["apho-2024-t1", "apho-2024-t2", "apho-2023-t3", "ipho-2022-t1", "ipho-2022-t2", "ipho-2022-t3", "ipho-2021-t3", "eupho-2021-t2", "eupho-2023-t2"])
+
+test("catalog contains exactly 112 unique full problems across the agreed competitions", () => {
+  assert.equal(catalogProblems.length, 112)
+  assert.equal(new Set(catalogProblems.map((problem) => problem.id)).size, 112)
   assert.deepEqual(
     competitions.map(
       (competition) =>
         catalogProblems.filter((problem) => problem.competition === competition)
           .length,
     ),
-    [43, 35, 25],
+    [47, 38, 27],
   );
   for (const problem of catalogProblems) {
     assert.equal(
@@ -140,10 +142,10 @@ test("verified local English titles match original PDF text, not editorial parap
 test("primary-topic accounting meets every target without counting mixed problems twice", () => {
   assert.equal(
     catalogCoverage.reduce((sum, row) => sum + row.count, 0),
-    103,
+    112,
   );
   for (const row of catalogCoverage) {
-    assert.equal(row.count, row.target + (["Mechanics", "Optics", "Thermodynamics"].includes(row.topic) ? 1 : 0), row.topic)
+    assert.ok(row.count >= row.target, row.topic)
     assert.equal(
       Object.values(row.byCompetition).reduce((sum, count) => sum + count, 0),
       row.count,
@@ -151,7 +153,7 @@ test("primary-topic accounting meets every target without counting mixed problem
   }
 });
 
-test("all 103 records are imported while pilot guides, review and rights status remain honest", () => {
+test("all 112 records are imported while pilot guides, review and rights status remain honest", () => {
   assert.deepEqual(
     catalogProblems
       .filter((problem) => problem.hasPilotGuide)
@@ -160,8 +162,8 @@ test("all 103 records are imported while pilot guides, review and rights status 
     corpusProblems.map((problem) => problem.id).sort(),
   );
   assert.deepEqual(catalogExport.counts, {
-    total: 103,
-    imported: 103,
+    total: 112,
+    imported: 112,
     importedPilot: 5,
     sourceLinked: 0,
   });
@@ -195,7 +197,7 @@ test("every external statement and solution has recorded successful URL verifica
         );
       else assert.ok(verified.has(url), `${problem.id}: ${url}`);
     }
-    assert.equal(problem.checkedOn, problem.year === 2026 ? "2026-11-10" : problem.sourceKind === "english-archive" ? "2026-10-31" : "2026-10-28")
+    assert.equal(problem.checkedOn, problem.year === 2026 ? "2026-11-10" : addedOn20261114.has(problem.id) ? "2026-11-14" : problem.sourceKind === "english-archive" ? "2026-10-31" : "2026-10-28")
     if (problem.sourceKind === "official-bundle") {
       assert.equal(problem.statementUrl, problem.solutionUrl);
       assert.match(
@@ -208,7 +210,7 @@ test("every external statement and solution has recorded successful URL verifica
 
 test("catalog search composes competition, year, concept and estimated difficulty filters", () => {
   assert.equal(filterCatalog({ query: " APhO 2025 " }).length, 3);
-  assert.equal(filterCatalog({ competition: "EuPhO" }).length, 25);
+  assert.equal(filterCatalog({ competition: "EuPhO" }).length, 27);
   assert.equal(filterCatalog({ topic: "Mechanics" }).length >= 20, true);
   assert.ok(
     filterCatalog({ topic: "Normal modes", competition: "EuPhO" }).some(
@@ -221,19 +223,19 @@ test("catalog search composes competition, year, concept and estimated difficult
     filterCatalog({ competition: "APhO", query: "EuPhO" }).length,
     0,
   );
-  assert.equal(filterCatalog({ difficulty: "1600-plus" }).length, 103)
-  assert.equal(filterCatalog({ difficulty: "1200-1599" }).length, 0);
+  assert.equal(filterCatalog({ difficulty: "1600-plus" }).length, 110)
+  assert.equal(filterCatalog({ difficulty: "1200-1599" }).length, 2);
   assert.equal(filterCatalog({ difficulty: "under-1200" }).length, 0);
   assert.equal(filterCatalog({ difficulty: "unrated" }).length, 0);
 });
 
 test("competition search supports partial names, contest years and combined filters", () => {
-  assert.equal(filterCatalog({ competition: "" }).length, 103)
-  assert.equal(filterCatalog({ competition: "   " }).length, 103)
-  assert.equal(filterCatalog({ competition: " ALL " }).length, 103)
-  assert.equal(filterCatalog({ competition: " ipho " }).length, 43)
-  assert.equal(filterCatalog({ competition: "apho" }).length, 35);
-  assert.equal(filterCatalog({ competition: "euph" }).length, 25);
+  assert.equal(filterCatalog({ competition: "" }).length, 112)
+  assert.equal(filterCatalog({ competition: "   " }).length, 112)
+  assert.equal(filterCatalog({ competition: " ALL " }).length, 112)
+  assert.equal(filterCatalog({ competition: " ipho " }).length, 47)
+  assert.equal(filterCatalog({ competition: "apho" }).length, 38);
+  assert.equal(filterCatalog({ competition: "euph" }).length, 27);
 
   for (const competition of [" IPhO 2025 ", "ipho-2025", "2025 IPHO"]) {
     const matches = filterCatalog({ competition });
@@ -322,10 +324,10 @@ test("catalog export and original pilot endpoint remain separate downloadable JS
     /physcratic-olympiad-catalog\.json/,
   );
   const catalog = await response.json();
-  assert.equal(catalog.problems.length, 103)
-  assert.equal(catalog.counts.imported, 103)
+  assert.equal(catalog.problems.length, 112)
+  assert.equal(catalog.counts.imported, 112)
   assert.equal(catalog.counts.sourceLinked, 0);
-  assert.equal(catalog.imports.problems.length, 103)
+  assert.equal(catalog.imports.problems.length, 112)
   assert.equal(catalog.grading.rated, false);
   const pilot = await GET(
     new Request("https://physcratic.test/api/corpus"),

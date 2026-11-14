@@ -1,11 +1,13 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { ownerRatings, ownerRatingSource } from "./owner-ratings";
+import { readFileSync } from "node:fs";
 import { getArchiveStats, getEloBand, getEstimatedProblemElo, matchesEstimatedDifficulty } from "./problem-archive";
 import arena from "./arena/index.json";
 import { catalogProblems } from "./corpus-catalog";
 import { corpusProblems } from "./corpus-pilot";
 import { problems, topics, viewTitles } from "./physics";
-import { ratingBand, ratingBands } from "./rating-bands"
+import { maxRating, ratingBand, ratingBands } from "./rating-bands"
 import difficultyReview from "../docs/engineering/problem-difficulty-review.json"
 
 const now = Date.parse("2026-10-28T12:00:00Z");
@@ -45,10 +47,10 @@ test("ELO bands match the filter boundaries", () => {
 
 test("every Arena, archive and guided problem has an explicit editorial difficulty estimate", () => {
   const entries = [...arena.problems, ...catalogProblems, ...corpusProblems];
-  assert.equal(new Set(entries.map((problem) => problem.id)).size, 121)
+  assert.equal(new Set(entries.map((problem) => problem.id)).size, 130)
   const estimates = entries.map((problem) => {
     const elo = getEstimatedProblemElo(problem.id);
-    assert.ok(Number.isInteger(elo) && elo >= 800 && elo <= 3000, problem.id);
+    assert.ok(Number.isInteger(elo) && elo >= 800 && elo <= maxRating, problem.id);
     assert.equal(elo % 50, 0, problem.id);
     assert.ok(matchesEstimatedDifficulty(problem.id, getEloBand(elo).id));
     assert.ok(matchesEstimatedDifficulty(problem.id, "all"));
@@ -79,13 +81,17 @@ test("topic navigation and records share the updated taxonomy", () => {
 test("difficulty review covers exactly the imported and original identities", () => {
   const importedIds = new Set(catalogProblems.filter((p) => p.year < 2026).map((problem) => problem.id))
   const originalIds = new Set(arena.problems.map((problem) => problem.id))
-  assert.equal(importedIds.size, 100)
+  assert.equal(importedIds.size, 109)
   assert.equal(originalIds.size, 18)
   assert.ok([...originalIds].every((id) => !importedIds.has(id)))
-  const expectedIds = [...importedIds, ...originalIds].sort()
+  // Nine problems were imported on 14 November 2026, after the review. They have an owner-set rating and no ledger entry.
+  const addedAfterReview = [...importedIds].filter((id) => !difficultyReview.problems.some((problem) => problem.id === id))
+  assert.equal(addedAfterReview.length, 9)
+  for (const id of addedAfterReview) assert.ok(id in ownerRatings, id)
+  const expectedIds = [...importedIds, ...originalIds].filter((id) => !addedAfterReview.includes(id)).sort()
   assert.deepEqual(difficultyReview.problems.map((problem) => problem.id).sort(), expectedIds)
   for (const problem of difficultyReview.problems) {
-    assert.equal(getEstimatedProblemElo(problem.id), problem.proposed, problem.id)
+    assert.equal(getEstimatedProblemElo(problem.id), ownerRatings[problem.id] ?? problem.proposed, problem.id)
     assert.ok(problem.assessment.length > 0, problem.id)
     for (const value of [problem.old, problem.proposed]) {
       assert.ok(Number.isInteger(value) && value >= 800 && value <= 3000, problem.id)
@@ -121,6 +127,8 @@ test("source-reviewed anchors and relative difficulty reflect independent constr
     ["apho-2025-t1", 2300],
     ["ipho-2025-t1", 2200],
   ] as const) {
+    // The owner's own rating replaces the calibrated value, so only the other anchors are checked here.
+    if (id in ownerRatings) continue
     assert.equal(getEstimatedProblemElo(id), expected, id)
   }
   for (const [harder, easier] of [
@@ -133,6 +141,20 @@ test("source-reviewed anchors and relative difficulty reflect independent constr
     ["ipho-2025-t1", "apho-2022-t1"],
     ["arena-the-dodecahedron-conspiracy", "arena-mind-the-gap"],
   ]) {
+    if (harder in ownerRatings || easier in ownerRatings) continue
     assert.ok(getEstimatedProblemElo(harder) > getEstimatedProblemElo(easier), `${harder} > ${easier}`)
+  }
+})
+
+test("owner-set ratings are exactly the owner's file, with their source, and change no other problem", () => {
+  const file = JSON.parse(readFileSync("assets-src/archive-imports/owner-ratings-2026-11-14.json", "utf8")) as { ratings: Record<string, number> }
+  assert.equal(ownerRatingSource, "owner-set, 14 November 2026")
+  assert.equal(Object.keys(file.ratings).length, 60)
+  assert.deepEqual(ownerRatings, file.ratings)
+  for (const [id, rating] of Object.entries(file.ratings)) assert.equal(getEstimatedProblemElo(id), rating, id)
+  const reviewed = new Map(difficultyReview.problems.map((problem) => [problem.id, problem.proposed]))
+  for (const problem of [...arena.problems, ...catalogProblems].filter((entry) => !(entry.id in ownerRatings))) {
+    const expected = reviewed.get(problem.id)
+    if (expected !== undefined) assert.equal(getEstimatedProblemElo(problem.id), expected, problem.id)
   }
 })
