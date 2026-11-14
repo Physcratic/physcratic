@@ -59,8 +59,10 @@ try {
     const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
     await page.goto(origin+'/?id='+definition.problemId);
     await page.getByRole('button',{name:'Check answer',exact:true}).waitFor();
-    await page.evaluate(()=>window.__setPracticeSession('Synthetic',true));
-    await page.getByRole('button',{name:'Check answer',exact:true}).waitFor();
+    if(process.env.NATIVE_BROWSER_SESSION !== 'guest') {
+      await page.evaluate(()=>window.__setPracticeSession('Synthetic',true));
+      await page.getByRole('button',{name:'Check answer',exact:true}).waitFor();
+    }
     assert.equal(await page.locator('iframe,embed,object').count(),0);checks++;
     assert.equal(await page.getByRole('heading',{level:1}).count(),1);checks++;
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);checks++;
@@ -91,5 +93,5 @@ try {
   }
   assert.equal(persistentPosts,0,'signed-in native checks must not reach a persistence/provider endpoint');checks++;
   assert.equal(statelessPosts,olympiadDefinitions.length*4);assert.deepEqual(errors,[]);
-  console.log('PASS '+checks+' native reader, stateless grading, keyboard/axe and account-isolation checks in '+olympiadDefinitions.length*4+' width/theme/problem combinations.');
+  console.log('PASS '+checks+' '+(process.env.NATIVE_BROWSER_SESSION === 'guest' ? 'guest' : 'verified')+' native reader, stateless grading, keyboard/axe and account-isolation checks in '+olympiadDefinitions.length*4+' width/theme/problem combinations.');
 }finally{await browser?.close();if(server)await new Promise(r=>server.close(r));await rm(temp,{recursive:true,force:true});}
