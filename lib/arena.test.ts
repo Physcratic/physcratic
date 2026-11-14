@@ -73,8 +73,10 @@ test("Arena search, tags and estimated difficulty filters compose independently 
   assert.equal(filterArena(entries, { topic: "Optics" }).length, 3);
   assert.deepEqual(filterArena(entries, { difficulty: "1200-1599" }).map((problem) => problem.id), [
     "arena-mind-the-gap",
+    "arena-the-bubble-treaty",
+    "arena-the-three-way-wave-split",
   ]);
-  assert.equal(filterArena(entries, { difficulty: "1600-plus" }).length, 17)
+  assert.equal(filterArena(entries, { difficulty: "1600-plus" }).length, 15)
   assert.equal(filterArena(entries, { query: "dodecahedron", difficulty: "intermediate-olympiad" })[0]?.id, "arena-the-dodecahedron-conspiracy")
   assert.equal(filterArena(entries, { query: "dodecahedron", difficulty: "advanced" }).length, 0)
   assert.equal(filterArena(entries, { topic: "Optics", difficulty: "1200-1599" })[0]?.id, "arena-mind-the-gap");
