@@ -9,17 +9,17 @@ type Value={stats:Map<string,ProblemStat>;loading:boolean;error:string;busy:Set<
 const Context=createContext<Value|null>(null);
 export function ProblemStatsBatch({keys,children}:{keys:string[];children:ReactNode}){
  const {data,isPending,error}=authClient.useSession();
- return <StatsSession key={JSON.stringify([keys,data?.user.id??null,isPending,Boolean(error)])} keys={keys} signedIn={Boolean(data?.user)&&!error} verified={data?.user.emailVerified===true&&!error} pending={isPending} >{children}</StatsSession>;
+ return <StatsSession key={JSON.stringify([keys,data?.user.id??null,isPending,Boolean(error)])} keys={keys} signedIn={Boolean(data?.user)&&!error} verified={data?.user.emailVerified===true&&!error} pending={isPending} accountId={!error?data?.user.id??null:null} >{children}</StatsSession>;
 }
-function StatsSession({keys,children,signedIn,verified,pending}:{keys:string[];children:ReactNode;signedIn:boolean;verified:boolean;pending:boolean}){
+function StatsSession({keys,children,signedIn,verified,pending,accountId}:{keys:string[];children:ReactNode;signedIn:boolean;verified:boolean;pending:boolean;accountId:string|null}){
  const [refresh,setRefresh]=useState(0),[result,setResult]=useState<{version:number;stats:Map<string,ProblemStat>}>(),[error,setError]=useState(''),[busy,setBusy]=useState(new Set<string>());
  const actions=useRef(new Map<string,AbortController>()),keysJson=JSON.stringify(keys);
  useEffect(()=>()=>{for(const c of actions.current.values())c.abort();},[]);
  useEffect(()=>{if(pending||!keys.length)return;const c=new AbortController();setError('');
- fetch('/api/community/problem-stats?'+new URLSearchParams({keys:keysJson}),{cache:'no-store',credentials:'same-origin',signal:AbortSignal.any([c.signal,AbortSignal.timeout(15000)])}).then(async r=>{if(!r.ok)throw Error();const page=statsPageSchema.parse(await r.json());if(!c.signal.aborted)setResult({version:refresh,stats:new Map(page.problems.map(s=>[s.key,s]))});}).catch(()=>{if(!c.signal.aborted)setError('Statistics are unavailable. Reload to check saved favourites.');});return()=>c.abort();
- },[keysJson,refresh,pending,keys.length]);
+ fetch('/api/community/problem-stats?'+new URLSearchParams({keys:keysJson}),{cache:'no-store',credentials:'same-origin',headers:accountId?{'X-Community-Account':accountId}:{},signal:AbortSignal.any([c.signal,AbortSignal.timeout(15000)])}).then(async r=>{if(r.status===409&&!c.signal.aborted)setResult(undefined);if(!r.ok)throw Error();const page=statsPageSchema.parse(await r.json());if(!c.signal.aborted)setResult({version:refresh,stats:new Map(page.problems.map(s=>[s.key,s]))});}).catch(()=>{if(!c.signal.aborted)setError('Statistics are unavailable. Reload to check saved favourites.');});return()=>c.abort();
+ },[keysJson,refresh,pending,keys.length,accountId]);
  async function save(key:string,favourite:boolean){if(actions.current.has(key)||!verified)return;const c=new AbortController();actions.current.set(key,c);setBusy(new Set(actions.current.keys()));setError('');
- try{const r=await fetch('/api/community/problem-stats',{method:'PUT',credentials:'same-origin',cache:'no-store',headers:{'Content-Type':'application/json'},body:JSON.stringify({key,favourite}),signal:AbortSignal.any([c.signal,AbortSignal.timeout(15000)])});if(!r.ok)throw Error(r.status===429?'Too many changes. Wait a minute, then reload.':'The change could not be confirmed. Reload before retrying.');if(!c.signal.aborted)setRefresh(n=>n+1);}
+ try{const r=await fetch('/api/community/problem-stats',{method:'PUT',credentials:'same-origin',cache:'no-store',headers:{'Content-Type':'application/json',...(accountId?{'X-Community-Account':accountId}:{})},body:JSON.stringify({key,favourite}),signal:AbortSignal.any([c.signal,AbortSignal.timeout(15000)])});if(r.status===409&&!c.signal.aborted)setResult(undefined);if(!r.ok)throw Error(r.status===409?'Your account changed. Reload the page before continuing.':r.status===429?'Too many changes. Wait a minute, then reload.':'The change could not be confirmed. Reload before retrying.');if(!c.signal.aborted)setRefresh(n=>n+1);}
  catch(e){if(!c.signal.aborted)setError(e instanceof Error?e.message:'Reload before retrying.');}finally{actions.current.delete(key);if(!c.signal.aborted)setBusy(new Set(actions.current.keys()));}}
  const stats=result?.stats??new Map<string,ProblemStat>();
  return <Context.Provider value={{stats,loading:(!result||result.version!==refresh)&&!error,error,busy,signedIn,verified,save,reload:()=>setRefresh(n=>n+1)}}>{children}</Context.Provider>;

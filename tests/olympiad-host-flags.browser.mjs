@@ -1,4 +1,4 @@
-// Actual cards, native emoji and current production CSS. Loopback fixtures only.
+// Actual cards, SVG flag images and current production CSS. Loopback fixtures only.
 import assert from 'node:assert/strict'
 import { createServer } from 'node:http'
 import { createRequire } from 'node:module'
@@ -34,6 +34,11 @@ try {
       res.end(await readFile(join(temp, 'bundle.js')))
       return
     }
+    if (/^\/flags\/[a-z]{2}\.svg$/.test(path)) {
+      res.setHeader('content-type', 'image/svg+xml')
+      res.end(await readFile('public' + path))
+      return
+    }
     if (path.startsWith('/_next/static/') && !path.includes('..')) {
       res.setHeader('content-type', path.endsWith('.css') ? 'text/css' : 'application/octet-stream')
       res.end(await readFile('.next/static/' + path.slice('/_next/static/'.length)))
@@ -61,6 +66,17 @@ try {
     await page.getByRole('img', { name: 'Hosted by India (online)', exact: true }).waitFor()
     await page.getByRole('img', { name: 'Hosted by Estonia (online)', exact: true }).waitFor()
     assert.equal(await page.locator('[data-problem-card="ipho-2025-t1"]').last().getByRole('img').count(), 0)
+    // No host flag may render as text: each is image-only and every image loaded with real size
+    const flagInfo = await page.locator('[data-host-flag]').evaluateAll(els => els.map(el => ({ text: el.textContent.trim(), imgs: [...el.querySelectorAll('img')].map(i => ({ ok: i.complete && i.naturalWidth > 0, h: i.getBoundingClientRect().height, w: i.getBoundingClientRect().width, border: getComputedStyle(i).borderTopWidth })), font: parseFloat(getComputedStyle(el).fontSize), focusable: el.tabIndex })))
+    assert.equal(flagInfo.length, 8)
+    for (const f of flagInfo) {
+      assert.equal(f.text, '')
+      assert.ok(f.imgs.length >= 1)
+      assert.equal(f.focusable, -1)
+      for (const i of f.imgs) { assert.ok(i.ok); assert.ok(i.h >= 14 && i.h <= 18 && i.w > 10); assert.equal(i.border, '1px') }
+    }
+    assert.equal(flagInfo.find(f => f.imgs.length === 2) !== undefined, true)
+    assert.equal(await page.evaluate(() => /[\u{1F1E6}-\u{1F1FF}]/u.test(document.body.textContent)), false)
     for (const flag of await page.getByRole('img').all()) {
       const position = await flag.evaluate(el => {
         const badge = el.nextElementSibling

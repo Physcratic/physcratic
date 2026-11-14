@@ -1,4 +1,5 @@
 import assert from "node:assert/strict"
+import { existsSync } from "node:fs"
 import test from "node:test"
 import { olympiadHost } from "./olympiad-hosts"
 import { catalogProblems } from "./corpus-catalog"
@@ -7,8 +8,8 @@ test("all current imported editions have verified host metadata", () => {
   const editions = new Set<string>()
   for (const problem of catalogProblems) {
     const host = olympiadHost(problem.competition, problem.year)
-    assert.ok(host?.country && host.flag, problem.id)
-    assert.match(host.flag, /^(?:[\u{1F1E6}-\u{1F1FF}]{2})+$/u)
+    assert.ok(host?.country && host.flags.length, problem.id)
+    for (const code of host.flags) assert.ok(existsSync(`public/flags/${code}.svg`), `${problem.id} ${code}`)
     editions.add(`${problem.competition}-${problem.year}`)
   }
   assert.equal(editions.size, 45)
@@ -18,12 +19,12 @@ test("hosts depend on both competition and year", () => {
   assert.equal(olympiadHost("IPhO", 2025)?.country, "France")
   assert.equal(olympiadHost("APhO", 2025)?.country, "Saudi Arabia")
   assert.equal(olympiadHost("EuPhO", 2025)?.country, "Bulgaria")
-  assert.deepEqual(olympiadHost("IPhO", 2016), { country: "Switzerland and Liechtenstein", flag: "🇨🇭🇱🇮" })
+  assert.deepEqual(olympiadHost("IPhO", 2016), { country: "Switzerland and Liechtenstein", flags: ["ch", "li"] })
   assert.equal(olympiadHost("APhO", 2016)?.country, "Hong Kong, China")
 })
 
 test("online editions retain the verified organiser rather than an abandoned venue", () => {
-  for (const year of [2020, 2021]) assert.deepEqual(olympiadHost("EuPhO", year), { country: "Estonia", flag: "🇪🇪", online: true })
+  for (const year of [2020, 2021]) assert.deepEqual(olympiadHost("EuPhO", year), { country: "Estonia", flags: ["ee"], online: true })
   assert.equal(olympiadHost("IPhO", 2021)?.online, true)
   assert.equal(olympiadHost("APhO", 2021)?.online, true)
   assert.equal(olympiadHost("APhO", 2022)?.online, true)

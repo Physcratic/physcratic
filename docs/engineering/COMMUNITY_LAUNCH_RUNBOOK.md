@@ -1,5 +1,11 @@
 # Community launch readiness and operator runbook
 
+Post-B6, 14 November 2026: the owner confirms the reviewed18-migration graph is
+installed. Do not repeat the historical installation steps below. Use the
+[scoped favourites/statistics release package](POST_B6_ACTIVATION.md) and separate
+[text-profile/authorship proposal](POST_B6_PROFILES_PRACTICE.md). The discussion
+Production lock and its independent launch requirements remain unchanged.
+
 Batch 5B and security remediation S1 are **code readiness only**. Deployment is **PENDING USER ACTION**. No production/shared staging SQL, grants, storage/provider changes, flags or deployment were performed. Passing tests or merging this runbook never authorizes activation.
 
 See [Phase 6A evidence and operator checklist](COMMUNITY_RELEASE_READINESS.md) for VERIFIED/BLOCKED/UNKNOWN status and the approval boundary.

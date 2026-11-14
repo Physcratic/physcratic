@@ -76,7 +76,7 @@ test("attribution follows actual publication and consent handlers on installed s
   let viewer = owner;
   const deps = { pool, user: async () => ({ id: viewer, emailVerified: true }), origin: () => true };
   const authoring = createProblemAuthoringApi(deps), profiles = createCommunityProfileApi(deps), attribution = createAuthoredAttributionApi(pool);
-  const req = (method = "GET", value?: unknown) => new Request("https://physcratic.test/api", { method, headers: { "Content-Type": "application/json", origin: "https://physcratic.test" }, ...(value ? { body: JSON.stringify(value) } : {}) });
+  const req = (method = "GET", value?: unknown) => new Request("https://physcratic.test/api", { method, headers: { "Content-Type": "application/json", origin: "https://physcratic.test", "X-Community-Account": viewer }, ...(value ? { body: JSON.stringify(value) } : {}) });
   try {
     await pool.query('CREATE TABLE "user"(id text PRIMARY KEY)');
     await pool.query('INSERT INTO "user" VALUES($1),($2)', [owner, other]);

@@ -126,3 +126,9 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: B6 integrity and operator tests
         run: pnpm exec tsx --conditions=react-server --test lib/production-upgrade.test.ts lib/production-upgrade.pg.test.ts
+      - name: Activation LOGIN and route isolation on PostgreSQL 18.7
+        # Separate process from the operator rehearsal. This check creates and
+        # removes only its own uniquely named database and LOGIN/owner roles.
+        run: |
+          sha256sum -c scripts/activation/PACKAGE_SHA256SUMS
+          node --require ./tests/server-only-register.cjs --import tsx --test scripts/activation/runtime.pg.test.ts

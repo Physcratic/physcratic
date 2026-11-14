@@ -18,7 +18,7 @@ type Dependencies = {
   origin: (request: Request) => boolean;
 };
 class ProfileError extends Error {
-  constructor(public status: number, message: string) { super(message); }
+  constructor(public status: number, message: string, public code?: string) { super(message); }
 }
 const columns = `user_id AS "userId",handle,display_name AS "displayName",bio,
   education_level AS "educationLevel",favorite_topic_ids AS "favoriteTopicIds",
@@ -28,6 +28,11 @@ export function createCommunityProfileApi(deps: Dependencies) {
   return async (action: ProfileAction, request: Request, handle?: string): Promise<Response> => {
     let client: PoolClient | undefined;
     let transaction = false;
+    const reply = (body: unknown, status = 200) => {
+      const response = profileReply(body, status);
+      if (action === "own") response.headers.set("Vary", "Cookie, X-Community-Account");
+      return response;
+    };
     try {
       if (action === "public") {
         const parsed = profileHandleSchema.safeParse(handle);
@@ -38,14 +43,16 @@ export function createCommunityProfileApi(deps: Dependencies) {
           education_level AS "educationLevel",favorite_topic_ids AS "favoriteTopicIds"
           FROM community_profile WHERE lower(handle)=$1 AND public_visibility=true`, [parsed.data]);
         if (!rows[0]) throw new ProfileError(404, "Profile not found.");
-        return profileReply({ profile: rows[0] });
+        return reply({ profile: rows[0] });
       }
       const user = await deps.user(request);
       if (!user) throw new ProfileError(401, "Sign in to access your profile.");
+      if (request.headers.get("x-community-account") !== user.id)
+        throw new ProfileError(409, "Your account changed. Reload the page before continuing.", "ACCOUNT_CHANGED");
       if (new URL(request.url).search) throw new ProfileError(400, "Invalid profile request.");
       if (request.method === "GET") {
         const { rows } = await deps.pool.query<CommunityProfile>(`SELECT ${columns} FROM community_profile WHERE user_id=$1`, [user.id]);
-        return profileReply({ profile: rows[0] ?? null });
+        return reply({ profile: rows[0] ?? null });
       }
       if (request.method !== "PATCH") throw new ProfileError(405, "Method not allowed.");
       if (user.emailVerified !== true) throw new ProfileError(403, "Verify your email before editing your profile.");
@@ -58,7 +65,7 @@ export function createCommunityProfileApi(deps: Dependencies) {
           THEN least(community_profile_write_limit.requests+1,11) ELSE 1 END,
         window_start=date_trunc('minute',clock_timestamp()) RETURNING requests`, [user.id]);
       if (limit.rows[0].requests > profilePolicy.writesPerMinute) {
-        const response = profileReply({ error: "Profile write limit reached. Retry next minute." }, 429);
+        const response = reply({ error: "Profile write limit reached. Retry next minute." }, 429);
         response.headers.set("Retry-After", "60");
         return response;
       }
@@ -83,16 +90,16 @@ export function createCommunityProfileApi(deps: Dependencies) {
         : await client.query<CommunityProfile>(`INSERT INTO community_profile(user_id,handle,display_name,bio,education_level,favorite_topic_ids,public_visibility)
           VALUES($1,$2,$3,$4,$5,$6,$7) RETURNING ${columns}`, values);
       await client.query("COMMIT"); transaction = false;
-      return profileReply({ profile: result.rows[0] }, current ? 200 : 201);
+      return reply({ profile: result.rows[0] }, current ? 200 : 201);
     } catch (error) {
       if (client && transaction) await client.query("ROLLBACK").catch(() => {});
-      if (error instanceof ProfileError) return profileReply({ error: error.message }, error.status);
+      if (error instanceof ProfileError) return reply({ error: error.message, ...(error.code ? { code: error.code } : {}) }, error.status);
       if (error instanceof z.ZodError || error instanceof SyntaxError || error instanceof TypeError)
-        return profileReply({ error: "Invalid profile request." }, 400);
-      if (error instanceof RangeError) return profileReply({ error: "Profile request too large." }, 413);
-      if (error instanceof RequestBodyTimeoutError) return profileReply({ error: "Profile request timed out." }, 408);
-      if ((error as { code?: string }).code === "23505") return profileReply({ error: "Handle unavailable." }, 409);
-      return profileReply({ error: "Profiles are temporarily unavailable." }, 503);
+        return reply({ error: "Invalid profile request." }, 400);
+      if (error instanceof RangeError) return reply({ error: "Profile request too large." }, 413);
+      if (error instanceof RequestBodyTimeoutError) return reply({ error: "Profile request timed out." }, 408);
+      if ((error as { code?: string }).code === "23505") return reply({ error: "Handle unavailable." }, 409);
+      return reply({ error: "Profiles are temporarily unavailable." }, 503);
     } finally { client?.release(); }
   };
 }

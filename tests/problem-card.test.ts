@@ -252,20 +252,22 @@ test("imported cards place the labelled host flag directly before the competitio
     assert.ok(html.includes(`${problem.year} · ${problem.code}`), problem.id)
     assert.ok(html.includes(`href="/dashboard/problems/${problem.id}"`), problem.id)
     assert.equal((html.match(/<a[\s>]/g) ?? []).length, 1)
-    assert.doesNotMatch(html, /<img|<svg[^>]*role="img"/)
+    assert.doesNotMatch(html, /<svg[^>]*role="img"/)
+    assert.ok(html.includes('<img src="/flags/'), problem.id)
   }
 })
 
 test("host flags identify online and joint hosts without adding a control", () => {
   for (const [id, label, flag] of [
-    ["ipho-2021-t1", "Hosted by Lithuania (online)", "🇱🇹"],
-    ["ipho-2016-t1", "Hosted by Switzerland and Liechtenstein", "🇨🇭🇱🇮"],
-    ["eupho-2020-t1", "Hosted by Estonia (online)", "🇪🇪"],
+    ["ipho-2021-t1", "Hosted by Lithuania (online)", ["lt"]],
+    ["ipho-2016-t1", "Hosted by Switzerland and Liechtenstein", ["ch", "li"]],
+    ["eupho-2020-t1", "Hosted by Estonia (online)", ["ee"]],
   ]) {
     const problem = catalogProblems.find((entry) => entry.id === id)!
     const html = renderToStaticMarkup(createElement(OlympiadProblemCard, { problem, onOpen() {} }))
     assert.ok(html.includes(`aria-label="${label}"`))
-    assert.ok(html.includes(flag))
+    for (const code of flag) assert.ok(html.includes(`src="/flags/${code}.svg"`))
+    assert.doesNotMatch(html, /[\u{1F1E6}-\u{1F1FF}]/u)
     assert.doesNotMatch(html, /tabindex=/)
   }
 })
@@ -275,5 +277,5 @@ test("unknown host metadata and non-competition cards omit the flag", () => {
   const html = renderToStaticMarkup(createElement(OlympiadProblemCard, { problem, onOpen() {} }))
   assert.doesNotMatch(html, /Hosted by|role="img"/)
   assert.match(html, /2027 · T1/)
-  assert.doesNotMatch(render({ ...base, host: { country: "France", flag: "🇫🇷" }, onOpen() {} }), /Hosted by|🇫🇷/)
+  assert.doesNotMatch(render({ ...base, host: { country: "France", flags: ["fr"] }, onOpen() {} }), /Hosted by|flags\/fr/)
 })

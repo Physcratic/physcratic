@@ -2,7 +2,21 @@
 
 ## SEO P5B insight drafts (14 November 2026)
 
-Exactly two unpublished, unreviewed supplements target IPhO2009T1 and2010T1. A server-only publication gate and native spoiler disclosure reuse Learn math/citations without changing official readers, solutions, metadata, auth or grading. See [selection, sources and physics audit](SEO_P5B_INSIGHTS.md). Draft PR carries full text, isolated preview evidence and exact-head QA. Owner editorial approval remains required. No merge, publication, deployment, database changes.
+Exactly two unpublished, unreviewed supplements target IPhO2009T1 and2010T1. A server-only publication gate and native spoiler disclosure reuse Learn math/citations without changing official readers, solutions, metadata, auth or grading. See [selection, sources and physics audit](SEO_P5B_INSIGHTS.md). Draft [#165](https://github.com/Physcratic/physcratic/pull/165) carries full text, isolated preview evidence and exact-head QA. Owner editorial approval remains required. No merge, publication, deployment, database changes.
+
+Editorial revision: disclosure now names derivations/final results, introductory heading and attribution are simplified, and the model energy-loss rate/exterior induced-field domain are explicit. Both insights remain unpublished with null reviewer attribution.
+
+## Post-B6 final integration (14 November 2026)
+
+Rebased `codex/b6-activation-engineering` through PR #162 and onto latest PR #158 main `1189ab02878bf607cdf653d3ebdf33b250d1911e`, preserving both account guards, Learn accessibility and Mechanics publication evidence below. The LOGIN rehearsal now has a separate process/step in existing PG18.7 CI, with activation-manifest verification. Existing statistics browser coverage is unchanged; the shared community browser job adds the existing profile harness's focused account-header mode. Focused local results: PG18.7 5/5 and profile browser 21 assertions pass. No broad verification repeated. The [review package](POST_B6_RELEASE_REVIEW.md) records remaining exact-head CI/API and owner-merge gates. No Production, migration, credential, grant, flag or deployment action.
+
+## Post-B6 Batch B profile and practice readiness (14 November 2026)
+
+[Profile/practice package](POST_B6_PROFILES_PRACTICE.md) and [release review](POST_B6_RELEASE_REVIEW.md) complete the second bounded batch, stacked on Batch A commit `792425deaa61c65f309706d7273ee9f26a77959b`. A real cookie switch reproduced first-profile publication for the wrong displayed account. Own GET/PATCH now rejects the mismatch before reads/quota/writes, with focused Settings/setup transport and error handling. Combined LOGIN PG18.7 rehearsal passes 5/5, including actual consent/collection/reader withdrawal and signup failure rollback without user DELETE. Three focused guard/client regressions pass. Practice code/erasure exists, but the OFF deletion routes provide no qualified erasure delivery channel; policy/provider/backup and owner process remain explicit gates. No live mutation, migration edit, activation, merge, deploy or broad CI sweep. Independent code/owner approval and actual served-role/flags evidence remain required.
+
+## Post-B6 Batch A activation engineering (14 November 2026)
+
+[Owner release package](POST_B6_ACTIVATION.md) and [runtime permission proposal](B6_RUNTIME_PERMISSIONS.md) replace the temporary first-batch notes. Real LOGIN/actual-route rehearsal found and fixes stale-account favourites/statistics retargeting with a rejection-only account header. Focused PG18.7 checks pass 3/3 and the no-DB guard regression passes 1/1. Narrow delta SQL and metadata inspection are proposals only. No live target/role/grants/deployment/flags changed, no migration bytes changed, no broad CI repeated. Actual deployed identity, role separation, owner approvals and GitHub API/CI evidence remain external gates. Profiles/practice follow separately.
 
 ## Mechanics publication reconciliation (14 November 2026)
 
@@ -1117,3 +1131,12 @@ Separate draft stacked on revised P2 #143 (`0d929b3`), main `01757c0` incorporat
 - **Added:** browser cases for MathLive, the guided tour, the public library and the Tally link, and a build-free unit test that fails when a page or route handler is added without review.
 - **Result in Chromium:** 26 enforcement and report-only cases pass, the hybrid architecture qualifies all 27 HTML document routes, 39 focused tests pass. Firefox and WebKit run in GitHub CI.
 - **Under enforcement today:** nothing breaks with the current policy (eval and WASM fall back). Removing script `unsafe-inline` breaks hydration on every HTML route until nonces and hashes are published. Removing style `unsafe-inline` loses inline styles in KaTeX, MathLive, the tour and the PDF viewer.
+
+## 2026-11-14 - Host flags are SVG images, not emoji
+
+- **Bug:** Windows does not render flag emoji, so host flags showed as letter codes such as FR and ID.
+- **Fix:** `lib/olympiad-hosts.ts` now holds ISO codes (`flags`), and `problem-card.tsx` draws `/flags/<code>.svg` at text height with a thin border so white flags stay visible in light mode. The 34 SVGs, including Hong Kong, Switzerland and Liechtenstein, are copied from flag-icons (MIT) into `public/flags/` with its licence. No npm dependency. The coaching page already used PNGs and had no emoji.
+- **Unchanged:** accessible name, host tooltip, no tab stop, flag and badge stay together, nothing without a host, the online note.
+- **Tests:** `olympiad-host-flags.browser.mjs` now fails if a flag renders as text or an image fails to load. It passes at 375 and 1440 in light and dark. Unit tests check every code has its SVG. 868 server and 197 UI tests pass.
+- **Sweep (guest, 375 to 1440, both themes):** the flag cards add no failures. Four failures remain, none from this change. Three Arena stages need the database and auth backend (503 and 403 here), and one is an axe contrast report on `/coaching` at 768 dark, which this change does not touch.
+- **Not run:** the signed-in sweep, because it needs a real session and database.
