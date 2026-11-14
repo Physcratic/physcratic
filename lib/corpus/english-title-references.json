@@ -199,5 +199,33 @@
   "ipho-2026-t3": {
     "title": "Chasing the absolute zero",
     "url": "https://olimpicos.net/files/ipho/IPhO_2026_Q3.pdf"
+  },
+  "apho-2024-t1": {
+    "title": "Geometry of Water Fountain",
+    "url": "https://olimpicos.net/files/apho/APhO_2024_Q1.pdf"
+  },
+  "apho-2024-t2": {
+    "title": "Snell's Law",
+    "url": "https://olimpicos.net/files/apho/APhO_2024_Q2.pdf"
+  },
+  "apho-2023-t3": {
+    "title": "Cavitation",
+    "url": "https://olimpicos.net/files/apho/APhO_2023_Q3.pdf"
+  },
+  "ipho-2022-t1": {
+    "title": "Permanent magnets",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2022_Q1.pdf"
+  },
+  "ipho-2022-t2": {
+    "title": "James Webb Space Telescope",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2022_Q2.pdf"
+  },
+  "ipho-2022-t3": {
+    "title": "Scaling laws",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2022_Q3.pdf"
+  },
+  "ipho-2021-t3": {
+    "title": "Particles and Waves",
+    "url": "https://olimpicos.net/files/ipho/IPhO_2021_Q3.pdf"
   }
 }

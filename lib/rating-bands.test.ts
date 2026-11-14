@@ -49,7 +49,7 @@ test("Studio presets and the Intermediate starting player rating stay unchanged"
 
 test("the archive spreads over the top three bands", () => {
   const source = readFileSync("lib/problem-archive.ts", "utf8")
-  const block = source.slice(source.indexOf("estimatedProblemElos"), source.indexOf("};", source.indexOf("estimatedProblemElos")))
+  const block = source.slice(source.indexOf("calibratedProblemElos"), source.indexOf("};", source.indexOf("calibratedProblemElos")))
   const estimates = [...block.matchAll(/:\s*(\d{3,4})/g)].map((match) => Number(match[1]))
   assert.ok(estimates.length > 100, "found the archive estimates")
   const counts = new Map<string, number>()
