@@ -1,0 +1,368 @@
+{
+  "problemId": "apho-2012-t1",
+  "version": "fbba4a4052456f2feace5f8e69332297d4aa3f3d417fb3258661789d336628b4",
+  "parts": [
+    {
+      "id": "i.1",
+      "sourcePart": "I.1",
+      "label": "Terminal speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "g",
+        "k"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, g and k."
+    },
+    {
+      "id": "i.2",
+      "sourcePart": "I.2",
+      "label": "Position z(t)",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "g",
+        "k",
+        "t"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, g, k and t with the stated zero initial position and velocity."
+    },
+    {
+      "id": "i.3",
+      "sourcePart": "I.3",
+      "label": "Induced emf magnitude",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu_0",
+        "p",
+        "a",
+        "v",
+        "s"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "p",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "s",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use s=z_0-z>0 for the separation before reaching the ring. All displayed quantities are magnitudes."
+    },
+    {
+      "id": "i.4",
+      "sourcePart": "I.4",
+      "label": "Force magnitude on the ring",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "a",
+        "i",
+        "B_a"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "i",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B_a",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use B_a for the magnitude of the radial field at the ring and i for current magnitude."
+    },
+    {
+      "id": "i.5",
+      "sourcePart": "I.5",
+      "label": "Force magnitude on the magnet",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "a",
+        "i",
+        "B_a"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "i",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B_a",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter the same force magnitude as I.4. Its direction is opposite."
+    },
+    {
+      "id": "i.6",
+      "sourcePart": "I.6",
+      "label": "Circuit emf",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "L",
+        "j",
+        "i",
+        "R"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use j for di/dt. Enter the right-hand side of the circuit equation."
+    },
+    {
+      "id": "i.7",
+      "sourcePart": "I.7",
+      "label": "Energy contributions",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Name the three forms and give their expressions. The checker does not assess multi-part reasoning."
+    },
+    {
+      "id": "i.8",
+      "sourcePart": "I.8",
+      "label": "Work done by the magnetic field",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Give yes or no and compare with the official explanation. This qualitative response is not automatically graded."
+    },
+    {
+      "id": "i.9",
+      "sourcePart": "I.9",
+      "label": "Resistance of one ring",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "a",
+        "\\sigma",
+        "w",
+        "h"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "w",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use h for the ring height Delta z', and sigma for the conductivity."
+    },
+    {
+      "id": "i.10",
+      "sourcePart": "I.10",
+      "label": "Pipe damping parameter",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu_0",
+        "p",
+        "\\sigma",
+        "w",
+        "I_0",
+        "a"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "p",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "w",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "I_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use I_0 for the dimensionless integral of u^2/(1+u^2)^5 over the entire real line."
+    },
+    {
+      "id": "i.11",
+      "sourcePart": "I.11",
+      "label": "Dimensional-analysis damping",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "p",
+        "\\mu_0",
+        "a",
+        "R_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "p",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\mu_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Take the dimensionless constant as one, as requested."
+    }
+  ]
+}

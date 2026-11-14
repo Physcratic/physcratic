@@ -1,0 +1,42 @@
+{
+  "problemId": "eupho-2018-t3",
+  "version": "c8fe075c42ff2f006cc4289b744794023318d6359d4ac4ef19833ea6f658dc79",
+  "parts": [
+    {
+      "id": "a",
+      "sourcePart": "A",
+      "label": "Large-n step spacing d_n",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\lambda",
+        "n"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\lambda",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "n",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use lambda and n. This is the leading large-n approximation."
+    },
+    {
+      "id": "b",
+      "sourcePart": "B",
+      "label": "Interaction exponent nu",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the nontrivial exponent that selects the equilibrium shape."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "problemId": "eupho-2018-t2",
+  "version": "d24a1afbc07ca66429ff669b3175283298dd52c39fe2ec1f06892cc7cc53208a",
+  "parts": [
+    {
+      "id": "answer",
+      "sourcePart": "Answer",
+      "label": "Current when boiling starts",
+      "kind": "numeric",
+      "unit": "kA",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Use the approximations stated in the official solution. Enter current in kA."
+    }
+  ]
+}

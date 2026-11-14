@@ -55,7 +55,7 @@ export function gradeArchiveAnswers(input: unknown): ArchiveGradeResponse {
   const parsed = archiveGradeRequestSchema.safeParse(input);
   if (!parsed.success) throw new ArchiveGradeRequestError("Invalid request. Send only problem ID, current version, and part-ID/LaTeX answers.", 400);
   const definition = getArchiveDefinition(parsed.data.problemId);
-  if (!definition) throw new ArchiveGradeRequestError("Only Arena and Quick practice problems can be checked here.", 404);
+  if (!definition) throw new ArchiveGradeRequestError("This problem does not have configured answer checks.", 404);
   const version = archiveVersion(definition);
   if (parsed.data.version !== version) throw new ArchiveGradeRequestError("The problem or answer key has changed. The answer fields are being refreshed; keep your input and retry.", 409);
   const answers = new Map<string, string>();
