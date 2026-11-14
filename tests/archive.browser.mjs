@@ -6,6 +6,7 @@ import { allProblemPages } from '../lib/seo/problem-pages.ts';
 import { catalogProblems } from '../lib/corpus-catalog.ts';
 import { getEstimatedProblemElo } from '../lib/problem-archive.ts';
 import { olympiadHost } from '../lib/olympiad-hosts.ts';
+import { siteUrl } from '../lib/site.ts';
 const require = createRequire(join(process.env.AUTHORING_BROWSER_TOOLS, 'package.json'));
 const {chromium} = require('playwright');
 const AxeBuilder = require('@axe-core/playwright').default;
@@ -28,7 +29,7 @@ try {
   assert.deepEqual(await page.locator('[data-problem-card]').evaluateAll(es=>es.map(e=>e.dataset.problemCard)),expected.map(p=>p.id));checks++;
   ok(await page.locator('main').count()===1 && await page.locator('h1').count()===1,'single main and h1');
   ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'no horizontal overflow');
-  ok(await page.locator('link[rel=canonical]').getAttribute('href')==='https://physcratic.com/problems/archive','canonical unchanged');
+  ok(await page.locator('link[rel=canonical]').getAttribute('href')===`${siteUrl()}/problems/archive`,'canonical unchanged');
   await page.keyboard.press('Tab');ok(await page.evaluate(()=>document.activeElement.textContent.includes('Skip to content')),'keyboard skip first');
   await page.keyboard.press('Enter');ok(await page.evaluate(()=>document.activeElement.id==='main-content'),'skip focuses main');
   await page.getByRole('navigation',{name:'Olympiads',exact:true}).getByRole('link',{name:'APhO: Asian Physics Olympiad',exact:true}).click();
@@ -50,7 +51,7 @@ try {
   const host=olympiadHost(c.competition,c.year);if(host)ok(await card.getByRole('img',{name:`Hosted by ${host.country}${host.online?' (online)':''}`,exact:true}).count()===1,`${p.id} verified host`);
   const rating=getEstimatedProblemElo(p.id);if(rating!==undefined)ok((await card.textContent()).includes(rating.toLocaleString('en-US')),`${p.id} existing rating`);
   const response=await fetch(origin+p.path);const body=await response.text();
-  ok(response.status===200 && body.includes(`href="https://physcratic.com${p.path}"`),`${p.id} live reader and canonical`);
+  ok(response.status===200 && body.includes(`href="${siteUrl()}${p.path}"`),`${p.id} live reader and canonical`);
  }
  for(const c of ['IPhO','APhO','EuPhO'])for(const y of new Set(pages.filter(p=>p.competition===c).map(p=>p.year)))ok(await page.locator(`[id="${c.toLowerCase()}-${y}"]`).count()===1,`${c} ${y} preserved fragment`);
  const graph=JSON.parse(await page.locator('script[type="application/ld+json"]').first().textContent());ok(JSON.stringify(graph).includes('ItemList'),'structured list');
