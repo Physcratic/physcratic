@@ -4,6 +4,7 @@ import {join} from 'node:path';
 import {mkdir,writeFile} from 'node:fs/promises';
 import {topicsWithProblems,problemsInTopic,topicPageCopy} from '../lib/seo/problem-pages.ts';
 import {retiredPracticeIds} from '../lib/legacy-practice.ts';
+import {indexableRoutes} from '../lib/seo/public-routes.ts';
 const require=createRequire(join(process.env.AUTHORING_BROWSER_TOOLS,'package.json'));
 const {chromium}=require('playwright'),AxeBuilder=require('@axe-core/playwright').default;
 const origin=process.env.BROWSER_TEST_ORIGIN;
@@ -54,7 +55,7 @@ try{
   await context.close();
  }
  ok((await fetch(origin+'/problems/topics/no-such-topic')).status===404,'invalid slug 404');
- const xml=await(await fetch(origin+'/sitemap.xml')).text();ok((xml.match(/<loc>/g)??[]).length===139,'139 sitemap URLs including the approved Mechanics guide');
+ const xml=await(await fetch(origin+'/sitemap.xml')).text();ok((xml.match(/<loc>/g)??[]).length===indexableRoutes.length,`${indexableRoutes.length} sitemap URLs including the approved Mechanics guide`);
  await writeFile(`${output}/performance.json`,JSON.stringify(performance,null,2));
  console.log(`topics.browser: ${checks} checks passed; counts ${JSON.stringify(topicsWithProblems())}`);
 }finally{await browser.close();}

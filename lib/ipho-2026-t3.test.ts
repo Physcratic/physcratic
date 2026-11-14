@@ -30,12 +30,8 @@ test("T3 is one complete native self-review identity with ten official scoring a
   assert.deepEqual(scored(source.solution.text), questions)
   assert.ok(Math.abs(questions.reduce((sum, [, points]) => sum + Number(points), 0) - 10) < 1e-12)
   assert.equal(olympiadHost("IPhO", 2026)?.country, "Colombia")
-  assert.equal(getEstimatedProblemElo(entry.id), 1850)
-  assert.equal(getEstimatedProblemElo(entry.id), getEstimatedProblemElo("arena-titans-double-take"))
+  assert.equal(getEstimatedProblemElo(entry.id), 2100)
   assert.ok(getEstimatedProblemElo(entry.id) > getEstimatedProblemElo("arena-the-three-way-wave-split"))
-  assert.ok(getEstimatedProblemElo(entry.id) < getEstimatedProblemElo("ipho-2024-t1"))
-  assert.ok(getEstimatedProblemElo(entry.id) < getEstimatedProblemElo("ipho-2026-t1"))
-  assert.ok(getEstimatedProblemElo(entry.id) < getEstimatedProblemElo("ipho-2026-t2"))
 })
 
 test("T3 source map covers every node and strictly parsed maths expression on all six PDF pages", () => {

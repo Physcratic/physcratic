@@ -1,5 +1,6 @@
 import type { Problem } from "./physics";
 import { matchesBand } from "./rating-bands";
+import { ownerRatings, ownerRatingSource as source } from "./owner-ratings";
 
 /** The three colour groups the older filter used. New code reads lib/rating-bands.ts. */
 export const eloBands = [
@@ -15,7 +16,7 @@ export function getEloBand(elo: number) {
 // Editorial estimates of solving difficulty for a strong Olympiad student, not measured ratings
 // or inputs to player-rating updates. Review evidence: docs/engineering/PROBLEM_DIFFICULTY_REVIEW.md.
 // Keep a problem's estimate identical across collections.
-const estimatedProblemElos: Readonly<Record<string, number>> = {
+const calibratedProblemElos: Readonly<Record<string, number>> = {
   "ipho-2026-t1": 1950,
   "ipho-2026-t2": 2050,
   "ipho-2026-t3": 1850,
@@ -138,6 +139,13 @@ const estimatedProblemElos: Readonly<Record<string, number>> = {
   "eupho-2017-t2": 2200,
   "eupho-2017-t3": 2450,
 };
+
+/**
+ * The owner's own ratings (source: "owner-set, 14 November 2026", lib/owner-ratings.ts) replace the calibrated
+ * values above for the problems they name, and for those problems only.
+ */
+export const ownerRatingSource: string = source;
+const estimatedProblemElos: Readonly<Record<string, number>> = { ...calibratedProblemElos, ...ownerRatings };
 
 export function getEstimatedProblemElo(problemId: string): number {
   const elo = estimatedProblemElos[problemId];

@@ -2005,6 +2005,62 @@
     {
       "url": "https://olimpicos.net/files/ipho/IPhO_2026_S3.pdf",
       "status": "document-header-checked"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2024_Q1.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2024_S1.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2024_Q2.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2024_S2.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2023_Q3.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://olimpicos.net/files/apho/APhO_2023_S3.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2022_Q1.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2022_S1.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2022_Q2.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2022_S2.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2022_Q3.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2022_S3.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2021_Q3.pdf",
+      "status": "document-header-checked"
+    },
+    {
+      "url": "https://olimpicos.net/files/ipho/IPhO_2021_S3.pdf",
+      "status": "document-header-checked"
     }
   ],
   "problems": [
@@ -3136,6 +3192,105 @@
       "sourceTitle": "Сверхпроводящая сетка",
       "statementUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory.pdf",
       "solutionUrl": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO17_theory_solution_marking.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "apho-2024-t1",
+      "checkedOn": "2026-11-14",
+      "sourceTitle": "Geometry of Water Fountain",
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2024_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2024_S1.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
+    },
+    {
+      "id": "apho-2024-t2",
+      "checkedOn": "2026-11-14",
+      "sourceTitle": "Snell's Law",
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2024_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2024_S2.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
+    },
+    {
+      "id": "apho-2023-t3",
+      "checkedOn": "2026-11-14",
+      "sourceTitle": "Cavitation",
+      "statementUrl": "https://olimpicos.net/files/apho/APhO_2023_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/apho/APhO_2023_S3.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/apho/"
+    },
+    {
+      "id": "ipho-2022-t1",
+      "checkedOn": "2026-11-14",
+      "sourceTitle": "Permanent magnets",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2022_Q1.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2022_S1.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
+    },
+    {
+      "id": "ipho-2022-t2",
+      "checkedOn": "2026-11-14",
+      "sourceTitle": "James Webb Space Telescope",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2022_Q2.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2022_S2.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
+    },
+    {
+      "id": "ipho-2022-t3",
+      "checkedOn": "2026-11-14",
+      "sourceTitle": "Scaling laws",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2022_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2022_S3.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
+    },
+    {
+      "id": "ipho-2021-t3",
+      "checkedOn": "2026-11-14",
+      "sourceTitle": "Particles and Waves",
+      "statementUrl": "https://olimpicos.net/files/ipho/IPhO_2021_Q3.pdf",
+      "solutionUrl": "https://olimpicos.net/files/ipho/IPhO_2021_S3.pdf",
+      "sourceHost": "olimpicos.net",
+      "language": "en",
+      "sourceKind": "english-archive",
+      "discoveryUrl": "https://olimpicos.net/ipho/"
+    },
+    {
+      "id": "eupho-2021-t2",
+      "checkedOn": "2026-11-14",
+      "sourceTitle": "Thread around a cylinder",
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2021/06/EuPhO_2021-theory.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2021/06/EuPhO_2021_Solutions-2.pdf",
+      "sourceHost": "eupho.ee",
+      "language": "en",
+      "sourceKind": "official-pdf",
+      "discoveryUrl": "https://eupho.ee/archive/"
+    },
+    {
+      "id": "eupho-2023-t2",
+      "checkedOn": "2026-11-14",
+      "sourceTitle": "Brick between two planes",
+      "statementUrl": "https://eupho.ee/wp-content/uploads/2023/06/EuPhO_2023_theory.pdf",
+      "solutionUrl": "https://eupho.ee/wp-content/uploads/2023/06/EuPhO_2023_theo_sol.pdf",
       "sourceHost": "eupho.ee",
       "language": "en",
       "sourceKind": "official-pdf",

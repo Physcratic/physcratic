@@ -24,7 +24,7 @@ try {
   await context.addInitScript(t=>localStorage.setItem('theme',t),theme);
   const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(origin+'/problems/archive');await page.locator('[data-problem-card]').first().waitFor();
-  ok(await page.locator('[data-problem-card]').count()===103,'103 visible archive entries');
+  ok(await page.locator('[data-problem-card]').count()===expected.length,`${expected.length} visible archive entries`);
   assert.deepEqual(await page.locator('[data-problem-card]').evaluateAll(es=>es.map(e=>e.dataset.problemCard)),expected.map(p=>p.id));checks++;
   ok(await page.locator('main').count()===1 && await page.locator('h1').count()===1,'single main and h1');
   ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'no horizontal overflow');
@@ -57,5 +57,5 @@ try {
  await page.locator('a[href="/dashboard/problems/ipho-2025-t2"]').click();ok(page.url().endsWith('/dashboard/problems/ipho-2025-t2'),'no-JS reader navigation');
  // Topic routes now share the Dashboard shell, with their own registry-derived directory.
  await page.goto(origin+'/problems/topics/mechanics');ok(await page.locator('aside').count()===1,'topic Dashboard shell');
- await context.close();console.log(`archive.browser: ${checks} checks passed; 103 reader URLs verified; ${output}`);
+ await context.close();console.log(`archive.browser: ${checks} checks passed; ${expected.length} reader URLs verified; ${output}`);
 }finally{await browser.close();}

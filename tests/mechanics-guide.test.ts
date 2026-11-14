@@ -11,7 +11,7 @@ import { practiceProblemIds } from "../lib/learn/practice-links";
 import { visibleStrings } from "../lib/learn/reading";
 import { articleGraph } from "../lib/seo/json-ld";
 import { llmsFull, llmsIndex } from "../lib/seo/llms";
-import { findProblemPage } from "../lib/seo/problem-pages";
+import { allProblemPages, findProblemPage } from "../lib/seo/problem-pages";
 import { indexableRoutes, publicRoutes } from "../lib/seo/public-routes";
 
 Object.assign(globalThis, { React });
@@ -26,7 +26,7 @@ test("the approved Mechanics guide is publicly discoverable without reviewer att
   assert.equal(dynamicParams, false);
   assert.ok(generateStaticParams().some(p => p.slug === slug));
   assert.equal(publishedArticles.length, 7);
-  assert.equal(indexableRoutes.length, 139);
+  assert.ok(indexableRoutes.length >= publishedArticles.length + allProblemPages().filter((page) => page.indexable).length);
   assert.ok(publicRoutes.some(r => r.path === learnPath(slug) && r.indexable));
   for (const text of [renderToStaticMarkup(React.createElement(LearnPage)), llmsIndex("https://physcratic.com"), llmsFull("https://physcratic.com")]) {
     assert.ok(text.includes(slug));

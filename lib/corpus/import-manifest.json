@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
-  "importedOn": "2026-10-31",
-  "count": 103,
+  "importedOn": "2026-11-14",
+  "count": 112,
   "problems": [
     {
       "id": "ipho-2026-t1",
@@ -232,6 +232,63 @@
       ]
     },
     {
+      "id": "ipho-2022-t1",
+      "path": "/corpus/english-problems/ipho-2022-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2022_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        },
+        {
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2022_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        }
+      ]
+    },
+    {
+      "id": "ipho-2022-t2",
+      "path": "/corpus/english-problems/ipho-2022-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2022_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        },
+        {
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2022_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        }
+      ]
+    },
+    {
+      "id": "ipho-2022-t3",
+      "path": "/corpus/english-problems/ipho-2022-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2022_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        },
+        {
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2022_S3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        }
+      ]
+    },
+    {
       "id": "ipho-2021-t1",
       "path": "/corpus/english-problems/ipho-2021-t1.json",
       "language": "en",
@@ -265,6 +322,25 @@
         {
           "kind": "solution",
           "url": "https://olimpicos.net/files/ipho/IPhO_2021_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        }
+      ]
+    },
+    {
+      "id": "ipho-2021-t3",
+      "path": "/corpus/english-problems/ipho-2021-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2021_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        },
+        {
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/ipho/IPhO_2021_S3.pdf",
           "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
@@ -878,6 +954,44 @@
       ]
     },
     {
+      "id": "apho-2024-t1",
+      "path": "/corpus/english-problems/apho-2024-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2024_Q1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        },
+        {
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2024_S1.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        }
+      ]
+    },
+    {
+      "id": "apho-2024-t2",
+      "path": "/corpus/english-problems/apho-2024-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2024_Q2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        },
+        {
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2024_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        }
+      ]
+    },
+    {
       "id": "apho-2024-t3",
       "path": "/corpus/english-problems/apho-2024-t3.json",
       "language": "en",
@@ -930,6 +1044,25 @@
         {
           "kind": "solution",
           "url": "https://olimpicos.net/files/apho/APhO_2023_S2.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        }
+      ]
+    },
+    {
+      "id": "apho-2023-t3",
+      "path": "/corpus/english-problems/apho-2023-t3.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "kind": "statement",
+          "url": "https://olimpicos.net/files/apho/APhO_2023_Q3.pdf",
+          "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+        },
+        {
+          "kind": "solution",
+          "url": "https://olimpicos.net/files/apho/APhO_2023_S3.pdf",
           "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
         }
       ]
@@ -1605,6 +1738,23 @@
       ]
     },
     {
+      "id": "eupho-2023-t2",
+      "path": "/corpus/problems/eupho-2023-t2.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2023/06/EuPhO_2023_theory.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2023/06/EuPhO_2023_theo_sol.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
       "id": "eupho-2023-t3",
       "path": "/corpus/problems/eupho-2023-t3.json",
       "language": "en",
@@ -1675,6 +1825,23 @@
     {
       "id": "eupho-2021-t1",
       "path": "/corpus/problems/eupho-2021-t1.json",
+      "language": "en",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "sources": [
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2021/06/EuPhO_2021-theory.pdf",
+          "kind": "statement"
+        },
+        {
+          "url": "https://eupho.ee/wp-content/uploads/2021/06/EuPhO_2021_Solutions-2.pdf",
+          "kind": "solution"
+        }
+      ]
+    },
+    {
+      "id": "eupho-2021-t2",
+      "path": "/corpus/problems/eupho-2021-t2.json",
       "language": "en",
       "statementFormat": "pdf",
       "solutionFormat": "pdf",
@@ -1913,9 +2080,394 @@
   ],
   "assets": [
     {
+      "path": "/corpus/2026/ipho-t1/a.png",
+      "bytes": 62575,
+      "sha256": "7a4ecfe69ea9427e7c369a9971591404be98799ef7f8c63b10acc39abe396f19"
+    },
+    {
+      "path": "/corpus/2026/ipho-t1/b.png",
+      "bytes": 29166,
+      "sha256": "40ad18cdf3780fb90917a53c646c149d04a5b839c27429c323668018f9dd0734"
+    },
+    {
+      "path": "/corpus/2026/ipho-t1/c.png",
+      "bytes": 65394,
+      "sha256": "fffa13da36b1ac20980fa4cf6db5af1c44fa9f34857b49964107924f1033e4f9"
+    },
+    {
+      "path": "/corpus/2026/ipho-t1/gate-solution.png",
+      "bytes": 13604,
+      "sha256": "f3cf77d6615054cef81184bf745d8039bae2474fc8e99716b8b2f2d6fd266f29"
+    },
+    {
+      "path": "/corpus/2026/ipho-t1/solution.pdf",
+      "bytes": 247936,
+      "sha256": "9e6855ade0068a9451f3476d6781fece4a222d3b5a412f894f5bf28778f7ef6f"
+    },
+    {
+      "path": "/corpus/2026/ipho-t1/statement.pdf",
+      "bytes": 655287,
+      "sha256": "0fc29bcca76d88b36c6cc6630cddb9bd22fceb96da857a527b675b72cb97f833"
+    },
+    {
+      "path": "/corpus/2026/ipho-t2/a.png",
+      "bytes": 528566,
+      "sha256": "1bdff6a037241785f1715842a34cd34491222c9c316c399f78b9cd9bba1d4530"
+    },
+    {
+      "path": "/corpus/2026/ipho-t2/b.png",
+      "bytes": 412450,
+      "sha256": "303bbee80e3ce33683d7fb3e983caa5010e274416859881f118d6609d058dc51"
+    },
+    {
+      "path": "/corpus/2026/ipho-t2/c.png",
+      "bytes": 76897,
+      "sha256": "7ef9f84c217411ea12c30734227cb4c7c21f58e6beb4714092fa58498c7e606a"
+    },
+    {
+      "path": "/corpus/2026/ipho-t2/cooker.png",
+      "bytes": 33727,
+      "sha256": "b80372db8c23c6023a31ad67a1279230d1f9f8f0eabdde53474e31c18ea320d5"
+    },
+    {
+      "path": "/corpus/2026/ipho-t2/d.png",
+      "bytes": 83948,
+      "sha256": "096fe413a2816fb74f9d5dc679f8da4a2b7a620258f257ee2352237616bb17ab"
+    },
+    {
+      "path": "/corpus/2026/ipho-t2/e.png",
+      "bytes": 40591,
+      "sha256": "9c5eb02e625e7ebfa80275c40e79ec8ec89d85d5a17e5b9cc764f793be9498af"
+    },
+    {
+      "path": "/corpus/2026/ipho-t2/envelope.png",
+      "bytes": 31456,
+      "sha256": "087f74795b4d7484849d025532f70a670f1e9e9771de0602261bbc5722ca633a"
+    },
+    {
+      "path": "/corpus/2026/ipho-t2/f.png",
+      "bytes": 137122,
+      "sha256": "d561af08049b08ca88457abefe9cea3b87f678b38abfdb554434534629401b51"
+    },
+    {
+      "path": "/corpus/2026/ipho-t2/g.png",
+      "bytes": 94464,
+      "sha256": "8c87a25b64542b2e2b0f710bf105b828795560165a306197206599d7a730f76c"
+    },
+    {
+      "path": "/corpus/2026/ipho-t2/one.png",
+      "bytes": 26599,
+      "sha256": "1fe01d8f8e0ad23b94d9e3c30ee923ed533a34d2d3036f98ea18307c84b84825"
+    },
+    {
+      "path": "/corpus/2026/ipho-t2/slope.png",
+      "bytes": 27416,
+      "sha256": "63fd047a50e09ec95ef1707253ffb52c02f3a720d78f376fa9f918227aa18d79"
+    },
+    {
+      "path": "/corpus/2026/ipho-t2/solution.pdf",
+      "bytes": 283252,
+      "sha256": "2256104b843dcaa7031ab3d14a9f32eea6f6be6714a3f284ee028c752b73493f"
+    },
+    {
+      "path": "/corpus/2026/ipho-t2/statement.pdf",
+      "bytes": 1959589,
+      "sha256": "d105a67ea95650c035c3c1c2f7649b27fc594843e8037485927af1711225ce55"
+    },
+    {
+      "path": "/corpus/2026/ipho-t2/three.png",
+      "bytes": 37766,
+      "sha256": "2c660a2e96f7574519d2c46bf9ae7b49ed70e1498dab9bea78911af37f52a8d1"
+    },
+    {
+      "path": "/corpus/2026/ipho-t2/two.png",
+      "bytes": 34600,
+      "sha256": "48ba441abc72a2c88813a2c614971941942540f0ad023bb157304a4c602cc06d"
+    },
+    {
+      "path": "/corpus/2026/ipho-t3/cycle.png",
+      "bytes": 29146,
+      "sha256": "71a2cd92cffeca4aaee8861bb62f894b6dbc659b3e9465876a04cd37d22beae1"
+    },
+    {
+      "path": "/corpus/2026/ipho-t3/labelled-cycle.png",
+      "bytes": 38494,
+      "sha256": "8bd832317db6c89a9a294adffa24acd06f3cbba70821f580256993213b6ae7fa"
+    },
+    {
+      "path": "/corpus/2026/ipho-t3/solution.pdf",
+      "bytes": 273124,
+      "sha256": "3ef1952f8a7466beb809764b2b0dcdd8191f71fd42ad4f71a96c0b53ab5bcb01"
+    },
+    {
+      "path": "/corpus/2026/ipho-t3/statement.pdf",
+      "bytes": 464094,
+      "sha256": "1fc6e246a0f1a369719f5bd39bfc12f7b665353be84a91485c8643370330b224"
+    },
+    {
+      "path": "/corpus/2026/ipho-t3/torus.png",
+      "bytes": 160860,
+      "sha256": "9c7025048c896223d9afc740d4882f4d766566af489212c856d3ccb4915cf0e1"
+    },
+    {
+      "path": "/corpus/arena/arena-a-grin-and-a-wiggle.json",
+      "bytes": 7893,
+      "sha256": "22c657287180cd8af10d2612b15cb109e16b8f22818b43b132efea1d4ba81636"
+    },
+    {
+      "path": "/corpus/arena/arena-an-atom-with-stage-fright.json",
+      "bytes": 8018,
+      "sha256": "e100f7d50295686f9a977e4ec7eafeb3a1eee625a260d9649e9ff77cd43083c2"
+    },
+    {
+      "path": "/corpus/arena/arena-mind-the-gap.json",
+      "bytes": 3038,
+      "sha256": "da6bc7556893e755e1f4f3a4affc707d33d461915517cfc6d023ee64113a2b59"
+    },
+    {
+      "path": "/corpus/arena/arena-the-bending-beam-riddle.json",
+      "bytes": 7902,
+      "sha256": "3ec7e6f54f8b287dad84fb56852ee1ae21a96a385d2711741a8b88a3c35dbf1c"
+    },
+    {
+      "path": "/corpus/arena/arena-the-bubble-treaty.json",
+      "bytes": 5126,
+      "sha256": "8f2dab4fb6cbddf2ebf53db26d07d4e4682a3d0ed0f362828bb4041bb38837ac"
+    },
+    {
+      "path": "/corpus/arena/arena-the-capacitors-missing-energy.json",
+      "bytes": 9868,
+      "sha256": "d6b2add1066b3fbdfab35236065dbf5cb1a7561817b01e5efdd33e897faef5dc"
+    },
+    {
+      "path": "/corpus/arena/arena-the-clock-in-the-racing-mirror.json",
+      "bytes": 5117,
+      "sha256": "c32f0c569c0579e5968940a150db195876c1368f3eb5d07f110a5fb9079e45a8"
+    },
+    {
+      "path": "/corpus/arena/arena-the-cosmic-kitchen.json",
+      "bytes": 16350,
+      "sha256": "187e41c866713fe4dcc322b4b904f7d02a9c7399d9a7d0d027b4592544cf1630"
+    },
+    {
+      "path": "/corpus/arena/arena-the-dodecahedron-conspiracy.json",
+      "bytes": 4499,
+      "sha256": "4f81f535cc0c286a86d94710ea22f7897a652fc7ed395256106213513db66780"
+    },
+    {
+      "path": "/corpus/arena/arena-the-five-fold-collision.json",
+      "bytes": 5151,
+      "sha256": "d426b64490d0c699a2086b9fe90208506de7393a353387e1552c47f3faf8d49f"
+    },
+    {
+      "path": "/corpus/arena/arena-the-gas-with-elbows.json",
+      "bytes": 8881,
+      "sha256": "430f8722a2a5fda7428968b9cc5634a3862280d9e1642a29e4e6f21bbf51efd4"
+    },
+    {
+      "path": "/corpus/arena/arena-the-infinite-v.json",
+      "bytes": 7599,
+      "sha256": "41b7d6be820eadec440296aa6aa5ce259b1d3b3ddd00dd849793b994e5667eb0"
+    },
+    {
+      "path": "/corpus/arena/arena-the-invisible-brake.json",
+      "bytes": 7630,
+      "sha256": "e357007a51ab13397f16688905ffa3b448db75cf92ead43fc653cd6a6a357824"
+    },
+    {
+      "path": "/corpus/arena/arena-the-phantom-charge.json",
+      "bytes": 4848,
+      "sha256": "1d188e19ec6b0df9533be0b0623b9b1fb5274b136b9aaee3215f05e9f09598c1"
+    },
+    {
+      "path": "/corpus/arena/arena-the-quantum-escape-room.json",
+      "bytes": 5742,
+      "sha256": "b053c1b9c2b0674c7de3d0032401e7eeed3e74458f2e7ec6d3162df9871bfb17"
+    },
+    {
+      "path": "/corpus/arena/arena-the-string-that-answered-back.json",
+      "bytes": 4814,
+      "sha256": "2c74bc11d32e751eb1886272d453b71d63396f056dc7c4405e764f8d624d3280"
+    },
+    {
+      "path": "/corpus/arena/arena-the-three-way-wave-split.json",
+      "bytes": 3852,
+      "sha256": "3a2f92ddf592bdfe2a96dd8c48f67cc51dfd1eca4872e3a35b58f14136e53946"
+    },
+    {
+      "path": "/corpus/arena/arena-titans-double-take.json",
+      "bytes": 3573,
+      "sha256": "cbb50a2de7cef77d98a4ac4ab1d3098d618c760c804075d755aa1d89ffa61a8b"
+    },
+    {
+      "path": "/corpus/arena/figures/a-grin-and-a-wiggle-solution-focus.png",
+      "bytes": 13824,
+      "sha256": "d6686f56f0f046138a6b378719311f14df9b321455cb84a20e7fa9a41d36231c"
+    },
+    {
+      "path": "/corpus/arena/figures/a-grin-and-a-wiggle-solution-image.png",
+      "bytes": 17988,
+      "sha256": "f2a96b2c3ea3d72e05d7bc903fb16816e528bbe6de7a3fd53a11a7d56161b86d"
+    },
+    {
+      "path": "/corpus/arena/figures/a-grin-and-a-wiggle-statement.png",
+      "bytes": 27333,
+      "sha256": "dfc41c4a5277c1a1f97242ccb5145f2cb7ebc3e320ac4228eb3e52e40d991a49"
+    },
+    {
+      "path": "/corpus/arena/figures/an-atom-with-stage-fright-solution-population.png",
+      "bytes": 12479,
+      "sha256": "82da3c20faed3995c2c1520fa4a51f43abe498530def27edeaa77b84e5d42379"
+    },
+    {
+      "path": "/corpus/arena/figures/an-atom-with-stage-fright-solution-power.png",
+      "bytes": 14665,
+      "sha256": "10d4d6aa6ec7a0311142ac7050001d945a410656bbc28b40676e1b797c8679af"
+    },
+    {
+      "path": "/corpus/arena/figures/mind-the-gap-solution.png",
+      "bytes": 14773,
+      "sha256": "ba4bc63e00c71cfd747ab7bf4dc1a846b3b6797eaa647738440bb8c352533832"
+    },
+    {
+      "path": "/corpus/arena/figures/mind-the-gap-statement.png",
+      "bytes": 25321,
+      "sha256": "2664e178c88e124908f8d5276ab9ce12a7c10619a08864b9975cb281b76e5053"
+    },
+    {
+      "path": "/corpus/arena/figures/the-bending-beam-riddle-statement.png",
+      "bytes": 20616,
+      "sha256": "fd4ce5ccfe97c976bd98ff5f8b038568f5e3dbc597ea1d09914d7720efdb7c38"
+    },
+    {
+      "path": "/corpus/arena/figures/the-bubble-treaty-solution-equal.png",
+      "bytes": 13494,
+      "sha256": "2c4af0a15845910d7a21f9483962752fc5cbfd549915c4a8fcdb015dace5fb4d"
+    },
+    {
+      "path": "/corpus/arena/figures/the-bubble-treaty-solution-unequal.png",
+      "bytes": 14571,
+      "sha256": "ea82b46c5c98167cbdf8f28acf0a520c6633e5c6856f393b205c42942c04b3b2"
+    },
+    {
+      "path": "/corpus/arena/figures/the-bubble-treaty-statement.png",
+      "bytes": 19863,
+      "sha256": "607bec79a94c542446cc0197ea205778727088dc838c2de626e453035458dc62"
+    },
+    {
+      "path": "/corpus/arena/figures/the-capacitors-missing-energy-statement.png",
+      "bytes": 7287,
+      "sha256": "1be022e16c99a3318ea6f99427d15cf520af3b31fdf4041bc3bc4201417daa8d"
+    },
+    {
+      "path": "/corpus/arena/figures/the-clock-in-the-racing-mirror-solution.png",
+      "bytes": 12174,
+      "sha256": "59001259beea8e73fbc19d44f9b80cfd38d622d039a1414652eaae12ce1db8ea"
+    },
+    {
+      "path": "/corpus/arena/figures/the-clock-in-the-racing-mirror-statement.png",
+      "bytes": 12849,
+      "sha256": "bdfaceb8a4b00d26dd0d7b7fa36cb67bb691b507d297f02cd5b2cbaf15ba2cc1"
+    },
+    {
+      "path": "/corpus/arena/figures/the-cosmic-kitchen-statement.png",
+      "bytes": 7528,
+      "sha256": "ca6a7646879cdb21833388153303fd4d122e9f43b6dcc620a764ad0b565b54b1"
+    },
+    {
+      "path": "/corpus/arena/figures/the-dodecahedron-conspiracy-solution.png",
+      "bytes": 7955,
+      "sha256": "ec7913a2a64b4ef830d1a291be438f97f590cc8faca9338fe4350f3b2d020670"
+    },
+    {
+      "path": "/corpus/arena/figures/the-dodecahedron-conspiracy-statement.png",
+      "bytes": 13003,
+      "sha256": "5ffb8d0c44198293ee73e4046bada572392f96f3f7993e8fa769549ac1cb2e53"
+    },
+    {
+      "path": "/corpus/arena/figures/the-five-fold-collision-solution.png",
+      "bytes": 13587,
+      "sha256": "daab49e9dabb202594d2c484c128f3ca1f9860eb68383e7422415b04f57399fb"
+    },
+    {
+      "path": "/corpus/arena/figures/the-five-fold-collision-statement.png",
+      "bytes": 7452,
+      "sha256": "d5ae49c5be511b9e9aaca7c3736da96e7595a88e439470fd927e88dcc67480da"
+    },
+    {
+      "path": "/corpus/arena/figures/the-infinite-v-solution.png",
+      "bytes": 7904,
+      "sha256": "43cf324a011dc8211563daef7e73b7064a0ded47e05c9418a64bf901d45fdcdd"
+    },
+    {
+      "path": "/corpus/arena/figures/the-infinite-v-statement.png",
+      "bytes": 12472,
+      "sha256": "7999cb211844815fd243c017a6734c40b44d0e9dc9252c9d873b7130e97c08b8"
+    },
+    {
+      "path": "/corpus/arena/figures/the-invisible-brake-statement.png",
+      "bytes": 13760,
+      "sha256": "7bf31f37e0b8163ee4043224b4f9626602c10166095087cfcd97a6d292736d60"
+    },
+    {
+      "path": "/corpus/arena/figures/the-phantom-charge-solution.png",
+      "bytes": 5522,
+      "sha256": "206ee9f838a319ac5942e92a9ac4464714e9087cbdca36ae0ce0f61eba387343"
+    },
+    {
+      "path": "/corpus/arena/figures/the-phantom-charge-statement.png",
+      "bytes": 10860,
+      "sha256": "4bf4486ff42110da8105124476b8673df7eed5839e2e3c7fba4673783c8bda73"
+    },
+    {
+      "path": "/corpus/arena/figures/the-quantum-escape-room-solution.png",
+      "bytes": 10111,
+      "sha256": "d910640f9ad3b39153933a4991b4edf33ea9090ba55a370085859f82a4918045"
+    },
+    {
+      "path": "/corpus/arena/figures/the-quantum-escape-room-statement.png",
+      "bytes": 7612,
+      "sha256": "e097b7d2575ec5413bf7bfbfef697f0744eb7fc069ecab36480a686e66d74f84"
+    },
+    {
+      "path": "/corpus/arena/figures/the-string-that-answered-back-solution-a.png",
+      "bytes": 12977,
+      "sha256": "7a692ddd94047be9072f640c90f5e8159bcdad9b77d1916b833d15ef6a04cbfd"
+    },
+    {
+      "path": "/corpus/arena/figures/the-string-that-answered-back-solution-b.png",
+      "bytes": 13075,
+      "sha256": "939fcfd4583c9aca8582f2f8638c1d4cded2b6aa4f747edc393668e9c682cab5"
+    },
+    {
+      "path": "/corpus/arena/figures/the-string-that-answered-back-statement.png",
+      "bytes": 6769,
+      "sha256": "b97f4e43324105e3d2821d7c90505c09a773672acb67feba8ed4a6b7f38949c6"
+    },
+    {
+      "path": "/corpus/arena/figures/the-three-way-wave-split-statement.png",
+      "bytes": 12716,
+      "sha256": "a8e9eab90842137a1648a97bb639fc959f91517e56dba65afdb1b457eeb679d3"
+    },
+    {
+      "path": "/corpus/arena/figures/titans-double-take-solution-primary.png",
+      "bytes": 20785,
+      "sha256": "f604b54a0e4ea17d650a5ebe8901509250058cdde7e13646e0f2f8becbcebf41"
+    },
+    {
+      "path": "/corpus/arena/figures/titans-double-take-solution-secondary.png",
+      "bytes": 33821,
+      "sha256": "dfedc47cddf7e8266dabd48602ad5f97f4dfc581ba9b644528d9cbef2fab8315"
+    },
+    {
+      "path": "/corpus/arena/figures/titans-double-take-statement.png",
+      "bytes": 30795,
+      "sha256": "ab95369f4ec7c7a740c73a7e7c4a59a962e2c9eddc6d5adf800d7d3a24ea43c7"
+    },
+    {
       "path": "/corpus/collection.json",
-      "bytes": 2436963,
-      "sha256": "928e188cab729c5e83af146aef8ff38b28c4cea7ac8c486718eebed0e3f7c064"
+      "bytes": 2702636,
+      "sha256": "0673232eda45dd2c2c48b2d0115be99a68d55bb2de6894b51e39024f8f8406a0"
     },
     {
       "path": "/corpus/documents/english-apho-2006-t2-solution/document.pdf",
@@ -2226,6 +2778,36 @@
       "path": "/corpus/documents/english-apho-2023-t2-statement/document.pdf",
       "bytes": 129782,
       "sha256": "3bbff44638e7bbd44d369a4469014b73095efedb60708fa2d9d4dac7107add44"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2023-t3-solution/document.pdf",
+      "bytes": 101432,
+      "sha256": "ece1e5c3ed1d16e798b12e213c0ce7e72fa5902003689143d26381c9c5a92355"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2023-t3-statement/document.pdf",
+      "bytes": 376224,
+      "sha256": "897d0121a46051f906b7a141f9249a585c4ed3e389b7e8426194da709b45cba0"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2024-t1-solution/document.pdf",
+      "bytes": 1240581,
+      "sha256": "0479d1a959a85cdd88e3b90de100fe675b6dbe3a14aad1da131488d475b6e036"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2024-t1-statement/document.pdf",
+      "bytes": 471695,
+      "sha256": "2e39c2cb44119a4f92adb2d688ac13f54d14b582956ca192d2565fee0ce64ab9"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2024-t2-solution/document.pdf",
+      "bytes": 1265061,
+      "sha256": "bafdebf0c9cab74075b42734bceb73b32ccffc0949f629d83de4ccd67fd0e471"
+    },
+    {
+      "path": "/corpus/documents/english-apho-2024-t2-statement/document.pdf",
+      "bytes": 580061,
+      "sha256": "bedb16eb1c7436e141e6481a6e0a38f0db4fe4a6f15d8daa9ebb8825760c54fe"
     },
     {
       "path": "/corpus/documents/english-apho-2024-t3-solution/document.pdf",
@@ -2576,6 +3158,46 @@
       "path": "/corpus/documents/english-ipho-2021-t2-statement/document.pdf",
       "bytes": 159750,
       "sha256": "7c90dde74ecbae904c90324acf177348b68ef8f5b00b865e890bd5a3cf296a2f"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2021-t3-solution/document.pdf",
+      "bytes": 268017,
+      "sha256": "f8804d3a8b37708c5beda7dfb51145b3b850e30cde7b792ef40fff768cacc84a"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2021-t3-statement/document.pdf",
+      "bytes": 486169,
+      "sha256": "c065e99f72751b1f7e544c95516ba292aecc2f3320d42b25b96e7faf7c5750b4"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2022-t1-solution/document.pdf",
+      "bytes": 344284,
+      "sha256": "083e6564c94c7dd195009bf058386c34b39ef782e6c942d2f20db75fe1fcb7c0"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2022-t1-statement/document.pdf",
+      "bytes": 1357140,
+      "sha256": "0f90f13d7fc724fdda8393698e0e7450f3c1e47970bd91b36dbd96eefeaff99d"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2022-t2-solution/document.pdf",
+      "bytes": 217322,
+      "sha256": "c55c66cb13929fbae8d4d65513c05f93580fb37b4616f0e1cf5516441bb1fa97"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2022-t2-statement/document.pdf",
+      "bytes": 634609,
+      "sha256": "6566f8eff10a54679574c2834ed1d1e9888fe4533a5b6d7f546d061fe53c0337"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2022-t3-solution/document.pdf",
+      "bytes": 3052353,
+      "sha256": "48eeb9fdd698aa0d48ef95694d5ac72615ba204d38ad43761930345c73964a88"
+    },
+    {
+      "path": "/corpus/documents/english-ipho-2022-t3-statement/document.pdf",
+      "bytes": 190159,
+      "sha256": "d3fc5f300c6854c3a0d91554f7c52b9cb54d2bb3b9d15dfcea0a2d38ea983bf6"
     },
     {
       "path": "/corpus/documents/english-ipho-2023-t1-solution/document.pdf",
@@ -5328,6 +5950,21 @@
       "sha256": "c27c2ca45880ada0628e02311b76065607b1a36ddcf3e2e97929015664f124f7"
     },
     {
+      "path": "/corpus/english-problems/apho-2023-t3.json",
+      "bytes": 30156,
+      "sha256": "418acf0ceb2253f6d4c35b0fb82414fdea4cd67e1ffb422b8e318e243a956f6c"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2024-t1.json",
+      "bytes": 9844,
+      "sha256": "2436a074aa9370bba9da1a62d538684711d68404eb513a8ae6ceb40ef4d3ff1c"
+    },
+    {
+      "path": "/corpus/english-problems/apho-2024-t2.json",
+      "bytes": 9545,
+      "sha256": "486b13dd01ded1e6d19f0d1ba4524d72074809ce019e770d1e96308a41f214a9"
+    },
+    {
       "path": "/corpus/english-problems/apho-2024-t3.json",
       "bytes": 18169,
       "sha256": "fd83b6b9b7714e9e14555ef6e765b5653317db665b9b351db91fae61d9fa898e"
@@ -5503,6 +6140,26 @@
       "sha256": "db0342de2a77f9791cff5e022fc81465d7bf98eed99f8c9ee6f6cbd33856471b"
     },
     {
+      "path": "/corpus/english-problems/ipho-2021-t3.json",
+      "bytes": 22689,
+      "sha256": "c27bb0abf63bdb8e95cd26e3b572c508679c0a34380091f4ffc4c3857b9189d1"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2022-t1.json",
+      "bytes": 42001,
+      "sha256": "6662c18b6842f6e5dca68dc219d10a3f13e88e99afc75065e54c3f9c1c957eaa"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2022-t2.json",
+      "bytes": 39043,
+      "sha256": "6df6e24340fc86ae8471b73e1a778b8e0b069369cd01359d3db7f758a76a8cd5"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2022-t3.json",
+      "bytes": 31899,
+      "sha256": "bd45003aaf7bf165e61c385edcb47b232e0fafbb7c38ae57443854848e988cf0"
+    },
+    {
       "path": "/corpus/english-problems/ipho-2023-t1.json",
       "bytes": 23781,
       "sha256": "b605f0e434b8070fe4a7620f96394fb05ee04abff75203fb950746b3ddfe3876"
@@ -5546,6 +6203,21 @@
       "path": "/corpus/english-problems/ipho-2025-t3.json",
       "bytes": 45563,
       "sha256": "e032a0382d64521a26bfb27e00e2e698976db5901e630a0ac5dd41d8e36b62f7"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2026-t1.json",
+      "bytes": 55322,
+      "sha256": "2ad32f84ef68a63145fa622c53043b46dec569b2496184e42fae49d1f2b98879"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2026-t2.json",
+      "bytes": 61814,
+      "sha256": "d0575e6c92878e86081e1ac8400a653302278de63f691469dde17d8c13d498c1"
+    },
+    {
+      "path": "/corpus/english-problems/ipho-2026-t3.json",
+      "bytes": 47362,
+      "sha256": "de9ad3083efbbe68d5c3617eff74851423b19125d63ff055a7ced9cec89aa526"
     },
     {
       "path": "/corpus/figures/00238773ab1fdd48e768.webp",
@@ -6618,6 +7290,156 @@
       "sha256": "a797e18d8ae71311f459f4b75dd67da11c2f0cd8fa38b0a48403e6b8f4bf85c2"
     },
     {
+      "path": "/corpus/grading/arena-a-grin-and-a-wiggle.json",
+      "bytes": 4598,
+      "sha256": "9717e6a67e2eb3f8a14e28e0a7a923f05162c11e17060bb10e298e7e3e7415fb"
+    },
+    {
+      "path": "/corpus/grading/arena-an-atom-with-stage-fright.json",
+      "bytes": 6354,
+      "sha256": "4f9c7fe1a59f95a3e6bb6a80f5896b358df58a2e7b9c3543be64d7c4cf891467"
+    },
+    {
+      "path": "/corpus/grading/arena-mind-the-gap.json",
+      "bytes": 1326,
+      "sha256": "9b853b895ad5cddefc027486b9d963234ad2e82bbd630a206cbaa8ea79759260"
+    },
+    {
+      "path": "/corpus/grading/arena-the-bending-beam-riddle.json",
+      "bytes": 8360,
+      "sha256": "f6b1235254dc821bfe82df9f166ce1d6478931cc6517c2c636ecbe0fcd2ddd0a"
+    },
+    {
+      "path": "/corpus/grading/arena-the-bubble-treaty.json",
+      "bytes": 2205,
+      "sha256": "3be0a81f3f941b88383e3ec8105b88b9ec03b17a0ff57d067d9f30313f093ea3"
+    },
+    {
+      "path": "/corpus/grading/arena-the-capacitors-missing-energy.json",
+      "bytes": 13696,
+      "sha256": "c53afca74a18aee816862fc05678e0d76165ab28700833229726ffcb99bf8db1"
+    },
+    {
+      "path": "/corpus/grading/arena-the-clock-in-the-racing-mirror.json",
+      "bytes": 2266,
+      "sha256": "39918fb976bbff63a73b9373d2484fd369d7b8309a4d067d10b34040b110c8fe"
+    },
+    {
+      "path": "/corpus/grading/arena-the-cosmic-kitchen.json",
+      "bytes": 8373,
+      "sha256": "81e9b3e53f022eccc91d4230cc1448d6a67b40791a02ac57446438611ce25ecb"
+    },
+    {
+      "path": "/corpus/grading/arena-the-dodecahedron-conspiracy.json",
+      "bytes": 1888,
+      "sha256": "7baef0197646fe1a6a8bbc3a88a58aaed7e3da55b4a0ee91d174373277044170"
+    },
+    {
+      "path": "/corpus/grading/arena-the-five-fold-collision.json",
+      "bytes": 3504,
+      "sha256": "02d5b6bba14c920403bb6d0b4daf2e10beb5abbdb719c6cd2b09e6c41776709d"
+    },
+    {
+      "path": "/corpus/grading/arena-the-gas-with-elbows.json",
+      "bytes": 11852,
+      "sha256": "7982d3bbf84fe99e108729cee08358a0e0ec0a6cad454e07ccea9f52811de238"
+    },
+    {
+      "path": "/corpus/grading/arena-the-infinite-v.json",
+      "bytes": 2495,
+      "sha256": "e6d865e73e1e945a0822c97a43303ef73ea3f08f513b932cc28410b4fe6da20a"
+    },
+    {
+      "path": "/corpus/grading/arena-the-invisible-brake.json",
+      "bytes": 4683,
+      "sha256": "95367206ce345df59900f1cb7f6071572c5258a70f3f36d25a67f2bc84a1f6e2"
+    },
+    {
+      "path": "/corpus/grading/arena-the-phantom-charge.json",
+      "bytes": 4408,
+      "sha256": "d1952e8df4ddbfa00fb8c996dc3fd414d8942b88d37576d765f4fc55d0df8a88"
+    },
+    {
+      "path": "/corpus/grading/arena-the-quantum-escape-room.json",
+      "bytes": 4989,
+      "sha256": "7d8a1c54744571061b407eaa9aed650bc725c256b8b13979242823a72b67a40e"
+    },
+    {
+      "path": "/corpus/grading/arena-the-string-that-answered-back.json",
+      "bytes": 3258,
+      "sha256": "bd813b0f387d684ed22b7715bba8bf00f4d69b5f3cde030ec82a1e26711bd49d"
+    },
+    {
+      "path": "/corpus/grading/arena-the-three-way-wave-split.json",
+      "bytes": 2774,
+      "sha256": "0759fb6599976c2328bf11bd4ca9a22966d61772d5fdfd34085f6ad46a9afe4a"
+    },
+    {
+      "path": "/corpus/grading/arena-titans-double-take.json",
+      "bytes": 1246,
+      "sha256": "53b5746d48cfe16599f1bfcfa876d5d07b2717a6684c38ee361d942b8ea56de4"
+    },
+    {
+      "path": "/corpus/grading/circuit.json",
+      "bytes": 366,
+      "sha256": "cb3eff357fd637110cd120d296270669d626fdc63f327036209fbd9df890946a"
+    },
+    {
+      "path": "/corpus/grading/echo.json",
+      "bytes": 363,
+      "sha256": "2c705ba6894c2973d52c35a366d989a1d63a57bc7cea26cb9e3d593001f76f9e"
+    },
+    {
+      "path": "/corpus/grading/first-law.json",
+      "bytes": 368,
+      "sha256": "dd50f516c1bc0b465510c579225d3158b3b5ada1d384726f13be8b93d17beff9"
+    },
+    {
+      "path": "/corpus/grading/gas.json",
+      "bytes": 362,
+      "sha256": "4f2adb9d8adf648b3f413ed0752ac00e915e6df17f55647191239fa171714b07"
+    },
+    {
+      "path": "/corpus/grading/heat.json",
+      "bytes": 363,
+      "sha256": "a510b0c7a5ed5d080221bad9168b780902a64c9209718464d178030b5c063c67"
+    },
+    {
+      "path": "/corpus/grading/incline.json",
+      "bytes": 370,
+      "sha256": "178db9e93b72b907a7ab6e7d32c95b286c9f2f093422cc6172a52d812c724b4f"
+    },
+    {
+      "path": "/corpus/grading/power.json",
+      "bytes": 364,
+      "sha256": "8766184a73f927d987732dd48526676236234e6f19d264109c1c422cbd408f1d"
+    },
+    {
+      "path": "/corpus/grading/projectile.json",
+      "bytes": 369,
+      "sha256": "d82de168253b3f208aef9441448a48b06a6bd37349b767c590411eef26ae0c77"
+    },
+    {
+      "path": "/corpus/grading/resistors.json",
+      "bytes": 368,
+      "sha256": "24f9364a16d0fa28ef6056ab8e81c33f8f43839e5b04ee89f5b508511e43e894"
+    },
+    {
+      "path": "/corpus/grading/spring.json",
+      "bytes": 365,
+      "sha256": "6fb46932bfbbfd4954d2c8d51e04d8bbd5fd1cf3959aa613e28f433a6fae5886"
+    },
+    {
+      "path": "/corpus/grading/string.json",
+      "bytes": 366,
+      "sha256": "a848364a6c77f5d75a2235d910b91c181decff38b306899200f2390466d2bde2"
+    },
+    {
+      "path": "/corpus/grading/wave.json",
+      "bytes": 365,
+      "sha256": "0ac478184f0b70c127be828ab3eedb3498f575a0ae73f716867d8a267c7f2500"
+    },
+    {
       "path": "/corpus/problems/apho-2006-t2.json",
       "bytes": 33779,
       "sha256": "b64c635eb573042ebff175e459f61b6257848cbaf04438abb6567014b566f427"
@@ -6858,6 +7680,11 @@
       "sha256": "5e738eceb2020f34e5cdc8aea4d628941fd51d50443a2730fd20da916f4ee2e9"
     },
     {
+      "path": "/corpus/problems/eupho-2021-t2.json",
+      "bytes": 23421,
+      "sha256": "c1f6494070a516aaa9e1637420f5ab9892037ce59253874dc895cb704d39af2e"
+    },
+    {
       "path": "/corpus/problems/eupho-2021-t3.json",
       "bytes": 23421,
       "sha256": "e92094e4fef6b96d0870636b33b610c93112f12024e97d0568562c64f24480c6"
@@ -6881,6 +7708,11 @@
       "path": "/corpus/problems/eupho-2023-t1.json",
       "bytes": 57066,
       "sha256": "c818ed5061fce759c27c1b21e5afb65a7535c9eaa00e40bd256d13271d4ec30b"
+    },
+    {
+      "path": "/corpus/problems/eupho-2023-t2.json",
+      "bytes": 57066,
+      "sha256": "ec8c814c7095804aa1fd139db200e920601c5a21ed0e73213b2fe549f4afdb97"
     },
     {
       "path": "/corpus/problems/eupho-2023-t3.json",
@@ -7151,151 +7983,6 @@
       "path": "/corpus/translations/index.json",
       "bytes": 5627,
       "sha256": "bb6078413d330d087236121de9abb02df1e3918361ba40309fef6c80ee7eb748"
-    },
-    {
-      "path": "/corpus/2026/ipho-t1/statement.pdf",
-      "bytes": 655287,
-      "sha256": "0fc29bcca76d88b36c6cc6630cddb9bd22fceb96da857a527b675b72cb97f833"
-    },
-    {
-      "path": "/corpus/2026/ipho-t1/solution.pdf",
-      "bytes": 247936,
-      "sha256": "9e6855ade0068a9451f3476d6781fece4a222d3b5a412f894f5bf28778f7ef6f"
-    },
-    {
-      "path": "/corpus/2026/ipho-t1/a.png",
-      "bytes": 62575,
-      "sha256": "7a4ecfe69ea9427e7c369a9971591404be98799ef7f8c63b10acc39abe396f19"
-    },
-    {
-      "path": "/corpus/2026/ipho-t1/b.png",
-      "bytes": 29166,
-      "sha256": "40ad18cdf3780fb90917a53c646c149d04a5b839c27429c323668018f9dd0734"
-    },
-    {
-      "path": "/corpus/2026/ipho-t1/c.png",
-      "bytes": 65394,
-      "sha256": "fffa13da36b1ac20980fa4cf6db5af1c44fa9f34857b49964107924f1033e4f9"
-    },
-    {
-      "path": "/corpus/2026/ipho-t1/gate-solution.png",
-      "bytes": 13604,
-      "sha256": "f3cf77d6615054cef81184bf745d8039bae2474fc8e99716b8b2f2d6fd266f29"
-    },
-    {
-      "path": "/corpus/english-problems/ipho-2026-t1.json",
-      "bytes": 55322,
-      "sha256": "2ad32f84ef68a63145fa622c53043b46dec569b2496184e42fae49d1f2b98879"
-    },
-    {
-      "path": "/corpus/english-problems/ipho-2026-t2.json",
-      "bytes": 61814,
-      "sha256": "d0575e6c92878e86081e1ac8400a653302278de63f691469dde17d8c13d498c1"
-    },
-    {
-      "path": "/corpus/2026/ipho-t2/a.png",
-      "bytes": 528566,
-      "sha256": "1bdff6a037241785f1715842a34cd34491222c9c316c399f78b9cd9bba1d4530"
-    },
-    {
-      "path": "/corpus/2026/ipho-t2/b.png",
-      "bytes": 412450,
-      "sha256": "303bbee80e3ce33683d7fb3e983caa5010e274416859881f118d6609d058dc51"
-    },
-    {
-      "path": "/corpus/2026/ipho-t2/c.png",
-      "bytes": 76897,
-      "sha256": "7ef9f84c217411ea12c30734227cb4c7c21f58e6beb4714092fa58498c7e606a"
-    },
-    {
-      "path": "/corpus/2026/ipho-t2/cooker.png",
-      "bytes": 33727,
-      "sha256": "b80372db8c23c6023a31ad67a1279230d1f9f8f0eabdde53474e31c18ea320d5"
-    },
-    {
-      "path": "/corpus/2026/ipho-t2/d.png",
-      "bytes": 83948,
-      "sha256": "096fe413a2816fb74f9d5dc679f8da4a2b7a620258f257ee2352237616bb17ab"
-    },
-    {
-      "path": "/corpus/2026/ipho-t2/e.png",
-      "bytes": 40591,
-      "sha256": "9c5eb02e625e7ebfa80275c40e79ec8ec89d85d5a17e5b9cc764f793be9498af"
-    },
-    {
-      "path": "/corpus/2026/ipho-t2/envelope.png",
-      "bytes": 31456,
-      "sha256": "087f74795b4d7484849d025532f70a670f1e9e9771de0602261bbc5722ca633a"
-    },
-    {
-      "path": "/corpus/2026/ipho-t2/f.png",
-      "bytes": 137122,
-      "sha256": "d561af08049b08ca88457abefe9cea3b87f678b38abfdb554434534629401b51"
-    },
-    {
-      "path": "/corpus/2026/ipho-t2/g.png",
-      "bytes": 94464,
-      "sha256": "8c87a25b64542b2e2b0f710bf105b828795560165a306197206599d7a730f76c"
-    },
-    {
-      "path": "/corpus/2026/ipho-t2/one.png",
-      "bytes": 26599,
-      "sha256": "1fe01d8f8e0ad23b94d9e3c30ee923ed533a34d2d3036f98ea18307c84b84825"
-    },
-    {
-      "path": "/corpus/2026/ipho-t2/slope.png",
-      "bytes": 27416,
-      "sha256": "63fd047a50e09ec95ef1707253ffb52c02f3a720d78f376fa9f918227aa18d79"
-    },
-    {
-      "path": "/corpus/2026/ipho-t2/solution.pdf",
-      "bytes": 283252,
-      "sha256": "2256104b843dcaa7031ab3d14a9f32eea6f6be6714a3f284ee028c752b73493f"
-    },
-    {
-      "path": "/corpus/2026/ipho-t2/statement.pdf",
-      "bytes": 1959589,
-      "sha256": "d105a67ea95650c035c3c1c2f7649b27fc594843e8037485927af1711225ce55"
-    },
-    {
-      "path": "/corpus/2026/ipho-t2/three.png",
-      "bytes": 37766,
-      "sha256": "2c660a2e96f7574519d2c46bf9ae7b49ed70e1498dab9bea78911af37f52a8d1"
-    },
-    {
-      "path": "/corpus/2026/ipho-t2/two.png",
-      "bytes": 34600,
-      "sha256": "48ba441abc72a2c88813a2c614971941942540f0ad023bb157304a4c602cc06d"
-    },
-    {
-      "path": "/corpus/english-problems/ipho-2026-t3.json",
-      "bytes": 47362,
-      "sha256": "de9ad3083efbbe68d5c3617eff74851423b19125d63ff055a7ced9cec89aa526"
-    },
-    {
-      "path": "/corpus/2026/ipho-t3/cycle.png",
-      "bytes": 29146,
-      "sha256": "71a2cd92cffeca4aaee8861bb62f894b6dbc659b3e9465876a04cd37d22beae1"
-    },
-    {
-      "path": "/corpus/2026/ipho-t3/labelled-cycle.png",
-      "bytes": 38494,
-      "sha256": "8bd832317db6c89a9a294adffa24acd06f3cbba70821f580256993213b6ae7fa"
-    },
-    {
-      "path": "/corpus/2026/ipho-t3/solution.pdf",
-      "bytes": 273124,
-      "sha256": "3ef1952f8a7466beb809764b2b0dcdd8191f71fd42ad4f71a96c0b53ab5bcb01"
-    },
-    {
-      "path": "/corpus/2026/ipho-t3/statement.pdf",
-      "bytes": 464094,
-      "sha256": "1fc6e246a0f1a369719f5bd39bfc12f7b665353be84a91485c8643370330b224"
-    },
-    {
-      "path": "/corpus/2026/ipho-t3/torus.png",
-      "bytes": 160860,
-      "sha256": "9c7025048c896223d9afc740d4882f4d766566af489212c856d3ccb4915cf0e1"
     }
   ]
 }
