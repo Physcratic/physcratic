@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Authored solution response visibility (15 November 2026)
+
+A follow-up to the initial investigation reproduces approved solutions and denial messages below the viewport after confirmation. Explicit response focus/scroll now exposes the result in mobile flow and the desktop answer rail, preserving confirmation, permission, assistance and privacy clearing. [Evidence and policy](AUTHORED_STUDENT_UI.md#worked-solution-policy-and-evidence). Separate draft stacked on math-input fix #176. No merge/deployment or API, grading, migration, Production, official-reader or SEO change.
+
 ## Authored solving reliability (15 November 2026)
 
 A reproduced stalled MathLive import now has an authored-only 10-second fallback deadline, preserving draft/focus/composition and submission behavior. [Investigation and solution-policy matrix](AUTHORED_STUDENT_UI.md#solving-reliability-investigation-15-november-2026). Authorized before-submit solutions pass the existing real-PG/API/browser tests; the reported intermittent solution failure is not reproduced, so no access/privacy policy is changed. Scoped draft PR holds exact-head QA and independent review. No merge, deployment, migration, Production or official-reader change.
