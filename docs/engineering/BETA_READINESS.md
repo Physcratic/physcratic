@@ -1243,3 +1243,9 @@ Separate draft stacked on revised P2 #143 (`0d929b3`), main `01757c0` incorporat
 | arena-the-quantum-escape-room | 2100 | 1950 |
 | arena-the-string-that-answered-back | 1950 | 1750 |
 | arena-the-three-way-wave-split | 1800 | 1550 |
+
+## 2026-11-14 - Rating badge shows the rating plainly
+
+- **Change:** every problem badge reads "2,200 · Advanced", with no "~" and no "(estimate)" (`describeEstimate` in `lib/rating-bands.ts`, the problem heading, library and archive cards, Arena and community cards, and the Studio student view). The card's accessible name is now "Rating 2,200, Advanced" and its tooltip is the band and range. The "What do the ratings mean?" popover no longer says estimates are marked with a ~. The Arena page says "Published by Physcratic" instead of "Unrated · Published by Physcratic", and the archive reader no longer says "Unrated".
+- **Not changed:** no rating, no filter and nothing about how player ratings are calculated. The Studio input label "Estimated difficulty (optional)" and its tour step are unchanged because they describe what the author types, not the badge. A card with no rating at all still says "Unrated".
+- **Tests:** badge text pins in `problem-card.test.ts`, `problem-heading.test.ts`, `rating-bands.test.ts`, `library-tags.browser.mjs` and `authored-metadata.browser.mjs`, plus a new `rating-badge-copy.test.ts`.

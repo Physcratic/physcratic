@@ -18,7 +18,7 @@ export function RatingBandsPopover({ className }: { className?: string }) {
       <PopoverContent align="start" className="w-[min(92vw,38rem)] space-y-3 p-4">
         <p className="text-base font-semibold">What do the ratings mean?</p>
         <p className="text-base text-muted-foreground">
-          New players start at 1,200. A problem&apos;s rating shows how hard it is. A problem from a student author shows their estimate, marked with a ~.
+          New players start at 1,200. A problem&apos;s rating shows how hard it is. A problem from a student author shows the rating they chose.
         </p>
         <table className="w-full text-left text-base">
           <caption className="sr-only">Rating bands</caption>

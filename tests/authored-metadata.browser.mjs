@@ -53,7 +53,7 @@ try{
  for(const mobile of [false,true])for(const theme of ['light','dark']){
   const context=await browser.newContext({viewport:{width:mobile?375:1440,height:950},isMobile:mobile,hasTouch:mobile});await context.addInitScript(theme=>document.addEventListener('DOMContentLoaded',()=>document.documentElement.classList.toggle('dark',theme==='dark')),theme);
   const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await visibility(true);enabled=true;await page.goto(origin);await focus(page);
-  await page.getByRole('heading',{level:1,name:title,exact:true}).waitFor();await text(page,'~1,200 · Intermediate (estimate)');await text(page,'Community-authored problem');await text(page,'Published by Public Author');checks++;
+  await page.getByRole('heading',{level:1,name:title,exact:true}).waitFor();await text(page,'1,200 · Intermediate');await text(page,'Community-authored problem');await text(page,'Published by Public Author');checks++;
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
   assert.equal((await page.locator('body').innerText()).includes('PRIVATE_'),false);
   await page.evaluate(()=>window.dispatchEvent(new Event('blur')));await noPublisher(page);await focus(page);await text(page,'Published by Public Author');checks++;

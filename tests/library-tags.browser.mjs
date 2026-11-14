@@ -85,7 +85,7 @@ for (const [name, profile] of Object.entries(profiles)) {
   }
 
   // Ratings: the band name is on the card, the filter has the four bands, the popover has the table.
-  const badge = page.locator("[data-problem-card]:visible [aria-label^='Estimated difficulty']").first();
+  const badge = page.locator("[data-problem-card]:visible [aria-label^='Rating ']").first();
   const badgeText = await badge.innerText();
   ok(bands.some((band) => badgeText.includes(band)), `${name}: a card shows its band next to the rating (${badgeText.replace(/\n/g, " ")})`);
   await press(page.locator("#difficulty-filter"));

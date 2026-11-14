@@ -126,8 +126,8 @@ export function ProblemCard({
         {elo !== undefined && band ? (
           <Badge
             variant={band.variant}
-            aria-label={`Estimated difficulty ${elo.toLocaleString("en-US")}, ${band.name}`}
-            title={`Illustrative estimate · ${band.name} · ${band.range}`}
+            aria-label={`Rating ${elo.toLocaleString("en-US")}, ${band.name}`}
+            title={`${band.name} · ${band.range}`}
             className="shrink-0 rounded-md"
           >
             <span className="text-sm tabular-nums">
