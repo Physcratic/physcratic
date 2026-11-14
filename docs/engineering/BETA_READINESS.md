@@ -1215,3 +1215,23 @@ Separate draft stacked on revised P2 #143 (`0d929b3`), main `01757c0` incorporat
 | ipho-2019-t1 | 2300 | 2850 |
 | ipho-2019-t2 | 2500 | 2500 |
 | ipho-2019-t3 | 2600 | 2400 |
+
+## 2026-11-14 - Owner ratings for 12 Arena problems
+
+- **Change:** the owner set the difficulty of 12 Arena problems, source "owner-set, 14 November 2026". They sit in `lib/owner-ratings.ts` after the archive ratings from #166 and replace the calibrated values for those problems only. No slug, no other problem and nothing about how player ratings are calculated changed.
+- **Tests:** the Arena filter test now expects Mind the Gap, Bubbles in Contact and The Three-String Junction in the 1200 to 1599 band and 15 problems at 1600 and above. The Cosmic Kitchen anchor is 2200. The owner-ratings test lists all 12 values.
+
+| Problem | Old | New |
+| --- | ---: | ---: |
+| arena-a-grin-and-a-wiggle | 2500 | 2000 |
+| arena-an-atom-with-stage-fright | 2000 | 1700 |
+| arena-the-bending-beam-riddle | 2350 | 1900 |
+| arena-the-bubble-treaty | 1750 | 1550 |
+| arena-the-capacitors-missing-energy | 2500 | 2000 |
+| arena-the-clock-in-the-racing-mirror | 2100 | 1950 |
+| arena-the-cosmic-kitchen | 2600 | 2200 |
+| arena-the-five-fold-collision | 2400 | 1650 |
+| arena-the-gas-with-elbows | 2200 | 2100 |
+| arena-the-quantum-escape-room | 2100 | 1950 |
+| arena-the-string-that-answered-back | 1950 | 1750 |
+| arena-the-three-way-wave-split | 1800 | 1550 |

@@ -59,7 +59,7 @@ test("every Arena, archive and guided problem has an explicit editorial difficul
   });
   assert.ok(new Set(estimates).size > 15);
   assert.equal(getEstimatedProblemElo("arena-mind-the-gap"), 1350);
-  assert.equal(getEstimatedProblemElo("arena-the-cosmic-kitchen"), 2600);
+  assert.equal(getEstimatedProblemElo("arena-the-cosmic-kitchen"), 2200);
   assert.throws(() => getEstimatedProblemElo("unknown-problem"), /Missing editorial difficulty estimate/);
   for (const problem of corpusProblems) {
     const archiveProblem = catalogProblems.find((entry) => entry.id === problem.id)!;
@@ -149,8 +149,16 @@ test("owner-set ratings are exactly the owner's file, with their source, and cha
   const file = JSON.parse(readFileSync("assets-src/archive-imports/owner-ratings-2026-11-14.json", "utf8")) as { ratings: Record<string, number> }
   assert.equal(ownerRatingSource, "owner-set, 14 November 2026")
   assert.equal(Object.keys(file.ratings).length, 60)
-  assert.deepEqual(ownerRatings, file.ratings)
-  for (const [id, rating] of Object.entries(file.ratings)) assert.equal(getEstimatedProblemElo(id), rating, id)
+  // The owner's twelve Arena ratings of 14 November 2026 sit after the 60 archive ratings.
+  const arenaRatings = {
+    "arena-a-grin-and-a-wiggle": 2000, "arena-an-atom-with-stage-fright": 1700, "arena-the-bending-beam-riddle": 1900,
+    "arena-the-bubble-treaty": 1550, "arena-the-capacitors-missing-energy": 2000, "arena-the-clock-in-the-racing-mirror": 1950,
+    "arena-the-cosmic-kitchen": 2200, "arena-the-five-fold-collision": 1650, "arena-the-gas-with-elbows": 2100,
+    "arena-the-quantum-escape-room": 1950, "arena-the-string-that-answered-back": 1750, "arena-the-three-way-wave-split": 1550,
+  }
+  assert.deepEqual(ownerRatings, { ...file.ratings, ...arenaRatings })
+  for (const [id, rating] of Object.entries({ ...file.ratings, ...arenaRatings })) assert.equal(getEstimatedProblemElo(id), rating, id)
+  assert.equal(Object.keys(arenaRatings).filter((id) => !arena.problems.some((problem) => problem.id === id)).length, 0)
   const reviewed = new Map(difficultyReview.problems.map((problem) => [problem.id, problem.proposed]))
   for (const problem of [...arena.problems, ...catalogProblems].filter((entry) => !(entry.id in ownerRatings))) {
     const expected = reviewed.get(problem.id)
