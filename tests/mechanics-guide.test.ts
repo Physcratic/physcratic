@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { spawnSync } from "node:child_process";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import LearnPage from "../app/learn/page";
@@ -32,20 +33,35 @@ test("the approved Mechanics guide is publicly discoverable without reviewer att
   }
 });
 
-test("an unpublished fixture remains excluded from lookup, routing and discovery", async () => {
-  const draft = { ...article, slug: "unpublished-mechanics-test", published: false };
-  articles.push(draft);
-  try {
-    assert.deepEqual(publishedArticles, articles.filter(a => a.published));
-    assert.equal(findArticle(draft.slug), null);
-    assert.ok(!generateStaticParams().some(p => p.slug === draft.slug));
-    const params = { params: Promise.resolve({ slug: draft.slug }) };
-    assert.deepEqual(await generateMetadata(params), {});
-    await assert.rejects(LearnArticlePage(params), { digest: "NEXT_HTTP_ERROR_FALLBACK;404" });
-    for (const text of [renderToStaticMarkup(React.createElement(LearnPage)), JSON.stringify(publicRoutes), llmsIndex("https://physcratic.com"), llmsFull("https://physcratic.com")]) {
-      assert.ok(!text.includes(draft.slug));
-    }
-  } finally { assert.equal(articles.pop(), draft); }
+test("an unpublished article is excluded during fresh registry initialization", () => {
+  const child = spawnSync(process.execPath, ["--require", "./tests/server-only-register.cjs", "--import", "tsx", "-e", `
+    const assert = require("node:assert/strict");
+    const React = require("react");
+    globalThis.React = React;
+    const { renderToStaticMarkup } = require("react-dom/server");
+    const { mechanicsProblemSolving } = require("./lib/learn/guides/mechanics-problem-solving.ts");
+    // In-memory only, before any registry or discovery consumer is initialized.
+    mechanicsProblemSolving.published = false;
+    const { publishedArticles, findArticle } = require("./lib/learn/articles.ts");
+    const { publicRoutes } = require("./lib/seo/public-routes.ts");
+    const { llmsIndex, llmsFull } = require("./lib/seo/llms.ts");
+    const sitemap = require("./app/sitemap.ts").default;
+    const Hub = require("./app/learn/page.tsx").default;
+    const { default: Page, generateStaticParams, generateMetadata } = require("./app/learn/[slug]/page.tsx");
+    (async () => {
+      const slug = mechanicsProblemSolving.slug;
+      assert.equal(findArticle(slug), null);
+      assert.ok(publishedArticles.every(a => a.published && a.slug !== slug));
+      assert.ok(!generateStaticParams().some(p => p.slug === slug));
+      const props = { params: Promise.resolve({ slug }) };
+      assert.deepEqual(await generateMetadata(props), {});
+      await assert.rejects(Page(props), { digest: "NEXT_HTTP_ERROR_FALLBACK;404" });
+      for (const text of [renderToStaticMarkup(React.createElement(Hub)), JSON.stringify(publicRoutes), JSON.stringify(sitemap()), llmsIndex("https://physcratic.com"), llmsFull("https://physcratic.com")]) {
+        assert.ok(!text.includes(slug));
+      }
+    })().catch(error => { console.error(error); process.exitCode = 1; });
+  `], { cwd: process.cwd(), encoding: "utf8", timeout: 30000 });
+  assert.equal(child.status, 0, child.stderr || child.stdout || String(child.error));
 });
 
 test("the existing server renderer produces equations, citations and real Mechanics problem anchors", () => {
