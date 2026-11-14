@@ -1,5 +1,9 @@
 # Beta readiness log
 
+## Authored solving reliability (15 November 2026)
+
+A reproduced stalled MathLive import now has an authored-only 10-second fallback deadline, preserving draft/focus/composition and submission behavior. [Investigation and solution-policy matrix](AUTHORED_STUDENT_UI.md#solving-reliability-investigation-15-november-2026). Authorized before-submit solutions pass the existing real-PG/API/browser tests; the reported intermittent solution failure is not reproduced, so no access/privacy policy is changed. Scoped draft PR holds exact-head QA and independent review. No merge, deployment, migration, Production or official-reader change.
+
 ## PDF reader structure accessibility (14 November 2026)
 
 Fresh main d95b861 reproduces four invalid ARIA nodes in the tagged 2010 PDF. A version-bound React-PDF patch preserves every content owner/order and existing cells while repairing trailing inline tags and redundant bare lists. [Root cause, limits and regression design](PDF_READER_ACCESSIBILITY.md). The draft PR records actual production-build/browser QA, independent review and exact-head CI. No merge/deployment, original document, publication, SEO policy, provider or database change.

@@ -35,6 +35,7 @@ export function MathAnswerField({
   emptyHint,
   loadWithValue,
   upgradeOnBlur = false,
+  loadTimeoutMs,
   checkSymbols = true,
   padMode = "answer",
 }: {
@@ -61,6 +62,8 @@ export function MathAnswerField({
   loadWithValue?: boolean;
   /** Load restored work too, but wait until focus and composition leave the fallback before replacing it. */
   upgradeOnBlur?: boolean;
+  /** Opt in to a bounded loading state before exposing the editable fallback. */
+  loadTimeoutMs?: number;
   /** Name a symbol the problem does not use. Off for free-form equations, where any symbol is fine. */
   checkSymbols?: boolean;
   /** "answer" hides the buttons the checker cannot read. "full" shows them all (Studio text and solution fields). */
@@ -100,6 +103,10 @@ export function MathAnswerField({
     const inputArea = wrapper.current;
     const start = upgradeOnBlur || loadWithValue || value.trim() === "";
     if (!start || !host.current) return;
+    // A pending import can stall without rejecting. The caller chooses a fallback deadline.
+    const fallbackTimer = loadTimeoutMs === undefined ? undefined : window.setTimeout(() => {
+      if (!cancelled) setLoadingEditor(false);
+    }, loadTimeoutMs);
     const mount = () => {
       try {
         if (cancelled || !Element || !host.current || mounted) return;
@@ -259,12 +266,14 @@ export function MathAnswerField({
           element.addEventListener("focusin", apply);
         }
         setReady(true);
+        clearTimeout(fallbackTimer);
         setLoadingEditor(false);
       } catch {
         // If the library cannot initialize this draft, keep the editable fallback.
         mounted?.remove();
         if (field.current === mounted) field.current = null;
         mounted = undefined;
+        clearTimeout(fallbackTimer);
         if (!cancelled) setLoadingEditor(false);
       }
     };
@@ -281,11 +290,12 @@ export function MathAnswerField({
     }
     import("mathlive")
       .then((module) => { Element = module.MathfieldElement; mount(); })
-      .catch(() => { if (!cancelled) setLoadingEditor(false); });
+      .catch(() => { clearTimeout(fallbackTimer); if (!cancelled) setLoadingEditor(false); });
     return () => {
       cancelled = true;
       cancelAnimationFrame(frame);
       clearTimeout(settleTimer);
+      clearTimeout(fallbackTimer);
       inputArea?.removeEventListener("focusout", scheduleMount);
       inputArea?.removeEventListener("compositionstart", beginComposition);
       inputArea?.removeEventListener("compositionend", endComposition);
