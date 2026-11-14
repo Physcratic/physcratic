@@ -8,10 +8,15 @@ require("./server-only-register.cjs");
 const { problemInsights } = require("../lib/problem-insights") as typeof import("../lib/problem-insights");
 const { PublishedProblemInsight, ProblemInsightContent } = require("../components/problems/problem-insight") as typeof import("../components/problems/problem-insight");
 Object.assign(globalThis, { React });
-test("draft content never reaches the public supplement", () => {
-  for (const id of [...problemInsights.map(i => i.problemId), "ipho-2016-t1", "unknown"]) {
-    assert.equal(renderToStaticMarkup(React.createElement(PublishedProblemInsight, { problemId: id })), "");
+test("unpublished fixtures never reach the public supplement", () => {
+  for (const insight of problemInsights) {
+    const previous = insight.published;
+    try {
+      insight.published = false;
+      assert.equal(renderToStaticMarkup(React.createElement(PublishedProblemInsight, { problemId: insight.problemId })), "");
+    } finally { insight.published = previous; }
   }
+  for (const id of ["ipho-2016-t1", "unknown"]) assert.equal(renderToStaticMarkup(React.createElement(PublishedProblemInsight, { problemId: id })), "");
 });
 test("editorial render has native closed spoiler disclosure and server-rendered accessible maths", () => {
   for (const insight of problemInsights) {
@@ -32,13 +37,13 @@ test("editorial render has native closed spoiler disclosure and server-rendered 
   }
 });
 
-test("the publication gate can render an approved fixture without exposing other drafts", () => {
+test("the publication gate renders only the matching approved insight", () => {
   for (const insight of problemInsights) {
-    try {
-      insight.published = true;
+    {
+      assert.equal(insight.published, true);
       const html = renderToStaticMarkup(React.createElement(PublishedProblemInsight, { problemId: insight.problemId }));
       assert.ok(html.includes(insight.title));
       for (const other of problemInsights.filter(i => i !== insight)) assert.ok(!html.includes(other.title));
-    } finally { insight.published = false; }
+    }
   }
 });
