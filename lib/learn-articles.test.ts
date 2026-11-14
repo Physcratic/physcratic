@@ -18,11 +18,11 @@ const citedIds = (a: Article): string[] => {
 };
 
 describe("learn articles", () => {
-  it("has unique slugs, six published guides and one unpublished editorial draft", () => {
+  it("has unique slugs, seven published guides", () => {
     const slugs = articles.map((a) => a.slug);
     assert.equal(new Set(slugs).size, slugs.length);
     assert.equal(articles.length, 7);
-    assert.equal(publishedArticles.length, 6);
+    assert.equal(publishedArticles.length, 7);
     assert.deepEqual(articles.filter(a => a.reviewedBy).map(a => a.slug), [
       "start-preparing-physics-olympiad", "ipho-apho-eupho-differences", "physics-olympiad-books-and-resources",
     ]);
@@ -38,7 +38,7 @@ describe("learn articles", () => {
         assert.match(a.slug, /^[a-z0-9]+(-[a-z0-9]+)*$/);
       });
       it("records human review only for reviewed guides", () => {
-        if (!a.published || a.kind === "product" || a.slug === "how-olympiad-solutions-are-marked") {
+        if (!a.published || a.kind === "product" || ["how-olympiad-solutions-are-marked", "mechanics-olympiad-problem-solving"].includes(a.slug)) {
           assert.equal(a.reviewedBy, null);
           return;
         }

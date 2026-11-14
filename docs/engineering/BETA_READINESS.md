@@ -1,5 +1,9 @@
 # Beta readiness log
 
+## Mechanics publication reconciliation (14 November 2026)
+
+PR #158 incorporates fresh main `fa8d4931dacc3aa9d4a1b1411197b349a2246dd9`, including merged equation keyboard accessibility fix #162. Only the approved Mechanics publication flag and directly related tests/docs differ from main. All approved content/assets and `reviewedBy: null` remain unchanged. Seven published guides and139 sitemap URLs derive from the current registry. Exact-head QA, independent review and release/deployment evidence belong to #158. No B6 SQL, provider configuration, manual deployment or P5B.
+
 ## Learn equation keyboard accessibility (14 November 2026)
 
 Scoped release work starts at `31941d0ea1feca6bac93834d1b8fa75ce051ca5c`. Equation scroll wrappers gain server-rendered keyboard focus, a visible theme-token outline and named group semantics, not landmarks. Native arrow scrolling and MathML remain. All equations are focusable because SSR cannot safely determine overflow across fonts, viewport and zoom. No client measurement or hydration dependency is added. Accessibility PR records baseline/after browser, independent review and exact-head CI. Mechanics publication remains separate in #158. No B6 operator, SQL, CSP, flag, provider or deployment changes.

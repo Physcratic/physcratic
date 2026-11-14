@@ -1,5 +1,11 @@
 # P5A Mechanics editorial pilot
 
+## Approved Mechanics publication proposal (12 November 2026)
+
+Owner-authorized publication follows merged #154. Branch `codex/publish-mechanics-guide` starts at `7631395a78d0821b36074f46a0cfccdff35d34c9`. Only the Mechanics guide's publication flag changes to true. `reviewedBy: null`, all scientific/editorial content, figures, metadata and practice links remain unchanged. Existing machinery yields seven published guides and139 sitemap URLs. Tests retain an unpublished fixture regression. Publication PR records executed QA and exact-head CI. This is a code proposal only, not a claim of live publication. No merge, deployment, Production setting, SQL or P5B.
+
+The following draft-phase evidence is historical. Owner editorial approval authorizes this publication proposal but supplies no independently verified expert-review attribution.
+
 Base: `b76a26b3fbb5423fee1428a64434f756dea85622`, 12 November 2026.
 
 ## Publication boundary and architecture
