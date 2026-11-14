@@ -66,7 +66,7 @@ try {
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);checks++;
     for(const part of definition.parts){
       if(part.kind==='self-review')await page.getByLabel('Your reasoning for '+part.sourcePart,{exact:true}).fill('My reasoning stays separate from automatic checking.');
-      else if(part.kind==='numeric')await page.locator('input[inputmode="decimal"]').fill(String(part.target));
+      else if(part.kind==='numeric')await page.locator('input[inputmode="decimal"]').nth(definition.parts.filter(p=>p.kind==='numeric').indexOf(part)).fill(String(part.target));
       else{
         const field=page.locator('math-field').filter({visible:true}).nth(definition.parts.filter(p=>p.kind==='expression').indexOf(part));
         await field.waitFor();await field.evaluate((el,value)=>{el.value=value;el.dispatchEvent(new Event('input',{bubbles:true}));},part.canonical);
@@ -75,7 +75,11 @@ try {
     await page.getByRole('tab',{name:/Worked solution/}).click();
     assert.equal(await page.locator('math-field').count(),definition.parts.filter(p=>p.kind==='expression').length);checks++;
     await page.getByRole('tab',{name:/Problem statement/}).click();
-    await page.getByRole('button',{name:'Check answer',exact:true}).click();
+    for(const part of definition.parts.filter(p=>p.kind==='self-review')) {
+      assert.equal(await page.getByLabel('Your reasoning for '+part.sourcePart,{exact:true}).inputValue(),'My reasoning stays separate from automatic checking.');checks++;
+    }
+    await page.getByRole('button',{name:'Check answer',exact:true}).focus();
+    await page.keyboard.press('Enter');
     await page.getByText('Checked without saving. This result does not update account progress.',{exact:true}).waitFor();checks++;
     const feedback=await page.locator('[id$="-result"]').allTextContents();
     assert.ok(feedback.length>=definition.parts.filter(p=>p.kind!=='self-review').length);checks++;
@@ -86,6 +90,6 @@ try {
     await context.close();
   }
   assert.equal(persistentPosts,0,'signed-in native checks must not reach a persistence/provider endpoint');checks++;
-  assert.equal(statelessPosts,20);assert.deepEqual(errors,[]);
-  console.log('PASS '+checks+' native reader, stateless grading, keyboard/axe and account-isolation checks in 20 width/theme/problem combinations.');
+  assert.equal(statelessPosts,olympiadDefinitions.length*4);assert.deepEqual(errors,[]);
+  console.log('PASS '+checks+' native reader, stateless grading, keyboard/axe and account-isolation checks in '+olympiadDefinitions.length*4+' width/theme/problem combinations.');
 }finally{await browser?.close();if(server)await new Promise(r=>server.close(r));await rm(temp,{recursive:true,force:true});}

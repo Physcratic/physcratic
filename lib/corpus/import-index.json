@@ -1603,8 +1603,8 @@
       "id": "apho-2012-t3",
       "path": "/corpus/english-problems/apho-2012-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "kind": "statement",
@@ -1928,8 +1928,8 @@
       "id": "eupho-2019-t1",
       "path": "/corpus/problems/eupho-2019-t1.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2019_theory_problems.pdf",
@@ -1945,8 +1945,8 @@
       "id": "eupho-2019-t2",
       "path": "/corpus/problems/eupho-2019-t2.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2019_theory_problems.pdf",
@@ -1962,8 +1962,8 @@
       "id": "eupho-2019-t3",
       "path": "/corpus/problems/eupho-2019-t3.json",
       "language": "en",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
+      "statementFormat": "html",
+      "solutionFormat": "html",
       "sources": [
         {
           "url": "https://eupho.ee/wp-content/uploads/2020/07/EuPhO_2019_theory_problems.pdf",

@@ -9,7 +9,9 @@ import { olympiadDefinitions } from "./olympiad/keys";
 import { archiveDefinitions, archiveVersion, publicArchiveMetadata } from "./archive-grading/catalog";
 import { gradeArchiveAnswers, checkArchivePart, ArchiveGradeRequestError } from "./archive-grading";
 import { practiceCheckCatalog } from "./practice-check-catalog";
-import ledger from "../docs/engineering/native-archive-batch-1-sources.json";
+import firstLedger from "../docs/engineering/native-archive-batch-1-sources.json";
+import secondLedger from "../docs/engineering/native-archive-batch-2-sources.json";
+const ledger = [...firstLedger, ...secondLedger];
 
 for (const definition of olympiadDefinitions) {
   test(definition.problemId + " has bounded typed fields and accepts the verified reference forms", () => {

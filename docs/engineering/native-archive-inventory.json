@@ -1,7 +1,7 @@
 {
   "baseline": "bcc132eb44b01d67402910015972b594b08810c2",
   "total": 112,
-  "native": 8,
+  "native": 12,
   "problems": [
     {
       "id": "ipho-2026-t1",
@@ -678,10 +678,10 @@
     {
       "id": "apho-2012-t3",
       "path": "/corpus/english-problems/apho-2012-t3.json",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
-      "answerFields": false,
-      "next": "statement-and-solution-transcription"
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "answerFields": true,
+      "next": "source-review"
     },
     {
       "id": "eupho-2025-t1",
@@ -830,26 +830,26 @@
     {
       "id": "eupho-2019-t1",
       "path": "/corpus/problems/eupho-2019-t1.json",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
-      "answerFields": false,
-      "next": "statement-and-solution-transcription"
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "answerFields": true,
+      "next": "source-review"
     },
     {
       "id": "eupho-2019-t2",
       "path": "/corpus/problems/eupho-2019-t2.json",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
-      "answerFields": false,
-      "next": "statement-and-solution-transcription"
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "answerFields": true,
+      "next": "source-review"
     },
     {
       "id": "eupho-2019-t3",
       "path": "/corpus/problems/eupho-2019-t3.json",
-      "statementFormat": "pdf",
-      "solutionFormat": "pdf",
-      "answerFields": false,
-      "next": "statement-and-solution-transcription"
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "answerFields": true,
+      "next": "source-review"
     },
     {
       "id": "eupho-2018-t1",

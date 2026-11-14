@@ -5,6 +5,8 @@ import path from "node:path";
 import { importedProblemSchema, type ImportedNode } from "../lib/imported-corpus-schema";
 import { nativeOlympiadContent } from "../lib/olympiad/native-content";
 import "../lib/olympiad/native-2012";
+import "../lib/olympiad/native-2019";
+import "../lib/olympiad/native-pancharatnam";
 import { olympiadDefinitions } from "../lib/olympiad/keys";
 import { publicArchiveMetadata } from "../lib/archive-grading/catalog";
 
@@ -54,7 +56,8 @@ for (const asset of changedAssets) {
   byPath.set(asset, { path: asset, bytes: data.length, sha256: hash(data) });
 }
 save("lib/corpus/import-manifest.json", { ...manifest, problems: index.problems, assets: [...byPath.values()].sort((a, b) => (a as { path: string }).path.localeCompare((b as { path: string }).path, "en")) });
-save("docs/engineering/native-archive-batch-1-sources.json", ledger);
+save("docs/engineering/native-archive-batch-1-sources.json", ledger.filter(item => !/^(eupho-2019|apho-2012-t3)/.test(item.id)));
+save("docs/engineering/native-archive-batch-2-sources.json", ledger.filter(item => /^(eupho-2019|apho-2012-t3)/.test(item.id)));
 save("docs/engineering/native-archive-inventory.json", {
   baseline: "bcc132eb44b01d67402910015972b594b08810c2",
   total: index.count,
@@ -65,4 +68,4 @@ save("docs/engineering/native-archive-inventory.json", {
     next: Object.hasOwn(nativeOlympiadContent, p.id) ? "source-review" : p.statementFormat === "html" ? "answer-field-review" : "statement-and-solution-transcription",
   })),
 });
-console.log("Built five native olympiad records and their public answer metadata. Originals retained.");
+console.log("Built nine native olympiad records and their public answer metadata. Originals retained.");
