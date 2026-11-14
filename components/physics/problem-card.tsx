@@ -95,9 +95,22 @@ export function ProblemCard({
                 role="img"
                 aria-label={`Hosted by ${host.country}${host.online ? " (online)" : ""}`}
                 title={`Hosted by ${host.country}${host.online ? " (online)" : ""}`}
-                className="shrink-0 text-base leading-none"
+                data-host-flag
+                className="inline-flex shrink-0 items-center gap-0.5"
               >
-                {host.flag}
+                {host.flags.map((code) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    key={code}
+                    src={`/flags/${code}.svg`}
+                    alt=""
+                    aria-hidden="true"
+                    width={21}
+                    height={16}
+                    draggable={false}
+                    className="h-4 w-auto shrink-0 rounded-[2px] border border-foreground/30"
+                  />
+                ))}
               </span>
             )}
             <Badge variant={competition ? competitionVariants[competition] : "concept"}>
