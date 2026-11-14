@@ -1,5 +1,9 @@
 # Execution roadmap
 
+## Production runtime role proposal (14 November 2026)
+
+Owner inspection confirms the Production application is owner-bound after successful B6. [Restricted-role provisioning, read-only acceptance, cutover and independent rollback](PRODUCTION_RUNTIME_ROLE.md) now define the next owner gate. Exact current-feature grants exclude disabled community/practice/deletion features and the retired coaching writer. New focused synthetic PG18.7 LOGIN coverage passes 6/6; existing main CI remains the baseline. No ownership transfer, Production access/change, provider change, migration replay or activation. Provisioning requires exact-hash approval and live read-only preconditions; Vercel binding/deployment and acceptance writes require separate authorization.
+
 ## Approved two-insight pilot publication (14 November 2026)
 
 Owner authorizes only publishing existing IPhO2009T1/2010T1 insights, with null reviewers and unchanged approved content. Application diff is two publication flags. See [read-only baseline and P7 monitoring plan](SEO_P5B_P7_PILOT.md). Publication PR holds actual QA, independent review, merge and deployment evidence. Search Console/indexing/performance data are UNKNOWN. No new content, tracking, provider configuration, SQL or manual deployment.

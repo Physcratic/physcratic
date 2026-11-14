@@ -1,5 +1,9 @@
 # Beta readiness log
 
+## Production runtime role preparation (14 November 2026)
+
+Owner confirms Production DATABASE_URL still uses `neondb_owner`. The [cutover proposal](PRODUCTION_RUNTIME_ROLE.md) inventories exact current-feature permissions for a new non-owner LOGIN and provides separate review-only SQL, read-only verification and Vercel rollback instructions. Focused synthetic PG18.7 rehearsal passes 6/6 with actual LOGIN, successful account lifecycle, missing rating/contest row-lock dependencies, narrow authoring/media columns and denied future/immutable access. No live SQL, secret retrieval, role/grant/binding/flag/deployment action, historical migration or frozen operator edits. Current live ACLs, direct/pooled TLS, serving binding, provider acceptance and exact-hash approvals remain explicit gates.
+
 ## Approved two-insight pilot publication (14 November 2026)
 
 Owner authorizes only publishing existing IPhO2009T1/2010T1 insights, with null reviewers and unchanged approved content. Application diff is two publication flags. See [read-only baseline and P7 monitoring plan](SEO_P5B_P7_PILOT.md). Publication PR holds actual QA, independent review, merge and deployment evidence. Search Console/indexing/performance data are UNKNOWN. No new content, tracking, provider configuration, SQL or manual deployment.

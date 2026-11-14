@@ -132,3 +132,9 @@ jobs:
         run: |
           sha256sum -c scripts/activation/PACKAGE_SHA256SUMS
           node --require ./tests/server-only-register.cjs --import tsx --test scripts/activation/runtime.pg.test.ts
+      - name: Current-feature runtime role proposal on PostgreSQL 18.7
+        # Separate process and uniquely named synthetic database/roles. No live
+        # credentials, Production data clone or repeat of the operator suites.
+        run: |
+          sha256sum -c scripts/runtime-role/PACKAGE_SHA256SUMS
+          node --require ./tests/server-only-register.cjs --import tsx --test scripts/runtime-role/runtime.pg.test.ts
