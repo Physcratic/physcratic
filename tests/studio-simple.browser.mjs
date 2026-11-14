@@ -320,7 +320,7 @@ try {
   assert.equal(await page.getByRole("button", { name: "Advanced" }).getAttribute("aria-pressed"), "false");
   assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).count(), 1, "one Publish button");
   assert.equal(await page.locator("select:visible").count(), 0, "no select on the page");
-  for (const text of ["Main question (optional)", "What's the question?", "Add an image (optional)", "Worked solution (required)", "Final Answer (Solution)", "Answer preview", "Only you see this", "Where's it from?", "Estimated difficulty (optional)", "Pick a topic so people can find it (optional)"])
+  for (const text of ["Main question (optional)", "What's the question?", "Add an image (optional)", "Worked solution (required)", "Final Answer (Solution)", "Answer preview", "Only you see this", "Where's it from?", "Difficulty rating", "Pick a topic so people can find it (optional)"])
     await page.getByText(text, { exact: true }).first().waitFor();
   // The page runs in this order, top to bottom: main question, part a (question, worked solution, final answer, answer preview), Add part b, source, difficulty, topic, the rights tick, Publish.
   const topOf = async (locator) => (await locator.first().boundingBox()).y;
@@ -332,7 +332,7 @@ try {
     page.getByText("Answer preview", { exact: true }),
     page.getByRole("button", { name: "Add part b" }),
     page.getByText("Where's it from?", { exact: true }),
-    page.getByText("Estimated difficulty (optional)", { exact: true }),
+    page.getByText("Difficulty rating", { exact: true }),
     page.getByText("Pick a topic so people can find it (optional)", { exact: true }),
     page.getByLabel(/I wrote this problem and I'm happy to share it on Physcratic/),
     page.getByRole("button", { name: "Publish", exact: true }),
@@ -409,14 +409,22 @@ try {
 
   // Where it's from (I wrote it is the default), an estimated difficulty band, then the rights tick and Publish.
   assert.equal(await page.getByRole("radio", { name: "I wrote it" }).isChecked(), true, "I wrote it is the default");
+  // The difficulty rating is required: Publish stays disabled until a valid number is in the box.
+  assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).isDisabled(), true, "Publish waits for a difficulty rating");
+  await page.getByText("Add a difficulty rating from 0 to 4,000.", { exact: true }).waitFor();
   await page.getByRole("radio", { name: /^Advanced/ }).click();
   assert.equal(await page.getByRole("radio", { name: /^Advanced/ }).getAttribute("aria-checked"), "true", "the band is chosen");
-  assert.equal(await page.getByLabel("Exact rating (optional)").inputValue(), "2100", "the band fills in its middle rating");
-  await page.getByLabel("Exact rating (optional)").fill("2310");
+  assert.equal(await page.getByLabel("Difficulty rating", { exact: true }).inputValue(), "2100", "the band fills in its middle rating");
+  assert.equal(await page.getByLabel("Difficulty rating", { exact: true }).getAttribute("inputmode"), "numeric");
+  await page.getByLabel("Difficulty rating", { exact: true }).fill("2310");
   assert.equal(await page.getByRole("radio", { name: /^Advanced/ }).getAttribute("aria-checked"), "true", "an exact rating in the band keeps the band");
-  await page.getByLabel("Exact rating (optional)").fill("abc");
-  await page.getByText("Type a whole number from 0 to 4000, or pick a band.").waitFor();
-  await page.getByLabel("Exact rating (optional)").fill("2310");
+  assert.equal((await page.getByTestId("difficulty-band").innerText()).trim(), "2,310 · Advanced", "the band name shows next to the number");
+  for (const bad of ["abc", "4001", ""]) {
+    await page.getByLabel("Difficulty rating", { exact: true }).fill(bad);
+    await page.getByText("Add a difficulty rating from 0 to 4,000.", { exact: true }).waitFor();
+    assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).isDisabled(), true, `Publish is disabled for "${bad}"`);
+  }
+  await page.getByLabel("Difficulty rating", { exact: true }).fill("2310");
   await click(page.getByLabel(/I wrote this problem and I'm happy to share it on Physcratic/));
   await saved(page);
   await click(page.getByRole("button", { name: "Publish", exact: true }));
@@ -468,9 +476,8 @@ try {
   await f.goto(origin);
   await f.getByRole("button", { name: /Continue your last draft/ }).waitFor();
   assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 1 + spacingDrafts, "no draft is created before the first edit");
-  await f.getByRole("button", { name: "Publish", exact: true }).click();
-  for (const text of ["Write the question first.", "Add the worked solution.", "Add the final answer.", "Give it a title, or write the question and we'll make one.", "Tick the box to say you wrote this problem."])
-    await f.getByText(text, { exact: true }).waitFor({ timeout: 3000 });
+  assert.equal(await f.getByRole("button", { name: "Publish", exact: true }).isDisabled(), true, "Publish is disabled without a difficulty rating");
+  await f.getByText("Add a difficulty rating from 0 to 4,000.", { exact: true }).waitFor({ timeout: 3000 });
   assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 1 + spacingDrafts, "still no draft");
   // Fast typing across the first save keeps every character.
   const fq = f.getByRole("region", { name: "Part a", exact: true }).getByRole("textbox", { name: "What's the question?" });
@@ -490,6 +497,12 @@ try {
   await until(async () => { const c = await savedContent(second); const sp = c?.sections?.[0]?.parts?.[0]?.blocks?.[0]?.spans; return JSON.stringify(sp) === JSON.stringify([{ kind: "text", text: "A cart of mass " }, { kind: "math", latex: "m" }, { kind: "text", text: " rolls down a slope." }]); }, "fast typing saved");
   assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 2 + spacingDrafts, "exactly one draft per problem");
   log("Fast typing across the first save kept every character.");
+  // With a rating in, Publish is available and names what else is missing, each next to its field.
+  await f.getByLabel("Difficulty rating", { exact: true }).fill("2100");
+  await f.getByRole("button", { name: "Publish", exact: true }).click();
+  for (const text of ["Add the worked solution.", "Add the final answer.", "Tick the box to say you wrote this problem."])
+    await f.getByText(text, { exact: true }).waitFor({ timeout: 3000 });
+  assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem WHERE state='published'")).rows[0].n >= 1, true);
   await fresh.context.close();
 
 
@@ -645,12 +658,13 @@ try {
     // Adapted from needs a source, and its own rights tick.
     await tp.getByRole("radio", { name: "Adapted from" }).click();
     await tp.getByLabel("Source", { exact: true }).waitFor();
+    await tp.getByRole("radio", { name: /^Intermediate/ }).click();
+    await tp.getByText("1,200 · Intermediate", { exact: true }).waitFor();
     await tp.getByRole("button", { name: "Publish", exact: true }).click();
     await tp.getByText("Say where it's from.", { exact: true }).waitFor({ timeout: 3000 });
     await tp.getByText("Tick the box to say you have permission to share it.", { exact: true }).waitFor({ timeout: 3000 });
     await tp.getByLabel("Source", { exact: true }).fill("IPhO 2019, Problem 2");
     await tp.getByLabel(/I have permission to share this adapted problem on Physcratic/).check();
-    await tp.getByRole("radio", { name: /^Intermediate/ }).click();
     await tp.waitForURL((url) => url.searchParams.has("draft"));
     const tid = draftId(tp);
     await saved(tp);

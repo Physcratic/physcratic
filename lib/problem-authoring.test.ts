@@ -3,7 +3,7 @@ import { randomUUID } from "node:crypto";
 import test from "node:test";
 import { authoredDocumentSchema, authoredDraftSchema, authoredKeySchema, authoredProblemSchema, publishableDraftSchema, publicAuthoredRevision, type AuthoredDocument } from "./problem-authoring";
 function fixture() {
-  const content: AuthoredDocument = { title: "Two-part physics", topicTags: ["Mechanics"], methodTags: ["Energy"], estimatedDifficulty: null,
+  const content: AuthoredDocument = { title: "Two-part physics", topicTags: ["Mechanics"], methodTags: ["Energy"], estimatedDifficulty: "1200",
     context: [{ id: randomUUID(), kind: "text", spans: [{ kind: "text", text: "A mass moves." }, { kind: "math", latex: "m>0" }] }],
     sections: [{ id: randomUUID(), title: "Motion", blocks: [], parts: [ { id: randomUUID(), label: "a", answerMode: "numeric", blocks: [] }, { id: randomUUID(), label: "b", answerMode: "expression", blocks: [] } ] }],
     provenance: { kind: "original", source: "", rightsDeclaration: "I own this work." }, attachments: [] };

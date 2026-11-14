@@ -71,6 +71,7 @@ function easyDraft(answer: string, units = ""): EditorDraft {
   // Simple asks for a worked solution.
   setSolutionSpans(d, id, words("Use the component of gravity along the slope."));
   setRights(d, true);
+  setDifficulty(d, "2100");
   return d;
 }
 
@@ -196,7 +197,7 @@ test("each thing that blocks Publish is named next to its own field", () => {
   const id = allParts(d)[0].part.id;
   assert.deepEqual(
     simpleIssues(d).map((i) => i.field),
-    [`question:${id}`, `solution:${id}`, `answer:${id}`, "title", "rights"],
+    [`question:${id}`, `solution:${id}`, `answer:${id}`, "title", "rights", "difficulty"],
   );
   assert.deepEqual(simpleIssues(d, { [id]: "x+" }).find((i) => i.field === `answer:${id}`)?.message.includes("stops too soon"), true);
 });
@@ -505,7 +506,7 @@ test("Where's it from: I wrote it, or Adapted from with a source and its own rig
   assert.ok(publishableDraftSchema.safeParse({ problemId: adapted.problemId, version: adapted.version, ...draftPayload(adapted) }).success);
 });
 
-test("Studio retains optional estimates, band presets and the complete exact-rating scale", () => {
+test("Studio keeps band presets and the complete exact-rating scale, and an empty box clears the rating", () => {
   const d = blank()
   assert.equal(difficultyRating(d), null)
   for (const rating of [...ratingBands.map((band) => band.middle), 0, 800, 801, 1800, 1801, 2600, 2601, 3201, 4000]) {
@@ -513,7 +514,7 @@ test("Studio retains optional estimates, band presets and the complete exact-rat
     assert.equal(difficultyRating(d), rating)
     assert.equal(d.content.estimatedDifficulty, String(rating))
   }
-  assert.equal(setDifficulty(d, ""), true)
+  assert.equal(setDifficulty(d, ""), false)
   assert.equal(d.content.estimatedDifficulty, null)
 })
 
@@ -525,10 +526,13 @@ test("estimated difficulty is a rating in the existing field, and an older label
   assert.equal(difficultyRating(d), 1850);
   assert.equal(setDifficulty(d, " 1,950 "), true);
   assert.equal(d.content.estimatedDifficulty, "1950");
+  // Anything that is not a rating clears it, so Publish stays blocked until a valid one is typed.
   assert.equal(setDifficulty(d, "very hard"), false, "not saved");
-  assert.equal(d.content.estimatedDifficulty, "1950");
+  assert.equal(d.content.estimatedDifficulty, null);
+  setDifficulty(d, "1950");
   assert.equal(setDifficulty(d, "4001"), false);
-  assert.equal(setDifficulty(d, ""), true);
+  assert.equal(d.content.estimatedDifficulty, null);
+  assert.equal(setDifficulty(d, ""), false);
   assert.equal(d.content.estimatedDifficulty, null);
   d.content.estimatedDifficulty = "Hard";
   assert.equal(difficultyLabel(d), "Hard");
@@ -555,4 +559,25 @@ test("the main question can hold one image, and its alt text is required", () =>
   removeContextPicture(d);
   assert.equal(contextPictureOf(d), null);
   assert.equal(blocksSpans(d.content.context).length > 0, true, "the text stays");
+});
+
+test("a difficulty rating from 0 to 4,000 is required to publish, in Simple and in the server check", () => {
+  const d = easyDraft("9.8", "m/s^2");
+  const publishable = () => publishableDraftSchema.safeParse({ problemId: d.problemId, version: d.version, ...draftPayload(d) });
+  assert.deepEqual(simpleIssues(d), []);
+  assert.ok(publishable().success);
+  for (const text of ["", "   ", "abc", "4001", "-5", "12.5"]) {
+    setDifficulty(d, text);
+    assert.deepEqual(simpleIssues(d).map((i) => i.field), ["difficulty"], text);
+    assert.deepEqual(simpleIssues(d).map((i) => i.message), ["Add a difficulty rating from 0 to 4,000."], text);
+    assert.equal(publishable().success, false, text);
+  }
+  for (const rating of [0, 1, 2100, 4000]) {
+    setDifficulty(d, String(rating));
+    assert.deepEqual(simpleIssues(d), [], String(rating));
+    assert.ok(publishable().success, String(rating));
+  }
+  // An older free-text label is not a rating, so it needs a number before the next publish.
+  d.content.estimatedDifficulty = "Hard";
+  assert.deepEqual(simpleIssues(d).map((i) => i.field), ["difficulty"]);
 });

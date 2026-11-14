@@ -23,7 +23,7 @@ test("authored HTTP handlers against disposable PostgreSQL", { skip: !testUrl &&
   async function user(verified = true) { const id = randomUUID(); sessions.set(id, { id, emailVerified: verified }); await pool.query('INSERT INTO "user"(id) VALUES($1)', [id]); return id; }
   function input() {
     const part = randomUUID();
-    const content: AuthoredDocument = { title: "Original physics task", topicTags: ["Mechanics"], methodTags: [], estimatedDifficulty: null,
+    const content: AuthoredDocument = { title: "Original physics task", topicTags: ["Mechanics"], methodTags: [], estimatedDifficulty: "1200",
       context: [{ id: randomUUID(), kind: "text", spans: [{ kind: "text", text: "Find the displacement of a body." }] }],
       sections: [{ id: randomUUID(), title: "Motion", blocks: [], parts: [{ id: part, label: "a", answerMode: "numeric", blocks: [] }] }],
       provenance: { kind: "original", source: "", rightsDeclaration: "I own this original content." }, attachments: [] };

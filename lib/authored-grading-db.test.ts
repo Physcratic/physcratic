@@ -56,7 +56,7 @@ test(
         title: "Find the displacement",
         topicTags: [],
         methodTags: [],
-        estimatedDifficulty: null,
+        estimatedDifficulty: "1200",
         context: [
           {
             id: randomUUID(),

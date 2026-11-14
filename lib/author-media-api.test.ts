@@ -66,6 +66,7 @@ test(
         partId = randomUUID();
       const content: AuthoredDocument = {
         ...p.content,
+        estimatedDifficulty: "1200",
         title: "Original physics",
         context: [
           {
