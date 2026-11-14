@@ -31,3 +31,10 @@ test("exactly two source-verified editorial drafts with working learning destina
   assert.equal(findPublishedProblemInsight("ipho-2016-t1"), null);
   assert.equal(findPublishedProblemInsight("unknown"), null);
 });
+
+
+test("the model energy-loss rate and exterior induced-field domain are explicit", () => {
+  const [moon, image] = problemInsights;
+  assert.ok(moon.hints.some(b => b.type === "paragraph" && b.text.includes("rate of loss of total mechanical energy, E_spin + E_orb") && b.text.includes("idealised model")));
+  assert.match(image.idea, /induced electric field outside the grounded sphere/);
+});

@@ -13,12 +13,12 @@ export function ProblemInsightContent({ insight }: { insight: Insight }) {
   return (
     <section aria-label="Problem insight" className="space-y-4 border-t pt-6">
       <h2 className="text-xl font-semibold">{insight.title}</h2>
-      <p className="max-w-prose text-sm text-muted-foreground">Original Physcratic commentary. No independent human review is recorded.</p>
-      <h3 className="font-semibold">Before you start</h3>
+      <p className="max-w-prose text-sm text-muted-foreground">Original Physcratic commentary</p>
+      <h3 className="font-semibold">Concepts to consider</h3>
       <p className="max-w-prose">{insight.prerequisites}</p>
       <p className="max-w-prose">{insight.idea}</p>
       <details className="max-w-full">
-        <summary className="min-h-11 cursor-pointer rounded-sm py-3 font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground">Show conceptual hints and a common mistake (spoilers)</summary>
+        <summary className="min-h-11 cursor-pointer rounded-sm py-3 font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground">Show derivations and final results (spoilers)</summary>
         <div className="space-y-4 pt-3">
           <p className="max-w-prose">{insight.misconception}</p>
           <ArticleBody blocks={insight.hints} sources={insight.sources} />

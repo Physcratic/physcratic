@@ -19,7 +19,10 @@ test("editorial render has native closed spoiler disclosure and server-rendered 
     assert.equal((html.match(/<details/g) ?? []).length, 1);
     assert.doesNotMatch(html, /<details[^>]*\bopen\b|expert-reviewed|Reviewed by|role="region" aria-label="Equation"/i);
     assert.match(html, /spoilers/);
-    assert.match(html, /No independent human review is recorded/);
+    assert.match(html, /Original Physcratic commentary<\/p>/);
+    assert.match(html, /Concepts to consider/);
+    assert.match(html, /Show derivations and final results \(spoilers\)/);
+    assert.doesNotMatch(html, /Before you start|No independent human review|Show conceptual hints/);
     assert.equal((html.match(/<math /g) ?? []).length, 2);
     assert.equal((html.match(/tabindex="0" role="group" aria-label="Equation"/g) ?? []).length, 2);
     for (let i = 1; i <= 2; i++) assert.ok(html.includes(`href="#source-${i}"`) && html.includes(`id="source-${i}"`));
