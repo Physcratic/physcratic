@@ -24,6 +24,7 @@ async function loaded(page, number) {
   const pdf = page.locator(`.react-pdf__Page[data-page-number="${number}"]`);
   await pdf.waitFor();
   await page.locator('[data-pdf-rendered="true"]').waitFor();
+  await pdf.locator(".textLayer .endOfContent").waitFor({ state: "attached" });
   await page.waitForFunction(number => document.querySelector(`.react-pdf__Page[data-page-number="${number}"] .textLayer`)?.textContent?.trim().length > 0, number);
   // Structure extraction resolves separately from canvas/text rendering. Never audit a missing tree as clean.
   if (page.url().endsWith("/ipho-2010-t1")) {
@@ -54,7 +55,8 @@ try {
       const session = await response.json();
       assert.ok(session?.user?.id && session?.session?.id, "Synthetic member cookie is actually authenticated");
     }
-    const response = await page.goto(`${origin}/dashboard/problems/${item.id}`, { waitUntil: "networkidle" });
+    console.log(`PDF case: ${item.id} ${item.width} ${item.theme} ${item.member ? "member" : "guest"}`);
+    const response = await page.goto(`${origin}/dashboard/problems/${item.id}`, { waitUntil: "domcontentloaded" });
     assert.equal(response.status(), 200);
     const pdf = await loaded(page, 1);
     const initial = await fingerprint(pdf);
