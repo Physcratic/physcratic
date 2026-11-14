@@ -141,6 +141,19 @@ async function fillExpression(page, text) {
     el.dispatchEvent(new Event("input", { bubbles: true }));
   }, text);
 }
+async function solutionPosition(locator) {
+  return locator.evaluate(element => {
+    const box = element.getBoundingClientRect();
+    let top = Math.max(0, box.top), bottom = Math.min(innerHeight, box.bottom);
+    for (let parent = element.parentElement; parent; parent = parent.parentElement) {
+      if (/auto|scroll|hidden|clip/.test(getComputedStyle(parent).overflowY)) {
+        const clip = parent.getBoundingClientRect();
+        top = Math.max(top, clip.top); bottom = Math.min(bottom, clip.bottom);
+      }
+    }
+    return { visibleHeight: Math.max(0, bottom - top), focused: document.activeElement === element };
+  });
+}
 async function until(check, label) {
   const start = Date.now();
   while (Date.now() - start < 15000) {
@@ -560,6 +573,19 @@ try {
   }
 
   await account("A");
+  for (const width of [375, 1440]) {
+    await page.setViewportSize({ width, height: width === 375 ? 812 : 1000 });
+    await page.getByRole("button", { name: "View worked solution", exact: true }).evaluate(button => button.scrollIntoView({ block: "end" }));
+    await page.getByRole("button", { name: "View worked solution", exact: true }).click();
+    const deniedSolution = page.getByRole("status").filter({ hasText: "Worked solution unavailable:" });
+    await deniedSolution.waitFor();
+    await page.waitForFunction(() => document.activeElement?.textContent?.startsWith("Worked solution unavailable:"));
+    const position = await solutionPosition(deniedSolution);
+    assert.ok(position.visibleHeight >= 32, "A denied reveal must explain why inside the viewport and scroll rail");
+    assert.equal(position.focused, true);
+    console.log(`PASS denied solution feedback visible/focused at ${width}px`);
+  }
+  await page.setViewportSize({ width: 1440, height: 1000 });
   await page.getByLabel("Numerical answer", { exact: true }).fill("2");
   await page.getByLabel("Units", { exact: true }).fill("1");
   await page
@@ -1110,10 +1136,18 @@ try {
   const n = revealCount();
   await page.getByLabel("Numerical answer", { exact: true }).waitFor();
   assert.equal(revealCount(), n, "initial rendering never reveals");
-  await page
-    .getByRole("button", { name: "View worked solution", exact: true })
-    .click();
-  await page.getByLabel("Approved worked solution", { exact: true }).waitFor();
+  for (const width of [375, 1440]) {
+    await page.setViewportSize({ width, height: width === 375 ? 812 : 1000 });
+    await page.getByRole("button", { name: "View worked solution", exact: true }).evaluate(button => button.scrollIntoView({ block: "end" }));
+    await page.getByRole("button", { name: "View worked solution", exact: true }).click();
+    const solution = page.getByLabel("Approved worked solution", { exact: true });
+    await solution.waitFor();
+    await page.waitForFunction(() => document.activeElement?.getAttribute("aria-label") === "Approved worked solution");
+    const position = await solutionPosition(solution);
+    assert.ok(position.visibleHeight >= 44, "A confirmed solution must appear inside the viewport and scroll rail");
+    assert.equal(position.focused, true);
+    console.log(`PASS approved solution visible/focused before submission at ${width}px`);
+  }
   assert.match(
     await page
       .getByRole("img", { name: "Approved solution diagram", exact: true })
@@ -1138,7 +1172,7 @@ try {
     true,
   );
 
-  assert.equal(revealCount(), n + 1);
+  assert.equal(revealCount(), n + 2, "Exactly one explicit reveal at each viewport");
   assert.equal(
     await page.getByText("PRIVATE_HINT_SENTINEL", { exact: true }).count(),
     0,
@@ -1262,6 +1296,14 @@ try {
   await page
     .getByRole("button", { name: "View worked solution", exact: true })
     .click();
+  await page.getByLabel("Approved worked solution", { exact: true }).waitFor();
+  const beforePrivacyHide = revealCount();
+  await page.evaluate(() => window.dispatchEvent(new Event("blur")));
+  await page.getByRole("status").filter({ hasText: "Solution hidden." }).waitFor();
+  assert.equal(await page.getByRole("status").filter({ hasText: "Solution hidden." }).evaluate(element => document.activeElement === element), false, "Privacy clearing must not steal focus");
+  assert.equal(await page.getByLabel("Approved worked solution", { exact: true }).count(), 0);
+  assert.equal(revealCount(), beforePrivacyHide, "Privacy clearing never reveals again");
+  await page.getByRole("button", { name: "View worked solution", exact: true }).click();
   await page.getByLabel("Approved worked solution", { exact: true }).waitFor();
   const beforeStale = revealCount();
   await publish();

@@ -32,14 +32,19 @@ export function WorkedSolution({
     [message, setMessage] = useState(""),
     [busy, setBusy] = useState(false);
   const shown = useRef(false);
+  const solutionResult = useRef<HTMLDivElement>(null);
+  const statusResult = useRef<HTMLParagraphElement>(null);
+  const responseFocus = useRef<"solution" | "status" | null>(null);
   const running = useRef(false),
     epoch = useRef(0),
     controller = useRef<AbortController | null>(null);
   const cancelRequest = useCallback(() => {
+    responseFocus.current = null;
     epoch.current++;
     controller.current?.abort();
   }, []);
   const clear = () => {
+    responseFocus.current = null;
     shown.current = false;
     epoch.current++;
     controller.current?.abort();
@@ -47,6 +52,13 @@ export function WorkedSolution({
     setBusy(false);
     setValue(null);
   };
+  useEffect(() => {
+    if (busy || !responseFocus.current) return;
+    const result = responseFocus.current === "solution" ? solutionResult.current : statusResult.current;
+    responseFocus.current = null;
+    result?.focus({ preventScroll: true });
+    result?.scrollIntoView({ block: "start" });
+  }, [busy, value, message]);
   useEffect(() => {
     const hide = () => {
       if (!shown.current && !running.current) return;
@@ -163,12 +175,14 @@ export function WorkedSolution({
       )
         throw Error("Invalid solution selection");
       shown.current = true;
+      responseFocus.current = "solution";
       setValue(data);
       setMessage(
         "Server-confirmed reveal. Subsequent new attempts on this revision are assisted. Original attempts and retries retain their saved status.",
       );
     } catch (e) {
       if (serial !== epoch.current) return;
+      responseFocus.current = "status";
       setValue(null);
       if (e instanceof StudentRequestError) {
         if ([401, 403].includes(e.status)) onAuth();
@@ -213,12 +227,15 @@ export function WorkedSolution({
       >
         {busy ? "Checking solution access…" : "View worked solution"}
       </Button>
-      <p role="status" className="text-sm">
+      <p ref={statusResult} tabIndex={-1} role="status" className="text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
         {message}
       </p>
       {value && (
         <div
-          className="min-w-0 space-y-4"
+          ref={solutionResult}
+          tabIndex={-1}
+          role="group"
+          className="min-w-0 space-y-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
           aria-label="Approved worked solution"
         >
           {value.solution.map((b) =>

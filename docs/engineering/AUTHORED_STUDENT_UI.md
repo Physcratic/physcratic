@@ -58,7 +58,11 @@ The PostgreSQL browser harness now uses actual lazy ESM chunks and scans every g
 
 ### Worked-solution policy and evidence
 
-No solution service or permission-policy change is justified by the synthetic reproduction. Existing policy already allows an explicit reveal before submission. The current solution API's 12 disposable-PostgreSQL test groups and the rendered browser suite pass, including text, maths, approved images/PDFs, error handling and assistance recording. The reported real-world intermittent failure is not reproduced and its affected permission/account state is UNKNOWN. Additional owner-provided symptoms are needed to attribute that incident.
+Existing policy already allows an explicit reveal before submission. The current solution API's 12 disposable-PostgreSQL test groups and the rendered browser suite pass, including text, maths, approved images/PDFs, error handling and assistance recording. No solution service or permission-policy change is needed.
+
+After the owner clarified that OK on the confirmation appears to do nothing in Chrome on Windows, a separate UI reproduction confirmed hidden response feedback. With the View button near the viewport bottom, a successful approved solution starts at 904.39px in an 812px mobile viewport. A denial message starts at 828.39px and ends at 868.39px. Both are outside the viewport and neither receives focus. Existing tests waited for DOM visibility without checking viewport or the desktop sticky rail's clipping.
+
+The solution UI now focuses and scrolls the outcome of an explicit completed reveal into view: the named approved-solution group on success or the existing safe status on denial/error. It does not focus on initial rendering, background revalidation, privacy clearing or cancelled/stale requests. The pending focus is cleared on privacy reset/unmount. New real-PG browser checks cover success and denial at 375px/1440px, account for nested scrolling, retain exact explicit-request counts and prove privacy hiding neither steals focus nor reveals again. This is a response-discoverability fix, not an authorization relaxation. The actual affected Production permission/account state and Windows-device behavior remain unverified.
 
 | State | Existing result |
 | --- | --- |
