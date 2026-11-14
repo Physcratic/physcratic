@@ -1126,6 +1126,15 @@ Separate draft stacked on revised P2 #143 (`0d929b3`), main `01757c0` incorporat
 - **Result in Chromium:** 26 enforcement and report-only cases pass, the hybrid architecture qualifies all 27 HTML document routes, 39 focused tests pass. Firefox and WebKit run in GitHub CI.
 - **Under enforcement today:** nothing breaks with the current policy (eval and WASM fall back). Removing script `unsafe-inline` breaks hydration on every HTML route until nonces and hashes are published. Removing style `unsafe-inline` loses inline styles in KaTeX, MathLive, the tour and the PDF viewer.
 
+## 2026-11-14 - Host flags are SVG images, not emoji
+
+- **Bug:** Windows does not render flag emoji, so host flags showed as letter codes such as FR and ID.
+- **Fix:** `lib/olympiad-hosts.ts` now holds ISO codes (`flags`), and `problem-card.tsx` draws `/flags/<code>.svg` at text height with a thin border so white flags stay visible in light mode. The 34 SVGs, including Hong Kong, Switzerland and Liechtenstein, are copied from flag-icons (MIT) into `public/flags/` with its licence. No npm dependency. The coaching page already used PNGs and had no emoji.
+- **Unchanged:** accessible name, host tooltip, no tab stop, flag and badge stay together, nothing without a host, the online note.
+- **Tests:** `olympiad-host-flags.browser.mjs` now fails if a flag renders as text or an image fails to load. It passes at 375 and 1440 in light and dark. Unit tests check every code has its SVG. 868 server and 197 UI tests pass.
+- **Sweep (guest, 375 to 1440, both themes):** the flag cards add no failures. Four failures remain, none from this change. Three Arena stages need the database and auth backend (503 and 403 here), and one is an axe contrast report on `/coaching` at 768 dark, which this change does not touch.
+- **Not run:** the signed-in sweep, because it needs a real session and database.
+
 ## 2026-11-14 - Nine archive problems imported, owner ratings applied
 
 - **Imported (112 problems now, was 103):** APhO 2024 T1 Geometry of Water Fountain and T2 Snell's Law, APhO 2023 T3 Cavitation, IPhO 2022 T1 Permanent magnets, T2 James Webb Space Telescope and T3 Scaling laws, IPhO 2021 T3 Particles and Waves, EuPhO 2021 T2 Thread around a cylinder and EuPhO 2023 T2 Brick between two planes. The seven olimpicos.net problems are built like the existing ones (`public/corpus/english-problems/<id>.json`, official PDFs under `public/corpus/documents/english-<id>-statement|solution/`, extracted text, source line and official PDF link). The two EuPhO problems reuse the shared statement and solution documents and start on their own page, like T1 and T3. Also updated: catalog selection, catalog sources, title references, original titles, import index and manifest, collection.json, sitemap (through the catalog). The source PDFs stay in `assets-src/archive-imports/` and are not served.

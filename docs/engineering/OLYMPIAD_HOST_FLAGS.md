@@ -4,7 +4,7 @@ Update: the native IPhO 2026 T1 import adds verified Colombia hosting, bringing 
 
 10 November 2026. Base main `40ced00d20c4ef01f34b6cedf80caa8c06bc2a47`.
 
-Flags identify the competition host, never a student or author nationality. The typed lookup in `lib/olympiad-hosts.ts` covers the 46 editions represented by the 112 current imported problems. It adds no catalog schema field and reads no problem content. The optional card prop contains the verified country name, native flag emoji and online status. Flags are named images for assistive technology, with a host tooltip, and add no tab stop. The flag and competition badge stay together when metadata wraps. No host means no flag or reserved empty slot.
+Flags identify the competition host, never a student or author nationality. The typed lookup in `lib/olympiad-hosts.ts` covers the 46 editions represented by the 112 current imported problems. It adds no catalog schema field and reads no problem content. The optional card prop contains the verified country name, flag codes (SVGs in `public/flags/`, from MIT-licensed flag-icons, licence alongside) and online status. Flags are named images for assistive technology, with a host tooltip, and add no tab stop. The flag and competition badge stay together when metadata wraps. No host means no flag or reserved empty slot.
 
 ## Verification sources
 
@@ -66,7 +66,7 @@ Sources checked on 10 November 2026. No host is inferred from a source URL, titl
 
 ## Missing metadata and future imports
 
-No currently imported edition has an unknown host. The joint 2016 host and online arrangements above are represented explicitly. Unsupported years and cancelled editions return undefined. IPhO 2026 now uses the separately verified native-import metadata. Add a separately verified lookup row when a future edition is imported, without changing either card component or the catalog contract. No 2026 import is included here. Emoji appearance depends on the operating system's native font support. The accessible country name remains available even when native flags are rendered as regional letters.
+No currently imported edition has an unknown host. The joint 2016 host and online arrangements above are represented explicitly. Unsupported years and cancelled editions return undefined. IPhO 2026 now uses the separately verified native-import metadata. Add a separately verified lookup row when a future edition is imported, without changing either card component or the catalog contract. No 2026 import is included here. Flags are bundled SVG images, so they look the same on every OS, including Windows. Add the new country's SVG to `public/flags/` from flag-icons.
 
 ## Local checks
 
