@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Production runtime role proposal (14 November 2026)
+
+From fetched main `1e8790a60b83f272f1685da60aa31e520ec8db1f`, branch `codex/production-runtime-role` prepares the [current-feature cutover and independent rollback](PRODUCTION_RUNTIME_ROLE.md) and [checksum-bound operator artifacts](../../scripts/runtime-role/README.md). Owner independently confirms current Production uses `neondb_owner`, owns all 77 ordinary tables, has no restricted LOGIN and has verified all 18 migrations. Propose `physcratic_runtime_app` with exact 35-table/column rights, no memberships/ownership, no future-feature or obsolete coaching grants. PG18.7 synthetic real-LOGIN focused rehearsal passes 6/6, including uncovered rating/contest row-lock permissions and narrow media/publication dependencies. Separate process/checksum step in existing PG18.7 CI. No Production access/mutation, secret retrieval, deployment, activation, historical SQL or frozen B6 operator change. Live ACL/TLS/binding evidence and exact-hash provisioning approval precede a separately approved Vercel cutover. Final candidate/PR/checks/digests belong to the delivery handoff.
+
 ## Approved two-insight pilot publication (14 November 2026)
 
 Owner authorizes only publishing existing IPhO2009T1/2010T1 insights, with null reviewers and unchanged approved content. Application diff is two publication flags. See [read-only baseline and P7 monitoring plan](SEO_P5B_P7_PILOT.md). Publication PR holds actual QA, independent review, merge and deployment evidence. Search Console/indexing/performance data are UNKNOWN. No new content, tracking, provider configuration, SQL or manual deployment.
