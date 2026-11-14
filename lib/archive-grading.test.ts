@@ -6,6 +6,7 @@ import { archiveDefinitions, archiveVersion, getArchiveDefinition, publicArchive
 import { archiveMetadataSchema } from "./archive-grading-contracts";
 import { checkArchivePart, gradeArchiveAnswers, ArchiveGradeRequestError } from "./archive-grading";
 import { expression, numeric } from "./archive-grading/definitions";
+import { olympiadDefinitions } from "./olympiad/keys";
 import { problems } from "./physics";
 
 const coverage: Record<string, string[]> = {
@@ -60,8 +61,8 @@ for (const definition of archiveDefinitions) {
   });
 }
 test("public generator output uses an explicit allowlist and contains no structured keys", () => {
-  assert.equal(readdirSync(join(process.cwd(), "public/corpus/grading")).length, 30);
-  for (const definition of archiveDefinitions) {
+  assert.equal(readdirSync(join(process.cwd(), "public/corpus/grading")).length, archiveDefinitions.length + olympiadDefinitions.length);
+  for (const definition of [...archiveDefinitions, ...olympiadDefinitions]) {
     const metadata = publicArchiveMetadata(definition);
     const published = JSON.parse(readFileSync(join(process.cwd(), `public/corpus/grading/${definition.problemId}.json`), "utf8"));
     assert.deepEqual(archiveMetadataSchema.parse(published), metadata);

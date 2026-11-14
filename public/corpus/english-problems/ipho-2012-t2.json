@@ -1,1 +1,530 @@
-{"id":"ipho-2012-t2","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2012_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2012_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2012-t2-statement/document.pdf","pages":[],"sourcePages":[1],"initialPage":1,"shared":false,"text":"Problem T2. Kelvin water dropper (8 points)\nThe following facts about the surface tension may turn out\nto be useful for this problem. For the molecules of a liquid,\nthe positions at the liquid-air interface are less favourable as\ncompared with the positions in the bulk of the liquid. This\ninterface is described by the so-called surface energy, U = σS,\nwhere S is the surface area of the interface and σ is the surface\ntension coeﬃcient of the liquid. Moreover, two fragments of\nthe liquid surface pull each other with a force F = σl, where l\nis the length of a straight line separating the fragments.\nA long metallic pipe with internal diameter d is pointing dir-\nectly downwards. Water is slowly dripping from a nozzle at its\nlower end, see ﬁg. Water can be considered to be electrically\nconducting; its surface tension is σ and its density is ρ . A\ndroplet of radius r hangs below the nozzle. The radius grows\nslowly in time until the droplet separates from the nozzle due\nto the free fall acceleration g . Always assume that d ≪r.\nPart A. Single pipe (4 points)\ni. (1.2 pts) Find the radius rmax of a drop just before it sep-\narates from the nozzle.\nii. (1.2 pts) Relative to the far-away surroundings, the pipe’s\nelectrostatic potential is ϕ . Find the charge Q of a drop when\nits radius is r .\niii. (1.6 pts) Consider the situation in which r is kept con-\nstant and ϕ is slowly increased. The droplet becomes unstable\nand breaks into pieces if the hydrostatic pressure inside the\ndroplet becomes smaller than the atmospheric pressure. Find\nthe critical potential ϕmax at which this will happen.\nPart B. Two pipes (4 points)\nAn apparatus called the “Kelvin water dropper” consists of\ntwo pipes, each identical to the one described in Part A, con-\nnected via a T-junction, see ﬁg. The ends of both pipes are\nat the centres of two cylindrical electrodes (with height L and\ndiameter D with L ≫D ≫r). For both tubes, the dripping\nrate is n droplets per unit time. Droplets fall from height H\ninto conductive bowls underneath the nozzles, cross-connected\nto the electrodes as shown in the diagram. The electrodes are\nconnected via a capacitance C . There is no net charge on\nthe system of bowls and electrodes. Note that the top water\ncontainer is earthed as shown.\nThe ﬁrst droplet to fall will\nhave some microscopic charge which will cause an imbalance\nbetween the two sides and a small charge separation across the\ncapacitor.\ni. (1.2 pts) Express the absolute value of the charge Q0 of the\ndrops as they separate from the tubes, and at the instant when\nthe capacitor’s charge is q .\nExpress Q0 in terms of rmax\n(from Part A-i) and neglect the eﬀect described in Part A-iii.\nii. (1.5 pts) Find the dependence of q on time t by approx-\nimating it with a continuous function q(t) and assuming that\nq(0) = q0 .\niii. (1.3 pts) The dropper’s functioning can be hindered by\nthe eﬀect shown in Part A-iii.\nIn addition, a limit Umax to\nthe achievable potential between the electrodes is set by the\nelectrostatic push between a droplet and the bowl beneath it.\nFind Umax.\n— page 4 of 5 —\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2012-t2-solution/document.pdf","pages":[],"sourcePages":[1,2],"initialPage":1,"shared":false,"text":"Problem T2. Kelvin water dropper (8 points)\nPart A. Single pipe (4 points)\ni. (1.2 pts) Let us write the force balance for the droplet.\nSince d ≪r, we can neglect the force π\n4 ∆pd2 due to the excess\npressure ∆p inside the tube. So, the gravity force 4\n3πr3\nmaxρg\nis balanced by the capillary force. When the droplet separates\nfrom the tube, the water surface forms in the vicinity of the\nnozzle a “neck”, which has vertical tangent. In the horizontal\ncross-section of that “neck”, the capillary force is vertical and\ncan be calculated as πσd. So,\nrmax =\n3\n!\n3σd\n4ρg .\nii. (1.2 pts) Since d ≪r, we can neglect the change of the\ndroplet’s capacitance due to the tube. On the one hand, the\ndroplet’s potential is ϕ; on the other hand, it is\n1\n4πε0\nQ\nr . So,\nQ = 4πε0ϕr.\niii. (1.6 pts) Excess pressure inside the droplet is caused by\nthe capillary pressure 2σ/r (increases the inside pressure), and\nby the electrostatic pressure 1\n2ε0E2 = 1\n2ε0ϕ2/r2 (decreases the\npressure). So, the sign of the excess pressure will change, if\n1\n2ε0ϕ2\nmax/r2 = 2σ/r, hence\nϕmax = 2\n\"\nσr/ε0.\nThe expression for the electrostatic pressure used above can\nbe derived as follows. The electrostatic force acting on a surface\ncharge of density σ and surface area S is given by F = σS · ¯E,\nwhere ¯E is the ﬁeld at the site without the ﬁeld created by the\nsurface charge element itself. Note that this force is perpen-\ndicular to the surface, so F/S can be interpreted as a pressure.\nThe surface charge gives rise to a ﬁeld drop on the surface equal\nto ∆E = σ/ε0 (which follows from the Gauss law); inside the\ndroplet, there is no ﬁeld due to the conductivity of the droplet:\n¯E −1\n2∆E = 0; outside the droplet, there is ﬁeld E = ¯E + 1\n2∆E,\ntherefore ¯E = 1\n2E = 1\n2∆E. Bringing everything together, we\nobtain the expression used above.\nNote that alternatively, this expression can be derived by\nconsidering a virtual displacement of a capacitor’s surface and\ncomparing the pressure work p∆V with the change of the elec-\ntrostatic ﬁeld energy 1\n2ε0E2∆V .\nFinally, the answer to the question can be also derived from\nthe requirement that the mechanical work dA done for an in-\nﬁnitesimal droplet inﬂation needs to be zero.\nFrom the en-\nergy conservation law, dW + dWel = σ d(4πr2) + 1\n2ϕ2\nmax dCd,\nwhere the droplet’s capacitance Cd = 4πε0r; the electrical work\ndWel = ϕmaxdq = 4πε0ϕ2\nmaxdr. Putting dW = 0 we obtain an\nequation for ϕmax, which recovers the earlier result.\nPart B. Two pipes (4 points)\ni. (1.2 pts) This is basically the same as Part A-ii, except\nthat the surroundings’ potential is that of the surrounding\nelectrode, −U/2 (where U = q/C is the capacitor’s voltage)\nand droplet has the ground potential (0). As it is not deﬁned\nwhich electrode is the positive one, opposite sign of the po-\ntential may be chosen, if done consistently. Note that since\nthe cylindrical electrode is long, it shields eﬀectively the en-\nvironment’s (ground, wall, etc) potential. So, relative to its\nsurroundings, the droplet’s potential is U/2. Using the result\nof Part A we obtain\nQ = 2πε0Urmax = 2πε0qrmax/C.\nii. (1.5 pts) The sign of the droplet’s charge is the same as\nthat of the capacitor’s opposite plate (which is connected to\nthe farther electrode). So, when the droplet falls into the bowl,\nit will increase the capacitor’s charge by Q:\ndq = 2πε0UrmaxdN = 2πε0rmaxndt q\nC ,\nwhere dN = ndt is the number of droplets which fall during\nthe time dt This is a simple linear diﬀerential equation which\nis solved easily to obtain\nq = q0eγt, γ = 2πε0rmaxn\nC\n= πε0n\nC\n3\n!\n6σd\nρg .\niii. (1.3 pts) The droplets can reach the bowls if their mech-\nanical energy mgH (where m is the droplet’s mass) is large\nenough to overcome the electrostatic push: The droplet starts\nat the point where the electric potential is 0, which is the sum of\nthe potential U/2, due to the electrode, and of its self-generated\npotential −U/2. Its motion is not aﬀected by the self-generated\nﬁeld, so it needs to fall from the potential U/2 down to the po-\ntential −U/2, resulting in the change of the electrostatic energy\nequal to UQ ≤mgH, where Q = 2πε0Urmax (see above). So,\nUmax =\nmgH\n2πε0Umaxrmax\n,\n∴Umax =\n#\nHσd\n2ε0rmax\n=\n6\n!\nH3gσ2ρd2\n6ε3\n0\n.\n— page 4 of 5 —\n\nProblem T2. Kelvin water dropper (8 points)\nPart A. Single pipe (4 points)\ni. (1.2 pts)\nrmax =\n3\n!\n3σd\n4ρg\nii. (1.2 pts)\nQ = 4πε0ϕr\niii. (1.6 pts)\nϕmax = 2\n\"\nσr/ε0\nPart B. Two pipes (4 points)\ni. (1.2 pts)\nQ0 = 2πε0qrmax/C\nii. (1.5 pts)\nq(t) = q0eγt, γ = πε0n\nC\n3\n!\n6σd\nρg .\niii. (1.3 pts)\nUmax =\n6\n!\nH3gσ2ρd2\n6ε3\n0\n— page 4 of 5 —\n","textExtraction":"available"}}
+{
+  "id": "ipho-2012-t2",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2012_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2012_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2012-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Kelvin water dropper (8 points)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The following facts about surface tension may turn out to be useful for this problem. For the molecules of a liquid, positions at the liquid-air interface are less favourable than positions in the bulk. This interface is described by the surface energy \\(U=\\sigma S\\), where \\(S\\) is the surface area of the interface and \\(\\sigma\\) is the surface-tension coefficient. Moreover, two fragments of the liquid surface pull each other with a force \\(F=\\sigma l\\), where \\(l\\) is the length of a straight line separating the fragments."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/ipho-2012-drop.png",
+        "alt": "Original single-pipe diagram: an earthed water reservoir and a downward nozzle of internal diameter d supporting a conducting drop of radius r at potential phi."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A long metallic pipe with internal diameter \\(d\\) is pointing directly downwards. Water is slowly dripping from a nozzle at its lower end. Water can be considered electrically conducting, with surface tension \\(\\sigma\\) and density \\(\\rho\\). A droplet of radius \\(r\\) hangs below the nozzle. The radius grows slowly until the droplet separates from the nozzle due to the free-fall acceleration \\(g\\). Always assume \\(d\\ll r\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Part A. Single pipe (4 points)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.i (1.2 points)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the radius \\(r_{\\max}\\) of a drop just before it separates from the nozzle."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.ii (1.2 points)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Relative to the far-away surroundings, the pipe's electrostatic potential is \\(\\varphi\\). Find the charge \\(Q\\) of a drop when its radius is \\(r\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.iii (1.6 points)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Consider the situation in which \\(r\\) is kept constant and \\(\\varphi\\) is slowly increased. The droplet becomes unstable and breaks into pieces if the hydrostatic pressure inside the droplet becomes smaller than atmospheric pressure. Find the critical potential \\(\\varphi_{\\max}\\) at which this happens."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Part B. Two pipes (4 points)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "An apparatus called the Kelvin water dropper consists of two pipes, each identical to the one described in Part A, connected via a T-junction. The ends of both pipes are at the centres of two cylindrical electrodes with height \\(L\\) and diameter \\(D\\), where \\(L\\gg D\\gg r\\). For both tubes, the dripping rate is \\(n\\) droplets per unit time. Droplets fall from height \\(H\\) into conductive bowls underneath the nozzles, cross-connected to the electrodes as shown. The electrodes are connected via a capacitance \\(C\\). There is no net charge on the system of bowls and electrodes. The top water container is earthed. The first droplet to fall has some microscopic charge which causes an imbalance between the two sides and a small charge separation across the capacitor."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/ipho-2012-dropper.png",
+        "alt": "Original Kelvin dropper wiring: earthed top reservoir feeding two nozzles, cylindrical electrodes of height L and diameter D connected by capacitance C, and crossed connections from each electrode to the opposite collecting bowl a distance H below."
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.i (1.2 points)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Express the absolute value of the charge \\(Q_0\\) of the drops as they separate from the tubes, at the instant when the capacitor's charge is \\(q\\). Express \\(Q_0\\) in terms of \\(r_{\\max}\\) from Part A.i and neglect the effect described in Part A.iii."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.ii (1.5 points)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the dependence of \\(q\\) on time \\(t\\) by approximating it with a continuous function \\(q(t)\\), assuming \\(q(0)=q_0\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.iii (1.3 points)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The dropper's functioning can be hindered by the effect shown in Part A.iii. In addition, a limit \\(U_{\\max}\\) to the achievable potential between the electrodes is set by the electrostatic push between a droplet and the bowl beneath it. Find \\(U_{\\max}\\)."
+          }
+        ]
+      }
+    ],
+    "text": "Kelvin water dropper (8 points)\nThe following facts about surface tension may turn out to be useful for this problem. For the molecules of a liquid, positions at the liquid-air interface are less favourable than positions in the bulk. This interface is described by the surface energy \\(U=\\sigma S\\), where \\(S\\) is the surface area of the interface and \\(\\sigma\\) is the surface-tension coefficient. Moreover, two fragments of the liquid surface pull each other with a force \\(F=\\sigma l\\), where \\(l\\) is the length of a straight line separating the fragments.\n\nA long metallic pipe with internal diameter \\(d\\) is pointing directly downwards. Water is slowly dripping from a nozzle at its lower end. Water can be considered electrically conducting, with surface tension \\(\\sigma\\) and density \\(\\rho\\). A droplet of radius \\(r\\) hangs below the nozzle. The radius grows slowly until the droplet separates from the nozzle due to the free-fall acceleration \\(g\\). Always assume \\(d\\ll r\\).\nPart A. Single pipe (4 points)\nA.i (1.2 points)\nFind the radius \\(r_{\\max}\\) of a drop just before it separates from the nozzle.\nA.ii (1.2 points)\nRelative to the far-away surroundings, the pipe's electrostatic potential is \\(\\varphi\\). Find the charge \\(Q\\) of a drop when its radius is \\(r\\).\nA.iii (1.6 points)\nConsider the situation in which \\(r\\) is kept constant and \\(\\varphi\\) is slowly increased. The droplet becomes unstable and breaks into pieces if the hydrostatic pressure inside the droplet becomes smaller than atmospheric pressure. Find the critical potential \\(\\varphi_{\\max}\\) at which this happens.\nPart B. Two pipes (4 points)\nAn apparatus called the Kelvin water dropper consists of two pipes, each identical to the one described in Part A, connected via a T-junction. The ends of both pipes are at the centres of two cylindrical electrodes with height \\(L\\) and diameter \\(D\\), where \\(L\\gg D\\gg r\\). For both tubes, the dripping rate is \\(n\\) droplets per unit time. Droplets fall from height \\(H\\) into conductive bowls underneath the nozzles, cross-connected to the electrodes as shown. The electrodes are connected via a capacitance \\(C\\). There is no net charge on the system of bowls and electrodes. The top water container is earthed. The first droplet to fall has some microscopic charge which causes an imbalance between the two sides and a small charge separation across the capacitor.\n\nB.i (1.2 points)\nExpress the absolute value of the charge \\(Q_0\\) of the drops as they separate from the tubes, at the instant when the capacitor's charge is \\(q\\). Express \\(Q_0\\) in terms of \\(r_{\\max}\\) from Part A.i and neglect the effect described in Part A.iii.\nB.ii (1.5 points)\nFind the dependence of \\(q\\) on time \\(t\\) by approximating it with a continuous function \\(q(t)\\), assuming \\(q(0)=q_0\\).\nB.iii (1.3 points)\nThe dropper's functioning can be hindered by the effect shown in Part A.iii. In addition, a limit \\(U_{\\max}\\) to the achievable potential between the electrodes is set by the electrostatic push between a droplet and the bowl beneath it. Find \\(U_{\\max}\\).",
+    "figures": [
+      "/corpus/figures/native/ipho-2012-drop.png",
+      "/corpus/figures/native/ipho-2012-dropper.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2012-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Part A. Single pipe"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.i"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Write the force balance for the droplet. Since \\(d\\ll r\\), the force \\(\\pi\\Delta p\\,d^2/4\\) from the excess pressure inside the tube is negligible. Gravity, \\(4\\pi r_{\\max}^3\\rho g/3\\), is balanced by the capillary force. Just before separation, the water forms a neck with a vertical tangent near the nozzle. The capillary force across the neck's horizontal cross-section is \\(\\pi\\sigma d\\), so"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[r_{\\max}=\\sqrt[3]{\\frac{3\\sigma d}{4\\rho g}}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.ii"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Since \\(d\\ll r\\), the tube's effect on the droplet capacitance is negligible. Its potential is both \\(\\varphi\\) and \\(Q/(4\\pi\\epsilon_0r)\\), hence"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[Q=4\\pi\\epsilon_0\\varphi r.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.iii"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The excess pressure is the sum of capillary pressure \\(2\\sigma/r\\), which increases the pressure, and electrostatic pressure \\(\\epsilon_0 E^2/2=\\epsilon_0\\varphi^2/(2r^2)\\), which decreases it. The excess pressure changes sign when"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\frac{\\epsilon_0\\varphi_{\\max}^2}{2r^2}=\\frac{2\\sigma}{r},\\qquad\\varphi_{\\max}=2\\sqrt{\\frac{\\sigma r}{\\epsilon_0}}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The source derives the electrostatic pressure as follows. A surface charge of density \\(\\sigma\\) and area \\(S\\) feels \\(F=\\sigma S\\bar E\\), where \\(\\bar E\\) excludes that surface element's own field. The force is perpendicular to the surface, so \\(F/S\\) is a pressure. Gauss's law gives the field jump \\(\\Delta E=\\sigma/\\epsilon_0\\). The field inside the conductor vanishes: \\(\\bar E-\\Delta E/2=0\\). Outside, \\(E=\\bar E+\\Delta E/2\\). Thus \\(\\bar E=E/2=\\Delta E/2\\), giving the stated pressure. Here the source reuses the symbol sigma for surface charge density."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Alternatively, consider a virtual displacement of a capacitor's surface and compare pressure work \\(p\\Delta V\\) with the change in electric-field energy \\(\\epsilon_0E^2\\Delta V/2\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A third derivation requires the mechanical work \\(dA\\), also denoted \\(dW\\) in the source, for an infinitesimal droplet inflation to vanish. Energy conservation gives"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[dW+dW_{\\mathrm{el}}=\\sigma\\,d(4\\pi r^2)+\\frac12\\varphi_{\\max}^2\\,dC_d,\\qquad C_d=4\\pi\\epsilon_0r,\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[dW_{\\mathrm{el}}=\\varphi_{\\max}\\,dq=4\\pi\\epsilon_0\\varphi_{\\max}^2\\,dr.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Setting \\(dW=0\\) recovers the same critical potential."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Part B. Two pipes"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.i"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Relative to the surrounding electrode, whose potential is \\(-U/2\\) with \\(U=q/C\\), the earthed droplet is at \\(U/2\\). Either sign convention is acceptable if used consistently. The long cylindrical electrode effectively shields the potential of the external surroundings. Using Part A"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[Q=2\\pi\\epsilon_0Ur_{\\max}=\\frac{2\\pi\\epsilon_0qr_{\\max}}C.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.ii"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The droplet's charge has the same sign as the capacitor's opposite plate, connected to the farther electrode. Falling into the bowl therefore increases the capacitor charge by \\(Q\\)"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[dq=2\\pi\\epsilon_0Ur_{\\max}\\,dN=\\frac{2\\pi\\epsilon_0r_{\\max}n}{C}q\\,dt,\\qquad dN=n\\,dt.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Solving this linear differential equation"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[q=q_0e^{\\gamma t},\\qquad\\gamma=\\frac{2\\pi\\epsilon_0r_{\\max}n}{C}=\\frac{\\pi\\epsilon_0n}{C}\\sqrt[3]{\\frac{6\\sigma d}{\\rho g}}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.iii"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The droplets reach the bowls if their mechanical energy \\(mgH\\), with \\(m\\) the droplet mass, overcomes the electric repulsion. The initial total potential is zero: the electrode contributes \\(U/2\\), while the droplet itself contributes \\(-U/2\\). Its motion is not affected by its own field, so the external potential changes from \\(U/2\\) to \\(-U/2\\). The change in electrostatic energy obeys \\(UQ\\le mgH\\), with \\(Q=2\\pi\\epsilon_0Ur_{\\max}\\). Therefore"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[U_{\\max}=\\frac{mgH}{2\\pi\\epsilon_0U_{\\max}r_{\\max}},\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[U_{\\max}=\\sqrt{\\frac{H\\sigma d}{2\\epsilon_0r_{\\max}}}=\\sqrt[6]{\\frac{H^3g\\sigma^2\\rho d^2}{6\\epsilon_0^3}}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The second page of the retained solution PDF is an answer sheet repeating these six results and the statement's point allocations. It remains available in the original reference."
+          }
+        ]
+      }
+    ],
+    "text": "Part A. Single pipe\nA.i\nWrite the force balance for the droplet. Since \\(d\\ll r\\), the force \\(\\pi\\Delta p\\,d^2/4\\) from the excess pressure inside the tube is negligible. Gravity, \\(4\\pi r_{\\max}^3\\rho g/3\\), is balanced by the capillary force. Just before separation, the water forms a neck with a vertical tangent near the nozzle. The capillary force across the neck's horizontal cross-section is \\(\\pi\\sigma d\\), so\n\\[r_{\\max}=\\sqrt[3]{\\frac{3\\sigma d}{4\\rho g}}.\\]\nA.ii\nSince \\(d\\ll r\\), the tube's effect on the droplet capacitance is negligible. Its potential is both \\(\\varphi\\) and \\(Q/(4\\pi\\epsilon_0r)\\), hence\n\\[Q=4\\pi\\epsilon_0\\varphi r.\\]\nA.iii\nThe excess pressure is the sum of capillary pressure \\(2\\sigma/r\\), which increases the pressure, and electrostatic pressure \\(\\epsilon_0 E^2/2=\\epsilon_0\\varphi^2/(2r^2)\\), which decreases it. The excess pressure changes sign when\n\\[\\frac{\\epsilon_0\\varphi_{\\max}^2}{2r^2}=\\frac{2\\sigma}{r},\\qquad\\varphi_{\\max}=2\\sqrt{\\frac{\\sigma r}{\\epsilon_0}}.\\]\nThe source derives the electrostatic pressure as follows. A surface charge of density \\(\\sigma\\) and area \\(S\\) feels \\(F=\\sigma S\\bar E\\), where \\(\\bar E\\) excludes that surface element's own field. The force is perpendicular to the surface, so \\(F/S\\) is a pressure. Gauss's law gives the field jump \\(\\Delta E=\\sigma/\\epsilon_0\\). The field inside the conductor vanishes: \\(\\bar E-\\Delta E/2=0\\). Outside, \\(E=\\bar E+\\Delta E/2\\). Thus \\(\\bar E=E/2=\\Delta E/2\\), giving the stated pressure. Here the source reuses the symbol sigma for surface charge density.\nAlternatively, consider a virtual displacement of a capacitor's surface and compare pressure work \\(p\\Delta V\\) with the change in electric-field energy \\(\\epsilon_0E^2\\Delta V/2\\).\nA third derivation requires the mechanical work \\(dA\\), also denoted \\(dW\\) in the source, for an infinitesimal droplet inflation to vanish. Energy conservation gives\n\\[dW+dW_{\\mathrm{el}}=\\sigma\\,d(4\\pi r^2)+\\frac12\\varphi_{\\max}^2\\,dC_d,\\qquad C_d=4\\pi\\epsilon_0r,\\]\n\\[dW_{\\mathrm{el}}=\\varphi_{\\max}\\,dq=4\\pi\\epsilon_0\\varphi_{\\max}^2\\,dr.\\]\nSetting \\(dW=0\\) recovers the same critical potential.\nPart B. Two pipes\nB.i\nRelative to the surrounding electrode, whose potential is \\(-U/2\\) with \\(U=q/C\\), the earthed droplet is at \\(U/2\\). Either sign convention is acceptable if used consistently. The long cylindrical electrode effectively shields the potential of the external surroundings. Using Part A\n\\[Q=2\\pi\\epsilon_0Ur_{\\max}=\\frac{2\\pi\\epsilon_0qr_{\\max}}C.\\]\nB.ii\nThe droplet's charge has the same sign as the capacitor's opposite plate, connected to the farther electrode. Falling into the bowl therefore increases the capacitor charge by \\(Q\\)\n\\[dq=2\\pi\\epsilon_0Ur_{\\max}\\,dN=\\frac{2\\pi\\epsilon_0r_{\\max}n}{C}q\\,dt,\\qquad dN=n\\,dt.\\]\nSolving this linear differential equation\n\\[q=q_0e^{\\gamma t},\\qquad\\gamma=\\frac{2\\pi\\epsilon_0r_{\\max}n}{C}=\\frac{\\pi\\epsilon_0n}{C}\\sqrt[3]{\\frac{6\\sigma d}{\\rho g}}.\\]\nB.iii\nThe droplets reach the bowls if their mechanical energy \\(mgH\\), with \\(m\\) the droplet mass, overcomes the electric repulsion. The initial total potential is zero: the electrode contributes \\(U/2\\), while the droplet itself contributes \\(-U/2\\). Its motion is not affected by its own field, so the external potential changes from \\(U/2\\) to \\(-U/2\\). The change in electrostatic energy obeys \\(UQ\\le mgH\\), with \\(Q=2\\pi\\epsilon_0Ur_{\\max}\\). Therefore\n\\[U_{\\max}=\\frac{mgH}{2\\pi\\epsilon_0U_{\\max}r_{\\max}},\\]\n\\[U_{\\max}=\\sqrt{\\frac{H\\sigma d}{2\\epsilon_0r_{\\max}}}=\\sqrt[6]{\\frac{H^3g\\sigma^2\\rho d^2}{6\\epsilon_0^3}}.\\]\nThe second page of the retained solution PDF is an answer sheet repeating these six results and the statement's point allocations. It remains available in the original reference.",
+    "figures": [],
+    "shared": false
+  }
+}

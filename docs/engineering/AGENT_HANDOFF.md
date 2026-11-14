@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Native olympiad archive, batch 1 (15 November 2026)
+
+Five existing PDF records now have complete native statements, solutions, original cropped figures and Arena answer controls. Scope: EuPhO 2018 T1-T3, IPhO 2012 T2 and APhO 2012 T1. The archive remains 112 records, with eight native and 104 still PDF-based. Checks are stateless, with no account progress, marks or ELO writes. Source inconsistencies are explicitly annotated. [Conversion sources, validation and remaining work](NATIVE_ARCHIVE_BATCH_1.md). Exact-head remote CI belongs to the PR. No merge or deployment performed.
+
 ## PDF reader structure accessibility (14 November 2026)
 
 Fresh main d95b861 reproduces four invalid ARIA nodes in the tagged 2010 PDF. A version-bound React-PDF patch preserves every content owner/order and existing cells while repairing trailing inline tags and redundant bare lists. [Root cause, limits and regression design](PDF_READER_ACCESSIBILITY.md). The draft PR records actual production-build/browser QA, independent review and exact-head CI. No merge/deployment, original document, publication, SEO policy, provider or database change.

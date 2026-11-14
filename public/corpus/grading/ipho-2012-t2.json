@@ -1,0 +1,235 @@
+{
+  "problemId": "ipho-2012-t2",
+  "version": "28daa5729b46d7e51b699e2d379d69e0bdaaf7309da0c975777476e125c7e76b",
+  "parts": [
+    {
+      "id": "a.i",
+      "sourcePart": "A.i",
+      "label": "Detachment radius r_max",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\sigma",
+        "d",
+        "\\rho",
+        "g"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use sigma, d, rho and g."
+    },
+    {
+      "id": "a.ii",
+      "sourcePart": "A.ii",
+      "label": "Drop charge Q",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\epsilon_0",
+        "\\varphi",
+        "r"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use epsilon_0, varphi and r."
+    },
+    {
+      "id": "a.iii",
+      "sourcePart": "A.iii",
+      "label": "Critical potential magnitude",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\sigma",
+        "r",
+        "\\epsilon_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter the positive critical potential."
+    },
+    {
+      "id": "b.i",
+      "sourcePart": "B.i",
+      "label": "Drop charge magnitude Q_0",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\epsilon_0",
+        "q",
+        "r_0",
+        "C"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "q",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "C",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use r_0 for r_max from A.i and positive q for the capacitor charge magnitude."
+    },
+    {
+      "id": "b.ii",
+      "sourcePart": "B.ii",
+      "label": "Capacitor charge q(t)",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "q_0",
+        "\\epsilon_0",
+        "r_0",
+        "n",
+        "t",
+        "C"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "n",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "C",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use r_0 for r_max, q_0 for the initial charge, and n for drops per unit time."
+    },
+    {
+      "id": "b.iii",
+      "sourcePart": "B.iii",
+      "label": "Maximum voltage U_max",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "H",
+        "\\sigma",
+        "d",
+        "\\epsilon_0",
+        "r_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "H",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use r_0 for r_max from A.i."
+    }
+  ]
+}

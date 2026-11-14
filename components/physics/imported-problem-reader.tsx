@@ -44,6 +44,8 @@ import { translationSchema } from "@/lib/corpus-translation";
 import translationIndex from "@/lib/corpus/translation-index.json";
 import { assessSolutionSource } from "@/lib/corpus-readiness";
 import { ImportedSourceContent } from "./imported-source-content";
+import { ArchiveAnswerPanel } from "./archive-answer-panel";
+import { hasOlympiadAnswerFields } from "@/lib/olympiad/catalog";
 import { SolutionSubmissionForm } from "./solution-submission-form";
 import { StepHeading, StepNumber, solveTokens } from "./solve-ui";
 
@@ -220,6 +222,7 @@ export function ImportedProblemReader({
     translationRecord && language === "en" ? english?.content : data;
   const readiness = data ? assessSolutionSource(data) : undefined;
   const missingSolution = readiness?.status === "missing-derivation";
+  const checkedFields = hasOlympiadAnswerFields(problem.id);
   return (
     <section
       className={`flex min-w-0 flex-col gap-5 ${solveTokens}`}
@@ -241,9 +244,8 @@ export function ImportedProblemReader({
       </div>
       <ProblemHeading id="imported-problem-title" as={asPage ? "h1" : "h2"} title={problem.title} lang={problem.titleLanguage} source={`${problem.competition} ${problem.year} · ${problem.code}`} estimate={String(getEstimatedProblemElo(problem.id))} tags={getProblemTags(problem)}>
         <p className="text-sm leading-relaxed text-muted-foreground">
-          Complete statement and original diagrams stored in this app. Solution
-          content is checked separately before it can become a grading
-          reference. Automatic grading is not enabled.
+          Complete statement and original diagrams stored in this app.
+          {checkedFields ? "Typed final answers can be checked below. Reasoning is for self-review." : "Solution content is checked separately before it can become a grading reference. Automatic grading is not enabled."}
         </p>
         <a
           href={problem.titleSourceUrl}
@@ -404,9 +406,7 @@ export function ImportedProblemReader({
         </Tabs>
         <AnswerWorkspace>
           <section aria-label="Your solution" className="min-w-0 rounded-xl border bg-card p-5">
-            <StepHeading step={2} className="pb-2">Answer</StepHeading>
-            <p className="pb-4 text-sm leading-relaxed text-muted-foreground">Write your solution below. This problem has no automatic check. Compare your work with the worked solution in step 4.</p>
-            <SolutionSubmissionForm key={problem.id} problemId={problem.id} />
+            {checkedFields ? <><p className="pb-4 text-sm leading-relaxed text-muted-foreground">Check final answers using the displayed symbols and units. These checks are not saved to account progress and do not award marks or ELO.</p><ArchiveAnswerPanel key={problem.id} problemId={problem.id} saveProgress={false} /><details className="mt-5 rounded-lg border p-4"><summary className="flex min-h-11 cursor-pointer items-center text-sm font-medium">Save full working or attachments</summary><SolutionSubmissionForm key={problem.id} problemId={problem.id} /></details></> : <><StepHeading step={2} className="pb-2">Answer</StepHeading><p className="pb-4 text-sm leading-relaxed text-muted-foreground">Write your solution below. This problem has no automatic check. Compare your work with the worked solution in step 4.</p><SolutionSubmissionForm key={problem.id} problemId={problem.id} /></>}
           </section>
         </AnswerWorkspace>
         </div>

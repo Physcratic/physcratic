@@ -237,7 +237,7 @@ export const catalogExport = {
   checkedOn: sources.checkedOn,
   verification: sources.verification,
   notes:
-    "112 distinct imported theory statements: 47 IPhO, 38 APhO, 27 EuPhO. IPhO 2026 T1, T2 and T3 use native text and equations with original PDF references. IPhO and APhO use the original English Problem and Solution PDFs linked by Olimpicos, not LaTeX transcriptions or Russian mirrors. Legacy mirror sources and translation drafts are retained only for historical provenance. Includes the original five structured pilot guides. No imported PDF is automatically an approved grading rubric. Independent physics review remains pending. Reuse of the problems is allowed, as the owner confirmed on 7 November 2026.",
+    "112 distinct imported theory statements: 47 IPhO, 38 APhO, 27 EuPhO. IPhO 2026 T1, T2 and T3, IPhO 2012 T2, APhO 2012 T1 and EuPhO 2018 T1, T2 and T3 use native text and equations with original PDF references. The five newly transcribed problems also offer stateless final-answer checks. Other IPhO and APhO entries use the original English Problem and Solution PDFs linked by Olimpicos. Legacy mirror sources and translation drafts are retained only for historical provenance. Includes the original five structured pilot guides. No imported PDF is automatically an approved grading rubric. Independent physics review remains pending. Reuse of the problems is allowed, as the owner confirmed on 7 November 2026.",
   publication: {
     mode: "imported-local-corpus",
     rightsStatus: "reuse-allowed",

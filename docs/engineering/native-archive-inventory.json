@@ -1,0 +1,903 @@
+{
+  "baseline": "bcc132eb44b01d67402910015972b594b08810c2",
+  "total": 112,
+  "native": 8,
+  "problems": [
+    {
+      "id": "ipho-2026-t1",
+      "path": "/corpus/english-problems/ipho-2026-t1.json",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "answerFields": false,
+      "next": "answer-field-review"
+    },
+    {
+      "id": "ipho-2026-t2",
+      "path": "/corpus/english-problems/ipho-2026-t2.json",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "answerFields": false,
+      "next": "answer-field-review"
+    },
+    {
+      "id": "ipho-2026-t3",
+      "path": "/corpus/english-problems/ipho-2026-t3.json",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "answerFields": false,
+      "next": "answer-field-review"
+    },
+    {
+      "id": "ipho-2025-t1",
+      "path": "/corpus/english-problems/ipho-2025-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2025-t2",
+      "path": "/corpus/english-problems/ipho-2025-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2025-t3",
+      "path": "/corpus/english-problems/ipho-2025-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2024-t1",
+      "path": "/corpus/english-problems/ipho-2024-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2024-t2",
+      "path": "/corpus/english-problems/ipho-2024-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2024-t3",
+      "path": "/corpus/english-problems/ipho-2024-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2023-t1",
+      "path": "/corpus/english-problems/ipho-2023-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2023-t2",
+      "path": "/corpus/english-problems/ipho-2023-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2023-t3",
+      "path": "/corpus/english-problems/ipho-2023-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2022-t1",
+      "path": "/corpus/english-problems/ipho-2022-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2022-t2",
+      "path": "/corpus/english-problems/ipho-2022-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2022-t3",
+      "path": "/corpus/english-problems/ipho-2022-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2021-t1",
+      "path": "/corpus/english-problems/ipho-2021-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2021-t2",
+      "path": "/corpus/english-problems/ipho-2021-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2021-t3",
+      "path": "/corpus/english-problems/ipho-2021-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2019-t1",
+      "path": "/corpus/english-problems/ipho-2019-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2019-t2",
+      "path": "/corpus/english-problems/ipho-2019-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2019-t3",
+      "path": "/corpus/english-problems/ipho-2019-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2018-t1",
+      "path": "/corpus/english-problems/ipho-2018-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2018-t2",
+      "path": "/corpus/english-problems/ipho-2018-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2018-t3",
+      "path": "/corpus/english-problems/ipho-2018-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2008-t1",
+      "path": "/corpus/english-problems/ipho-2008-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2017-t2",
+      "path": "/corpus/english-problems/ipho-2017-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2017-t3",
+      "path": "/corpus/english-problems/ipho-2017-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2016-t2",
+      "path": "/corpus/english-problems/ipho-2016-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2005-t1",
+      "path": "/corpus/english-problems/ipho-2005-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2015-t1",
+      "path": "/corpus/english-problems/ipho-2015-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2015-t2",
+      "path": "/corpus/english-problems/ipho-2015-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2015-t3",
+      "path": "/corpus/english-problems/ipho-2015-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2016-t1",
+      "path": "/corpus/english-problems/ipho-2016-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2014-t3",
+      "path": "/corpus/english-problems/ipho-2014-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2013-t1",
+      "path": "/corpus/english-problems/ipho-2013-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2013-t2",
+      "path": "/corpus/english-problems/ipho-2013-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2013-t3",
+      "path": "/corpus/english-problems/ipho-2013-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2012-t2",
+      "path": "/corpus/english-problems/ipho-2012-t2.json",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "answerFields": true,
+      "next": "source-review"
+    },
+    {
+      "id": "ipho-2011-t1",
+      "path": "/corpus/english-problems/ipho-2011-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2010-t1",
+      "path": "/corpus/english-problems/ipho-2010-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2010-t2",
+      "path": "/corpus/english-problems/ipho-2010-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2008-t2",
+      "path": "/corpus/english-problems/ipho-2008-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2007-t2",
+      "path": "/corpus/english-problems/ipho-2007-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2009-t1",
+      "path": "/corpus/english-problems/ipho-2009-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2005-t2",
+      "path": "/corpus/english-problems/ipho-2005-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2009-t2",
+      "path": "/corpus/english-problems/ipho-2009-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "ipho-2004-t3",
+      "path": "/corpus/english-problems/ipho-2004-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2025-t1",
+      "path": "/corpus/english-problems/apho-2025-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2025-t2",
+      "path": "/corpus/english-problems/apho-2025-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2025-t3",
+      "path": "/corpus/english-problems/apho-2025-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2024-t1",
+      "path": "/corpus/english-problems/apho-2024-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2024-t2",
+      "path": "/corpus/english-problems/apho-2024-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2024-t3",
+      "path": "/corpus/english-problems/apho-2024-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2023-t1",
+      "path": "/corpus/english-problems/apho-2023-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2023-t2",
+      "path": "/corpus/english-problems/apho-2023-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2023-t3",
+      "path": "/corpus/english-problems/apho-2023-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2011-t2",
+      "path": "/corpus/english-problems/apho-2011-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2022-t1",
+      "path": "/corpus/english-problems/apho-2022-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2022-t2",
+      "path": "/corpus/english-problems/apho-2022-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2022-t3",
+      "path": "/corpus/english-problems/apho-2022-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2021-t1",
+      "path": "/corpus/english-problems/apho-2021-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2021-t2",
+      "path": "/corpus/english-problems/apho-2021-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2021-t3",
+      "path": "/corpus/english-problems/apho-2021-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2019-t1",
+      "path": "/corpus/english-problems/apho-2019-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2019-t2",
+      "path": "/corpus/english-problems/apho-2019-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2019-t3",
+      "path": "/corpus/english-problems/apho-2019-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2018-t1",
+      "path": "/corpus/english-problems/apho-2018-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2018-t2",
+      "path": "/corpus/english-problems/apho-2018-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2018-t3",
+      "path": "/corpus/english-problems/apho-2018-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2017-t1",
+      "path": "/corpus/english-problems/apho-2017-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2017-t2",
+      "path": "/corpus/english-problems/apho-2017-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2017-t3",
+      "path": "/corpus/english-problems/apho-2017-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2016-t1",
+      "path": "/corpus/english-problems/apho-2016-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2009-t1",
+      "path": "/corpus/english-problems/apho-2009-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2016-t3",
+      "path": "/corpus/english-problems/apho-2016-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2015-t1",
+      "path": "/corpus/english-problems/apho-2015-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2015-t2",
+      "path": "/corpus/english-problems/apho-2015-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2015-t3",
+      "path": "/corpus/english-problems/apho-2015-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2006-t2",
+      "path": "/corpus/english-problems/apho-2006-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2014-t2",
+      "path": "/corpus/english-problems/apho-2014-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2014-t3",
+      "path": "/corpus/english-problems/apho-2014-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2013-t1",
+      "path": "/corpus/english-problems/apho-2013-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2013-t3",
+      "path": "/corpus/english-problems/apho-2013-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "apho-2012-t1",
+      "path": "/corpus/english-problems/apho-2012-t1.json",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "answerFields": true,
+      "next": "source-review"
+    },
+    {
+      "id": "apho-2012-t3",
+      "path": "/corpus/english-problems/apho-2012-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2025-t1",
+      "path": "/corpus/problems/eupho-2025-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2025-t2",
+      "path": "/corpus/problems/eupho-2025-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2025-t3",
+      "path": "/corpus/problems/eupho-2025-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2024-t1",
+      "path": "/corpus/problems/eupho-2024-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2024-t2",
+      "path": "/corpus/problems/eupho-2024-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2024-t3",
+      "path": "/corpus/problems/eupho-2024-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2023-t1",
+      "path": "/corpus/problems/eupho-2023-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2023-t2",
+      "path": "/corpus/problems/eupho-2023-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2023-t3",
+      "path": "/corpus/problems/eupho-2023-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2022-t1",
+      "path": "/corpus/problems/eupho-2022-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2022-t2",
+      "path": "/corpus/problems/eupho-2022-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2022-t3",
+      "path": "/corpus/problems/eupho-2022-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2021-t1",
+      "path": "/corpus/problems/eupho-2021-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2021-t2",
+      "path": "/corpus/problems/eupho-2021-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2021-t3",
+      "path": "/corpus/problems/eupho-2021-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2020-t1",
+      "path": "/corpus/problems/eupho-2020-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2020-t2",
+      "path": "/corpus/problems/eupho-2020-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2020-t3",
+      "path": "/corpus/problems/eupho-2020-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2019-t1",
+      "path": "/corpus/problems/eupho-2019-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2019-t2",
+      "path": "/corpus/problems/eupho-2019-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2019-t3",
+      "path": "/corpus/problems/eupho-2019-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2018-t1",
+      "path": "/corpus/problems/eupho-2018-t1.json",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "answerFields": true,
+      "next": "source-review"
+    },
+    {
+      "id": "eupho-2018-t2",
+      "path": "/corpus/problems/eupho-2018-t2.json",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "answerFields": true,
+      "next": "source-review"
+    },
+    {
+      "id": "eupho-2018-t3",
+      "path": "/corpus/problems/eupho-2018-t3.json",
+      "statementFormat": "html",
+      "solutionFormat": "html",
+      "answerFields": true,
+      "next": "source-review"
+    },
+    {
+      "id": "eupho-2017-t1",
+      "path": "/corpus/problems/eupho-2017-t1.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2017-t2",
+      "path": "/corpus/problems/eupho-2017-t2.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    },
+    {
+      "id": "eupho-2017-t3",
+      "path": "/corpus/problems/eupho-2017-t3.json",
+      "statementFormat": "pdf",
+      "solutionFormat": "pdf",
+      "answerFields": false,
+      "next": "statement-and-solution-transcription"
+    }
+  ]
+}

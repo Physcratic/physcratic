@@ -1,0 +1,106 @@
+[
+  {
+    "asset": "/corpus/figures/native/eupho-2018-solenoid.png",
+    "source": "public/corpus/documents/eupho-2018-statement/document.pdf",
+    "page": 1,
+    "crop": [
+      29,
+      218,
+      95,
+      357
+    ],
+    "sourceSha256": "5c34a3b07086609182001506f2d9ae1f81c21e11a40ad36acd335bcac7933f01",
+    "assetSha256": "1350fbeb2b03980211f1bb0893232412c4519b940b3e1c8a2a140a9b477c82d8"
+  },
+  {
+    "asset": "/corpus/figures/native/eupho-2018-staircase.png",
+    "source": "public/corpus/documents/eupho-2018-statement/document.pdf",
+    "page": 1,
+    "crop": [
+      302,
+      175,
+      570,
+      294
+    ],
+    "sourceSha256": "5c34a3b07086609182001506f2d9ae1f81c21e11a40ad36acd335bcac7933f01",
+    "assetSha256": "3da4d8d9eff3a04ec44fbc23e740bfe2d273c4e11c003d0be16bc7174681522e"
+  },
+  {
+    "asset": "/corpus/figures/native/ipho-2012-drop.png",
+    "source": "public/corpus/documents/english-ipho-2012-t2-statement/document.pdf",
+    "page": 1,
+    "crop": [
+      97,
+      269,
+      219,
+      460
+    ],
+    "sourceSha256": "2861013a629439e55c3db905e764fd115fb31c9b1ce294d1e1aab3c78a19b2a2",
+    "assetSha256": "c750eb1987953540028a4fb26ff3f11754bdef7fbf70ac6c1002ecb389574f6b"
+  },
+  {
+    "asset": "/corpus/figures/native/ipho-2012-dropper.png",
+    "source": "public/corpus/documents/english-ipho-2012-t2-statement/document.pdf",
+    "page": 1,
+    "crop": [
+      352,
+      334,
+      534,
+      560
+    ],
+    "sourceSha256": "2861013a629439e55c3db905e764fd115fb31c9b1ce294d1e1aab3c78a19b2a2",
+    "assetSha256": "f1c7025bc0be52104f320ec1cb566c78021c2b80e6d0fbdf55fb2e806a139712"
+  },
+  {
+    "asset": "/corpus/figures/native/apho-2012-jeans.png",
+    "source": "public/corpus/documents/english-apho-2012-t1-statement/document.pdf",
+    "page": 1,
+    "crop": [
+      460,
+      139,
+      534,
+      210
+    ],
+    "sourceSha256": "ee699cfd960016652e8058a68439bd0fb669738a7dd1f6977250a20394905c75",
+    "assetSha256": "32400a27b9f515427bdf062b7fd7bed06af5684a6b09f22b9b0111097a0cee60"
+  },
+  {
+    "asset": "/corpus/figures/native/apho-2012-tube.png",
+    "source": "public/corpus/documents/english-apho-2012-t1-statement/document.pdf",
+    "page": 1,
+    "crop": [
+      80,
+      239,
+      267,
+      386
+    ],
+    "sourceSha256": "ee699cfd960016652e8058a68439bd0fb669738a7dd1f6977250a20394905c75",
+    "assetSha256": "391d4b5b812e276a63fa80962bfb971d384d7f44f9d3b72fbd58102a41533ff2"
+  },
+  {
+    "asset": "/corpus/figures/native/apho-2012-ring.png",
+    "source": "public/corpus/documents/english-apho-2012-t1-statement/document.pdf",
+    "page": 1,
+    "crop": [
+      390,
+      486,
+      560,
+      708
+    ],
+    "sourceSha256": "ee699cfd960016652e8058a68439bd0fb669738a7dd1f6977250a20394905c75",
+    "assetSha256": "976ef0a897609f8e20a3656317c716c306a381632d2ffe291e4824ec1ff39ddd"
+  },
+  {
+    "asset": "/corpus/figures/native/apho-2012-slice.png",
+    "source": "public/corpus/documents/english-apho-2012-t1-statement/document.pdf",
+    "page": 2,
+    "crop": [
+      370,
+      490,
+      550,
+      786
+    ],
+    "sourceSha256": "ee699cfd960016652e8058a68439bd0fb669738a7dd1f6977250a20394905c75",
+    "assetSha256": "f62c0a6abe7d75e02ce20f7046bee680bad0787f24183b2e893016f56e557e85"
+  }
+]

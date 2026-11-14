@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const archiveAnswerLimit = 1024;
-const problemId = z.string().regex(/^[a-z]+(?:-[a-z]+)*$/).max(100);
+const problemId = z.string().regex(/^(?:[a-z]+(?:-[a-z]+)*|(?:ipho|apho|eupho)-\d{4}-t[1-9]\d*)$/).max(100);
 const partId = z.string().regex(/^[a-z0-9]+(?:[.-][a-z0-9]+)*$/).max(100);
 export const archiveMetadataSchema = z.strictObject({
   problemId,

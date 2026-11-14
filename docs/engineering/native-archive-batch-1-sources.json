@@ -1,0 +1,114 @@
+[
+  {
+    "id": "eupho-2018-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/eupho-2018-statement/document.pdf",
+    "originalSha256": "5c34a3b07086609182001506f2d9ae1f81c21e11a40ad36acd335bcac7933f01",
+    "nodes": 3,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2018-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/eupho-2018-solution/document.pdf",
+    "originalSha256": "72ed8d502770a6ecfa3c4b575d3c6fb01c47288d7ddd45516aee6a41c7fcf64d",
+    "nodes": 18,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2018-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/eupho-2018-statement/document.pdf",
+    "originalSha256": "5c34a3b07086609182001506f2d9ae1f81c21e11a40ad36acd335bcac7933f01",
+    "nodes": 4,
+    "figures": [
+      "/corpus/figures/native/eupho-2018-solenoid.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2018-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/eupho-2018-solution/document.pdf",
+    "originalSha256": "72ed8d502770a6ecfa3c4b575d3c6fb01c47288d7ddd45516aee6a41c7fcf64d",
+    "nodes": 13,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2018-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/eupho-2018-statement/document.pdf",
+    "originalSha256": "5c34a3b07086609182001506f2d9ae1f81c21e11a40ad36acd335bcac7933f01",
+    "nodes": 11,
+    "figures": [
+      "/corpus/figures/native/eupho-2018-staircase.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "eupho-2018-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/eupho-2018-solution/document.pdf",
+    "originalSha256": "72ed8d502770a6ecfa3c4b575d3c6fb01c47288d7ddd45516aee6a41c7fcf64d",
+    "nodes": 17,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2012-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2012-t2-statement/document.pdf",
+    "originalSha256": "2861013a629439e55c3db905e764fd115fb31c9b1ce294d1e1aab3c78a19b2a2",
+    "nodes": 20,
+    "figures": [
+      "/corpus/figures/native/ipho-2012-drop.png",
+      "/corpus/figures/native/ipho-2012-dropper.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2012-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2012-t2-solution/document.pdf",
+    "originalSha256": "214e34713f3d8e5c95c0069c888952a37a4451f01cf745dd5bffc5ec19bcaa33",
+    "nodes": 30,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2012-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2012-t1-statement/document.pdf",
+    "originalSha256": "ee699cfd960016652e8058a68439bd0fb669738a7dd1f6977250a20394905c75",
+    "nodes": 38,
+    "figures": [
+      "/corpus/figures/native/apho-2012-jeans.png",
+      "/corpus/figures/native/apho-2012-tube.png",
+      "/corpus/figures/native/apho-2012-ring.png",
+      "/corpus/figures/native/apho-2012-slice.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2012-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2012-t1-solution/document.pdf",
+    "originalSha256": "e26d6d64e8a52ddfdf5319a9ba873d3709de6cc132462eb870a2978aa34d3a5c",
+    "nodes": 58,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  }
+]
