@@ -28,6 +28,8 @@ const hosts: Readonly<Record<Competition, Readonly<Partial<Record<number, Olympi
     2018: country("Portugal", "pt"),
     2019: country("Israel", "il"),
     2021: { ...country("Lithuania", "lt"), online: true },
+    // Switzerland took over from Belarus: https://physicstoday.aip.org/news/in-last-minute-shuffle-switzerland-hosts-virtual-international-physics-olympiad
+    2022: { ...country("Switzerland", "ch"), online: true },
     2023: country("Japan", "jp"),
     2024: country("Iran", "ir"),
     2025: country("France", "fr"),

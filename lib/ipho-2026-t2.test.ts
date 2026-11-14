@@ -30,10 +30,8 @@ test("T2 stays one complete native identity, self-review only with eight officia
   assert.equal(t2Questions.reduce((sum, [, points]) => sum + points, 0), 10)
   for (const [code] of t2Questions) assert.match(source.solution.text, new RegExp(`T2-${code} `))
   assert.equal(olympiadHost("IPhO", 2026)?.country, "Colombia")
-  assert.equal(getEstimatedProblemElo(entry.id), 2050)
+  assert.equal(getEstimatedProblemElo(entry.id), 2100)
   assert.ok(getEstimatedProblemElo(entry.id) > getEstimatedProblemElo("ipho-2026-t1"))
-  assert.equal(getEstimatedProblemElo(entry.id), getEstimatedProblemElo("ipho-2024-t1"))
-  assert.ok(getEstimatedProblemElo(entry.id) < getEstimatedProblemElo("eupho-2025-t1"))
 })
 
 test("every T2 maths expression and figure maps to an inspected original PDF page", () => {

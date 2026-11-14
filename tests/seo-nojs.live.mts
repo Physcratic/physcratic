@@ -90,6 +90,7 @@ async function pool<T>(items: T[], size: number, work: (item: T) => Promise<void
 
 // 3. Library, archive and topic pages: real links to every problem.
 const pages = allProblemPages();
+const archiveIndexable = pages.filter((p) => p.kind === "archive" && !p.thin).length;
 {
   const library = await get("/problems");
   same(library.status, 200, "library status");
@@ -205,7 +206,7 @@ for (const article of publishedArticles) {
   const locs = [...sitemap.body.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => decode(m[1]));
   const lastmods = [...sitemap.body.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((m) => m[1]);
   ok(locs.length >= 140, `sitemap has ${locs.length} URLs`);
-  same(locs.filter((l) => /\/dashboard\/problems\/(ipho|apho|eupho)-/.test(l)).length, 98, "98 archive pages in the sitemap");
+  same(locs.filter((l) => /\/dashboard\/problems\/(ipho|apho|eupho)-/.test(l)).length, archiveIndexable, `${archiveIndexable} archive pages in the sitemap`);
   same(new Set(locs).size, locs.length, "sitemap URLs are unique");
   ok(!locs.some((l) => l.includes("?")), "sitemap has no query strings");
   ok(lastmods.every((l) => /^\d{4}-\d{2}-\d{2}$/.test(l)) && lastmods.length >= 120, `${lastmods.length} lastmod values`);

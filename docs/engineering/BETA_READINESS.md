@@ -1144,3 +1144,74 @@ Separate draft stacked on revised P2 #143 (`0d929b3`), main `01757c0` incorporat
 - **Tests:** `olympiad-host-flags.browser.mjs` now fails if a flag renders as text or an image fails to load. It passes at 375 and 1440 in light and dark. Unit tests check every code has its SVG. 868 server and 197 UI tests pass.
 - **Sweep (guest, 375 to 1440, both themes):** the flag cards add no failures. Four failures remain, none from this change. Three Arena stages need the database and auth backend (503 and 403 here), and one is an axe contrast report on `/coaching` at 768 dark, which this change does not touch.
 - **Not run:** the signed-in sweep, because it needs a real session and database.
+
+## 2026-11-14 - Nine archive problems imported, owner ratings applied
+
+- **Imported (112 problems now, was 103):** APhO 2024 T1 Geometry of Water Fountain and T2 Snell's Law, APhO 2023 T3 Cavitation, IPhO 2022 T1 Permanent magnets, T2 James Webb Space Telescope and T3 Scaling laws, IPhO 2021 T3 Particles and Waves, EuPhO 2021 T2 Thread around a cylinder and EuPhO 2023 T2 Brick between two planes. The seven olimpicos.net problems are built like the existing ones (`public/corpus/english-problems/<id>.json`, official PDFs under `public/corpus/documents/english-<id>-statement|solution/`, extracted text, source line and official PDF link). The two EuPhO problems reuse the shared statement and solution documents and start on their own page, like T1 and T3. Also updated: catalog selection, catalog sources, title references, original titles, import index and manifest, collection.json, sitemap (through the catalog). The source PDFs stay in `assets-src/archive-imports/` and are not served.
+- **Host flag:** IPhO 2022 is Switzerland, online (took over from Belarus, [Physics Today](https://physicstoday.aip.org/news/in-last-minute-shuffle-switzerland-hosts-virtual-international-physics-olympiad)). The other eight editions already had hosts.
+- **Ratings:** `lib/owner-ratings.ts` holds the owner's 60 ratings, source "owner-set, 14 November 2026". They replace the calibrated value for those problems only, in `lib/problem-archive.ts`. The immutable review ledger is unchanged. No other problem's rating and nothing about player rating updates changed. Every id in the owner file matched a problem, none were left out. Two ratings, apho-2021-t2 (3600) and apho-2021-t3 (3050), are above 3000, so the tests now allow up to the 4000 maximum.
+- **Tests changed because of the new ratings:** the IPhO 2026 tests no longer compare against calibrated neighbours that the owner ratings overrule, and the calibrated anchor and ordering checks skip owner-set problems. Two problems are now below 1600 (eupho-2022-t2 and eupho-2024-t1, both 1500), so the 1200 to 1599 filter finds 2 and 1600+ finds 110.
+- **Counts updated:** 103 to 112 problems and 101 to 110 sitemap archive pages (the two thin IPhO 2017 pages stay out), the new problems pass the duplicate-statement test.
+
+| Problem | Old | New |
+| --- | ---: | ---: |
+| ipho-2026-t1 | 1950 | 1800 |
+| ipho-2026-t2 | 2050 | 2100 |
+| ipho-2026-t3 | 1850 | 2100 |
+| apho-2025-t1 | 2300 | 2000 |
+| apho-2025-t2 | 2450 | 2400 |
+| apho-2025-t3 | 2300 | 2100 |
+| eupho-2025-t1 | 2200 | 1800 |
+| eupho-2025-t2 | 2250 | 1800 |
+| eupho-2025-t3 | 2500 | 2100 |
+| ipho-2025-t1 | 2200 | 1900 |
+| ipho-2025-t2 | 2450 | 2600 |
+| ipho-2025-t3 | 2300 | 2500 |
+| apho-2024-t1 | new | 1600 |
+| apho-2024-t2 | new | 1600 |
+| apho-2024-t3 | 2300 | 1700 |
+| eupho-2024-t1 | 2100 | 1500 |
+| eupho-2024-t2 | 2250 | 1950 |
+| eupho-2024-t3 | 2350 | 2100 |
+| ipho-2024-t1 | 2050 | 2000 |
+| ipho-2024-t2 | 2300 | 2200 |
+| ipho-2024-t3 | 2450 | 2400 |
+| apho-2023-t1 | 2350 | 2200 |
+| apho-2023-t2 | 2950 | 3000 |
+| apho-2023-t3 | new | 2850 |
+| eupho-2023-t1 | 2300 | 1700 |
+| eupho-2023-t2 | new | 1900 |
+| eupho-2023-t3 | 2600 | 2150 |
+| ipho-2023-t1 | 2400 | 2500 |
+| ipho-2023-t2 | 2300 | 2250 |
+| ipho-2023-t3 | 2350 | 1900 |
+| apho-2022-t1 | 2100 | 2300 |
+| apho-2022-t2 | 2200 | 2200 |
+| apho-2022-t3 | 2200 | 2050 |
+| eupho-2022-t1 | 2300 | 1700 |
+| eupho-2022-t2 | 2450 | 1500 |
+| eupho-2022-t3 | 2550 | 1800 |
+| ipho-2022-t1 | new | 2400 |
+| ipho-2022-t2 | new | 2700 |
+| ipho-2022-t3 | new | 2800 |
+| apho-2021-t1 | 2450 | 2800 |
+| apho-2021-t2 | 2900 | 3600 |
+| apho-2021-t3 | 2900 | 3050 |
+| eupho-2021-t1 | 2300 | 2100 |
+| eupho-2021-t2 | new | 2000 |
+| eupho-2021-t3 | 2450 | 2600 |
+| ipho-2021-t1 | 2400 | 2200 |
+| ipho-2021-t2 | 2450 | 2050 |
+| ipho-2021-t3 | new | 2500 |
+| eupho-2020-t1 | 2250 | 1600 |
+| eupho-2020-t2 | 2350 | 1750 |
+| eupho-2020-t3 | 2500 | 2400 |
+| apho-2019-t1 | 2700 | 2400 |
+| apho-2019-t2 | 2750 | 2750 |
+| apho-2019-t3 | 2950 | 2900 |
+| eupho-2019-t1 | 2200 | 1700 |
+| eupho-2019-t2 | 2350 | 2000 |
+| eupho-2019-t3 | 2250 | 2000 |
+| ipho-2019-t1 | 2300 | 2850 |
+| ipho-2019-t2 | 2500 | 2500 |
+| ipho-2019-t3 | 2600 | 2400 |
