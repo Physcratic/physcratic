@@ -1,6 +1,7 @@
 /**
  * The owner's own difficulty ratings. They replace the calibrated estimates in lib/problem-archive.ts for the
  * problems named here, and for those problems only. Source: Owner-set ratings, 14 November 2026.
+ * Archive ratings come first, then the twelve Arena problems the owner rated on the same day.
  */
 export const ownerRatingSource = "owner-set, 14 November 2026"
 
@@ -65,4 +66,16 @@ export const ownerRatings: Readonly<Record<string, number>> = {
   "ipho-2019-t1": 2850,
   "ipho-2019-t2": 2500,
   "ipho-2019-t3": 2400,
+  "arena-a-grin-and-a-wiggle": 2000,
+  "arena-an-atom-with-stage-fright": 1700,
+  "arena-the-bending-beam-riddle": 1900,
+  "arena-the-bubble-treaty": 1550,
+  "arena-the-capacitors-missing-energy": 2000,
+  "arena-the-clock-in-the-racing-mirror": 1950,
+  "arena-the-cosmic-kitchen": 2200,
+  "arena-the-five-fold-collision": 1650,
+  "arena-the-gas-with-elbows": 2100,
+  "arena-the-quantum-escape-room": 1950,
+  "arena-the-string-that-answered-back": 1750,
+  "arena-the-three-way-wave-split": 1550,
 }
