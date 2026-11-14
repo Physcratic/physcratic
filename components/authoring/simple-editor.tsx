@@ -8,10 +8,9 @@ import { colorsByPartId } from "@/lib/part-colors";
 import { displayName } from "@/lib/answer-reader";
 import { physicsTopics, resolvePhysicsTag } from "@/lib/physics-taxonomy";
 import { addTag, hasTag } from "@/lib/studio-tags";
-import { RatingBandsPopover } from "@/components/physics/rating-bands-popover";
-import { parseRating, ratingBands } from "@/lib/rating-bands";
 import type { EditorDraft } from "@/lib/problem-authoring-editor";
 import { inputClass } from "./editor-fields";
+import { DifficultyRatingField } from "./difficulty-rating-field";
 import { MediaImage, useAuthorMediaUpload } from "./media-controls";
 import { RichMathText } from "./rich-math-text";
 import {
@@ -27,7 +26,6 @@ import {
   applyAnswer,
   blocksSpans,
   contextPictureOf,
-  difficultyRating,
   ensureSimpleShape,
   mathSymbols,
   partLetter,
@@ -182,7 +180,7 @@ export function SimpleEditor(props: SimpleProps) {
 
       <SourceField draft={draft} edit={edit} touch={touch} issue={shown("source")?.message} />
 
-      <DifficultyField draft={draft} edit={edit} />
+      <DifficultyRatingField stored={draft.content.estimatedDifficulty} save={(text) => { let saved = false; edit((d) => void (saved = setDifficulty(d, text))); return saved; }} tour />
 
       <TopicRow values={draft.content.topicTags} change={(v) => edit((d) => void (d.content.topicTags = v))} />
 
@@ -219,7 +217,7 @@ export function SimpleEditor(props: SimpleProps) {
           size="lg"
           data-tour="studio-publish"
           className="min-h-12 w-full text-base sm:w-auto sm:px-10"
-          disabled={locked || (provisional && !blocked)}
+          disabled={locked || (provisional && !blocked) || issues.some((i) => i.field === "difficulty")}
           onClick={publish}
         >
           {publishing ? "Working…" : provisional && !blocked ? "Saving your first draft…" : draft.state === "published" ? "Publish new version" : "Publish"}
@@ -446,72 +444,6 @@ function SourceField({ draft, edit, touch, issue }: { draft: EditorDraft; edit: 
           {issue && <ErrorLine id={`${id}-source-error`}>{issue}</ErrorLine>}
         </div>
       )}
-    </div>
-  );
-}
-
-/** Estimated difficulty from the shared bands or an exact rating, saved in the existing difficulty field. */
-function DifficultyField({ draft, edit }: { draft: EditorDraft; edit: SimpleProps["edit"] }) {
-  const id = useId();
-  const rating = difficultyRating(draft);
-  const [text, setText] = useState(rating === null ? "" : String(rating));
-  const [error, setError] = useState("");
-  // A band pressed, or a rating changed from outside, updates the box.
-  useEffect(() => {
-    setText((current) => (rating !== null && parseRating(current) === rating ? current : rating === null ? (error ? current : "") : String(rating)));
-    // The box keeps what the author is typing while it is not a rating yet.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [rating]);
-  const band = rating === null ? null : ratingBands.find((b) => rating >= b.min && rating < b.max) ?? null;
-  function typeRating(value: string) {
-    setText(value);
-    let saved = false;
-    edit((d) => void (saved = setDifficulty(d, value)));
-    setError(saved ? "" : "Type a whole number from 0 to 4000, or pick a band.");
-  }
-  return (
-    <div className="space-y-3" data-tour="studio-difficulty">
-      <p id={`${id}-label`} className={labelClass}>Estimated difficulty (optional)</p>
-      <div role="radiogroup" aria-labelledby={`${id}-label`} className="grid gap-2 sm:grid-cols-2">
-        {ratingBands.map((b) => {
-          const on = band?.id === b.id;
-          return (
-            <button
-              key={b.id}
-              type="button"
-              role="radio"
-              aria-checked={on}
-              onClick={() => {
-                edit((d) => void setDifficulty(d, String(b.middle)));
-                setText(String(b.middle));
-                setError("");
-              }}
-              className={`min-h-11 rounded-lg border-2 p-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${on ? "border-foreground bg-accent" : "border-input hover:bg-muted"}`}
-            >
-              <span className="block text-base font-semibold">{b.name}</span>
-              <span className="block text-sm tabular-nums text-muted-foreground">{b.range}</span>
-              <span className="block text-sm">{b.example}</span>
-            </button>
-          );
-        })}
-      </div>
-      <div className="space-y-2">
-        <label htmlFor={`${id}-rating`} className="block text-base font-medium">Exact rating (optional)</label>
-        <input
-          id={`${id}-rating`}
-          className={`${fieldClass} sm:max-w-56`}
-          inputMode="numeric"
-          autoComplete="off"
-          maxLength={6}
-          placeholder="1850"
-          value={text}
-          aria-invalid={error ? true : undefined}
-          aria-describedby={error ? `${id}-rating-error` : undefined}
-          onChange={(e) => typeRating(e.target.value)}
-        />
-        {error && <ErrorLine id={`${id}-rating-error`}>{error}</ErrorLine>}
-      </div>
-      <RatingBandsPopover />
     </div>
   );
 }

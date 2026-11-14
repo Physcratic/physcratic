@@ -98,7 +98,7 @@ test(
         title: "Reveal test",
         topicTags: [],
         methodTags: [],
-        estimatedDifficulty: null,
+        estimatedDifficulty: "1200",
         context: [text("Public statement only")],
         sections: [{ id: randomUUID(), title: "Multipart", blocks: [], parts }],
         attachments: [],

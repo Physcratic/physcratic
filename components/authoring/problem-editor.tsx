@@ -30,7 +30,8 @@ import { HowItWorksLink, StatusBar, StepCard, studioTokens } from "./studio-ui";
 import { SimpleEditor } from "./simple-editor";
 import { GuidedTour } from "@/components/tour/guided-tour";
 import { TourHelpButton } from "@/components/tour/tour-help";
-import { STUDIO_MODE_KEY, readStudioMode, type StudioMode } from "./simple-model";
+import { STUDIO_MODE_KEY, readStudioMode, setDifficulty, type StudioMode } from "./simple-model";
+import { DifficultyRatingField } from "./difficulty-rating-field";
 import { colorsByPartId } from "@/lib/part-colors";
 import { PartChip, partBorder, partStyle } from "@/components/physics/solve-ui";
 import {
@@ -166,7 +167,7 @@ export function ProblemEditor({
   });
   const issues = publishable.success ? [] : publishable.error.issues;
   // Publish rules Simple shows next to its own fields. Anything else is listed by the Publish button.
-  const simpleOwned = /^(Title and rights provenance required|Native statement and at least one part required|Every published part requires a key or explicit manual mode)$/;
+  const simpleOwned = /^(Title and rights provenance required|Native statement and at least one part required|Every published part requires a key or explicit manual mode|Add a difficulty rating from 0 to 4,000\.)$/;
   const otherIssues = issues.map((i) => i.message).filter((m) => !simpleOwned.test(m));
   useEffect(() => {
     session.activate();
@@ -779,24 +780,14 @@ export function ProblemEditor({
                     />
                   )}
                 </Field>
-                <Field
-                  label="Estimated difficulty (optional)"
-                >
-                  {(id) => (
-                    <input
-                      id={id}
-                      className={inputClass}
-                      maxLength={80}
-                      value={draft.content.estimatedDifficulty ?? ""}
-                      onChange={(e) =>
-                        edit((d) => {
-                          d.content.estimatedDifficulty =
-                            e.target.value || null;
-                        })
-                      }
-                    />
-                  )}
-                </Field>
+                <DifficultyRatingField
+                  stored={draft.content.estimatedDifficulty}
+                  save={(text) => {
+                    let saved = false;
+                    edit((d) => void (saved = setDifficulty(d, text)));
+                    return saved;
+                  }}
+                />
                 <div id="common-context" className="scroll-mt-24 space-y-3">
                   <h3 className="text-base font-semibold">Set the scene</h3>
                 <BlocksEditor

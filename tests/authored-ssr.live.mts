@@ -36,7 +36,7 @@ const content: AuthoredDocument = {
   title: "Original physics task",
   topicTags: ["Mechanics"],
   methodTags: [],
-  estimatedDifficulty: null,
+  estimatedDifficulty: "1200",
   context: [{ id: randomUUID(), kind: "text", spans: [{ kind: "text", text: "A cart of mass 3 kg rolls down a ramp without friction." }] }],
   sections: [{ id: randomUUID(), title: "Motion on the ramp", blocks: [], parts: [{ id: part, label: "a", answerMode: "numeric", blocks: [{ id: randomUUID(), kind: "text", spans: [{ kind: "text", text: "Find the speed at the bottom." }] }] }] }],
   provenance: { kind: "original", source: "", rightsDeclaration: "I own this original content." },

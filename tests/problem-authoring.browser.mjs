@@ -129,6 +129,13 @@ async function guideShots(page) {
   await top(page.getByRole("article", { name: "Student-facing preview" }), 24);
   await save("studio-preview");
   await page.getByRole("button", { name: "Write", exact: true }).click();
+  // Publish waits for a difficulty rating, a whole number from 0 to 4,000.
+  assert.equal(await page.getByRole("button", { name: "Publish problem", exact: true }).isDisabled(), true, "Publish is disabled without a difficulty rating");
+  await page.getByLabel("Difficulty rating", { exact: true }).fill("4001");
+  await page.getByText("Add a difficulty rating from 0 to 4,000.", { exact: true }).waitFor();
+  assert.equal(await page.getByRole("button", { name: "Publish problem", exact: true }).isDisabled(), true, "Publish is disabled for 4001");
+  await page.getByLabel("Difficulty rating", { exact: true }).fill("2100");
+  assert.equal((await page.getByTestId("difficulty-band").innerText()).trim(), "2,100 · Advanced");
   await page.getByRole("button", { name: "Publish problem", exact: true }).click();
   await until(async () => (await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state === "published", "publish");
   const learnerContext = await browser.newContext({ viewport: { width: 1280, height: 1000 } });
@@ -749,6 +756,7 @@ try {
     path: "/tmp/physcratic-editor-mobile.png",
     fullPage: true,
   });
+  await page.getByLabel("Difficulty rating", { exact: true }).fill("1800");
   await page
     .getByRole("button", { name: "Publish problem", exact: true })
     .click();
@@ -789,6 +797,9 @@ try {
   const finalContent = { ...ownerResult.content };
   delete previousContent.title;
   delete finalContent.title;
+  // The difficulty rating was added after the earlier read, because Publish needs one.
+  delete previousContent.estimatedDifficulty;
+  delete finalContent.estimatedDifficulty;
   assert.deepEqual(
     finalContent,
     previousContent,
@@ -834,6 +845,7 @@ try {
       ),
     "workflow autosave",
   );
+  await page.getByLabel("Difficulty rating", { exact: true }).fill("1800");
   await page
     .getByRole("button", { name: "Publish problem", exact: true })
     .click();

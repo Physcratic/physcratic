@@ -89,7 +89,7 @@ test(
         title,
         topicTags: ["Mechanics"],
         methodTags: ["Energy"],
-        estimatedDifficulty: "Intermediate",
+        estimatedDifficulty: "1200",
         context: [
           {
             id: randomUUID(),
@@ -235,7 +235,7 @@ test(
             { q: "pendulum energy" },
             { tag: "Mechanics" },
             { tag: "Energy" },
-            { difficulty: "Intermediate" },
+            { difficulty: "1200" },
           ])
             assert.equal(
               (await (await list(params)).json()).problems.length,
@@ -266,7 +266,7 @@ test(
               await (
                 await list({
                   tag: "Mechanics",
-                  difficulty: "Intermediate",
+                  difficulty: "1200",
                   provenance: "authorized",
                 })
               ).json()
@@ -366,18 +366,18 @@ test(
         "exact difficulty preserves valid published edge whitespace",
         async () => {
           const body = input("Whitespace-bearing difficulty");
-          body.content.estimatedDifficulty = " Intermediate ";
+          body.content.estimatedDifficulty = " 1200 ";
           const d = await action("create", undefined, body);
           await action("publish", d.problemId, { version: 1 });
           const exact: AuthoredLibraryPage = await (
-            await list({ difficulty: " Intermediate " })
+            await list({ difficulty: " 1200 " })
           ).json();
           assert.deepEqual(
             exact.problems.map((p) => p.problemId),
             [d.problemId],
           );
           const unpadded: AuthoredLibraryPage = await (
-            await list({ difficulty: "Intermediate" })
+            await list({ difficulty: "1200" })
           ).json();
           assert.equal(
             unpadded.problems.some((p) => p.problemId === d.problemId),
@@ -469,7 +469,7 @@ test(
               "authored_revision_discovery_metadata_idx",
             ],
             [
-              "SELECT id FROM authored_revision WHERE content->>'estimatedDifficulty'='Intermediate'",
+              "SELECT id FROM authored_revision WHERE content->>'estimatedDifficulty'='1200'",
               "authored_revision_discovery_difficulty_idx",
             ],
             [

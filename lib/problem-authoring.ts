@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { physicsTagLabels } from "./physics-taxonomy";
+import { parseRating } from "./rating-bands";
 
 // Data contracts only. Grading/evaluation and authorization belong to server services.
 // Normalize before parent refinements so comparisons and stored JSON match PostgreSQL uuid.
@@ -80,6 +81,7 @@ export const publishableDraftSchema = authoredDraftSchema.superRefine((draft, ct
   const images = [...doc.context, ...doc.sections.flatMap(s => [...s.blocks, ...s.parts.flatMap(p => p.blocks)]), ...draft.privateParts.flatMap(p => [...p.hints, ...p.solution])].filter(b => b.kind === "image");
   if (images.some(b => !b.alt.trim())) ctx.addIssue({ code: "custom", message: "Every image requires descriptive alternative text before publication" });
   for (const part of parts) if (!draft.privateParts.find(p => p.partId === part.id)?.key) ctx.addIssue({ code: "custom", message: "Every published part requires a key or explicit manual mode" });
+  if (parseRating(doc.estimatedDifficulty ?? "") === null) ctx.addIssue({ code: "custom", message: "Add a difficulty rating from 0 to 4,000." });
 });
 export const authoredProblemSchema = z.strictObject({
   id, slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).max(120), ownerId: z.string().min(1).max(256),

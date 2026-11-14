@@ -81,7 +81,7 @@ test(
         title: "Original student task",
         topicTags: [],
         methodTags: [],
-        estimatedDifficulty: null,
+        estimatedDifficulty: "1200",
         context: [
           {
             id: randomUUID(),

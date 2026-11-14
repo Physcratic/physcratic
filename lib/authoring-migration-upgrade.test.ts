@@ -86,7 +86,7 @@ test("populated 0001-0003 upgrades to 0004-0006 without replacing records or an 
   const owner = randomUUID(), student = randomUUID(), partId = randomUUID();
   const text = (value: string) => ({ id: randomUUID(), kind: "text" as const, spans: [{ kind: "text" as const, text: value }] });
   const content: AuthoredDocument = {
-    title: "Upgrade pendulum fixture", topicTags: ["Mechanics"], methodTags: ["Energy"], estimatedDifficulty: "Intermediate",
+    title: "Upgrade pendulum fixture", topicTags: ["Mechanics"], methodTags: ["Energy"], estimatedDifficulty: "1200",
     context: [text("Retain this existing statement.")],
     sections: [{ id: randomUUID(), title: "Motion", blocks: [], parts: [{ id: partId, label: "a", blocks: [], answerMode: "manual" }] }],
     provenance: { kind: "original", source: "Local upgrade fixture", rightsDeclaration: "Original disposable test content." }, attachments: [],

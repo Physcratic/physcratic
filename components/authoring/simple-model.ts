@@ -415,19 +415,17 @@ export function setRights(d: EditorDraft, ticked: boolean) {
   d.content.provenance = { ...d.content.provenance, rightsDeclaration: ticked ? (state.choice === "wrote" ? RIGHTS_TEXT : ADAPTED_RIGHTS_TEXT) : "" };
 }
 
-/** The estimated difficulty as a rating, from the stored string. Null when there is none or it is an older free-text label. */
+/** The difficulty rating, from the stored string. Null when there is none or it is an older free-text label. */
 export const difficultyRating = (d: EditorDraft): number | null => parseRating(d.content.estimatedDifficulty ?? "");
 /** An older label written in Advanced that is not a rating. It is kept until the author picks a band or types a rating. */
 export const difficultyLabel = (d: EditorDraft): string => (difficultyRating(d) === null ? (d.content.estimatedDifficulty ?? "").trim() : "");
-/** Saves a rating, or clears the estimate when the text is empty. Anything that is not a whole rating from 0 to 4000 is not saved. */
+/** Saves a rating. Empty text, or anything that is not a whole rating from 0 to 4000, clears it, so Publish stays blocked until a valid one is typed. Returns whether a rating was saved. */
 export function setDifficulty(d: EditorDraft, text: string): boolean {
-  const trimmed = text.trim();
-  if (!trimmed) {
+  const rating = parseRating(text.trim());
+  if (rating === null) {
     d.content.estimatedDifficulty = null;
-    return true;
+    return false;
   }
-  const rating = parseRating(trimmed);
-  if (rating === null) return false;
   d.content.estimatedDifficulty = String(rating);
   return true;
 }
@@ -464,6 +462,7 @@ export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, stri
   if (source.choice === "adapted" && !source.source.trim()) issues.push({ field: "source", message: "Say where it's from." });
   if (rightsState(d) === "unticked")
     issues.push({ field: "rights", message: source.choice === "adapted" ? "Tick the box to say you have permission to share it." : "Tick the box to say you wrote this problem." });
+  if (difficultyRating(d) === null) issues.push({ field: "difficulty", message: "Add a difficulty rating from 0 to 4,000." });
   const contextPicture = contextPictureOf(d);
   if (contextPicture && !contextPicture.alt.trim()) issues.push({ field: "picture:main", message: "Describe the image so everyone can follow it." });
   return issues;

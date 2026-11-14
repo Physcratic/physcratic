@@ -29,7 +29,7 @@ export const howToWriteAProblem: ArticleDraft = {
 
     { type: "heading", level: 2, text: "More parts, source and publishing" },
     { type: "paragraph", text: "Add part b repeats the question, solution and answer for the next part, and the button names the next letter. Each part gets its own colour." },
-    { type: "paragraph", text: "Studio saves by itself. Wait for All changes saved. Say where it is from: I wrote it, or Adapted from with the source. You can add an estimated difficulty by picking a band or typing a rating, and pick a topic so people can find the problem. Tick the box that says you have the right to share it, then choose Publish. The server checks everything again." },
+    { type: "paragraph", text: "Studio saves by itself. Wait for All changes saved. Say where it is from: I wrote it, or Adapted from with the source. Give it a difficulty rating, a whole number from 0 to 4,000. You can pick a band to fill one in. Publish needs a rating. Pick a topic so people can find the problem. Tick the box that says you have the right to share it, then choose Publish. The server checks everything again." },
     { type: "paragraph", text: "A published problem appears in the library under Physcratic Arena, on a card marked Community." },
     { type: "siteLink", href: "/dashboard?view=problems&collection=authored", label: "Browse published community problems" },
     { type: "image", src: `${dir}/studio-library.webp`, alt: "The problem library showing the topic buttons and a single Community card titled Forces on a cart with an Open problem button.", width: 1280, height: 1000, caption: "A published problem in the library." },
