@@ -1,5 +1,9 @@
 # Execution roadmap
 
+## Approved two-insight pilot publication (14 November 2026)
+
+Owner authorizes only publishing existing IPhO2009T1/2010T1 insights, with null reviewers and unchanged approved content. Application diff is two publication flags. See [read-only baseline and P7 monitoring plan](SEO_P5B_P7_PILOT.md). Publication PR holds actual QA, independent review, merge and deployment evidence. Search Console/indexing/performance data are UNKNOWN. No new content, tracking, provider configuration, SQL or manual deployment.
+
 ## SEO P5B insight drafts (14 November 2026)
 
 Exactly two unpublished, unreviewed supplements target IPhO2009T1 and2010T1. A server-only publication gate and native spoiler disclosure reuse Learn math/citations without changing official readers, solutions, metadata, auth or grading. See [selection, sources and physics audit](SEO_P5B_INSIGHTS.md). Draft [#165](https://github.com/Physcratic/physcratic/pull/165) carries full text, isolated preview evidence and exact-head QA. Owner editorial approval remains required. No merge, publication, deployment, database changes.

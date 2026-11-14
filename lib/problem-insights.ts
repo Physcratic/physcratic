@@ -23,7 +23,7 @@ const source = (year: number, kind: "Q" | "S", title: string): Source => ({
 /** Editorial drafts. Only approved records may reach the public reader. */
 export const problemInsights: readonly ProblemInsight[] = [
   {
-    problemId: "ipho-2009-t1", published: false, reviewedBy: null,
+    problemId: "ipho-2009-t1", published: true, reviewedBy: null,
     title: "Follow the power as well as the angular momentum",
     prerequisites: "Circular orbits, angular momentum, rotational kinetic energy and torque.",
     idea: "Keep the paper's idealised system separate from the real Earth and Moon. First audit which torques are external. Then distinguish a transfer between two mechanical reservoirs from conversion into heat.",
@@ -39,7 +39,7 @@ export const problemInsights: readonly ProblemInsight[] = [
     guide: { slug: "mechanics-olympiad-problem-solving" }, topic: "mechanics",
   },
   {
-    problemId: "ipho-2010-t1", published: false, reviewedBy: null,
+    problemId: "ipho-2010-t1", published: true, reviewedBy: null,
     title: "An image charge reproduces a field, not a second physical particle",
     prerequisites: "Electric potential, grounded conductors, work and derivatives of potential energy.",
     idea: "The image construction reproduces the induced electric field outside the grounded sphere. Then ask what actually changes when the external charge moves. A mathematical replacement for the conductor is not an independently controlled source.",
