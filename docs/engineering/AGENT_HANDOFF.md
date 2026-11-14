@@ -1,5 +1,11 @@
 # Agent handoff
 
+## SEO P5B insight drafts (14 November 2026)
+
+Exactly two unpublished, unreviewed supplements target IPhO2009T1 and2010T1. A server-only publication gate and native spoiler disclosure reuse Learn math/citations without changing official readers, solutions, metadata, auth or grading. See [selection, sources and physics audit](SEO_P5B_INSIGHTS.md). Draft [#165](https://github.com/Physcratic/physcratic/pull/165) carries full text, isolated preview evidence and exact-head QA. Owner editorial approval remains required. No merge, publication, deployment, database changes.
+
+Editorial revision: disclosure now names derivations/final results, introductory heading and attribution are simplified, and the model energy-loss rate/exterior induced-field domain are explicit. Both insights remain unpublished with null reviewer attribution.
+
 ## Post-B6 final integration (14 November 2026)
 
 Rebased `codex/b6-activation-engineering` through PR #162 and onto latest PR #158 main `1189ab02878bf607cdf653d3ebdf33b250d1911e`, preserving both account guards, Learn accessibility and Mechanics publication evidence below. The LOGIN rehearsal now has a separate process/step in existing PG18.7 CI, with activation-manifest verification. Existing statistics browser coverage is unchanged; the shared community browser job adds the existing profile harness's focused account-header mode. Focused local results: PG18.7 5/5 and profile browser 21 assertions pass. No broad verification repeated. The [review package](POST_B6_RELEASE_REVIEW.md) records remaining exact-head CI/API and owner-merge gates. No Production, migration, credential, grant, flag or deployment action.
