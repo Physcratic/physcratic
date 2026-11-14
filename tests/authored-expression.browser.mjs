@@ -159,6 +159,13 @@ try {
   // Failed imports retain the editable accessible fallback and the full draft.
   const context=await browser.newContext();await context.route('**'+mathPath,route=>route.abort());
   const page=await open(context);const plain=page.getByLabel('Expression answer',{exact:true});
+  const beforeFallbackSubmit = posts.length;
+  await plain.fill('x*x');
+  await page.getByRole('button',{name:'Submit answer',exact:true}).click();
+  await page.getByRole('heading',{name:/Correct · saved attempt/}).waitFor();
+  assert.equal(posts.length,beforeFallbackSubmit+1);
+  assert.equal(posts.at(-1).answer.expression,'x*x');checks++;
+  await page.getByRole('button',{name:'Start another attempt',exact:true}).click();
   await plain.fill(expressionOfLength(210));await plain.blur();await page.reload();
   await page.getByLabel('Choose part',{exact:true}).selectOption({index:1});
   assert.equal(await page.getByLabel('Expression answer',{exact:true}).inputValue(),expressionOfLength(210));checks++;
