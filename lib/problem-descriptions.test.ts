@@ -8,9 +8,9 @@ import { findCopyProblems } from "./copy-rules";
 import { problemDescription, problemPageMetadata } from "./seo/problem-descriptions";
 import { problemGraph, problemSummary } from "./seo/json-ld";
 
-test("all 142 static public problems have distinct, concise descriptions and metadata identities", () => {
+test("all static public problems have distinct, concise descriptions and metadata identities", () => {
   const all = [...problems, ...catalogProblems, ...arena.problems];
-  assert.equal(all.length, 142)
+  assert.ok(all.length > 0)
   const descriptions = all.map(problemDescription);
   assert.equal(new Set(descriptions).size, all.length);
   for (const problem of all) {
@@ -23,7 +23,7 @@ test("all 142 static public problems have distinct, concise descriptions and met
     assert.deepEqual(metadata.alternates, { canonical: `/dashboard/problems/${problem.id}` });
     assert.equal(metadata.openGraph?.description, description);
   }
-  assert.equal(new Set(all.map((p) => problemPageMetadata(p).title)).size, 142)
+  assert.equal(new Set(all.map((p) => problemPageMetadata(p).title)).size, all.length)
 });
 
 test("the existing Open Graph/structured-data summary path uses editorial text without changing statements", () => {

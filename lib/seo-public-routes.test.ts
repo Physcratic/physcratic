@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { articles } from "./learn/articles";
 import { topics } from "./physics";
+import { catalogProblems } from "./corpus-catalog";
 import { indexableRoutes, publicRoutes, topicHasProblems } from "./seo/public-routes";
 import { allProblemPages, findProblemPage, topicsWithProblems } from "./seo/problem-pages";
 
@@ -29,20 +30,20 @@ describe("public route registry", () => {
     }
     assert.equal(findProblemPage("nope"), undefined);
     assert.ok(listed.filter((r) => r.group === "practice").length === 0);
-    assert.equal(listed.filter((r) => r.group === "archive").length, 112)
+    assert.equal(listed.filter((r) => r.group === "archive").length, catalogProblems.length)
   });
   it("gives every topic with problems a path of its own", () => {
     const listed = publicRoutes.filter((r) => r.kind === "topic").map((r) => r.path);
     assert.deepEqual(listed, topicsWithProblems().map((t) => `/problems/topics/${t.slug}`));
     for (const t of topics) assert.equal(topicHasProblems(t.name), topicsWithProblems().some((x) => x.name === t.name || (t.name === "Modern" && x.slug === "modern-physics")), t.name);
   });
-  it("lists 110 archive pages in the sitemap, and leaves out the two with too little text", () => {
+  it("lists every archive page in the sitemap, and leaves out the two with too little text", () => {
     const archive = allProblemPages().filter((p) => p.kind === "archive");
-    assert.equal(archive.length, 112)
+    assert.equal(archive.length, catalogProblems.length)
     for (const p of archive) assert.equal(indexableRoutes.some((r) => r.path === p.path), !p.thin, p.path);
     assert.deepEqual(archive.filter((p) => p.thin).map((p) => p.id), ["ipho-2017-t2", "ipho-2017-t3"]);
     for (const p of allProblemPages().filter((x) => x.kind !== "archive")) assert.ok(indexableRoutes.some((r) => r.path === p.path), p.path);
-    assert.equal(publicRoutes.filter((r) => r.group === "archive").length, 112, "all pages stay in the registry")
+    assert.equal(publicRoutes.filter((r) => r.group === "archive").length, catalogProblems.length, "all pages stay in the registry")
   });
   it("excludes noindex pages from the indexable list", () => {
     assert.ok(publicRoutes.some((r) => r.path === "/terms"));

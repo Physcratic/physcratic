@@ -5,6 +5,7 @@ import { createRequire } from "node:module";
 import { join } from "node:path";
 import { allProblemPages, topicsWithProblems } from "../lib/seo/problem-pages.ts";
 import { corpusProblems } from "../lib/corpus-pilot.ts";
+import { catalogProblems } from "../lib/corpus-catalog.ts";
 import { retiredPracticeIds } from "../lib/legacy-practice.ts";
 const require = createRequire(join(process.env.AUTHORING_BROWSER_TOOLS, "package.json"));
 const { chromium } = require("playwright");
@@ -82,7 +83,7 @@ try {
         if (await next.isDisabled()) break;
         await next.click();
       }
-      ok(retained.size === 103, "all 103 imported archive problems remain reachable through pagination");
+      ok(retained.size === catalogProblems.length, `all ${catalogProblems.length} imported archive problems remain reachable through pagination`);
       await page.getByRole("tab", { name: /Physcratic Arena/ }).click();
       await page.getByRole("tab", { name: /Olympiad archive/ }).click();
     }
