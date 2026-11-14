@@ -149,15 +149,22 @@ await pool(pages, 8, async (page) => {
   } else {
     const view = archiveStatementView(page)!;
     expected = sentences(view.paragraphs[0] ?? "")[0] ?? "";
-    ok(text.includes(`${page.competition} ${page.year}, Problem ${page.number}. Official problem (PDF)`), `${tag} source line`);
-    ok(hrefs(response.body).includes(page.source!.officialUrl), `${tag} official link`);
-    ok(/Statement as text/.test(text), `${tag} statement section`);
+    if (view.native) {
+      // Native pages (IPhO 2026) render the full statement as HTML in place of the plain-text block, so they have no
+      // "Statement as text" section and no source line. They still link the original statement PDF.
+      ok(hrefs(response.body).includes(page.source!.officialUrl), `${tag} official link`);
+      ok(/Problem statement/.test(text) && /Open original statement PDF/.test(text), `${tag} native statement and original PDF link`);
+    } else {
+      ok(text.includes(`${page.competition} ${page.year}, Problem ${page.number}. Official problem (PDF)`), `${tag} source line`);
+      ok(hrefs(response.body).includes(page.source!.officialUrl), `${tag} official link`);
+      ok(/Statement as text/.test(text), `${tag} statement section`);
+    }
     for (const image of view.pageImages) ok(response.body.includes(`alt="${image.alt.replace(/'/g, "&#x27;")}"`), `${tag} page image alt`);
   }
   if (expected) {
     ok(text.includes(normal(expected)), `${tag}: first sentence not in the HTML: "${expected.slice(0, 80)}"`);
     firstSentences.set(page.id, expected.length);
-  } else ok(page.thin, `${tag}: only a page with too little text may have no statement`);
+  } else ok(page.thin || Boolean(archiveStatementView(page)?.native), `${tag}: only a page with too little text may have no statement`);
 
   // Structured data, matched to the visible text.
   const graph = jsonLd(response.body).flat();
@@ -171,7 +178,7 @@ await pool(pages, 8, async (page) => {
   checks++;
   if (page.source) {
     same(resource.isBasedOn.url, page.source.officialUrl, `${tag} isBasedOn is the official file`);
-    ok(text.includes(resource.isBasedOn.name), `${tag} isBasedOn name is visible: ${resource.isBasedOn.name}`);
+    if (!(page.kind === "archive" && archiveStatementView(page)?.native)) ok(text.includes(resource.isBasedOn.name), `${tag} isBasedOn name is visible: ${resource.isBasedOn.name}`);
   }
 
   // Related problems and the topic page, as real links.
@@ -205,7 +212,7 @@ for (const article of publishedArticles) {
   same(sitemap.status, 200, "sitemap status");
   const locs = [...sitemap.body.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => decode(m[1]));
   const lastmods = [...sitemap.body.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((m) => m[1]);
-  ok(locs.length >= 140, `sitemap has ${locs.length} URLs`);
+  ok(locs.length >= archiveIndexable + publishedArticles.length, `sitemap has ${locs.length} URLs`);
   same(locs.filter((l) => /\/dashboard\/problems\/(ipho|apho|eupho)-/.test(l)).length, archiveIndexable, `${archiveIndexable} archive pages in the sitemap`);
   same(new Set(locs).size, locs.length, "sitemap URLs are unique");
   ok(!locs.some((l) => l.includes("?")), "sitemap has no query strings");
@@ -233,7 +240,7 @@ for (const article of publishedArticles) {
 
 // 7. Each crawler gets the same pages as a browser: 200, no noindex header, no challenge page.
 {
-  const samples = ["/", "/problems", "/problems/archive", "/problems/topics/mechanics", "/dashboard/problems/ipho-2025-t2", "/dashboard/problems/arena-mind-the-gap", "/dashboard/problems/incline", `/learn/${publishedArticles[0].slug}`, "/learn", "/coaching", "/sitemap.xml", "/llms.txt", "/llms-full.txt", "/robots.txt"];
+  const samples = ["/", "/problems", "/problems/archive", "/problems/topics/mechanics", "/dashboard/problems/ipho-2025-t2", "/dashboard/problems/arena-mind-the-gap", `/dashboard/problems/${arena.problems[1].id}`, `/learn/${publishedArticles[0].slug}`, "/learn", "/coaching", "/sitemap.xml", "/llms.txt", "/llms-full.txt", "/robots.txt"];
   for (const [bot, userAgent] of Object.entries(BOTS)) {
     for (const path of samples) {
       const response = await get(path, userAgent);
