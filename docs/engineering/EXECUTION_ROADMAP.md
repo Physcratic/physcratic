@@ -1,5 +1,9 @@
 # Execution roadmap
 
+## PDF reader structure accessibility (14 November 2026)
+
+Fresh main d95b861 reproduces four invalid ARIA nodes in the tagged 2010 PDF. A version-bound React-PDF patch preserves every content owner/order and existing cells while repairing trailing inline tags and redundant bare lists. [Root cause, limits and regression design](PDF_READER_ACCESSIBILITY.md). The draft PR records actual production-build/browser QA, independent review and exact-head CI. No merge/deployment, original document, publication, SEO policy, provider or database change.
+
 ## Production runtime role proposal (14 November 2026)
 
 Owner inspection confirms the Production application is owner-bound after successful B6. [Restricted-role provisioning, read-only acceptance, cutover and independent rollback](PRODUCTION_RUNTIME_ROLE.md) now define the next owner gate. Exact current-feature grants exclude disabled community/practice/deletion features and the retired coaching writer. New focused synthetic PG18.7 LOGIN coverage passes 6/6; existing main CI remains the baseline. No ownership transfer, Production access/change, provider change, migration replay or activation. Provisioning requires exact-hash approval and live read-only preconditions; Vercel binding/deployment and acceptance writes require separate authorization.

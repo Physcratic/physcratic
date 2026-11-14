@@ -9,6 +9,7 @@ on:
       - 'tests/**'
       - 'package.json'
       - 'pnpm-lock.yaml'
+      - 'patches/**'
       - 'pnpm-workspace.yaml'
       - 'next.config.*'
       - 'tsconfig*.json'
@@ -59,6 +60,8 @@ jobs:
           HOME_LIBRARY_BROWSER: '1'
           HOME_ARCHIVE_BROWSER: '1'
           HOME_TOPIC_BROWSER: '1'
+          HOME_PDF_BROWSER: '1'
+          PDF_EVIDENCE: ${{ runner.temp }}/library-screenshots/pdf
           TOPIC_SCREENSHOTS: ${{ runner.temp }}/library-screenshots/topics
           ARCHIVE_SCREENSHOTS: ${{ runner.temp }}/library-screenshots/archive
           LIBRARY_SCREENSHOTS: ${{ runner.temp }}/library-screenshots

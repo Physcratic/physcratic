@@ -1,0 +1,142 @@
+diff --git a/dist/StructTreeItem.js b/dist/StructTreeItem.js
+index b401938977ccf38564d37f2b94985085ca594f30..4d85e2f3e6e470c87256a6959c59f90660e4de9b 100644
+--- a/dist/StructTreeItem.js
++++ b/dist/StructTreeItem.js
+@@ -1,18 +1,19 @@
+ import { jsx as _jsx } from "react/jsx-runtime";
+ import { useMemo } from 'react';
+-import { getAttributes, isStructTreeNode, isStructTreeNodeWithOnlyContentChild, } from './shared/structTreeUtils.js';
++import { getAttributes, isStructTreeNode, isStructTreeNodeWithOnlyContentChild, normalizeStructTreeNode, } from './shared/structTreeUtils.js';
+ export default function StructTreeItem({ className, node, }) {
+-    const attributes = useMemo(() => getAttributes(node), [node]);
++    const treeNode = useMemo(() => normalizeStructTreeNode(node), [node]);
++    const attributes = useMemo(() => getAttributes(treeNode), [treeNode]);
+     const children = useMemo(() => {
+-        if (!isStructTreeNode(node)) {
++        if (!isStructTreeNode(treeNode)) {
+             return null;
+         }
+-        if (isStructTreeNodeWithOnlyContentChild(node)) {
++        if (isStructTreeNodeWithOnlyContentChild(treeNode)) {
+             return null;
+         }
+-        return node.children.map((child, index) => {
++        return treeNode.children.map((child, index) => {
+             return (_jsx(StructTreeItem, { node: child }, index));
+         });
+-    }, [node]);
++    }, [treeNode]);
+     return (_jsx("span", { className: className, ...attributes, children: children }));
+ }
+diff --git a/dist/shared/structTreeUtils.d.ts b/dist/shared/structTreeUtils.d.ts
+index b2c43271e9987adbdc0c44244f7283d8bdbb56f3..31ed52e74c6c0223348fe7addd778ada5f7daa36 100644
+--- a/dist/shared/structTreeUtils.d.ts
++++ b/dist/shared/structTreeUtils.d.ts
+@@ -9,4 +9,5 @@ export declare function isStructTreeNodeWithOnlyContentChild(node: StructTreeNod
+ export declare function getRoleAttributes(node: StructTreeNode | StructTreeContent): Attributes;
+ export declare function getBaseAttributes(node: StructTreeNodeWithExtraAttributes | StructTreeContent): Attributes;
+ export declare function getAttributes(node: StructTreeNodeWithExtraAttributes | StructTreeContent): Attributes | null;
++export declare function normalizeStructTreeNode<T extends StructTreeNodeWithExtraAttributes | StructTreeContent>(node: T): T;
+ export {};
+diff --git a/dist/shared/structTreeUtils.js b/dist/shared/structTreeUtils.js
+index 30e7dcbe6567c215aa964b7dcd6cff89db8daeaf..a306e7a674e1b9bca32cbc6365126e2e40ffb11d 100644
+--- a/dist/shared/structTreeUtils.js
++++ b/dist/shared/structTreeUtils.js
+@@ -63,3 +63,24 @@ export function getAttributes(node) {
+         ...getBaseAttributes(node),
+     };
+ }
++
++// Recover only two malformed tag patterns without dropping content or inventing cells.
++export function normalizeStructTreeNode(node) {
++    if (!isStructTreeNode(node)) return node;
++    const bare = (value) => Object.keys(value).every((key) => key === 'role' || key === 'children');
++    if (node.role === 'L' && bare(node) && node.children.length === 1 &&
++        isStructTreeNode(node.children[0]) && node.children[0].role === 'L') {
++        return normalizeStructTreeNode(node.children[0]);
++    }
++    if (node.role !== 'TR') return node;
++    const index = node.children.findLastIndex((child) =>
++        isStructTreeNode(child) && (child.role === 'TD' || child.role === 'TH'));
++    const trailing = node.children.slice(index + 1);
++    if (index < 0 || trailing.length === 0 || !node.children.slice(0, index).every((child) =>
++        isStructTreeNode(child) && (child.role === 'TD' || child.role === 'TH')) || !trailing.every((child) =>
++        isStructTreeNode(child) && child.role === 'Span' && bare(child) &&
++        child.children.every((leaf) => !isStructTreeNode(leaf) && leaf.type === 'content'))) return node;
++    const cell = node.children[index];
++    return { ...node, children: [...node.children.slice(0, index),
++        { ...cell, children: [...cell.children, ...trailing] }] };
++}
+diff --git a/src/StructTreeItem.tsx b/src/StructTreeItem.tsx
+index 743e270414b6bc025910b8c2257783a24e61b4d6..bf6cdeff5a9f0227570b0865d2c55af5a26e45c3 100644
+--- a/src/StructTreeItem.tsx
++++ b/src/StructTreeItem.tsx
+@@ -3,7 +3,7 @@ import { useMemo } from 'react';
+ import {
+   getAttributes,
+   isStructTreeNode,
+-  isStructTreeNodeWithOnlyContentChild,
++  isStructTreeNodeWithOnlyContentChild, normalizeStructTreeNode,
+ } from './shared/structTreeUtils.js';
+ 
+ import type { StructTreeContent } from 'pdfjs-dist/types/src/display/api.js';
+@@ -18,24 +18,25 @@ export default function StructTreeItem({
+   className,
+   node,
+ }: StructTreeItemProps): React.ReactElement {
+-  const attributes = useMemo(() => getAttributes(node), [node]);
++  const treeNode = useMemo(() => normalizeStructTreeNode(node), [node]);
++  const attributes = useMemo(() => getAttributes(treeNode), [treeNode]);
+ 
+   const children = useMemo(() => {
+-    if (!isStructTreeNode(node)) {
++    if (!isStructTreeNode(treeNode)) {
+       return null;
+     }
+ 
+-    if (isStructTreeNodeWithOnlyContentChild(node)) {
++    if (isStructTreeNodeWithOnlyContentChild(treeNode)) {
+       return null;
+     }
+ 
+-    return node.children.map((child, index) => {
++    return treeNode.children.map((child, index) => {
+       return (
+         // biome-ignore lint/suspicious/noArrayIndexKey: index is stable here
+         <StructTreeItem key={index} node={child} />
+       );
+     });
+-  }, [node]);
++  }, [treeNode]);
+ 
+   return (
+     <span className={className} {...attributes}>
+diff --git a/src/shared/structTreeUtils.ts b/src/shared/structTreeUtils.ts
+index f801024d0c32ad39924c9653575199ca3d8ab747..d67529191b4f843c02f4a72c6ccb6de8502b4be1 100644
+--- a/src/shared/structTreeUtils.ts
++++ b/src/shared/structTreeUtils.ts
+@@ -93,3 +93,24 @@ export function getAttributes(
+     ...getBaseAttributes(node),
+   };
+ }
++
++// Recover only two malformed tag patterns without dropping content or inventing cells.
++export function normalizeStructTreeNode<T extends StructTreeNodeWithExtraAttributes | StructTreeContent>(node: T): T {
++  if (!isStructTreeNode(node)) return node;
++  const bare = (value: object) => Object.keys(value).every((key) => key === 'role' || key === 'children');
++  if (node.role === 'L' && bare(node) && node.children.length === 1 &&
++      isStructTreeNode(node.children[0]!) && node.children[0]!.role === 'L') {
++    return normalizeStructTreeNode(node.children[0]!) as T;
++  }
++  if (node.role !== 'TR') return node;
++  const index = node.children.findLastIndex((child) =>
++    isStructTreeNode(child) && (child.role === 'TD' || child.role === 'TH'));
++  const trailing = node.children.slice(index + 1);
++  if (index < 0 || trailing.length === 0 || !node.children.slice(0, index).every((child) =>
++      isStructTreeNode(child) && (child.role === 'TD' || child.role === 'TH')) || !trailing.every((child) =>
++      isStructTreeNode(child) && child.role === 'Span' && bare(child) &&
++      child.children.every((leaf) => !isStructTreeNode(leaf) && leaf.type === 'content'))) return node;
++  const cell = node.children[index]! as StructTreeNodeWithExtraAttributes;
++  return { ...node, children: [...node.children.slice(0, index),
++    { ...cell, children: [...cell.children, ...trailing] }] };
++}
