@@ -184,7 +184,7 @@ try {
       title: "Motion in a harmonic trap",
       topicTags: ["mechanics"],
       methodTags: ["energy"],
-      estimatedDifficulty: "Intermediate",
+      estimatedDifficulty: "1200",
       context: [
         {
           id: randomUUID(),
