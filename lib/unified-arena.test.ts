@@ -48,8 +48,10 @@ test('mixed collection paginates complete filtered discovery and respects live a
  await pool.query("INSERT INTO community_badge_selection(user_id,badge_ids) VALUES($1,ARRAY['first-spark','problem-weaver'])",[owner]);
  const api=createUnifiedArenaApi(pool,()=>({authors:true,badges:true,medals:false}));
  const list=async(params:Record<string,string>={})=>{const r=await api(new Request('https://test/?'+new URLSearchParams(params)));assert.equal(r.status,200);return unifiedArenaPageSchema.parse(await r.json());};
- const first=await list();assert.ok(first.problems.some(p=>p.kind==='arena'));assert.ok(first.problems.some(p=>p.kind==='authored'));assert.ok(first.nextCursor);
+ const first=await list();assert.ok(first.problems.some(p=>p.kind==='arena'));assert.ok(first.nextCursor);
  const second=await list({after:first.nextCursor!});assert.equal(new Set([...first.problems,...second.problems].map(p=>p.key)).size,first.problems.length+second.problems.length);
+ // Arena has 29 problems since the beginner set of 14 November 2026, more than one page of 24, so authored problems start on page two.
+ assert.ok(first.problems.every(p=>p.kind==='arena'));assert.ok(second.problems.some(p=>p.kind==='arena'));assert.ok(second.problems.some(p=>p.kind==='authored'));
  const search=await list({q:'fixture'});assert.equal(search.problems.length,24);const rest=await list({q:'fixture',after:search.nextCursor!});assert.equal(rest.problems.length,2);assert.equal(rest.nextCursor,null);
  assert.equal((await list({difficulty:'under-1200'})).problems.filter(p=>p.kind==='authored').length,0);
  assert.equal((await list({difficulty:'unrated'})).problems.length,24);
