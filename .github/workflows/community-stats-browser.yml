@@ -10,6 +10,7 @@ on:
       - 'migrations/**'
       - 'scripts/test-problem-authoring.sh'
       - 'scripts/community-moderation-maintenance.ts'
+      - 'scripts/activation/**'
       - 'package.json'
       - 'pnpm-lock.yaml'
       - 'pnpm-workspace.yaml'
@@ -53,6 +54,12 @@ jobs:
         env:
           AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/community-tools
         run: node --require ./tests/server-only-register.cjs --import tsx tests/problem-stats.browser.mjs
+      - name: Profile account headers and stale-session isolation
+        env:
+          AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/community-tools
+          CHROMIUM_PATH: ""
+          COMMUNITY_PROFILE_ACCOUNT_GUARD_ONLY: "1"
+        run: node --require ./tests/server-only-register.cjs --import tsx tests/community-profile.browser.mjs
       - name: Existing unified Arena regression
         env:
           AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/community-tools

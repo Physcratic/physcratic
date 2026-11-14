@@ -18,7 +18,7 @@ export function ProfileSetupPrompt() {
     const controller = new AbortController();
     const dismissed = () => setOfferedTo(undefined);
     window.addEventListener("community-profile-setup", dismissed);
-    profileRequest("/api/community/profile", { signal: controller.signal }).then(result => {
+    profileRequest("/api/community/profile", { headers: { "X-Community-Account": userId }, signal: controller.signal }).then(result => {
       if (controller.signal.aborted || ownProfileResponse.parse(result).profile) return;
       try { if (!localStorage.getItem(onboardingKey(userId))) setOfferedTo(userId); } catch { /* Remain quiet. */ }
     }).catch(() => {});

@@ -6,6 +6,7 @@ import {readRequestBytes,RequestBodyTimeoutError} from '../submission-request';
 import {statsKeysSchema,favouriteWriteSchema,statsPageSchema} from './problem-stats-contracts';
 type Deps={pool:Pool;user:(r:Request)=>Promise<{id:string;emailVerified?:boolean}|null|undefined>;origin:(r:Request)=>boolean};
 class StatsError extends Error{constructor(public status:number,message:string){super(message);}}
+const statsReply=(body:unknown,status=200)=>{const response=profileReply(body,status);response.headers.set('Vary','Cookie, X-Community-Account');return response;};
 // One batch, <=20,001 indexed correct-attempt rows. An exceeded budget is unknown, never a partial count.
 export async function readProblemStats(pool:Pick<Pool,'query'>,keys:string[],userId:string|null){
  const authored=keys.filter(k=>k.startsWith('authored:')).map(k=>k.slice(9));
@@ -40,18 +41,22 @@ export function createProblemStatsApi(deps:Deps){return async(request:Request)=>
  try{
   if(!['GET','PUT'].includes(request.method))throw new StatsError(405,'Method not allowed.');
   const url=new URL(request.url);const user=await deps.user(request);
+  // Rejection-only guard. A cookie changed in another tab must not retarget a
+  // stale account's private read or desired-state write to the new session.
+  const account=request.headers.get('x-community-account');
+  if((user&&account!==user.id)||(!user&&account))throw new StatsError(409,'Your account changed. Reload the page before continuing.');
   if(request.method==='GET'){
    if(request.url.length>4096||url.searchParams.size!==1||url.searchParams.getAll('keys').length!==1)throw new StatsError(400,'Invalid statistics request.');
    const keys=statsKeysSchema.parse(JSON.parse(url.searchParams.get('keys')!));
    client=await deps.pool.connect();await client.query("BEGIN READ ONLY; SET LOCAL statement_timeout='4s'");transaction=true;
-   const result=await readProblemStats(client,keys,user?.id??null);await client.query('COMMIT');transaction=false;return profileReply(result);
+   const result=await readProblemStats(client,keys,user?.id??null);await client.query('COMMIT');transaction=false;return statsReply(result);
   }
   if(!user)throw new StatsError(401,'Sign in to save favourites.');
   if(!user.emailVerified||!deps.origin(request))throw new StatsError(403,'Request not permitted.');
   if(url.search)throw new StatsError(400,'Invalid favourite request.');
   const limit=await deps.pool.query<{requests:number}>(`INSERT INTO community_favourite_limit(user_id,window_start,requests) VALUES($1,date_trunc('minute',clock_timestamp()),1)
    ON CONFLICT(user_id) DO UPDATE SET requests=CASE WHEN community_favourite_limit.window_start=date_trunc('minute',clock_timestamp()) THEN least(community_favourite_limit.requests+1,61) ELSE 1 END,window_start=date_trunc('minute',clock_timestamp()) RETURNING requests`,[user.id]);
-  if(limit.rows[0].requests>60){const r=profileReply({error:'Favourite limit reached. Retry next minute.'},429);r.headers.set('Retry-After','60');return r;}
+  if(limit.rows[0].requests>60){const r=statsReply({error:'Favourite limit reached. Retry next minute.'},429);r.headers.set('Retry-After','60');return r;}
   if(request.headers.get('content-type')?.split(';')[0].trim().toLowerCase()!=='application/json')throw new StatsError(415,'Send JSON.');
   const body=favouriteWriteSchema.parse(JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(await readRequestBytes(request,2048,5000))));
   client=await deps.pool.connect();await client.query('BEGIN');transaction=true;await client.query("SET LOCAL statement_timeout='5s'; SET LOCAL lock_timeout='2s'");
@@ -61,6 +66,6 @@ export function createProblemStatsApi(deps:Deps){return async(request:Request)=>
   else await client.query('DELETE FROM community_favourite WHERE user_id=$1 AND problem_key=$2',[user.id,body.key]);
   await client.query('COMMIT');transaction=false;
   // Authoritative retry-safe desired state. Counts are refreshed separately as one batch.
-  return profileReply({key:body.key,favourite:body.favourite});
- }catch(error){if(transaction)await client?.query('ROLLBACK').catch(()=>{});if(error instanceof StatsError)return profileReply({error:error.message},error.status);if(error instanceof RangeError)return profileReply({error:'Favourite request too large.'},413);if(error instanceof RequestBodyTimeoutError)return profileReply({error:'Favourite request timed out.'},408);if(error instanceof z.ZodError||error instanceof SyntaxError||error instanceof TypeError)return profileReply({error:'Invalid favourite or statistics request.'},400);return profileReply({error:'Problem statistics are temporarily unavailable.'},503);}finally{client?.release();}
+  return statsReply({key:body.key,favourite:body.favourite});
+ }catch(error){if(transaction)await client?.query('ROLLBACK').catch(()=>{});if(error instanceof StatsError)return statsReply({error:error.message},error.status);if(error instanceof RangeError)return statsReply({error:'Favourite request too large.'},413);if(error instanceof RequestBodyTimeoutError)return statsReply({error:'Favourite request timed out.'},408);if(error instanceof z.ZodError||error instanceof SyntaxError||error instanceof TypeError)return statsReply({error:'Invalid favourite or statistics request.'},400);return statsReply({error:'Problem statistics are temporarily unavailable.'},503);}finally{client?.release();}
 };}

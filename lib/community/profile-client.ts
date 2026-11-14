@@ -18,8 +18,8 @@ export const educationLabels = {
   "high-school": "High School", university: "University", other: "Other", "prefer-not-to-say": "Prefer Not to Say",
 } as const;
 export class ProfileRequestError extends Error {
-  constructor(public status: number) {
-    super(status === 401 ? "Sign in to continue." : status === 403 ? "Verify your email and try again from this site."
+  constructor(public status: number, code?: string) {
+    super(code === "ACCOUNT_CHANGED" ? "Your account changed. Reload the page before continuing." : status === 401 ? "Sign in to continue." : status === 403 ? "Verify your email and try again from this site."
       : status === 409 ? "That username is unavailable or cannot be changed."
       : status === 429 ? "Too many changes. Wait a little before trying again."
       : status === 413 ? "The selected image is too large."
@@ -30,7 +30,10 @@ export class ProfileRequestError extends Error {
 export async function profileRequest(path: string, init: RequestInit = {}) {
   const response = await fetch(path, { ...init, credentials: "same-origin", cache: "no-store",
     signal: init.signal ?? AbortSignal.timeout(20000) });
-  if (!response.ok) throw new ProfileRequestError(response.status);
+  if (!response.ok) {
+    const body = response.status === 409 ? await response.json().catch(() => null) : null;
+    throw new ProfileRequestError(response.status, body?.code === "ACCOUNT_CHANGED" ? "ACCOUNT_CHANGED" : undefined);
+  }
   return response.json();
 }
 
