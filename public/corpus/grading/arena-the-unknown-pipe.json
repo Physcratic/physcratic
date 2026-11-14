@@ -1,0 +1,36 @@
+{
+  "problemId": "arena-the-unknown-pipe",
+  "version": "cf7c2d7da37d6012729d3e8b1a4723c86d62a81e8f1c0139eba7676b7379ada2",
+  "parts": [
+    {
+      "id": "a.fundamental",
+      "sourcePart": "a",
+      "label": "Lowest resonant frequency",
+      "kind": "numeric",
+      "unit": "Hz",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    },
+    {
+      "id": "b.length",
+      "sourcePart": "b",
+      "label": "Length of the pipe",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    },
+    {
+      "id": "c.fundamental",
+      "sourcePart": "c",
+      "label": "Lowest resonant frequency with the cap off",
+      "kind": "numeric",
+      "unit": "Hz",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    }
+  ]
+}

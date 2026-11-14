@@ -7,6 +7,8 @@ import { source03 } from "../lib/arena/source-03";
 import { source04 } from "../lib/arena/source-04";
 import { source05 } from "../lib/arena/source-05";
 import { source06 } from "../lib/arena/source-06";
+import { source07 } from "../lib/arena/source-07";
+import { source08 } from "../lib/arena/source-08";
 
 import { archiveDefinitions, publicArchiveMetadata } from "../lib/archive-grading/catalog";
 
@@ -16,11 +18,11 @@ for (const definition of archiveDefinitions) {
   writeFileSync(join(gradingFolder, `${definition.problemId}.json`), JSON.stringify(publicArchiveMetadata(definition), null, 2) + "\n");
 }
 
-const seeds = [...source01, ...source02, ...source03, ...source04, ...source05, ...source06];
+const seeds = [...source01, ...source02, ...source03, ...source04, ...source05, ...source06, ...source07, ...source08];
 const folder = join(process.cwd(), "public/corpus/arena");
 mkdirSync(folder, { recursive: true });
 const problems = seeds.map((seed) => {
-  const problem = arenaProblemSchema.parse({ ...seed, solutionFile: seed.solutionFile ?? seed.statementFile.replace("_Problem.pdf", "_Solution.pdf"), importedOn: "2026-10-31" });
+  const problem = arenaProblemSchema.parse({ ...seed, solutionFile: seed.solutionFile ?? seed.statementFile?.replace("_Problem.pdf", "_Solution.pdf"), importedOn: seed.importedOn ?? "2026-10-31" });
   writeFileSync(join(folder, `${problem.id}.json`), JSON.stringify(problem, null, 2) + "\n");
   const { statement, solution, ...metadata } = problem;
   return { ...metadata, path: `/corpus/arena/${problem.id}.json` };

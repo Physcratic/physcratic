@@ -46,7 +46,7 @@ try {
     });
     ok(nextTo.ok, `${width}/${theme} the ratings help sits with the rating filter (${JSON.stringify(nextTo)})`);
     ok(await page.locator('h1').textContent() === "Problem library", "library heading");
-    ok(await page.locator('[data-problem-card^="arena:"]').count() === 18, "all 18 Arena entries");
+    ok(await page.locator('[data-problem-card^="arena:"]').count() === 24, "a full first page of the 29 Arena entries");
     ok(await page.getByText("Community problems could not be loaded, so this list is incomplete.", { exact: true }).count() === 0, "actual community collection query succeeds");
     ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${width}/${theme} fits viewport`);
     ok((await page.locator('link[rel="canonical"]').getAttribute("href")) === "https://physcratic.com/problems", "unchanged canonical");
@@ -142,7 +142,7 @@ try {
     await page.goto(`${origin}/problems`);
     await page.getByRole("button", { name: "Retry collection", exact: true }).click();
     await page.locator('[data-problem-card^="arena:"]').first().waitFor();
-    ok(await page.locator('[data-problem-card^="arena:"]').count() === 18, "collection retry restores actual results");
+    ok(await page.locator('[data-problem-card^="arena:"]').count() === 24, "collection retry restores actual results");
     await page.getByRole("group", { name: "Topic", exact: true }).getByRole("button", { name: "Waves", exact: true }).click();
     await page.waitForFunction(() => document.querySelectorAll('[data-problem-card^="arena:"]').length > 0 && document.querySelectorAll('[data-problem-card^="arena:"]').length < 18);
     ok(new URL(page.url()).searchParams.get("tag") === "Waves", "topic chips filter the real collection");

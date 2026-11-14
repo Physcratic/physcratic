@@ -38,6 +38,22 @@ const calibratedProblemElos: Readonly<Record<string, number>> = {
   "arena-the-bending-beam-riddle": 2350,
   "arena-the-capacitors-missing-energy": 2500,
   "arena-the-infinite-v": 2300,
+  // Beginner Arena set F1, 14 November 2026. Author's targets, not measured. Owner to confirm each one.
+  "arena-cat-on-a-plank": 500, // owner to confirm
+  "arena-two-sleds-one-rope": 600, // owner to confirm
+  "arena-the-loading-voltmeter": 650, // owner to confirm
+  "arena-a-lamp-under-a-raft": 700, // owner to confirm
+  "arena-two-isotopes-one-sample": 750, // owner to confirm
+  "arena-the-magnetic-slab": 800, // owner to confirm
+  "arena-rough-ramp-smooth-ramp": 850, // owner to confirm
+  "arena-the-rectangular-cycle": 900, // owner to confirm
+  "arena-walking-past-two-speakers": 900, // owner to confirm
+  "arena-two-charges-head-on": 950, // owner to confirm
+  "arena-hosing-the-wall": 1000, // owner to confirm
+  "arena-ice-in-the-flask": 600, // owner to confirm
+  "arena-round-the-funnel": 750, // owner to confirm
+  "arena-the-unknown-pipe": 850, // owner to confirm
+  "arena-two-colours-one-cathode": 900, // owner to confirm
   "ipho-2025-t1": 2200,
   "ipho-2025-t2": 2450,
   "ipho-2025-t3": 2300,

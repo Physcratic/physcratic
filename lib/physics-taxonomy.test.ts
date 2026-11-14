@@ -16,7 +16,7 @@ import { authoredDocumentSchema, publicAuthoredContent, publicAuthoredMetadata }
 
 test("taxonomy IDs and kind-scoped aliases are unique; every spelling resolves idempotently", () => {
   assert.equal(physicsTopics.length, 6);
-  assert.equal(physicsMethods.length, 234);
+  assert.equal(physicsMethods.length, 236);
   assert.equal(new Set(physicsTags.map((tag) => tag.id)).size, physicsTags.length);
   const aliases = new Map<string, string>();
   for (const tag of physicsTags) {
@@ -62,7 +62,7 @@ test("unknown tags and meaningful scientific distinctions survive", () => {
 
 test("all actual collection values are inventoried and all shared filters agree", () => {
   const collections = [problems, arena.problems, corpusProblems, catalogProblems];
-  assert.deepEqual(collections.map((ps) => ps.length), [12, 18, 5, catalogProblems.length])
+  assert.deepEqual(collections.map((ps) => ps.length), [12, 33, 5, catalogProblems.length])
   const methods = new Set<string>();
   for (const ps of collections) {
     for (const p of ps) {
@@ -87,7 +87,7 @@ test("all actual collection values are inventoried and all shared filters agree"
     }
   }
   assert.equal(filterProblemsByTag(problems, "Mechanics").length, 3);
-  assert.equal(filterArena(arena.problems as ArenaCatalogEntry[], { topic: "Optics" }).length, 3);
+  assert.equal(filterArena(arena.problems as ArenaCatalogEntry[], { topic: "Optics" }).length, 4);
   assert.equal(filterCatalog({ topic: "English" }).length, catalogProblems.length)
   assert.deepEqual(filterCorpus({ query: "Blackbody radiation" }), filterCorpus({ query: "Black-body radiation" }));
   assert.deepEqual(filterArena(arena.problems as ArenaCatalogEntry[], { query: "Quantum tunnelling" }), filterArena(arena.problems as ArenaCatalogEntry[], { query: "Quantum tunneling" }));

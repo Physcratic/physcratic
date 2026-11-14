@@ -8,20 +8,24 @@ import { source03 } from "../arena/source-03";
 import { source04 } from "../arena/source-04";
 import { source05 } from "../arena/source-05";
 import { source06 } from "../arena/source-06";
+import { source07 } from "../arena/source-07";
+import { source08 } from "../arena/source-08";
 import { keys01 } from "./source-01";
 import { keys02 } from "./source-02";
 import { keys03 } from "./source-03";
 import { keys04 } from "./source-04";
 import { keys05 } from "./source-05";
 import { keys06 } from "./source-06";
+import { keys07 } from "./source-07";
+import { keys08 } from "./source-08";
 import { numeric, type ArchiveDefinition } from "./definitions";
 
-const arenaKeys = { ...keys01, ...keys02, ...keys03, ...keys04, ...keys05, ...keys06 };
+const arenaKeys = { ...keys01, ...keys02, ...keys03, ...keys04, ...keys05, ...keys06, ...keys07, ...keys08 };
 export const archiveDefinitions: ArchiveDefinition[] = [
-  ...[...source01, ...source02, ...source03, ...source04, ...source05, ...source06].map((seed) => {
+  ...[...source01, ...source02, ...source03, ...source04, ...source05, ...source06, ...source07, ...source08].map((seed) => {
     const parts = arenaKeys[seed.id];
     if (!parts?.length) throw new Error(`Missing Arena grading disposition: ${seed.id}`);
-    return { problemId: seed.id, keyVersion: 1, content: JSON.stringify(seed), parts: parts.map((part) => ({ ...part, sourceReference: `${seed.solutionFile ?? seed.statementFile.replace("_Problem.pdf", "_Solution.pdf")} § ${part.sourcePart}` })) };
+    return { problemId: seed.id, keyVersion: 1, content: JSON.stringify(seed), parts: parts.map((part) => ({ ...part, sourceReference: `${seed.solutionFile ?? seed.statementFile?.replace("_Problem.pdf", "_Solution.pdf") ?? `Physcratic worked solution, ${seed.id}`} § ${part.sourcePart}` })) };
   }),
   ...problems.map((problem) => ({ problemId: problem.id, keyVersion: 1, content: JSON.stringify(problem), parts: [
     { ...numeric("answer", "Final answer", problem.answer, problem.unit, { sourcePart: "Answer", help: "Answers within 1% are accepted." }), sourceReference: `lib/physics.ts: ${problem.id}, worked solution` },

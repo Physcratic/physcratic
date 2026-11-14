@@ -1,0 +1,36 @@
+{
+  "problemId": "arena-two-isotopes-one-sample",
+  "version": "eddb7bf1dd234384c6301c8193fbcb41eab42e58d5a4b61bffef0166008665b7",
+  "parts": [
+    {
+      "id": "a.nuclei",
+      "sourcePart": "a",
+      "label": "Ratio of nuclei left, X to Y, after 6.0 h",
+      "kind": "numeric",
+      "unit": "1",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter a number, as a decimal or a fraction."
+    },
+    {
+      "id": "b.activity",
+      "sourcePart": "b",
+      "label": "Ratio of activities, X to Y, after 6.0 h",
+      "kind": "numeric",
+      "unit": "1",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter a number, as a decimal or a fraction."
+    },
+    {
+      "id": "c.time",
+      "sourcePart": "c",
+      "label": "Time at which the activities are equal",
+      "kind": "numeric",
+      "unit": "h",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    }
+  ]
+}

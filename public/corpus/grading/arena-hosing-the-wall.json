@@ -1,0 +1,82 @@
+{
+  "problemId": "arena-hosing-the-wall",
+  "version": "1d971f44f819a11e6778ff99ffac0d5280d416cfca29ff4490ab676e8bf429b8",
+  "parts": [
+    {
+      "id": "a.tangent",
+      "sourcePart": "a",
+      "label": "tan θ for the highest point on the wall",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "v",
+        "g",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Give tan θ, not the angle. v, g and d are positive."
+    },
+    {
+      "id": "b.height",
+      "sourcePart": "b",
+      "label": "Greatest height on the wall",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "v",
+        "g",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "No air resistance and v² greater than gd. v, g and d are positive."
+    },
+    {
+      "id": "c.height",
+      "sourcePart": "c",
+      "label": "Greatest height for the given values",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in the displayed unit, without a unit suffix."
+    }
+  ]
+}

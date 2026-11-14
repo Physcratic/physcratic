@@ -11,10 +11,12 @@ import { source03 } from "./arena/source-03";
 import { source04 } from "./arena/source-04";
 import { source05 } from "./arena/source-05";
 import { source06 } from "./arena/source-06";
+import { source07 } from "./arena/source-07";
+import { source08 } from "./arena/source-08";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
-const arenaSeeds = [...source01, ...source02, ...source03, ...source04, ...source05, ...source06];
+const arenaSeeds = [...source01, ...source02, ...source03, ...source04, ...source05, ...source06, ...source07, ...source08];
 
 describe("findCopyProblems", () => {
   it("passes plain copy", () => {
@@ -90,6 +92,7 @@ describe("Arena problem text obeys the copy rules", () => {
     for (const seed of arenaSeeds) {
       for (const field of ["title", "summary", "statement", "solution"] as const) out.push({ where: `${seed.id} ${field}`, text: seed[field] });
       for (const tag of seed.tags) out.push({ where: `${seed.id} tag`, text: tag });
+      for (const [part, hints] of Object.entries(seed.hints ?? {})) for (const hint of hints) out.push({ where: `${seed.id} hint ${part}`, text: hint });
     }
     for (const definition of archiveDefinitions) {
       if (!definition.problemId.startsWith("arena-")) continue;
@@ -101,11 +104,11 @@ describe("Arena problem text obeys the copy rules", () => {
     }
     return out;
   };
-  it("covers all 18 problems and their answer boxes", () => {
-    assert.equal(arenaSeeds.length, 18);
+  it("covers all 33 problems and their answer boxes", () => {
+    assert.equal(arenaSeeds.length, 33);
     const parts = archiveDefinitions.filter((d) => d.problemId.startsWith("arena-")).reduce((sum, d) => sum + d.parts.length, 0);
-    assert.equal(parts, 153);
-    assert.ok(arenaTexts().length >= 18 * 4 + parts * 2);
+    assert.equal(parts, 197);
+    assert.ok(arenaTexts().length >= 33 * 4 + parts * 2 + 44 * 3);
   });
   it("has no dashes, semicolons, banned words or banned phrases in titles, statements, solutions, part headings, answer help or condition lines", () => {
     const failures: string[] = [];

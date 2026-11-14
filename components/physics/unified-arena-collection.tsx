@@ -34,7 +34,7 @@ export function UnifiedArenaCollection({query,topic,difficulty,source='all',onRe
  },250);return()=>{clearTimeout(timer);c.abort();};},[key,query,topic,difficulty,source,after]);
  return <section id="arena-results" aria-labelledby="unified-arena-title" className="min-w-0 space-y-5">
   <div className="flex flex-wrap items-center justify-between gap-3"><h2 id="unified-arena-title" tabIndex={-1} ref={heading} className="text-lg font-medium">{source==='authored'?'Published authored problems':'Physcratic Arena'}</h2><Button variant="outline" onClick={()=>{setCursors([undefined]);setRefresh(n=>n+1);}}>Refresh collection</Button></div>
-  <p className="text-sm text-muted-foreground">Physcratic originals and published community problems. Stable order: Physcratic, then community by identity. Search and tags apply before pagination. Author labels have no numeric rating. Refresh to include new publications earlier in the list.</p>
+  <p className="text-sm text-muted-foreground">Physcratic originals and published community problems, sorted by rating from low to high. Problems without a rating come last. Search and tags apply before pagination. Refresh to include new publications.</p>
   {!current&&<LoadingLines label="Loading collection…" lines={3}/>}
   {current?.error&&<div role="alert"><p>The collection could not be loaded.</p><Button variant="outline" onClick={()=>setRefresh(n=>n+1)}>Retry collection</Button></div>}
   {current?.page&&<>

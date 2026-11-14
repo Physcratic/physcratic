@@ -1,7 +1,8 @@
 import 'server-only';
 import type { Pool } from 'pg';
-import { createAuthoredLibraryApi } from './authored-library-api';
-import { arenaFiltersSchema, staticArenaEntries, unifiedArenaPageSchema, type CollectionEntry } from './unified-arena';
+import { authoredRating, createAuthoredLibraryApi } from './authored-library-api';
+import { arenaFiltersSchema, compareByRating, staticArenaEntries, unifiedArenaPageSchema, type CollectionCursor, type CollectionEntry } from './unified-arena';
+import { getEstimatedProblemElo } from './problem-archive';
 import { achievementEligible, achievementIdSchema, type PublicMedal } from './community/achievements';
 const headers={'Cache-Control':'private, no-store','X-Robots-Tag':'noindex, nofollow','X-Content-Type-Options':'nosniff'};
 export function createUnifiedArenaApi(pool:Pool, flags:()=>{authors:boolean;badges:boolean;medals:boolean;stats?:boolean}=()=>({authors:false,badges:false,medals:false})) {
@@ -12,15 +13,35 @@ export function createUnifiedArenaApi(pool:Pool, flags:()=>{authors:boolean;badg
    if(request.url.length>4096||[...params.keys()].some(k=>params.getAll(k).length!==1))return Response.json({error:'Invalid collection filters.'},{status:400,headers});
    const parsed=arenaFiltersSchema.safeParse(Object.fromEntries(params));
    if(!parsed.success)return Response.json({error:'Invalid collection filters.'},{status:400,headers});
-   const f=parsed.data,statics=staticArenaEntries(f),problems=statics.slice(0,24);
-   let nextCursor=statics.length>24?problems.at(-1)!.key:null,authoredUnavailable=false,attributionUnavailable=false;
+   const f=parsed.data;
+   let authoredUnavailable=false,attributionUnavailable=false;
    const includeAuthored=f.source!=='arena'&&(f.difficulty==='all'||f.difficulty==='unrated');
-   if(includeAuthored&&statics.length<=24){
-    const p=new URLSearchParams({q:f.q,tag:f.tag});if(f.after?.startsWith('authored:'))p.set('after',f.after.slice(9));
+   // The page starts after the cursor problem. Its rating places it in the order: rating from low to high, problems
+   // without a rating last, then Physcratic before community, then id.
+   let cursor:CollectionCursor|undefined,cursorLost=false;
+   if(f.after?.startsWith('arena:'))cursor={kind:'arena',id:f.after.slice(6),rating:getEstimatedProblemElo(f.after.slice(6))};
+   else if(f.after){
+    const id=f.after.slice(9).toLowerCase();
+    try{cursor={kind:'authored',id,rating:(await authoredRating(pool,id)).rating};}catch{cursorLost=true;authoredUnavailable=includeAuthored;}
+   }
+   const statics=cursorLost?[]:staticArenaEntries(f,cursor);
+   let entries:CollectionEntry[]=[],moreAuthored=false;const ratings=new Map<string,number|null>();
+   if(includeAuthored&&!cursorLost){
+    const p=new URLSearchParams({q:f.q,tag:f.tag,sort:'rating'});
+    if(cursor?.kind==='authored'){p.set('after',cursor.id);p.set('afterRating',cursor.rating===null?'unrated':String(cursor.rating));}
+    else if(cursor&&cursor.rating!==null)p.set('minRating',String(cursor.rating));
     const response=await library(new Request('https://library.internal/?'+p));
     if(!response.ok){authoredUnavailable=true;}else{
-     const page=await response.json(),room=24-problems.length;
-     const entries:CollectionEntry[]=page.problems.slice(0,room).map((v:{problemId:string;title:string;topicTags:string[];methodTags:string[];estimatedDifficulty:string|null;provenance:CollectionEntry['provenance']})=>({key:`authored:${v.problemId}`,kind:'authored',id:v.problemId,title:v.title,tags:[...new Set([...v.topicTags,...v.methodTags])],summary:'Published community problem',estimatedDifficulty:v.estimatedDifficulty,provenance:v.provenance,author:null}));
+     const page=await response.json();moreAuthored=Boolean(page.nextCursor);
+     entries=page.problems.map((v:{problemId:string;title:string;topicTags:string[];methodTags:string[];estimatedDifficulty:string|null;provenance:CollectionEntry['provenance'];rating?:number|null})=>{ratings.set(v.problemId,v.rating??null);return {key:`authored:${v.problemId}`,kind:'authored',id:v.problemId,title:v.title,tags:[...new Set([...v.topicTags,...v.methodTags])],summary:'Published community problem',estimatedDifficulty:v.estimatedDifficulty,provenance:v.provenance,author:null};});
+    }
+   }
+   const rank=(e:CollectionEntry)=>({kind:e.kind,id:e.id,rating:e.kind==='arena'?e.elo??null:ratings.get(e.id)??null});
+   const merged=[...statics,...entries].sort((a,b)=>compareByRating(rank(a),rank(b))),problems=merged.slice(0,24);
+   const nextCursor=merged.length>24||moreAuthored?problems.at(-1)?.key??null:null;
+   {
+    entries=problems.filter(e=>e.kind==='authored');
+    {
      const enabled=flags();
      if(enabled.authors&&entries.length){
       try{
@@ -41,8 +62,6 @@ export function createUnifiedArenaApi(pool:Pool, flags:()=>{authors:boolean;badg
        for(const entry of entries){const a=byId.get(entry.id);if(a){const medals:PublicMedal[]=a.medals;entry.author={handle:a.handle,displayName:a.displayName,selectedIds:a.ids.filter((id:string)=>{const earned=achievementIdSchema.safeParse(id);return earned.success?achievementEligible(earned.data,{author:a.author??0,solver:a.solver}):medals.some(m=>m.id===id);}),medals};}}
       }catch{attributionUnavailable=true;}
      }
-     problems.push(...entries);
-     if(page.problems.length>room||page.nextCursor)nextCursor=problems.at(-1)?.key??f.after??null;
     }
    }
    return Response.json(unifiedArenaPageSchema.parse({problems,nextCursor,authoredUnavailable,attributionUnavailable,...(flags().stats?{statsEnabled:true}:{})}),{headers});

@@ -161,6 +161,13 @@ const sessionCookie = process.env.SESSION_COOKIE;
 const widths = sweep || sessionCookie ? fixtures.sweep.widths : fixtures.widths;
 if (sweep && !sessionCookie) {
   stages.push(["dashboard with the Welcome tour open", async (page) => { await page.goto(`${origin}/dashboard`, { waitUntil: "networkidle" }); await page.getByRole("button", { name: /^Help: Welcome to Physcratic/ }).click(); await page.locator("[data-tour-card]").waitFor(); await page.waitForTimeout(900); }]);
+  stages.push(["beginner arena problem page with every hint open", async (page) => {
+    await page.goto(`${origin}/dashboard/problems/arena-a-lamp-under-a-raft`, { waitUntil: "networkidle" });
+    const more = page.getByRole("button", { name: /^Show hint \d of 3/ });
+    await more.first().waitFor();
+    while (await more.count()) await more.first().click();
+    await page.getByText("Hint 3.").nth(2).waitFor();
+  }]);
   for (const route of fixtures.sweep.routes) stages.push([route.name, async (page) => { await page.goto(origin + route.path, { waitUntil: "networkidle" }); }]);
   if (process.env.AUTHORED_PROBLEM_ID) stages.push(["authored student page", async (page) => { await page.goto(`${origin}/dashboard/authored/${process.env.AUTHORED_PROBLEM_ID}`, { waitUntil: "networkidle" }); }]);
 }

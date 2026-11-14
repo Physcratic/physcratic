@@ -20,12 +20,17 @@ export const arenaProblemSchema = z.object({
   summary: z.string().min(20),
   statement: z.string().min(100),
   solution: z.string().min(100),
-  statementFile: z.string().endsWith("_Problem.pdf"),
-  solutionFile: z.string().endsWith("_Solution.pdf"),
+  // The source PDFs of the first 18 problems. An original Physcratic problem has none.
+  statementFile: z.string().endsWith("_Problem.pdf").optional(),
+  solutionFile: z.string().endsWith("_Solution.pdf").optional(),
+  /** Written for Physcratic, with no source document. The reader says so and never names a PDF. */
+  original: z.literal(true).optional(),
   importedOn: z.string().date(),
+  /** Three hints for each lettered part, from a nudge to the last step before the answer. Keyed by the part letter. */
+  hints: z.record(z.string().regex(/^[a-z]$/), z.array(z.string().min(20)).length(3)).optional(),
 });
 export type ArenaProblem = z.infer<typeof arenaProblemSchema>;
-export type ArenaSeed = Omit<ArenaProblem, "importedOn" | "solutionFile"> & { solutionFile?: string };
+export type ArenaSeed = Omit<ArenaProblem, "importedOn" | "solutionFile"> & { solutionFile?: string; importedOn?: string };
 export type ArenaCatalogEntry = Omit<ArenaProblem, "statement" | "solution"> & { path: string };
 
 export function filterArena(problems: ArenaCatalogEntry[], { query = "", topic = "all", difficulty = "all" }: { query?: string; topic?: string; difficulty?: string }) {
