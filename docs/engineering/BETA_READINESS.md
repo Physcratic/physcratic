@@ -1291,22 +1291,22 @@ Separate draft stacked on revised P2 #143 (`0d929b3`), main `01757c0` incorporat
 
 - **Change:** 15 original Arena problems for new olympiad students, first selection stage level, in `lib/arena/source-07.ts` and `source-08.ts` with keys in `lib/archive-grading/source-07.ts` and `source-08.ts`. Arena now has 33 problems. Each has 3 lettered parts (Two Sleds, One Rope has 2), one answer box for each part (44 boxes: 21 expressions, 23 numbers), a worked solution and three hints for each part.
 - **Originality:** every setup, number and twist was written for this set. No exam problem was copied, translated or paraphrased.
-- **Ratings, owner to confirm:** these are the author's targets, not measured and not owner-set. They sit in `calibratedProblemElos` in `lib/problem-archive.ts`, each marked "owner to confirm", and are not in `lib/owner-ratings.ts` or the difficulty review ledger.
+- **Ratings:** the author's first targets were 500 to 1,000. The owner replaced them with their own ratings on 15 November 2026, see the section below. The table shows those ratings.
 
-| Problem | Topic | Rating (owner to confirm) |
+| Problem | Topic | Owner rating |
 | --- | --- | --- |
 | arena-cat-on-a-plank | Mechanics | 500 |
-| arena-ice-in-the-flask | Thermodynamics | 600 |
+| arena-ice-in-the-flask | Thermodynamics | 650 |
 | arena-two-sleds-one-rope | Mechanics | 600 |
-| arena-the-loading-voltmeter | Electromagnetism | 650 |
-| arena-a-lamp-under-a-raft | Optics | 700 |
-| arena-round-the-funnel | Mechanics | 750 |
-| arena-two-isotopes-one-sample | Modern physics | 750 |
+| arena-the-loading-voltmeter | Electromagnetism | 700 |
+| arena-a-lamp-under-a-raft | Optics | 600 |
+| arena-round-the-funnel | Mechanics | 700 |
+| arena-two-isotopes-one-sample | Modern physics | 700 |
 | arena-the-magnetic-slab | Electromagnetism | 800 |
 | arena-rough-ramp-smooth-ramp | Mechanics | 850 |
-| arena-the-unknown-pipe | Waves | 850 |
-| arena-the-rectangular-cycle | Thermodynamics | 900 |
-| arena-two-colours-one-cathode | Modern physics | 900 |
+| arena-the-unknown-pipe | Waves | 800 |
+| arena-the-rectangular-cycle | Thermodynamics | 800 |
+| arena-two-colours-one-cathode | Modern physics | 850 |
 | arena-walking-past-two-speakers | Waves | 900 |
 | arena-two-charges-head-on | Electromagnetism | 950 |
 | arena-hosing-the-wall | Mechanics | 1000 |
@@ -1324,3 +1324,28 @@ Separate draft stacked on revised P2 #143 (`0d929b3`), main `01757c0` incorporat
 - **Also changed:** `importedOn` can be set on a seed (the new ones say 2026-11-14, the older ones keep 2026-10-31). "Radioactive decay" and "Photoelectric effect" tags were added to the taxonomy. Tests that pinned 18 Arena problems, 30 grading files, ratings of 800 and above or the old library order now expect the new set and order. The check snapshot gained 15 entries and the 30 older ones are unchanged. The graded-fields fixture of the first 18 problems is untouched.
 - **Not changed:** no database, schema, migration, auth or deployment setting.
 - **Sweep:** `SWEEP=1 node tests/solve-contrast.browser.mjs` on a local production build, guest pass, with a new problem page and a stage that opens every hint added to it. The signed-in pass was not run. Its stages cover Problem Studio, submissions and settings, which this change does not touch.
+
+## 2026-11-15 - Owner ratings for the 15 beginner Arena problems
+
+- **Change:** the owner set the difficulty of the 15 original beginner Arena problems, source "owner-set, 15 November 2026". They sit in `lib/owner-ratings.ts` as `beginnerOwnerRatings`, with their own source `beginnerOwnerRatingSource`, and are part of `ownerRatings`, which replaces the calibrated value. The author's 14 November targets are removed from `calibratedProblemElos` in `lib/problem-archive.ts`, so nothing says "owner to confirm" any more.
+
+| Problem | Author target | Owner rating |
+| --- | --- | --- |
+| arena-cat-on-a-plank | 500 | 500 |
+| arena-a-lamp-under-a-raft | 700 | 600 |
+| arena-two-sleds-one-rope | 600 | 600 |
+| arena-ice-in-the-flask | 600 | 650 |
+| arena-the-loading-voltmeter | 650 | 700 |
+| arena-round-the-funnel | 750 | 700 |
+| arena-two-isotopes-one-sample | 750 | 700 |
+| arena-the-magnetic-slab | 800 | 800 |
+| arena-the-unknown-pipe | 850 | 800 |
+| arena-the-rectangular-cycle | 900 | 800 |
+| arena-two-colours-one-cathode | 900 | 850 |
+| arena-rough-ramp-smooth-ramp | 850 | 850 |
+| arena-walking-past-two-speakers | 900 | 900 |
+| arena-two-charges-head-on | 950 | 950 |
+| arena-hosing-the-wall | 1000 | 1000 |
+
+- **Effect:** ten of the 15 are now in the Beginner band (0 to 800) and five in the lower Intermediate band. The mixed library order and the rating filter follow the new numbers. The tests that pinned Physcratic counts at one rating now read them from the catalogue.
+- **Tests:** `lib/problem-archive.test.ts` checks the 15 ratings and their source exactly, that the owner file and the calibrated list do not both name them, and that the 14 November source is unchanged.

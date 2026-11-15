@@ -76,7 +76,10 @@ test('mixed library on PostgreSQL is in rating order across pages, with unrated 
   assert.deepEqual(all.seen[0],{kind:'authored',id:all.seen[0].id,rating:0});
   assert.ok(all.seen.slice(-3).every(p=>p.kind==='authored'&&p.rating===null));assert.deepEqual(all.seen.slice(-3).map(p=>p.id),legacy.map(p=>p.id).sort());
   const at=(rating:number)=>all.seen.filter(p=>p.rating===rating).map(p=>p.kind);
-  assert.deepEqual(at(700),['arena','authored']);assert.deepEqual(at(900),['arena','arena','arena','authored']);assert.deepEqual(at(2500),['authored']);
+  // At one rating the Physcratic problems come first, then the community one. The Arena counts come from the catalogue.
+  const expectedAt=(rating:number)=>[...arena.problems.filter(p=>getEstimatedProblemElo(p.id)===rating).map(()=>'arena'),...Object.values(made).filter(r=>r===rating).map(()=>'authored')];
+  for(const rating of [0,700,900,1200,2500])assert.deepEqual(at(rating),expectedAt(rating),String(rating));
+  assert.ok(at(700).filter(k=>k==='arena').length>=1&&at(700).at(-1)==='authored'&&at(2500).join()==='authored');
   // A rating filter uses the author's rating for a community problem. Unrated keeps only labels that are not a rating.
   const kept=async(difficulty:string)=>(await walk({difficulty})).seen;
   const inBand=(min:number,max:number)=>arena.problems.filter(p=>getEstimatedProblemElo(p.id)>=min&&getEstimatedProblemElo(p.id)<max).length;
